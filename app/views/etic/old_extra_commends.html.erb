@@ -1,0 +1,685 @@
+<!-- Canvas με σχεδια για copy paste σε καρτα -->
+      <div class="ekso_canvas">
+        <canvas id="canvas" height="280" width="400"> <!--height="280" width="400"-->
+        </canvas>
+        <canvas id="canvas2" height="400" width="400" style="display:none;"> <!--height="280" width="400"-->
+        </canvas>
+      </div>
+      <!-- end canvas -->
+         
+      <!--Sxedio-->
+      <div id="sxedio_new" height="400" width="400" style="width: 400px;">
+        <%= render 'diafora/sxedio' %>
+      </div>
+
+
+<!-- Πίνακας πανω με αρχικες πληροφοριες -->
+      <div class="table-responsive extra_table1" style="">
+        <table class="table table1 table-condensed">
+          <tr>
+            <td class="td_left"><label><%= t 'material_pinakas.cat_anoigma'  %>:</label></td>
+            <td class="open_categorie_table"><label></label></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td class="pin1h td_left"><label><%= t 'material_pinakas.material'  %>: </label></td>
+            <td class="pin1"><label class="material_table"></label></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td class="pin2h td_left"><label><%= t 'material_pinakas.cataskevastis'  %>: </label></td>
+            <td class="pin2"><label class="constructor_table"></label></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td class="pin3h td_left"><label><%= t 'material_pinakas.systima'  %>: </label></td>
+            <td class="pin3"><label class="system_table"></label></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td class="td_left"><label><%= t 'material_pinakas.line'  %>: </label></td>
+            <td class=""><label class="line_table"></label></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td class="td_left"><label><%= t 'material_pinakas.leaf'  %>: </label></td>
+            <td class=""><label class="leaf_table"></label></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td class="td_left"><label><%= t 'material_pinakas.open_type'  %>: </label></td>
+            <td class=""><label class="open_type_table"></label></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <!--
+          <tr>
+            <td class="td_left"><label><%= t 'material_pinakas.diastaseis'  %>: </label></td>
+            <td class=""><label class="diastaseis_table"><%= @width %> X <%= @height %></label></td>
+            <td class="table_tm"> <label class="diastaseis_table_tm"></label></td>
+            <td></td>
+          </tr>
+          -->
+          <tr class="neess_diastaseis">
+            <td class="td_left"><label><%= t 'material_pinakas.arxiki_timi'  %>: </label></td>
+            <td class=""><label class="diastaseis_table"><%= @width %> X <%= @height %></label></td>
+            <td class="table_tm"> <label class="diastaseis_table_tm"></label></td>
+            <td class="td_right"><label class="super_apli_timi"></label></td>
+          </tr>
+          <tr>
+            <td class="td_left"><label><%= t 'diastaseis.color'  %>: </label></td>
+            <td class=""><label class="color_main"></label></td>
+            <td class="table_tm"><label class="ep_mesa_p"></label></td>
+            <td class="td_right"><label class="ep_mesa"></label></td>
+          </tr>
+          <tr>
+            <td class="td_left"><label><%= t 'diastaseis.color_eksw'  %>: </label></td>
+            <td class=""><label class="color_main_eksw"></label></td>
+            <td class="table_tm"><label class="ep_eksw_p"></label></td>
+            <td class="td_right"><label class="ep_eksw"></label></td>
+          </tr>
+          <!--KAI AYTA ME IF EXISTS-->
+          <% if (!@color_deksia.nil?) %>
+          <tr>
+            <td class="td_left"><label><%= t 'diastaseis.color_deksia'  %>: </label></td>
+            <td class=""><label class="color_deksia"><%= @color_deksia.name %></label></td>
+          </tr>
+          <tr>
+            <td class="td_left"><label><%= t 'diastaseis.color_aristera'  %>: </label></td>
+            <td class=""><label class="color_aristera"><%= @color_aristera.name %></label></td>
+          </tr>
+          <tr>
+            <td class="td_left"><label><%= t 'diastaseis.color_panw'  %>: </label></td>
+            <td class=""><label class="color_panw"><%= @color_panw.name %></label></td>
+          </tr>
+          <tr>
+            <td class="td_left"><label><%= t 'diastaseis.color_katw'  %>: </label></td>
+            <td class=""><label class="color_katw"><%= @color_katw.name %></label></td>
+          </tr>
+          <% end %>
+          <% if (!@color_fulou.nil?) %>
+          <tr>
+            <td class="td_left"><label><%= t 'diastaseis.color_fullou'  %>: </label></td>
+            <td class=""><label class="color_fullou"><%= @color_fulou.name %></label></td>
+            <td></td>
+          </tr>
+          <% end %>
+          <tr class="neess_diastaseis">
+            <td class="td_left"><label><%= t 'material_pinakas.arxiki_timi'  %>: </label></td>
+            <td></td>
+            <td></td>
+            <td class="td_right"><label class="arxiki_timi"></label></td>
+          </tr>
+        </table>
+      </div>
+      <!-- end πανω πινακα -->
+      <!-- Κατω πινακας με extra -->
+      <div class="table-responsive extra_table2" style="/*overflow-y:scroll; height:250px;*/">
+        <table class="table table2 table-condensed">
+          <tr class="neess_diastaseis">
+            <td class="td_left"><label><%= t 'material_pinakas.nees_diastaseis'  %>: </label></td>
+            <td class=""><label class="diastaseis_extra"><%= @width %>X<%= @height %></label></td>
+            <td class="table_tm"> <label class="diastaseis_table_extra_tm"></label></td>
+            <td class="td_right"><label class="nea_timi"></label></td>
+          </tr>
+          <tr class="lastixo_show_hide" style="display:none;">
+            <td class="td_left"><label>Schwarzen Dichtungen: </label></td>
+            <td class=""><label class="table_lastixo"></label></td>
+            <td class=""><label class=""></label></td>
+            <td class="td_right"><label class="timi_lastixo"></label></td>
+          </tr>
+          <tr class="tzami2_show_hide" style="display:none;">
+            <td class="td_left"><label><%= t 'material_pinakas.glass'  %>: </label></td>
+            <td class=""><label class="table_tzami2"></label></td>
+            <td class="table_tm"><label class="tm_tz_2"></label></td>
+            <td class="td_right"><label class="timi_tzami2"></label></td>
+          </tr>
+          <tr class="tzami_show_hide" style="display:none;">
+            <td class="td_left"><label><%= t 'material_pinakas.glass'  %>: </label></td>
+            <td class=""><label class="table_tzami"></label></td>
+            <td class="table_tm"><label class="tm_tz_1"></label></td>
+            <td class="td_right"><label class="timi_tzami"></label></td>
+          </tr>
+          <tr class="epik_show_hide" style="display:none;">
+            <td class="td_left"><label><%= t 'material_pinakas.epik'  %>: </label></td>
+            <td class=""><label class="table_epikathimeno"></label></td>
+            <td class="table_tm"><label class="tm_ep"></label></td>
+            <td class="td_right"><label class="timi_epikathimenou"></label></td>
+          </tr>
+          <tr class="epik_show_hide" style="display:none;">
+            <td class="td_left"><label><%= t 'extra.color_epik_katw'  %>: </label></td>
+            <td class=""><label class="table_xrwma_epikathimeno"></label></td>
+            <td class=""><label class=""></label></td>
+            <td class="td_right"><label class="table_timi_xrwma_epikathimenou"></label></td>
+          </tr>
+          <tr class="ekso_show_hide" style="display:none;">
+            <td class="td_left"><label><%= t 'material_pinakas.ekso'  %>: </label></td>
+            <td class=""><label class="table_eksoteriko"></label></td>
+            <td class="table_tm"><label class="tm_ek"></label></td>
+            <td class="td_right"><label class="timi_eksoterikou"></label></td>
+          </tr>
+          <tr class="ekso_show_hide" style="display:none;">
+            <td class="td_left"><label><%= t 'extra.color_ekso_katw'  %>: </label></td>
+            <td class=""><label class="table_xrwma_eksoteriko"></label></td>
+            <td class=""><label class=""></label></td>
+            <td class="td_right"><label class="table_timi_xrwma_eksoterikou"></label></td>
+          </tr>
+          <tr class="persida_show_hide" style="display:none;">
+            <td class="td_left"><label><%= t 'material_pinakas.persida'  %>: </label></td>
+            <td class=""><label class="table_persida"></label></td>
+            <td class="table_tm"><label class="tm_per"></label></td>
+            <td class="td_right"><label class="timi_persida"></label></td>
+          </tr>
+          <tr class="persida_show_hide" style="display:none;">
+            <td class="td_left"><label><%= t 'extra.color_persidas'  %>: </label></td>
+            <td class=""><label class="table_xrwma_persida"></label></td>
+            <td class=""><label class=""></label></td>
+            <td class="td_right"><label class="table_timi_xrwma_persida"></label></td>
+          </tr>
+          <tr class="odoigos_show_hide" style="display:none;">
+            <td class="td_left"><label><%= t 'material_pinakas.odoigos'  %>: </label></td>
+            <td class=""><label class="table_odoigos"></label></td>
+            <td class="table_tm"><label class="tm_od"></label></td>
+            <td class="td_right"><label class="timi_odoigos"></label></td>
+          </tr>
+          <tr class="odoigos_show_hide" style="display:none;">
+            <td class="td_left"><label><%= t 'extra.odoigoi_color'  %>: </label></td>
+            <td class=""><label class="table_xrwma_odoigos"></label></td>
+            <td class=""><label class=""></label></td>
+            <td class="td_right"><label class="table_timi_xrwma_odoigos"></label></td>
+          </tr>
+          <tr class="profil_deksia_1_show_hide" style="display:none;">
+            <td class="td_left"><label><%= t 'material_pinakas.profil_deksia'  %>: </label></td>
+            <td class=""><label class="table_profil_deksia_1"></label></td>
+            <td class=""><label class="table_profil_deksia_1_arithmos"></label></td>
+            <td class="td_right"><label class="timi_profil_deksia_1"></label></td>
+          </tr>
+          <tr class="profil_deksia_2_show_hide" style="display:none;">
+            <td class="td_left"><label><%= t 'material_pinakas.profil_deksia'  %>: </label></td>
+            <td class=""><label class="table_profil_deksia_2"></label></td>
+            <td class=""><label class="table_profil_deksia_2_arithmos"></label></td>
+            <td class="td_right"><label class="timi_profil_deksia_2"></label></td>
+          </tr>
+          <tr class="profil_deksia_3_show_hide" style="display:none;">
+            <td class="td_left"><label><%= t 'material_pinakas.profil_deksia'  %>: </label></td>
+            <td class=""><label class="table_profil_deksia_3"></label></td>
+            <td class=""><label class="table_profil_deksia_3_arithmos"></label></td>
+            <td class="td_right"><label class="timi_profil_deksia_3"></label></td>
+          </tr>
+          <tr class="profil_deksia_xrwma_show_hide" style="display:none;">
+            <td class="td_left"><label>Color profil right: </label></td>
+            <td class=""><label class="table_profil_deksia_xrwma"></label></td>
+            <td class=""><label class=""></label></td>
+            <td class="td_right"><label class="timi_profil_deksia_xrwma"></label></td>
+          </tr>
+          <tr class="profil_aristera_1_show_hide" style="display:none;">
+            <td class="td_left"><label><%= t 'material_pinakas.profil_aristera'  %>: </label></td>
+            <td class=""><label class="table_profil_aristera_1"></label></td>
+            <td class=""><label class="table_profil_aristera_1_arithmos"></label></td>
+            <td class="td_right"><label class="timi_profil_aristera_1"></label></td>
+          </tr>
+          <tr class="profil_aristera_2_show_hide" style="display:none;">
+            <td class="td_left"><label><%= t 'material_pinakas.profil_aristera'  %>: </label></td>
+            <td class=""><label class="table_profil_aristera_2"></label></td>
+            <td class=""><label class="table_profil_aristera_2_arithmos"></label></td>
+            <td class="td_right"><label class="timi_profil_aristera_2"></label></td>
+          </tr>
+          <tr class="profil_aristera_3_show_hide" style="display:none;">
+            <td class="td_left"><label><%= t 'material_pinakas.profil_aristera'  %>: </label></td>
+            <td class=""><label class="table_profil_aristera_3"></label></td>
+            <td class=""><label class="table_profil_aristera_3_arithmos"></label></td>
+            <td class="td_right"><label class="timi_profil_aristera_3"></label></td>
+          </tr>
+          <tr class="profil_aristera_xrwma_show_hide" style="display:none;">
+            <td class="td_left"><label>Color profil left: </label></td>
+            <td class=""><label class="table_profil_aristera_xrwma"></label></td>
+            <td class=""><label class=""></label></td>
+            <td class="td_right"><label class="timi_profil_aristera_xrwma"></label></td>
+          </tr>
+          <tr class="profil_panw_1_show_hide" style="display:none;">
+            <td class="td_left"><label><%= t 'material_pinakas.profil_panw'  %>: </label></td>
+            <td class=""><label class="table_profil_panw_1"></label></td>
+            <td class=""><label class="table_profil_panw_1_arithmos"></label></td>
+            <td class="td_right"><label class="timi_profil_panw_1"></label></td>
+          </tr>
+          <tr class="profil_panw_2_show_hide" style="display:none;">
+            <td class="td_left"><label><%= t 'material_pinakas.profil_panw'  %>: </label></td>
+            <td class=""><label class="table_profil_panw_2"></label></td>
+            <td class=""><label class="table_profil_panw_2_arithmos"></label></td>
+            <td class="td_right"><label class="timi_profil_panw_2"></label></td>
+          </tr>
+          <tr class="profil_panw_3_show_hide" style="display:none;">
+            <td class="td_left"><label><%= t 'material_pinakas.profil_panw'  %>: </label></td>
+            <td class=""><label class="table_profil_panw_3"></label></td>
+            <td class=""><label class="table_profil_panw_3_arithmos"></label></td>
+            <td class="td_right"><label class="timi_profil_panw_3"></label></td>
+          </tr>
+          <tr class="profil_panw_xrwma_show_hide" style="display:none;">
+            <td class="td_left"><label>Color profil top: </label></td>
+            <td class=""><label class="table_profil_panw_xrwma"></label></td>
+            <td class=""><label class=""></label></td>
+            <td class="td_right"><label class="timi_profil_panw_xrwma"></label></td>
+          </tr>
+          <tr class="profil_katw_1_show_hide" style="display:none;">
+            <td class="td_left"><label><%= t 'material_pinakas.profil_katw'  %>: </label></td>
+            <td class=""><label class="table_profil_katw_1"></label></td>
+            <td class=""><label class="table_profil_katw_1_arithmos"></label></td>
+            <td class="td_right"><label class="timi_profil_katw_1"></label></td>
+          </tr>
+          <tr class="profil_katw_2_show_hide" style="display:none;">
+            <td class="td_left"><label><%= t 'material_pinakas.profil_katw'  %>: </label></td>
+            <td class=""><label class="table_profil_katw_2"></label></td>
+            <td class=""><label class="table_profil_katw_2_arithmos"></label></td>
+            <td class="td_right"><label class="timi_profil_katw_2"></label></td>
+          </tr>
+          <tr class="profil_katw_3_show_hide" style="display:none;">
+            <td class="td_left"><label><%= t 'material_pinakas.profil_katw'  %>: </label></td>
+            <td class=""><label class="table_profil_katw_3"></label></td>
+            <td class=""><label class="table_profil_katw_3_arithmos"></label></td>
+            <td class="td_right"><label class="timi_profil_katw_3"></label></td>
+          </tr>
+          <tr class="profil_katw_xrwma_show_hide" style="display:none;">
+            <td class="td_left"><label>Color profil bottom: </label></td>
+            <td class=""><label class="table_profil_katw_xrwma"></label></td>
+            <td class=""><label class=""></label></td>
+            <td class="td_right"><label class="timi_profil_katw_xrwma"></label></td>
+          </tr>
+          <tr class="typos_katw_1_show_hide" style="display:none;">
+            <td class="td_left"><label><%= t 'material_pinakas.typos'  %>: </label></td>
+            <td class=""><label class="table_typos_katw_1"></label></td>
+            <td class=""><label class="table_typos_katw_1_arithmos"></label></td>
+            <td class="td_right"><label class="timi_typos_katw_1"></label></td>
+          </tr>
+          <tr class="typos_katw_2_show_hide" style="display:none;">
+            <td class="td_left"><label><%= t 'material_pinakas.typos'  %>: </label></td>
+            <td class=""><label class="table_typos_katw_2"></label></td>
+            <td class=""><label class="table_typos_katw_2_arithmos"></label></td>
+            <td class="td_right"><label class="timi_typos_katw_2"></label></td>
+          </tr>
+          <tr class="typos_katw_3_show_hide" style="display:none;">
+            <td class="td_left"><label><%= t 'material_pinakas.typos'  %>: </label></td>
+            <td class=""><label class="table_typos_katw_3"></label></td>
+            <td class=""><label class="table_typos_katw_3_arithmos"></label></td>
+            <td class="td_right"><label class="timi_typos_katw_3"></label></td>
+          </tr>
+          <tr class="profil_typos_xrwma_show_hide" style="display:none;">
+            <td class="td_left"><label>Color profil typ: </label></td>
+            <td class=""><label class="table_profil_typos_xrwma"></label></td>
+            <td class=""><label class=""></label></td>
+            <td class="td_right"><label class="timi_profil_typos_xrwma"></label></td>
+          </tr>
+          <tr class="prostasia_show_hide" style="display:none;">
+            <td class="td_left"><label>Transportschutz: </label></td>
+            <td class=""><label class="table_prostasia"></label></td>
+            <td class=""><label class=""></label></td>
+            <td class="td_right"><label class="timi_prostasia"></label></td>
+          </tr>
+          
+          <tr class="neess_diastaseis">
+            <td class="td_left"><label><%= t 'material_pinakas.teliki_timi'  %>: </label></td>
+            <td></td>
+            <td class=""><label class=""></label></td>
+            <td class="td_right"><label class="teliki_timi"></label></td>
+          </tr>
+          <!--KAI AYTA ME IF EXISTS-->
+        </table>
+      </div>
+
+<!-- Κατηγορια ανοιγματος -->
+        <div id="pane_tipos"></div>
+        <!-- Τιτλος 1 με ποποβερ -->
+        <h2 class="titloi">1. <%= t 'home.title' %></h2>
+        <div data-toggle="popover" title="<b><%= t 'home.title' %> info<b>" data-content="This is a box with info about <%= t 'home.title' %>"  data-html="true" class="bstooltip">
+          <div class="tip">Tip</div>
+        </div>
+        <!-- Τιτλος 1 με ποποβερ -->
+        <div class="scroll_to_leaf">
+          <% @cat_anoigmatos.each do |c| %>
+            <label class="<%= c.id %> cat_anoi" id="<%= t "kouf."<<c.name %>">
+              <input type="radio" id="<%= c.name %>" name="cat_an">
+              <div class="cat_img">
+                <p class="epanw_p"><%= t "kouf."<<c.name %></p>
+                <a data-toggle="popover" title="<b><%= t "kouf."<<c.name %><b>" data-content="<b>This is</b> an image of open type: <%= t "kouf."<<c.name %><br> <img src='/assets/<%= c.image %>''>"  data-html="true" class="bstooltip">
+                  <%= image_tag(c.image, :class => "img_cat_anoi") %>
+                </a>
+              </div>
+            </label>
+          <% end %>
+        </div>
+        <hr>
+        <!-- End κατηγορια ανοιγματος -->
+
+<!-- Υλικό γενικα με Κατασκευαστες συστηματα και γραμμες απο ajax -->
+        <div id="pane_uliko"></div>
+        <!-- Τιτλος 2 με ποποβερ -->
+        <h2 class="titloi">2. <%= t 'material.title' %></h2>
+        <div data-toggle="popover" title="<b><%= t 'material.title' %> info<b>" data-content="This is a box with info about <%= t 'material.title' %>"  data-html="true" class="bstooltip">
+          <div class="tip">Tip</div>
+        </div>
+        <!-- Τιτλος 2 με ποποβερ -->
+        <div class="uliko">
+          <% @uliko.each do |u| %>
+            <a data-toggle="popover" title="<b><%= u.name %><b>" data-content="<div><b>This is</b> an image of material: <%= u.name %></div><br> <img src='/assets/<%= u.image %>'>" data-placement='bottom' popover-append-to-body='true'  data-html="true" class="bstooltip">
+              <input class="material hide_radio" type="radio" id="<%= u.id %>" name="cat_mat">
+              <label for="<%= u.id %>"><%= u.name %></label>
+            </a>
+          <% end %>
+
+          <!--class Κατασκευαστες-->
+          <div class="kataskevastes_katw">
+            <div class="kataskevastes" id="kata"> 
+            </div>
+          </div>
+        
+          <!--Class συστήματα--> 
+          <div class="systems_katw">
+            <div class="systems" id="system">
+            </div>
+          </div>
+
+          <!--Class σειρες-->
+          <br>
+          <div id="loading_system"> 
+          </div>
+          <div class="lines_katw">
+            <div class="lines" id="lines">  
+            </div>
+          </div><br>
+
+        </div><!--end class uliko-->
+        <hr>
+
+                <!-- Χρώματα -->
+        <div id="pane_xrwma"></div>
+        <!-- Τιτλος 3 με ποποβερ -->
+        <div class="xrwmata_titlos">
+          <h2 class="titloi">3. <%= t 'color.title' %></h2>
+          <div data-toggle="popover" title="<b><%= t 'color.title' %> info<b>" data-content="This is a box with info about <%= t 'color.title' %>"  data-html="true" class="bstooltip">
+            <div class="tip">Tip</div>
+          </div>
+        </div>
+        <!-- Τιτλος 3 με ποποβερ -->
+        <!-- Χρώματα μέσα -->
+        <div class="xrwmata_mesa_new">
+          <h2 class="xrwmata_title_color"><%= t 'color.mesa' %></h2>
+          <!-- Κατηγορία Α -->
+          <div class="katigoria_xrwmatos_A">
+            <% @color_A.each do |c| %>
+              <a data-toggle="popover" title="<%= c.name %>" data-content="<img src='/assets/<%= c.image %>'>" data-placement='bottom' popover-append-to-body='true'  data-html="true" class="bstooltip">
+                <div class="xrwma xrwma_new_1">
+                  <div class=""><h5 class="tipos_name"><%= c.name %></h5></div>
+                  <img src="/assets/<%= c.image%>" class="color" id="<%= c.name %>" >
+                  <span id="<%= c.code %>"></span>
+                </div>
+              </a>
+            <% end %><!--End each-->
+          </div>
+          <!-- Κατηγορία Β -->
+          <div class="katigoria_xrwmatos_B">
+            <% @color_B.each do |c| %>
+              <a data-toggle="popover" title="<%= c.name %>" data-content="<img src='/assets/<%= c.image %>'>" data-placement='bottom' popover-append-to-body='true'  data-html="true" class="bstooltip">
+                <div class="xrwma xrwma_new_2">
+                  <div class=""><h5 class="tipos_name"><%= c.name %></h5></div>
+                  <img src="/assets/<%= c.image%>" class="color" id="<%= c.name %>" >
+                  <span id="<%= c.code %>"></span>
+                </div>
+              </a>
+            <% end %><!--End each-->
+          </div>
+          <!-- Κατηγορία C -->
+          <div class="katigoria_xrwmatos_C">
+            <% @color_C.each do |c| %>
+              <a data-toggle="popover" title="<%= c.name %>" data-content="<img src='/assets/<%= c.image %>'>" data-placement='bottom' popover-append-to-body='true'  data-html="true" class="bstooltip">
+                <div class="xrwma xrwma_new_3">
+                  <div class=""><h5 class="tipos_name"><%= c.name %></h5></div>
+                  <img src="/assets/<%= c.image%>" class="color" id="<%= c.name %>" >
+                  <span id="<%= c.code %>"></span>
+                </div>
+              </a>
+            <% end %><!--End each-->
+          </div>
+        </div><!-- End χρώματα μέσα -->
+
+        
+        <hr>
+
+        <!-- Φύλλα -->
+        <div class="fillo_katw">
+          <div id="pane_fillo"></div>
+          <!-- Τιτλος 4 με ποποβερ -->
+          <h2 class="titloi">4. <%= t 'leaf.title' %></h2>
+          <div data-toggle="popover" title="<b><%= t 'leaf.title' %> info<b>" data-content="This is a box with info about <%= t 'leaf.title' %>"  data-html="true" class="bstooltip">
+            <div class="tip">Tip</div>
+          </div>
+          <!-- Τιτλος 4 με ποποβερ -->
+          <div class="fullo">
+            <% @leaf.each do |l| %>
+              <img src="/assets/<%= l.image%>" class="leaf" id="<%= l.name %>" >
+            <% end %><!--End each-->
+          </div>
+        </div><!-- End φύλλα -->
+        <hr>
+
+        <!-- Ανοιγματα -->
+        <div class="open_tipos_katw">
+          <div id="pane_open_tipos"></div>
+          <!-- Τιτλος 5 με ποποβερ -->
+          <h2 class="titloi">5. <%= t 'open_type.title' %></h2>
+          <div data-toggle="popover" title="<b><%= t 'open_type.title' %> info<b>" data-content="This is a box with info about <%= t 'open_type.title' %>"  data-html="true" class="bstooltip">
+            <div class="tip">Tip</div>
+          </div>
+          <!-- Τιτλος 5 με ποποβερ -->
+          <!-- Ανοιγματα με ajax -->
+          <div class="ajax_open_type" >
+          </div>
+          <!-- End Ανοιγματα με ajax -->
+        </div><!-- End ανοιγματα -->
+        <hr>
+
+        <!-- Διαστασεις -->
+                <div id="pane_diastaseis"></div>
+                <!-- Τιτλος 6 με ποποβερ -->
+                <h2 class="titloi">6. <%= t 'diastaseis.title' %></h2>
+                <div data-toggle="popover" title="<b><%= t 'diastaseis.title' %> info<b>" data-content="This is a box with info about <%= t 'diastaseis.title' %>"  data-html="true" class="bstooltip">
+                  <div class="tip">Tip</div>
+                </div>
+                <!-- Τιτλος 6 με ποποβερ -->
+                <div class="diastaseis">
+                  <div class="diastaseis1">
+                    <input class="input" type="number" name="order" size="4" maxlength="4" placeholder="<%= t 'diastaseis.platos'%>" id="width"><br>
+                    <label class="min_width"><%= t 'diastaseis.min_pla'%>: </label><br>
+                    <label class="max_width"><%= t 'diastaseis.max_pla'%>: </label><br>
+                    <span id="maxw"></span>
+                    <span id="minw"></span>
+                  </div>
+                  <div>
+                    <input class="input" type="number" name="order" size="4" maxlength="4" placeholder="<%= t 'diastaseis.upsos'%>" id="height"><br>
+                    <label class="min_height"><%= t 'diastaseis.min_ups'%>: <%= @min_height %> mm</label><br>
+                    <label class="max_height"><%= t 'diastaseis.max_ups'%>: <%= @max_height %> mm</label><br>
+                    <span id="maxh"><%=@max_height%></span>
+                    <span id="minh"><%=@min_height%></span>  
+                  </div>
+                  <hr>
+                  <!-- Κουμπια για συναιχεια -->
+                  <button type="button" class="btn green ok"><%= t 'diastaseis.ok'%></button>
+                  <button type="button" class="btn blue extra_xwris_ok"><%= t 'diastaseis.extra'%></button>
+                  <!--<button type="button" class="btn red fanerwse_elefthero">Free Design</button>-->
+                  <br><br>
+                  <!-- Επεξηγησεις -->
+                  <div style=" display: inline-block;">
+                    <p class="xwrismata_enoimerwsi borderBlink">
+                      Η εισαγωγή <b>χωρισμάτων</b> γίνετε στο τέλος με το <%= t 'diastaseis.add_card' %>!
+                    </p>
+                    <p class="xwrismata_enoimerwsi borderBlink">
+                      Σιγουρευτείτε πως αν αλλάξετε μέτρα στο κούφωμα σας έχετε αλλάξει σωστά και τα <b>διορθωτικά μέτρα</b>!
+                    </p>
+                  </div>
+                  <!-- Χρειαζονται για την λειτουργια του add -->
+                  <button type="button" class="btn btn-primary order_diastaseis"><%= t 'diastaseis.add_card'%></button>
+                  <button type="button" class="btn btn-primary extra_diastaseis"><%= t 'diastaseis.extra'%></button>
+                </div><!-- End διαστασεις -->
+
+                <!-- Τζαμια -->
+      <div id="pane_tzamia"></div>
+      <div style="display: table">
+        <div class="click_tzamia2"> 
+          <div class="extra ">
+            <!-- Κατηγοριες -->
+            <div class="tzamia_fl2">
+              <h2>Glas innen</h2>
+              <% @cat_tzamia.each do |za| %>
+                <a  style="text-decoration: none; color:black;">
+                  <label class="cat_tzamia2" id="<%= za.id %>" style="display:block;"><%= za.name %></label>
+                </a>
+              <% end %><!--End each-->
+            </div><!-- Κατηγοριες end -->
+            <!-- Τζαμια με ajax -->
+            <div class="tzamia2 kath_tzam2" id="tzamia2">
+            </div>
+          </div><!-- end extra -->
+        </div> <!--End click tzamia-->
+      </div><!-- end Τζαμια -->
+      <hr>
+      
+      <!-- Τζαμια 2 -->
+      <div id="pane_tzamia2"></div>
+      <div style="display: table">
+        <div class="click_tzamia"> 
+          <div class="extra ">
+            <!-- Κατηγοριες -->
+            <div class="tzamia_fl">
+              <h2 style="display:inline-block;">Glas aussen</h2>
+              <% @cat_tzamia.each do |z| %>
+                <a  style="text-decoration: none; color:black;">
+                  <label id="<%= z.id %>" class="cat_tzamia" style="display:block;"><%= z.name %></label>
+                </a>
+              <% end %><!--End each-->
+            </div>
+            <!-- Τζαμια 2 με ajax -->
+            <div class="tzamia kath_tzam" id="tzamia1">
+            </div>
+          </div><!-- End extra -->
+        </div> <!--click_tzamia-->
+      </div><!-- end Τζαμια 2 -->
+      <hr>
+
+      <!-- Επικαθιμενα -->
+      <div id="pane_rola"></div>
+      <div style="display: table">
+        <div class=""> 
+          <div class="extra">
+            <!-- Κατηγοριες -->
+            <div class="epik_none">
+              <h2 style="display:inline-block;"><%= t 'extra.epik_rolo' %></h2><br>
+              <% @epikathimena_cat.each do |e| %>
+                <div data-toggle="popover" title="<b><%= e.name %> info<b>" data-content="This is a box with info about <%= e.name %> info<b><br> <img class='rola_img' src='/assets/<%= e.image %>'>"  data-html="true" class="bstooltip">
+                  <label class="epikathimena" id="<%= e.id %>"><%= e.name %></label>
+                </div>
+                <br>
+              <% end %><!--End each-->
+            </div>
+            <!-- Επικαθημενα και χρωματα με ajax -->
+            <div class="epikathimena_rola"></div>
+            <div class="color_epikathimenou"></div>
+
+          </div><!-- End extra-->
+        </div><!-- end adio -->
+      </div><!-- End επικαθημενα -->
+      <hr>
+
+      <!-- Περσιδες -->
+      <div id="pane_persides"></div>
+      <div class="" style=""> 
+        <h2><%= t 'extra.persides' %></h2>
+        <div class="extra">
+          <% @persides.each do |p| %>
+            <a  style="text-decoration: none; color:black;">
+              <label class="perisdes" id="<%= p.id %>"><%= p.name %></label>
+            </a>
+          <% end %><!--End each-->
+          <!-- Απο ajax -->
+          <div class="diorth_per"></div>
+          <div class="color_persidas" id="col_pe"></div>
+
+        </div><!-- End extra-->
+      </div><!--End Περσιδες--> 
+      <hr>
+
+      <!-- Οδοιγοι -->
+      <div id="pane_odoigous"></div>
+      <div class="click_odoigoi" style="display: inline-block"> 
+        <h2><%= t 'extra.odoigoi' %></h2>
+        <div class="extra guide_none">
+          <% @roll_guide.each do |r| %>
+            <a  style="text-decoration: none; color:black;">
+              <label class="odoigoi" id="<%= r.id %>" style="display:block;"><%= r.name %></label>
+            </a>
+          <% end %><!--End each-->
+          <!-- Απο ajax -->
+          <div class="diorth_odoi"></div>
+          <div class="color_odoigou" id="col_od"></div>
+
+        </div><!-- End extra-->
+      </div><!--End οδοιγοι--> 
+      <hr>
+
+
+      <!-- Προφιλ -->
+      <div id="pane_profil"></div>
+      <div class=""> 
+        <h2><%= t 'extra.profil' %></h2>
+        <div class="extra">
+          <label class="label_profil" id="aristera" onclick="anoigma_profil_aristera()"><%= t 'extra.profil_aristera' %></label>
+          <label class="label_profil" id="deksia" onclick="anoigma_profil_deksia()"><%= t 'extra.profil_deksia' %></label>
+          <label class="label_profil" id="panw" onclick="anoigma_profil_panw()"><%= t 'extra.profil_panw' %></label>
+          <label class="label_profil" id="katw" onclick="anoigma_profil_katw()"><%= t 'extra.profil_katw' %></label>
+          <hr>
+          <!-- Δεξια -->
+          <div class="ola_ta_profil_deksia">
+            <% @profil.each do |p| %>
+              <a href="#profil_merias" style="text-decoration: none; color:black;">
+                <label class="peninta" id="<%= p.id %>" data-toggle="modal" data-target="#myModal"><%= p.name %></label>
+                <span id="<%= p.width %>" class="<%= p.height %>"></span>
+              </a>
+            <% end %><!--End each-->
+          </div>
+          <div class="ola_ta_profil_deksia_color" id="ola_deksia_col"></div>
+          <!-- Αριστερα -->
+          <div class="ola_ta_profil_aristera">
+            <% @profil.each do |p| %>
+              <a href="#profil_merias" style="text-decoration: none; color:black;">
+                <label class="penintaena" id="<%= p.id %>" data-toggle="modal" data-target="#myModal_a"><%= p.name %></label>
+                <span id="<%= p.width %>" class="<%= p.height %>"></span>
+              </a>
+            <% end %><!--End each-->
+          </div>
+          <div class="ola_ta_profil_aristera_color" id="ola_aristera_col"></div>
+          <!-- Επάνω -->
+          <div class="ola_ta_profil_panw">
+            <% @profil.each do |p| %>
+              <a href="#profil_merias" style="text-decoration: none; color:black;">
+                <label class="penintaduo" id="<%= p.id %>" data-toggle="modal" data-target="#myModal_p"><%= p.name %></label>
+                <span id="<%= p.width %>" class="<%= p.height %>"></span>
+              </a>
+            <% end %><!--End each-->
+          </div>
+          <div class="ola_ta_profil_panw_color" id="ola_panw_col"></div>
+          <!-- Κάτω -->
+          <div class="ola_ta_profil_katw">
+            <% @profil.each do |p| %>
+              <a href="#profil_merias" style="text-decoration: none; color:black;">
+                <label class="penintatria" id="<%= p.id %>" data-toggle="modal" data-target="#myModal_k"><%= p.name %></label>
+                <span id="<%= p.width %>" class="<%= p.height %>"></span>
+              </a>
+            <% end %><!--End each-->
+          </div>
+          <div class="ola_ta_profil_katw_color" id="ola_katw_col"></div>
+        </div> <!--end extra-->
+        <div id="pane_profil_scroll"></div>
+      </div><!--End Προφιλ-->

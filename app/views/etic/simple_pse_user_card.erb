@@ -1,0 +1,886 @@
+<div id="loading"></div>
+<div class="container con_home">
+  <div class="row row_mat">
+  	<div class="col-md-12">
+    <!--
+    <td><%= link_to "New position", etic_simple_pse_user_path(:paraggelia_id => @paraggelia_id) ,class: "btn btn-success user_diax_button", id: @paraggelia_id %></td>
+    -->
+      <!--
+      <div class="home_right_add_card">
+       
+        <div class="button">
+          <%= link_to "New position", etic_simple_pse_user_path(:paraggelia_id => @paraggelia_id) ,class: "btn btn-success", id: @paraggelia_id %>
+        </div>
+
+      </div>
+      -->
+
+      <div class="fixed">
+      <p class="no_float_h1"><%= t("translate.Cart_for") %> <b><%= @user.eponimo %> <%= @user.name %></b></p><!--<p class="no_float_h1"><sup>*</sup>(For small screen scroll right for quanti)</p>--><%= link_to t("translate.New_potition"), etic_simple_pse_user_path(:paraggelia_id => @paraggelia_id) ,class: "btn btn-success user_diax_button", id: @paraggelia_id %> <button class="btn btn-warning down"><span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span> <%= t("translate.Finish_order") %></button>
+      </div>
+        <div class="table-responsive table_card_resp">
+          <div class="pdf" id="pdf">
+            <table class="table table_card table_grammata table-scrollable">
+
+            <thead>
+              <tr class="root">
+                <th id="kartoula_head"><%= t("translate.Potition_number") %></th>
+                <th id="kartoula_head"><%= t("translate.Image") %></th>
+                <th id="kartoula_head"><%= t("translate.Info") %></th>  
+                <th id="kartoula_head"><%= t("translate.Price") %></th> 
+                <th></th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <% if (!@items.nil?) %>
+              <% @items.each do |item| %>
+                <tr class="root">
+                  <td><input class="input input_blur_aukson" type="text" name="lname" size="5" value="<%= item.aukson %>" placeholder="<%= item.aukson %>" id=""></br>
+                  <div class="diaxeirisi_card_kouf">
+                  <% if @done != 1 %>
+                        <b><%= t("translate.Actions") %>:</b></br>
+                        <% if @admin != "1" %>
+                          <%= link_to t("translate.Copy"), etic_extra_path(:open_categorie_name => item.open_categorie_id, :material_name => item.material_id, :constructor_name => item.constructor_id, :system_name => item.system_id, :line_name => item.line_id, :leaf_name => Leaf.where(:name => item.leaf_id).first.name , :open_type_name => item.open_type_id, :color_name => item.main_color_id, :color_eksw_name => item.main_color_eksw_id, :mesa_eksw => item.in_out, :xwrisma1 => item.xwrisma1, :xwrisma2 => item.xwrisma2, :xwrisma3_1 => item.xwrisma3_1, :xwrisma3_2 => item.xwrisma3_2, :xwrisma3_3 => item.xwrisma3_3, :xwrisma_y_1 => item.xwrisma_y_1, :xwrisma_y_2 => item.xwrisma_y_2, :color_deksia => item.right_color_id, :color_aristera => item.left_color_id, :color_panw => item.up_color_id, :color_katw => item.down_color_id, :color_fulou => item.leaf_color_id, :lastixo => item.lastixo, :width => item.width, :height => item.height, :order => item.id, :paraggelia_id => item.paraggelia_id, :dealer_id => @dealer_id, :lastixa => item.lastixa,:cat_tzamia0 => item.tzami0_cat,:cat_tzamia1 => item.tzami1_cat,:cat_tzamia2 => item.tzami2_cat, :tzamia0 => item.tzamia0, :tzamia => item.tzamia, :tzamia2 => item.tzamia2, :rolo_name => item.rolo, :xrwma_rolo => item.color_rolou, :persida => item.persida, :xrwma_persidas => item.color_persidas, :odoigos => item.odoigos, :xrwma_odoigou => item.color_odoigou, :prostasia => item.prostasia_name, :typos => item.typos_katw_1, :typos_arithmos => item.typos_katw_arithmos_1, :typos_col => item.color_profil_k, :pr_ar_1 => item.profil_aristera_1, :pr_ar_1_ar => item.profil_aristera_arithmos_1, :col_ar => item.color_profil_a, :pr_ar_2 => item.profil_aristera_2, :pr_ar_2_ar => item.profil_aristera_arithmos_2, :pr_ar_3 => item.profil_aristera_3, :pr_ar_3_ar => item.profil_aristera_arithmos_3, :pr_de_1 => item.profil_deksia_1, :pr_de_1_de => item.profil_deksia_arithmos_1, :col_de => item.color_profil_d, :pr_de_2 => item.profil_deksia_2, :pr_de_2_de => item.profil_deksia_arithmos_2, :pr_de_3 => item.profil_deksia_3, :pr_de_3_de => item.profil_deksia_arithmos_3, :pr_pa_1 => item.profil_panw_1, :pr_pa_1_pa => item.profil_panw_arithmos_1, :col_pa => item.color_profil_p, :pr_pa_2 => item.profil_panw_2, :pr_pa_2_pa => item.profil_panw_arithmos_2, :pr_pa_3 => item.profil_panw_3, :pr_pa_3_pa => item.profil_panw_arithmos_3, :pr_ka_1 => item.profil_katw_1, :pr_ka_1_ka => item.profil_katw_arithmos_1, :col_ka => item.color_profil_k, :pr_ka_2 => item.profil_katw_2, :pr_ka_2_ka => item.profil_katw_arithmos_2, :pr_ka_3 => item.profil_katw_3, :pr_ka_3_ka => item.profil_katw_arithmos_3, :pl_rolou_ep => item.pl_rolou_ep, :up_rolou_ep => item.up_rolou_ep, :pl_rolou_ek => item.pl_rolou_ek, :up_rolou_ek => item.up_rolou_ek, :pl_persidas => item.pl_persidas, :up_persidas => item.up_persidas, :up_odigou => item.up_odigou, :kinisi_deksia_aristera => item.kinisi_deksia_aristera, :klap_ep => item.klap, :deroll => item.deroll, :metra_click => "1"), class: "btn btn-warning"%></br>
+                          <%= link_to t("translate.Fix"), etic_extra_path(:diorthosi => "ok", :open_categorie_name => item.open_categorie_id, :material_name => item.material_id, :constructor_name => item.constructor_id, :system_name => item.system_id, :line_name => item.line_id, :leaf_name => Leaf.where(:name => item.leaf_id).first.name , :open_type_name => item.open_type_id, :color_name => item.main_color_id, :color_eksw_name => item.main_color_eksw_id, :mesa_eksw => item.in_out, :xwrisma1 => item.xwrisma1, :xwrisma2 => item.xwrisma2, :xwrisma3_1 => item.xwrisma3_1, :xwrisma3_2 => item.xwrisma3_2, :xwrisma3_3 => item.xwrisma3_3, :xwrisma_y_1 => item.xwrisma_y_1, :xwrisma_y_2 => item.xwrisma_y_2, :color_deksia => item.right_color_id, :color_aristera => item.left_color_id, :color_panw => item.up_color_id, :color_katw => item.down_color_id, :color_fulou => item.leaf_color_id, :lastixo => item.lastixo, :width => item.width, :height => item.height, :order => item.id, :paraggelia_id => item.paraggelia_id, :dealer_id => @dealer_id, :lastixa => item.lastixa,:cat_tzamia0 => item.tzami0_cat,:cat_tzamia1 => item.tzami1_cat,:cat_tzamia2 => item.tzami2_cat,:tzamia0 => item.tzamia0, :tzamia => item.tzamia, :tzamia2 => item.tzamia2, :rolo_name => item.rolo, :xrwma_rolo => item.color_rolou, :persida => item.persida, :xrwma_persidas => item.color_persidas, :odoigos => item.odoigos, :xrwma_odoigou => item.color_odoigou, :prostasia => item.prostasia_name, :typos => item.typos_katw_1, :typos_arithmos => item.typos_katw_arithmos_1, :typos_col => item.color_profil_k, :pr_ar_1 => item.profil_aristera_1, :pr_ar_1_ar => item.profil_aristera_arithmos_1, :col_ar => item.color_profil_a, :pr_ar_2 => item.profil_aristera_2, :pr_ar_2_ar => item.profil_aristera_arithmos_2, :pr_ar_3 => item.profil_aristera_3, :pr_ar_3_ar => item.profil_aristera_arithmos_3, :pr_de_1 => item.profil_deksia_1, :pr_de_1_de => item.profil_deksia_arithmos_1, :col_de => item.color_profil_d, :pr_de_2 => item.profil_deksia_2, :pr_de_2_de => item.profil_deksia_arithmos_2, :pr_de_3 => item.profil_deksia_3, :pr_de_3_de => item.profil_deksia_arithmos_3, :pr_pa_1 => item.profil_panw_1, :pr_pa_1_pa => item.profil_panw_arithmos_1, :col_pa => item.color_profil_p, :pr_pa_2 => item.profil_panw_2, :pr_pa_2_pa => item.profil_panw_arithmos_2, :pr_pa_3 => item.profil_panw_3, :pr_pa_3_pa => item.profil_panw_arithmos_3, :pr_ka_1 => item.profil_katw_1, :pr_ka_1_ka => item.profil_katw_arithmos_1, :col_ka => item.color_profil_k, :pr_ka_2 => item.profil_katw_2, :pr_ka_2_ka => item.profil_katw_arithmos_2, :pr_ka_3 => item.profil_katw_3, :pr_ka_3_ka => item.profil_katw_arithmos_3, :pl_rolou_ep => item.pl_rolou_ep, :up_rolou_ep => item.up_rolou_ep, :pl_rolou_ek => item.pl_rolou_ek, :up_rolou_ek => item.up_rolou_ek, :pl_persidas => item.pl_persidas, :up_persidas => item.up_persidas, :up_odigou => item.up_odigou, :kinisi_deksia_aristera => item.kinisi_deksia_aristera, :klap_ep => item.klap, :deroll => item.deroll, :metra_click => "1"), class: "btn btn-info"%></br>
+                          <% else %>
+                          <% end %>
+                          <%= link_to t("translate.Destroy"), etic_destroy_path(:id => item.id, :par_id => item.paraggelia_id), method: :delete, data: { confirm: 'Are you sure?' } , class: 'btn btn-danger btn-xs'%><br>
+                    <% end %><!--End tou if gia user done-->
+                    </div>
+                  </td>
+                  <td><%= image_tag("/upload/#{item.canvas}.png",:width => "260px",class: "img_karta_zoom") %></br>
+                    <b><%= t("translate.Comments") %></b>:</br>
+                    <textarea id="<%= item.id %>" class="sxolia" rows="4" cols="30"><%= item.sxolia %></textarea><br>
+                    <form accept-charset="UTF-8" action="/orders/<%= item.id %>" class="edit_order" enctype="multipart/form-data" id="edit_order_<%= item.id %>" method="post">
+                      <div style="display:none">
+                        <input name="utf8" type="hidden" value="✓">
+                          <input name="_method" type="hidden" value="patch">
+                      </div>
+                      <label class="custom-file-upload">
+                        <input class="" id="order_avatar" name="order[avatar][]" type="file"  multiple>
+                        1. <span class="glyphicon glyphicon-cloud-upload"></span> <%= t 'translate.Add_file' %>
+                      </label>
+                      <input class="btn btn-success" name="commit" type="submit" value="2. Upload">     
+                    </form>
+                    <% if (item.avatar[0] != nil)  %>
+                      <%= link_to orders_download_files_path(:id => item.id), class: 'btn btn-info', target: "_blank" do %>
+                        <span class="glyphicon glyphicon-cloud-download" aria-hidden="true"></span> <%= t 'translate.Download' %>
+                      <% end %>
+                      <%= link_to orders_destroy_files_path(:id => item.id), class: 'btn btn-danger' do %>
+                        <span class="glyphicon glyphicon-trash" aria-hidden="true"></span> <%= t 'translate.Erase' %>
+                      <% end %>
+                    <% end %>
+                    <% if File.directory?("#{Rails.root}/public/uploads/order/avatar/"+item.id.to_s+"") %>
+                      <% entries = Dir.entries("#{Rails.root}/public/uploads/order/avatar/"+item.id.to_s+"") %>
+                      <% if (item.avatar[0] != nil)  %>
+                        <div class="list_of_pdf">
+                          <h5><%= t 'translate.Added_files' %></h5>
+                          <hr>
+                          <% entries.each.with_index(0) do |value, index| %>
+                            <% if ( index >= 2 && "#{value}" != ".DS_Store" ) %>
+                              <h5 style="margin-top:0px; margin-bottom:0px;"><%= "#{value}" %><h5>
+                            <% end %>
+                          <% end %>
+                        </div>
+                      <% end %>
+                    <% end %>
+                  </td> <!---->
+                  <!--extra-->
+                  <!-- Heavy loading begin -->
+                  <td class="card_extra_left">
+                    <div class="pinakas_aristera_gia_margin_panw">
+                    <b><%= t 'translate.Open_category' %></b>: <%= t 'kouf.'<<item.open_categorie_id %></br>
+                    <b><%= t 'translate.Material' %></b>: <%= item.material_id %></br>
+                    <b><%= t 'translate.Constructor' %></b>: <%= item.constructor_id %></br>
+                    <b><%= t 'translate.System_A' %></b>: <%= item.system_id %></br>
+                    <b><%= t 'translate.System_B' %></b>: <%= item.line_id %></br>
+                    <b><%= t 'translate.Open_type' %></b>:  <%= item.open_type_id %><br>
+                    <b><%= t 'translate.Leaf' %></b>: <%= Leaf.where(:id => item.leaf_id).first.name %></br>
+                    <b><%= t 'translate.Width' %></b>: <%= number_with_precision(item.width, :precision => 0, :delimiter => '.') %> mm</br>
+                    <b><%= t 'translate.Height' %></b>: <%= number_with_precision(item.height, :precision => 0, :delimiter => '.') %> mm</br>
+                    <b><%= t 'translate.Potition_width' %></b>: <%= number_with_precision(item.width_new, :precision => 0, :delimiter => '.') %> mm</br>
+                    <b><%= t 'translate.Potition_height' %></b>: <%= number_with_precision(item.height_new, :precision => 0, :delimiter => '.') %> mm</br>
+                    <% if ( !item.xwrisma1.nil? ) %>
+                    <b><%= t 'translate.Left_side' %></b>: <%= number_with_precision(item.xwrisma1, :precision => 0, :delimiter => '.') %> mm <br> <b><%= t 'translate.Right_side' %></b>: <%= number_with_precision(item.xwrisma2, :precision => 0, :delimiter => '.') %> mm<br>
+                    <% end %>
+                    <% if ( !item.xwrisma3_1.nil? ) %>
+                    <b><%= t 'translate.Left_side' %></b>: <%= number_with_precision(item.xwrisma3_1, :precision => 0, :delimiter => '.') %> mm<br>
+                    <b><%= t 'translate.Middle' %></b>: <%= number_with_precision(item.xwrisma3_2, :precision => 0, :delimiter => '.') %> mm<br>
+                    <b><%= t 'translate.Right_side' %></b>: <%= number_with_precision(item.xwrisma3_3, :precision => 0, :delimiter => '.') %> mm<br>
+                    <% end %>
+                    <% if ( !item.xwrisma_y_1.nil? ) %>
+                    <b><%= t 'translate.Top' %></b>: <%= number_with_precision(item.xwrisma_y_1, :precision => 0, :delimiter => '.') %> mm<br>
+                    <b><%= t 'translate.Bottom' %></b>: <%= number_with_precision(item.xwrisma_y_2, :precision => 0, :delimiter => '.') %> mm<br>
+                    <% end %>
+                    <b><%= t 'translate.Inside_color'  %></b>:  <%= item.main_color_id %><br>
+                    <b><%= t 'translate.Outside_color'  %></b>:  <%= item.main_color_eksw_id %><br>
+                    <% if ( !item.right_color_id.nil? ) %>
+                    <b>Χρώμα δεξια</b>: <%= item.right_color_id %><br>
+                    <b>Χρώμα αριστέρα</b>: <%= item.left_color_id %><br>
+                    <b>Χρώμα πάνω</b>: <%= item.up_color_id %><br>
+                    <b>Χρώμα κάτω</b>: <%= item.down_color_id %><br>
+                    <% end %>
+                    <% if ( !item.leaf_color_id.nil? ) %>
+                      <b>Χρώμα φύλου</b>: <%= item.leaf_color_id %><br>
+                    <% end %>
+                    <% if ( item.lastixa == "mauro_lastixo" ) %>
+                      <b><%= t 'translate.lastixo' %>: <%= t 'translate.black_gasket'%></b><br>
+                    <% end %>
+                    <% if ( item.lastixa == "gkri_lastixo" ) %>
+                      <b><%= t 'translate.lastixo' %>: <%= t 'translate.grey_gasket'%></b><br>
+                    <% end %>
+                    
+                    </div>
+                    <div class="on_off">
+                    <a class="show_more"><%= t 'translate.Show_more' %></a>
+                    <div class="extra_show_hide">
+                    
+                    <table>
+                    <tr>
+                    <td class="extra_subtable"><b><%= t 'translate.EXTRAS' %></b></td>
+                    <td class="unit_subtable"><b><%= t 'translate.Unit' %></b></td>
+                    <td class="m_subtable"><b><%= t 'translate.Price_per_unit' %></b></td>
+                    <td class="c_subtable"><b><%= t 'translate.Cost' %></b></td>
+                    <td class="p_subtable"><b><%= t 'translate.Prices' %></b></td>     
+                    </tr>
+                    <!--
+                    <tr>
+                    <td class="extra_subtable">
+                      <color style="color:#ff0000"><b><%= t 'material_pinakas.arxiki_timi' %></b></color>:<br>
+                    </td>
+                    <td class="unit_subtable">
+                    </td>
+                    <td class="m_subtable">
+                    </td>
+                    <td class="c_subtable"></td>
+                    <td class="p_subtable">
+                      <color style="color:#ff0000"><%= number_with_precision(item.super_apli_timi, :precision => 2, separator: ",", :delimiter => '.') %></color> €</td> 
+                    </tr>
+                    -->
+
+                    <tr>
+                    <td class="extra_subtable">
+                      <color style="color:#ff0000"><b><%= t 'translate.Start_price' %></b></color>:<br>
+                    </td>
+                    <td class="unit_subtable">
+                      pl
+                    </td>
+                    <td class="m_subtable">
+                    </td>
+                    <td class="c_subtable"></td>
+                    <td class="p_subtable">
+                      <color style="color:#ff0000"><%= number_with_precision(item.price_new, :precision => 2, separator: ",", :delimiter => '.') %></color> €</td> 
+                    </tr>
+                    
+                    <% if ( !item.tzamia0.nil? ) %>
+                    <tr>
+                    <td class="extra_subtable">
+                      <b><%= t 'translate.Inside_Outside_glass' %></b>: <%= item.tzamia0 %><br>
+                      <%= t 'translate.Width' %>: <%= item.tm_p_tzami0 %> mm<br>
+                      <%= t 'translate.Height' %>: <%= item.tm_u_tzami0 %> mm<br></td>
+                    <td class="unit_subtable">
+                      m<sup>2</sup>
+                    </td>
+                    <td class="m_subtable">
+                      <color style="color:green"><%= number_with_precision(item.timi_m_tzami0, :precision => 2, separator: ",", :delimiter => '.') %></color> €</td>
+                    <td class="c_subtable"></td>
+                    <td class="p_subtable">
+                      <color style="color:#ff0000"><%= number_with_precision(item.price_tzamiou0, :precision => 2, separator: ",", :delimiter => '.') %></color> €</td> 
+                    </tr>
+                    <% end %>
+                    <% if ( !item.tzamia2.nil? ) %>
+                    <tr>
+                    <td class="extra_subtable">
+                      <b><%= t 'translate.Inside_glass' %></b>: <%= item.tzamia2 %><br>
+                      <%= t 'translate.Width' %>: <%= item.tm_p_tzami2 %> mm<br>
+                      <%= t 'translate.Height' %>: <%= item.tm_u_tzami2 %> mm<br></td>
+                    <td class="unit_subtable">
+                      m<sup>2</sup>
+                    </td>
+                    <td class="m_subtable">
+                      <color style="color:green"><%= number_with_precision(item.timi_m_tzami2, :precision => 2, separator: ",", :delimiter => '.') %></color> €</td>
+                    <td class="c_subtable"></td>
+                    <td class="p_subtable">
+                      <color style="color:#ff0000"><%= number_with_precision(item.price_tzamiou2, :precision => 2, separator: ",", :delimiter => '.') %></color> €</td> 
+                    </tr>
+                    <% end %>
+                    <% if ( !item.tzamia.nil? ) %>
+                    <tr>
+                    <td class="extra_subtable">
+                      <b><%= t 'translate.Outside_glass' %></b>: <%= item.tzamia %><br>
+                      <%= t 'translate.Width' %>: <%= item.tm_p_tzami1 %> mm<br>
+                      <%= t 'translate.Height' %>: <%= item.tm_u_tzami1 %> mm<br></td>
+                    <td class="unit_subtable">
+                      m<sup>2</sup>
+                    </td>
+                    <td class="m_subtable">
+                      <color style="color:green"><%= number_with_precision(item.timi_m_tzami1, :precision => 2, separator: ",", :delimiter => '.') %></color> €</td>
+                    <td class="c_subtable"></td>
+                    <td class="p_subtable">
+                      <color style="color:#ff0000"><%= number_with_precision(item.price_tzamiou, :precision => 2, separator: ",", :delimiter => '.') %></color> €</td> 
+                    </tr>
+                    <% end %>
+                    <% if ( !item.rolo.nil? ) %>
+                    <tr>
+                    <td class="extra_subtable">
+                      <b><%= t 'translate.Rollershutter' %></b>: <%= item.rolo %><br>
+                      <% if ( !item.pl_rolou_ep.nil? && (item.pl_rolou_ep > 0) ) %>
+                      <%= t 'translate.Width' %>: <%= item.pl_rolou_ep %> mm<br>
+                      <% end %>
+                      <% if ( !item.pl_rolou_ek.nil? && (item.pl_rolou_ek > 0) ) %>
+                      <%= t 'translate.Width' %>: <%= item.pl_rolou_ek %> mm<br>
+                      <% end %>
+                      <% if ( !item.up_rolou_ep.nil? && ( item.up_rolou_ep > 0) ) %>
+                        <%= t 'translate.Height' %>: <%= item.up_rolou_ep %> mm<br>
+                      <% end %>
+                      <% if ( !item.up_rolou_ek.nil? && ( item.up_rolou_ek > 0) ) %>
+                        <%= t 'translate.Height' %>: <%= item.up_rolou_ek %> mm<br>
+                      <% end %>
+                      <% if ( item.kinisi_deksia_aristera == "r" ) %>
+                        <%= t 'translate.Motors_movement' %>: <%= t 'translate.Right' %> <br>
+                      <% else %>
+                        <%= t 'translate.Motors_movement' %>: <%= t 'translate.Left' %> <br>
+                      <% end %>
+                      <% if ( item.klap == "a" ) %>
+                        <%= t 'translate.Revisionsklappe' %>: <%= t 'translate.Revisionsklappe_A' %> <br>
+                      <% end %>
+                      <% if ( item.klap == "b" ) %>
+                        <%= t 'translate.Revisionsklappe' %>: <%= t 'translate.Revisionsklappe_B' %> <br>
+                      <% end %>
+                      <% if ( item.deroll == "a" ) %>
+                        <%= t 'translate.Typ_des_Rollladens' %>: <%= t 'translate.Typ_des_Rollladens_A' %> <br>
+                      <% end %>
+                      <% if ( item.deroll == "b" ) %>
+                        <%= t 'translate.Typ_des_Rollladens' %>: <%= t 'translate.Typ_des_Rollladens_B' %> <br>
+                      <% end %>
+                      <% if ( item.deroll == "c" ) %>
+                        <%= t 'translate.Typ_des_Rollladens' %>: <%= t 'translate.Typ_des_Rollladens_C' %> <br>
+                      <% end %>
+                      <%= t 'translate.Color' %>: <%= item.color_rolou %><br>
+                    <td class="unit_subtable">
+                      m<sup>2</sup>
+                    </td>
+                    <td class="m_subtable">
+                      <% if ( !item.timi_m_epik.nil? ) %>
+                        <color style="color:green"><%= number_with_precision(item.timi_m_epik, :precision => 2, separator: ",", :delimiter => '.') %></color> €
+                      <% else %>
+                        <color style="color:green"><%= number_with_precision(item.timi_m_ekso, :precision => 2, separator: ",", :delimiter => '.') %></color> €
+                      <% end %>
+                    </td>
+                    <td class="c_subtable"></td>
+                    <td class="p_subtable">
+                      <color style="color:#ff0000"><%= number_with_precision(item.price_rolou, :precision => 2, separator: ",", :delimiter => '.') %></color> €</td> 
+                    </tr>
+                    <% end %>
+                    <% if ( !item.odoigos.nil? ) %>
+                    <tr>
+                    <td class="extra_subtable">
+                      <b><%= t 'translate.Rails' %></b>: <%= item.odoigos %><br>
+                      <% if ( !item.up_odigou.nil? && ( item.up_odigou > 0) ) %>
+                        <%= t 'translate.Height' %>: <%= item.up_odigou %> mm<br>
+                      <% end %>
+                        <%= t 'translate.Color' %>: <%= item.color_odoigou %><br>
+                    <td class="unit_subtable">
+                      m
+                    </td>
+                    <td class="m_subtable">
+                      <color style="color:green"><%= number_with_precision(item.timi_m_odoigou, :precision => 2, separator: ",", :delimiter => '.') %></color> €</td>
+                    <td class="c_subtable"></td>
+                    <td class="p_subtable">
+                      <color style="color:#ff0000"><%= number_with_precision(item.price_odoigou, :precision => 2, separator: ",", :delimiter => '.') %></color> €</td> 
+                    </tr>
+                    <% end %>
+                    <% if ( !item.persida.nil? ) %>
+                    <tr>
+                    <td class="extra_subtable">
+                      <b><%= t 'translate.Profil_for_shutters' %></b>: <%= item.persida %><br>
+                      <% if ( !item.pl_persidas.nil? && ( item.pl_persidas > 0) ) %>
+                        <%= t 'translate.Width' %>: <%= item.pl_persidas %> mm<br>
+                      <% end %>
+                      <% if ( !item.up_persidas.nil? && ( item.up_persidas > 0) ) %>
+                        <%= t 'translate.Height' %>: <%= item.up_persidas %> mm<br>
+                      <% end %>
+                        <%= t 'translate.Color' %>: <%= item.color_persidas %><br>
+                    <td class="unit_subtable">
+                      m<sup>2</sup>
+                    </td>
+                    <td class="m_subtable">
+                      <color style="color:green"><%= number_with_precision(item.timi_m_persidas, :precision => 2, separator: ",", :delimiter => '.') %></color> €</td>
+                    <td class="c_subtable"></td>
+                    <td class="p_subtable">
+                      <color style="color:#ff0000"><%= number_with_precision(item.price_persidas, :precision => 2, separator: ",", :delimiter => '.') %></color> €</td> 
+                    </tr>
+                    <% end %>
+                    <% if ( !item.prostasia_name.nil? ) %>
+                    <tr>
+                    <td class="extra_subtable">
+                      <b><%= t 'translate.Protection' %></b>: <%= item.prostasia_name %><br>
+                      <%= t 'translate.Width' %>: <%= item.tm_p_prostasia %> mm<br>
+                    <td class="unit_subtable">
+                      m
+                    </td>
+                    <td class="m_subtable">
+                    <color style="color:green"><%= number_with_precision(item.timi_m_p_prostasia, :precision => 2, separator: ",", :delimiter => '.') %></color> €
+                    </td>
+                    <td class="c_subtable"></td>
+                    <td class="p_subtable">
+                      <color style="color:#ff0000"><%= number_with_precision(item.prostasia_price, :precision => 2, separator: ",", :delimiter => '.') %></color> €</td> 
+                    </tr>
+                    <% end %>
+                    <% if ( !item.profil_deksia_1.nil? ) %>
+                    <tr>
+                    <td class="extra_subtable">
+                      <b><%= t 'translate.External_profile_right' %></b>: <%= item.profil_deksia_1 %>, <%= item.pd1_code %><br>
+                      
+                      <%= t 'translate.Length' %>: <%= item.tm_u_pd1 %> mm<br>
+                      <%= t 'translate.Quantity' %>: <%= item.profil_deksia_arithmos_1 %><br>
+                    <td class="unit_subtable">
+                      m
+                    </td>
+                    <td class="m_subtable">
+                      <color style="color:green"><%= number_with_precision(item.timi_m_p_d_1, :precision => 2, separator: ",", :delimiter => '.') %></color> €</td>
+                    <td class="c_subtable"></td>
+                    <td class="p_subtable">
+                      <color style="color:#ff0000"><%= number_with_precision(item.timi_profil_deksia_1, :precision => 2, separator: ",", :delimiter => '.') %></color> €</td> 
+                    </tr>
+                    <% end %>
+                    <% if ( !item.profil_deksia_2.nil? ) %>
+                    <tr>
+                    <td class="extra_subtable">
+                      <b><%= t 'translate.External_profile_right' %></b>: <%= item.profil_deksia_2 %>, <%= item.pd2_code %><br>
+                      
+                      <%= t 'translate.Length' %>: <%= item.tm_u_pd2 %> mm<br>
+                      <%= t 'translate.Quantity' %>: <%= item.profil_deksia_arithmos_2 %><br>
+                    <td class="unit_subtable">
+                      m
+                    </td>
+                    <td class="m_subtable">
+                      <color style="color:green"><%= number_with_precision(item.timi_m_p_d_2, :precision => 2, separator: ",", :delimiter => '.') %></color> €</td>
+                    <td class="c_subtable"></td>
+                    <td class="p_subtable">
+                      <color style="color:#ff0000"><%= number_with_precision(item.timi_profil_deksia_2, :precision => 2, separator: ",", :delimiter => '.') %></color> €</td> 
+                    </tr>
+                    <% end %>
+                    <% if ( !item.profil_deksia_3.nil? ) %>
+                    <tr>
+                    <td class="extra_subtable">
+                      <b><%= t 'translate.External_profile_right' %></b>: <%= item.profil_deksia_3 %>, <%= item.pd3_code %><br>
+                      
+                      <%= t 'translate.Length' %>: <%= item.tm_u_pd3 %> mm<br>
+                      <%= t 'translate.Quantity' %>: <%= item.profil_deksia_arithmos_3 %><br>
+                    <td class="unit_subtable">
+                      m
+                    </td>
+                    <td class="m_subtable">
+                      <color style="color:green"><%= number_with_precision(item.timi_m_p_d_3, :precision => 2, separator: ",", :delimiter => '.') %></color> €</td>
+                    <td class="c_subtable"></td>
+                    <td class="p_subtable">
+                      <color style="color:#ff0000"><%= number_with_precision(item.timi_deksia_profil_3, :precision => 2, separator: ",", :delimiter => '.') %></color> €</td> 
+                    </tr>
+                    <% end %>
+                    <% if ( !item.profil_deksia_1.nil? || !item.profil_deksia_2.nil? || !item.profil_deksia_3.nil? ) %>
+                    <tr>
+                    <td class="extra_subtable">
+                      <b><%= t 'translate.External_profile_right_color' %></b>: <%= item.color_profil_d %><br>
+                    <td class="unit_subtable">
+                    </td>
+                    <td class="m_subtable">
+                    </td>
+                    <td class="c_subtable"></td>
+                    <td class="p_subtable">
+                    </td> 
+                    </tr>
+                    <% end %>
+                    <% if ( !item.profil_aristera_1.nil? ) %>
+                    <tr>
+                    <td class="extra_subtable">
+                      <b><%= t 'translate.External_profile_left' %></b>: <%= item.profil_aristera_1 %>, <%= item.pa1_code %></br>
+                      
+                      <%= t 'translate.Length' %>: <%= item.tm_u_pa1 %> mm<br>
+                      <%= t 'translate.Quantity' %>: <%= item.profil_aristera_arithmos_1 %><br>
+                    <td class="unit_subtable">
+                      m
+                    </td>
+                    <td class="m_subtable">
+                      <color style="color:green"><%= number_with_precision(item.timi_m_p_a_1, :precision => 2, separator: ",", :delimiter => '.') %></color> €</td>
+                    <td class="c_subtable"></td>
+                    <td class="p_subtable">
+                      <color style="color:#ff0000"><%= number_with_precision(item.timi_profil_aristera_1, :precision => 2, separator: ",", :delimiter => '.') %></color> €</td> 
+                    </tr>
+                    <% end %>
+                    <% if ( !item.profil_aristera_2.nil? ) %>
+                    <tr>
+                    <td class="extra_subtable">
+                      <b><%= t 'translate.External_profile_left' %></b>: <%= item.profil_aristera_2 %>, <%= item.pa2_code %></br>
+                      
+                      <%= t 'translate.Length' %>: <%= item.tm_u_pa2 %> mm<br>
+                      <%= t 'translate.Quantity' %>: <%= item.profil_aristera_arithmos_2 %><br>
+                    <td class="unit_subtable">
+                      m
+                    </td>
+                    <td class="m_subtable">
+                      <color style="color:green"><%= number_with_precision(item.timi_m_p_a_2, :precision => 2, separator: ",", :delimiter => '.') %></color> €</td>
+                    <td class="c_subtable"></td>
+                    <td class="p_subtable">
+                      <color style="color:#ff0000"><%= number_with_precision(item.timi_profil_aristera_2, :precision => 2, separator: ",", :delimiter => '.') %></color> €</td> 
+                    </tr>
+                    <% end %>
+                    <% if ( !item.profil_aristera_3.nil? ) %>
+                    <tr>
+                    <td class="extra_subtable">
+                      <b><%= t 'translate.External_profile_left' %></b>: <%= item.profil_aristera_3 %>, <%= item.pa3_code %></br>
+                      
+                      <%= t 'translate.Length' %>: <%= item.tm_u_pa3 %> mm<br>
+                      <%= t 'translate.Quantity' %>: <%= item.profil_aristera_arithmos_3 %><br>
+                    <td class="unit_subtable">
+                      m
+                    </td>
+                    <td class="m_subtable">
+                      <color style="color:green"><%= number_with_precision(item.timi_m_p_a_3, :precision => 2, separator: ",", :delimiter => '.') %></color> €</td>
+                    <td class="c_subtable"></td>
+                    <td class="p_subtable">
+                      <color style="color:#ff0000"><%= number_with_precision(item.timi_profil_aristera_3, :precision => 2, separator: ",", :delimiter => '.') %></color> €</td> 
+                    </tr>
+                    <% end %>
+                    <% if ( !item.profil_aristera_1.nil? || !item.profil_aristera_2.nil? || !item.profil_aristera_3.nil? ) %>
+                    <tr>
+                    <td class="extra_subtable">
+                      <b><%= t 'translate.External_profile_Left_color' %></b>: <%= item.color_profil_a %><br>
+                    <td class="unit_subtable">
+                    </td>
+                    <td class="m_subtable">
+                    </td>
+                    <td class="c_subtable"></td>
+                    <td class="p_subtable">
+                    </td> 
+                    </tr>
+                    <% end %>
+                    <% if ( !item.profil_panw_1.nil? ) %>
+                    <tr>
+                    <td class="extra_subtable">
+                      <b><%= t 'translate.External_profile_top' %></b>: <%= item.profil_panw_1 %>, <%= item.pp1_code %></br>
+                      <%= t 'translate.Length' %>: <%= item.tm_p_pp1 %> mm<br>
+                      
+                      <%= t 'translate.Quantity' %>: <%= item.profil_panw_arithmos_1 %><br>
+                    <td class="unit_subtable">
+                      m
+                    </td>
+                    <td class="m_subtable">
+                      <color style="color:green"><%= number_with_precision(item.timi_m_p_p_1, :precision => 2, separator: ",", :delimiter => '.') %></color> €</td>
+                    <td class="c_subtable"></td>
+                    <td class="p_subtable">
+                      <color style="color:#ff0000"><%= number_with_precision(item.timi_profil_panw_1, :precision => 2, separator: ",", :delimiter => '.') %></color> €</td> 
+                    </tr>
+                    <% end %>
+                    <% if ( !item.profil_panw_2.nil? ) %>
+                    <tr>
+                    <td class="extra_subtable">
+                      <b><%= t 'translate.External_profile_top' %></b>: <%= item.profil_panw_2 %>, <%= item.pp2_code %></br>
+                      <%= t 'translate.Length' %>: <%= item.tm_p_pp2 %> mm<br>
+                      
+                      <%= t 'translate.Quantity' %>: <%= item.profil_panw_arithmos_2 %><br>
+                    <td class="unit_subtable">
+                      m
+                    </td>
+                    <td class="m_subtable">
+                      <color style="color:green"><%= number_with_precision(item.timi_m_p_p_2, :precision => 2, separator: ",", :delimiter => '.') %></color> €</td>
+                    <td class="c_subtable"></td>
+                    <td class="p_subtable">
+                      <color style="color:#ff0000"><%= number_with_precision(item.timi_profil_panw_2, :precision => 2, separator: ",", :delimiter => '.') %></color> €</td> 
+                    </tr>
+                    <% end %>
+                    <% if ( !item.profil_panw_3.nil? ) %>
+                    <tr>
+                    <td class="extra_subtable">
+                      <b><%= t 'translate.External_profile_top' %></b>: <%= item.profil_panw_3 %>, <%= item.pp3_code %></br>
+                      <%= t 'translate.Length' %>: <%= item.tm_p_pp3 %> mm<br>
+                      
+                      <%= t 'translate.Quantity' %>: <%= item.profil_panw_arithmos_3 %><br>
+                    <td class="unit_subtable">
+                      m
+                    </td>
+                    <td class="m_subtable">
+                      <color style="color:green"><%= number_with_precision(item.timi_m_p_p_3, :precision => 2, separator: ",", :delimiter => '.') %></color> €</td>
+                    <td class="c_subtable"></td>
+                    <td class="p_subtable">
+                      <color style="color:#ff0000"><%= number_with_precision(item.timi_profil_panw_3, :precision => 2, separator: ",", :delimiter => '.') %></color> €</td> 
+                    </tr>
+                    <% end %>
+                    <% if ( !item.profil_panw_1.nil? || !item.profil_panw_2.nil? || !item.profil_panw_3.nil? ) %>
+                    <tr>
+                    <td class="extra_subtable">
+                      <b><%= t 'translate.External_profile_Top_color' %></b>: <%= item.color_profil_p %><br>
+                    <td class="unit_subtable">
+                    </td>
+                    <td class="m_subtable">
+                    </td>
+                    <td class="c_subtable"></td>
+                    <td class="p_subtable">
+                    </td> 
+                    </tr>
+                    <% end %>
+                    <% if ( !item.profil_katw_1.nil? ) %>
+                    <tr>
+                    <td class="extra_subtable">
+                      <b><%= t 'translate.External_profile_bottom' %></b>: <%= item.profil_katw_1 %>, <%= item.pk1_code %></br>
+                      <%= t 'translate.Length' %>: <%= item.tm_p_pk1 %> mm<br>
+                      
+                      <%= t 'translate.Quantity' %>: <%= item.profil_katw_arithmos_1 %><br>
+                    <td class="unit_subtable">
+                      m
+                    </td>
+                    <td class="m_subtable">
+                      <color style="color:green"><%= number_with_precision(item.timi_m_p_k_1, :precision => 2, separator: ",", :delimiter => '.') %></color> €</td>
+                    <td class="c_subtable"></td>
+                    <td class="p_subtable">
+                      <color style="color:#ff0000"><%= number_with_precision(item.timi_profil_katw_1, :precision => 2, separator: ",", :delimiter => '.') %></color> €</td> 
+                    </tr>
+                    <% end %>
+                    <% if ( !item.profil_katw_2.nil? ) %>
+                    <tr>
+                    <td class="extra_subtable">
+                      <b><%= t 'translate.External_profile_bottom' %></b>: <%= item.profil_katw_2 %>, <%= item.pk2_code %></br>
+                      <%= t 'translate.Length' %>: <%= item.tm_p_pk2 %> mm<br>
+                      
+                      <%= t 'translate.Quantity' %>: <%= item.profil_katw_arithmos_2 %><br>
+                    <td class="unit_subtable">
+                      m
+                    </td>
+                    <td class="m_subtable">
+                      <color style="color:green"><%= number_with_precision(item.timi_m_p_k_2, :precision => 2, separator: ",", :delimiter => '.') %></color> €</td>
+                    <td class="c_subtable"></td>
+                    <td class="p_subtable">
+                      <color style="color:#ff0000"><%= number_with_precision(item.timi_profil_katw_2, :precision => 2, separator: ",", :delimiter => '.') %></color> €</td> 
+                    </tr>
+                    <% end %>
+                    <% if ( !item.profil_katw_3.nil? ) %>
+                    <tr>
+                    <td class="extra_subtable">
+                      <b><%= t 'translate.External_profile_bottom' %></b>: <%= item.profil_katw_3 %>, <%= item.pk3_code %></br>
+                      <%= t 'translate.Length' %>: <%= item.tm_p_pk3 %> mm<br>
+                      
+                      <%= t 'translate.Quantity' %>: <%= item.profil_katw_arithmos_3 %><br>
+                    <td class="unit_subtable">
+                      m
+                    </td>
+                    <td class="m_subtable">
+                      <color style="color:green"><%= number_with_precision(item.timi_m_p_k_3, :precision => 2, separator: ",", :delimiter => '.') %></color> €</td>
+                    <td class="c_subtable"></td>
+                    <td class="p_subtable">
+                      <color style="color:#ff0000"><%= number_with_precision(item.timi_profil_katw_3, :precision => 2, separator: ",", :delimiter => '.') %></color> €</td> 
+                    </tr>
+                    <% end %>
+                    <% if ( !item.profil_katw_1.nil? || !item.profil_katw_2.nil? || !item.profil_katw_3.nil? ) %>
+                    <tr>
+                    <td class="extra_subtable">
+                      <b><%= t 'translate.External_profile_Bottom_color' %></b>: <%= item.color_profil_k %><br>
+                    <td class="unit_subtable">
+                    </td>
+                    <td class="m_subtable">
+                    </td>
+                    <td class="c_subtable"></td>
+                    <td class="p_subtable">
+                    </td> 
+                    </tr>
+                    <% end %>
+                    <% if ( !item.typos_katw_1.nil? ) %>
+                    <tr>
+                    <td class="extra_subtable">
+                      <b><%= t 'translate.Type' %></b>: <%= item.typos_katw_1 %>, <%= item.typos_code %></br>
+
+                      <%= t 'translate.Length' %>: <%= item.tm_p_t1 %> mm<br>
+                      
+                      <%= t 'translate.Quantity' %>: <%= item.typos_katw_arithmos_1 %><br>
+                    <td class="unit_subtable">
+                      m
+                    </td>
+                    <td class="m_subtable">
+                      <color style="color:green"><%= number_with_precision(item.timi_m_t_1, :precision => 2, separator: ",", :delimiter => '.') %></color> €</td>
+                    <td class="c_subtable"></td>
+                    <td class="p_subtable">
+                      <color style="color:#ff0000"><%= number_with_precision(item.timi_typos_katw_1, :precision => 2, separator: ",", :delimiter => '.') %></color> €</td> 
+                    </tr>
+                    <% end %>
+                    <% if ( !item.typos_katw_1.nil? || !item.typos_katw_2.nil? || !item.typos_katw_3.nil? ) %>
+                    <tr>
+                    <td class="extra_subtable">
+                      <!--<b><%= t 'translate.Type_color' %></b>: <%= item.color_profil_k %><br>-->
+                    <td class="unit_subtable">
+                    </td>
+                    <td class="m_subtable">
+                    </td>
+                    <td class="c_subtable"></td>
+                    <td class="p_subtable">
+                    </td> 
+                    </tr>
+                    <% end %>
+
+                    <tr>
+                    <td class="extra_subtable">
+                      <color style="color:#ff0000"><b><%= t 'translate.Final_price' %></b></color>:<br>
+                    </td>
+                    <td class="unit_subtable">
+                    </td>
+                    <td class="m_subtable">
+                    </td>
+                    <td class="c_subtable"></td>
+                    <td class="p_subtable">
+                      <color style="color:#ff0000"><%= number_with_precision(item.price_update, :precision => 2, separator: ",", :delimiter => '.') %> €</color></td> 
+                    </tr>
+                    
+                    </table>
+                    
+                    </div>
+                    <a class="show_less"><%= t 'translate.Show_less' %>...</a>
+                    </div>
+                  </td>
+                  <!--Heavy Loading end-->
+                  <td id="price" class="price">
+                    <%= number_with_precision(item.price_sum, :precision => 2, separator: ",", :delimiter => '.') %> €<br>
+                    <%= t("translate.Quantity") %><br>
+                    <input class="input input_blur" type="text" name="lname" size="5" placeholder="<%= item.posotoita %>" id="<%= item.id %>">
+                  </td>
+                </tr>
+              <% end %>
+              <% end %>
+            </tbody>
+          </table>
+          <hr>
+          <div class="sunolo_card_katw">
+            <div id="sunolo"><b><%= t 'translate.Offer' %> <%= t 'translate.Sum' %>:</b> </div><div id="timi_sunolou"> <%= number_with_precision(@sum, :precision => 2, separator: ",", :delimiter => '.') %> €</div></br>
+            <div id="sunolo_pososto_sun"><b><%= t 'translate.Surcharge' %>: <div class="pososto_pelati"> (<%= t 'translate.Until' %>: <%= @pososto_sun %>%)</div></b> </div><input class="input pososto_sun_blur" type="text" name="lname" value="<%= @pososto_par_sun %>" size="5" placeholder="<%= @pososto_par_sun %>" id="timi_sunolou_posostou_sun"></br></br>
+            <div id="sunolo_pososto"><b><%= t 'translate.Discount' %>: <div class="pososto_pelati"> (<%= t 'translate.Until' %>: <%= @pososto %>%)</div></b> </div><input class="input pososto_blur" type="text" name="lname" value="<%= @pososto_par %>" size="5" placeholder="<%= @pososto_par %>" id="timi_sunolou_posostou"></br></br>
+            <div id="sunolo_meta"><b><%= t 'translate.Orders_sum' %>:</b> </div><div id="timi_sunolou_meta"><%= number_with_precision(@meta_pososto, :precision => 2, separator: ",", :delimiter => '.') %> €</div></br>
+            <div id="sunolo_metaforika"><b><%= t 'translate.Transports' %>:</b></div>
+            <input class="input blur_metaforika" type="text" name="lname" value="<%= @metaforika %>" size="5" placeholder="<%= @metaforika %>" id="timi_metaforika"></br></br>
+            <div id="sunolo_teliki"><b><%= t 'translate.Final_price' %>:</b> </div><div id="timi_sunolou_teliki"> <%= number_with_precision(@meta_pososto, :precision => 2, separator: ",", :delimiter => '.') %> €</div></br>
+
+          </div>
+       </div><!--end canvas gia pdf-->
+     </div>
+            <% if (@number > 0) %>
+            <% if @done != 1 %>
+            <!--<button type="button" class="btn btn-default update">Update</button>-->
+            
+            <%= link_to  t('translate.Finish_order') ,etic_oloklirwsi_simple_user_pses_path(:id => @paraggelia_id) , data: { confirm: 'Are you sure? If you press OK, this order will be send for preparation!!' }, class: "btn btn-success oloklirwsi"%>
+
+            <%= link_to t('translate.Destroy_order'), etic_diagrafi_simple_user_path(:id => @paraggelia_id), class: "btn btn-danger diagrafi"%>
+            <% end %><!--end done 1-->
+            <%= link_to t('translate.Show_pdf') ,etic_pdf_simple_user_path(:id => @paraggelia_id,:pse => 1,:format => 'pdf') , class: "btn btn-primary pdf", :target => "_blank"%>
+            <%= link_to t('translate.Show_pdf_for_customer') ,etic_pdf_simple_customer_path(:id => @paraggelia_id,:pse => 1,:format => 'pdf') , class: "btn btn-primary pdf", :target => "_blank"%>
+            <!--
+            <%= link_to "Download_xls", etic_export_simple_user_path(:id => @paraggelia_id,:pse => 1,:format => "xls") ,class: "btn btn-primary", :target => "_blank" %>
+            <%= link_to "Download_csv", etic_export_simple_user_path(:id => @user_id,:pse => 1,:format => "csv") ,class: "btn btn-primary", :target => "_blank" %>
+            <%= link_to "Download_xml", etic_export_simple_user_path(:id => @user,:pse => 1,:format => "xml") ,class: "btn btn-primary", :target => "_blank" %>
+            -->
+            <% end %>
+  	</div>
+  </div>
+</div>
+
+<script>
+
+
+$(document).ready(function(){
+
+  $('.img_karta_zoom').hover(function() {
+        $(this).addClass('transition1');
+    
+    }, function() {
+        $(this).removeClass('transition1');
+    });
+
+  $(window).scroll(function() {    
+      var scroll = $(window).scrollTop(); 44
+
+      if (scroll >= 50) {
+          $(".fixed").addClass('fixeds');
+          $(".fixed").css("top","0px");
+      } else {
+          $(".fixed").removeClass("fixeds");
+          $(".fixed").css("top","55px");
+      }
+  });
+
+  $(".down").click(function(){
+    $('html, body').animate({
+        scrollTop: $(".oloklirwsi").offset().top
+    }, 2000);
+  });
+
+  $('.table-scrollable').height($(window).height()-130);
+
+  //Prwta mion kai meta sun
+  //$(".pososto_blur").blur();
+  //$(".pososto_sun_blur").blur();
+
+  $(".extra_show_hide").hide();
+  $(".show_less").hide();
+
+  $(".show_more").click(function(){
+    $(this).next().toggle();
+    $(this).hide();
+    $(this).next().next().show();
+  });
+
+  $(".show_less").click(function(){
+    $(this).prev().toggle();
+    $(this).prev().prev().show();
+    $(this).hide();
+  });
+
+
+  $(".sxolia").blur(function(){
+    $.ajax({
+      type:'GET',
+      url:'/etic/update_sxolia',
+      dataType: "json",
+      data: { val: $(this).val(), id: $(this).attr('id')},
+      success: function(data) { 
+        },
+      error: function(data) { 
+        }
+    }); //ajax end
+  });
+
+  $(".pososto_sun_blur").blur(function(){
+      console.log($("#timi_sunolou_posostou_sun").val());
+
+      if ( $("#timi_sunolou_posostou_sun").val() <=  parseFloat("<%= @pososto_sun %>")){
+      $.ajax({
+      type:'GET',
+      url:'/etic/update_pososto_sun',
+      dataType: "json",
+      data: { poso: $("#timi_sunolou_posostou_sun").val(), id: "<%= @paraggelia_id %>"},
+      success: function(data) { 
+              //console.log(data);
+              var w;
+              var rx=  /(\d+)(\d{3})/;
+              String(data).replace(/^\d+/, function(w){
+              while(rx.test(w)){
+                  w= w.replace(rx, '$1.$2');
+              }
+              console.log(w);
+              var data2 = data.toFixed(2).toString().replace(".", ",");
+              var data4 = data2.split(',')[1];
+              console.log(data4);
+              var data3 = w +","+data4+ " €";
+              $("#timi_sunolou_meta").text( data3 );
+              $("#timi_sunolou_teliki").text( data3 );
+
+              console.log("Telos sun");
+
+              if ( $("#timi_sunolou_posostou").val() <=  parseFloat("<%= @pososto %>")){
+              $.ajax({
+              type:'GET',
+              url:'/etic/update_pososto',
+              dataType: "json",
+              data: { poso: $("#timi_sunolou_posostou").val(), id: "<%= @paraggelia_id %>"},
+              success: function(data) { 
+                      //console.log(data);
+                      var w;
+                      var rx=  /(\d+)(\d{3})/;
+                      String(data).replace(/^\d+/, function(w){
+                      while(rx.test(w)){
+                          w= w.replace(rx, '$1.$2');
+                      }
+                      console.log(w);
+                      var data2 = data.toFixed(2).toString().replace(".", ",");
+                      var data4 = data2.split(',')[1];
+                      console.log(data4);
+                      var data3 = w +","+data4+ " €";
+                      $("#timi_sunolou_meta").text( data3 );
+                      $("#timi_sunolou_teliki").text( data3 );
+
+                      console.log("Telos plin");
+                      
+                  });
+                },
+              error: function(data) { 
+                }
+            }); //ajax end
+            }else{
+              //alert("Wrong discount number!");
+            }//end if mion
+              
+          });
+        },
+      error: function(data) { 
+        }
+    }); //ajax end
+    }else{
+      //alert("Wrong number!");
+    }
+    
+  });
+
+$(".pososto_blur").blur(function(){
+    //Prwta kanw to mion kai meta to sun
+    $(".pososto_sun_blur").blur();
+    /*
+    console.log($(this).val());
+    console.log("<%= @pososto_sun %>");
+    if ( $(this).val() <=  parseFloat("<%= @pososto_sun %>")){
+      $.ajax({
+      type:'GET',
+      url:'/etic/update_pososto_sun',
+      dataType: "json",
+      data: { poso: $(this).val(), id: "<%= @paraggelia_id %>"},
+      success: function(data) { 
+              //console.log(data);
+              var w;
+              var rx=  /(\d+)(\d{3})/;
+              String(data).replace(/^\d+/, function(w){
+              while(rx.test(w)){
+                  w= w.replace(rx, '$1.$2');
+              }
+              console.log(w);
+              var data2 = data.toFixed(2).toString().replace(".", ",");
+              var data4 = data2.split(',')[1];
+              console.log(data4);
+              var data3 = w +","+data4+ " €";
+              $("#timi_sunolou_meta").text( data3 );
+              $("#timi_sunolou_teliki").text( data3 );
+
+              console.log("Telos sun");
+              
+          });
+        },
+      error: function(data) { 
+        }
+    }); //ajax end
+    }else{
+      alert("Wrong discount number!");
+    }
+    */
+  });
+
+$(".pososto_sun_blur").blur();
+
+  $(".input_blur").blur(function(){
+    $(".input_blur").each(function(){ //Για καθε input κανω τo update
+      if ( $(this).val().length ) { //ελεγχω αν εχει αλλαξει το value και δεν υπαρχει μονο placeholder
+        //alert($(this).attr('id'));
+        $.ajax({
+            type:'GET',
+            url:'/etic/update_admin',
+            dataType: "json",
+            data: { amount: $(this).val(), id: $(this).attr('id')},
+            success: function(data) { 
+              },
+            error: function(data) { 
+              }
+          }); //ajax end
+          } //end if
+     }); //each end
+    location.reload();
+  });//update end
+
+
+
+}); //ready end
+
+
+
+</script>

@@ -1,0 +1,317 @@
+<div id="loading"></div>
+<div class="container con_home">
+  <div class="row row_mat">
+    <div class="col-xs-4">
+      <!--
+      <button class="menu" onclick="toggle()" onmouseenter="toggle2()">
+        <span class="glyphicon glyphicon-home"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    -->
+      <ul class="ul">
+        <li class="li1_1"><a href="/etic/home/"  class="li1_1">1. <%= t 'mpara.open_category' %></a></li>
+        <li class="li2"><a href="/etic/material?open_categorie=<%= @open_categorie %>"  class="li2">2. <%= t 'mpara.material' %></a></li>
+        <li>3. <%= t 'mpara.leaf' %></li>
+        <li>4. <%= t 'mpara.open_type' %></li>
+        <li>5. <%= t 'mpara.color' %></li>
+        <li>6. <%= t 'mpara.dimension' %></li>
+        <li>7. <%= t 'mpara.price' %></li>
+      </ul>
+
+      <!--San pinakas-->
+      <div class="table-responsive">
+      <table id="table" class="table">
+        <tr>
+          <td class="td_left"><label><%= t 'material_pinakas.cat_anoigma'  %>:</label></td>
+          <td class="open_categorie"><label><%= t "kouf."<<@open_categorie %></label></td>
+        </tr>
+      </table>
+      </div>
+
+      <div id="oti_nane" style="margin-top:280px;"></div>
+
+    </div>
+
+    
+    <div class="col-xs-8">
+      <h2>2. <%= t 'material.title' %></h2>
+
+      <div class="gen_info"> 
+        <p class="gen_p_info">Γενικες οδηγίες για την επιλογη παραθύρων!!! Σε αυτό το πλαίσιο μπορούμε να προσθέσουμε οποιαδήποτε πληροφορία θέλουμε.</p>
+      </div>
+      
+      <h2><%= t 'material.title' %></h2>
+      <!--<a href="#kata">-->
+      <div class="uliko">
+      <% @uliko.each do |u| %>
+      <label class="material" id="<%= u.id %>"><%= u.name %></label><br>
+      <% end %><!--End each-->
+      </div>
+      <!--</a>-->
+
+      <!--Class κατασκεβαστες-->
+      <br>
+      
+      <div class="kataskevastes" id="kata"> 
+      </div>
+      
+      <div class="gen_info2" style="margin-top:10px;"> 
+        <p class="gen_p_info2"><b>Hervorragende Eigenschaften aller Salamandersysteme:</b>
+          <br>- Von Spezialisten sorgfältig ausgesuchte Rezeptur des Profils, um die beste Qualität in dieser Klasse zu erzielen 
+          <br>- Die einfache Form des Profils gibt den Fenstern ein klassisches Aussehen 
+          <br>- Die Fläche ist sehr glatt und glänzend, und die Farbe ist deutlich weißer, als bei anderen Profilen 
+          <br>- Die Salamander Profile sind in Fabriken in Deutschland produziert, was sich in der Qualität der Profile wiederspiegelt 
+          <br>- die Dichtungen der neuesten Generation sind beständig gegenüber UV-Strahlung und großen Temperaturwechseln</p>
+      </div>
+      
+      <!--Class συστήματα--> 
+      <br> 
+      
+      <div class="systems" id="system">
+      </div>
+      <!--Class σειρες-->
+      <br>
+      <div id="loading_system"></div>
+      <div class="lines" id="lines">  
+      </div>
+      
+      <!--Class html-->
+      <div class="html">
+        
+       
+      </div>
+
+    </div><!--End col-md-8-->
+  </div><!--End row-->
+</div><!--End conteiner-->
+
+<script>
+
+function kata_click(){
+    $('html,body').animate({
+            scrollTop: $("#oti_nane").offset().top},
+            'slow');
+  }
+
+
+$(document).ready(function(){
+
+  /*
+  (function(window, location) {
+    string = "<%= @sumbol %>"+"open_categorie="+"<%= @open_categorie %>"
+    history.replaceState(null, document.title, location.pathname+string);
+    history.pushState(null, document.title, location.pathname+string);
+
+    window.addEventListener("popstate", function() {
+      if(location.hash === "") {
+            //history.replaceState(null, document.title, location.pathname);
+            setTimeout(function(){
+              location.replace("<%= etic_home_path %>");
+            },0);
+      }
+    }, false);
+}(window, location));
+   */
+
+  ///////////////////  ΚΛΙΚ ΣΕ MATERIAL ///////////////////////
+
+  // Αδιαζω πινακακι και ολα τα κατω
+  // Προσθετω στο πινακακι τα label με τιμες που πατησα 
+  // Αλλαζω τα χρωματα σε αυτα που πατησα 
+  // Εμφανιζω κατασκεβαστες που μου ηρθαν απο controller 
+
+  $(".uliko").on("click", ".material", function() {//Click σε υλικο και εμφανιση κατασκεβαστη
+    //Γεμιζω-αδειαζω πανω πινακα
+    $(".p1").remove();
+    $(".p2").remove();
+    $(".p3").remove();
+    var pin = $(this).text();
+    var p1m = "<tr class=p1><td class='pin1h td_left'><label><%= t 'material_pinakas.material'  %>: </label></td><td class=pin1><label>"+pin+"</label></td></tr>"
+    $(p1m).appendTo("#table");
+    //$(pin1).appendTo(".pin1");
+    //Αδιαζω ολα τα κάτω
+    $( ".kataskevastes" ).empty(); //Αδιαζω το div για να μπει το νεο κλικ
+    $( ".systems" ).empty();
+    $( ".lines" ).empty();
+    //alert( $(this).attr('id') );
+    //Αλλαγη χρωματος
+    $( ".material" ).css("background-color","");//Ετσι αφαιρω την ιδιοτητα!!!
+    $( ".material" ).css("color","");
+    //
+    //$( this ).css("background-color","#CA3333");
+    $( this ).css("background-color","#666666");
+    $( this ).css("color","white");
+    //
+    ulik = $(this).attr('id'); //Global variable για να την περασω στην αλλη σελιδα
+      $.ajax({
+            type:'GET',
+            url:'/etic/kataskevastes',
+            dataType: "json",
+            data: { material_id: $(this).attr('id') },
+            success: function(data) {
+              var header2 = "<h2><%= t 'material.constructor' %></h2>" 
+              $(header2).appendTo(".kataskevastes");
+              $.each(data, function(i, item) { //Για κάθε data που παίρνω κανω τα παρακάτο 
+                  //alert(item.name);
+                  //return $(".kataskevastes").html(item.name);
+                  //$( "<p>item.name</p>" ).appendTo( ".kataskevastes" );
+                  var div_data = "<a onclick='kata_click()' style='text-decoration: none;'><label class=kataskevastis id="+item.id+">"+item.name+"</label></a><br>";
+                  $(div_data).appendTo(".kataskevastes");
+              })
+              console.log(data) //Δινει στοιχεια για τα data
+              $(".kataskevastis").click();
+              },
+            error: function(data) { 
+              }
+          });//end ejax
+  });//end click
+
+  $(".kataskevastes").on("click", ".kataskevastis", function() {  //Click σε κατασκεβαστες για εμφανηση συστημάτων
+    //Γεμιζω-αδειαζω πανω πινακα
+    $(".p2").remove();
+    $(".p3").remove();
+    var pin = $(this).text();
+    var p2m = "<tr class=p2><td class='pin2h td_left'><label><%= t 'material_pinakas.cataskevastis'  %>: </label></td><td class=pin2><label>"+pin+"</label></td></tr>"
+    $(p2m).appendTo("#table");
+    //Εδω αδιάζω ολα τα παρακάτω
+    $( ".systems" ).empty();
+    $( ".lines" ).empty();
+    //alert( $(this).attr('id') );
+    //Αλλαγη χρωματος
+    $( ".kataskevastis" ).css("background-color","");
+    $( ".kataskevastis" ).css("color","");
+    //
+    //$( this ).css("background-color","#CA3333");
+    $( this ).css("background-color","#666666");
+    $( this ).css("color","white");
+    //
+    katas = $(this).attr('id'); //Global variable για να την περασω στην αλλη σελιδα
+    $.ajax({
+            type:'GET',
+            url:'/etic/system',
+            dataType: "json",
+            data: { constructor_id: $(this).attr('id') },
+            success: function(data) { 
+              var header3 = "<h2><%= t 'material.system' %></h2>" 
+              $(header3).appendTo(".systems");
+              $.each(data, function(i, item) { //Για κάθε data που παίρνω κανω τα παρακάτο 
+                  //alert(item.name);
+                  //return $(".kataskevastes").html(item.name);
+                  //<a href="#lines" style="text-decoration: none;">
+                  //</a>
+                  //$( "<p>item.name</p>" ).appendTo( ".kataskevastes" );
+                  var div_data = "<a onclick='kata_click()' style='text-decoration: none;'><label class=system id="+item.id+">"+item.name+"</label></a><br>";
+                  $(div_data).appendTo(".systems");
+              })
+              console.log(data) //Δινει στοιχεια για τα data
+              },
+            error: function(data) { 
+              }
+          });//end ejax
+  });//end click
+
+  $(".systems").on("click", ".system", function() { //Click σε συστημα για εμφάνηση σειρών
+    //Γεμιζω-αδειαζω πανω πινακα
+    $(".p3").remove();
+    var pin = $(this).text();
+    var p3m = "<tr class=p3><td class='pin3h td_left'><label><%= t 'material_pinakas.systima'  %>: </label></td><td class=pin3><label>"+pin+"</label></td></tr>"
+    $(p3m).appendTo("#table");
+    //Εδω αδιάζω ολα τα παρακάτω
+     $( ".lines" ).empty();
+    //alert( $(this).attr('id') );
+    //Αλλαγη χρωματος
+    $( ".system" ).css("background-color","");
+    $( ".system" ).css("color","");
+    //
+    //$( this ).css("background-color","#CA3333");
+    $( this ).css("background-color","#666666");
+    $( this ).css("color","white");
+    //
+    syst = $(this).attr('id'); //Global variable για να την περασω στην αλλη σελιδα
+    text = $(this).text();
+    $('#loading_system').show();
+    $.ajax({
+            type:'GET',
+            url:'/etic/line',
+            dataType: "json",
+            data: { system_id: $(this).attr('id') },
+            success: function(data) { 
+              var header4 = "<h2><%= t 'material.line' %>: "+text+"</h2>" 
+              $(header4).appendTo(".lines");
+              $.each(data, function(i, item) { //Για κάθε data που παίρνω κανω τα παρακάτο 
+                  //alert(item.name);
+                  //return $(".kataskevastes").html(item.name);
+                  //$( "<p>item.name</p>" ).appendTo( ".kataskevastes" );
+                  if (item.yes == 1) {
+                    var line_div = "<div class='line_div' id="+item.name_allo+" rel="+item.id+" ></div>"
+                    $(line_div).appendTo(".lines");
+                    line = $("#"+item.name_allo+"");
+                    var div_data1 = "<h4 class='line_header'>"+ item.name +"</h4>"
+                    $(div_data1).appendTo(line);
+                    /*
+                    var div_data2 = "<label class='line' id="+item.id+"><img src=/assets/"+item.image+"></label>+item.direct_img+";
+                    $(div_data2).appendTo(line); 
+                    */
+                    var div_data2 = "<label class='line2' id="+item.id+"><img src=/assets/"+item.direct_img+" ></label>";
+                    $(div_data2).appendTo(line).hide().fadeIn(500);
+                    /*
+                    var div_data3 = "<div class='description'>"+item.koimeno+"<div>"
+                    $(div_data3).appendTo(line);
+                    */
+                  }
+              })
+              console.log(data) //Δινει στοιχεια για τα data
+              },
+            error: function(data) { 
+              }
+          });//end ejax
+          $('#loading_system').fadeOut(1000);
+  });//end click
+
+  $(".lines").on("click", ".line_div", function() { //Click σε σειρά για εμφάνηση φύλλων
+    //alert( "Ιd κατηγοριας ανοιγματος: " + $(".open_categorie").text() );//Παίρνω την κατηγορία ανοίγματος
+    //alert( "Id υλικου: " + ulik );
+    //alert( "Id κατασκεβαστη: " + katas );
+    //alert( "Id συστηματος: " + syst );
+    //alert( "Id σειράς: " + $(this).attr('id') );//Παίρνω την σειρά. id
+    //Ολα αυτα τα περναω στην επομενη σελιδα που εχει τα φυλλα
+    //Εδω ο Αιαντας δεν χρειαζετε, γινπνται ολα με το λινκ
+    $.ajax({
+            type:'GET', 
+            url:'/etic/leaf',
+            dataType: "json",
+            data: { open_categorie_name: $(".open_categorie").text(), material_id: ulik, constructor_id: katas, system_id: syst, line_id: $(this).attr('id')  },
+            success: function(data) { 
+              },
+            error: function(data) { 
+              }
+          });//end ejax
+    //Ετσι περναω τις μεταβλητες κανονικα και οχι με τα data!!!
+    //Κάθε φορά περναω τις μεταβλητες που εχω επανω στον 'πινακασ' στην επομενη σελιδα συν αυτην που παταω
+    window.location.href = "<%= etic_leaf_path %>?open_categorie_name="+"<%= @open_categorie %>"+"&material_id="+ulik+"&constructor_id="+katas+"&system_id="+syst+"&line_id="+$(this).attr('rel')+"";
+
+  });
+  /*
+  $(".lines").on("hover", ".line", function() {
+    $(this)
+    .animate({ width: "90%" }, 1000 )
+    .animate({ borderLeftWidth: "15px" }, 1000 );
+  });
+  */
+  
+  mat_click();
+  function mat_click(){
+    $(".material").click();
+    //kata_click();
+  }
+  
+
+
+
+
+});//end ready
+
+
+
+</script>

@@ -1,0 +1,59 @@
+<div class="container con_home">
+  
+  <div class="row" style="height:600px;">
+    <div class="col-xs-5 col-5" >
+    <h1><%= t 'translate.Select_customer' %></h1>
+
+    <%= link_to (t 'translate.New_customer'), etic_new_user_path, class: "btn btn-success translate_button"%></br></br>
+
+    
+
+    </div><!--col-->
+
+    <div class="col-xs-6 col-6" >
+      <%= form_tag etic_select_customer_path, :method => 'get' do %>
+        <p>
+          <%= text_field_tag :search, params[:search] %>
+          <%= submit_tag(t("translate.Search"), :name => nil )%>
+          <%= submit_tag(t("translate.All"), :name => "all" )%>
+        </p>
+      <% end %>
+    
+      <select class="select" id="cust" multiple="multiple" size="10">
+        <% @customers.each do |c| %>
+        <option value="<%= c.id %>"><%= c.id %> - <%= c.eponimo %> <%= c.name %>  </option>
+        <% end %>
+      </select>
+    </div>
+
+    <!-- <button class="btn btn-primary ok">Continue</button> -->
+    
+
+    </br>
+
+
+  </div>
+</div>
+
+<script type="text/javascript">
+
+  document.getElementById('cust').ondblclick = function(){
+    ti_epeleksa_option_cust = $('#cust').find(":selected").val();
+    window.location.href = "<%= etic_new_offer_path %>?customer_id="+ti_epeleksa_option_cust;
+};
+
+  $(".container").on("click", ".ok", function() {
+    
+    ti_epeleksa_option_cust = $('#cust').find(":selected").val();
+    ti_epeleksa_option_new_user = $('#cust2').find(":selected").val();
+
+    if(typeof ti_epeleksa_option_cust === 'undefined'){
+      window.location.href = "<%= etic_new_offer_path %>?customer_id="+ti_epeleksa_option_cust;
+    }else{
+      window.location.href = "<%= etic_new_offer_path %>?customer_id="+ti_epeleksa_option_cust;
+    }
+
+
+  });//end ok
+
+</script>

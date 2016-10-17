@@ -1,0 +1,47 @@
+<div id="loading"></div>
+<div class="container box_shadow">
+  <div class="row">
+    <div class="col-md-6 no_marg" id="leftCol">
+        
+
+		<div class="/*gen_info*/"> 
+          <p class="gen_p_info"><%= t 'translate.welcome_text' %></br></br>
+          <%= t 'translate.welcome_text_browsers' %></br><%= link_to image_tag("chrome.png", size: "60x60"), "https://www.google.com/chrome/browser/desktop/index.html", target: "_blank" %><%= link_to image_tag("firefox.png", size: "60x60"), "https://www.mozilla.org/de/firefox/desktop/", target: "_blank" %>
+          </p>
+          <!-- image_tag("/assets/firefox.png" -->
+        </div>
+
+    </div><!--Col-->
+
+    <div class="col-md-6 no_marg">
+
+
+		<%= form_for(resource, as: resource_name, url: session_path(resource_name), html: {class: "epikoinonia_form", id: "contact-form"}) do |f| %>
+
+		 <div class="form-group">
+		    <div><%= t("translate.Email") %><br />
+		    <%= f.email_field :email, autofocus: true, class: "form-control" %></div>
+		</div>
+        
+        <div class="form-group">
+		  <div><%= t("translate.Password") %><br />
+		    <%= f.password_field :password, autocomplete: "off", class: "form-control" %></div>
+		</div>
+        
+        <div class="form-group">
+		  <% if devise_mapping.rememberable? -%>
+		    <div><%= f.check_box :remember_me %> <%= t("translate.Remember_me") %></div>
+		  <% end -%>
+		</div>
+
+        <div class="form-group">
+		  <div><%= f.submit t("translate.Log_in"), class: 'btn btn-success'%></div>
+		</div>
+		<% end %>
+
+		<!--<%= render "devise/shared/links" %> t('header.log_in')-->
+
+	</div>
+  </div>
+</div>
+

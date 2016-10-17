@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Balteco ltd Admin Panel</title>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag    'bootstrap.min.css', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag    'simple-sidebar.css', media: 'all', 'data-turbolinks-track' => true %>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <!--
+  <script src="/assets/jquery.js"></script>
+  -->
+  <!-- + Πρωσθετω στα assets initializers
+  <script src="/assets/bootstrap-slider.js"></script>
+  <%= stylesheet_link_tag "slider", media: 'all', 'data-turbolinks-track' => true  %>
+  -->
+  <%= csrf_meta_tags %>
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  
+</head>
+<body>
+
+<div class="admin_body" id="wrapper">
+
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <li class="sidebar-brand">
+                    <a href="<%= data_base_in_out_main_controll_panel_path %>">
+                        Etik Controll Panel
+                    </a>
+                </li>
+                <li>
+                    <a href="<%= data_base_in_out_dashboard_path %>">Dashboard</a>
+                </li>
+                <li>
+                    <a href="<%= data_base_in_out_users_path %>">Users</a>
+                </li>
+                <li>
+                    <a href="<%= data_base_in_out_clients_path %>">Clients</a>
+                </li>
+                <li>
+                    <a href="#">Other</a>
+                </li>
+                <li>
+                    <a href="#">Other</a>
+                </li>
+                <li>
+                    <a href="#">Other</a>
+                </li>
+                <li>
+                    <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
+                </li>
+            </ul>
+        </div>
+        <!-- /#sidebar-wrapper -->
+
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <div class="container-fluid">
+                <div class="row_admin">
+                    <div class="col-lg-12" style="height:1000px;">
+                        <%= yield %>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /#page-content-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+
+
+<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+<!-- <%= javascript_include_tag 'jquery', 'data-turbolinks-track' => true %> -->
+<!--<%= javascript_include_tag 'bootstrap.min', 'data-turbolinks-track' => true %>-->
+
+
+    <!-- Menu Toggle Script -->
+    <script>
+    $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+    });
+    </script>
+
+<script type="text/javascript">
+
+$(window).ready(function() {
+    $('#loading').fadeOut(100);
+    //$('#loading').hide(); 
+  });
+
+</script>
+
+</body>
+</html>

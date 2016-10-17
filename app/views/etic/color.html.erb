@@ -1,0 +1,958 @@
+<div id="loading"></div>
+<div class="container con_home">
+  <div class="row row_mat">
+  	<div class="col-xs-4">
+      <!--
+      <button class="menu" onclick="toggle()" onmouseenter="toggle2()">
+        <span class="glyphicon glyphicon-home"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    -->
+      <ul class="ul">
+        <li class="li1_1"><a href="/etic/home/"  class="li1_1">1. <%= t 'mpara.open_category' %></a></li>
+        <li class="li2_2"><a href="/etic/material?open_categorie=<%= @open_categorie.name %>"  class="li2_2">2. <%= t 'mpara.material' %></a></li>
+        <li class="li3_3"><a href="/etic/leaf?open_categorie_name=<%= @open_categorie.name %>&material_id=<%= @material.id %>&constructor_id=<%= @constructor.id %>&system_id=<%= @system.id %>&line_id=<%= @line.id %>"  class="li3_3">3. <%= t 'mpara.leaf' %></a></li>
+        <li class="li4_4"><a href="/etic/open_type?open_categorie_name=<%= @open_categorie.name %>&material_name=<%= @material.name %>&constructor_name=<%= @constructor.name %>&system_name=<%= @system.name %>&line_name=<%= @line.name%>&leaf_name=<%= @leaf.name %>"  class="li4_4">4. <%= t 'mpara.open_type' %></a></li>
+        <li class="li5"><a href="/etic/color?open_categorie_name=<%= @open_categorie.name %>&material_name=<%= @material.name %>&constructor_name=<%= @constructor.name %>&system_name=<%= @system.name %>&line_name=<%= @line.name%>&leaf_name=<%= @leaf.name %>&open_type_name=<%= @open_type.name %>"  class="li5">5. <%= t 'mpara.color' %></a></li>
+        <li>6. <%= t 'mpara.dimension' %></li>
+        <li>7. <%= t 'mpara.price' %></li>
+      </ul>
+
+            <!--San pinakas-->
+      <div class="table-responsive">
+      <table class="table table-condensed">
+        <tr>
+          <td class="td_left"><label><%= t 'material_pinakas.cat_anoigma'  %>:</label></td>
+          <td class="open_categorie"><label><%= t "kouf."<<@open_categorie.name %></label></td>
+        </tr>
+        <tr>
+          <td class="pin1h td_left"><label><%= t 'material_pinakas.material'  %>: </label></td>
+          <td class="pin1"><label class="material"><%= @material.name %></label></td>
+        </tr>
+        <tr>
+          <td class="pin2h td_left"><label><%= t 'material_pinakas.cataskevastis'  %>: </label></td>
+          <td class="pin2"><label class="constructor"><%= @constructor.name %></label></td>
+        </tr>
+        <tr>
+          <td class="pin3h td_left"><label><%= t 'material_pinakas.systima'  %>: </label></td>
+          <td class="pin3"><label class="system"><%= @system.name %></label></td>
+        </tr>
+        <tr>
+          <td class="td_left"><label><%= t 'material_pinakas.line'  %>: </label></td>
+          <td class=""><label class="line"><%= @line.name %></label></td>
+        </tr>
+        <tr>
+          <td class="td_left"><label><%= t 'material_pinakas.leaf'  %>: </label></td>
+          <td class=""><label class="leaf"><%= t "fulla."<<@leaf.name %></label></td>
+        </tr>
+        <tr>
+          <td class="td_left"><label><%= t 'material_pinakas.open_type'  %>: </label></td>
+          <td class=""><label class="open_type"><%= @open_type.name %></label></td>
+        </tr>
+      </table>
+      </div>
+
+    </div>
+
+  	<div class="col-xs-4 col-4" style="overflow-y:scroll; height:700px;">
+      <h2>5. <%= t 'color.title' %></h2>
+
+      <div class="gen_info"> 
+        <p class="gen_p_info">Γενικες οδηγίες για την επιλογη παραθύρων!!! Σε αυτό το πλαίσιο μπορούμε να προσθέσουμε οποιαδήποτε πληροφορία θέλουμε.</p>
+      </div>
+
+      <div class="m_e">
+        <h4><%= t 'color.pedio' %></h4>
+        <div class="div_mesa_eksw">
+          <label class="mesa_eksw xrwma_label" id="2"><%= t 'color.mesa_ekso' %></label><br>
+          <label class="mesa_eksw xrwma_label" id="1"><%= t 'color.mesa' %></label><br>
+          <label class="mesa_eksw xrwma_label" id="1"><%= t 'color.ekso' %></label><br>
+        </div>
+      </div>
+
+      <label class="xrwma_label1"><%= t 'color.title' %>: </label>
+      <label id="xrwma_aplo"></label><br>
+
+        <h4><%= t 'color.epivarinsi' %> 0</h4>
+        <% @colors_0.each do |c| %>
+        <div class="xrwma xrwma1">
+          <div class=""><h5 class="tipos_name"><%= c.name %></h5></div>
+        <img src="/assets/<%= c.image%>" class="color" id="<%= c.name %>" >
+        <span id="<%= c.code %>"></span>
+        </div>
+        <% end %><!--End each-->
+      <div class="margin1"></div>
+      
+      
+        <h4><%= t 'color.epivarinsi' %> <p class="charge1"></p></h4>
+        <% @colors_standar.each do |s| %>
+        <div class="xrwma xrwma2">
+          <div class=""><h5 class="tipos_name"><%= s.name %></h5></div>
+        <img src="/assets/<%= s.image%>" class="color" id="<%= s.name %>" >
+        <span id="<%= s.code %>"></span>
+        </div>
+        <% end %><!--End each-->
+      <div class="margin2"></div>
+ 
+        <h4><%= t 'color.epivarinsi' %> <p class="charge2"></p></h4>
+        <% @colors_extra.each do |e| %>
+        <div class="xrwma xrwma3">
+          <div class=""><h5 class="tipos_name"><%= e.name %></h5></div>
+        <img src="/assets/<%= e.image%>" class="color" id="<%= e.name %>" >
+        <span id="<%= e.code %>"></span>
+        </div>
+        <% end %><!--End each-->
+
+
+      <div class="extra_colors">
+      </div>
+      <div class="xrwmata_kasas_deksia">
+      </div>
+      <div class="xrwmata_kasas_aristera">
+      </div>
+      <div class="xrwmata_kasas_panw">
+      </div>
+      <div class="xrwmata_kasas_katw">
+      </div>
+      <div class="extra_fulou">
+      </div>
+      	
+  	</div><!--End col-md-4-->
+
+    <div class="col-xs-4 col-4">
+      <canvas id="canvas" height="300" width="350">
+      </canvas>
+      <img src="/assets/<%= @open_type.image %>" class="open_type" id="canvas_image" style="background-color: white; display: none;" >
+      <div class="go_on">
+        <button class="btn btn-primary" id="con1"><%= t 'color.button_xwris' %></button>
+        <button class="btn btn-primary" id="emfanisi1"><span class="glyphicon glyphicon glyphicon-plus" aria-hidden="true"></span> <%= t 'color.button_me_kassa' %></button>
+        <button class="btn btn-primary" id="emfanisi2"><span class="glyphicon glyphicon glyphicon-plus" aria-hidden="true"></span> <%= t 'color.button_me_fullo' %></button>
+        <br>
+        <label class="xrwma_label" id="xrwma_kasas"><%= t 'color.button_me_kassa' %></label>
+        <label class="xrwma_label" id="xrwma_fullou"><%= t 'color.button_me_fullo' %></label>
+        <button class="btn btn-primary" id="con2"><%= t 'color.sunexia' %></button>
+      </div>
+    </div>
+
+
+  </div><!--End row-->
+</div><!--End conteiner-->
+
+<script type='text/javascript'>
+
+(function()
+{
+  if( window.localStorage )
+  {
+    if( !localStorage.getItem( 'firstLoad' ) )
+    {
+      localStorage[ 'firstLoad' ] = true;
+      window.location.reload();
+    }  
+    else
+      localStorage.removeItem( 'firstLoad' );
+  }
+})();
+
+
+</script>
+
+<script>
+
+$(window).load(function() {
+
+
+      color = "#F9F8F8";
+      var code = Number("<%= @open_type.code %>");
+      //alert(code);
+
+      if ( code === 1 || code === 1.1 ){
+        //alert("aaaaAAAAaaaaaAAAAaaaAAAAaaaAAA");
+          drawCanvasMonXwrFegMikro(color,1,1);
+        }
+        if ( code === 2 || code === 3 || code === 4 || code === 5 || code === 19 || code === 20  ){
+          drawCanvasMonXwrFeg(color,1,1);
+        }
+        if ( code === 6 || code === 6.1  ){
+          drawCanvasDifXwrFegMikro(color,1,1);
+        }
+        if ( code === 7 || code === 9 || code === 10 || code === 22 || code === 24 ){
+          drawCanvasDifXwrFeg(color,1,1);
+        }
+        if ( (code === 8 || code === 8.1) && "<%= @open_type.name %>" == "2 Tlg.Fenster Dreh-Kipp links FOF" ){
+          DifDeksiaMikroXwrFeg(color,1,1);
+        }
+        if ( (code === 8 || code === 8.1) && "<%= @open_type.name %>" == "2 Tlg.Fenster FOF Dreh-Kipp  rechts" ){
+          DifAristeraMikroXwrFeg(color,1,1);
+        }
+        if ( code === 11 || code === 11.1 ){
+          ParathiroTriDeksiaAristeraMikro2(color,1,1);
+        }
+        if ( code === 12 || code === 12.1 ){
+          ParathiroTriDeksiaAristeraMikro(color,1,1);
+        }
+        if ( code === 13 || code === 25 ){
+          drawCanvasTriXwrFeg(color,1,1);
+        }
+        if ( code === 14 || code === 14.1 ){
+          PortaMonMeFegMikro(color,1,1);
+        }
+        if ( code === 15 ){
+          PortaMonMeFegMegalo(color,1,1);
+        }
+        if ( code === 16 || code === 16.1 ){
+          PortaDifFegMikro(color,1,1);
+        }
+        if ( code === 17 ){
+          PortaDifFegMiaPorta(color,1,1);
+        }
+        if ( code === 18 ){
+          PortaDifFegDuoPortes(color,1,1);
+        }
+        if ( code === 21 ){
+          MpalkonoportaMonFegMegalo(color,1,1);
+        }
+        if ( (code === 23 || code === 23.1) && "<%= @open_type.name %>" == "2 Flg. Balkontür Dreh links mit festem Flügel rechts (FMF)" ){
+          DifDeksiaMikroXwrFeg(color,1,1);
+        }
+        if ( (code === 23 || code === 23.1) && "<%= @open_type.name %>" == "2 Flg. Balkontür mit festem Flügel links (FMF) und Dreh rechts" ){
+          DifAristeraMikroXwrFeg(color,1,1);
+        }
+        if ( (code === 26 || code === 26.1) && "<%= @open_type.name %>" == "3 Flg. Balkontür Dreh links-Dreh Kipp rechts- F -R" ){
+          MpalkonoportaTriDeksiaMikro(color,1,1);
+        }
+        if ( (code === 26 || code === 26.1) && "<%= @open_type.name %>" == "3 Flg. Balkontür Dreh links-Dreh Kipp rechts- F -L" ){
+          MpalkonoportaTriAristeraMikro(color,1,1);
+        }
+});
+
+$(document).ready(function(){
+
+  color_aplo = "White";//default color για color_aplo, το εχω για αρχικοποιηση
+  $("#xrwma_aplo").text(color_aplo);
+  //Αρχικοποιηση counter, δεν εχω μπει σε κανένα απο τα δύο
+  counter = 0;
+
+  //Κριβω την συναιχεια μεχρι να πατισω μεσα εξω
+  $("#con1").css("display","none");
+  $("#emfanisi1").css("display","none");
+  $("#emfanisi2").css("display","none");
+
+  //Κρυβω τα πλαισια κατω τον extra χρωμάτων
+  $("#xrwma_kasas").css("display","none");
+  $("#xrwma_fullou").css("display","none");
+  $("#con2").css("display","none");
+
+  /////////////////////// LABEL ΓΙΑ ΕΠΙΛΟΓΗ ΜΕΣΑ ΕΞΩ ///////////////////////////////////
+
+  $(".div_mesa_eksw").on("click", ".mesa_eksw", function() {
+    $(".charge1").empty();
+    $(".charge2").empty();
+    oikosi = "<p>20%</p>";
+    peninta = "<p>50%</p>";
+    saranta = "<p>40%</p>";
+    eudominta = "<p>70%</p>";
+    mesa_eksw = $(this).attr('id');
+    if (mesa_eksw == 1){
+      $(oikosi).appendTo(".charge1");
+      $(peninta).appendTo(".charge2");
+    }
+    else{
+      $(saranta).appendTo(".charge1");
+      $(eudominta).appendTo(".charge2");
+    }
+    $( ".mesa_eksw" ).css("background-color","");//Ετσι αφαιρω την ιδιοτητα!!!
+    $( ".mesa_eksw" ).css("color","");
+    //$( this ).css("background-color","#CA3333");
+    $( this ).css("background-color","#666666");
+    $( this ).css("color","white");
+
+    $("#con1").css("display","block");
+    $("#emfanisi1").css("display","block");
+    $("#emfanisi2").css("display","block");
+
+  }); 
+
+  ///////////////////////BUTTON ΓΙΑ ΕΠΙΛΟΓΗ ΚΥΡΙΟΥ ΧΡΩΜΑΤΟΣ///////////////////////////////
+
+  //Επιλογή αρχικού χρώματος και εμφάνηση στο label
+  $(".xrwma").on("click", ".color", function() { 
+    color_aplo = $(this).attr('id'); //Global variable για να την περασω στην αλλη σελιδα, εχω το name του
+    $("#xrwma_aplo").empty();
+    $("#xrwma_aplo").text(color_aplo);
+    color = $(this).next().attr('id');
+    var code = Number("<%= @open_type.code %>");
+    //Σβηνω αυτα που ειχα πατησει
+    $(".color").css('border-style', '');
+    $(".tipos_name").css('display', '');
+    //Κανω να φενετε με border αυτο που πατησα!!
+    $(this).css('border-style', 'solid');
+    $(this).css('border-width', '5px');
+    $(this).css('border-color', 'Gold');
+    $(this).prev().children().css('display', 'block');
+    //alert(typeof(code));
+    //alert(code);
+    if ( code === 1 || code === 1.1 ){
+        //alert("aaaaAAAAaaaaaAAAAaaaAAAAaaaAAA");
+          drawCanvasMonXwrFegMikro(color,1,1);
+        }
+        if ( code === 2 || code === 3 || code === 4 || code === 5 || code === 19 || code === 20  ){
+          drawCanvasMonXwrFeg(color,1,1);
+        }
+        if ( code === 6 || code === 6.1  ){
+          drawCanvasDifXwrFegMikro(color,1,1);
+        }
+        if ( code === 7 || code === 9 || code === 10 || code === 22 || code === 24 ){
+          drawCanvasDifXwrFeg(color,1,1);
+        }
+        if ( (code === 8 || code === 8.1) && "<%= @open_type.name %>" == "2 Tlg.Fenster Dreh-Kipp links FOF" ){
+          DifDeksiaMikroXwrFeg(color,1,1);
+        }
+        if ( (code === 8 || code === 8.1) && "<%= @open_type.name %>" == "2 Tlg.Fenster FOF Dreh-Kipp  rechts" ){
+          DifAristeraMikroXwrFeg(color,1,1);
+        }
+        if ( code === 11 || code === 11.1 ){
+          ParathiroTriDeksiaAristeraMikro2(color,1,1);
+        }
+        if ( code === 12 || code === 12.1 ){
+          ParathiroTriDeksiaAristeraMikro(color,1,1);
+        }
+        if ( code === 13 || code === 25 ){
+          drawCanvasTriXwrFeg(color,1,1);
+        }
+        if ( code === 14 || code === 14.1 ){
+          PortaMonMeFegMikro(color,1,1);
+        }
+        if ( code === 15 ){
+          PortaMonMeFegMegalo(color,1,1);
+        }
+        if ( code === 16 || code === 16.1 ){
+          PortaDifFegMikro(color,1,1);
+        }
+        if ( code === 17 ){
+          PortaDifFegMiaPorta(color,1,1);
+        }
+        if ( code === 18 ){
+          PortaDifFegDuoPortes(color,1,1);
+        }
+        if ( code === 21 ){
+          MpalkonoportaMonFegMegalo(color,1,1);
+        }
+        if ( (code === 23 || code === 23.1) && "<%= @open_type.name %>" == "2 Flg. Balkontür Dreh links mit festem Flügel rechts (FMF)" ){
+          DifDeksiaMikroXwrFeg(color,1,1);
+        }
+        if ( (code === 23 || code === 23.1) && "<%= @open_type.name %>" == "2 Flg. Balkontür mit festem Flügel links (FMF) und Dreh rechts" ){
+          DifAristeraMikroXwrFeg(color,1,1);
+        }
+        if ( (code === 26 || code === 26.1) && "<%= @open_type.name %>" == "3 Flg. Balkontür Dreh links-Dreh Kipp rechts- F -R" ){
+          MpalkonoportaTriDeksiaMikro(color,1,1);
+        }
+        if ( (code === 26 || code === 26.1) && "<%= @open_type.name %>" == "3 Flg. Balkontür Dreh links-Dreh Kipp rechts- F -L" ){
+          MpalkonoportaTriAristeraMikro(color,1,1);
+        }
+  });//end click
+
+  ///////////////////////BUTTON ΓΙΑ ΕΜΦΑΝΗΣΗ ΕΠΙΛΟΓΗΣ ΧΡΩΜΑΤΩΝ ΕΧΤΡΑ///////////////////////////////
+
+  //Μολις πατήσω χρώμα κάσας, εμφανίζω το πλαισιο χρώμα κάσας, αρχικοποιω χρώματα και counter οτι μπηκα εδω 
+  $("#emfanisi1").click(function () {
+    $("#xrwma_kasas").css("display","block");
+    $("#con2").css("display","block");
+    $("#con1").css("display","none");
+    $("#emfanisi1").css("display","none");
+    counter = counter + 5;
+    color_deksia = "White";
+    color_aristera = "White";
+    color_panw = "White";
+    color_katw = "White";
+    //drawCanvasTet("#F9F8F8",0,0,0,0);
+    //Εξαφανιζω τα χρώματα απο πανω οπως Ολυμπια
+    $(".xrwma_label1").css("display","none");
+    $("#xrwma_aplo").css("display","none");
+    $(".div_mesa_eksw").css("display","none");
+    $(".xrwma").css("display","none");
+    $('h4').css("display","none");
+    $(".margin1").css("display","none");
+    $(".margin2").css("display","none");
+
+    $("#xrwma_kasas").click();
+  });
+
+  //Μολις πατήσω χρώμα φύλου, εμφανίζω το πλαισιο χρώμα φύλου, αρχικοποιω χρώματα και counter οτι μπηκα εδω
+  $("#emfanisi2").click(function () {
+    $("#xrwma_fullou").css("display","block");
+    $("#con2").css("display","block");
+    $("#con1").css("display","none");
+    $("#emfanisi2").css("display","none");
+    counter = counter + 10;
+    color_fulou = "White";//default color για color_fulou, το εχω για αρχικοποιηση
+
+    //Εξαφανιζω τα χρώματα απο πανω οπως Ολυμπια
+    $(".xrwma_label1").css("display","none");
+    $("#xrwma_aplo").css("display","none");
+    $(".div_mesa_eksw").css("display","none");
+    $(".xrwma").css("display","none");
+    $('h4').css("display","none");
+    $(".margin1").css("display","none");
+    $(".margin2").css("display","none");
+
+    $("#xrwma_fullou").click();
+  });
+
+  //////////////   ΧΡΩΜΑΤΑ ΚΑΣΑΣ ///////////////////////////////////////////////////////////////////////
+
+  //Μολις πατήσω χρώμα κάσας εμφανίζω το πλαισιο. 
+  //Κρύβω το πλαισιο χρωμα φυλου χωρις να διαγραφω τις τιμες που ειχα επιλέξει
+  //Αλλαζω το css σε label που πατω
+  //Αδιαζω την περιοχη με label για να μην ξαναβγενουν
+  //Γραφω τα label που θα χρειαστω + αυτα που κραταν τις τιμε
+  //Ολο αυτο γινεται μια φορα και δεν περνετε πισω, εκτος αν κανω refresh
+  $("#xrwma_kasas").click(function () { //Παταω χρωμα κασας
+    $(".xrwmata_kasas_deksia").css("display","block");
+    $(".xrwmata_kasas_aristera").css("display","block");
+    $(".xrwmata_kasas_panw").css("display","block");
+    $(".xrwmata_kasas_katw").css("display","block");
+    $(".extra_colors").css("display","block"); //Τα label με τα χρώματα μέσα για κασα
+    //Δεν διαγραφω απλα βγαζω απο την οθονη τα χρωματα φυλου
+    $(".extra_fulou").css("display","none"); //Τα label με τα χρώματα μέσα για φύλλο
+    //Αλλαζω χρωμα στα label που αρχικα πατω, τα πανω
+    $( "#xrwma_fullou" ).css("background-color","");//Ετσι αφαιρω την ιδιοτητα!!!
+    $( "#xrwma_fullou" ).css("color","");
+    //$( this ).css("background-color","#CA3333");
+    $( this ).css("background-color","#666666");
+    $( this ).css("color","white");
+    //Αδιαζω τα extra_colors για να μην εμφανιζωνται πολλες φορες
+    $(".extra_colors").empty();
+    $(".xrwmata_kasas_deksia").empty();
+    $(".xrwmata_kasas_aristera").empty();
+    $(".xrwmata_kasas_panw").empty();
+    $(".xrwmata_kasas_katw").empty();
+    //Γραφψω τα label που θα χρειαστω + τα label απο διπλα που θα γεμισω
+    //var hr = "<hr>"
+    //$(hr).appendTo(".extra_colors");
+    var div_data = "<label class='deksia_l xrwma_label'><%= t 'color.deksia' %></label><label class='label_dekia'>"+color_deksia+"</label><br>";
+    $(div_data).appendTo(".extra_colors");
+    var div_data = "<label class='aristera_l xrwma_label'><%= t 'color.aristera' %></label><label class='label_aristera'>"+color_aristera+"</label><br>";
+    $(div_data).appendTo(".extra_colors");
+    var div_data = "<label class='panw_l xrwma_label'><%= t 'color.panw' %></label><label class='label_panw'>"+color_panw+"</label><br>";
+    $(div_data).appendTo(".extra_colors");
+    var div_data = "<label class='katw_l xrwma_label'><%= t 'color.katw' %></label><label class='label_katw'>"+color_katw+"</label><br>";
+    $(div_data).appendTo(".extra_colors");  
+  });
+
+  //Με κλικ στο label καθε πλευρας αδιαζω το πλαισιο και ξαναεμφανιζω τα χρωματα καθε πλευρας
+  //Με κλικ στο χρωμα αποθυκεύω το χρωμα σε μια global μεταβλητη, αδιαζω το label και το ξαναγεμίζω
+  //Το ιδιο γινεται 4ης φορες παρακάτω μια για καθε πλευρα
+
+  $(".extra_colors").on("click", ".deksia_l", function() { 
+    //$(".xrwmata_kasas").empty();
+    $(".xrwmata_kasas_deksia").empty();
+    $(".xrwmata_kasas_aristera").empty();
+    $(".xrwmata_kasas_panw").empty();
+    $(".xrwmata_kasas_katw").empty();
+
+    //Αλλαζω χρωμα στα label που αρχικα πατω, τα πανω
+    $( ".aristera_l" ).css("background-color","");//Ετσι αφαιρω την ιδιοτητα!!!
+    $( ".aristera_l" ).css("color","");
+    $( ".panw_l" ).css("background-color","");//Ετσι αφαιρω την ιδιοτητα!!!
+    $( ".panw_l" ).css("color","");
+    $( ".katw_l" ).css("background-color","");//Ετσι αφαιρω την ιδιοτητα!!!
+    $( ".katw_l" ).css("color","");
+    //$( this ).css("background-color","#CA3333");
+    $( this ).css("background-color","#666666");
+    $( this ).css("color","white");
+
+    var divs = "<div class='0'></div> <div class='standar'></div> <div class='extra'></div>"
+    $(divs).appendTo(".xrwmata_kasas_deksia");
+    var div = "<h4><%= t 'color.epivarinsi' %> 0</h4>"
+    $(div).appendTo(".0");
+    var div = "<h4><%= t 'color.epivarinsi' %> Standar</h4>"
+    $(div).appendTo(".standar");
+    var div = "<h4><%= t 'color.epivarinsi' %> Extra</h4>"
+    $(div).appendTo(".extra");
+
+    $.ajax({
+            type:'GET',
+            url:'/etic/corol_kasas',
+            dataType: "json",
+            //data: { material_id: $(this).attr('id') },
+            success: function(data) {
+              $.each(data, function(i, item) { //Για κάθε data που παίρνω κανω τα παρακάτο 
+                  if ( item.katigoria === 0 ){
+                    var div_data = "<div class='xrwma xrwma1'><div><h5 class='tipos_name'> "+item.name+" </h5></div><img src='/assets/"+item.image+"' class='deksia color' id="+item.name+"><span id="+item.code+"></span></div><div class='margin1'></div>";
+                    $(div_data).appendTo(".0");
+                  }
+                  if ( item.katigoria === 1 ){
+                    var div_data = "<div class='xrwma xrwma2'><div><h5 class='tipos_name'> "+item.name+" </h5></div><img src='/assets/"+item.image+"' class='deksia color' id="+item.name+"><span id="+item.code+"></span></div>";
+                    $(div_data).appendTo(".standar");
+                  }
+                  if ( item.katigoria === 2 ){
+                    var div_data = "<div class='xrwma xrwma3'><div><h5 class='tipos_name'> "+item.name+" </h5></div><img src='/assets/"+item.image+"' class='deksia color' id="+item.name+"><span id="+item.code+"></span></div>";
+                    $(div_data).appendTo(".extra");
+                  }
+
+              })
+               var div = "<div class='margin2'></div>"
+               $(div).appendTo(".standar");
+               console.log(this_deksia);
+                this_deksia.css('border-style', 'solid');
+                this_deksia.css('border-width', '5px');
+                this_deksia.css('border-color', 'Gold');
+                this_deksia.prev().children().css('display', 'block');
+              console.log(data) //Δινει στοιχεια για τα data
+              },
+            error: function(data) { 
+              }
+          });//end ejax
+
+          
+    
+
+  });
+
+  $(".xrwmata_kasas_deksia").on("click", ".deksia", function() { //Κανω κλικ σε χρωμα και αποθηκευω την μεταβλητη color_fulou
+
+        color_deksia = $(this).attr('id'); //Global variable για να την περασω στην αλλη σελιδα, εχω το name του
+        //ΓΕΝΙΚΑ ΝΑ ΚΑΝΩ CSS ΓΙΑ ΝΑ ΞΕΧΟΡΙΖΕΙ Η LABEL
+        //alert(color_fulou);
+        $(".label_dekia").empty();
+        //$(".label_name").empty();
+        var label_name = "<label class='label_deksia'>"+color_deksia+"</label><br>"
+        $(label_name).appendTo(".label_dekia");
+
+        this_deksia = $(this);
+        console.log(this_deksia);
+        console.log($(this));
+
+        //Σβηνω αυτα που ειχα πατησει
+        $(".color").css('border-style', '');
+        $(".tipos_name").css('display', '');
+        //Κανω να φενετε με border αυτο που πατησα!!
+        $(this).css('border-style', 'solid');
+        $(this).css('border-width', '5px');
+        $(this).css('border-color', 'Gold');
+        $(this).prev().children().css('display', 'block');
+
+        color = $(this).next().attr('id');
+        var c = document.getElementById("canvas");
+        var ctx = c.getContext("2d");
+        var img = document.getElementById("canvas_image");
+        ctx.fillStyle = color; //ασπρο
+        //ctx.fillRect(0, 0, 104, 15);
+        //ctx.fillRect(0, 89, 104, 15);
+        //ctx.fillRect(0, 0, 15, 104);
+        //ctx.fillRect(89, 0, 15, 104);//δεξια
+        //Καλο
+        //ctx.fillRect(101, 0, 3, 103);
+        //ctx.fillRect(98, 4, 3, 96);
+        //ctx.fillRect(95, 7, 3, 88);
+        //ctx.fillRect(92, 10, 3, 83);
+        //ctx.fillRect(89, 13, 3, 78);
+        //ctx.fillStyle = "#5EAFD2"; //μπλε
+        //ctx.fillRect(15, 15, 74, 74);
+        //ctx.drawImage(img, 0, 0);
+
+      });//end click
+
+  $(".extra_colors").on("click", ".aristera_l", function() {
+    $(".xrwmata_kasas_deksia").empty();
+    $(".xrwmata_kasas_aristera").empty();
+    $(".xrwmata_kasas_panw").empty();
+    $(".xrwmata_kasas_katw").empty();
+    $(".xrwmata_kasas").empty();
+
+    //Αλλαζω χρωμα στα label που αρχικα πατω, τα πανω
+    $( ".deksia_l" ).css("background-color","");//Ετσι αφαιρω την ιδιοτητα!!!
+    $( ".deksia_l" ).css("color","");
+    $( ".panw_l" ).css("background-color","");//Ετσι αφαιρω την ιδιοτητα!!!
+    $( ".panw_l" ).css("color","");
+    $( ".katw_l" ).css("background-color","");//Ετσι αφαιρω την ιδιοτητα!!!
+    $( ".katw_l" ).css("color","");
+    //$( this ).css("background-color","#CA3333");
+    $( this ).css("background-color","#666666");
+    $( this ).css("color","white");
+
+    var divs = "<div class='0'></div> <div class='standar'></div> <div class='extra'></div>"
+    $(divs).appendTo(".xrwmata_kasas_aristera");
+    var div = "<h4><%= t 'color.epivarinsi' %> 0</h4>"
+    $(div).appendTo(".0");
+    var div = "<h4><%= t 'color.epivarinsi' %> Standar</h4>"
+    $(div).appendTo(".standar");
+    var div = "<h4><%= t 'color.epivarinsi' %> Extra</h4>"
+    $(div).appendTo(".extra");
+
+    $.ajax({
+            type:'GET',
+            url:'/etic/corol_kasas',
+            dataType: "json",
+            //data: { material_id: $(this).attr('id') },
+            success: function(data) {
+              $.each(data, function(i, item) { //Για κάθε data που παίρνω κανω τα παρακάτο 
+                  if ( item.katigoria === 0 ){
+                    var div_data = "<div class='xrwma xrwma1'><div><h5 class='tipos_name'> "+item.name+" </h5></div><img src='/assets/"+item.image+"' class='eristera color' id="+item.name+"><span id="+item.code+"></span></div><div class='margin1'></div>";
+                    $(div_data).appendTo(".0");
+                  }
+                  if ( item.katigoria === 1 ){
+                    var div_data = "<div class='xrwma xrwma2'><div><h5 class='tipos_name'> "+item.name+" </h5></div><img src='/assets/"+item.image+"' class='aristera color' id="+item.name+"><span id="+item.code+"></span></div>";
+                    $(div_data).appendTo(".standar");
+                  }
+                  if ( item.katigoria === 2 ){
+                    var div_data = "<div class='xrwma xrwma3'><div><h5 class='tipos_name'> "+item.name+" </h5></div><img src='/assets/"+item.image+"' class='aristera color' id="+item.name+"><span id="+item.code+"></span></div>";
+                    $(div_data).appendTo(".extra");
+                  }
+
+              })
+               var div = "<div class='margin2'></div>"
+               $(div).appendTo(".standar");
+              console.log(data) //Δινει στοιχεια για τα data
+              },
+            error: function(data) { 
+              }
+          });//end ejax
+
+  });
+
+  $(".xrwmata_kasas_aristera").on("click", ".aristera", function() { //Κανω κλικ σε χρωμα και αποθηκευω την μεταβλητη color_fulou
+
+        color_aristera = $(this).attr('id'); //Global variable για να την περασω στην αλλη σελιδα, εχω το name του
+        //ΓΕΝΙΚΑ ΝΑ ΚΑΝΩ CSS ΓΙΑ ΝΑ ΞΕΧΟΡΙΖΕΙ Η LABEL
+        //alert(color_fulou);
+        $(".label_aristera").empty();
+        //$(".label_name").empty();
+        var label_name = "<label class='label_aristera'>"+color_aristera+"</label><br>"
+        $(label_name).appendTo(".label_aristera");
+
+        color = $(this).next().attr('id');
+        var c = document.getElementById("canvas");
+        var ctx = c.getContext("2d");
+        var img = document.getElementById("canvas_image");
+        ctx.fillStyle = color; //ασπρο
+        //ctx.fillRect(0, 0, 104, 15);
+        //ctx.fillRect(0, 89, 104, 15);
+        //ctx.fillRect(0, 0, 15, 104); //αριστερα
+        //ctx.fillRect(0, 0, 3, 103);
+        //ctx.fillRect(3, 4, 3, 96);
+        //ctx.fillRect(6, 7, 3, 88);
+        //ctx.fillRect(9, 10, 3, 83);
+        //ctx.fillRect(12, 13, 3, 78);
+        //ctx.fillRect(89, 0, 15, 104);
+        //ctx.fillStyle = "#5EAFD2"; //μπλε
+        //ctx.fillRect(15, 15, 74, 74);
+        //ctx.drawImage(img, 0, 0);
+        
+
+      });//end click
+
+  $(".extra_colors").on("click", ".panw_l", function() {
+    $(".xrwmata_kasas_deksia").empty();
+    $(".xrwmata_kasas_aristera").empty();
+    $(".xrwmata_kasas_panw").empty();
+    $(".xrwmata_kasas_katw").empty();
+    $(".xrwmata_kasas").empty();
+
+    //Αλλαζω χρωμα στα label που αρχικα πατω, τα πανω
+    $( ".deksia_l" ).css("background-color","");//Ετσι αφαιρω την ιδιοτητα!!!
+    $( ".deksia_l" ).css("color","");
+    $( ".aristera_l" ).css("background-color","");//Ετσι αφαιρω την ιδιοτητα!!!
+    $( ".aristera_l" ).css("color","");
+    $( ".katw_l" ).css("background-color","");//Ετσι αφαιρω την ιδιοτητα!!!
+    $( ".katw_l" ).css("color","");
+    //$( this ).css("background-color","#CA3333");
+    $( this ).css("background-color","#666666");
+    $( this ).css("color","white");
+
+    var divs = "<div class='0'></div> <div class='standar'></div> <div class='extra'></div>"
+    $(divs).appendTo(".xrwmata_kasas_panw");
+    var div = "<h4><%= t 'color.epivarinsi' %> 0</h4>"
+    $(div).appendTo(".0");
+    var div = "<h4><%= t 'color.epivarinsi' %> Standar</h4>"
+    $(div).appendTo(".standar");
+    var div = "<h4><%= t 'color.epivarinsi' %> Extra</h4>"
+    $(div).appendTo(".extra");
+
+
+    $.ajax({
+            type:'GET',
+            url:'/etic/corol_kasas',
+            dataType: "json",
+            //data: { material_id: $(this).attr('id') },
+            success: function(data) {
+              $.each(data, function(i, item) { //Για κάθε data που παίρνω κανω τα παρακάτο 
+                  if ( item.katigoria === 0 ){
+                    var div_data = "<div class='xrwma xrwma1'><div><h5 class='tipos_name'> "+item.name+" </h5></div><img src='/assets/"+item.image+"' class='panw color' id="+item.name+"><span id="+item.code+"></span></div><div class='margin1'></div>";
+                    $(div_data).appendTo(".0");
+                  }
+                  if ( item.katigoria === 1 ){
+                    var div_data = "<div class='xrwma xrwma2'><div><h5 class='tipos_name'> "+item.name+" </h5></div><img src='/assets/"+item.image+"' class='panw color' id="+item.name+"><span id="+item.code+"></span></div>";
+                    $(div_data).appendTo(".standar");
+                  }
+                  if ( item.katigoria === 2 ){
+                    var div_data = "<div class='xrwma xrwma3'><div><h5 class='tipos_name'> "+item.name+" </h5></div><img src='/assets/"+item.image+"' class='panw color' id="+item.name+"><span id="+item.code+"></span></div>";
+                    $(div_data).appendTo(".extra");
+                  }
+
+              })
+               var div = "<div class='margin2'></div>"
+               $(div).appendTo(".standar");
+              console.log(data) //Δινει στοιχεια για τα data
+              },
+            error: function(data) { 
+              }
+          });//end ejax
+
+  });
+
+  $(".xrwmata_kasas_panw").on("click", ".panw", function() { //Κανω κλικ σε χρωμα και αποθηκευω την μεταβλητη color_fulou
+
+        color_panw = $(this).attr('id'); //Global variable για να την περασω στην αλλη σελιδα, εχω το name του
+        //ΓΕΝΙΚΑ ΝΑ ΚΑΝΩ CSS ΓΙΑ ΝΑ ΞΕΧΟΡΙΖΕΙ Η LABEL
+        //alert(color_fulou);
+        $(".label_panw").empty();
+        //$(".label_name").empty();
+        var label_name = "<label class='label_panw'>"+color_panw+"</label><br>"
+        $(label_name).appendTo(".label_panw");
+
+        color = $(this).next().attr('id');
+        var c = document.getElementById("canvas");
+        var ctx = c.getContext("2d");
+        var img = document.getElementById("canvas_image");
+        //ctx.fillStyle = color; //ψρωμα που πηρα
+        //Εφε για να μην ειναι τετραγωνο
+        //ctx.fillRect(0, 0, 103, 3);
+        //ctx.fillRect(4, 3, 96, 3);
+        //ctx.fillRect(7, 6, 88, 3);
+        //ctx.fillRect(10, 9, 83, 3);
+        //ctx.fillRect(13, 12, 78, 3);
+        //Μεχρι εδω μονο το πανω
+        //ctx.fillRect(0, 89, 104, 15);
+        //ctx.fillRect(0, 0, 15, 104);
+        //ctx.fillRect(89, 0, 15, 104);
+       // ctx.fillStyle = "#5EAFD2"; //μπλε
+       // ctx.fillRect(15, 15, 74, 74);
+        //ctx.drawImage(img, 0, 0);
+        
+
+      });//end click
+
+  $(".extra_colors").on("click", ".katw_l", function() {
+    $(".xrwmata_kasas_deksia").empty();
+    $(".xrwmata_kasas_aristera").empty();
+    $(".xrwmata_kasas_panw").empty();
+    $(".xrwmata_kasas_katw").empty();
+    $(".xrwmata_kasas").empty();
+
+    //Αλλαζω χρωμα στα label που αρχικα πατω, τα πανω
+    $( ".deksia_l" ).css("background-color","");//Ετσι αφαιρω την ιδιοτητα!!!
+    $( ".deksia_l" ).css("color","");
+    $( ".aristera_l" ).css("background-color","");//Ετσι αφαιρω την ιδιοτητα!!!
+    $( ".aristera_l" ).css("color","");
+    $( ".panw_l" ).css("background-color","");//Ετσι αφαιρω την ιδιοτητα!!!
+    $( ".panw_l" ).css("color","");
+    //$( this ).css("background-color","#CA3333");
+    $( this ).css("background-color","#666666");
+    $( this ).css("color","white");
+
+    var divs = "<div class='0'></div> <div class='standar'></div> <div class='extra'></div>"
+    $(divs).appendTo(".xrwmata_kasas_katw");
+    var div = "<h4><%= t 'color.epivarinsi' %> 0</h4>"
+    $(div).appendTo(".0");
+    var div = "<h4><%= t 'color.epivarinsi' %> Standar</h4>"
+    $(div).appendTo(".standar");
+    var div = "<h4><%= t 'color.epivarinsi' %> Extra</h4>"
+    $(div).appendTo(".extra");
+
+
+    $.ajax({
+            type:'GET',
+            url:'/etic/corol_kasas',
+            dataType: "json",
+            //data: { material_id: $(this).attr('id') },
+            success: function(data) {
+              $.each(data, function(i, item) { //Για κάθε data που παίρνω κανω τα παρακάτο 
+                  if ( item.katigoria === 0 ){
+                    var div_data = "<div class='xrwma xrwma1'><div><h5 class='tipos_name'> "+item.name+" </h5></div><img src='/assets/"+item.image+"' class='katw color' id="+item.name+"><span id="+item.code+"></span></div><div class='margin1'></div>";
+                    $(div_data).appendTo(".0");
+                  }
+                  if ( item.katigoria === 1 ){
+                    var div_data = "<div class='xrwma xrwma2'><div><h5 class='tipos_name'> "+item.name+" </h5></div><img src='/assets/"+item.image+"' class='katw color' id="+item.name+"><span id="+item.code+"></span></div>";
+                    $(div_data).appendTo(".standar");
+                  }
+                  if ( item.katigoria === 2 ){
+                    var div_data = "<div class='xrwma xrwma3'><div><h5 class='tipos_name'> "+item.name+" </h5></div><img src='/assets/"+item.image+"' class='katw color' id="+item.name+"><span id="+item.code+"></span></div>";
+                    $(div_data).appendTo(".extra");
+                  }
+
+              })
+               var div = "<div class='margin2'></div>"
+               $(div).appendTo(".standar");
+              console.log(data) //Δινει στοιχεια για τα data
+              },
+            error: function(data) { 
+              }
+          });//end ejax
+
+  });
+
+
+  $(".xrwmata_kasas_katw").on("click", ".katw", function() { //Κανω κλικ σε χρωμα και αποθηκευω την μεταβλητη color_fulou
+
+        color_katw = $(this).attr('id'); //Global variable για να την περασω στην αλλη σελιδα, εχω το name του
+        //ΓΕΝΙΚΑ ΝΑ ΚΑΝΩ CSS ΓΙΑ ΝΑ ΞΕΧΟΡΙΖΕΙ Η LABEL
+        //alert(color_fulou);
+        $(".label_katw").empty();
+        //$(".label_name").empty();
+        var label_name = "<label class='label_katw'>"+color_katw+"</label><br>"
+        $(label_name).appendTo(".label_katw");
+
+        color = $(this).next().attr('id');
+        var c = document.getElementById("canvas");
+        var ctx = c.getContext("2d");
+        var img = document.getElementById("canvas_image");
+        //ctx.fillStyle = color; //ασπρο
+        //ctx.fillRect(0, 0, 104, 15); πανω
+        //ctx.fillRect(0, 89, 104, 15); κατω
+        //ctx.fillRect(0, 101, 103, 3);
+        //ctx.fillRect(4, 98, 96, 3);
+        //ctx.fillRect(7, 95, 88, 3);
+        //ctx.fillRect(10, 92, 83, 3);
+        //ctx.fillRect(13, 89, 78, 3);
+        //ctx.fillRect(0, 0, 15, 104);
+        //ctx.fillRect(89, 0, 15, 104);
+        //ctx.fillStyle = "#5EAFD2"; //μπλε
+        //ctx.fillRect(15, 15, 74, 74);
+        //ctx.drawImage(img, 0, 0);
+        
+
+      });//end click
+
+
+  
+
+//////////////   ΧΡΩΜΑΤΑ ΦΥΛΛΩΝ ///////////////////////////////////////////////////////////////////////
+
+  //Μολις πατήσω χρώμα φυλου εμφανίζω το πλαισιο.
+  //Κρύβω το πλαισιο χρωμα κασας χωρις να διαγραφω τις τιμες που ειχα επιλέξει
+  //Αλλαζω το css σε label που πατω
+  //Γραφω τα label που θα χρειαστω + αυτα που κραταν τις τιμε
+  //Ολο αυτο γινεται μια φορα και δεν περνετε πισω, εκτος αν κανω refresh
+
+  $("#xrwma_fullou").click(function () { //Παταω χρωμα φυλου και απλα εμφανιζω τα χρωματα
+    $(".xrwmata_kasas_deksia").css("display","none");
+    $(".xrwmata_kasas_aristera").css("display","none");
+    $(".xrwmata_kasas_panw").css("display","none");
+    $(".xrwmata_kasas_katw").css("display","none");
+    $(".xrwmata_kasas").empty();
+    //Δεν διαγραφω απλα βγαζω απο την οθονη τα χρωματα κάσας
+    $(".extra_colors").css("display","none");
+    //$(".xrwmata_kasas").css("display","none");
+    //Εμφανιζω τα χρωματα φυλου
+    $(".extra_fulou").css("display","block");
+    //Αλλαζω χρωματα στα label που πατησα
+    $( "#xrwma_kasas" ).css("background-color","");//Ετσι αφαιρω την ιδιοτητα!!!
+    $( "#xrwma_kasas" ).css("color","");
+    //$( this ).css("background-color","#CA3333");
+    $( this ).css("background-color","#666666");
+    $( this ).css("color","white");
+    //Αδιαζω την περιοχη που πατησα για να μην τα βγαζει 2+ φορες
+    $(".extra_fulou").empty();
+    //Γραφω τα label με τα στοιχεια
+    //var hr = "<hr>"
+    //$(hr).appendTo(".extra_fulou");
+    var label = "<h2 style='display:inline-block; margin-right:5px;'><b><%= t 'color.button_me_fullo' %><b>:</h2>"
+    $(label).appendTo(".extra_fulou");
+    //Για την πρωτη φωρα αρχικοποιω, εμφανιζω το ασπρο πρωτη φορα και μετα αυτο που εχω επιλεξει καθε φορα
+    var label_name = "<label class='label_name'>"+color_fulou+"</label><br>"
+    $(label_name).appendTo(".extra_fulou");
+
+    var divs = "<div class='0'></div> <div class='standar'></div> <div class='extra'></div>"
+    $(divs).appendTo(".extra_fulou");
+    var div = "<h4><%= t 'color.epivarinsi' %> 0</h4>"
+    $(div).appendTo(".0");
+    var div = "<h4><%= t 'color.epivarinsi' %> Standar</h4>"
+    $(div).appendTo(".standar");
+    var div = "<h4><%= t 'color.epivarinsi' %> Extra</h4>"
+    $(div).appendTo(".extra");
+
+    $.ajax({
+            type:'GET',
+            url:'/etic/color_fulou',
+            dataType: "json",
+            //data: { material_id: $(this).attr('id') },
+            success: function(data) {
+              $.each(data, function(i, item) { //Για κάθε data που παίρνω κανω τα παρακάτο 
+                  if ( item.katigoria === 0 ){
+                    var div_data = "<div class='xrwma xrwma1'><div><h5 class='tipos_name'> "+item.name+" </h5></div><img src='/assets/"+item.image+"' class='color' id="+item.name+"><span id="+item.code+"></span></div><div class='margin1'></div>";
+                    $(div_data).appendTo(".0");
+                  }
+                  if ( item.katigoria === 1 ){
+                    var div_data = "<div class='xrwma xrwma2'><div><h5 class='tipos_name'> "+item.name+" </h5></div><img src='/assets/"+item.image+"' class='color' id="+item.name+"><span id="+item.code+"></span></div>";
+                    $(div_data).appendTo(".standar");
+                  }
+                  if ( item.katigoria === 2 ){
+                    var div_data = "<div class='xrwma xrwma3'><div><h5 class='tipos_name'> "+item.name+" </h5></div><img src='/assets/"+item.image+"' class='color' id="+item.name+"><span id="+item.code+"></span></div>";
+                    $(div_data).appendTo(".extra");
+                  }
+
+              })
+               var div = "<div class='margin2'></div>"
+               $(div).appendTo(".standar");
+              console.log(data) //Δινει στοιχεια για τα data
+              },
+            error: function(data) { 
+              }
+          });//end ejax
+  });
+
+  //Με κλικ σε χρωμα αποθυκεύω το χρωμα σε global μεταβλητη και αλλαζω το label
+
+  $(".extra_fulou").on("click", ".color", function() { //Κανω κλικ σε χρωμα και αποθηκευω την μεταβλητη color_fulou
+
+    color_fulou = $(this).attr('id'); //Global variable για να την περασω στην αλλη σελιδα, εχω το name του
+    //ΓΕΝΙΚΑ ΝΑ ΚΑΝΩ CSS ΓΙΑ ΝΑ ΞΕΧΟΡΙΖΕΙ Η LABEL
+    //alert(color_fulou);
+    $(".label_etiketa").empty();
+    $(".label_name").empty();
+    var label_name = "<label class='label_etiketa'>"+color_fulou+"</label>"
+    $(label_name).appendTo(".label_name");
+    
+
+  });//end click
+
+  //////////////////////////////// ΚΛΙΚ ΣΕ ΣΥΝΕΧΕΙΑ /////////////////////////////
+
+  //Αν εχω μπει ΜΟΝΟ στο 1 => counter= 5
+  //Αν εχω μπει ΜΟΝΟ στο 2 => counter = 10
+  //Αν εχω μπει KAI στα δυο => counter = 15
+  //Αν δεν εχω μπει πουθενα χρησιμοποιω μονο το κουμπι con1.
+
+  $("#con2").click(function () { 
+
+    if (counter == 5) {
+      window.location.href = "<%= etic_diastaseis_path %>?open_categorie_name="+"<%= @open_categorie.name %>"+"&material_name="+$(".material").text()+"&constructor_name="+$(".constructor").text()+"&system_name="+$(".system").text()+"&line_name="+$(".line").text()+"&leaf_name="+"<%= @leaf.name %>"+"&open_type_name="+$(".open_type").text()+"&color_name="+color_aplo+"&coldeksia="+color_deksia+"&colaristera="+color_aristera+"&colpanw="+color_panw+"&colkatw="+color_katw+"&mesa_eksw="+mesa_eksw+"";
+
+    }
+
+    if (counter == 10) {
+      window.location.href = "<%= etic_diastaseis_path %>?open_categorie_name="+"<%= @open_categorie.name %>"+"&material_name="+$(".material").text()+"&constructor_name="+$(".constructor").text()+"&system_name="+$(".system").text()+"&line_name="+$(".line").text()+"&leaf_name="+"<%= @leaf.name %>"+"&open_type_name="+$(".open_type").text()+"&color_name="+color_aplo+"&colfullo="+color_fulou+"&mesa_eksw="+mesa_eksw+"";
+
+    }
+
+    if (counter == 15) {
+      window.location.href = "<%= etic_diastaseis_path %>?open_categorie_name="+"<%= @open_categorie.name %>"+"&material_name="+$(".material").text()+"&constructor_name="+$(".constructor").text()+"&system_name="+$(".system").text()+"&line_name="+$(".line").text()+"&leaf_name="+"<%= @leaf.name %>"+"&open_type_name="+$(".open_type").text()+"&color_name="+color_aplo+"&coldeksia="+color_deksia+"&colaristera="+color_aristera+"&colpanw="+color_panw+"&colkatw="+color_katw+"&colfullo="+color_fulou+"&mesa_eksw="+mesa_eksw+"";
+
+    }
+   
+  });
+
+  $("#con1").click(function () { 
+    window.location.href = "<%= etic_diastaseis_path %>?open_categorie_name="+"<%= @open_categorie.name %>"+"&material_name="+$(".material").text()+"&constructor_name="+$(".constructor").text()+"&system_name="+$(".system").text()+"&line_name="+$(".line").text()+"&leaf_name="+"<%= @leaf.name %>"+"&open_type_name="+$(".open_type").text()+"&color_name="+color_aplo+"&mesa_eksw="+mesa_eksw+"";
+  });
+
+
+  $(".mesa_eksw:eq(0)").click();
+
+
+});//end ready
+
+</script>

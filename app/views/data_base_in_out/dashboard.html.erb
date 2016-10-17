@@ -1,0 +1,99 @@
+<h1>Dash Board</h1>
+<p>There is also a button that you can press to hide the menu bar.</p>
+<a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Toggle Menu</a>
+
+<div class="table-responsive">
+
+			<h1><b><%= t 'user_diax.offers' %></b></h1>
+
+		    <%= form_tag data_base_in_out_dashboard_path, :method => 'get' do %>
+		      <p>
+		        <%= text_field_tag :search, params[:search] %>
+		        <%= submit_tag(t("user_diax.search"), :name => nil )%>
+		        <%= submit_tag(t("user_diax.all"), :name => "all" )%>
+		      </p>
+		    <% end %></br>
+		    <p><%= t 'user_diax.sort' %></p>
+
+
+          <div class="pdf" id="pdf">
+            <table class="table table_card ">
+
+            <thead>
+              <tr class="root">
+                <th id="kartoula_head"><%= t 'user_diax.offer_num' %> <%= link_to "↑", data_base_in_out_dashboard_path(:order => "code_high") %><%= link_to "↓", data_base_in_out_dashboard_path(:order => "code_low") %></th>
+                <th id="kartoula_head">Dealer <%= link_to "↑", data_base_in_out_dashboard_path(:order => "code_high") %><%= link_to "↓", data_base_in_out_dashboard_path(:order => "code_low") %></th>
+                <th id="kartoula_head"><%= t 'user_diax.name' %> <%= link_to "↑", data_base_in_out_dashboard_path(:order => "name_z") %><%= link_to "↓", data_base_in_out_dashboard_path(:order => "name_a") %></th> 
+                <th id="kartoula_head"><%= t 'user_diax.date' %> <%= link_to "↑", data_base_in_out_dashboard_path(:order => "date_new") %><%= link_to "↓", data_base_in_out_dashboard_path(:order => "date_old") %></th>
+                <th id="kartoula_head"><%= t 'user_diax.quantity' %></th> 
+                <th id="kartoula_head"><%= t 'user_diax.total_pr' %> <%= link_to "↑", data_base_in_out_dashboard_path(:order => "price_high") %><%= link_to "↓", data_base_in_out_dashboard_path(:order => "price_low") %></th>
+                <th id="kartoula_head"><%= t 'user_diax.cart' %></th>
+                
+              </tr>
+            </thead>
+
+            <tbody>
+              <% if (!@paraggelies.nil?) %>
+              <% @paraggelies.each do |par| %>
+              <% if (par.done == 1) %>
+	              <tr class="root red">
+		                  <% customer =  SimpleUserPse.where(:id => par.customer).first %>
+		                  <% admin2 =  User.where(:id => par.user).first %>
+		                  <% num_of_window =  Order.where(:paraggelia_id => par.id).count %> <!--Αριθμος κουφωματων χωρις την ποσοτητα-->
+		                  <% order =  Order.where(:paraggelia_id => par.id).all %>
+		                  <% sunolo = 0; %>
+		                      <% kouf = 0 %>
+		                        <% order.each do |i| %>
+		                        <% sunolo = sunolo + i.price_sum %>
+		                        <% kouf = kouf + i.posotoita %>
+		                     <% end %>
+		                  <td><%= par.id %></td>
+		                  <td><%= admin2.email %></td>
+		                  <td><%= customer.eponimo %> <%= customer.name %></td>
+		                  <td><%= par.created_at.strftime("%d %b %y %H:%M:%S") %></td>
+		                  <td style="text-align:center"><%= kouf %></td>
+		                  <td><%= number_with_precision(sunolo, :precision => 2) %> €</td>
+		                  <td><button type="button" class="btn btn-default card glyphicon glyphicon-shopping-cart" id="<%= par.id %>" style="color:black;"> Cart</button></td>
+		                  
+	                </tr>
+              <% else %>
+	              <tr class="root green">
+	                  <% customer =  SimpleUserPse.where(:id => par.customer).first %>
+	                  <% admin2 =  User.where(:id => par.user).first %>
+	                  <% num_of_window =  Order.where(:paraggelia_id => par.id).count %> <!--Αριθμος κουφωματων χωρις την ποσοτητα-->
+	                  <% order =  Order.where(:paraggelia_id => par.id).all %>
+	                  <% sunolo = 0; %>
+	                      <% kouf = 0 %>
+	                        <% order.each do |i| %>
+	                        <% sunolo = sunolo + i.price_sum %>
+	                        <% kouf = kouf + i.posotoita %>
+	                     <% end %>
+	                  <td><%= par.id %></td>
+	                  <td><%= admin2.email %></td>
+	                  <td><%= customer.eponimo %> <%= customer.name %></td>
+	                  <td><%= par.created_at.strftime("%d %b %y %H:%M:%S") %></td>
+	                  <td style="text-align:center"><%= kouf %></td>
+	                  <td><%= number_with_precision(sunolo, :precision => 2) %> €</td>
+	                  <td><button type="button" class="btn btn-default card glyphicon glyphicon-shopping-cart" id="<%= par.id %>" style="color:black;"> Cart</button></td>
+	                  <td><%= link_to "+", etic_simple_pse_user_path(:paraggelia_id => par.id, :dealer => admin2.id) ,class: "btn btn-primary", id: par.id %></td>
+	                </tr>
+              <% end %><!--RED-->
+                
+              <% end %><!--each-->
+              <% end %><!--NIL-->
+            </tbody>
+          </table>
+
+
+      </div><!--div gia table-->
+    </div><!--div gia table-->
+
+<script type="text/javascript">
+
+	$(".card").click(function(){
+		id = $(this).attr('id');
+	    admin = $("#admin").text();
+	    window.location.href = "<%= etic_simple_pse_user_card_path %>?id="+id+"&admin="+admin+""
+	});
+	
+</script>

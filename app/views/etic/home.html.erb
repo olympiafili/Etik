@@ -1,0 +1,81 @@
+<!--<div id="loading"></div>-->
+<div class="container con_home">
+  <div class="row row_home">
+  	<div class="col-xs-4">
+      
+      <button class="menu hidden-lg hidden-sm hidden-md" onclick="toggle()">
+        <span class="glyphicon glyphicon-home"></span>
+      </button>
+    
+      <ul class="ul">
+        <li class="li1"><a href="/etic/home/"  class="li1">1 | <%= t 'mpara.open_category' %></a></li>
+        <li>2 | <%= t 'mpara.material' %></li>
+        <li>3 | <%= t 'mpara.leaf' %></li>
+        <li>4 | <%= t 'mpara.open_type' %></li>
+        <li>5 | <%= t 'mpara.color' %></li>
+        <li>6 | <%= t 'mpara.dimension' %></li>
+        <li>7 | <%= t 'mpara.price' %></li>
+        <%= @pseUser %>
+      </ul>
+
+  	</div>
+  	<div class="col-xs-7 home_div">
+      <h2>1. <%= t 'home.title' %></h2>
+
+      <div class="gen_info"> 
+        <p class="gen_p_info">Γενικες οδηγίες για την επιλογη παραθύρων!!! Σε αυτό το πλαίσιο μπορούμε να προσθέσουμε οποιαδήποτε πληροφορία θέλουμε.</p>
+      </div>
+
+  		<% @cat_anoigmatos.each do |c| %>
+  		<div class="cat_anoigmatos" id="<%= c.name %>">
+        <h5 class="anoigma_name"><%= t "kouf."<<c.name %></h5> <!--c.name-->
+  		  <%= link_to image_tag(c.image), etic_material_path(:open_categorie => c.name) %>
+        <div class="home_info">
+          <p class="p_home">Κάτι Κάτι Κάτι Κάτι Κάτι Κάτι Κάτι Κάτι Κάτι Κάτι Κάτι Κάτι Κάτι Κάτι Κάτι Κάτι</p>
+        </div>
+      </div>
+  		<% end %>
+  	</div>
+  </div>
+</div>
+
+<!--
+<script>
+
+  $(document).ready(function(){
+
+  $(".ul").hide();
+
+  $( ".menu" ).mouseenter(function() {
+    $(".ul").fadeToggle(1000);
+  });
+
+
+  });
+
+  function toggle() {
+    $(".ul").fadeToggle(1000);
+  }
+
+</script>
+
+<script>
+
+$(document).ready(function(){
+	$(".cat_anoigmatos").click(function(){
+		alert( $(this).attr('id') );
+	    $.ajax({
+	          type:'POST',
+	          url:'/etic/material',
+	          dataType: "json",
+	          data: { open_categorie: $(this).attr('id') },
+	          success: function(data) { 
+	            },
+	          error: function(data) { 
+	            }
+	        });//end ejax
+	});//end click
+});//end ready
+
+</script>
+-->

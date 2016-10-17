@@ -1,0 +1,436 @@
+--- 
+gr: 
+  Glass: 
+    In: "Μέσα τζάμια"
+    Out: "Εξω τζάμια"
+  Roll: 
+    Front_mounted_shutters: Εξωτερικά
+    Top_mounted_shutters: Επικαθήμενα
+  color: 
+    aristera: ΑΡΙΣΤΕΡΑ
+    button_me_fullo: "Επιλογή χρώμα φύλλου"
+    button_me_kassa: "Επιλογή χρώμα κάσας"
+    button_xwris: "Συνέχεια χωρίς επιλογή χρωμάτων κάσας ή φύλλου"
+    deksia: ΔΕΞΙΑ
+    ekso: "Έξω πλευρά"
+    epivarinsi: Επιβάρυνση
+    katw: ΚΑΤΩ
+    mesa: "Μέσα πλευρά"
+    mesa_ekso: "Μέσα έξω"
+    outside_color: "Χρώμα έξω"
+    panw: ΠΑΝΩ
+    pedio: "Επιλογη πλευράς"
+    sunexia: Συνέχεια
+    title: Χρώμα
+  constructor: 
+    title: Κατασκευαστής
+  devise: 
+    confirmations: 
+      confirmed: "Ο λογαριασμός σας επιβεβαιώθηκε με επιτυχία. Είστε συνδεδεμένος/η."
+      send_instructions: "Σε λίγα λεπτά θα λάβετε οδηγίες για το πώς θα επιβεβαιώσετε το email σας."
+      send_paranoid_instructions: "Αν το email σας υπάρχει στη βάση δεδομένων μας, θα λάβετε email με οδηγίες για την επιβεβαίωση του λογαριασμού σας."
+    failure: 
+      already_authenticated: "Είστε ήδη συνδεδεμένος."
+      inactive: "Ο λογαριασμός σας δεν έχει ενεργοποιηθεί ακόμα."
+      invalid: "Μη έγκυρο email ή κωδικός."
+      invalid_token: "Μη έγκυρος κωδικός πιστοποίησης."
+      locked: "Ο λογαριασμός σας είναι κλειδωμένος."
+      timeout: "Η σύνδεσή σας τερματίστηκε, παρακαλούμε συνδεθείτε ξανά."
+      unauthenticated: "Χρειάζεται να συνδεθείτε πριν να συνεχίσετε."
+      unconfirmed: "Απαιτείται η επιβεβαίωση του λογαριασμού σας πριν συνεχίσετε."
+    mailer: 
+      confirmation_instructions: 
+        subject: "Οδηγίες επιβεβαίωσης"
+      reset_password_instructions: 
+        subject: "Οδηγίες επαναφοράς του κωδικού"
+      unlock_instructions: 
+        subject: "Οδηγίες ενεργοποίησης"
+    omniauth_callbacks: 
+      failure: "Δεν επιτρέπεται να πραγματοποιήσετε %{kind} επειδή είναι \"%{reason}\"."
+      success: "Επιτυχής έγκριση από το λογαριασμό %{kind}."
+    passwords: 
+      send_instructions: "Θα σας αποσταλεί σε λίγα λεπτά, ένα email με οδηγίες για το πώς να επαναφέρετε τον κωδικό σας."
+      send_paranoid_instructions: "Αν το email σας υπάρχει στη βάση δεδομένων μας, θα λάβετε οδηγίες επαναφοράς του κωδικού σας, μέσω email."
+      updated: "Ο κωδικός σας άλλαξε με επιτυχία. Μπορείτε να συνδεθείτε."
+      updated_not_active: "Ο κωδικός σας άλλαξε με επιτυχία."
+    registrations: 
+      destroyed: "Ο λογαριασμός σας διαγράφηκε με επιτυχία."
+      inactive_signed_up: "Ο λογαριασμός σας δημιουργήθηκε με επιτυχία. Όμως, δε μπορείτε να συνδεθείτε επειδή ο λογαριασμός σας είναι %{reason}."
+      reasons: 
+        inactive: ανενεργός
+        locked: κλειδωμένος
+        unconfirmed: "μη επιβεβαιωμένος. Σας είχε αποσταλεί email με οδηγίες"
+      signed_up: "Καλωσήρθατε! Ο λογαριασμός σας δημιουργήθηκε με επιτυχία."
+      updated: "Ανανεώσατε το λογαριασμό σας με επιτυχία."
+    sessions: 
+      signed_in: "Σύνδεση με επιτυχία."
+      signed_out: "Αποσύνδεση με επιτυχία."
+    unlocks: 
+      send_instructions: "Θα σας αποσταλούν οδηγίες ενεργοποίησης του λογαριασμού σας."
+      send_paranoid_instructions: "Αν ο λογαριασμός σας υπάρχει, θα σας αποσταλεί σε λίγα λεπτά ένα email με οδηγίες ενεργοποίησής του."
+      unlocked: "Ο λογαριασμός σας ενεργοποιήθηκε με επιτυχία. Είστε συνδεδεμένος/η."
+  diastaseis: 
+    add_card: "Προσθήκη στο καλάθι"
+    color: "Χρώμα μέσα"
+    color_aristera: "Χρώμα αριστερά"
+    color_deksia: "Χρώμα δεξιά"
+    color_eksw: "Χρώμα έξω"
+    color_fullou: "Χρώμα φύλου"
+    color_katw: "Χρώμα κάτω"
+    color_panw: "Χρώμα πάνω"
+    extra: "Συνέχεια στα πρόσθετα"
+    lastixo: Λάστιχο
+    lathos_height: "Λάθος ύψος"
+    lathos_width: "Λάθος μίκος"
+    mauro_lastixo: "Μαύρο λάστιχο"
+    max_pla: "Μέγιστο πλάτος"
+    max_ups: "Μέγιστο ύψος"
+    min_pla: "Ελάχιστο πλάτος"
+    min_ups: "Ελάχιστο ύψος"
+    ok: "Υποβολή διαστάσεων"
+    platos: ΠΛΑΤΟΣ
+    swsto_height: "Σωστό ύψος"
+    swsto_width: "Σωστό μίκος"
+    title: Διαστάσεις
+    upsos: ΥΨΟΣ
+  errors: 
+    messages: 
+      already_confirmed: "έχει ήδη επιβεβαιωθεί, παρακαλούμε δοκιμάστε να ξανασυνδεθείτε"
+      expired: "έχει λήξει, παρακαλούμε ζητήστε νέο"
+      not_found: "δεν βρέθηκε"
+      not_locked: "δεν είναι κλειδωμένο"
+  etxra_headers_tabs: 
+    Extra: "Πρόσθετα υλικά"
+    Info: Πληροφορίες
+    Starting: Αρχικά
+  extra: 
+    color_ekso: "ΧΡΩΜΑ ΕΞΩΤΕΡΙΚΩΝ"
+    color_ekso_katw: "Χρώμα εξωτερικού ρολού"
+    color_epik: "ΧΡΩΜΑ ΕΠΙΚΑΘΗΜΕΝΩΝ"
+    color_epik_katw: "Χρώμα επικαθήμενου ρολού"
+    color_persidas: "Χρώμα περσίδας"
+    ekso_rolo: "ΕΞΩΤΕΡΙΚΑ ΡΟΛΑ"
+    epik_rolo: "ΕΠΙΚΑΘΗΜΕΝΑ ΡΟΛΑ"
+    glass: ΤΖΑΜΙΑ
+    glass_cat: "ΚΑΤΗΓΟΡΙΑ ΤΖΑΜΙΩΝ"
+    odoigoi: "ΟΔΟΙΓΟΙ ΡΟΛΟΥ"
+    odoigoi_color: "Χρώμα οδοιγού"
+    persides: "ΠΕΡΣΙΔΕΣ ΡΟΛΟΥ"
+    profil: ΠΡΟΦΙΛ
+    profil_aristera: "ΠΡΟΦΙΛ ΑΡΙΣΤΕΡΑ"
+    profil_deksia: "ΠΡΟΦΙΛ ΔΕΞΙΑ"
+    profil_katw: "ΠΡΟΦΙΛ ΚΑΤΩ"
+    profil_panw: "ΠΡΟΦΙΛ ΠΑΝΩ"
+    qua: "ποσό 1 μέχρι 3"
+    qua_pro: ΠΟΣΟΤΗΤΑ
+    rola: ΡΟΛΑ
+    title: ETXRA
+    typos: ΤΥΠΟΣ
+    typos_color: "Χρώμα τύπου"
+  extra_material: 
+    Glass: Τζάμια
+    Peripherals: Περιφερειακά
+    Profils: Προφίλ
+    Profils_for_shutters: Περσίδες
+    Rollershutter: Ρολά
+    Rollershutter_guides: "Οδηγοί ρολού"
+  fulla: 
+    1fullo: "1 φύλλο"
+    2fullo: "2 φύλλα"
+    3fullo: "3 φύλλα"
+  header: 
+    contact: Eπικοινωνία
+    edit_profil: "Επεξεργασία προφίλ"
+    email: E-Mail
+    hello: "Γειά σου"
+    history: Ιστορικό
+    log_in: Σύνδεση
+    log_out: Αποσύνδεση
+    offers: Προσφορές
+    rem_me: "Θυμήσου με"
+  home: 
+    title: "Κατηγορία ανοίγματος"
+  kouf: 
+    balkonoporta: Μπαλκονόπορτα
+    parathiro: Παράθυρο
+    porta: Πόρτα
+    suromeno_an_parathiro: "Συρόμενο ανοιγόμενο παράθυρο"
+    suromeno_par: "Συρόμενο παράθυρο"
+  leaf: 
+    title: "Είδος ανοίγματος"
+  line: 
+    title: Γραμμή
+  log: 
+    koimeno: "Καλωσήρθατε στο νέο μας E-Shop! Εδώ μπορείτε εύκολα να φτιάξετε όλα τα παράθυρα και τις πόρτες σας με όλα τα αξεσουάρ και τα πρόσθετα υλικά που χρειάζεστε. Παρακαλούμε κάντε log in στον λογαρισαμό σας."
+  material: 
+    constructor: Κατασκευαστής
+    line: Σύστημα
+    system: "Σύστημα A"
+    system_b: "Σύστημα B"
+    title: Υλικό
+  material_pinakas: 
+    arxiki_timi: "Αρχική τιμή"
+    cat_anoigma: "Κατηγορία ανοίγματος"
+    cataskevastis: Κατασκευαστής
+    diastaseis: Διαστάσεις
+    ekso: "Εξωτερικό ρολό"
+    epik: "Επικαθημενο ρολό"
+    glass: Τζαμι
+    leaf: Φύλλα
+    line: Γραμμή
+    material: Υλικό
+    nees_diastaseis: "Νέες διαστασεις"
+    odoigos: Οδοιγος
+    open_type: "Υποκατηγορία ανοίγματος"
+    persida: Περσίδα
+    profil: Προφιλ
+    profil_aristera: "Προφιλ αριστερά"
+    profil_deksia: "Προφιλ δεξιά"
+    profil_katw: "Προφιλ κάτω"
+    profil_panw: "Προφιλ πάνω"
+    systima: Σύστημα
+    teliki_timi: "Τελική τιμή"
+    typos: Τυπος
+  mpara: 
+    color: ΧΡΩΜΑ
+    dimension: ΔΙΑΣΤΑΣΕΙΣ
+    extra: EXTRA
+    leaf: "ΕΙΔΟΣ ΑΝΟΙΓΜΑΤΟΣ"
+    material: ΥΛΙΚΟ
+    open_category: "ΚΑΤΗΓΟΡΙΑ ΑΝΟΙΓΜΑΤΟΣ"
+    open_type: "ΥΠΟΚΑΤΗΓΟΡΙΑ ΑΝΟΙΓΜΑΤΟΣ"
+    price: ΤΙΜΗ
+  new_user: 
+    address: Διεύθυνση
+    city: Πόλη
+    company: Εταιρεία
+    country_code: "Κωδικός πόλης"
+    create: "Δημιουργία νέου πελάτη"
+    mobile: Κινητό
+    mr: Κύριος
+    mrs: Κυρία
+    name: Ονομα
+    phone: Τηλέφωνο
+    pososto_mion: Discount
+    pososto_sun: Surcharge
+    postal: Τ.Κ.
+    send: Αποστολή
+    sur_name: Επώνυμο
+    vat: "Φόρος %"
+  number: 
+    currency: 
+      format: 
+        delimiter: ","
+        format: "%u%n"
+        precision: 2
+        separator: "."
+        unit: $
+    format: 
+      delimiter: ","
+      precision: 3
+      separator: "."
+    human: 
+      decimal_units: 
+        format: "%n %u"
+        units: 
+          billion: Billion
+          million: Million
+          quadrillion: Quadrillion
+          thousand: Thousand
+          trillion: Trillion
+      format: 
+        precision: 3
+        significant: true
+        strip_insignificant_zeros: true
+      storage_units: 
+        format: "%n %u"
+        units: 
+          byte: 
+            one: Byte
+            other: Bytes
+          gb: GB
+          kb: KB
+          mb: MB
+          tb: TB
+    percentage: 
+      format: 
+        format: "%n%"
+  open_type: 
+    title: "Υποκατηγορία ανοίγματος"
+  pdf: 
+    address: Διεύθυνση
+    company: Εταιρεία
+    name: Ονομα
+    phone: Τηλ
+    phone_big: Τηλέφωνο
+    sur_name: Επώνυμο
+  select_customer: 
+    all: "Εμφάνιση όλων"
+    neos_pel: "Νέος πελάτης"
+    search: Αναζήτηση
+    select: "Επιλογή πελάτη"
+  translate: 
+    Actions: Επιλογές
+    Add_to_cart: "Προσθήκη στο καλάθι"
+    Additional_profils: "Πρόσθετα προφίλ"
+    Address: Διεύθηνση
+    All: "Εμφάνιση όλων"
+    Bottom: Κάτω
+    Bottom_side: Κάτω
+    Cart: Καλάθι
+    Cart_for: Καλάθι
+    Choose_number_of_profiles: "Επέλεξε αριθμό προφίλ"
+    Choose_number_of_types: "Επιλογή αριθμού τύπων"
+    Color: Χρώμα
+    Comments: Σχόλια
+    Company: Εταιρία
+    Constructor: "Κατασκευαστής συστήματος"
+    Continue: Συνέχεια
+    Continue_to_extra: "Συνέχεια στα επιπλέων υλικά"
+    Copy: Αντιγραφή
+    Cost: Κόστος
+    Date: Ημέρα
+    Destroy: Διαγραφή
+    Destroy_order: "Διαγραφή παραγγελίας"
+    Dimensions: Διαστάσεις
+    Dimensions_text_1: "Η εισαγωγή χωρισμάτων γίνετε στο τέλος με το κουμπι Continue!"
+    Dimensions_text_2: "Σιγουρευτείτε πως αν αλλάξετε μέτρα στο κούφωμα σας έχετε αλλάξει σωστά και τα διορθωτικά μέτρα!"
+    Discount: Έκπτωση
+    EXTRAS: "Επιπλέων υλικά"
+    Elements: Κατασκευές
+    Email: Email
+    External_profil_Bottom_color: "Πρόσθετα προφίλ κάτω χρώμα"
+    External_profil_Left_color: "Πρόσθετα προφίλ αριστερά χρώμα"
+    External_profil_Top_color: "Πρόσθετα προφίλ πάνω χρώμα"
+    External_profil_bottom: "Πρόσθετα προφίλ κάτω"
+    External_profil_left: "Πρόσθετα προφίλ αριστερά"
+    External_profil_right: "Πρόσθετα προφίλ δεξιά"
+    External_profil_right_color: "Πρόσθετα προφίλ αριστερά"
+    External_profil_top: "Πρόσθετα προφίλ πάνω"
+    External_profile_Bottom_color: "Επιπλέων προφίλ κάτω χρώμα"
+    External_profile_Left_color: "Επιπλέων προφίλ δεξιά"
+    External_profile_Top_color: "Επιπλέων προφίλ επάνω χρώμα"
+    External_profile_bottom: "Επιπλέων προφίλ κάτω"
+    External_profile_left: "Επιπλέων προφίλ αριστερά"
+    External_profile_right: "Επιπλέων προφίλ δεξιά"
+    External_profile_right_color: "Επιπλέων προφίλ δεξιά χρώμα"
+    External_profile_top: "Επιπλέων προφίλ επάνω"
+    Extra: "Επιπλέων υλικά"
+    Final_price: "Τελική τιμή"
+    Finish_order: "Ολοκλήρωση προσφοράς"
+    Fix: Αλλαγή
+    Front_mounted: "Εξωτερικό ρολό"
+    Glass: Τζάμια
+    Height: Ύψος
+    Horizontal: Οριζόντιο
+    Image: Εικόνα
+    Info: Πληροφορίες
+    Inside_OutSide_glass: "Τζάμι μέσα έξω"
+    Inside_color: "Χρώμα μέσα"
+    Inside_glass: "Τζάμι μέσα"
+    Leaf: "Ποσότητα φύλλων"
+    Left: Αριστερά
+    Left_side: Αριστερά
+    Length: Μίκος
+    Log_in: Σύνδεση
+    Material: Υλικό
+    Max: Max
+    Middle: Κέντρο
+    Min: Min
+    Mobile: Κινητό
+    Motors_movement: "Κίνηση ρολού"
+    Name: Όνομα
+    New_customer: "Νέος πελάτης"
+    New_dimensions: "Νέες διαστάσεις"
+    New_offer: "Νέα προσφορά"
+    New_potition: "Νέα θέση"
+    New_rules: "Νέα χωρίσματα"
+    New_width: "Νέο πλάτος"
+    Number_of_profiles: "Αριθμός προφιλ"
+    Number_of_types: "Αριθμός τύπων"
+    Offer: Προσφορά
+    Offer_number: "Αριθμός προσφοράς"
+    Offers: Προσφορές
+    Ok: Ok
+    Open_category: "Κατηγορία κατασκευής"
+    Open_type: "Είδος ανοίγματος"
+    Orders_sum: "Σύνολο προσφοράς"
+    Outside_color: "Χρώμα έξω"
+    Outside_glass: "Τζάμι έξω"
+    Password: Κωδικός
+    Phone: Τηλέφωνο
+    Position_height: "Ύψος κάσας"
+    Position_number: "Αύξων αριθμός"
+    Position_width: "Πλάτος κάσας"
+    Potition_height: "Ύψος κάσας"
+    Potition_number: "Αύξον αριθμός"
+    Potition_width: "Πλάτος κάσας"
+    Price: Τιμή
+    Price_per_unit: "Τιμή μονάδας"
+    Price_with_extras: "Τιμή με επιπλέων υλικά"
+    Prices: Τιμές
+    Profil_for_shutters: Περσίδες
+    Profile_systems: "Προφίλ συστημάτων"
+    Profiles: Προφίλς
+    Protection: Προστασία
+    Quantity: Ποσότητα
+    Rails: "Οδηγός ρολού"
+    Remember_me: "Απομνημόνευση κωδικού"
+    Right: Δεξιά
+    Right_side: Δεξιά
+    Rollershutter: Ρολό
+    Rolls_Left: "Κίνηση / σύνδεση αριστερά"
+    Rolls_Right: "Κίνηση / σύνδεση δεξιά"
+    Save_changes: Συνέχεια
+    Search: Αναζήτηση
+    Select_customer: "Επιλογή πελάτη"
+    Show_less: "Δείξε πιο λίγα"
+    Show_more: "Δείξε πιο πολλά"
+    Show_pdf: "Pdf για έμπορα"
+    Show_pdf_for_customer: "Pdf για πελάτη"
+    Sort_by: "Εμφάνιση κατα"
+    Star_price: "Αρχική τιμή"
+    Start_price: "Αρχική τιμή"
+    Starting_price: "Αρχική τιμή"
+    Sum: Σύνολο
+    Surcharge: Επιβάρυνση
+    System_A: "Σύστημα Α"
+    System_B: "Σύστημα Β"
+    Top: Επάνω
+    Top_mounted: "Επικαθήμενο ρολό"
+    Top_side: Επάνω
+    Total_price: "Συνολική τιμή"
+    Transports: Μεταφορικά
+    Type: Τύπος
+    Type_color: "Χρώμα τύπου"
+    Types: Τύποι
+    Types_2: Τύποι
+    Unit: Μονάδα
+    Until: Μέχρι
+    Update: Ανανέωση
+    Vertical: Κάθετο
+    Width: Πλάτος
+    black_gasket: Μαύρο
+    grey_gasket: Γκρί
+    koimeno_arkiko: "Καλωσήρθατε στο νέο μας E-Shop! Εδώ μπορείτε εύκολα να φτιάξετε όλα τα παράθυρα και τις πόρτες σας με όλα τα αξεσουάρ και τα πρόσθετα υλικά που χρειάζεστε. Παρακαλούμε κάντε log in στον λογαρισαμό σας."
+    koimeno_arkiko_browsers: "Σας προτείνουμε να χρησιμοποιήσετε τους αναβαθμησμένους Google chrome ή Mozila firefox, για καλύτερη εμπειρία χρήσης"
+    lastixo: Λάστιχο
+    neos_pel: "Νέος πελάτης"
+    new_height: "Νέο ύψος"
+    prtotection: Προστασία
+    select: "Επιλογή πελάτη"
+    surname: Επώνημο
+    welcome_text: "Καλωσήρθατε στο νέο μας E-Shop! Εδώ μπορείτε εύκολα να φτιάξετε όλα τα παράθυρα και τις πόρτες σας με όλα τα αξεσουάρ και τα πρόσθετα υλικά που χρειάζεστε. Παρακαλούμε κάντε log in στον λογαρισαμό σας."
+    welcome_text_browsers: "Σας προτείνουμε να χρησιμοποιήσετε τους αναβαθμησμένους Google chrome ή Mozila firefox, για καλύτερη εμπειρία χρήσης"
+  user_diax: 
+    all: "Εμφάνιση όλων"
+    cart: Κάρτα
+    date: Ημέρα
+    name: Όνομα
+    new_offer: "Νέα προσφορά"
+    offer_num: "Αριθμός προσφοράς"
+    offers: Προσφορές
+    quantity: Ποσότητα
+    search: Αναζήτηση
+    sort: "-Εμφάνιση με σειρά-"
+    total_pr: "Τελική τιμή"

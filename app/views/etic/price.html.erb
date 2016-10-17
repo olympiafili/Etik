@@ -1,0 +1,112 @@
+<div class="container-fluid">
+  <div class="row">
+  	<div class="col-md-3">
+      <button class="menu" onclick="toggle()" onmouseenter="toggle2()">
+        <span class="glyphicon glyphicon-home"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <ul class="ul">
+        <li class="li1_1"><a href="/etic/home/"  class="li1_1">1. ΚΑΤΗΓΟΡΙΑ ΑΝΟΙΓΜΑΤΟΣ</a></li>
+        <li class="li2_2"><a href="/etic/material?open_categorie=<%= @open_categorie.name %>"  class="li2_2">2. ΥΛΙΚΟ</a></li>
+        <li class="li3_3"><a href="/etic/leaf?open_categorie_name=<%= @open_categorie.name %>&material_id=<%= @material.id %>&constructor_id=<%= @constructor.id %>&system_id=<%= @system.id %>&line_id=<%= @line.id %>"  class="li3_3">3. ΕΙΔΟΣ ΑΝΟΙΓΜΑΤΟΣ</a></li>
+        <li class="li4_4"><a href="/etic/open_type?open_categorie_name=<%= @open_categorie.name %>&material_name=<%= @material.name %>&constructor_name=<%= @constructor.name %>&system_name=<%= @system.name %>&line_name=<%= @line.name%>&leaf_name=<%= @leaf.name %>"  class="li4_4">4. ΥΠΟΚΑΤΗΓΟΡΙΑ ΑΝΟΙΓΜΑΤΟΣ</a></li>
+        <li class="li5_5"><a href="/etic/color?open_categorie_name=<%= @open_categorie.name %>&material_name=<%= @material.name %>&constructor_name=<%= @constructor.name %>&system_name=<%= @system.name %>&line_name=<%= @line.name%>&leaf_name=<%= @leaf.name %>&open_type_name=<%= @open_type.name %>"  class="li5_5">5. ΧΡΩΜΑ</a></li>
+        <li class="li6_6"><a href="/etic/diastaseis?open_categorie_name=<%= @open_categorie.name %>&material_name=<%= @material.name %>&constructor_name=<%= @constructor.name %>&system_name=<%= @system.name %>&line_name=<%= @line.name%>&leaf_name=<%= @leaf.name %>&open_type_name=<%= @open_type.name %>&color_name=<%= @color.name %>"  class="li6_6">6. ΔΙΑΣΤΑΣΕΙΣ</a></li>
+        <li class="li7"><a href="/etic/price?open_categorie_name=<%= @open_categorie.name %>&material_name=<%= @material.name %>&constructor_name=<%= @constructor.name %>&system_name=<%= @system.name %>&line_name=<%= @line.name%>&leaf_name=<%= @leaf.name %>&open_type_name=<%= @open_type.name %>&color_name=<%= @color.name %>&width=<%= @width %>&height=<%= @height %>"  class="li7">7. TIMH</a></li>
+      </ul>
+    </div>
+  	<div class="col-md-8">
+      <h2>7. TIMH</h2>
+
+      <label>Κατηγορία ανοίγματος: </label>
+      <label class="open_categorie"><%= @open_categorie.name %></label><br>
+      <label>Υλικό: </label>
+      <label class="material"><%= @material.name %></label><br>
+      <label>Κατασκευαστής: </label>
+      <label class="constructor"><%= @constructor.name %></label><br>
+      <label>Σύστημα: </label>
+      <label class="system"><%= @system.name %></label><br>
+      <label>Γραμμή: </label>
+      <label class="line"><%= @line.name %></label><br>
+      <label>Φύλλα: </label>
+      <label class="leaf"><%= @leaf.name %></label><br>
+      <label>Τύπος ανοίγματος: </label>
+      <label class="open_type1"><%= @open_type.name %></label><br>
+      <% if (!@color_deksia.nil?) %>
+        <label>Χρώμα δεξια: </label>
+        <label class="leaf"><%= @color_deksia.name %></label><br>
+        <label>Χρώμα αριστερά: </label>
+        <label class="leaf"><%= @color_aristera.name %></label><br>
+        <label>Χρώμα πάνω: </label>
+        <label class="leaf"><%= @color_panw.name %></label><br>
+        <label>Χρώμα κάτω: </label>
+        <label class="leaf"><%= @color_katw.name %></label><br>
+      <% end %>
+      <% if (!@color_fulou.nil?) %>
+        <label>Χρώμα φύλου: </label>
+        <label class="leaf"><%= @color_fulou.name %></label><br>
+      <% end %>
+      <% if (!@epik_rolo.nil?) %>
+        <label>EΠΙΚΑΘΗΜΕΝΟ ΡΟΛΟ: </label>
+        <label class="epikathimeno"><%= @epik_rolo.name %></label><br>
+        <label>ΧΡΩΜΑ EΠΙΚΑΘΗΜΕΝΟΥ ΡΟΛΟΥ: </label>
+        <label class="epikathimeno"><%= @xrwma_epikathimenou %></label><br>
+      <% end %>
+      <% if (!@ekso_rolo.nil?) %>
+        <label>ΕΞΩΤΕΡΙΚΟ ΡΟΛΟ: </label>
+        <label class="eksoteriko"><%= @ekso_rolo.name %></label><br>
+        <label>ΧΡΩΜΑ ΕΞΩΤΕΡΙΚΟΥ ΡΟΛΟΥ: </label>
+        <label class="eksoteriko"><%= @xrwma_eksoterikou %></label><br>
+      <% end %>
+      <% if (!@persida.nil?) %>
+        <label>ΠΕΡΣΙΔΑ: </label>
+        <label class="persida"><%= @persida.name %></label><br>
+        <label>ΧΡΩΜΑ ΠΕΡΣΙΔΑΣ: </label>
+        <label class="persida"><%= @xrwma_persidas %></label><br>
+      <% end %>
+      <img src="/assets/<%= @open_type.image%>" class="open_type"> <br>
+      <!--
+      <label class="color"><%= @color.name %></label><br>
+      -->
+      <label class="width">Ποσότητα: <%= @posotita %></label><br>
+      <label class="width">Πλάτος: <%= @width %> mm</label><br>
+      <label class="height">Ύψος: <%= @height %> mm</label><br>
+      <% if (!@epik_rolo.nil?) %>
+        <label class="height">Νέο Ύψος: <%= @height_new %> mm</label><br>
+      <% end %>
+      <label class="price">Τιμή μονάδας: <%= number_with_precision(@price_temp, :precision => 2) %> €</label><br>
+      <label class="price">Τιμή χρώματος: <%= number_with_precision(@price_ep, :precision => 2) %> €</label><br>
+      <% if (!@epik_rolo.nil?) %>
+        <label class="price">Τιμή ρολού: <%= number_with_precision(@epik_rolo.price, :precision => 2) %> €</label><br>
+      <% end %>
+      <% if (!@ekso_rolo.nil?) %>
+        <label class="price">Τιμή ρολού: <%= number_with_precision(@ekso_rolo.price, :precision => 2) %> €</label><br>
+      <% end %>
+      <% if (!@persida.nil?) %>
+        <label class="price">Τιμή περσίδας: <%= number_with_precision(@persida.price, :precision => 2) %> €</label><br>
+      <% end %>
+      <label class="price">Τελική Τιμή: <%= number_with_precision(@price, :precision => 2) %> €</label><br>
+
+      <hr>
+      <%= link_to "Καλάθι", etic_card_path, class: "btn btn-primary" %>
+
+  		
+  	</div><!--End col-md-8-->
+  </div><!--End row-->
+</div><!--End conteiner-->
+
+<script>
+
+$(document).ready(function(){
+
+    if ( "<%= @color.name %>" ==  "kokkino" ) {
+    $(".open_type").css("background-color","red");
+    }
+    if ( "<%= @color.name %>" ==  "mauro" ) {
+    $(".open_type").css("background-color","black");
+    }
+
+});
+
+</script>

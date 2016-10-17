@@ -1,0 +1,19 @@
+%h1 Listing paraggelia
+
+%table
+  %thead
+    %tr
+      %th
+      %th
+      %th
+
+  %tbody
+    - @paraggelia.each do |paraggelium|
+      %tr
+        %td= link_to 'Show', paraggelium
+        %td= link_to 'Edit', edit_paraggelium_path(paraggelium)
+        %td= link_to 'Destroy', paraggelium, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Paraggelium', new_paraggelium_path

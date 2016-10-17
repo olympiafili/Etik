@@ -1,0 +1,86 @@
+<nav class="navbar navbar-default" role="navigation" style="margin: auto;">
+  <div class="container-fluid header_con">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">Balteco LTD</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <% if user_signed_in? %>
+          <% if current_user.admin === nil %>
+            <% if false %><!---->
+            <li><a href="<%= etic_home_path %>?pse_user=0">Application <span class="sr-only">(current)</span></a>
+            </li>
+            <% end %><!---->
+          <% end %>
+        <% end %>
+        <li><a href="<%= etic_contact_path %>"><%= t 'header.contact' %></a></li>
+        <!--
+        <li class="lang">
+            <div class="btn-group btn-group-xs" role="group" aria-label="...">
+              <%= link_to "English",etic_language_path(:lang => "en") %>
+              <%= link_to "Greek",etic_language_path(:lang => "gr") %>
+              <%= link_to "German",etic_language_path(:lang => "de") %>
+            </div>
+        </li>
+        -->
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+         <% if user_signed_in? %>
+         <% if current_user.admin == 1 %> <!--Mesa giati vgazei error-->
+           <li><a href="<%= data_base_in_out_dashboard_path %>">Admin panel</a>
+           <!--<li><a href="<%= etic_history_admin_path %>">History</a></li>-->
+         <% else %>
+           <li><a href="<%= etic_user_diax_path %>"><%= t 'header.offers' %></a></li>
+           <!--<li><a href="<%= etic_history_path %>"><%= t 'header.history' %></a></li>-->
+         <% end %>
+         <% end %>
+         <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-globe" aria-hidden="true"></span> <%= t('root.Region') %><span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    <li>
+                        <%= link_to image_tag("locale/de.gif", :border => 0), {:action => 'language', :controller => '/etic', :lang => 'de'}, {:class => 'locale_img'} %>
+                    </li>
+                    <li>
+                        <%= link_to image_tag("locale/en.gif", :border => 0), {:action => 'language', :controller => '/etic', :lang => 'en'}, {:class => 'locale_img'} %>
+                    </li>
+                    <li>
+                        <%= link_to image_tag("locale/gr.png", :border => 0), {:action => 'language', :controller => '/etic', :lang => 'gr'}, {:class => 'locale_img'} %>
+                    </li>
+                </ul>
+        </li>
+         <% if user_signed_in? %>
+          <!--<li><%= link_to(t("header.edit_profil"), edit_user_registration_path, :class => 'navbar-link' )%></li>--> 
+          <li><%= link_to(t("header.log_out"), destroy_user_session_path, method: :delete, :class => 'navbar-link'  )%></li>
+        <% else %>
+          <!--<li><%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %></li>-->
+          <!--<li><%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %></li>-->
+        <% end %>
+      </ul>
+      <!--
+      </br></br>
+        <p class="katw_mpara"><%= t 'header.hello' %> <strong><%= current_user.email %> </strong> </p>
+        -->
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+<script type="text/javascript">
+
+  $(document).on('click','.navbar-toggle',function(e) {
+    if ( $("#bs-example-navbar-collapse-1").hasClass("in") ){
+      $("#bs-example-navbar-collapse-1").removeClass("in");
+    }else{
+      $("#bs-example-navbar-collapse-1").addClass("in");
+    } 
+  });
+</script>

@@ -1,0 +1,10 @@
+<h1>Main Menu</h1>
+<p>There is a menu in the left. You can select the database that you want to update.</p></br>
+<p>There is also a button that you can press to hide the menu bar.</p>
+<a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Toggle Menu</a>
+
+<div class="btn-group btn-group-xs" role="group" aria-label="...">
+  <%= link_to "English",etic_language_path(:lang => "en") %>
+  <%= link_to "Greek",etic_language_path(:lang => "gr") %>
+  <%= link_to "German",etic_language_path(:lang => "de") %>
+</div>

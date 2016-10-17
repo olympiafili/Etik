@@ -1,0 +1,41 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 1
+  open_categorie_id: 1
+  material_id: 1
+  constructor_id: 1
+  system_id: 1
+  line_id: 1
+  leaf_id: 1
+  main_color_id: 1
+  leaf_color_id: 1
+  right_color_id: 1
+  left_color_id: 1
+  up_color_id: 1
+  down_color_id: 1
+  open_type_id: 1
+  width: 1.5
+  height: 1.5
+  price: 1.5
+  price_extra: 1.5
+
+two:
+  user_id: 1
+  open_categorie_id: 1
+  material_id: 1
+  constructor_id: 1
+  system_id: 1
+  line_id: 1
+  leaf_id: 1
+  main_color_id: 1
+  leaf_color_id: 1
+  right_color_id: 1
+  left_color_id: 1
+  up_color_id: 1
+  down_color_id: 1
+  open_type_id: 1
+  width: 1.5
+  height: 1.5
+  price: 1.5
+  price_extra: 1.5

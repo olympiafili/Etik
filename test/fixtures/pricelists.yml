@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  width: 1
+  height: 1
+  price: 1.5
+  code: 1.5
+
+two:
+  width: 1
+  height: 1
+  price: 1.5
+  code: 1.5

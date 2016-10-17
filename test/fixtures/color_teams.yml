@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  color_team_name: MyString
+  epivarinsi: 1.5
+  colors: MyText
+
+two:
+  color_team_name: MyString
+  epivarinsi: 1.5
+  colors: MyText

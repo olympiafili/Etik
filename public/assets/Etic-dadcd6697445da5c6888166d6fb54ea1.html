@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<!-- saved from url=(0237)http://localhost:3000/etic/diastaseis?open_categorie_name=parathiro&material_name=ALU&constructor_name=Salamander&system_name=Streamline&line_name=SL1%20A&leaf_name=2fullo&open_type_name=2-flug.%20Dreh-Kippfenster%20DK_9&color_name=mauro -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>Etic</title>
+  <link data-turbolinks-track="true" href="http://localhost:3000/assets/application.css?body=1" media="all" rel="stylesheet">
+  <script src="./Etic_files/jquery.min.js"></script><style type="text/css"></style>
+  <meta content="authenticity_token" name="csrf-param">
+<meta content="jdk63c+zEvYDV3ODLsRY0cdsa26HymGr6GdZ6C2Egrk=" name="csrf-token">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+</head>
+<body>
+
+<div class="container-fluid">
+  <div class="row">
+  	<div class="col-md-2">
+  	</div>
+  	<div class="col-md-8">
+  		<h1>6. ΔΙΑΣΤΑΣΕΙΣ</h1>
+
+      <label class="open_categorie">parathiro</label><br>
+      <label class="material">ALU</label><br>
+      <label class="constructor">Salamander</label><br>
+      <label class="system">Streamline</label><br>
+      <label class="line">SL1 A</label><br>
+      <label class="leaf">2fullo</label><br>
+      <label class="open_type">2-flug. Dreh-Kippfenster DK_9</label><br>
+      <label class="color">mauro</label><br>
+
+      <hr>
+      <div class="diastaseis">
+      <input class="input" type="text" name="order" size="4" maxlength="4" placeholder="πλάτος" id="width"><br>
+      <label class="min_width">Ελάχιστο μίκος: 1200</label><br>
+      <label class="max_width">Μέγιστο μίκος: 3000</label><br>
+      <span id="maxw">3000</span>
+      <span id="minw">1200</span>
+      <br>
+      <input class="input" type="text" name="order" size="4" maxlength="4" placeholder="ύψος" id="height"><br>
+      <label class="min_height">Ελάχιστο ύψος: 600</label><br>
+      <label class="max_height">Μέγιστο ύψος: 1900</label><br>
+      <span id="maxh">1900</span>
+      <span id="minh">600</span>
+      <br>
+      <button type="button" class="btn btn-default ok">Ok</button>
+      </div> <!--End diastaseis-->
+
+  		
+  	</div><!--End col-md-8-->
+  </div><!--End row-->
+</div><!--End conteiner-->
+
+<script>
+
+$(document).ready(function(){
+
+  $(".diastaseis").on("click", ".ok", function() { 
+
+    alert( "Σωστο ύψος" )
+    if ( $("#height").val() <= $("#maxh").text() && $("#height").val() >= $("#minh").text() ) {
+        alert( "Σωστο ύψος" )
+    }
+    //Αν έχω σωστό μικος εξεταζω μεσα αν εχω και σωστο υψος μονο τοτε στελνω στοιχεια
+    if ( $("#width").val() <= $("#maxw").text() && $("#width").val() >= $("#minw").text() ) {
+      alert("Σωστο μικος");
+      if ( $("#height").val() <= $("#maxh").text() && $("#height").val() >= $("#minh").text() ) {
+        alert( "Σωστο ύψος" );
+      } else{
+        alert( "Λάθος ύψος" )
+        alert( $("#maxh").text() )
+        alert( $("#minh").text() )
+        alert( $("#height").val() )
+      }
+    } else{
+      alert( "Λαθος μικος" )
+    }
+    /*
+    window.location.href = "/etic/diastaseis?open_categorie_name="+$(".open_categorie").text()+"&material_name="+$(".material").text()+"&constructor_name="+$(".constructor").text()+"&system_name="+$(".system").text()+"&line_name="+$(".line").text()+"&leaf_name="+$(".leaf").text()+"&open_type_name="+$(".open_type").text()+"&color_name="+$(this).attr('id')+"";
+    */
+
+  });//end click
+
+});//end ready
+
+</script>
+
+<script data-turbolinks-track="true" src="./Etic_files/jquery.js"></script>
+<script data-turbolinks-track="true" src="./Etic_files/jquery_ujs.js"></script>
+<script data-turbolinks-track="true" src="./Etic_files/turbolinks.js"></script>
+<script data-turbolinks-track="true" src="./Etic_files/affix.js"></script>
+<script data-turbolinks-track="true" src="./Etic_files/alert.js"></script>
+<script data-turbolinks-track="true" src="./Etic_files/button.js"></script>
+<script data-turbolinks-track="true" src="./Etic_files/carousel.js"></script>
+<script data-turbolinks-track="true" src="./Etic_files/collapse.js"></script>
+<script data-turbolinks-track="true" src="./Etic_files/dropdown.js"></script>
+<script data-turbolinks-track="true" src="./Etic_files/tab.js"></script>
+<script data-turbolinks-track="true" src="./Etic_files/transition.js"></script>
+<script data-turbolinks-track="true" src="./Etic_files/scrollspy.js"></script>
+<script data-turbolinks-track="true" src="./Etic_files/modal.js"></script>
+<script data-turbolinks-track="true" src="./Etic_files/tooltip.js"></script>
+<script data-turbolinks-track="true" src="./Etic_files/popover.js"></script>
+<script data-turbolinks-track="true" src="./Etic_files/bootstrap-sprockets.js"></script>
+<script data-turbolinks-track="true" src="./Etic_files/application.js"></script>
+
+
+</body></html>

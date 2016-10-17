@@ -1,0 +1,336 @@
+<div id="loading"></div>
+<div class="container con_home">
+      <div class="" style="text-align:center">
+        <span id="admin" style="dysplay:hidden"><%= @admin %></span>
+        <% if (@admin != 1) %>
+        <%= link_to(t("translate.New_offer"), etic_select_customer_path ,class: "btn btn-success select_customer_button" )%><!--etic_simple_user_cr_path-->
+        
+        <% end %>
+      </div>
+
+  <div class="row">
+
+  <h2><b><%= t 'translate.Offers' %></b></h2>
+
+
+    <%= form_tag etic_user_diax_path, :method => 'get' do %>
+      <p>
+        <%= text_field_tag :search, params[:search] %>
+        <%= submit_tag(t("translate.Search"), :name => nil )%>
+        <%= submit_tag(t("translate.All"), :name => "all" )%>
+      </p>
+    <% end %></br>
+    <p><%= t 'translate.Sort_by' %></p>
+
+   
+      <div class="table-responsive">
+          <div class="pdf" id="pdf">
+            <table class="table table_card table_grammata_diax">
+
+            <thead>
+              <tr class="root">
+                <th id="kartoula_head"><%= t 'translate.Offer_number' %> <%= link_to "↑", etic_user_diax_path(:order => "code_high") %><%= link_to "↓", etic_user_diax_path(:order => "code_low") %></th>
+                <th id="kartoula_head"><%= t 'translate.Name' %> <%= link_to "↑", etic_user_diax_path(:order => "name_z") %><%= link_to "↓", etic_user_diax_path(:order => "name_a") %></th> 
+                <th id="kartoula_head"><%= t 'translate.Date' %> <%= link_to "↑", etic_user_diax_path(:order => "date_new") %><%= link_to "↓", etic_user_diax_path(:order => "date_old") %></th>
+                <th id="kartoula_head"><%= t 'translate.Quantity' %></th> 
+                <th id="kartoula_head"><%= t 'translate.Total_price' %> <%= link_to "↑", etic_user_diax_path(:order => "price_high") %><%= link_to "↓", etic_user_diax_path(:order => "price_low") %></th>
+                <th id="kartoula_head"><%= t 'translate.Cart' %></th>
+                <th id="kartoula_head"><%= t 'translate.Upload' %></th>
+                <th id="kartoula_head"></th>
+                <th id="kartoula_head">+</th>
+                
+              </tr>
+            </thead>
+
+            <tbody>
+              <% if (!@paraggelies.nil?) %>
+              <% @paraggelies.each do |par| %>
+                <% if (par.done == 1) %>
+                  <tr class="root red">
+                      <% customer =  SimpleUserPse.where(:id => par.customer).first %>
+                      <% num_of_window =  Order.where(:paraggelia_id => par.id).count %> <!--Αριθμος κουφωματων χωρις την ποσοτητα-->
+                      <% order =  Order.where(:paraggelia_id => par.id).all %>
+                      <% sunolo = 0; %>
+                      <% kouf = 0 %>
+                      <% order.each do |i| %>
+                        <% sunolo = sunolo + i.price_sum %>
+                        <% kouf = kouf + i.posotoita %>
+                      <% end %>
+                      <!--PDFs-->
+                      <% if File.directory?("#{Rails.root}/public/uploads/paraggelia/avatar/"+par.id.to_s+"") %>
+                        <% input_filenames = [] %>
+                        <% entries = Dir.entries("#{Rails.root}/public/uploads/paraggelia/avatar/"+par.id.to_s+"") %>
+                        <% entries.each.with_index(0) do |value, index| %>
+                          <% if ( index >= 2 && "#{value}" != ".DS_Store" ) %>
+                            <% input_filenames << "#{value}" %>
+                          <% end %>
+                        <% end %>
+                      <% end %>
+                    <td><%= par.id %></td>
+                    <td class="name_td"><%= customer.eponimo %> <%= customer.name %></td>
+                    <td class="date_td"><%= par.created_at.strftime("%d %b %y") %></td><!--%H:%M:%S-->
+                    <td style="text-align:center"><%= kouf %></td>
+                    <td style="text-align:right"><%= number_with_precision(sunolo, :precision => 2, separator: ",", :delimiter => '.') %> €</td>
+                    <td style="text-align:right"><button type="button" class="btn btn-warning card glyphicon glyphicon-shopping-cart" id="<%= par.id %>" style="color:black;"> Cart</button></td>
+                    <td>
+                      <form accept-charset="UTF-8" action='/paraggelia/<%= par.id %>' class="edit_paraggelia" enctype="multipart/form-data" id="edit_paraggelia_<%= par.id %>" method="post">
+                        <div style="display:none">
+                          <input name="utf8" type="hidden" value="✓">
+                            <input name="_method" type="hidden" value="patch">
+                        </div>
+                          <label class="custom-file-upload">
+                            <input class="" id="paraggelia_avatar" name="paraggelia[avatar][]" type="file"  multiple>
+                          1. <span class="glyphicon glyphicon-cloud-upload"></span> <%= t 'translate.Add_file' %>
+                          </label>
+                          <input class="btn btn-success" name="commit" type="submit" value="2. Upload">
+                      </form>
+                      <% if (par.avatar[0] != nil)  %>
+                        <%= link_to paraggelia_download_files_path(:id => par.id), class: 'btn btn-info', target: "_blank" do %>
+                          <span class="glyphicon glyphicon-cloud-download" aria-hidden="true"></span> <%= t 'translate.Download' %>
+                        <% end %>
+                        <%= link_to paraggelia_destroy_files_path(:id => par.id), class: 'btn btn-danger' do %>
+                          <span class="glyphicon glyphicon-trash" aria-hidden="true"></span> <%= t 'translate.Erase' %>
+                        <% end %>
+                      <% end %>
+                      <!--
+                      <%= form_for(par, :html => { :multipart => true }) do |f| %>
+                        <p>
+                          1. <%= f.file_field :avatar, class: "pink_user_diax"  %>
+                        </p>
+                        <p>
+                          <%= f.submit "2. "+t("translate.Upload"), class: 'btn btn-success'%>
+                          <% if (par.avatar[0] != nil)  %>
+                            <%= link_to "3. Download", par.avatar[0].url, class: 'btn btn-success', target: "_blank" %>
+                          <% end %>
+                        </p>
+                      <% end %>
+                      <% if (par.avatar[0] != nil)  %>
+                        <p><%= par.avatar[0] %></p><br>
+                        <iframe src=<%= par.avatar[0] %> width="300" height="95" style="border: none;"> </iframe><br>
+                      <% end %>
+                      -->
+                    </td>
+                    <td>
+                      <% if (par.avatar[0] != nil)  %>
+                        <div class="list_of_pdf">
+                          <h5><%= t 'translate.Added_files' %></h5>
+                          <hr>
+                          <% input_filenames.each do |i| %>
+                            <h5 style="margin-top:0px; margin-bottom:0px;"><%= i %><h5>
+                          <% end %>
+                        </div>
+                      <% end %>
+                    </td>
+                    <td><%= link_to "+", etic_simple_pse_user_path(:paraggelia_id => par.id) ,class: "btn btn-primary", id: par.id %></td>
+                    
+                  </tr>
+                <% else %>
+                  <tr class="root green">
+                      <% customer =  SimpleUserPse.where(:id => par.customer).first %>
+                      <% num_of_window =  Order.where(:paraggelia_id => par.id).count %> <!--Αριθμος κουφωματων χωρις την ποσοτητα-->
+                      <% order =  Order.where(:paraggelia_id => par.id).all %>
+                      <% sunolo = 0; %>
+                      <% kouf = 0 %>
+                      <% order.each do |i| %>
+                        <% sunolo = sunolo + i.price_sum %>
+                        <% kouf = kouf + i.posotoita %>
+                      <% end %>
+                      <!--PDFs-->
+                      <% if File.directory?("#{Rails.root}/public/uploads/paraggelia/avatar/"+par.id.to_s+"") %>
+                        <% input_filenames = [] %>
+                        <% entries = Dir.entries("#{Rails.root}/public/uploads/paraggelia/avatar/"+par.id.to_s+"") %>
+                        <% entries.each.with_index(0) do |value, index| %>
+                          <% if ( index >= 2 && "#{value}" != ".DS_Store" ) %>
+                            <% input_filenames << "#{value}" %>
+                          <% end %>
+                        <% end %>
+                      <% end %>
+                    <td><%= par.id %></td>
+                    <td class="name_td"><%= customer.eponimo %> <%= customer.name %></td>
+                    <td class="date_td"><%= par.created_at.strftime("%d %b %y") %></td><!--%H:%M:%S-->
+                    <td style="text-align:center"><%= kouf %></td>
+                    <td style="text-align:right"><%= number_with_precision(sunolo, :precision => 2, separator: ",", :delimiter => '.') %> €</td>
+                    <td style="text-align:right"><button type="button" class="btn btn-warning card glyphicon glyphicon-shopping-cart" id="<%= par.id %>" style="color:black;"> Cart</button></td>
+                    <td>
+                      <form accept-charset="UTF-8" action='/paraggelia/<%= par.id %>' class="edit_paraggelia" enctype="multipart/form-data" id="edit_paraggelia_<%= par.id %>" method="post">
+                        <div style="display:none">
+                          <input name="utf8" type="hidden" value="✓">
+                            <input name="_method" type="hidden" value="patch">
+                        </div>
+                          <label class="custom-file-upload">
+                            <input class="" id="paraggelia_avatar" name="paraggelia[avatar][]" type="file"  multiple>
+                          1. <span class="glyphicon glyphicon-cloud-upload"></span> <%= t 'translate.Add_file' %>
+                          </label>
+                          <input class="btn btn-success" name="commit" type="submit" value="2. Upload">
+                      </form>
+                      <% if (par.avatar[0] != nil)  %>
+                        <%= link_to paraggelia_download_files_path(:id => par.id), class: 'btn btn-info', target: "_blank" do %>
+                          <span class="glyphicon glyphicon-cloud-download" aria-hidden="true"></span> <%= t 'translate.Download' %>
+                        <% end %>
+                        <%= link_to paraggelia_destroy_files_path(:id => par.id), class: 'btn btn-danger' do %>
+                          <span class="glyphicon glyphicon-trash" aria-hidden="true"></span> <%= t 'translate.Erase' %>
+                        <% end %>
+                      <% end %>
+                      <!--
+                      <%= form_for(par, :html => { :multipart => true }) do |f| %>
+                        <p>
+                          1. <%= f.file_field :avatar, class: "pink_user_diax"  %>
+                        </p>
+                        <p>
+                          <%= f.submit "2. "+t("translate.Upload"), class: 'btn btn-success'%>
+                          <% if (par.avatar[0] != nil)  %>
+                            <%= link_to "3. Download", par.avatar[0].url, class: 'btn btn-success', target: "_blank" %>
+                          <% end %>
+                        </p>
+                      <% end %>
+                      <% if (par.avatar[0] != nil)  %>
+                        <p><%= par.avatar[0] %></p><br>
+                        <iframe src=<%= par.avatar[0] %> width="300" height="95" style="border: none;"> </iframe><br>
+                      <% end %>
+                      -->
+                    </td>
+                    <td>
+                      <% if (par.avatar[0] != nil)  %>
+                        <div class="list_of_pdf">
+                          <h5><%= t 'translate.Added_files' %></h5>
+                          <hr>
+                          <% input_filenames.each do |i| %>
+                            <h5 style="margin-top:0px; margin-bottom:0px;"><%= i %><h5>
+                          <% end %>
+                        </div>
+                      <% end %>
+                    </td>
+                    <td><%= link_to "+", etic_simple_pse_user_path(:paraggelia_id => par.id) ,class: "btn btn-primary", id: par.id %></td>
+                    
+                  </tr>
+                <% end %>
+              <% end %>
+              <% end %>
+            </tbody>
+          </table>
+
+
+      </div><!--div gia table-->
+    </div><!--div gia table-->
+
+    <!--
+
+    <%= link_to "Import terms", etic_import_terms_path ,class: "btn btn-primary" %>
+    <%= link_to "Import customers", etic_import_sungate_path ,class: "btn btn-primary" %>
+
+    -->
+
+    <%
+=begin %>
+
+    <div class="gen_info"> 
+        <p> - Με το κουμπί νέα προσφωρά δημιουργείται μία νέα παραγγελία. </br> - Στο κάτω μέρος της οθόνης φαίνονται οι τρέχουσες παραγγελίες. Αν δεν τις βλέπετε, κάντε scroll με το ποντίκι σας.
+        </p>
+    </div>
+    </br>
+
+    <div class="by_mult">Order by:</div>
+    
+    <select class="select" id="select" multiple="multiple" size="8">
+      <option value="code_low">code: Low to High</option>
+      <option value="code_high">code: High to Low</option>
+      <option value="name_a">name: A to Z</option>
+      <option value="name_z">name: Z to A</option>
+      <option value="date_new">date: New to Old</option>
+      <option value="date_old">date: Old to New</option>
+      <option value="price_high">price: High to Low</option>
+      <option value="price_low">price: Low to High</option>
+    </select>
+
+    <div class="gen_info"> 
+        <p>Με το κουμπί All εμφανίζονται ξανά όλοι οι πελάτες.
+        </p>
+    </div>
+    </br>
+
+    <%
+=end %>
+
+
+  </div>
+</div>
+
+<script>
+$(document).ready(function(){
+
+    var mpara = $(".navbar").outerHeight();
+    //var header_height = $(".navbar-default").height();
+    var minus_height = mpara;
+    $(".con_home").css("height", $("#wrap").outerHeight() - minus_height);
+
+    $( window ).resize(function() {
+      var mpara = $(".navbar").outerHeight();
+      //var header_height = $(".navbar-default").height();
+      var minus_height = mpara;
+      $(".con_home").css("height", $("#wrap").outerHeight() - minus_height);
+    });
+
+  a = $('.hidden');//Παίρνω όλα τα hidden, τα id(user) και το div με id του user το αλλαζω χρωμμα.
+  a.each(function(){
+    b = $(this).attr('id');
+    //$("#"+b+"").css("background-color","#5cb85c");
+    $("#"+b+"").css("border-color","#5cb85c");
+    $("#"+b+"").css("border-width","5px");
+    $("#"+b+" a").css("display","none");
+    //alert(b);
+  });
+
+  
+  $(".card_user").click(function(){
+    id = $(this).attr('id');
+    window.location.href = "<%= etic_etic_user_card_path %>?id="+id+""
+  });
+
+  $(".card").click(function(){
+    id = $(this).attr('id');
+    admin = $("#admin").text();
+    $('#loading').show();
+    window.location.href = "<%= etic_simple_pse_user_card_path %>?id="+id+"&admin="+admin+""
+  });
+
+  //$('#select').click(function(v){
+  //  alert(v.target.value);
+  //});
+  
+  $("#select").change(function () {
+
+      var order = this.value;
+      if (order == "price_high"){
+        window.location.href = "<%= etic_user_diax_path %>?order="+order;
+      }
+      if (order == "price_low"){
+        window.location.href = "<%= etic_user_diax_path %>?order="+order;
+      }
+      if (order == "date_new"){
+        window.location.href = "<%= etic_user_diax_path %>?order="+order;
+      }
+      if (order == "date_old"){
+        window.location.href = "<%= etic_user_diax_path %>?order="+order;
+      }
+      if (order == "name_a"){
+        window.location.href = "<%= etic_user_diax_path %>?order="+order;
+      }
+      if (order == "name_z"){
+        window.location.href = "<%= etic_user_diax_path %>?order="+order;
+      }
+      if (order == "code_high"){
+        window.location.href = "<%= etic_user_diax_path %>?order="+order;
+      }
+      if (order == "code_low"){
+        window.location.href = "<%= etic_user_diax_path %>?order="+order;
+      }
+      
+
+    });
+
+
+  
+
+
+}); //ready end
+</script>

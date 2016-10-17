@@ -1,0 +1,738 @@
+<div id="loading"></div>
+<div class="container con_home">
+  <div class="row row_mat">
+  	<div class="col-xs-4">
+      <!--
+      <button class="menu" onclick="toggle()" onmouseenter="toggle2()">
+        <span class="glyphicon glyphicon-home"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    -->
+      <ul class="ul">
+        <li class="li1_1"><a href="/etic/home/"  class="li1_1">1. <%= t 'mpara.open_category' %></a></li>
+        <li class="li2_2"><a href="/etic/material?open_categorie=<%= @open_categorie.name %>"  class="li2_2">2. <%= t 'mpara.material' %></a></li>
+        <li class="li3_3"><a href="/etic/leaf?open_categorie_name=<%= @open_categorie.name %>&material_id=<%= @material.id %>&constructor_id=<%= @constructor.id %>&system_id=<%= @system.id %>&line_id=<%= @line.id %>"  class="li3_3">3. <%= t 'mpara.leaf' %></a></li>
+        <li class="li4_4"><a href="/etic/open_type?open_categorie_name=<%= @open_categorie.name %>&material_name=<%= @material.name %>&constructor_name=<%= @constructor.name %>&system_name=<%= @system.name %>&line_name=<%= @line.name%>&leaf_name=<%= @leaf.name %>"  class="li4_4">4. <%= t 'mpara.open_type' %></a></li>
+        <li class="li5_5"><a href="/etic/color?open_categorie_name=<%= @open_categorie.name %>&material_name=<%= @material.name %>&constructor_name=<%= @constructor.name %>&system_name=<%= @system.name %>&line_name=<%= @line.name%>&leaf_name=<%= @leaf.name %>&open_type_name=<%= @open_type.name %>"  class="li5_5">5. <%= t 'mpara.color' %></a></li>
+        <li class="li6"><a href="/etic/diastaseis?open_categorie_name=<%= @open_categorie.name %>&material_name=<%= @material.name %>&constructor_name=<%= @constructor.name %>&system_name=<%= @system.name %>&line_name=<%= @line.name%>&leaf_name=<%= @leaf.name %>&open_type_name=<%= @open_type.name %>&color_name=<%= @color.name %>"  class="li6">6. <%= t 'mpara.dimension' %></a></li>
+        <li>7. <%= t 'mpara.price' %></li>
+      </ul>
+
+      <!--San pinakas-->
+      <div class="table-responsive">
+      <table class="table table-condensed">
+        <tr>
+          <td class="td_left"><label><%= t 'material_pinakas.cat_anoigma'  %>:</label></td>
+          <td class="open_categorie"><label><%= t "kouf."<<@open_categorie.name %></label></td>
+        </tr>
+        <tr>
+          <td class="pin1h td_left"><label><%= t 'material_pinakas.material'  %>: </label></td>
+          <td class="pin1"><label class="material"><%= @material.name %></label></td>
+        </tr>
+        <tr>
+          <td class="pin2h td_left"><label><%= t 'material_pinakas.cataskevastis'  %>: </label></td>
+          <td class="pin2"><label class="constructor"><%= @constructor.name %></label></td>
+        </tr>
+        <tr>
+          <td class="pin3h td_left"><label><%= t 'material_pinakas.systima'  %>: </label></td>
+          <td class="pin3"><label class="system"><%= @system.name %></label></td>
+        </tr>
+        <tr>
+          <td class="td_left"><label><%= t 'material_pinakas.line'  %>: </label></td>
+          <td class=""><label class="line"><%= @line.name %></label></td>
+        </tr>
+        <tr>
+          <td class="td_left"><label><%= t 'material_pinakas.leaf'  %>: </label></td>
+          <td class=""><label class="leaf"><%= t "fulla."<<@leaf.name %></label></td>
+        </tr>
+        <tr>
+          <td class="td_left"><label><%= t 'material_pinakas.open_type'  %>: </label></td>
+          <td class=""><label class="open_type"><%= @open_type.name %></label></td>
+        </tr>
+        <tr>
+          <td class="td_left"><label><%= t 'diastaseis.color'  %>: </label></td>
+          <td class=""><label class="color_main"><%= @color.name %></label></td>
+        </tr>
+        <!--KAI AYTA ME IF EXISTS-->
+        <% if (!@color_deksia.nil?) %>
+        <tr>
+          <td class="td_left"><label><%= t 'diastaseis.color_deksia'  %>: </label></td>
+          <td class=""><label class="color_deksia"><%= @color_deksia.name %></label></td>
+        </tr>
+        <tr>
+          <td class="td_left"><label><%= t 'diastaseis.color_aristera'  %>: </label></td>
+          <td class=""><label class="color_aristera"><%= @color_aristera.name %></label></td>
+        </tr>
+        <tr>
+          <td class="td_left"><label><%= t 'diastaseis.color_panw'  %>: </label></td>
+          <td class=""><label class="color_panw"><%= @color_panw.name %></label></td>
+        </tr>
+        <tr>
+          <td class="td_left"><label><%= t 'diastaseis.color_katw'  %>: </label></td>
+          <td class=""><label class="color_katw"><%= @color_katw.name %></label></td>
+        </tr>
+        <% end %>
+        <% if (!@color_fulou.nil?) %>
+        <tr>
+          <td class="td_left"><label><%= t 'diastaseis.color_fullou'  %>: </label></td>
+          <td class=""><label class="color_fullou"><%= @color_fulou.name %></label></td>
+        </tr>
+        <% end %>
+        <tr>
+            <td class="td_left"><label><%= t 'material_pinakas.arxiki_timi'  %>: </label></td>
+            <td class=""><label class="arxiki_timi"></label></td>
+          </tr>
+      </table>
+      </div>
+
+    </div>
+  	<div class="col-xs-4 col-4">
+      <h2>6. <%= t 'diastaseis.title' %></h2>
+
+      <div class="gen_info"> 
+        <p class="gen_p_info">Γενικες οδηγίες για την επιλογη παραθύρων!!! Σε αυτό το πλαίσιο μπορούμε να προσθέσουμε οποιαδήποτε πληροφορία θέλουμε.</p>
+      </div>
+
+      <hr>
+      <div class="diastaseis">
+      <input class="input" type="number" name="order" size="4" maxlength="4" placeholder="<%= t 'diastaseis.platos'%>" id="width"><br>
+      <label class="min_width"><%= t 'diastaseis.min_pla'%>: <%= @min_width %> mm</label><br>
+      <label class="max_width"><%= t 'diastaseis.max_pla'%>: <%= @max_width %> mm</label><br>
+      <span id="maxw"><%=@max_width%></span>
+      <span id="minw"><%=@min_width%></span>
+      <br>
+      <input class="input" type="number" name="order" size="4" maxlength="4" placeholder="<%= t 'diastaseis.upsos'%>" id="height"><br>
+      <label class="min_height"><%= t 'diastaseis.min_ups'%>: <%= @min_height %> mm</label><br>
+      <label class="max_height"><%= t 'diastaseis.max_ups'%>: <%= @max_height %> mm</label><br>
+      <span id="maxh"><%=@max_height%></span>
+      <span id="minh"><%=@min_height%></span>
+      <!--
+      <label class="lastixo"><%= t 'diastaseis.lastixo'%></label><br>
+      -->
+
+      <% if user_signed_in? %>
+      <a href="#pame" style="text-decoration: none; color:black;">
+        <button type="button" class="btn btn-default ok"><%= t 'diastaseis.ok'%></button><br>
+      </a>
+      <% end %>
+      
+      <hr>
+      <div class="diastaseis_dua_duo">
+      </div>
+      <hr>
+      <div class="diastaseis_dua_duo_ypsos">
+      </div>
+      <br>
+      <div class="diastaseis_dua_tria">
+      </div>
+      <div class="sunexeia"></div>
+      <br>
+      <!--
+      <input class="input" type="number" name="posotita" size="6" maxlength="6" placeholder="Ποσότητα" id="posotita">
+      -->
+      <button type="button" class="btn btn-primary order"><%= t 'diastaseis.add_card'%></button>
+      <button type="button" class="btn btn-primary extra"><%= t 'diastaseis.extra'%></button>
+      <div id="pame"></div>
+      </div> <!--End diastaseis-->
+	
+  	</div><!--End col-md-8-->
+
+    <div class="col-xs-4 col-4">
+      <canvas id="canvas" height="300" width="350">
+      </canvas>
+      <img src="/assets/<%= @open_type.image %>" class="open_type" id="canvas_image" style="background-color: white; display: none;" >
+    </div>
+
+
+  </div><!--End row-->
+</div><!--End conteiner-->
+
+<script type='text/javascript'>
+
+(function()
+{
+  if( window.localStorage )
+  {
+    if( !localStorage.getItem( 'firstLoad' ) )
+    {
+      localStorage[ 'firstLoad' ] = true;
+      window.location.reload();
+    }  
+    else
+      localStorage.removeItem( 'firstLoad' );
+  }
+})();
+
+</script>
+
+<script>
+
+$(window).load(function() {
+
+  code = Number("<%= @open_type.code %>");
+  
+  if ( code === 1 || code === 1.1 ){
+        //alert("aaaaAAAAaaaaaAAAAaaaAAAAaaaAAA");
+          drawCanvasMonXwrFegMikro("<%= @color.code %>",1,1);
+        }
+        if ( code === 2 || code === 3 || code === 4 || code === 5 || code === 19 || code === 20  ){
+          drawCanvasMonXwrFeg("<%= @color.code %>",1,1);
+        }
+        if ( code === 6 || code === 6.1  ){
+          drawCanvasDifXwrFegMikro("<%= @color.code %>",1,1);
+        }
+        if ( code === 7 || code === 9 || code === 10 || code === 22 || code === 24 ){
+          drawCanvasDifXwrFeg("<%= @color.code %>",1,1);
+        }
+        if ( (code === 8 || code === 8.1) && "<%= @open_type.name %>" == "2 Tlg.Fenster Dreh-Kipp links FOF" ){
+          DifDeksiaMikroXwrFeg("<%= @color.code %>",1,1);
+        }
+        if ( (code === 8 || code === 8.1) && "<%= @open_type.name %>" == "2 Tlg.Fenster FOF Dreh-Kipp  rechts" ){
+          DifAristeraMikroXwrFeg("<%= @color.code %>",1,1);
+        }
+        if ( code === 11 || code === 11.1 ){
+          ParathiroTriDeksiaAristeraMikro2("<%= @color.code %>",1,1);
+        }
+        if ( code === 12 || code === 12.1 ){
+          ParathiroTriDeksiaAristeraMikro("<%= @color.code %>",1,1);
+        }
+        if ( code === 13 || code === 25 ){
+          drawCanvasTriXwrFeg("<%= @color.code %>",1,1);
+        }
+        if ( code === 14 || code === 14.1 ){
+          PortaMonMeFegMikro("<%= @color.code %>",1,1);
+        }
+        if ( code === 15 ){
+          PortaMonMeFegMegalo("<%= @color.code %>",1,1);
+        }
+        if ( code === 16 || code === 16.1 ){
+          PortaDifFegMikro("<%= @color.code %>",1,1);
+        }
+        if ( code === 17 ){
+          PortaDifFegMiaPorta("<%= @color.code %>",1,1);
+        }
+        if ( code === 18 ){
+          PortaDifFegDuoPortes("<%= @color.code %>",1,1);
+        }
+        if ( code === 21 ){
+          MpalkonoportaMonFegMegalo("<%= @color.code %>",1,1);
+        }
+        if ( (code === 23 || code === 23.1) && "<%= @open_type.name %>" == "2 Flg. Balkontür Dreh links mit festem Flügel rechts (FMF)" ){
+          DifDeksiaMikroXwrFeg("<%= @color.code %>",1,1);
+        }
+        if ( (code === 23 || code === 23.1) && "<%= @open_type.name %>" == "2 Flg. Balkontür mit festem Flügel links (FMF) und Dreh rechts" ){
+          DifAristeraMikroXwrFeg("<%= @color.code %>",1,1);
+        }
+        if ( (code === 26 || code === 26.1) && "<%= @open_type.name %>" == "3 Flg. Balkontür Dreh links-Dreh Kipp rechts- F -R" ){
+          MpalkonoportaTriDeksiaMikro("<%= @color.code %>",1,1);
+        }
+        if ( (code === 26 || code === 26.1) && "<%= @open_type.name %>" == "3 Flg. Balkontür Dreh links-Dreh Kipp rechts- F -L" ){
+          MpalkonoportaTriAristeraMikro("<%= @color.code %>",1,1);
+        }
+
+});
+
+
+$(document).ready(function(){
+
+  
+  //<% if (!@color_deksia.nil?) %>
+  //  drawCanvasTet("<%= @color.code %>","<%= @color_deksia.code %>","<%= @color_aristera.code %>","<%= @color_panw.code %>","<%= @color_katw.code %>");
+  //<% else %>
+  //  drawCanvasTetAplo("<%= @color.code %>");
+  // <% end %>
+
+  //Αρχικα κρηβω τα κουμπια της συνέχειας και αρχικοποιω τις τιμες των χωρισματων σε περιπτωση που εχω μονοφυλλο να περασω κατι.
+  $("#posotita").hide();
+  $(".order").hide();
+  $(".extra").hide();
+  ok = true;
+  xwrisma1 = 0;
+  xwrisma2 = 0;
+  xwrisma3_1 = 0;
+  xwrisma3_2 = 0;
+  xwrisma3_3 = 0;
+  xwrisma_y_1 = 0;
+  xwrisma_y_2 = 0;
+  lastixo = 0; //Den exw patisei lastixo
+  epilogi = true;
+  fail = 0;
+
+  ////////////////////////////ΕΠΙΛΟΓΗ ΛΑΣΤΙΧΟΥ ///////////////////////////////////
+  $(".diastaseis").on("click", ".lastixo", function() {
+
+  
+    if (epilogi){
+      //alert("!11!!!1!!");
+      lastixo = 1;
+      $( this ).css("background-color","#CA3333");
+      $( this ).css("color","white");
+      epilogi = false;
+    }else {
+      lastixo = 0;
+      //Αλλαγη χρωματος
+      $( ".lastixo" ).css("background-color","");//Ετσι αφαιρω την ιδιοτητα!!!
+      $( ".lastixo" ).css("color","");
+      epilogi = true;
+      }
+
+  }); 
+  
+  //Με την υποβολη των διαστασεων αδιαζω τα πλαισια που θα εμφανισω για να μην ξαναεμφανιστουν.
+  //Ελεγχώ τις διαστασεις συμφωνα με τα hidden label που εχω και αν ειναι σωστες ελεγχω αν εχω 1,2,3 φυλλα.
+  //Κανω τους υπολογισμους εμφανιζω τα label και ειμαι ετιμος για συνεχεια.
+  //Αν κανω UPDATE παω καω στον κωδικα...
+  $(".diastaseis").keypress(function (e) {
+   var key = e.which;
+   if(key == 13)  // the enter key code
+    {
+      $(".ok").click();
+      return false;  
+    }
+  });   
+
+  $(".ok").click(function(){
+    $(".sunexeia").empty();
+    $(".diastaseis_dua_duo").empty();
+    $(".diastaseis_dua_duo_ypsos").empty();
+    $(".diastaseis_dua_tria").empty();
+
+    if ( ( Number($("#width").val()) <= Number($("#maxw").text()) ) && ( Number($("#width").val()) >= Number($("#minw").text()) ) ) {
+      //alert( "<%= t 'diastaseis.swsto_width' %>" );
+      if ( ( Number($("#height").val()) <= Number($("#maxh").text()) ) && ( Number($("#height").val()) >= Number($("#minh").text()) ) ) { //////////////ΔΕΝ ΞΕΡΩ ΓΙΑΤΙ!
+        //alert( "<%= t 'diastaseis.swsto_height' %>" );
+
+
+        times_json("<%= @open_type.name %>", $("#width").val(), $("#height").val(), "<%= @line.name %>", "<%= @mesa_eksw %>", "<%= @color.name %>",$("#width").val(),$("#height").val(),"" ,"","","","","","","","","","","","","","",$(".color_deksia").text(),$(".color_aristera").text(),$(".color_panw").text(),$(".color_katw").text(),$(".color_fullou").text(),lastixo);
+
+        setTimeout(function(){
+          if ( $(".arxiki_timi").text() == "0.00" ){
+            alert("Server fail please try again");
+            window.location.reload();
+            fail = 1;
+          }
+        },500);
+        //ΕΞΕΤΑΖΩ ΑΝ ΕΙΝΑΙ ΣΩΣΤΟ ΤΟ input
+        if ("<%= @leaf.name %>" == "1fullo" && (code === 14 || code === 14.1 || code === 15 || code === 16 || code === 16.1 || code === 17 || code === 18 || code === 21)){
+          height_dua_duo = ( $("#height").val() / 2 );
+          if ( $("#width").val() != 0 && $("#height").val() != 0 ) {
+                var diay1 = "<p>Χωρισμα πάνω:</p>"
+                var diastasiy1 = "<input class=input type=text name=order maxlength=4 placeholder='Χώρισμα ύψους πάνω' id='xwrisma_panw'><br>";
+                $(diay1).appendTo(".diastaseis_dua_duo_ypsos");
+                $(diastasiy1).appendTo(".diastaseis_dua_duo_ypsos");
+                var diay2 = "<p>Χωρισμα κάτω:</p>"
+                var diastasiy2 = "<input class=input type=text name=order maxlength=4 placeholder='Χώρισμα ύψους κάτω' id='xwrisma_katw'><br>";
+                $(diay2).appendTo(".diastaseis_dua_duo_ypsos");
+                $(diastasiy2).appendTo(".diastaseis_dua_duo_ypsos");
+                //$("#xwrisma_panw").val(Math.ceil(height_dua_duo));
+                //$("#xwrisma_katw").val(Math.floor(height_dua_duo));
+                $("#xwrisma_panw").val("380");
+                ypsos_katw = $("#height").val() - 380;
+                $("#xwrisma_katw").val(ypsos_katw);
+                var button = "<button type='button' class='btn btn-default update3'>Update</button>"
+                $(button).appendTo(".sunexeia");
+                if ( ok ){
+                  xwrisma_y_1 = $("#xwrisma_panw").val();
+                  xwrisma_y_2 = $("#xwrisma_katw").val();
+                  //if ( fail != 1){
+                    $("#posotita").show();
+                    $(".order").show();
+                    $(".extra").show(); 
+                    $("#posotita").val(1);
+                  //}
+                }
+              }
+              else {
+                alert("Δώσε πλάτος και ύψος");
+              }//end μεσα if
+          
+          //alert(height_dua_duo);
+          //drawCanvasMonXwrFeg("<%= @color.code %>",$("#width").val()/600,$("#height").val()/600);
+        }
+            if ( "<%= @leaf.name %>" == "2fullo" && (code === 16 || code === 16.1 || code === 17 || code === 18)){
+              height_dua_duo = ( $("#height").val() / 2 );
+          if ( $("#width").val() != 0 && $("#height").val() != 0 ) {
+                var diay1 = "<p>Χωρισμα πάνω:</p>"
+                var diastasiy1 = "<input class=input type=text name=order maxlength=4 placeholder='Χώρισμα ύψους πάνω' id='xwrisma_panw'><br>";
+                $(diay1).appendTo(".diastaseis_dua_duo_ypsos");
+                $(diastasiy1).appendTo(".diastaseis_dua_duo_ypsos");
+                var diay2 = "<p>Χωρισμα κάτω:</p>"
+                var diastasiy2 = "<input class=input type=text name=order maxlength=4 placeholder='Χώρισμα ύψους κάτω' id='xwrisma_katw'><br>";
+                $(diay2).appendTo(".diastaseis_dua_duo_ypsos");
+                $(diastasiy2).appendTo(".diastaseis_dua_duo_ypsos");
+                //$("#xwrisma_panw").val(Math.ceil(height_dua_duo));
+                //$("#xwrisma_katw").val(Math.floor(height_dua_duo));
+                $("#xwrisma_panw").val(Math.ceil(height_dua_duo));
+                $("#xwrisma_katw").val(Math.floor(height_dua_duo));
+              }
+              else {
+                alert("Δώσε πλάτος και ύψος");
+              }//end μεσα if
+              width_dua_duo = ( $("#width").val() / 2 );
+              if ( $("#width").val() != 0 && $("#height").val() != 0 ) {
+                var dia1 = "<p>Χωρισμα αριστερά:</p>"
+                var diastasi1 = "<input class=input type=text name=order maxlength=4 placeholder='Χώρισμα πλάτους 1' id='xwrisma_platous_1'><br>";
+                $(dia1).appendTo(".diastaseis_dua_duo");
+                $(diastasi1).appendTo(".diastaseis_dua_duo");
+                var dia2 = "<p>Χωρισμα δεξιά:</p>"
+                var diastasi2 = "<input class=input type=text name=order maxlength=4 placeholder='Χώρισμα πλάτους 2' id='xwrisma_platous_2'><br>";
+                $(dia2).appendTo(".diastaseis_dua_duo");
+                $(diastasi2).appendTo(".diastaseis_dua_duo");
+                $("#xwrisma_platous_1").val(Math.ceil(width_dua_duo));
+                $("#xwrisma_platous_2").val(Math.floor(width_dua_duo));
+              }
+              else {
+                alert("Δώσε πλάτος και ύψος");
+              }//end μεσα if
+              if ( $("#width").val() != 0 && $("#height").val() != 0 ) {
+                var button = "<button type='button' class='btn btn-default update4'>Update</button>"
+                $(button).appendTo(".sunexeia");
+                if ( ok ){
+                  xwrisma_y_1 = $("#xwrisma_panw").val();
+                  xwrisma_y_2 = $("#xwrisma_katw").val();
+                  xwrisma1 = $("#xwrisma_platous_1").val();
+                  xwrisma2 = $("#xwrisma_platous_2").val();
+                  //if ( fail != 1){
+                    $("#posotita").show();
+                    $(".order").show();
+                    $(".extra").show(); 
+                    $("#posotita").val(1);
+                  //}
+                }
+              }else {
+                alert("Δώσε πλάτος και ύψος");
+              }//end μεσα if
+
+            }else if ( "<%= @leaf.name %>" == "2fullo" && (code !== 16 || code !== 16.1 || code !== 17 || code !== 18)){
+              width_dua_duo = ( $("#width").val() / 2 );
+              //alert(width_dua_duo); 
+              if ( $("#width").val() != 0 && $("#height").val() != 0 ) {
+                var dia1 = "<p>Χωρισμα αριστερά:</p>"
+                var diastasi1 = "<input class=input type=text name=order maxlength=4 placeholder='Χώρισμα πλάτους 1' id='xwrisma_platous_1'><br>";
+                $(dia1).appendTo(".diastaseis_dua_duo");
+                $(diastasi1).appendTo(".diastaseis_dua_duo");
+                var dia2 = "<p>Χωρισμα δεξιά:</p>"
+                var diastasi2 = "<input class=input type=text name=order maxlength=4 placeholder='Χώρισμα πλάτους 2' id='xwrisma_platous_2'><br>";
+                $(dia2).appendTo(".diastaseis_dua_duo");
+                $(diastasi2).appendTo(".diastaseis_dua_duo");
+                $("#xwrisma_platous_1").val(Math.ceil(width_dua_duo));
+                $("#xwrisma_platous_2").val(Math.floor(width_dua_duo));
+                var button = "<button type='button' class='btn btn-default update'>Update</button>"
+                $(button).appendTo(".sunexeia");
+                if ( ok ){
+                  xwrisma1 = $("#xwrisma_platous_1").val();
+                  xwrisma2 = $("#xwrisma_platous_2").val();
+                  //if ( fail != 1){
+                    $("#posotita").show();
+                    $(".order").show();
+                    $(".extra").show(); 
+                    $("#posotita").val(1);
+                  //}
+                }
+              }
+              else {
+                alert("Δώσε πλάτος και ύψος");
+              }//end μεσα if
+            }else if ( "<%= @leaf.name %>" == "3fullo" ) {
+              width_dua_tria = ( $("#width").val() / 3 );
+              alert(width_dua_tria); 
+              if ( $("#width").val() != 0 && $("#height").val() != 0 ) {
+                var dia1 = "<p>Χωρισμα 1:</p>"
+                var diastasi1 = ":<input class=input type=text name=order maxlength=4 placeholder='Χώρισμα πλάτους 1' id='xwrisma_platous_1'><br>";
+                $(dia1).appendTo(".diastaseis_dua_tria");
+                $(diastasi1).appendTo(".diastaseis_dua_tria");
+                var dia2 = "<p>Χωρισμα 2:</p>"
+                var diastasi2 = "<input class=input type=text name=order maxlength=4 placeholder='Χώρισμα πλάτους 2' id='xwrisma_platous_2'><br>";
+                $(dia2).appendTo(".diastaseis_dua_tria");
+                $(diastasi2).appendTo(".diastaseis_dua_tria");
+                var dia3 = "<p>Χωρισμα 3:</p>"
+                var diastasi3 = "<input class=input type=text name=order maxlength=4 placeholder='Χώρισμα πλάτους 3' id='xwrisma_platous_3'><br>";
+                $(dia3).appendTo(".diastaseis_dua_tria");
+                $(diastasi3).appendTo(".diastaseis_dua_tria");
+                if ( ( $("#width").val() % 3 ) == 1 ){
+                  $("#xwrisma_platous_1").val(Math.floor(width_dua_tria));
+                  $("#xwrisma_platous_2").val(Math.floor(width_dua_tria));
+                  $("#xwrisma_platous_3").val(Math.ceil(width_dua_tria));
+                }
+                else{
+                  $("#xwrisma_platous_1").val(Math.floor(width_dua_tria));
+                  $("#xwrisma_platous_2").val(Math.ceil(width_dua_tria));
+                  $("#xwrisma_platous_3").val(Math.ceil(width_dua_tria));
+                }
+                var button = "<button type='button' class='btn btn-default update2'>Update</button>"
+                $(button).appendTo(".sunexeia");
+                if ( ok ){
+                  xwrisma3_1 = $("#xwrisma_platous_1").val();
+                  xwrisma3_2 = $("#xwrisma_platous_2").val();
+                  xwrisma3_3 = $("#xwrisma_platous_3").val();
+                  //if ( fail != 1){
+                    $("#posotita").show();
+                    $(".order").show();
+                    $(".extra").show(); 
+                    $("#posotita").val(1);
+                  //}
+                }
+              }
+              else {
+                alert("Δώσε πλάτος και ύψος");
+              }//end μεσα if
+            }else {
+              //if exists πιο καλα
+            //if ( fail != 1){
+                    $("#posotita").show();
+                    $(".order").show();
+                    $(".extra").show(); 
+                    $("#posotita").val(1);
+              //    }
+            }//end if else
+            //Τελος ελεγχου εσωτερικου
+      } else {
+        alert( "<%= t 'diastaseis.lathos_height' %>");
+      }
+    } else {
+      //if για στωστο υψος μονο για ελεγχο
+      alert( "<%= t 'diastaseis.lathos_width' %>" );
+    }//end if
+
+  });//end ok
+
+  //Με το update και update2 κανω υπολογισμους και εμφανιζω τα χωρισματα. Κανω ελεγχω και αν ολα ειναι σωστα εμφανιζω εμφανιζω την συνεχεια αν οχι την κρηβω. Το ιδιο κανω στις δυο παρακατω συναρτησεις, για 2 φυλλα και 3 φυλλα ξεχωριστα
+
+  $(".diastaseis_dua_duo").on("blur", "#xwrisma_platous_1", function() {  //".sunexeia" ".update"
+    
+     xwrisma1 = $("#xwrisma_platous_1").val();
+     xwrisma2 = $("#xwrisma_platous_2").val();
+     athrisma = Number(xwrisma1) + Number(xwrisma2);
+    if ( ( Number(xwrisma1) <= $("#width").val() ) && ( Number(xwrisma2) <= $("#width").val() ) && ( Number(xwrisma1) >= 0 ) && ( Number(xwrisma2) >= 0 )){
+      xwrisma2 = $("#width").val() - xwrisma1;
+      $("#xwrisma_platous_2").val(xwrisma2);
+      var athrisma = Number(xwrisma1) + Number(xwrisma2);
+    }
+      if ( (athrisma == $("#width").val()) && !(isNaN(Number(xwrisma1))) && !(isNaN(Number(xwrisma2))) && Number(xwrisma1) >= 300 && Number(xwrisma2) >= 300 ){
+        ok = true;
+      }
+      else {
+        alert("Λαθος όρια. Πατηστε αριθμους και οχι γραμματα. Ακόμη το min πλατος σε κάθε φύλλο είναι 300mm");
+         ok = false;
+      }
+    
+    if ( ok ){
+      $("#posotita").show();
+      $(".order").show();
+      $(".extra").show(); 
+      $("#posotita").val(1);
+    }else{
+      $("#posotita").hide();
+      $(".order").hide();
+      $(".extra").hide(); 
+      $("#posotita").val(1);
+    }
+    
+  });
+
+  
+
+  $(".sunexeia").on("click", ".update2", function() {
+    
+    xwrisma3_1 = $("#xwrisma_platous_1").val();
+    xwrisma3_2 = $("#xwrisma_platous_2").val();
+    xwrisma3_3 = $("#xwrisma_platous_3").val();
+    athrisma = Number(xwrisma3_1) + Number(xwrisma3_2) + Number(xwrisma3_3);
+    /*
+    if ( ( Number(xwrisma3_1) <= $("#width").val() ) && ( Number(xwrisma3_2) <= $("#width").val() ) && ( Number(xwrisma3_3) <= $("#width").val() ) && ( Number(xwrisma3_1) >= 0 ) && ( Number(xwrisma3_2) >= 0 ) && ( Number(xwrisma3_3) >= 0 )){
+      mion = ( $("#width").val() - xwrisma3_1 );
+      div = ( mion / 2 );
+      $("#xwrisma_platous_2").val(Math.ceil(div));
+      $("#xwrisma_platous_3").val(Math.floor(div));
+      xwrisma3_2 = $("#xwrisma_platous_2").val();
+      xwrisma3_3 = $("#xwrisma_platous_3").val();
+      alert(Number(xwrisma3_1));
+      var athrisma = Number(xwrisma3_1) + Number(xwrisma3_2) + Number(xwrisma3_3);
+    }
+    */
+      if ( (athrisma == $("#width").val()) && !(isNaN(Number(xwrisma3_1))) && !(isNaN(Number(xwrisma3_2))) && !(isNaN(Number(xwrisma3_3))) && Number(xwrisma3_1) >= 300 && Number(xwrisma3_2) >= 300 && Number(xwrisma3_3) >= 300 ){
+        ok = true;
+      }
+      else {
+        alert("Λαθος όρια. Πατηστε αριθμους και οχι γραμματα");
+         ok = false;
+         $("#xwrisma_platous_1").val('');
+         $("#xwrisma_platous_2").val('');
+         $("#xwrisma_platous_3").val('');
+      }
+    
+    if ( ok ){
+      $("#posotita").show();
+      $(".order").show();
+      $(".extra").show(); 
+      $("#posotita").val(1);
+    }else{
+      $("#posotita").hide();
+      $(".order").hide();
+      $(".extra").hide(); 
+      $("#posotita").val(1);
+    }
+    /*
+    if (athrisma == $("#width").val() ){
+      alert("Σωστο");
+    }else{
+      alert("Λαθος");
+    }
+    */
+    
+  });
+
+  $(".diastaseis_dua_duo_ypsos").on("blur", "#xwrisma_panw", function() {
+    
+     xwrisma_y_1 = $("#xwrisma_panw").val();
+     xwrisma_y_2 = $("#xwrisma_katw").val();
+     athrisma = Number(xwrisma_y_1) + Number(xwrisma_y_2);
+    if ( ( Number(xwrisma_y_1) <= $("#height").val() ) && ( Number(xwrisma_y_2) <= $("#height").val() ) && ( Number(xwrisma_y_1) >= 0 ) && ( Number(xwrisma_y_2) >= 0 )){
+      xwrisma_y_2 = $("#height").val() - xwrisma_y_1;
+      $("#xwrisma_katw").val(xwrisma_y_2);
+      var athrisma = Number(xwrisma_y_1) + Number(xwrisma_y_2);
+    }
+      if ( (athrisma == $("#height").val()) && !(isNaN(Number(xwrisma_y_1))) && !(isNaN(Number(xwrisma_y_2))) && Number(xwrisma_y_1) >= 380 && Number(xwrisma_y_2) >= 400 ){
+        ok = true;
+      }
+      else {
+        alert("Λαθος όρια. Πατηστε αριθμους και οχι γραμματα. Ακόμη το min πλατος σε κάθε φύλλο είναι 300mm");
+         ok = false;
+      }
+    
+    if ( ok ){
+      $("#posotita").show();
+      $(".order").show();
+      $(".extra").show(); 
+      $("#posotita").val(1);
+    }else{
+      $("#posotita").hide();
+      $(".order").hide();
+      $(".extra").hide(); 
+      $("#posotita").val(1);
+    }
+    
+  });
+
+  $(".sunexeia").on("click", ".update4", function() {
+    
+     xwrisma_y_1 = $("#xwrisma_panw").val();
+     xwrisma_y_2 = $("#xwrisma_katw").val();
+     xwrisma1 = $("#xwrisma_platous_1").val();
+     xwrisma2 = $("#xwrisma_platous_2").val();
+     
+     athrisma_y = Number(xwrisma_y_1) + Number(xwrisma_y_2);
+     athrisma = Number(xwrisma1) + Number(xwrisma2);
+    if ( ( Number(xwrisma_y_1) <= $("#height").val() ) && ( Number(xwrisma_y_2) <= $("#height").val() ) && ( Number(xwrisma_y_1) >= 0 ) && ( Number(xwrisma_y_2) >= 0 ) && ( Number(xwrisma1) <= $("#width").val() ) && ( Number(xwrisma2) <= $("#width").val() ) && ( Number(xwrisma1) >= 0 ) && ( Number(xwrisma2) >= 0 )){
+      xwrisma_y_2 = $("#height").val() - xwrisma_y_1;
+      $("#xwrisma_katw").val(xwrisma_y_2);
+      var athrisma_y = Number(xwrisma_y_1) + Number(xwrisma_y_2);
+      xwrisma2 = $("#width").val() - xwrisma1;
+      $("#xwrisma_platous_2").val(xwrisma2);
+      var athrisma = Number(xwrisma1) + Number(xwrisma2);
+    }
+      if ( (athrisma_y == $("#height").val()) && !(isNaN(Number(xwrisma_y_1))) && !(isNaN(Number(xwrisma_y_2))) && Number(xwrisma_y_1) >= 380 && Number(xwrisma_y_2) >= 400 && (athrisma == $("#width").val()) && !(isNaN(Number(xwrisma1))) && !(isNaN(Number(xwrisma2))) && Number(xwrisma1) >= 300 && Number(xwrisma2) >= 300){
+        ok = true;
+      }
+      else {
+        alert("Λαθος όρια. Πατηστε αριθμους και οχι γραμματα. Ακόμη το min πλατος σε κάθε φύλλο είναι 300mm");
+         ok = false;
+      }
+    
+    if ( ok ){
+      $("#posotita").show();
+      $(".order").show();
+      $(".extra").show(); 
+      $("#posotita").val(1);
+    }else{
+      $("#posotita").hide();
+      $(".order").hide();
+      $(".extra").hide(); 
+      $("#posotita").val(1);
+    }
+    
+  });
+
+  ////////////////  TELOS ////////////////////////////// ΜΕΧΡΙ ΤΩΡΑ ΕΧΩ ΚΑΝΕΙ ΜΟΝΟ ΤΑ EXTRA για λινκ
+  // Αναλογα με το τι πατησω παω με link σε εχτρα ή ολοκληρωση. 
+
+
+  $(".extra").click(function(){
+    if ( ( Number($("#width").val()) <= Number($("#maxw").text()) ) && ( Number($("#width").val()) >= Number($("#minw").text()) ) ) {
+      //alert( "<%= t 'diastaseis.swsto_width' %>" );
+      if ( ( Number($("#height").val()) <= Number($("#maxh").text()) ) && ( Number($("#height").val()) >= Number($("#minh").text()) ) ) { //////////////ΔΕΝ ΞΕΡΩ ΓΙΑΤΙ!
+        //alert( "<%= t 'diastaseis.swsto_height' %>" );
+        //Εδω θα στείλω στον server για ολοκληρωση παραγγελιας
+        window.location.href = "<%= etic_extra_path %>?open_categorie_name="+"<%= @open_categorie.name %>"+"&material_name="+$(".material").text()+"&constructor_name="+$(".constructor").text()+"&system_name="+$(".system").text()+"&line_name="+$(".line").text()+"&leaf_name="+"<%= @leaf.name %>"+"&open_type_name="+$(".open_type").text()+"&color_name="+$(".color_main").text()+"&color_deksia="+$(".color_deksia").text()+"&color_aristera="+$(".color_aristera").text()+"&color_panw="+$(".color_panw").text()+"&color_katw="+$(".color_katw").text()+"&color_fulou="+$(".color_fullou").text()+"&posotita="+1+"&width="+$("#width").val()+"&height="+$("#height").val()+"&xwrisma1="+xwrisma1+"&xwrisma2="+xwrisma2+"&xwrisma3_1="+xwrisma3_1+"&xwrisma3_2="+xwrisma3_2+"&xwrisma3_3="+xwrisma3_3+"&mesa_eksw="+<%= @mesa_eksw %>+"&lastixo="+lastixo+"&xwrisma_y_1="+xwrisma_y_1+"&xwrisma_y_2="+xwrisma_y_2+"";
+      } else {
+        alert( "<%= t 'diastaseis.lathos_height' %>" );
+      }
+    } else {
+      //if για στωστο υψος μονο για ελεγχο
+      alert( "<%= t 'diastaseis.lathos_width' %>" );
+    }//end if
+
+  });
+
+// Convert dataURL to Blob object
+        function dataURLtoBlob(dataURL) {
+          // Decode the dataURL    
+          var binary = atob(dataURL.split(',')[1]);
+          // Create 8-bit unsigned array
+          var array = [];
+          for(var i = 0; i < binary.length; i++) {
+              array.push(binary.charCodeAt(i));
+          }
+          // Return our Blob object
+          return new Blob([new Uint8Array(array)], {type: 'image/png'});
+        }
+
+  $(".order").click(function(){
+    if ( ( Number($("#width").val()) <= Number($("#maxw").text()) ) && ( Number($("#width").val()) >= Number($("#minw").text()) ) ) {
+      //alert( "<%= t 'diastaseis.swsto_width' %>" );
+      if ( ( Number($("#height").val()) <= Number($("#maxh").text()) ) && ( Number($("#height").val()) >= Number($("#minh").text()) ) ) { //////////////ΔΕΝ ΞΕΡΩ ΓΙΑΤΙ!
+
+        //alert( "<%= t 'diastaseis.swsto_height' %>" );
+        c = document.getElementById("canvas");
+        var dataURL = c.toDataURL('image/png');
+        var file = dataURLtoBlob(dataURL);
+        var fd = new FormData();
+        // Append our Canvas image file to the form data
+        fd.append("image", file);
+
+
+        
+
+        $.ajax({
+          type:'POST',
+          url:'/etic/save_image',
+          dataType: "json",
+          data: fd,
+          processData: false,
+          contentType: false,
+          success: function(data) {
+            window.location.href = "<%= etic_price_path %>?open_categorie_name="+"<%= @open_categorie.name %>"+"&material_name="+$(".material").text()+"&constructor_name="+$(".constructor").text()+"&system_name="+$(".system").text()+"&line_name="+$(".line").text()+"&leaf_name="+"<%= @leaf.name %>"+"&open_type_name="+$(".open_type").text()+"&color_name="+$(".color_main").text()+"&color_deksia="+$(".color_deksia").text()+"&color_aristera="+$(".color_aristera").text()+"&color_panw="+$(".color_panw").text()+"&color_katw="+$(".color_katw").text()+"&color_fulou="+$(".color_fullou").text()+"&posotita="+1+"&width="+$("#width").val()+"&height="+$("#height").val()+"&xwrisma1="+xwrisma1+"&xwrisma2="+xwrisma2+"&xwrisma3_1="+xwrisma3_1+"&xwrisma3_2="+xwrisma3_2+"&xwrisma3_3="+xwrisma3_3+"&mesa_eksw="+<%= @mesa_eksw %>+"&lastixo="+lastixo+"&new_width="+$("#width").val()+"&new_height="+$("#height").val()+"&xwrisma_y_1="+xwrisma_y_1+"&xwrisma_y_2="+xwrisma_y_2+"";
+               
+        },
+        error: function(data) { 
+        }
+        });//end ejax
+        //Εδω θα στείλω στον server για ολοκληρωση παραγγελιας
+        
+      } else {
+        alert( "<%= t 'diastaseis.lathos_height' %>" );
+      }
+    } else {
+      //if για στωστο υψος μονο για ελεγχο
+      alert( "<%= t 'diastaseis.lathos_width' %>" );
+    }//end if
+
+
+  });
+
+
+
+});//end ready
+
+</script>

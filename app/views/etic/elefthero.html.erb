@@ -1,0 +1,1320 @@
+<div id="loading"></div>
+
+      <div class="elefthero_ola">
+          <div class="button">
+          <button type="button" class='btn btn-primary epanal' >EPANAL</button>
+        </div>
+          <h2>4. ELEFTHERO </h2>
+
+          <div class="canvas_image"></div>
+          <canvas id="canvas_ele" class="elefthero_canvas" height="600" width="600"></canvas>
+
+
+          <div class="ori_diktis_mikous"></div>
+          <div class="ori_diktis_mikous_aristera"></div>
+          <div class="ori_diktis_mikous_deksia"></div>
+          <div class="ori_diktis_mikous_text"></div>
+          <div class="kath_diktis_upsous"></div>
+          <div class="kath_diktis_upsous_panw"></div>
+          <div class="kath_diktis_upsous_katw"></div>
+          <div class="kath_diktis_upsous_text"></div>
+  
+          
+          <div class="elements_nea">
+          <div class="kasa_panw clack"></div>
+          <div class="kasa_katw clack"></div>
+          <div class="kasa_aristera click"></div>
+          <div class="kasa_deksia click"></div>
+          <canvas class="eswteriko_kasas tetragwno"></canvas>
+          <div class="orizontio_xwrisma_1 clack"></div>
+          <div class="orizontio_xwrisma_2 clack"></div>
+          <div class="orizontio_xwrisma_3 clack"></div>
+          <div class="orizontio_xwrisma_4 clack"></div>
+          <div class="orizontio_xwrisma_5 clack"></div>
+          <div class="orizontio_xwrisma_6 clack"></div>
+          <div class="orizontio_xwrisma_7 clack"></div>
+          <div class="orizontio_xwrisma_8 clack"></div>
+          <div class="orizontio_xwrisma_9 clack"></div>
+          <div class="orizontio_xwrisma_10 clack"></div>
+          <div class="orizontio_xwrisma_11 clack"></div>
+          <div class="orizontio_xwrisma_12 clack"></div>
+          <div class="katheto_xwrisma_1 click"></div>
+          <div class="katheto_xwrisma_2 click"></div>
+          <div class="katheto_xwrisma_3 click"></div>
+          <div class="katheto_xwrisma_4 click"></div>
+          <div class="katheto_xwrisma_5 click"></div>
+          <div class="katheto_xwrisma_6 click"></div>
+          <div class="katheto_xwrisma_7 click"></div>
+          <div class="katheto_xwrisma_8 click"></div>
+          <div class="katheto_xwrisma_9 click"></div>
+          <div class="katheto_xwrisma_10 click"></div>
+          <div class="katheto_xwrisma_11 click"></div>
+          <div class="katheto_xwrisma_12 click"></div>
+          </div>
+          <!--
+          <div class="kasa_panw_img"><img src="/assets/kasa_panw.png"></div>
+          <div class="kasa_aristera_img"><img src="/assets/kasa_aristera.png"></div>
+          <div class="kasa_border"></div>
+          -->
+          
+          
+          
+
+          <div class="standar_epiloges">
+            <div class="diastaseis_elefthero">
+              <input class="input" type="number" name="order" size="4" maxlength="4" placeholder="<%= t 'diastaseis.platos'%>" id="width">
+              <label class="min_width"><%= t 'diastaseis.min_pla'%>: <%= @min_width %>350 mm</label> -- 
+              <label class="max_width"><%= t 'diastaseis.max_pla'%>: <%= @max_width %>6000 mm</label><br>
+              <span id="maxw"><%=@max_width%></span>
+              <span id="minw"><%=@min_width%></span>
+          
+              <input class="input" type="number" name="order" size="4" maxlength="4" placeholder="<%= t 'diastaseis.upsos'%>" id="height">
+              <label class="min_height"><%= t 'diastaseis.min_ups'%>: <%= @min_height %>350 mm</label> --
+              <label class="max_height"><%= t 'diastaseis.max_ups'%>: <%= @max_height %>6000 mm</label><br>
+              <span id="maxh"><%=@max_height%></span>
+              <span id="minh"><%=@min_height%></span>
+              <h3 class="more_kasa">Επιλογές κάσας</h3>
+              <div class="epiloges_kasas">
+                <div class="more_aristera">
+                  <p class="kasa_text">- Αριστερή κάσα:</p>
+                  <select class="ar_ty">
+                    <option value="7">Type 1</option>
+                    <option value="10" selected="selected">Type 2</option>
+                    <option value="13">Type 3</option>
+                  </select></br>
+                  <p class="kasa_text_radio">Αριστερή κάσα πάνω: </p>
+                  <input type="radio" name="ar_ep_pa" value="1">Διαμπερές
+                  <input type="radio" name="ar_ep_pa" value="2">Ενθετο
+                  <input type="radio" name="ar_ep_pa" value="3" checked="checked">45</br>
+                  <p class="kasa_text_radio">Αριστερή κάσα κάτω: </p>
+                  <input type="radio" name="ar_ep_κa" value="1">Διαμπερές
+                  <input type="radio" name="ar_ep_κa" value="2">Ενθετο
+                  <input type="radio" name="ar_ep_κa" value="3" checked="checked">45
+                </div>
+                <div class="more_deksia">
+                  <p class="kasa_text">- Δεξιά κάσα:</p>
+                  <select class="de_ty">
+                    <option value="7">Type 1</option>
+                    <option value="10" selected="selected">Type 2</option>
+                    <option value="13">Type 3</option>
+                  </select></br>
+                  <p class="kasa_text_radio">Δεξιά κάσα πάνω: </p>
+                  <input type="radio" name="de_ep_pa" value="1">Διαμπερές
+                  <input type="radio" name="de_ep_pa" value="2">Ενθετο
+                  <input type="radio" name="de_ep_pa" value="3" checked="checked">45</br>
+                  <p class="kasa_text_radio">Δεξιά κάσα κάτω: </p>
+                  <input type="radio" name="de_ep_κa" value="1">Διαμπερές
+                  <input type="radio" name="de_ep_κa" value="2">Ενθετο
+                  <input type="radio" name="de_ep_κa" value="3" checked="checked">45
+                </div>
+                <div class="more_panw">
+                  <p class="kasa_text">- Πάνω κάσα:</p>
+                  <select class="pa_ty">
+                    <option value="7">Type 1</option>
+                    <option value="10" selected="selected">Type 2</option>
+                    <option value="13">Type 3</option>
+                  </select></br>
+                </div>
+                <div class="more_panw">
+                  <p class="kasa_text">- Κάτω κάσα:</p>
+                  <select class="ka_ty">
+                    <option value="7">Type 1</option>
+                    <option value="10" selected="selected">Type 2</option>
+                    <option value="13">Type 3</option>
+                  </select></br>
+                </div>
+
+                
+              </div><!--epiloges kasas-->
+
+              <div class="epiloges_xwrisma_orizontio">
+                <input type="radio" id="ori_1" name="ori_1" style="display:none">
+                <label class="btn btn-primary ori_1" for="ori_1">Οριζόντιο χώρισμα 1</label>
+                <input type="radio" id="ori_01" name="ori_1" style="display:none">
+                <label class="btn btn-danger ori_01" for="ori_01" style="display:none">Off</label>
+                <label class="btn btn-danger delete_ori_1">Delete 1 ori</label>
+                <input type="text" id="ori_1_text"></br>
+
+                <input type="radio" id="ori_2" name="ori_2" style="display:none">
+                <label class="btn btn-primary ori_2" for="ori_2">Οριζόντιο χώρισμα 2</label>
+                <input type="radio" id="ori_02" name="ori_2" style="display:none">
+                <label class="btn btn-danger ori_02" for="ori_02" style="display:none">Off</label>
+                <label class="btn btn-danger delete_ori_2">Delete 2 ori</label>
+                <input type="text" id="ori_2_text"></br>
+
+                <input type="radio" id="ori_3" name="ori_3" style="display:none">
+                <label class="btn btn-primary ori_3" for="ori_3">Οριζόντιο χώρισμα 3</label>
+                <input type="radio" id="ori_03" name="ori_3" style="display:none">
+                <label class="btn btn-danger ori_03" for="ori_03" style="display:none">Off</label>
+                <label class="btn btn-danger delete_ori_3">Delete 3 ori</label>
+                <input type="text" id="ori_3_text">
+              </div>
+
+
+              <div class="epiloges_xwrisma_katheto">
+                <input type="radio" id="kath_1" name="kath_1" style="display:none">
+                <label class="btn btn-primary kath_1" for="kath_1">Κάθετο χώρισμα 1</label>
+                <input type="radio" id="kath_01" name="kath_1" style="display:none">
+                <label class="btn btn-danger kath_01" for="kath_01" style="display:none">Off</label>
+                <label class="btn btn-danger delete_kath_1">Delete 1 kath</label>
+                <input type="text" id="kath_1_text"></br>
+
+                <input type="radio" id="kath_2" name="kath_2" style="display:none">
+                <label class="btn btn-primary kath_2" for="kath_2">Κάθετο χώρισμα 2</label>
+                <input type="radio" id="kath_02" name="kath_2" style="display:none">
+                <label class="btn btn-danger kath_02" for="kath_02" style="display:none">Off</label>
+                <label class="btn btn-danger delete_kath_2">Delete 2 kath</label>
+                <input type="text" id="kath_2_text"></br>
+
+                <input type="radio" id="kath_3" name="kath_3" style="display:none">
+                <label class="btn btn-primary kath_3" for="kath_3">Κάθετο χώρισμα 3</label>
+                <input type="radio" id="kath_03" name="kath_3" style="display:none">
+                <label class="btn btn-danger kath_03" for="kath_03" style="display:none">Off</label>
+                <label class="btn btn-danger delete_kath_3">Delete 3 kath</label>
+                <input type="text" id="kath_3_text">
+              </div>
+
+              <button type="button" class="btn btn-primary diastaseis_ok"><%= t 'diastaseis.ok'%></button>
+            </div><!--diastaseis-->
+          </div><!--standar-->
+        
+      </div><!--ola-->  
+
+
+      <!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel"></h4>
+      </div>
+      <div class="modal-body">
+        <p id="koufwma_title"></p></br>
+        <label class="ele">
+          <input type="radio" id="kouf_1" name="kouf">
+          <%= image_tag("1/1.png") %>
+        </label>
+        <label class="ele">
+          <input type="radio" id="kouf_2" name="kouf">
+          <%= image_tag("1/2.png") %>
+        </label>
+        <label class="ele">
+          <input type="radio" id="kouf_3" name="kouf">
+          <%= image_tag("1/3.png") %>
+        </label>
+        <label class="ele">
+          <input type="radio" id="kouf_4" name="kouf">
+          <%= image_tag("1/4.1.png") %>
+        </label>
+        <label class="ele">
+          <input type="radio" id="kouf_5" name="kouf">
+          <%= image_tag("1/4.2.png") %>
+        </label>
+        <label class="ele">
+          <input type="radio" id="kouf_6" name="kouf">
+          <%= image_tag("1/5.1.png") %>
+        </label>
+        <label class="ele">
+          <input type="radio" id="kouf_7" name="kouf">
+          <%= image_tag("1/5.2.png") %>
+        </label>
+        
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button id="modal_ok" type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div> 
+      
+
+
+      
+
+      
+
+  		
+  	
+
+
+<script>
+
+$(document).ready(function(){
+
+  //var container;
+
+  /*  
+  var canvas = document.getElementById("canvas");
+  container = new CanvasLayers.Container(canvas, true);
+
+  container.onRender = function(layer, rect, context) {
+      context.fillStyle = 'white';
+      context.fillRect(0, 0, layer.getWidth(), layer.getHeight());
+  }
+  */
+
+
+
+  apostasi_apo_panw = $(".kasa_panw").offset().top + 50;
+  apostasi_apo_aristera = $(".kasa_aristera").offset().left + 50;
+
+  orizontio_xwrisma_1_true = false;
+  orizontio_xwrisma_2_true = false;
+  orizontio_xwrisma_3_true = false;
+  katheto_xwrisma_1_true = false;
+  katheto_xwrisma_2_true = false;
+  katheto_xwrisma_3_true = false;
+
+  pinakas_ori = {};
+  pinakas_kath ={};
+  counter_tetragwnwn = 0;
+
+  seira_xwrismatwn = [];
+  Array_me_diegramena = [];
+
+  prev_width = 0;
+  prev_height = 0;
+
+
+  $( ".epiloges_kasas" ).hide();
+
+  $( ".ori_1" ).hide();
+  $( ".delete_ori_1" ).hide();
+  $( "#ori_1_text" ).hide();
+  $( ".ori_2" ).hide();
+  $( ".delete_ori_2" ).hide();
+  $( "#ori_2_text" ).hide();
+  $( ".ori_3" ).hide();
+  $( ".delete_ori_3" ).hide();
+  $( "#ori_3_text" ).hide();
+
+  $( ".kath_1" ).hide();
+  $( ".delete_kath_1" ).hide();
+  $( "#kath_1_text" ).hide();
+  $( ".kath_2" ).hide();
+  $( ".delete_kath_2" ).hide();
+  $( "#kath_2_text" ).hide();
+  $( ".kath_3" ).hide();
+  $( ".delete_kath_3" ).hide();
+  $( "#kath_3_text" ).hide();
+
+  
+  
+  $( ".diastaseis_ok" ).click(function() {
+
+    var selected_ar_pa = $("input[type='radio'][name='ar_ep_pa']:checked");
+    if (selected_ar_pa.length > 0) {
+        var ar_ep_pa = selected_ar_pa.val();
+    }
+    var selected_ar_ka = $("input[type='radio'][name='ar_ep_κa']:checked");
+    if (selected_ar_ka.length > 0) {
+        var ar_ep_ka = selected_ar_ka.val();
+    }
+
+    var selected_de_pa = $("input[type='radio'][name='de_ep_pa']:checked");
+    if (selected_de_pa.length > 0) {
+        var de_ep_pa = selected_de_pa.val();
+    }
+    var selected_de_ka = $("input[type='radio'][name='de_ep_κa']:checked");
+    if (selected_de_ka.length > 0) {
+        var de_ep_κa = selected_de_ka.val();
+    }
+
+     ar_ty = $('.ar_ty').find(":selected").val();
+     de_ty = $('.de_ty').find(":selected").val();
+     pa_ty = $('.pa_ty').find(":selected").val();
+     ka_ty = $('.ka_ty').find(":selected").val();
+
+    var swstes_diastaseis_w = false;
+    var swstes_diastaseis_h = false;
+
+    if( Number($("#width").val()) <= 6000 && Number($("#width").val()) >= 350 ){
+      swstes_diastaseis_w = true;
+    }
+    if( Number($("#height").val()) <= 6000 && Number($("#height").val()) >= 350 ){
+      swstes_diastaseis_h = true;
+    }
+    if( !swstes_diastaseis_w ){
+      alert("wrong width!!");
+    }
+    if( !swstes_diastaseis_h ){
+      alert("Wrong height!!");
+    }
+    if( swstes_diastaseis_w && swstes_diastaseis_h ){
+      drawKasa( 1, Number($("#width").val()), Number($("#height").val()), ar_ty, ar_ep_pa, ar_ep_ka, de_ty, de_ep_pa, de_ep_κa, pa_ty, ka_ty );
+      //drawXwrismataKath(Number($("#width").val()),Number($("#height").val()),1500,1,10,ar_ty,ka_ty,de_ty,pa_ty);
+      //drawXwrismata(1, Number($("#width").val()));
+      drawKASA(Number($("#width").val()), Number($("#height").val()), ar_ty, de_ty, pa_ty, ka_ty, apostasi_apo_panw);
+
+      drawDiktesMegethwn(Number($("#width").val()), Number($("#height").val()), apostasi_apo_panw );
+      $(".kath_diktis_upsous_text").text(parseInt(Number($("#height").val()))+"mm");
+      $(".ori_diktis_mikous_text").text(parseInt(Number($("#width").val()))+"mm");
+
+      $( ".ori_1" ).show();
+      $( ".delete_ori_1" ).show();
+      $( ".ori_2" ).show();
+      $( ".delete_ori_2" ).show();
+      $( ".ori_3" ).show();
+      $( ".delete_ori_3" ).show();
+      $( ".kath_1" ).show();
+      $( ".delete_kath_1" ).show();
+      $( ".kath_2" ).show();
+      $( ".delete_kath_2" ).show();
+      $( ".kath_3" ).show();
+      $( ".delete_kath_3" ).show();
+
+      for (var i = 0; i < 100; i++) {
+        $("."+i).remove();
+      }
+
+      counter_tetragwnwn = 0;
+      $(".eswteriko_kasas").addClass("tetragwno");
+      athrisma = 0;
+      //console.log(seira_xwrismatwn);
+
+      seira_xwrismatwn.forEach(function(entry){
+          console.log(seira_xwrismatwn);
+          if (entry == "orizontio_xwrisma_1"){
+            var ori_1_c1 = pinakas_ori[ 'orizontio_xwrisma_1' ][ 'class_1' ];
+            var ori_1_c2 = pinakas_ori[ 'orizontio_xwrisma_1' ][ 'class_2' ];
+
+            var offset_prwtou = $("."+ori_1_c1).offset();
+            var offset_kasa_aristera = (offset_prwtou.left); //px apo aristera 
+            var pragmatiko_upsos = $("#ori_1_text").val();
+            var width_kasas_w = $("."+ori_1_c1).width() + 2;
+            geniko_offset_kasa_ori_aristera_1 = offset_kasa_aristera;
+            geniko_width_kasas_ori_1 = width_kasas_w;
+
+            var offset_deuterou = $("."+ori_1_c2).offset();
+            var offset_teliko = (offset_deuterou.left - offset_prwtou.left); //px deksia - aristera = mikos.
+            var pragmatiko_mikos_panw = metatropi_klimaka_kanoniko(Number($("#width").val()), offset_teliko);
+            geniko_mikos_ori_1 = pragmatiko_mikos_panw;
+            
+
+            drawXwrismataOri(Number($("#width").val()),Number($("#height").val()),pragmatiko_upsos,1,10,ar_ty,ka_ty,de_ty,pa_ty,apostasi_apo_panw, pragmatiko_mikos_panw, offset_kasa_aristera, width_kasas_w, 1);
+
+            athrisma = (Object.keys(pinakas_ori).length + Object.keys(pinakas_kath).length);
+
+            kane_tetragwna(Number($("#width").val()), Number($("#height").val()),pragmatiko_upsos, $(".orizontio_xwrisma_1").offset().left, $(".orizontio_xwrisma_1").offset().top, athrisma, 1, 10,ar_ty,ka_ty,de_ty,pa_ty, counter_tetragwnwn);
+          }
+          if (entry == "orizontio_xwrisma_2"){
+            var ori_2_c1 = pinakas_ori[ 'orizontio_xwrisma_2' ][ 'class_1' ];
+            var ori_2_c2 = pinakas_ori[ 'orizontio_xwrisma_2' ][ 'class_2' ];
+
+            var offset_prwtou = $("."+ori_2_c1).offset();
+            var offset_kasa_aristera = (offset_prwtou.left); //px apo aristera 
+            var pragmatiko_upsos = $("#ori_2_text").val();
+            var width_kasas_w = $("."+ori_2_c1).width() + 2;
+            geniko_offset_kasa_ori_aristera_2 = offset_kasa_aristera;
+            geniko_width_kasas_ori_2 = width_kasas_w;
+
+            var offset_deuterou = $("."+ori_2_c2).offset();
+            var offset_teliko = (offset_deuterou.left - offset_prwtou.left); //px deksia - aristera = mikos.
+            var pragmatiko_mikos_panw = metatropi_klimaka_kanoniko(Number($("#width").val()), offset_teliko);
+            geniko_mikos_ori_2 = pragmatiko_mikos_panw;
+
+            drawXwrismataOri(Number($("#width").val()),Number($("#height").val()),pragmatiko_upsos,1,10,ar_ty,ka_ty,de_ty,pa_ty,apostasi_apo_panw, pragmatiko_mikos_panw, offset_kasa_aristera, width_kasas_w, 2);
+
+            athrisma = (Object.keys(pinakas_ori).length + Object.keys(pinakas_kath).length);
+
+            kane_tetragwna(Number($("#width").val()), Number($("#height").val()),pragmatiko_upsos, $(".orizontio_xwrisma_2").offset().left, $(".orizontio_xwrisma_2").offset().top, athrisma, 1, 10,ar_ty,ka_ty,de_ty,pa_ty, counter_tetragwnwn);
+          }
+          if (entry == "orizontio_xwrisma_3"){
+            var ori_3_c1 = pinakas_ori[ 'orizontio_xwrisma_3' ][ 'class_1' ];
+            var ori_3_c2 = pinakas_ori[ 'orizontio_xwrisma_3' ][ 'class_2' ];
+
+            var offset_prwtou = $("."+ori_3_c1).offset();
+            var offset_kasa_aristera = (offset_prwtou.left); //px apo aristera 
+            var pragmatiko_upsos = $("#ori_3_text").val();
+            var width_kasas_w = $("."+ori_3_c1).width() + 2;
+            geniko_offset_kasa_ori_aristera_3 = offset_kasa_aristera;
+            geniko_width_kasas_ori_3 = width_kasas_w;
+
+            var offset_deuterou = $("."+ori_3_c2).offset();
+            var offset_teliko = (offset_deuterou.left - offset_prwtou.left); //px deksia - aristera = mikos.
+            var pragmatiko_mikos_panw = metatropi_klimaka_kanoniko(Number($("#width").val()), offset_teliko);
+            geniko_mikos_ori_3 = pragmatiko_mikos_panw;
+            
+
+            drawXwrismataOri(Number($("#width").val()),Number($("#height").val()),pragmatiko_upsos,1,10,ar_ty,ka_ty,de_ty,pa_ty,apostasi_apo_panw, pragmatiko_mikos_panw, offset_kasa_aristera, width_kasas_w, 3);
+
+            athrisma = (Object.keys(pinakas_ori).length + Object.keys(pinakas_kath).length);
+
+            kane_tetragwna(Number($("#width").val()), Number($("#height").val()),pragmatiko_upsos, $(".orizontio_xwrisma_3").offset().left, $(".orizontio_xwrisma_3").offset().top, athrisma, 1, 10,ar_ty,ka_ty,de_ty,pa_ty, counter_tetragwnwn);
+          }
+          if (entry == "katheto_xwrisma_1"){
+            var kath_1_c1 = pinakas_kath[ 'katheto_xwrisma_1' ][ 'class_1' ];
+            var kath_1_c2 = pinakas_kath[ 'katheto_xwrisma_1' ][ 'class_2' ];
+
+            var offset_prwtou = $("."+kath_1_c1).offset();
+            var offset_kasa_panw = (offset_prwtou.top); //px apo panw
+            var pragmatiko_mikos = $("#kath_1_text").val();
+            var width_kasas_h = $("."+kath_1_c1).height() + 2;
+
+            var offset_deuterou = $("."+kath_1_c2).offset();
+            var offset_teliko = (offset_deuterou.top - offset_prwtou.top); //px katw - panw = mikos.
+            var pragmatiko_upsos = metatropi_klimaka_kanoniko(Number($("#height").val()), offset_teliko);     
+
+            drawXwrismataKath(Number($("#width").val()),Number($("#height").val()),pragmatiko_mikos,1,10,ar_ty,ka_ty,de_ty,pa_ty,apostasi_apo_aristera, pragmatiko_upsos, offset_kasa_panw, width_kasas_h, 1);
+
+            athrisma = (Object.keys(pinakas_ori).length + Object.keys(pinakas_kath).length);
+
+            kane_tetragwna(Number($("#width").val()), Number($("#height").val()),pragmatiko_mikos, $(".katheto_xwrisma_1").offset().left, $(".katheto_xwrisma_1").offset().top, athrisma, 2, 10,ar_ty,ka_ty,de_ty,pa_ty, counter_tetragwnwn);
+          }
+          if (entry == "katheto_xwrisma_2"){
+            var kath_2_c1 = pinakas_kath[ 'katheto_xwrisma_2' ][ 'class_1' ];
+            var kath_2_c2 = pinakas_kath[ 'katheto_xwrisma_2' ][ 'class_2' ];
+
+            var offset_prwtou = $("."+kath_2_c1).offset();
+            var offset_kasa_panw = (offset_prwtou.top); //px apo panw
+            var pragmatiko_mikos = $("#kath_2_text").val();
+            var width_kasas_h = $("."+kath_2_c1).height() + 2;
+
+            var offset_deuterou = $("."+kath_2_c2).offset();
+            var offset_teliko = (offset_deuterou.top - offset_prwtou.top); //px katw - panw = mikos.
+            var pragmatiko_upsos = metatropi_klimaka_kanoniko(Number($("#height").val()), offset_teliko);     
+
+            drawXwrismataKath(Number($("#width").val()),Number($("#height").val()),pragmatiko_mikos,1,10,ar_ty,ka_ty,de_ty,pa_ty,apostasi_apo_aristera, pragmatiko_upsos, offset_kasa_panw, width_kasas_h, 2);
+
+            athrisma = (Object.keys(pinakas_ori).length + Object.keys(pinakas_kath).length);
+
+            kane_tetragwna(Number($("#width").val()), Number($("#height").val()),pragmatiko_mikos, $(".katheto_xwrisma_2").offset().left, $(".katheto_xwrisma_2").offset().top, athrisma, 2, 10,ar_ty,ka_ty,de_ty,pa_ty, counter_tetragwnwn);
+          }
+          if (entry == "katheto_xwrisma_3"){
+            var kath_3_c1 = pinakas_kath[ 'katheto_xwrisma_3' ][ 'class_1' ];
+            var kath_3_c2 = pinakas_kath[ 'katheto_xwrisma_3' ][ 'class_2' ];
+
+            var offset_prwtou = $("."+kath_3_c1).offset();
+            var offset_kasa_panw = (offset_prwtou.top); //px apo panw
+            var pragmatiko_mikos = $("#kath_3_text").val();
+            var width_kasas_h = $("."+kath_3_c1).height() + 2;
+
+            var offset_deuterou = $("."+kath_3_c2).offset();
+            var offset_teliko = (offset_deuterou.top - offset_prwtou.top); //px katw - panw = mikos.
+            var pragmatiko_upsos = metatropi_klimaka_kanoniko(Number($("#height").val()), offset_teliko);     
+
+            drawXwrismataKath(Number($("#width").val()),Number($("#height").val()),pragmatiko_mikos,1,10,ar_ty,ka_ty,de_ty,pa_ty,apostasi_apo_aristera, pragmatiko_upsos, offset_kasa_panw, width_kasas_h, 3);
+
+            athrisma = (Object.keys(pinakas_ori).length + Object.keys(pinakas_kath).length);
+
+            kane_tetragwna(Number($("#width").val()), Number($("#height").val()),pragmatiko_mikos, $(".katheto_xwrisma_3").offset().left, $(".katheto_xwrisma_3").offset().top, athrisma, 2, 10,ar_ty,ka_ty,de_ty,pa_ty, counter_tetragwnwn);
+          }
+
+        });
+
+      
+
+      console.log("Athrisma: "+athrisma);
+
+      
+
+      
+    }else{
+      //Ta svinw kai ta krivw ola.
+      $( ".ori_1" ).hide();
+      $( ".ori_01" ).hide();
+      $( ".delete_ori_1" ).hide();
+      $( "#ori_1_text" ).hide();
+      $( ".ori_2" ).hide();
+      $( ".ori_02" ).hide();
+      $( ".delete_ori_2" ).hide();
+      $( "#ori_2_text" ).hide();
+      $( ".ori_3" ).hide();
+      $( ".ori_03" ).hide();
+      $( ".delete_ori_3" ).hide();
+      $( "#ori_3_text" ).hide();
+
+      $( ".kath_1" ).hide();
+      $( ".kath_01" ).hide();
+      $( ".delete_kath_1" ).hide();
+      $( "#kath_1_text" ).hide();
+      $( ".kath_2" ).hide();
+      $( ".kath_02" ).hide();
+      $( ".delete_kath_2" ).hide();
+      $( "#kath_2_text" ).hide();
+      $( ".kath_3" ).hide();
+      $( ".kath_03" ).hide();
+      $( ".delete_kath_3" ).hide();
+      $( "#kath_3_text" ).hide();
+    }
+
+    
+    
+  });//Diastaseis ok
+
+  //////////   ΟΡΙΖΟΝΤΙΑ   //////////
+  $("#ori_1").click(function(b) {
+
+    var OK = true;
+    var OK_2 = true;
+
+    $(".click").dblclick(function(a) {
+
+
+
+      if(OK_2){
+
+        var myClass_ori_1 = $(this).attr("class").split(' ')[0];
+            
+        var offset_prwtou = $(this).offset();
+        var offset_kasa_aristera = (offset_prwtou.left); //px apo aristera   
+        geniko_offset_kasa_ori_aristera_1 = offset_kasa_aristera;   
+        var pragmatiko_upsos = metatropi_klimaka_kanoniko(Number($("#height").val()), a.pageY - $(".kasa_aristera").offset().top);  //offset_prwtou.top   
+        var width_kasas_w = $(this).width() + 2;
+        geniko_width_kasas_ori_1 = width_kasas_w;
+
+        vres_poio_kontino(offset_kasa_aristera,a.pageY,1,9999);
+
+          $( ".click" ).click(function(e) {
+
+            var myClass_ori_1_1 = $(this).attr("class").split(' ')[0];
+            var offset_deuterou = $(this).offset();
+            var offset_teliko = (offset_deuterou.left - offset_prwtou.left); //px deksia - aristera = mikos.
+            var pragmatiko_mikos = metatropi_klimaka_kanoniko(Number($("#width").val()), offset_teliko);
+            geniko_mikos_ori_1 = pragmatiko_mikos;
+
+            if ( OK ){
+           
+              if ( offset_teliko > 0){
+                drawXwrismataOri(Number($("#width").val()),Number($("#height").val()),pragmatiko_upsos,1,10,ar_ty,ka_ty,de_ty,pa_ty,apostasi_apo_panw, pragmatiko_mikos, offset_kasa_aristera, width_kasas_w, 1);
+
+                $( ".ori_1" ).hide();
+
+                pinakas_ori.orizontio_xwrisma_1 = { class_1: myClass_ori_1, class_2: myClass_ori_1_1 };
+                console.log( pinakas_ori[ 'orizontio_xwrisma_1' ][ 'class_1' ] );
+                console.log( pinakas_ori[ 'orizontio_xwrisma_1' ][ 'class_2' ] );
+                //console.dir(pinakas_ori);
+                orizontio_xwrisma_1_true = true;
+
+                seira_xwrismatwn.push("orizontio_xwrisma_1");
+
+                athrisma = (Object.keys(pinakas_ori).length + Object.keys(pinakas_kath).length);
+
+
+                kane_tetragwna(Number($("#width").val()), Number($("#height").val()),pragmatiko_upsos, $(".orizontio_xwrisma_1").offset().left, $(".orizontio_xwrisma_1").offset().top, athrisma, 1, 10,ar_ty,ka_ty,de_ty,pa_ty, counter_tetragwnwn);
+
+                //console.log($(".orizontio_xwrisma_1"));
+                $(".eswteriko_kasas").removeClass("tetragwno");
+
+                $(".orizontio_xwrisma_1").show();
+                $("#ori_1_text").val(parseInt(pragmatiko_upsos));
+                $("#ori_1_text").show(); 
+
+                $(".diastaseis_ok").click();
+              }else{
+                $(".orizontio_xwrisma_1").hide();
+                $("#ori_1_text").hide(); 
+              }
+              OK = false;
+              OK_2 = false;
+            }
+           
+          });
+        }
+    });
+
+  });
+
+/*
+  $("#ori_1_text").blur(function(){
+    var pragmatiko_upsos = $("#ori_1_text").val();
+    drawXwrismataOri(Number($("#width").val()),Number($("#height").val()),pragmatiko_upsos,1,10,ar_ty,ka_ty,de_ty,pa_ty,apostasi_apo_panw, geniko_mikos_ori_1, geniko_offset_kasa_ori_aristera_1, geniko_width_kasas_ori_1, 1);
+
+    $("#ori_1_text").val(parseInt(pragmatiko_upsos));
+  });
+*/
+  $(".delete_ori_1").click(function(a) {
+    $(".ori_1").show();
+    $(".orizontio_xwrisma_1").hide();
+    $( "#ori_1_text" ).hide();
+    orizontio_xwrisma_1_true = false;
+    diagrafi_xwrismatwn(1,"orizontio_xwrisma_1");
+    Array_me_diegramena.forEach(function(entry) {
+        var index = seira_xwrismatwn.indexOf(entry);
+        console.log(index);
+        if (index > -1) {
+            seira_xwrismatwn.splice(index, 1);
+        }
+        
+    });
+    Array_me_diegramena.forEach(function(entry) {
+        console.log(entry.split('_')[2]);
+        if ( entry.split('_')[0] == "orizontio" ){
+          $(".ori_"+entry.split('_')[2]).show();
+          $(".orizontio_xwrisma_"+entry.split('_')[2]).hide();
+          $( "#ori_"+entry.split('_')[2]+"_text" ).hide();
+        }else{
+          $(".kath_"+entry.split('_')[2]).show();
+          $(".katheto_xwrisma_"+entry.split('_')[2]).hide();
+          $( "#kath_"+entry.split('_')[2]+"_text" ).hide();
+        }
+        
+        
+    });
+    
+    console.log(seira_xwrismatwn);
+    Array_me_diegramena = [];
+    console.log(seira_xwrismatwn);
+    $(".diastaseis_ok").click();
+  });
+
+  $("#ori_2").click(function(b) {
+
+    var OK = true;
+    var OK_2 = true;
+
+    $(".click").dblclick(function(a) {
+
+      if(OK_2){
+
+        var myClass_ori_2 = $(this).attr("class").split(' ')[0];
+            
+        var offset_prwtou = $(this).offset();
+        var offset_kasa_aristera = (offset_prwtou.left); //px apo aristera   
+        geniko_offset_kasa_ori_aristera_2 = offset_kasa_aristera;   
+        var pragmatiko_upsos = metatropi_klimaka_kanoniko(Number($("#height").val()), a.pageY - $(".kasa_aristera").offset().top);    
+        var width_kasas_w = $(this).width() + 2;
+        geniko_width_kasas_ori_2 = width_kasas_w;
+
+          $( ".click" ).click(function(e) {
+
+            var myClass_ori_2_2 = $(this).attr("class").split(' ')[0];
+            var offset_deuterou = $(this).offset();
+            var offset_teliko = (offset_deuterou.left - offset_prwtou.left); //px deksia - aristera = mikos.
+            var pragmatiko_mikos = metatropi_klimaka_kanoniko(Number($("#width").val()), offset_teliko);
+            geniko_mikos_ori_2 = pragmatiko_mikos;
+
+            if ( OK ){
+           
+              if ( offset_teliko > 0){
+                drawXwrismataOri(Number($("#width").val()),Number($("#height").val()),pragmatiko_upsos,1,10,ar_ty,ka_ty,de_ty,pa_ty,apostasi_apo_panw, pragmatiko_mikos, offset_kasa_aristera, width_kasas_w, 2);
+
+                $( ".ori_2" ).hide();
+
+                pinakas_ori.orizontio_xwrisma_2 = { class_1: myClass_ori_2, class_2: myClass_ori_2_2 };
+                console.log( pinakas_ori[ 'orizontio_xwrisma_2' ][ 'class_1' ] );
+                console.log( pinakas_ori[ 'orizontio_xwrisma_2' ][ 'class_2' ] );
+                //console.dir(pinakas_ori);
+                orizontio_xwrisma_2_true = true;
+
+                seira_xwrismatwn.push("orizontio_xwrisma_2");
+
+                athrisma = (Object.keys(pinakas_ori).length + Object.keys(pinakas_kath).length);
+
+                kane_tetragwna(Number($("#width").val()), Number($("#height").val()),pragmatiko_upsos, $(".orizontio_xwrisma_2").offset().left, $(".orizontio_xwrisma_2").offset().top, athrisma, 1, 10,ar_ty,ka_ty,de_ty,pa_ty, counter_tetragwnwn);
+
+                $(".eswteriko_kasas").removeClass("tetragwno");
+
+                $(".orizontio_xwrisma_2").show();
+                $("#ori_2_text").val(parseInt(pragmatiko_upsos));
+                $("#ori_2_text").show(); 
+                $(".diastaseis_ok").click();
+              }else{
+                $(".orizontio_xwrisma_2").hide();
+                $("#ori_2_text").hide(); 
+              }
+              OK = false;
+              OK_2 = false;
+            }
+           
+          });
+        }
+    });
+
+  });
+/*
+  $("#ori_2_text").blur(function(){
+    var pragmatiko_upsos = $("#ori_2_text").val();
+    drawXwrismataOri(Number($("#width").val()),Number($("#height").val()),pragmatiko_upsos,1,10,ar_ty,ka_ty,de_ty,pa_ty,apostasi_apo_panw, geniko_mikos_ori_2, geniko_offset_kasa_ori_aristera_2, geniko_width_kasas_ori_2, 2);
+
+    $("#ori_2_text").val(parseInt(pragmatiko_upsos));
+  });
+*/
+  $(".delete_ori_2").click(function(a) {
+    $(".ori_2").show();
+    $(".orizontio_xwrisma_2").hide();
+    $( "#ori_2_text" ).hide();
+    orizontio_xwrisma_2_true = false;
+    diagrafi_xwrismatwn(1,"orizontio_xwrisma_2");
+    Array_me_diegramena.forEach(function(entry) {
+        var index = seira_xwrismatwn.indexOf(entry);
+        console.log(index);
+        if (index > -1) {
+            seira_xwrismatwn.splice(index, 1);
+        }
+        
+    });
+    Array_me_diegramena.forEach(function(entry) {
+        console.log(entry.split('_')[2]);
+        if ( entry.split('_')[0] == "orizontio" ){
+          $(".ori_"+entry.split('_')[2]).show();
+          $(".orizontio_xwrisma_"+entry.split('_')[2]).hide();
+          $( "#ori_"+entry.split('_')[2]+"_text" ).hide();
+        }else{
+          $(".kath_"+entry.split('_')[2]).show();
+          $(".katheto_xwrisma_"+entry.split('_')[2]).hide();
+          $( "#kath_"+entry.split('_')[2]+"_text" ).hide();
+        }
+        
+        
+    });
+    
+    console.log(seira_xwrismatwn);
+    Array_me_diegramena = [];
+    console.log(seira_xwrismatwn);
+    $(".diastaseis_ok").click();
+  });
+
+  $("#ori_3").click(function(b) {
+
+    var OK = true;
+    var OK_2 = true;
+
+    $(".click").dblclick(function(a) {
+
+      if(OK_2){
+
+        var myClass_ori_3 = $(this).attr("class").split(' ')[0];
+            
+        var offset_prwtou = $(this).offset();
+        var offset_kasa_aristera = (offset_prwtou.left); //px apo aristera   
+        geniko_offset_kasa_ori_aristera_3 = offset_kasa_aristera;   
+        var pragmatiko_upsos = metatropi_klimaka_kanoniko(Number($("#height").val()), a.pageY - $(".kasa_aristera").offset().top);    
+        var width_kasas_w = $(this).width() + 2;
+        geniko_width_kasas_ori_3 = width_kasas_w;
+
+          $( ".click" ).click(function(e) {
+
+            var myClass_ori_3_3 = $(this).attr("class").split(' ')[0];
+            var offset_deuterou = $(this).offset();
+            var offset_teliko = (offset_deuterou.left - offset_prwtou.left); //px deksia - aristera = mikos.
+            var pragmatiko_mikos = metatropi_klimaka_kanoniko(Number($("#width").val()), offset_teliko);
+            geniko_mikos_ori_3 = pragmatiko_mikos;
+
+            if ( OK ){
+           
+              if ( offset_teliko > 0){
+                drawXwrismataOri(Number($("#width").val()),Number($("#height").val()),pragmatiko_upsos,1,10,ar_ty,ka_ty,de_ty,pa_ty,apostasi_apo_panw, pragmatiko_mikos, offset_kasa_aristera, width_kasas_w, 3);
+
+                $( ".ori_3" ).hide();
+
+                pinakas_ori.orizontio_xwrisma_3 = { class_1: myClass_ori_3, class_2: myClass_ori_3_3 };
+                console.log( pinakas_ori[ 'orizontio_xwrisma_3' ][ 'class_1' ] );
+                console.log( pinakas_ori[ 'orizontio_xwrisma_3' ][ 'class_2' ] );
+                //console.dir(pinakas_ori);
+                orizontio_xwrisma_3_true = true;
+
+                seira_xwrismatwn.push("orizontio_xwrisma_3");
+
+                athrisma = (Object.keys(pinakas_ori).length + Object.keys(pinakas_kath).length);
+
+
+                kane_tetragwna(Number($("#width").val()), Number($("#height").val()),pragmatiko_upsos, $(".orizontio_xwrisma_3").offset().left, $(".orizontio_xwrisma_3").offset().top, athrisma, 1, 10,ar_ty,ka_ty,de_ty,pa_ty, counter_tetragwnwn);
+
+                $(".eswteriko_kasas").removeClass("tetragwno");
+
+                $(".orizontio_xwrisma_3").show();
+                $("#ori_3_text").val(parseInt(pragmatiko_upsos));
+                $("#ori_3_text").show(); 
+                $(".diastaseis_ok").click();
+              }else{
+                $(".orizontio_xwrisma_3").hide();
+                $("#ori_3_text").hide(); 
+              }
+              OK = false;
+              OK_2 = false;
+            }
+           
+          });
+        }
+    });
+
+  });
+
+/*
+  $("#ori_1_text").blur(function(){
+    var pragmatiko_upsos = $("#ori_1_text").val();
+    drawXwrismataOri(Number($("#width").val()),Number($("#height").val()),pragmatiko_upsos,1,10,ar_ty,ka_ty,de_ty,pa_ty,apostasi_apo_panw, geniko_mikos_ori_1, geniko_offset_kasa_ori_aristera_1, geniko_width_kasas_ori_1, 1);
+
+    $("#ori_1_text").val(parseInt(pragmatiko_upsos));
+  });
+*/
+  $(".delete_ori_3").click(function(a) {
+    $(".ori_3").show();
+    $(".orizontio_xwrisma_3").hide();
+    $( "#ori_3_text" ).hide();
+    orizontio_xwrisma_3_true = false;
+    diagrafi_xwrismatwn(1,"orizontio_xwrisma_3");
+    Array_me_diegramena.forEach(function(entry) {
+        var index = seira_xwrismatwn.indexOf(entry);
+        console.log(index);
+        if (index > -1) {
+            seira_xwrismatwn.splice(index, 1);
+        }
+        
+    });
+    Array_me_diegramena.forEach(function(entry) {
+        console.log(entry.split('_')[2]);
+        if ( entry.split('_')[0] == "orizontio" ){
+          $(".ori_"+entry.split('_')[2]).show();
+          $(".orizontio_xwrisma_"+entry.split('_')[2]).hide();
+          $( "#ori_"+entry.split('_')[2]+"_text" ).hide();
+        }else{
+          $(".kath_"+entry.split('_')[2]).show();
+          $(".katheto_xwrisma_"+entry.split('_')[2]).hide();
+          $( "#kath_"+entry.split('_')[2]+"_text" ).hide();
+        }
+        
+        
+    });
+    
+    console.log(seira_xwrismatwn);
+    Array_me_diegramena = [];
+    console.log(seira_xwrismatwn);
+    $(".diastaseis_ok").click();
+  });
+
+  //////////   ΚΑΘΕΤΑ   //////////
+  $("#kath_1").click(function(b) {
+
+    var OK = true;
+    var OK_2 = true;
+
+    $(".clack").dblclick(function(a) {
+
+      if (OK_2){
+        var myClass_kath_1 = $(this).attr("class").split(' ')[0];
+      
+        var offset_prwtou = $(this).offset();
+        var offset_kasa_panw = (offset_prwtou.top); //px apo panw
+        geniko_offset_kasa_panw_1 = offset_kasa_panw;
+        var pragmatiko_mikos = metatropi_klimaka_kanoniko(Number($("#width").val()), a.pageX - $(".kasa_panw").offset().left);
+        var width_kasas_h = $(this).height() + 2;
+        geniko_width_kasas_kath_1 = width_kasas_h;
+
+          $( ".clack" ).click(function(e) {
+
+            var myClass_kath_1_1 = $(this).attr("class").split(' ')[0];
+            var offset_deuterou = $(this).offset();
+            var offset_teliko = (offset_deuterou.top - offset_prwtou.top); //px katw - panw = mikos.
+            var pragmatiko_upsos = metatropi_klimaka_kanoniko(Number($("#height").val()), offset_teliko);
+            geniko_upsos_kath_1 = pragmatiko_upsos;
+
+            if ( OK ){
+           
+              if ( offset_teliko > 0){
+                drawXwrismataKath(Number($("#width").val()),Number($("#height").val()),pragmatiko_mikos,1,10,ar_ty,ka_ty,de_ty,pa_ty,apostasi_apo_aristera, pragmatiko_upsos, offset_kasa_panw, width_kasas_h, 1);
+
+                $( ".kath_1" ).hide();
+                pinakas_kath.katheto_xwrisma_1 = { class_1: myClass_kath_1, class_2: myClass_kath_1_1 };
+                console.log( pinakas_kath[ 'katheto_xwrisma_1' ][ 'class_1' ] );
+                console.log( pinakas_kath[ 'katheto_xwrisma_1' ][ 'class_2' ] );
+                //console.dir(pinakas_ori);
+                katheto_xwrisma_1_true = true;
+
+                seira_xwrismatwn.push("katheto_xwrisma_1");
+
+                athrisma = (Object.keys(pinakas_ori).length + Object.keys(pinakas_kath).length);
+
+                
+
+                kane_tetragwna(Number($("#width").val()), Number($("#height").val()),pragmatiko_mikos, $(".katheto_xwrisma_1").offset().left, $(".katheto_xwrisma_1").offset().top, athrisma, 2, 10,ar_ty,ka_ty,de_ty,pa_ty, counter_tetragwnwn);
+
+                $(".eswteriko_kasas").removeClass("tetragwno");
+
+                $(".katheto_xwrisma_1").show();
+                $("#kath_1_text").val(parseInt(pragmatiko_mikos));
+                $("#kath_1_text").show(); 
+                $(".diastaseis_ok").click();
+              }else{
+                $(".katheto_xwrisma_1").hide();
+                $("#kath_1_text").hide(); 
+              }
+              OK = false;
+              OK_2 = false;
+
+            }
+           
+          });
+        }
+    });
+
+  });
+/*
+  $("#kath_1_text").blur(function(){
+    var pragmatiko_mikos = $("#kath_1_text").val();
+    drawXwrismataKath(Number($("#width").val()),Number($("#height").val()),pragmatiko_mikos,1,10,ar_ty,ka_ty,de_ty,pa_ty,apostasi_apo_aristera, geniko_upsos_kath_1, geniko_offset_kasa_panw_1, geniko_width_kasas_kath_1);
+
+    $("#kath_1_text").val(parseInt(pragmatiko_mikos));
+  });
+*/
+  $(".delete_kath_1").click(function(a) {
+    $(".kath_1").show();
+    $(".katheto_xwrisma_1").hide();
+    $( "#kath_1_text" ).hide();
+    katheto_xwrisma_1_true = false;
+    diagrafi_xwrismatwn(2,"katheto_xwrisma_1");
+    Array_me_diegramena.forEach(function(entry) {
+        var index = seira_xwrismatwn.indexOf(entry);
+        console.log(index);
+        if (index > -1) {
+            seira_xwrismatwn.splice(index, 1);
+        }
+        
+    });
+    Array_me_diegramena.forEach(function(entry) {
+        console.log(entry.split('_')[2]);
+        if ( entry.split('_')[0] == "orizontio" ){
+          $(".ori_"+entry.split('_')[2]).show();
+          $(".orizontio_xwrisma_"+entry.split('_')[2]).hide();
+          $( "#ori_"+entry.split('_')[2]+"_text" ).hide();
+        }else{
+          $(".kath_"+entry.split('_')[2]).show();
+          $(".katheto_xwrisma_"+entry.split('_')[2]).hide();
+          $( "#kath_"+entry.split('_')[2]+"_text" ).hide();
+        }
+        
+        
+    });
+    
+    console.log(seira_xwrismatwn);
+    Array_me_diegramena = [];
+    console.log(seira_xwrismatwn);
+    $(".diastaseis_ok").click();
+  });
+
+  $("#kath_2").click(function(b) {
+
+    var OK = true;
+    var OK_2 = true;
+
+    $(".clack").dblclick(function(a) {
+
+      if (OK_2){
+        var myClass_kath_2 = $(this).attr("class").split(' ')[0];
+      
+        var offset_prwtou = $(this).offset();
+        var offset_kasa_panw = (offset_prwtou.top); //px apo panw
+        geniko_offset_kasa_panw_2 = offset_kasa_panw;
+        var pragmatiko_mikos = metatropi_klimaka_kanoniko(Number($("#width").val()), a.pageX - $(".kasa_panw").offset().left);
+        var width_kasas_h = $(this).height() + 2;
+        geniko_width_kasas_kath_2 = width_kasas_h;
+
+          $( ".clack" ).click(function(e) {
+
+            var myClass_kath_2_2 = $(this).attr("class").split(' ')[0];
+            var offset_deuterou = $(this).offset();
+            var offset_teliko = (offset_deuterou.top - offset_prwtou.top); //px katw - panw = mikos.
+            var pragmatiko_upsos = metatropi_klimaka_kanoniko(Number($("#height").val()), offset_teliko);
+            geniko_upsos_kath_2 = pragmatiko_upsos;
+
+            if ( OK ){
+           
+              if ( offset_teliko > 0){
+                drawXwrismataKath(Number($("#width").val()),Number($("#height").val()),pragmatiko_mikos,1,10,ar_ty,ka_ty,de_ty,pa_ty,apostasi_apo_aristera, pragmatiko_upsos, offset_kasa_panw, width_kasas_h, 2);
+
+                $( ".kath_2" ).hide();
+                pinakas_kath.katheto_xwrisma_2 = { class_1: myClass_kath_2, class_2: myClass_kath_2_2 };
+                console.log( pinakas_kath[ 'katheto_xwrisma_2' ][ 'class_1' ] );
+                console.log( pinakas_kath[ 'katheto_xwrisma_2' ][ 'class_2' ] );
+                //console.dir(pinakas_ori);
+                katheto_xwrisma_2_true = true;
+
+                seira_xwrismatwn.push("katheto_xwrisma_2");
+
+                athrisma = (Object.keys(pinakas_ori).length + Object.keys(pinakas_kath).length);
+
+                
+
+                kane_tetragwna(Number($("#width").val()), Number($("#height").val()),pragmatiko_mikos, $(".katheto_xwrisma_2").offset().left, $(".katheto_xwrisma_2").offset().top, athrisma, 2, 10,ar_ty,ka_ty,de_ty,pa_ty, counter_tetragwnwn);
+
+                $(".eswteriko_kasas").removeClass("tetragwno");
+
+                $(".katheto_xwrisma_2").show();
+                $("#kath_2_text").val(parseInt(pragmatiko_mikos));
+                $("#kath_2_text").show(); 
+                $(".diastaseis_ok").click();
+              }else{
+                $(".katheto_xwrisma_2").hide();
+                $("#kath_2_text").hide(); 
+              }
+              OK = false;
+              OK_2 = false;
+
+            }
+           
+          });
+        }
+    });
+
+  });
+/*
+  $("#kath_1_text").blur(function(){
+    var pragmatiko_mikos = $("#kath_1_text").val();
+    drawXwrismataKath(Number($("#width").val()),Number($("#height").val()),pragmatiko_mikos,1,10,ar_ty,ka_ty,de_ty,pa_ty,apostasi_apo_aristera, geniko_upsos_kath_1, geniko_offset_kasa_panw_1, geniko_width_kasas_kath_1);
+
+    $("#kath_1_text").val(parseInt(pragmatiko_mikos));
+  });
+*/
+  $(".delete_kath_2").click(function(a) {
+    $(".kath_2").show();
+    $(".katheto_xwrisma_2").hide();
+    $( "#kath_2_text" ).hide();
+    katheto_xwrisma_2_true = false;
+    diagrafi_xwrismatwn(2,"katheto_xwrisma_2");
+    Array_me_diegramena.forEach(function(entry) {
+        var index = seira_xwrismatwn.indexOf(entry);
+        console.log(index);
+        if (index > -1) {
+            seira_xwrismatwn.splice(index, 1);
+        }
+        
+    });
+    Array_me_diegramena.forEach(function(entry) {
+        console.log(entry.split('_')[2]);
+        if ( entry.split('_')[0] == "orizontio" ){
+          $(".ori_"+entry.split('_')[2]).show();
+          $(".orizontio_xwrisma_"+entry.split('_')[2]).hide();
+          $( "#ori_"+entry.split('_')[2]+"_text" ).hide();
+        }else{
+          $(".kath_"+entry.split('_')[2]).show();
+          $(".katheto_xwrisma_"+entry.split('_')[2]).hide();
+          $( "#kath_"+entry.split('_')[2]+"_text" ).hide();
+        }
+        
+        
+    });
+    
+    console.log(seira_xwrismatwn);
+    Array_me_diegramena = [];
+    console.log(seira_xwrismatwn);
+    $(".diastaseis_ok").click();
+  });
+
+  $("#kath_3").click(function(b) {
+
+    var OK = true;
+    var OK_2 = true;
+
+    $(".clack").dblclick(function(a) {
+
+      if (OK_2){
+        var myClass_kath_3 = $(this).attr("class").split(' ')[0];
+      
+        var offset_prwtou = $(this).offset();
+        var offset_kasa_panw = (offset_prwtou.top); //px apo panw
+        geniko_offset_kasa_panw_3 = offset_kasa_panw;
+        var pragmatiko_mikos = metatropi_klimaka_kanoniko(Number($("#width").val()), a.pageX - $(".kasa_panw").offset().left);
+        var width_kasas_h = $(this).height() + 2;
+        geniko_width_kasas_kath_3 = width_kasas_h;
+
+          $( ".clack" ).click(function(e) {
+
+            var myClass_kath_3_3 = $(this).attr("class").split(' ')[0];
+            var offset_deuterou = $(this).offset();
+            var offset_teliko = (offset_deuterou.top - offset_prwtou.top); //px katw - panw = mikos.
+            var pragmatiko_upsos = metatropi_klimaka_kanoniko(Number($("#height").val()), offset_teliko);
+            geniko_upsos_kath_3 = pragmatiko_upsos;
+
+            if ( OK ){
+           
+              if ( offset_teliko > 0){
+                drawXwrismataKath(Number($("#width").val()),Number($("#height").val()),pragmatiko_mikos,1,10,ar_ty,ka_ty,de_ty,pa_ty,apostasi_apo_aristera, pragmatiko_upsos, offset_kasa_panw, width_kasas_h, 3);
+
+                $( ".kath_3" ).hide();
+                pinakas_kath.katheto_xwrisma_3 = { class_1: myClass_kath_3, class_2: myClass_kath_3_3 };
+                console.log( pinakas_kath[ 'katheto_xwrisma_3' ][ 'class_1' ] );
+                console.log( pinakas_kath[ 'katheto_xwrisma_3' ][ 'class_2' ] );
+                //console.dir(pinakas_ori);
+                katheto_xwrisma_3_true = true;
+
+                seira_xwrismatwn.push("katheto_xwrisma_3");
+
+                athrisma = (Object.keys(pinakas_ori).length + Object.keys(pinakas_kath).length);
+
+                
+
+                kane_tetragwna(Number($("#width").val()), Number($("#height").val()),pragmatiko_mikos, $(".katheto_xwrisma_3").offset().left, $(".katheto_xwrisma_3").offset().top, athrisma, 2, 10,ar_ty,ka_ty,de_ty,pa_ty, counter_tetragwnwn);
+
+                $(".eswteriko_kasas").removeClass("tetragwno");
+
+                $(".katheto_xwrisma_3").show();
+                $("#kath_3_text").val(parseInt(pragmatiko_mikos));
+                $("#kath_3_text").show(); 
+                $(".diastaseis_ok").click();
+              }else{
+                $(".katheto_xwrisma_3").hide();
+                $("#kath_3_text").hide(); 
+              }
+              OK = false;
+              OK_2 = false;
+
+            }
+           
+          });
+        }
+    });
+
+  });
+/*
+  $("#kath_1_text").blur(function(){
+    var pragmatiko_mikos = $("#kath_1_text").val();
+    drawXwrismataKath(Number($("#width").val()),Number($("#height").val()),pragmatiko_mikos,1,10,ar_ty,ka_ty,de_ty,pa_ty,apostasi_apo_aristera, geniko_upsos_kath_1, geniko_offset_kasa_panw_1, geniko_width_kasas_kath_1);
+
+    $("#kath_1_text").val(parseInt(pragmatiko_mikos));
+  });
+*/
+  $(".delete_kath_3").click(function(a) {
+    $(".kath_3").show();
+    $(".katheto_xwrisma_3").hide();
+    $( "#kath_3_text" ).hide();
+    katheto_xwrisma_3_true = false;
+    diagrafi_xwrismatwn(2,"katheto_xwrisma_3");
+    Array_me_diegramena.forEach(function(entry) {
+        var index = seira_xwrismatwn.indexOf(entry);
+        console.log(index);
+        if (index > -1) {
+            seira_xwrismatwn.splice(index, 1);
+        }
+        
+    });
+    Array_me_diegramena.forEach(function(entry) {
+        console.log(entry.split('_')[2]);
+        if ( entry.split('_')[0] == "orizontio" ){
+          $(".ori_"+entry.split('_')[2]).show();
+          $(".orizontio_xwrisma_"+entry.split('_')[2]).hide();
+          $( "#ori_"+entry.split('_')[2]+"_text" ).hide();
+        }else{
+          $(".kath_"+entry.split('_')[2]).show();
+          $(".katheto_xwrisma_"+entry.split('_')[2]).hide();
+          $( "#kath_"+entry.split('_')[2]+"_text" ).hide();
+        }
+        
+        
+    });
+    
+    console.log(seira_xwrismatwn);
+    Array_me_diegramena = [];
+    console.log(seira_xwrismatwn);
+    $(".diastaseis_ok").click();
+  });
+
+  
+
+  //Offset Y παιρνω ΥΨΟΣ. Offset Χ παίρνω ΜΙΚΟΣ.
+  //Κάθετα. Παίρνω πρώτα μίκος και μετά ύψος.
+
+  $( ".eswteriko_kasas" ).click(function(e) {
+
+    //alert("Εσωτερικό κάσας!!");
+    //var offset = $(".katheto_xwrisma_1").offset();
+    //alert(e.pageX - offset.left);
+    //alert(e.pageY - offset.top);
+    //lineDistance();
+  });
+
+  
+
+  $( ".orizontio_xwrisma_1" ).mouseenter(function(e) {
+    $( ".orizontio_xwrisma_1" ).append( "<div style='width:50px; background-color:white; font-size:15px; font-weight:bold; ' >← → 1</div>" );
+  });
+  $( ".orizontio_xwrisma_1" ).mouseleave(function(e) {
+    $(this).empty();
+  });
+
+  $( ".orizontio_xwrisma_2" ).mouseenter(function(e) {
+    $( ".orizontio_xwrisma_2" ).append( "<div style='width:50px; background-color:white; font-size:15px; font-weight:bold; ' >← → 2</div>" );
+  });
+  $( ".orizontio_xwrisma_2" ).mouseleave(function(e) {
+    $(this).empty();
+  });
+
+  $( ".orizontio_xwrisma_3" ).mouseenter(function(e) {
+    $( ".orizontio_xwrisma_3" ).append( "<div style='width:50px; background-color:white; font-size:15px; font-weight:bold; ' >← → 3</div>" );
+  });
+  $( ".orizontio_xwrisma_3" ).mouseleave(function(e) {
+    $(this).empty();
+  });
+
+  $( ".katheto_xwrisma_1" ).mouseenter(function(e) {
+    $( ".katheto_xwrisma_1" ).append( "<div style='width:50px; background-color:white; font-size:15px; font-weight:bold; ' >↑↓ 1</div>" );
+  });
+  $( ".katheto_xwrisma_1" ).mouseleave(function(e) {
+    $(this).empty();
+  });
+
+  $( ".katheto_xwrisma_2" ).mouseenter(function(e) {
+    $( ".katheto_xwrisma_2" ).append( "<div style='width:50px; background-color:white; font-size:15px; font-weight:bold; ' >↑↓ 2</div>" );
+  });
+  $( ".katheto_xwrisma_2" ).mouseleave(function(e) {
+    $(this).empty();
+  });
+
+  $( ".katheto_xwrisma_3" ).mouseenter(function(e) {
+    $( ".katheto_xwrisma_3" ).append( "<div style='width:50px; background-color:white; font-size:15px; font-weight:bold; ' >↑↓ 3</div>" );
+  });
+  $( ".katheto_xwrisma_3" ).mouseleave(function(e) {
+    $(this).empty();
+  });
+
+  
+
+  $( "body" ).click(function(e) {
+    if ( $(event.target).attr('class') !== undefined  ){
+      if ( $(event.target).attr('class').split(' ')[1] == "tetragwno" ){
+        console.log( $(event.target).offset().top );
+        console.log($(event.target).attr('class'));
+        $('#myModal').modal('show'); 
+        $("#koufwma_title").text("Κούφωμα: "+ $(event.target).attr('class').split(' ')[0]);
+        poio_koufwma_dialeksa = $(event.target).attr('class').split(' ')[0];
+      }
+    }
+  });
+
+  $( "#modal_ok" ).click(function(e) {
+    $('#myModal').modal('hide');
+    kati = $('input[type=radio][name=kouf]:checked').attr('id');
+    console.log(kati);
+    kane_koufwmata(poio_koufwma_dialeksa, kati);
+  });
+
+   $(".elefthero_ola").on("click", ".epanal", function() {
+
+      //var body = $('#wrap');
+     // console.log(body.html());
+      //bodycontent = body.html();
+
+      //console.log(bodycontent);
+      //localStorage["myKey"] = JSON.stringify($("#wrap").html());
+      //$('#wrap').data('store', $('#wrap').html());
+
+      //a = $('body').clone();
+
+      //$('#wrap').html(body.html());
+
+      //document.innerHTML = "<div></div>";
+      //var contentsOfOldDiv = JSON.parse(localStorage["myKey"]);    
+      //$("#wrap").html(contentsOfOldDiv);
+      //$("#width").val("4000");
+      //$("#height").val("3000");
+
+      
+
+    });
+  
+  
+  
+
+  
+
+  $( ".more_kasa" ).click(function() {
+    $( ".epiloges_kasas" ).toggle(1000);
+  });
+
+
+
+});//end ready
+
+</script>

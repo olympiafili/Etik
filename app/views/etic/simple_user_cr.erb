@@ -1,0 +1,53 @@
+<div class="container box_shadow">
+  <div class="row">
+    <div class="col-md-3" id="leftCol">
+    </div>
+    <div class="col-md-6">
+      <form class="epikoinonia_form">
+        <div class="form-group">
+          <label for="onoma">Ονομα:</label>
+          <input type="text" class="form-control" id="onoma" placeholder="Θέμα" name="onoma" required>
+        </div>
+        <div class="form-group">
+          <label for="eponimo">Eponimo:</label>
+          <input type="text" class="form-control" id="eponimo" placeholder="Θέμα" name="eponimo" required>
+        </div>
+        <div class="form-group">
+          <label for="address">Dieuthinsi:</label>
+          <input type="text" class="form-control" id="address" placeholder="Θέμα" name="address" required>
+        </div>
+        <div class="form-group">
+          <label for="company">Company:</label>
+          <input type="text" class="form-control" id="company" placeholder="Θέμα" name="company" required>
+        </div>
+        <div class="form-group">
+          <label for="phone">Phone:</label>
+          <input type="text" class="form-control" id="phone" placeholder="Θέμα" name="phone" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Email address</label>
+          <input type="email" class="form-control" id="email" placeholder="Enter email" name="email" required>
+        </div>
+      </form>
+      <button class="btn btn-success" id="button" />Υποβολή</button>
+    </div>
+  </div>
+</div>
+
+<script>
+
+
+ $( "#button" ).click(function() {
+      var onoma = $('#onoma').val();
+      var eponimo = $('#eponimo').val();
+      var address = $('#address').val();
+      var company = $('#company').val();
+      var phone = $('#phone').val();
+      var email = $('#email').val();
+
+      window.location.href = "<%= etic_add_simple_user_path %>?onoma="+onoma+"&eponimo="+eponimo+"&address="+address+"&company="+company+"&phone="+phone+"&email="+email+"";
+      
+        });
+
+
+</script>

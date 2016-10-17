@@ -1,0 +1,101 @@
+<div id="loading"></div>
+<div class="container con_home">
+  <div class="row row_mat">
+  	<div class="col-xs-4">
+      <!--
+      <button class="menu" onclick="toggle()" onmouseenter="toggle2()">
+        <span class="glyphicon glyphicon-home"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      -->
+      </button>
+      <ul class="ul">
+        <li class="li1_1"><a href="/etic/home/"  class="li1_1">1. <%= t 'mpara.open_category' %></a></li>
+        <li class="li2_2"><a href="/etic/material?open_categorie=<%= @open_categorie_name %>"  class="li2_2">2. <%= t 'mpara.material' %></a></li>
+        <li class="li3"><a href="/etic/leaf?open_categorie_name=<%= @open_categorie_name %>&material_id=<%= @material.id %>&constructor_id=<%= @constructor.id %>&system_id=<%= @system.id %>&line_id=<%= @line.id %>"  class="li3">3. <%= t 'mpara.leaf' %></a></li>
+        <li>4. <%= t 'mpara.open_type' %></li>
+        <li>5. <%= t 'mpara.color' %></li>
+        <li>6. <%= t 'mpara.dimension' %></li>
+        <li>7. <%= t 'mpara.price' %></li>
+      </ul>
+
+      <!--San pinakas-->
+      <div class="table-responsive">
+      <table class="table table-condensed">
+        <tr>
+          <td class="td_left"><label><%= t 'material_pinakas.cat_anoigma'  %>:</label></td>
+          <td class="open_categorie"><label><%= t "kouf."<<@open_categorie_name %></label></td>
+        </tr>
+        <tr>
+          <td class="pin1h td_left"><label><%= t 'material_pinakas.material'  %>: </label></td>
+          <td class="pin1"><label class="material"><%= @material.name %></label></td>
+        </tr>
+        <tr>
+          <td class="pin2h td_left"><label><%= t 'material_pinakas.cataskevastis'  %>: </label></td>
+          <td class="pin2"><label class="constructor"><%= @constructor.name %></label></td>
+        </tr>
+        <tr>
+          <td class="pin3h td_left"><label><%= t 'material_pinakas.systima'  %>: </label></td>
+          <td class="pin3"><label class="system"><%= @system.name %></label></td>
+        </tr>
+        <tr>
+          <td class="td_left"><label><%= t 'material_pinakas.line'  %>: </label></td>
+          <td class=""><label class="line"><%= @line.name %></label></td>
+        </tr>
+      </table>
+      </div>
+
+    </div>
+  	<div class="col-xs-8">
+      <h2>3. <%= t 'leaf.title' %></h2>
+
+      <div class="gen_info"> 
+        <p class="gen_p_info">Γενικες οδηγίες για την επιλογη παραθύρων!!! Σε αυτό το πλαίσιο μπορούμε να προσθέσουμε οποιαδήποτε πληροφορία θέλουμε.</p>
+      </div>
+      <hr>
+       
+      <% @leaf.each do |l| %>
+      <div class="fullo">
+      <img src="/assets/<%= l.image%>" class="leaf" id="<%= l.name %>" >
+      </div>
+      <% end %><!--End each-->
+
+  		
+  	</div><!--End col-md-8-->
+  </div><!--End row-->
+</div><!--End conteiner-->
+
+<script>
+
+
+$(document).ready(function(){
+
+  Number("<%= @open_type.code %>");
+
+  /*
+  (function(window, location) {
+    string = "<%= @sumbol %>"+"open_categorie_name="+"<%= @open_categorie_name %>"+"&material_id="+"<%= @material.id %>"+"&constructor_id="+"<%= @constructor.id %>"+"&system_id="+"<%= @system.id %>"+"&line_id="+"<%= @line.id %>";
+    history.replaceState(null, document.title, location.pathname+string);
+    //history.pushState(null, document.title, location.pathname+string);
+
+    location.hash == "0";
+    window.addEventListener("popstate", function() {
+      if(location.hash === "") {
+            //history.replaceState(null, document.title, location.pathname);
+            setTimeout(function(){
+              //location.replace("<%= etic_material_path(:open_categorie => @open_categorie_name) %>");
+            },0);
+      }
+    }, false);
+}(window, location));
+  */
+
+	$(".fullo").on("click", ".leaf", function() { 
+
+		window.location.href = "<%= etic_open_type_path %>?open_categorie_name="+"<%= @open_categorie_name %>"+"&material_name="+$(".material").text()+"&constructor_name="+$(".constructor").text()+"&system_name="+$(".system").text()+"&line_name="+$(".line").text()+"&leaf_name="+$(this).attr('id')+"";
+
+	});//end click
+
+});//end ready
+
+</script>

@@ -1,0 +1,432 @@
+--- 
+de: 
+  color: 
+    aristera: Links
+    button_me_fullo: "Flügel Farbe"
+    button_me_kassa: "Farbe Rahmen "
+    button_xwris: "Continue without extra color"
+    deksia: Rechts
+    ekso: "Outside color"
+    epivarinsi: Aufpreis
+    katw: Unten
+    mesa: "Inside color"
+    mesa_ekso: "In Out"
+    panw: Oben
+    pedio: "Choose sides"
+    sunexia: Continue
+    title: Farbe
+  devise: 
+    confirmations: 
+      confirmed: "Vielen Dank für Deine Registrierung. Bitte melde dich jetzt an."
+      confirmed_and_signed_in: "Vielen Dank für Deine Registrierung. Du bist jetzt angemeldet."
+      send_instructions: "Du erhältst in wenigen Minuten eine E-Mail, mit der Du Deine Registrierung bestätigen kannst."
+      send_paranoid_instructions: "Falls Deine E-Mail-Adresse in unserer Datenbank existiert erhältst Du in wenigen Minuten eine E-Mail mit der Du Deine Registrierung bestätigen kannst."
+    failure: 
+      already_authenticated: "Du bist bereits angemeldet."
+      inactive: "Dein Account ist nicht aktiv."
+      invalid: "Ungültige Anmeldedaten."
+      invalid_token: "Der Anmelde-Token ist ungültig."
+      locked: "Dein Account ist gesperrt."
+      not_found_in_database: "E-Mail-Adresse oder Passwort ungültig."
+      timeout: "Deine Sitzung ist abgelaufen, bitte melde Dich erneut an."
+      unauthenticated: "Du musst Dich anmelden oder registrieren, bevor Du fortfahren kannst."
+      unconfirmed: "Du musst Deinen Account bestätigen, bevor Du fortfahren kannst."
+    mailer: 
+      confirmation_instructions: 
+        subject: "Anleitung zur Bestätigung Deines Accounts"
+      reset_password_instructions: 
+        subject: "Anleitung um Dein Passwort zurückzusetzen"
+      unlock_instructions: 
+        subject: "Anleitung um Deinen Account freizuschalten"
+    omniauth_callbacks: 
+      failure: "Du konntest nicht Deinem %{kind}-Account angemeldet werden, weil '%{reason}'."
+      success: "Du hast Dich erfolgreich mit Deinem %{kind}-Account angemeldet."
+    passwords: 
+      no_token: "Du kannst diese Seite nur von dem Link aus einer E-Mail zum Passwort-Zurücksetzen aufrufen. Wenn du einen solchen Link aufgerufen hast stelle bitte sicher, dass du die vollständige Adresse aufrufst."
+      send_instructions: "Du erhältst in wenigen Minuten eine E-Mail mit der Anleitung, wie Du Dein Passwort zurücksetzen kannst."
+      send_paranoid_instructions: "Falls Deine E-Mail-Adresse in unserer Datenbank existiert erhältst Du in wenigen Minuten eine E-Mail mit der Anleitung, wie Du Dein Passwort zurücksetzen können."
+      updated: "Dein Passwort wurde geändert. Du bist jetzt angemeldet."
+      updated_not_active: "Dein Passwort wurde geändert."
+    registrations: 
+      destroyed: "Dein Account wurde gelöscht."
+      signed_up: "Du hast dich erfolgreich registriert."
+      signed_up_but_inactive: "Du hast dich erfolgreich registriert. Wir konnten Dich noch nicht anmelden, da Dein Account inaktiv ist."
+      signed_up_but_locked: "Du hast dich erfolgreich registriert. Wir konnten Dich noch nicht anmelden, da Dein Account gesperrt ist."
+      signed_up_but_unconfirmed: "Du hast Dich erfolgreich registriert. Wir konnten Dich noch nicht anmelden, da Dein Account noch nicht bestätigt ist. Du erhältst in Kürze eine E-Mail mit der Anleitung, wie Du Deinen Account freischalten kannst."
+      update_needs_confirmation: "Deine Daten wurden aktualisiert, aber Du musst Deine neue E-Mail-Adresse bestätigen. Du erhälsts in wenigen Minuten eine E-Mail, mit der Du die Änderung Deiner E-Mail-Adresse abschließen kannst."
+      updated: "Deine Daten wurden aktualisiert."
+    sessions: 
+      signed_in: "Erfolgreich angemeldet."
+      signed_out: "Erfolgreich abgemeldet."
+    unlocks: 
+      send_instructions: "Du erhältst in wenigen Minuten eine E-Mail mit der Anleitung, wie Du Deinen Account entsperren können."
+      send_paranoid_instructions: "Falls Deine E-Mail-Adresse in unserer Datenbank existiert erhältst Du in wenigen Minuten eine E-Mail mit der Anleitung, wie Du Deinen Account entsperren kannst."
+      unlocked: "Dein Account wurde entsperrt. Du bist jetzt angemeldet."
+  diastaseis: 
+    add_card: "Add to Card"
+    color: "Farbe in"
+    color_aristera: "Links Farbe Rahmen  "
+    color_deksia: "Rechts Farbe Rahmen  "
+    color_eksw: "Farbe out"
+    color_fullou: "Flügel Farbe"
+    color_katw: "Unten Farbe Rahmen "
+    color_panw: "Oben Farbe Rahmen "
+    extra: "Continue to extra"
+    lastixo: Dichtungen
+    lathos_height: "Wrong height"
+    lathos_width: "Wrong width"
+    mauro_lastixo: Schwarz
+    max_pla: "Max Breite"
+    max_ups: "Max Höhe"
+    min_pla: "Min Breite"
+    min_ups: "Min Höhe"
+    ok: OK
+    platos: BREITE
+    swsto_height: "Right height"
+    swsto_width: "Right width"
+    title: Masse
+    upsos: HOHE
+  errors: 
+    messages: 
+      already_confirmed: "wurde bereits bestätigt"
+      carrierwave_download_error: "konnte nicht heruntergeladen werden"
+      carrierwave_integrity_error: "ist kein erlaubter Dateityp"
+      carrierwave_processing_error: "konnte nicht verarbeitet werden"
+      confirmation_period_expired: "muss innerhalb %{period} bestätigt werden, bitte fordere einen neuen Link an"
+      content_type_blacklist_error: "Sie sind nicht berechtigt %{content_type} Dateien hochzuladen"
+      content_type_whitelist_error: "Sie sind nicht berechtigt %{content_type} Dateien hochzuladen"
+      expired: "ist abgelaufen, bitte neu anfordern"
+      extension_blacklist_error: "Sie sind nicht berechtigt %{extension} Dateien hochzuladen, verbotene Typen: %{prohibited_types}"
+      extension_whitelist_error: "Sie sind nicht berechtigt %{extension} Dateien hochzuladen, erlaubte Typen: %{allowed_types}"
+      max_size_error: "Die dateigröße sollte weniger als sein %{max_size}"
+      min_size_error: "Die dateigröße sollte größer sein als %{min_size}"
+      mini_magick_processing_error: "Verarbeitung mit MiniMagick fehlgeschlagen, vielleicht ist es kein Bild? Original Fehler: %{e}"
+      not_found: "nicht gefunden"
+      not_locked: "ist nicht gesperrt"
+      not_saved: 
+        one: "Konnte %{resource} nicht speichern: ein Fehler."
+        other: "Konnte %{resource} nicht speichern: %{count} Fehler."
+      rmagick_processing_error: "Verarbeitung mit rmagick fehlgeschlagen, vielleicht ist es kein Bild? Original Fehler: %{e}"
+  etxra_headers_tabs: 
+    Starting: Elements
+  extra: 
+    color_ekso: "FARBE VORSATZROLLADEN"
+    color_ekso_katw: Farbe
+    color_epik: "FARBE AUFSATZROLLADEN"
+    color_epik_katw: Farbe
+    color_persidas: Farbe
+    ekso_rolo: VORSATZROLLADEN
+    epik_rolo: AUFSATZROLLADEN
+    glass: Glas
+    glass_cat: GLAS
+    odoigoi: ROLLADENFUEHRUNGSSCHIENEN
+    odoigoi_color: Farbe
+    persides: LAMELLEN
+    profil: PROFIL
+    profil_aristera: Links
+    profil_deksia: Recht
+    profil_katw: Unten
+    profil_panw: Oben
+    qua: "1 - 3"
+    qua_pro: MENGE
+    rola: ROLLLADEN
+    title: ETXRA
+    typos: Bankanschluss
+    typos_color: "Farbe typ"
+  fulla: 
+    1fullo: "1 leaf"
+    2fullo: "2 leaf"
+    3fullo: "3 leaf"
+  header: 
+    contact: Kontakt
+    edit_profil: "Profil bearbeiten"
+    email: E-Mail
+    hello: Hallo
+    history: Historie
+    log_in: Anmelden
+    log_out: Abmelden
+    offers: Angebote
+    rem_me: "Anmeldedaten speichern"
+  home: 
+    title: Baugruppe
+  kouf: 
+    balkonoporta: Balkontür
+    parathiro: Fenster
+    porta: Door
+    suromeno_an_parathiro: German
+    suromeno_par: German
+  leaf: 
+    title: Öffnungsart
+  log: 
+    koimeno: "Willkommen in unserem E-Shop! Hier können Sie ganz einfach ein Angebot für Ihre Fenster und Türen mit allen Zusatzteilen und  Zubehör erstellen. Bitte melden Sie sich mit Ihrem Konto an oder registrieren Sie sich falls Sie noch keins haben."
+  material: 
+    constructor: Constructor
+    line: Systemauswahl
+    system: "Systemauswahl A"
+    system_b: "Systemauswahl B"
+    title: "Profil Systems"
+  material_pinakas: 
+    arxiki_timi: "Start price"
+    cat_anoigma: Baugruppe
+    cataskevastis: Constructor
+    diastaseis: Masse
+    ekso: Vorsatzrolladen
+    epik: Aufsatzrolladen
+    glass: Glas
+    leaf: Öffnungsart
+    line: Line
+    material: Material
+    nees_diastaseis: "New dimensions"
+    odoigos: Rolladenfuehrungsschienen
+    open_type: Zeichnung
+    persida: Lamellen
+    profil: Profil
+    profil_aristera: "Profil links"
+    profil_deksia: "Profil rechts"
+    profil_katw: "Profil unten"
+    profil_panw: "Profil oben"
+    systima: System
+    teliki_timi: "Final Price"
+    typos: Typ
+  mpara: 
+    color: Farbe
+    dimension: Masse
+    extra: Extra
+    leaf: Οffnungsart
+    material: Material
+    open_category: Baugruppe
+    open_type: Zerchnung
+    price: Preis
+  new_user: 
+    address: Straße
+    city: Ort
+    company: Firma
+    country_code: Ländercode
+    create: "Neuen Kunden anlegen"
+    mobile: Handy
+    mr: Herr
+    mrs: Frau
+    name: Vorname
+    phone: Telefon
+    pososto_mion: Discount
+    pososto_sun: Surcharge
+    postal: Postleitzahl
+    send: Senden
+    sur_name: Nachname
+    vat: "Ust.Id %"
+  number: 
+    currency: 
+      format: 
+        delimiter: ","
+        format: "%u%n"
+        precision: 2
+        separator: "."
+        unit: $
+    format: 
+      delimiter: ","
+      precision: 3
+      separator: "."
+    human: 
+      decimal_units: 
+        format: "%n %u"
+        units: 
+          billion: Billion
+          million: Million
+          quadrillion: Quadrillion
+          thousand: Thousand
+          trillion: Trillion
+      format: 
+        precision: 3
+        significant: true
+        strip_insignificant_zeros: true
+      storage_units: 
+        format: "%n %u"
+        units: 
+          byte: 
+            one: Byte
+            other: Bytes
+          gb: GB
+          kb: KB
+          mb: MB
+          tb: TB
+    percentage: 
+      format: 
+        format: "%n%"
+  open_type: 
+    title: Zeichnung
+  pdf: 
+    address: "TK- Postleitzahl"
+    company: Firmenname
+    name: Vorname
+    phone: Tel
+    phone_big: Telefonnummer
+    sur_name: Nachname
+  select_customer: 
+    all: "alle anzeigen"
+    neos_pel: "Neuer Kunde"
+    search: suche
+    select: "Kunde auswählen"
+  translate: 
+    Actions: Optionen
+    Additional_profils: Zusatzprofile
+    Address: Straße
+    All: "alle anzeigen"
+    Bottom: unten
+    Bottom_side: unten
+    Cart: Einkaufswagen
+    Cart_for: Einkaufswagen
+    Choose_number_of_profiles: "Anzahl Profile"
+    Choose_number_of_types: "Anzahl Bankanschlüsse"
+    Color: Farbe
+    Comments: Kommentare
+    Company: Firma
+    Constructor: Systemhersteller
+    Continue: Weiter
+    Continue_to_extra: "Weiter zu den Extras"
+    Copy: Kopie
+    Cost: Kosten
+    Date: Datum
+    Destroy: Löschen
+    Destroy_order: "Bestellung Löschen"
+    Dimensions: Maße
+    Dimensions_text_1: "Teilungen können am Ende über die Funktion \"weiter\" eingegeben werden"
+    Dimensions_text_2: Rahmenverbreiterungen
+    Discount: Rabatt
+    EXTRAS: Extras
+    Elements: Elemente
+    Email: Email
+    External_profil_Bottom_color: "Zusatzprofil unten farbe"
+    External_profil_Left_color: "Zusatzprofil links"
+    External_profil_Top_color: "Zusatzprofil oben"
+    External_profil_bottom: "Zusatzprofil unten"
+    External_profil_left: "Zusatzprofil links"
+    External_profil_right: "Zusatzprofil rechts"
+    External_profil_right_color: "Zusatzprofil links"
+    External_profil_top: "Zusatzprofil oben"
+    External_profile_Bottom_color: "Zusatzprofil unten farbe"
+    External_profile_Left_color: "Zusatzprofil links farbe"
+    External_profile_Top_color: "Zusatzprofil oben farbe"
+    External_profile_bottom: "Zusatzprofil unten"
+    External_profile_left: "Zusatzprofil links"
+    External_profile_right: "Zusatzprofil rechts"
+    External_profile_right_color: "Zusatzprofil rechts farbe"
+    External_profile_top: "Zusatzprofil oben"
+    Extra: Extras
+    Final_price: Endpreis
+    Finish_order: "Bestellung abschliessen"
+    Fix: Ändern
+    Front_mounted: Vorsatzrollladen
+    Glass: Glas
+    Height: Höhe
+    Horizontal: Waagrecht
+    Image: Bild
+    Info: Information
+    Inside_OutSide_glass: "Innen Aussen Glas"
+    Inside_color: "Farbe innen"
+    Inside_glass: "Glas innen"
+    Leaf: "Anzahl Flügel"
+    Left: Links
+    Left_side: Links
+    Length: Länge
+    Log_in: Anmelden
+    Material: Material
+    Max: Max
+    Middle: Mitte
+    Min: Min
+    Mobile: Handy
+    Motors_movement: Rollladenantrieb
+    Name: Name
+    New_customer: "Neuer Kunde"
+    New_dimensions: "Neue Maße"
+    New_offer: "Neues Angebot"
+    New_potition: "Neue Position"
+    New_rules: Nachname
+    New_width: "Neue Breite"
+    Number_of_profiles: "Anzahl Profile"
+    Number_of_types: "Anzahl Bankanschlüsse"
+    Offer: Angebot
+    Offer_number: Angebotsnummer
+    Offers: Angebot
+    Ok: Ok
+    Open_category: Baugruppe
+    Open_type: Öffnungsart
+    Orders_sum: "Bestellung Gesamt"
+    Outside_color: "Farbe aussen"
+    Outside_glass: "Glas aussen"
+    Password: Passwort
+    Phone: Telefon
+    Position_height: "Höhe Rahmen"
+    Position_number: Positionsnummer
+    Position_width: "Breite Rahmen"
+    Potition_height: "Höhe Rahmen"
+    Potition_number: Positionsnummer
+    Potition_width: "Breite Rahmen"
+    Price: Preis
+    Price_per_unit: "Preis je Einheit"
+    Price_with_extras: Extrapreis
+    Prices: Preise
+    Profil_for_shutters: Panzer
+    Profile_systems: Profilsysteme
+    Profiles: Rahmenverbreiterungen
+    Protection: Schutz
+    Quantity: Anzahl
+    Rails: Führungsschienen
+    Remember_me: "Anmeldedaten speichern"
+    Right: Rechts
+    Right_side: Rechts
+    Rollershutter: Rollladen
+    Rolls_Left: "Antrieb/Anschluss Links"
+    Rolls_Right: "Antrieb/Anschluss Rechts"
+    Save_changes: "Änderungen speichern"
+    Search: suche
+    Select_customer: "Kunde auswählen"
+    Show_less: "Weniger anzeigen"
+    Show_more: "Mehr anzeigen"
+    Show_pdf: "PDF Händler"
+    Show_pdf_for_customer: "PDF Kunde"
+    Sort_by: "sortieren nach"
+    Star_price: Grundpreis
+    Start_price: Grundpreis
+    Starting_price: Grundpreis
+    Sum: Gesamt
+    Surcharge: Zuschlag
+    System_A: "System A"
+    System_B: "System B"
+    Top: oben
+    Top_mounted: Aufsatzrollladen
+    Top_side: oben
+    Total_price: Gesamtpreis
+    Transports: Fracht
+    Type: Typ
+    Type_color: "Typ farbe"
+    Types: Bankanschlüsse
+    Types_2: Steinbank
+    Unit: Einheit
+    Until: Bis
+    Update: Update
+    Vertical: Senkrecht
+    Width: Breite
+    black_gasket: Schwarz
+    grey_gasket: Grau
+    koimeno_arkiko: "Willkommen in unserem E-Shop! Hier können Sie ganz einfach ein Angebot für Ihre Fenster und Türen mit allen Zusatzteilen und Zubehör erstellen. Bitte melden Sie sich mit Ihrem Konto an oder registrieren Sie sich falls Sie noch keins haben."
+    koimeno_arkiko_browsers: "Wir empfehlen zur Nutzung der Aplikation Google Chrome oder Mozilla Firefox. Bitte laden sie diese herunter und auch Updates."
+    lastixo: Dichtungen
+    neos_pel: "Neuer Kunde"
+    new_height: "Neue Höhe"
+    prtotection: Schutz
+    select: "Kunde auswählen"
+    surname: Nachname
+    welcome_text: "Willkommen in unserem E-Shop! Hier können Sie ganz einfach ein Angebot für Ihre Fenster und Türen mit allen Zusatzteilen und Zubehör erstellen. Bitte melden Sie sich mit Ihrem Konto an oder registrieren Sie sich falls Sie noch keins haben."
+    welcome_text_browsers: "Wir empfehlen zur Nutzung der Aplikation Google Chrome oder Mozilla Firefox. Bitte laden sie diese herunter und auch Updates."
+  user_diax: 
+    all: "alle anzeigen"
+    cart: Einkaufswagen
+    date: Datum
+    name: Name
+    new_offer: "Neues Angebot"
+    offer_num: Angebotsnummer
+    offers: Angebote
+    quantity: Anzahl
+    search: suche
+    sort: "-sortieren nach-"
+    total_pr: Gesamtpreis

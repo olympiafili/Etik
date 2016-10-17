@@ -1,0 +1,854 @@
+--- 
+en: 
+  Glass: 
+    In: In
+    Out: Out
+  Profils: 
+    Profils: Profils
+    Protection: Protection
+    Types: Types
+  Roll: 
+    Front_mounted: "Front Mounted"
+    Front_mounted_shutters: "Front Mounted Shutters"
+    Profils: Profils
+    Rails: Rails
+    Top_mounted: "Top Mounted"
+    Top_mounted_shutters: "Top Mounted Shutters"
+  ? "[:activerecord, :models]"
+  : 
+    paraggelia: 
+      one: One
+  activerecord: 
+    attributes: 
+      user: 
+        email: 
+          one: One
+    errors: 
+      messages: 
+        record_invalid: "Validation failed: %{errors}"
+        restrict_dependent_destroy: 
+          many: "Cannot delete record because dependent %{record} exist"
+          one: "Cannot delete record because a dependent %{record} exists"
+  append_price: 
+    Price: Price
+  cart: 
+    Actions: Actions
+    Cart_for: "Cart For"
+    Comments: Comments
+    Copy: Copy
+    Destroy: Destroy
+    Finish_order: "Finish Order"
+    Fix: Fix
+    Image: Image
+    Info: Info
+    New_potition: "New Potition"
+    Potition_number: "Potition Number"
+    Price: Price
+    Quantity: Quantity
+  color: 
+    Inside_color: "Inside Color"
+    aristera: LEFT
+    button_me_fullo: "Sash Colour"
+    button_me_kassa: "Colour Frame"
+    button_xwris: "Continue without extra color"
+    deksia: RIGHT
+    ekso: "Outside color"
+    epivarinsi: Surcharge
+    katw: BOTTOM
+    mesa: "Inside color"
+    mesa_ekso: "In Out"
+    outside_color: "Outside Color"
+    panw: TOP
+    pedio: "Choose sides"
+    sunexia: Continue
+    title: Color
+  colore: 
+    Inside_color: "Inside Color"
+  constructor: 
+    title: Title
+  date: 
+    abbr_day_names: 
+      - Sun
+      - Mon
+      - Tue
+      - Wed
+      - Thu
+      - Fri
+      - Sat
+    abbr_month_names: 
+      - ~
+      - Jan
+      - Feb
+      - Mar
+      - Apr
+      - May
+      - Jun
+      - Jul
+      - Aug
+      - Sep
+      - Oct
+      - Nov
+      - Dec
+    day_names: 
+      - Sunday
+      - Monday
+      - Tuesday
+      - Wednesday
+      - Thursday
+      - Friday
+      - Saturday
+    formats: 
+      default: "%Y-%m-%d"
+      long: "%B %d, %Y"
+      short: "%b %d"
+    month_names: 
+      - ~
+      - January
+      - February
+      - March
+      - April
+      - May
+      - June
+      - July
+      - August
+      - September
+      - October
+      - November
+      - December
+    order: 
+      - year
+      - month
+      - day
+  datetime: 
+    distance_in_words: 
+      about_x_hours: 
+        one: "about 1 hour"
+        other: "about %{count} hours"
+      about_x_months: 
+        one: "about 1 month"
+        other: "about %{count} months"
+      about_x_years: 
+        one: "about 1 year"
+        other: "about %{count} years"
+      almost_x_years: 
+        one: "almost 1 year"
+        other: "almost %{count} years"
+      half_a_minute: "half a minute"
+      less_than_x_minutes: 
+        one: "less than a minute"
+        other: "less than %{count} minutes"
+      less_than_x_seconds: 
+        one: "less than 1 second"
+        other: "less than %{count} seconds"
+      over_x_years: 
+        one: "over 1 year"
+        other: "over %{count} years"
+      x_days: 
+        one: "1 day"
+        other: "%{count} days"
+      x_minutes: 
+        one: "1 minute"
+        other: "%{count} minutes"
+      x_months: 
+        one: "1 month"
+        other: "%{count} months"
+      x_seconds: 
+        one: "1 second"
+        other: "%{count} seconds"
+    prompts: 
+      day: Day
+      hour: Hour
+      minute: Minute
+      month: Month
+      second: Seconds
+      year: Year
+  devise: 
+    confirmations: 
+      confirmed: "Your email address has been successfully confirmed."
+      send_instructions: "You will receive an email with instructions for how to confirm your email address in a few minutes."
+      send_paranoid_instructions: "If your email address exists in our database, you will receive an email with instructions for how to confirm your email address in a few minutes."
+    failure: 
+      already_authenticated: "You are already signed in."
+      inactive: "Your account is not activated yet."
+      invalid: "Invalid email or password."
+      last_attempt: "You have one more attempt before your account is locked."
+      locked: "Your account is locked."
+      not_found_in_database: "Invalid email address or password."
+      timeout: "Your session expired. Please sign in again to continue."
+      unauthenticated: "You need to sign in or sign up before continuing."
+      unconfirmed: "You have to confirm your email address before continuing."
+      user: 
+        invalid: Invalid
+        not_found_in_database: "Not Found In Database"
+        unauthenticated: Unauthenticated
+    mailer: 
+      confirmation_instructions: 
+        subject: "Confirmation instructions"
+      password_change: 
+        subject: "Password Changed"
+      reset_password_instructions: 
+        subject: "Reset password instructions"
+      unlock_instructions: 
+        subject: "Unlock instructions"
+    omniauth_callbacks: 
+      failure: "Could not authenticate you from %{kind} because \"%{reason}\"."
+      success: "Successfully authenticated from %{kind} account."
+    passwords: 
+      no_token: "You can't access this page without coming from a password reset email. If you do come from a password reset email, please make sure you used the full URL provided."
+      send_instructions: "You will receive an email with instructions on how to reset your password in a few minutes."
+      send_paranoid_instructions: "If your email address exists in our database, you will receive a password recovery link at your email address in a few minutes."
+      updated: "Your password has been changed successfully. You are now signed in."
+      updated_not_active: "Your password has been changed successfully."
+    registrations: 
+      destroyed: "Bye! Your account has been successfully cancelled. We hope to see you again soon."
+      signed_up: "Welcome! You have signed up successfully."
+      signed_up_but_inactive: "You have signed up successfully. However, we could not sign you in because your account is not yet activated."
+      signed_up_but_locked: "You have signed up successfully. However, we could not sign you in because your account is locked."
+      signed_up_but_unconfirmed: "A message with a confirmation link has been sent to your email address. Please follow the link to activate your account."
+      update_needs_confirmation: "You updated your account successfully, but we need to verify your new email address. Please check your email and follow the confirm link to confirm your new email address."
+      updated: "Your account has been updated successfully."
+    sessions: 
+      already_signed_out: "Signed out successfully."
+      signed_in: "Signed in successfully."
+      signed_out: "Signed out successfully."
+      user: 
+        already_signed_out: "Already Signed Out"
+        signed_in: "Signed In"
+        signed_out: "Signed Out"
+    unlocks: 
+      send_instructions: "You will receive an email with instructions for how to unlock your account in a few minutes."
+      send_paranoid_instructions: "If your account exists, you will receive an email with instructions for how to unlock it in a few minutes."
+      unlocked: "Your account has been unlocked successfully. Please sign in to continue."
+  diastaseis: 
+    add_card: "Add to Card"
+    color: "Color in"
+    color_aristera: "Left Colour Frame"
+    color_deksia: "Right Colour Frame"
+    color_eksw: "Color out"
+    color_fullou: "Sash Colour"
+    color_katw: "Bottom Colour Frame"
+    color_panw: "Top Colour Frame"
+    extra: "Continue to extra"
+    lastixo: Gasket
+    lathos_height: "Wrong height"
+    lathos_width: "Wrong width"
+    mauro_lastixo: "Black gasket"
+    max_pla: "Max width"
+    max_ups: "Max height"
+    min_pla: "Min width"
+    min_ups: "Min Height"
+    ok: OK
+    platos: WIDTH
+    swsto_height: "Right height"
+    swsto_width: "Right width"
+    title: Dimensions
+    upsos: HEIGHT
+  elefthero: 
+    Left: Left
+    Ok: Ok
+    Right: Right
+    bottom: Bottom
+    top: Top
+  errors: 
+    format: "%{attribute} %{message}"
+    messages: 
+      accepted: "must be accepted"
+      already_confirmed: "was already confirmed, please try signing in"
+      blank: "can't be blank"
+      carrierwave_download_error: "could not be downloaded"
+      carrierwave_integrity_error: "is not of an allowed file type"
+      carrierwave_processing_error: "failed to be processed"
+      confirmation: "doesn't match %{attribute}"
+      confirmation_period_expired: "needs to be confirmed within %{period}, please request a new one"
+      content_type_blacklist_error: "You are not allowed to upload %{content_type} files"
+      content_type_whitelist_error: "You are not allowed to upload %{content_type} files"
+      empty: "can't be empty"
+      equal_to: "must be equal to %{count}"
+      even: "must be even"
+      exclusion: "is reserved"
+      expired: "has expired, please request a new one"
+      extension_blacklist_error: "You are not allowed to upload %{extension} files, prohibited types: %{prohibited_types}"
+      extension_whitelist_error: "You are not allowed to upload %{extension} files, allowed types: %{allowed_types}"
+      greater_than: "must be greater than %{count}"
+      greater_than_or_equal_to: "must be greater than or equal to %{count}"
+      inclusion: "is not included in the list"
+      invalid: "is invalid"
+      less_than: "must be less than %{count}"
+      less_than_or_equal_to: "must be less than or equal to %{count}"
+      max_size_error: "File size should be less than %{max_size}"
+      min_size_error: "File size should be greater than %{min_size}"
+      mini_magick_processing_error: "Failed to manipulate with MiniMagick, maybe it is not an image? Original Error: %{e}"
+      not_a_number: "is not a number"
+      not_an_integer: "must be an integer"
+      not_found: "not found"
+      not_locked: "was not locked"
+      not_saved: 
+        one: "1 error prohibited this %{resource} from being saved:"
+        other: "%{count} errors prohibited this %{resource} from being saved:"
+      odd: "must be odd"
+      other_than: "must be other than %{count}"
+      present: "must be blank"
+      rmagick_processing_error: "Failed to manipulate with rmagick, maybe it is not an image?"
+      taken: "has already been taken"
+      too_long: "is too long (maximum is %{count} characters)"
+      too_short: "is too short (minimum is %{count} characters)"
+      wrong_length: "is the wrong length (should be %{count} characters)"
+  etxra_headers_tabs: 
+    Extra: Extra
+    Info: Info
+    Starting: Elements
+  extra: 
+    color_ekso: "ΧΡΩΜΑ ΕΞΩΤΕΡΙΚΩΝ"
+    color_ekso_katw: "Χρώμα εξωτερικού ρολού"
+    color_epik: "ΧΡΩΜΑ ΕΠΙΚΑΘΗΜΕΝΩΝ"
+    color_epik_katw: "Χρώμα επικαθήμενου ρολού"
+    color_persidas: "Χρώμα περσίδας"
+    ekso_rolo: "ΕΞΩΤΕΡΙΚΑ ΡΟΛΑ"
+    epik_rolo: "ΕΠΙΚΑΘΗΜΕΝΑ ΡΟΛΑ"
+    glass: ΤΖΑΜΙΑ
+    glass_cat: "ΚΑΤΗΓΟΡΙΑ ΤΖΑΜΙΩΝ"
+    odoigoi: "ΟΔΟΙΓΟΙ ΡΟΛΟΥ"
+    odoigoi_color: "Χρώμα οδοιγού"
+    persides: "ΠΕΡΣΙΔΕΣ ΡΟΛΟΥ"
+    profil: ΠΡΟΦΙΛ
+    profil_aristera: "PROFIL LEFT"
+    profil_deksia: "PROFIL RIGHT"
+    profil_katw: "PROFIL BOTTOM"
+    profil_panw: "PROFIL TOP"
+    qua: "ποσό 1 μέχρι 3"
+    qua_pro: QUANTITY
+    rola: ΡΟΛΑ
+    title: ETXRA
+    typos: ΤΥΠΟΣ
+    typos_color: "Χρώμα τύπου"
+  extra_material: 
+    ? "Additional profils"
+    : "Additional Profils"
+    Glass: Glass
+    Peripherals: Peripherals
+    Profils: Profils
+    Profils_for_shutters: "Profils For Shutters"
+    Rollershutter: Rollershutter
+    Rollershutter_guides: "Rollershutter Guides"
+  flash: 
+    actions: 
+      create: 
+        notice: "%{resource_name} was successfully created."
+      destroy: 
+        alert: "%{resource_name} could not be destroyed."
+        notice: "%{resource_name} was successfully destroyed."
+      update: 
+        notice: "%{resource_name} was successfully updated."
+  fulla: 
+    1fullo: "1 leaf"
+    2fullo: "2 leaf"
+    3fullo: "3 leaf"
+  header: 
+    contact: Contact
+    edit_profil: "Edit Profil"
+    email: E-Mail
+    hello: Hello
+    history: History
+    log_in: "Log In"
+    log_out: "Log out"
+    offers: Offers
+    password: Password
+    rem_me: "Remember me"
+  helpers: 
+    header: 
+      email: Email
+    label: 
+      user: 
+        ? "<span class='tc-inspector-key' data-locale='de' data-type='translated' data-id='172'> E-Mail </span>"
+        : "<Span Class='tc Inspector Key' Data Locale='de' Data Type='translated' Data Id='172'> E Mail </Span>"
+        ? "<span class='tc-inspector-key' data-locale='de' data-type='translated' data-id='178'> Anmeldedaten speichern </span>"
+        : "<Span Class='tc Inspector Key' Data Locale='de' Data Type='translated' Data Id='178'> Anmeldedaten Speichern </Span>"
+        ? "<span class='tc-inspector-key' data-locale='en' data-type='translated' data-id='172'> E-Mail </span>"
+        : "<Span Class='tc Inspector Key' Data Locale='en' Data Type='translated' Data Id='172'> E Mail </Span>"
+        ? "<span class='tc-inspector-key' data-locale='en' data-type='translated' data-id='178'> Remember me </span>"
+        : "<Span Class='tc Inspector Key' Data Locale='en' Data Type='translated' Data Id='178'> Remember Me </Span>"
+        ? "<span class='tc-inspector-key' data-locale='gr' data-type='translated' data-id='172'> E-Mail </span>"
+        : "<Span Class='tc Inspector Key' Data Locale='gr' Data Type='translated' Data Id='172'> E Mail </Span>"
+        ? "<span class='tc-inspector-key' data-locale='gr' data-type='translated' data-id='178'> Θυμήσου με </span>"
+        : "<Span Class='tc Inspector Key' Data Locale='gr' Data Type='translated' Data Id='178'> Θυμήσου με </Span>"
+        Address_1: "Address 1"
+        Address_2: "Address 2"
+        ? "Anmeldedaten speichern"
+        : "Anmeldedaten Speichern"
+        ? "E Mail"
+        : "E Mail"
+        E-Mail: "E Mail"
+        Epitheto: Epitheto
+        Region: Region
+        ? "Remember me"
+        : "Remember Me"
+        company: Company
+        current_password: "Current Password"
+        email: Email
+        name: Name
+        password: Password
+        password_confirmation: "Password Confirmation"
+        phone: Phone
+        ? "Θυμήσου με"
+        : "Θυμήσου με"
+    select: 
+      prompt: "Please select"
+    submit: 
+      create: "Create %{model}"
+      paraggelia: 
+        update: Update
+      submit: "Save %{model}"
+      update: "Update %{model}"
+  home: 
+    title: "Open Category"
+  kouf: 
+    balkonoporta: "French door"
+    parathiro: Window
+    porta: Door
+    suromeno_an_parathiro: Αγγλικα
+    suromeno_par: Αγγλικα
+  leaf: 
+    Add_Horizontal_rule: "Add Horizontal Rule"
+    Add_Vertical_rule: "Add Vertical Rule"
+    V_One: "V One"
+    Vertical_One: "Vertical One"
+    from: From
+    title: LEAF
+    to: To
+  line: 
+    title: Title
+  log: 
+    koimeno: "Welcome to our E-Shop! Here you can create easily an offer for your windows and doors with all the additional parts and accessoriries that you want. Please sign in with your account or sign up if you don't have one yet."
+  material: 
+    System_A: "System A"
+    constructor: Constructor
+    line: System
+    panw_koimeno: "Panw Koimeno"
+    system: "System A"
+    system_b: "System B"
+    title: "Profil Systems"
+  material_pinakas: 
+    arxiki_timi: "Start price"
+    cat_anoigma: "Open category"
+    cataskevastis: Constructor
+    diastaseis: Dimensions
+    ekso: "Εξωτερικό ρολό"
+    epik: "Επικαθημενο ρολό"
+    glass: Τζαμι
+    leaf: Leaf
+    line: Line
+    material: Material
+    nees_diastaseis: "New dimensions"
+    odoigos: Οδοιγος
+    open_type: "Open type"
+    persida: Περσίδα
+    profil: Προφιλ
+    profil_aristera: "Profil left"
+    profil_deksia: "Profil right"
+    profil_katw: "Profil bottom"
+    profil_panw: "Profil top"
+    systima: System
+    teliki_timi: "Final Price"
+    typos: Τυπος
+  mpara: 
+    Bottom: Bottom
+    Cost: Cost
+    Destroy_order: "Destroy Order"
+    EXTRAS: Extras
+    External_profil_Bottom_color: "External Profil Bottom Color"
+    External_profil_Left_color: "External Profil Left Color"
+    External_profil_Top_color: "External Profil Top Color"
+    External_profil_bottom: "External Profil Bottom"
+    External_profil_left: "External Profil Left"
+    External_profil_right: "External Profil Right"
+    External_profil_right_color: "External Profil Right Color"
+    External_profil_top: "External Profil Top"
+    Final_price: "Final Price"
+    Finish_order: "Finish Order"
+    Height: Height
+    Inside_color: "Inside Color"
+    Inside_glass: "Inside Glass"
+    Left: Left
+    Left_side: "Left Side"
+    Length: Length
+    Middle: Middle
+    Motor_movement: "Motor Movement"
+    Motors_movement: "Motors Movement"
+    Orders_sum: "Orders Sum"
+    Outside_color: "Outside Color"
+    Outside_glass: "Outside Glass"
+    Potition_height: "Potition Height"
+    Potition_width: "Potition Width"
+    Price_per_unit: "Price Per Unit"
+    Prices: Prices
+    Profil_for_shutters: "Profil For Shutters"
+    Protection: Protection
+    Quantity: Quantity
+    Rails: Rails
+    Right_side: "Right Side"
+    Rollershutter: Rollershutter
+    Rollershutter_color: "Rollershutter Color"
+    Show_less: "Show Less"
+    Start_price: "Start Price"
+    Top: Top
+    Transports: Transports
+    Type: Type
+    Type_color: "Type Color"
+    Unit: Unit
+    Until: Until
+    Width: Width
+    color: Color
+    dimension: DIMENSIONS
+    discount: Discount
+    extra: EXTRA
+    leaf: LEAF
+    material: MATERIAL
+    open_category: "OPEN CATEGORY"
+    open_type: "OPEN TYPE"
+    price: PRICE
+    surcharge: Surcharge
+  new_user: 
+    address: Address
+    city: City
+    company: Company
+    country_code: Country
+    create: "Create new user"
+    mobile: Mobile
+    mr: Ms
+    mrs: Mrs
+    name: Name
+    phone: Phone
+    pososto_mion: Discount
+    pososto_sun: Surcharge
+    postal: Postal
+    send: Send
+    sur_name: Surname
+    vat: "VAT %"
+  number: 
+    currency: 
+      format: 
+        delimiter: ","
+        format: "%u%n"
+        precision: 2
+        separator: "."
+        significant: Significant
+        strip_insignificant_zeros: "Strip Insignificant Zeros"
+        unit: $
+    format: 
+      delimiter: ","
+      precision: 3
+      separator: "."
+    human: 
+      decimal_units: 
+        format: "%n %u"
+        units: 
+          billion: Billion
+          million: Million
+          quadrillion: Quadrillion
+          thousand: Thousand
+          trillion: Trillion
+      format: 
+        precision: 3
+        significant: true
+        strip_insignificant_zeros: true
+      storage_units: 
+        format: "%n %u"
+        units: 
+          byte: 
+            one: Byte
+            other: Bytes
+          gb: GB
+          kb: KB
+          mb: MB
+          tb: TB
+    percentage: 
+      format: 
+        format: "%n%"
+  open_type: 
+    title: "OPEN TYPE"
+  pagination: 
+    first: First
+    last: Last
+    next: Next
+  pdf: 
+    address: Address
+    company: Company
+    name: Name
+    phone: Pho
+    phone_big: Phone
+    sur_name: Surname
+  root: 
+    Region: Region
+  select_customer: 
+    all: "Show all"
+    neos_pel: "New customer"
+    search: Search
+    select: "Select customer"
+  support: 
+    array: 
+      last_word_connector: ", and "
+      two_words_connector: " and "
+      words_connector: ", "
+  system: 
+    title: Title
+  time: 
+    am: am
+    formats: 
+      default: "%a, %d %b %Y %H:%M:%S %z"
+      long: "%B %d, %Y %H:%M"
+      short: "%d %b %H:%M"
+    pm: pm
+  translate: 
+    Actions: Options
+    Add_file: "Add File"
+    Add_to_cart: "Add To Cart"
+    Added_files: "Added Files"
+    Additional_profils: "Additional Profils"
+    Address: Address
+    All: All
+    Bottom: Bottom
+    Bottom_side: "Bottom Side"
+    Cart: Cart
+    Cart_for: "Cart For"
+    Change_height: "Change Height"
+    Change_width: "Change Width"
+    Choose_number_of_profiles: "Choose Number Of Profiles"
+    Choose_number_of_types: "Choose Number Of Types"
+    Color: Color
+    Comments: Comments
+    Company: Company
+    Constructor: "System produced by"
+    Continue: Continue
+    Continue_to_extra: "Continue To Extra"
+    Copy: Copy
+    Cost: Cost
+    Date: Date
+    Destroy: Delete
+    Destroy_order: "Delete order"
+    Dimensions: Dimensions
+    Dimensions_text_1: "Dimensions for separation can be entered with the fucntion \"continue\""
+    Dimensions_text_2: "CHECK DIMENSIONS !!!"
+    Discount: Discount
+    Download: Download
+    EXTRAS: Extras
+    Elements: Elements
+    Email: Email
+    Erase: Erase
+    External_profil_Bottom_color: "Additional profile bottom color"
+    External_profil_Left_color: "Additional profile left color"
+    External_profil_Top_color: "Additional profile top color"
+    External_profil_bottom: "Additional profile bottom"
+    External_profil_left: "Additional profile left"
+    External_profil_right: "Additonal profile right"
+    External_profil_right_color: "Additional profile left"
+    External_profil_top: "Additional profile top"
+    External_profile_Bottom_color: "Additional profile bottom color"
+    External_profile_Left_color: "Additional profile left"
+    External_profile_Top_color: "Additional profile top color"
+    External_profile_bottom: "Additional profile Bottom"
+    External_profile_left: "Additional profile left"
+    External_profile_right: "Additional profile right"
+    External_profile_right_color: "Additional profile right color"
+    External_profile_top: "Additional profile top"
+    Extra: Extra
+    Final_price: "Final Price"
+    Finish_order: "Finish Order"
+    Fix: Change
+    Front_mounted: "Front Mounted"
+    Glass: Glass
+    Height: Height
+    Horizontal: Horizontal
+    Image: Image
+    Info: Information
+    Inside_OutSide_glass: "Inside Outside Glass"
+    Inside_color: "Inside Color"
+    Inside_glass: "Inside Glass"
+    Leaf: "Number of leaf"
+    Left: Left
+    Left_side: Left
+    Length: Length
+    Log_in: "Log In"
+    Material: Material
+    Max: Max
+    Middle: Center
+    Min: Min
+    Mobile: Mobile
+    Motors_movement: "Shutter movement"
+    Name: Name
+    New_customer: "New Customer"
+    New_dimensions: "New Dimensions"
+    New_offer: "New Offer"
+    New_potition: "New position"
+    New_rules: "New Rules"
+    New_width: "New Width"
+    Number_of_profiles: "Number Of Profiles"
+    Number_of_types: "Number Of Types"
+    Offer: Offer
+    Offer_number: "Offer Number"
+    Offers: Offers
+    Ok: Ok
+    Open_category: "Element category"
+    Open_type: Opening
+    Orders_sum: "Orders Sum"
+    Original_Height: "Original Height"
+    Outside_color: "Outside Color"
+    Outside_glass: "Outside Glass"
+    Password: Password
+    Phone: Phone
+    Position_height: "Position Height"
+    Position_number: "Position Number"
+    Position_width: "Position Width"
+    Potition_height: "Position height"
+    Potition_number: "Position number"
+    Potition_width: "Position width"
+    Price: Price
+    Price_per_unit: "Price Per Unit"
+    Price_with_extras: "Price With Extras"
+    Prices: Prices
+    Profil_for_shutters: "Profil For Shutters"
+    Profile_systems: "Profile Systems"
+    Profiles: Profiles
+    Protection: Protection
+    Quantity: Quantity
+    Rails: Rails
+    Remember_me: "Remember Me"
+    Remove_old_files: "Remove Old Files"
+    Right: Right
+    Right_side: Right
+    Rollershutter: Rollershutter
+    Rolls_Left: "Movement / connector Left"
+    Rolls_Right: "Movement / connector right"
+    Rubber: Rubber
+    Save_changes: "Save Changes"
+    Search: Search
+    Select_customer: "Select Customer"
+    Show_less: "Show Less"
+    Show_more: "Show More"
+    Show_pdf: "Show Pdf"
+    Show_pdf_for_customer: "Show Pdf For Customer"
+    Sort_by: "Sort By"
+    Star_price: "Star Price"
+    Start_price: "Start Price"
+    Starting_price: "Starting Price"
+    Sum: Sum
+    Surcharge: Surcharge
+    System_A: "System A"
+    System_B: "System B"
+    Top: Top
+    Top_mounted: "Top Mounted"
+    Top_side: "Top Side"
+    Total_price: "Total Price"
+    Transports: Transports
+    Type: Type
+    Type_color: "Type Color"
+    Types: Types
+    Types_2: Types
+    Unit: Unit
+    Until: Until
+    Update: Update
+    Upload: Upload
+    Vertical: Vertical
+    Width: Width
+    black_gasket: Black
+    grey_gasket: Grey
+    koimeno_arkiko: "Welcome to our E-Shop! Here you can create easily an offer for your windows and doors with all the additional parts and accessoriries that you want. Please sign in with your account or sign up if you don't have one yet."
+    koimeno_arkiko_browsers: "We recommend you to download or update Google Chrome, Firefox for better browsing experience. Click this images below"
+    lastixo: Gasket
+    neos_pel: "New customer"
+    new_height: "New Height"
+    prtotection: Prtotection
+    select: Select
+    surname: Surname
+    welcome_text: "Welcome to our E-Shop! Here you can create easily an offer for your windows and doors with all the additional parts and accessoriries that you want. Please sign in with your account or sign up if you don't have one yet."
+    welcome_text_browsers: "We recommend you to download or update Google Chrome, Firefox for better browsing experience. Click this images below"
+  translation_center: 
+    actions: 
+      are_you_sure: "Are you sure ?"
+    back_to_app: "Back To App"
+    categories: 
+      category: 
+        complete: Complete
+        keys: Keys
+      index: 
+        categories: Categories
+      show: 
+        all: All
+        pending: Pending
+        translated: Translated
+        untranslated: Untranslated
+    center: 
+      activity: 
+        ago: ago
+        changes: Changes
+        key: Key
+        locale: Locale
+        of: Of
+        time: Time
+        user: User
+      dashboard: 
+        activity: Activity
+        all: All
+        controls: Controls
+        dashboard: Dashboard
+        language: Language
+        pending: Pending
+        progress: Progress
+        reset: Reset
+        search: Search
+        select_locale: "Select Locale"
+        these_actions_will_affect_existing_data: "These actions will affect existing data"
+        translated: Translated
+        untranslated: Untranslated
+      search: 
+        title: "Keys with translations that contain '%{value}'"
+    dashboard: Dashboard
+    pagination: 
+      first: First
+      last: Last
+      next: Next
+      prev: Prev.
+    search_keys: Keys
+    search_translations: Translations
+    translate_to: "Translate To"
+    translation_center: "Translation Center"
+    translation_keys: 
+      destroyed_successfully: "Destroyed Successfully"
+      show: 
+        add_edit_translation: "Add/Edit Translation"
+        back_to_category: "Back to"
+        destroy: Destroy
+        translations: Translations
+      show_keys: 
+        created_on: "created on"
+        translated: Translated
+        untranslated: Untranslated
+      translation_keys: 
+        no_translation_keys: "No Translation Keys"
+    translations: 
+      accept_translation: 
+        accept: Accept
+        unaccept: Unaccept
+      index: 
+        date: Date
+        no_translations_available: "No Translations Available"
+        sort_by: "Sort by"
+        votes: Votes
+        votings: Votes
+      show: 
+        by: by
+        on_date: "on"
+        vote: Vote
+        votings: Votes
+        you: You
+  user_diax: 
+    all: "Show all"
+    cart: Cart
+    date: Date
+    name: Name
+    new_offer: "New offer"
+    offer_num: "Offer number"
+    offers: Offers
+    quantity: Quantity
+    search: Search
+    sort: "-Sort by-"
+    total_pr: "Total price"

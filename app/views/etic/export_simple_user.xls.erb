@@ -1,0 +1,211 @@
+<table>
+
+            <thead>
+              <tr>
+                <th>Αριθμός</th>
+                <th>Eικόνα</th>
+                <th>Πληροφορίες</th>  
+                <th>Τιμή</th> 
+                <th>Ποσότητα</th>
+                <th>Γενικά</th>
+                <th></th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <% if (!@items.nil?) %>
+              <% @items.each do |item| %>
+                <tr class="root">
+                  <td><input class="input input_blur" type="text" name="lname" size="5" placeholder="<%= item.posotoita %>" id="<%= item.id %>"></td>
+                  <td><%= image_tag("/upload/#{item.canvas}.png",:height => "200px") %></td> <!---->
+                  <!--extra-->
+                  <td class="card_extra_left">
+                    <div class="pinakas_aristera_gia_margin_panw">
+                    <b><%= t 'mpara.open_category' %></b>: <%= t 'kouf.'<<item.open_categorie_id %></br>
+                    <b><%= t 'mpara.material' %></b>: <%= item.material_id %></br>
+                    <b><%= t 'material.constructor' %></b>: <%= item.constructor_id %></br>
+                    <b><%= t 'material.system' %></b>: <%= item.system_id %></br>
+                    <b><%= t 'material.system' %></b>: <%= item.line_id %></br>
+                    <b><%= t 'mpara.open_type' %></b>:  <%= item.open_type_id %><br>
+                    <b><%= t 'mpara.leaf' %></b>: <%= Leaf.where(:id => item.leaf_id).first.name %></br>
+                    <b>Πλάτος</b>: <%= item.width %>mm</br>
+                    <b>Υψος</b>: <%= item.height %>mm</br>
+                    <% if ( !item.xwrisma1.nil? ) %>
+                    <b>Χώρισμα αριστερά</b>: <%= item.xwrisma1 %>mm,<br> <b>Χώρισμα δεξιά</b>: <%= item.xwrisma2 %>mm<br>
+                    <% end %>
+                    <% if ( !item.xwrisma3_1.nil? ) %>
+                    <b>Χώρισμα αριστερά</b>: <%= item.xwrisma3_1 %>mm<br>
+                    <b>Χώρισμα μέση</b>: <%= item.xwrisma3_2 %>mm<br>
+                    <b>Χώρισμα δεξιά</b>: <%= item.xwrisma3_3 %>mm<br>
+                    <% end %>
+                    <% if ( !item.xwrisma_y_1.nil? ) %>
+                    <b>Χώρισμα πάνω</b>: <%= item.xwrisma_y_1 %>mm<br>
+                    <b>Χώρισμα κάτω</b>: <%= item.xwrisma_y_2 %>mm<br>
+                    <% end %>
+                    <b>Χρώμα</b>:  <%= item.main_color_id %><br>
+                    <% if ( !item.right_color_id.nil? ) %>
+                    <b>Χρώμα δεξια</b>: <%= item.right_color_id %><br>
+                    <b>Χρώμα αριστέρα</b>: <%= item.left_color_id %><br>
+                    <b>Χρώμα πάνω</b>: <%= item.up_color_id %><br>
+                    <b>Χρώμα κάτω</b>: <%= item.down_color_id %><br>
+                    <% end %>
+                    <% if ( !item.leaf_color_id.nil? ) %>
+                      <b>Χρώμα φύλου</b>: <%= item.leaf_color_id %><br>
+                    <% end %>
+                    <% if ( item.lastixa == "mauro_lastixo" ) %>
+                      <b>Μαύρο λάστιχο</b><br>
+                    <% end %>
+                    <% if ( item.lastixa == "gkri_lastixo" ) %>
+                      <b>Γκρί λάστιχο</b><br>
+                    <% end %>
+                    <div class="start_price_margin"><u><%= t 'material_pinakas.arxiki_timi' %>:  <color style="color:#ff0000"><%= number_with_precision(item.price_new, :precision => 2) %> €</color></u></br></br></div>
+                    </div>
+                    <div class="on_off">
+                    <a class="show_more">Show more...</a>
+                    <div class="extra_show_hide">
+                    <hr class="hr_pinakas_karta">
+                    <% if ( !item.tzamia2.nil? ) %>
+                      <div class="pinakas_aristera_gia_margin"><b>Τζάμι2</b>: <%= item.tzamia2 %></div> (<color style="color:#ff0000">+</color><%= t 'mpara.price' %>: <color style="color:#ff0000"><%= number_with_precision(item.price_tzamiou2, :precision => 2) %></color> €)<br>
+                    <% end %>
+                    <% if ( !item.tzamia.nil? ) %>
+                      <div class="pinakas_aristera_gia_margin"><b>Τζάμι</b>: <%= item.tzamia %></div> (<color style="color:#ff0000">+</color><%= t 'mpara.price' %>: <color style="color:#ff0000"><%= number_with_precision(item.price_tzamiou, :precision => 2) %></color> €)<br>
+                    <% end %>
+                    <% if ( !item.rolo.nil? ) %>
+                      <div class="pinakas_aristera_gia_margin"><b>Ρολό</b>: <%= item.rolo %></div> (<color style="color:#ff0000">+</color><%= t 'mpara.price' %>: <color style="color:#ff0000"><%= number_with_precision(item.price_rolou, :precision => 2) %></color> €)<br>
+                      <% if ( !item.pl_rolou_ep.nil? && (item.pl_rolou_ep > 0) ) %>
+                        Πλάτος κουτιού: <%= item.pl_rolou_ep %> mm<br>
+                      <% end %>
+                      <% if ( !item.pl_rolou_ek.nil? && (item.pl_rolou_ek > 0) ) %>
+                        Πλάτος κουτιού: <%= item.pl_rolou_ek %> mm<br>
+                      <% end %>
+                      <% if ( !item.up_rolou_ep.nil? && ( item.up_rolou_ep > 0) ) %>
+                        Υψος κουτιού: <%= item.up_rolou_ep %> mm<br>
+                      <% end %>
+                      <% if ( !item.up_rolou_ek.nil? && ( item.up_rolou_ek > 0) ) %>
+                        Υψος κουτιού: <%= item.up_rolou_ek %> mm<br>
+                      <% end %>
+                      <% if ( item.kinisi_deksia_aristera == "r" ) %>
+                        Κίνηση μηχανισμού: Right <br>
+                      <% else %>
+                        Κίνηση μηχανισμού: Left <br>
+                      <% end %>
+                      Χρώμα ρολού: <%= item.color_rolou %><br>
+                    <% end %>
+                    <% if ( !item.odoigos.nil? ) %>
+                      <div class="pinakas_aristera_gia_margin"><b>Οδοιγός</b>: <%= item.odoigos %></div> (<color style="color:#ff0000">+</color><%= t 'mpara.price' %>: <color style="color:#ff0000"><%= number_with_precision(item.price_odoigou, :precision => 2) %></color> €)<br>
+                      <% if ( !item.up_odigou.nil? && ( item.up_odigou > 0) ) %>
+                        Υψος οδοιγού: <%= item.up_odigou %> mm<br>
+                      <% end %>
+                      Χρώμα οδοιγού: <%= item.color_odoigou %><br>
+                    <% end %>
+                    <% if ( !item.persida.nil? ) %>
+                      <div class="pinakas_aristera_gia_margin"><b>Περσίδα</b>: <%= item.persida %></div> (<color style="color:#ff0000">+</color><%= t 'mpara.price' %>: <color style="color:#ff0000"><%= number_with_precision(item.price_persidas, :precision => 2) %></color> €)<br>
+                      <% if ( !item.pl_persidas.nil? && ( item.pl_persidas > 0) ) %>
+                        Πλάτος περσίδας: <%= item.pl_persidas %> mm<br>
+                      <% end %>
+                      <% if ( !item.up_persidas.nil? && ( item.up_persidas > 0) ) %>
+                        Υψος περσίδας: <%= item.up_persidas %> mm<br>
+                      <% end %>
+                      Χρώμα περσίδας: <%= item.color_persidas %><br>
+                      <hr class="hr_card">
+                    <% end %>
+                    <% if ( !item.prostasia_name.nil? ) %>
+                      <div class="pinakas_aristera_gia_margin"><b>Προστασία</b>: <%= item.prostasia_name %></div> (<color style="color:#ff0000">+</color><%= t 'mpara.price' %>: <color style="color:#ff0000"><%= number_with_precision(item.prostasia_price, :precision => 2) %></color> €)<br>
+                      <hr class="hr_card">
+                    <% end %>
+                    <% if ( !item.profil_deksia_1.nil? ) %>
+                      <div class="pinakas_aristera_gia_margin"><b>Προφιλ δεξιά</b>: <%= item.profil_deksia_1 %></div> (<color style="color:#ff0000">+</color><%= t 'mpara.price' %>: <color style="color:#ff0000"><%= number_with_precision(item.timi_profil_deksia_1, :precision => 2) %></color> €)<br>
+                      Ποσότητα προφιλ δεξια: <%= item.profil_deksia_arithmos_1 %><br>
+                    <% end %>
+                    <% if ( !item.profil_deksia_2.nil? ) %>
+                      <div class="pinakas_aristera_gia_margin"><b>Προφιλ δεξιά</b>: <%= item.profil_deksia_2 %></div> (<color style="color:#ff0000">+</color><%= t 'mpara.price' %>: <color style="color:#ff0000"><%= number_with_precision(item.timi_profil_deksia_2, :precision => 2) %></color> €)<br>
+                      Ποσότητα προφιλ δεξια: <%= item.profil_deksia_arithmos_2 %><br>
+                    <% end %>
+                    <% if ( !item.profil_deksia_3.nil? ) %>
+                      <div class="pinakas_aristera_gia_margin"><b>Προφιλ δεξιά</b>: <%= item.profil_deksia_3 %></div> (<color style="color:#ff0000">+</color><%= t 'mpara.price' %>: <color style="color:#ff0000"><%= number_with_precision(item.timi_deksia_profil_3, :precision => 2) %></color> €)<br>
+                      Ποσότητα προφιλ δεξια: <%= item.profil_deksia_arithmos_3 %><br>
+                    <% end %>
+                    <% if ( !item.profil_deksia_1.nil? || !item.profil_deksia_2.nil? || !item.profil_deksia_3.nil? ) %>
+                      <b>Χρώμα προφιλ δεξια</b>: <%= item.color_profil_d %><br>
+                      <hr class="hr_card">
+                    <% end %>
+                    <% if ( !item.profil_aristera_1.nil? ) %>
+                      <div class="pinakas_aristera_gia_margin"><b>Προφιλ αριστερά</b>: <%= item.profil_aristera_1 %></div> (<color style="color:#ff0000">+</color><%= t 'mpara.price' %>: <color style="color:#ff0000"><%= number_with_precision(item.timi_profil_aristera_1, :precision => 2) %></color> €)<br>
+                      Ποσότητα προφιλ αριστερά: <%= item.profil_aristera_arithmos_1 %><br>
+                    <% end %>
+                    <% if ( !item.profil_aristera_2.nil? ) %>
+                      <div class="pinakas_aristera_gia_margin"><b>Προφιλ αριστερά</b>: <%= item.profil_aristera_2 %></div> (<color style="color:#ff0000">+</color><%= t 'mpara.price' %>: <color style="color:#ff0000"><%= number_with_precision(item.timi_profil_aristera_2, :precision => 2) %></color> €)<br>
+                      Ποσότητα προφιλ αριστερά: <%= item.profil_aristera_arithmos_2 %><br>
+                    <% end %>
+                    <% if ( !item.profil_aristera_3.nil? ) %>
+                      <div class="pinakas_aristera_gia_margin"><b>Προφιλ αριστερά</b>: <%= item.profil_aristera_3 %></div> (<color style="color:#ff0000">+</color><%= t 'mpara.price' %>: <color style="color:#ff0000"><%= number_with_precision(item.timi_profil_aristera_3, :precision => 2) %></color> €)<br>
+                      Ποσότητα προφιλ αριστερά: <%= item.profil_aristera_arithmos_3 %><br>
+                    <% end %>
+                    <% if ( !item.profil_aristera_1.nil? || !item.profil_aristera_2.nil? || !item.profil_aristera_3.nil? ) %>
+                      <b>Χρώμα προφιλ αριστερά</b>: <%= item.color_profil_a %><br>
+                      <hr class="hr_card">
+                    <% end %>
+                    <% if ( !item.profil_panw_1.nil? ) %>
+                      <div class="pinakas_aristera_gia_margin"><b>Προφιλ πάνω</b>: <%= item.profil_panw_1 %></div> (<color style="color:#ff0000">+</color><%= t 'mpara.price' %>: <color style="color:#ff0000"><%= number_with_precision(item.timi_profil_panw_1, :precision => 2) %></color> €)<br>
+                      Ποσότητα προφιλ πάνω: <%= item.profil_panw_arithmos_1 %><br>
+                    <% end %>
+                    <% if ( !item.profil_panw_2.nil? ) %>
+                      <div class="pinakas_aristera_gia_margin"><b>Προφιλ πάνω</b>: <%= item.profil_panw_2 %></div> (<color style="color:#ff0000">+</color><%= t 'mpara.price' %>: <color style="color:#ff0000"><%= number_with_precision(item.timi_profil_panw_2, :precision => 2) %></color> €)<br>
+                      Ποσότητα προφιλ πάνω: <%= item.profil_panw_arithmos_2 %><br>
+                    <% end %>
+                    <% if ( !item.profil_panw_3.nil? ) %>
+                      <div class="pinakas_aristera_gia_margin"><b>Προφιλ πάνω</b>: <%= item.profil_panw_3 %></div> (<color style="color:#ff0000">+</color><%= t 'mpara.price' %>: <color style="color:#ff0000"><%= number_with_precision(item.timi_profil_panw_3, :precision => 2) %></color> €)<br>
+                      Ποσότητα προφιλ πάνω: <%= item.profil_panw_arithmos_3 %><br>
+                    <% end %>
+                    <% if ( !item.profil_panw_1.nil? || !item.profil_panw_2.nil? || !item.profil_panw_3.nil? ) %>
+                      <b>Χρώμα προφιλ πάνω</b>: <%= item.color_profil_p %><br>
+                      <hr class="hr_card">
+                    <% end %>
+                    <% if ( !item.profil_katw_1.nil? ) %>
+                      <div class="pinakas_aristera_gia_margin"><b>Προφιλ κάτω</b>: <%= item.profil_katw_1 %></div> (<color style="color:#ff0000">+</color><%= t 'mpara.price' %>: <color style="color:#ff0000"><%= number_with_precision(item.timi_profil_katw_1, :precision => 2) %></color> €)<br>
+                      Ποσότητα προφιλ κάτω: <%= item.profil_katw_arithmos_1 %><br>
+                    <% end %>
+                    <% if ( !item.profil_katw_2.nil? ) %>
+                      <div class="pinakas_aristera_gia_margin"><b>Προφιλ κάτω</b>: <%= item.profil_katw_2 %></div> (<color style="color:#ff0000">+</color><%= t 'mpara.price' %>: <color style="color:#ff0000"><%= number_with_precision(item.timi_profil_katw_2, :precision => 2) %></color> €)<br>
+                      Ποσότητα προφιλ κάτω: <%= item.profil_katw_arithmos_2 %><br>
+                    <% end %>
+                    <% if ( !item.profil_katw_3.nil? ) %>
+                      <div class="pinakas_aristera_gia_margin"><b>Προφιλ κάτω</b>: <%= item.profil_katw_3 %></div> (<color style="color:#ff0000">+</color><%= t 'mpara.price' %>: <color style="color:#ff0000"><%= number_with_precision(item.timi_profil_katw_3, :precision => 2) %></color> €)<br>
+                      Ποσότητα προφιλ κάτω: <%= item.profil_katw_arithmos_3 %><br>
+                    <% end %>
+                    <% if ( !item.profil_katw_1.nil? || !item.profil_katw_2.nil? || !item.profil_katw_3.nil? ) %>
+                      <b>Χρώμα προφιλ κάτω</b>: <%= item.color_profil_k %><br>
+                      <hr class="hr_card">
+                    <% end %>
+                    <% if ( !item.typos_katw_1.nil? ) %>
+                      <div class="pinakas_aristera_gia_margin"><b>Τύπος κάτω</b>: <%= item.typos_katw_1 %></div> (<color style="color:#ff0000">+</color><%= t 'mpara.price' %>: <color style="color:#ff0000"><%= number_with_precision(item.timi_typos_katw_1, :precision => 2) %></color> €)<br>
+                      Ποσότητα τύπου κάτω: <%= item.typos_katw_arithmos_1 %><br>
+                    <% end %>
+                    <% if ( !item.typos_katw_2.nil? ) %>
+                      <b>Τύπος κάτω</b>: <%= item.typos_katw_2 %> (<color style="color:#ff0000">+</color><%= t 'mpara.price' %>: <color style="color:#ff0000"><%= item.timi_typos_katw_2 %></color> €)<br>
+                      Ποσότητα τύπου κάτω: <%= item.typos_katw_arithmos_2 %><br>
+                    <% end %>
+                    <% if ( !item.typos_katw_3.nil? ) %>
+                      <b>Τύπος κάτω</b>: <%= item.typos_katw_3 %> (<color style="color:#ff0000">+</color><%= t 'mpara.price' %>: <color style="color:#ff0000"><%= item.timi_typos_katw_3 %></color> €)<br>
+                      Ποσότητα τύπου κάτω: <%= item.typos_katw_arithmos_3 %><br>
+                    <% end %>
+                    <% if ( !item.typos_katw_1.nil? || !item.typos_katw_2.nil? || !item.typos_katw_3.nil? ) %>
+                      <b>Χρώμα τύπου κάτω</b>: <%= item.color_profil_k %><br>
+                    <% end %>
+
+                    <hr class="hr_pinakas_karta">
+  
+                    <div class="start_price_margin"><u>Final price:  <color style="color:#ff0000"><%= number_with_precision(item.price_sum, :precision => 2) %> €</color></u></br></br></div>
+                    
+                    </div>
+                    <a class="show_less">Show less...</a>
+                    </div>
+                  </td>
+                  <td id="price" class="price"><%= number_with_precision(item.price_sum, :precision => 2) %> €</td>
+                  <td><input class="input input_blur" type="text" name="lname" size="5" placeholder="<%= item.posotoita %>" id="<%= item.id %>"></td>
+                  <td><textarea rows="4" cols="30"></textarea></td>
+                </tr>
+              <% end %>
+              <% end %>
+            </tbody>
+          </table>

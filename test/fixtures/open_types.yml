@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  max_height: 1
+  min_height: 1
+  max_width: 1
+  min_width: 1
+  image: MyString
+  leaf_id: 1
+  open_categorie_id: 1
+
+two:
+  name: MyString
+  max_height: 1
+  min_height: 1
+  max_width: 1
+  min_width: 1
+  image: MyString
+  leaf_id: 1
+  open_categorie_id: 1

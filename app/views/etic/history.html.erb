@@ -1,0 +1,156 @@
+<div class="container con_home">
+  <div class="">
+        <span id="admin" style="dysplay:hidden"><%= @admin %></span>
+        <% if (@admin != 1) %>
+        <% end %>
+      </div>
+  <div class="row">
+    
+    <h1>History</h1>
+
+    <div class="by_mult">Order by:</div>
+    
+    <select class="select" id="select" multiple="multiple">
+      <option value="code_low">code: Low to High</option>
+      <option value="code_high">code: High to Low</option>
+      <option value="name_a">name: A to Z</option>
+      <option value="name_z">name: Z to A</option>
+      <option value="date_new">date: New to Old</option>
+      <option value="date_old">date: Old to New</option>
+      <option value="price_high">price: High to Low</option>
+      <option value="price_low">price: Low to High</option>
+    </select>
+
+    <div class="by_mult">Order by:</div>
+
+    <select class="select2" id="cust" multiple="multiple">
+      <option value="0">All</option>
+      <% @customers.each do |c| %>
+      <option value="<%= c.id %>"><%= c.id %> - <%= c.eponimo %> <%= c.name %>, <%= c.company %>  </option>
+      <% end %>
+    </select>
+
+   
+      <div class="table-responsive">
+          <div class="pdf" id="pdf">
+            <table class="table table_card table_grammata_diax">
+
+            <thead>
+              <tr class="root">
+                <th id="kartoula_head">code</th>
+                <th id="kartoula_head">name</th> 
+                <th id="kartoula_head">Date</th>
+                <th id="kartoula_head">Number of windows</th> 
+                <th id="kartoula_head">total price</th>
+                <th id="kartoula_head">card</th>
+                
+              </tr>
+            </thead>
+
+            <tbody>
+              <% if (!@paraggelies.nil?) %>
+              <% @paraggelies.each do |par| %>
+                <tr class="root">
+                  <% customer =  SimpleUserPse.where(:id => par.customer).first %>
+                  <% num_of_window =  Order.where(:paraggelia_id => par.id).count %> <!--Αριθμος κουφωματων χωρις την ποσοτητα-->
+                  <% order =  Order.where(:paraggelia_id => par.id).all %>
+                  <% sunolo = 0; %>
+                      <% kouf = 0 %>
+                        <% order.each do |i| %>
+                        <% sunolo = sunolo + i.price_sum %>
+                        <% kouf = kouf + i.posotoita %>
+                     <% end %>
+                  <td><%= par.id %></td> 
+                  <td><%= customer.eponimo %> <%= customer.name %></td>
+                  <td><%= par.created_at.strftime("%d %b %y %H:%M:%S") %></td>
+                  <td style="text-align:center"><%= kouf %></td>
+                  <td><%= number_with_precision(sunolo, :precision => 2) %> €</td>
+                  <td><button type="button" class="btn btn-default card" id="<%= par.id %>">Card </button></td>
+                  
+                  
+                </tr>
+              <% end %>
+              <% end %>
+            </tbody>
+          </table>
+
+
+      </div><!--div gia table-->
+    </div><!--div gia table-->
+
+  </div>
+</div>
+
+<script>
+$(document).ready(function(){
+
+  a = $('.hidden');//Παίρνω όλα τα hidden, τα id(user) και το div με id του user το αλλαζω χρωμμα.
+  a.each(function(){
+    b = $(this).attr('id');
+    //$("#"+b+"").css("background-color","#5cb85c");
+    $("#"+b+"").css("border-color","#5cb85c");
+    $("#"+b+"").css("border-width","5px");
+    $("#"+b+" a").css("display","none");
+    //alert(b);
+  });
+
+  
+  $(".card_user").click(function(){
+    id = $(this).attr('id');
+    window.location.href = "<%= etic_etic_user_card_path %>?id="+id+""
+  });
+
+  $(".card").click(function(){
+    id = $(this).attr('id');
+    admin = $("#admin").text();
+    window.location.href = "<%= etic_simple_pse_user_card_path %>?id="+id+"&admin="+admin+""
+  });
+
+  //$('#select').click(function(v){
+  //  alert(v.target.value);
+  //});
+  
+  $("#select").change(function () {
+
+      var order = this.value;
+      if (order == "price_high"){
+        window.location.href = "<%= etic_history_path %>?order="+order;
+      }
+      if (order == "price_low"){
+        window.location.href = "<%= etic_history_path %>?order="+order;
+      }
+      if (order == "date_new"){
+        window.location.href = "<%= etic_history_path %>?order="+order;
+      }
+      if (order == "date_old"){
+        window.location.href = "<%= etic_history_path %>?order="+order;
+      }
+      if (order == "name_a"){
+        window.location.href = "<%= etic_history_path %>?order="+order;
+      }
+      if (order == "name_z"){
+        window.location.href = "<%= etic_history_path %>?order="+order;
+      }
+      if (order == "code_high"){
+        window.location.href = "<%= etic_history_path %>?order="+order;
+      }
+      if (order == "code_low"){
+        window.location.href = "<%= etic_history_path %>?order="+order;
+      }
+      
+
+    });
+
+
+  $("#cust").change(function () {
+
+      var cust = this.value;
+      window.location.href = "<%= etic_history_path %>?customer="+cust;
+
+    });
+
+  
+
+
+}); //ready end
+</script>

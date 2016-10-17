@@ -1,0 +1,66 @@
+<div class="container con_home box_shadow">
+  <div class="row row_home">
+    <div class="col-md-3 col-xs-12" id="leftCol">
+    </div>
+    <div class="col-md-6 col-xs-12">
+
+        <h2 class="caption">Send me a Message</h2>
+
+            <form  class="cf" id="contact-form">
+      
+                    <input name="name" class="form-control" type="text" placeholder="Your Name" id="senderName" maxlength="40" required="required"/>
+                    <br>
+                    <input name="surname" class="form-control" type="text" placeholder="Your Surname" id="senderSurName" maxlength="40" required="required"/>
+                    <br>
+                    <input name="company" class="form-control" type="text" placeholder="Your Company" id="senderCompany" maxlength="40" />
+                    <br>
+                    <input name="phone" class="form-control" type="text" placeholder="Your Phone" id="senderPhone" maxlength="40" required="required"/>
+                    <br>
+                    <input name="email" class="form-control" type="text" placeholder="Your e-mail address" id="senderEmail" required="required" maxlength="50"/>
+
+                    <hr>
+                    <textarea name="message" class="form-control"  placeholder="Type here your message...." id="message"></textarea>
+                    <br>
+                    <input type="submit" class="btn btn-primary" value="Send" id="sendMessage"/>
+                
+            </form>
+
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+        $( "#sendMessage" ).click(function() {
+            var email = $('#senderEmail').val();
+            var koimeno = $('#message').val();
+            var onoma = $('#senderName').val();
+            var arithmos = $('#senderPhone').val();
+            var company = $('#senderCompany').val();
+            var surname = $('#senderSurName').val();
+            //alert(email);
+            //var noumero = $('#senderPhone').val();
+            //var mera = $('#senderDate').val();
+        if (email.trim() && koimeno.trim() && onoma.trim() && arithmos.trim() && company.trim() && surname.trim() ) {
+             // is empty or whitespace
+            $.ajax({
+              type:'get',
+              url:'/etic/send_mail',
+              dataType: "json",
+              data: { email: email, koimeno: koimeno, onoma: onoma, arithmos: arithmos, company: company, surname: surname },
+              success: function(data) { 
+                },
+              error: function(data) { 
+                }
+            });//end ajax
+            alert("Το μύνημα εστάλει!!!");
+            //setTimeout(function() {
+              location.reload();
+            //}, 3000);
+        
+        }
+        else{
+          alert("Κάτι πήγε στραβά!!!");
+        }
+
+            });
+    </script>

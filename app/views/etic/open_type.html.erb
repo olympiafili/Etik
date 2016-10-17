@@ -1,0 +1,103 @@
+<div id="loading"></div>
+<div class="container con_home">
+  <div class="row row_mat">
+  	<div class="col-xs-4">
+      <!--
+      <button class="menu" onclick="toggle()" onmouseenter="toggle2()">
+        <span class="glyphicon glyphicon-home"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    -->
+      <ul class="ul">
+        <li class="li1_1"><a href="/etic/home/"  class="li1_1">1. <%= t 'mpara.open_category' %></a></li>
+        <li class="li2_2"><a href="/etic/material?open_categorie=<%= @open_categorie.name %>"  class="li2_2">2. <%= t 'mpara.material' %></a></li>
+        <li class="li3_3"><a href="/etic/leaf?open_categorie_name=<%= @open_categorie.name %>&material_id=<%= @material.id %>&constructor_id=<%= @constructor.id %>&system_id=<%= @system.id %>&line_id=<%= @line.id %>"  class="li3_3">3. <%= t 'mpara.leaf' %></a></li>
+        <li class="li4"><a href="/etic/open_type?open_categorie_name=<%= @open_categorie.name %>&material_name=<%= @material.name %>&constructor_name=<%= @constructor.name %>&system_name=<%= @system.name %>&line_name=<%= @line.name%>&leaf_name=<%= @leaf.name %>"  class="li4">4. <%= t 'mpara.open_type' %></a></li>
+        <li>5. <%= t 'mpara.color' %></li>
+        <li>6. <%= t 'mpara.dimension' %></li>
+        <li>7. <%= t 'mpara.price' %></li>
+      </ul>
+
+      <!--San pinakas-->
+      <div class="table-responsive">
+      <table class="table table-condensed">
+        <tr>
+          <td class="td_left"><label><%= t 'material_pinakas.cat_anoigma'  %>:</label></td>
+          <td class="open_categorie"><label><%= t "kouf."<<@open_categorie.name %></label></td>
+        </tr>
+        <tr>
+          <td class="pin1h td_left"><label><%= t 'material_pinakas.material'  %>: </label></td>
+          <td class="pin1"><label class="material"><%= @material.name %></label></td>
+        </tr>
+        <tr>
+          <td class="pin2h td_left"><label><%= t 'material_pinakas.cataskevastis'  %>: </label></td>
+          <td class="pin2"><label class="constructor"><%= @constructor.name %></label></td>
+        </tr>
+        <tr>
+          <td class="pin3h td_left"><label><%= t 'material_pinakas.systima'  %>: </label></td>
+          <td class="pin3"><label class="system"><%= @system.name %></label></td>
+        </tr>
+        <tr>
+          <td class="td_left"><label><%= t 'material_pinakas.line'  %>: </label></td>
+          <td class=""><label class="line"><%= @line.name %></label></td>
+        </tr>
+        <tr>
+          <td class="td_left"><label><%= t 'material_pinakas.leaf'  %>: </label></td>
+          <td class=""><label class="leaf"><%= t "fulla."<<@leaf.name %></label></td>
+        </tr>
+      </table>
+      </div>
+
+    </div>
+  	<div class="col-xs-6">
+      <h2>4. <%= t 'open_type.title' %></h2>
+
+      <div class="gen_info"> 
+        <p class="gen_p_info">Γενικες οδηγίες για την επιλογη παραθύρων!!! Σε αυτό το πλαίσιο μπορούμε να προσθέσουμε οποιαδήποτε πληροφορία θέλουμε.</p>
+      </div>
+
+      <% @open_type1.each do |o| %>
+      <div class="tipos_anoigmatos" id="<%= o.name %>">
+        <div class="tipos_name_ekso"><h5 class="tipos_name"><%= o.name %></h5></div>
+          <img src="/assets/<%= o.image%>" >
+          <!--<%= image_tag( o.image , :alt => "rss feed") %>-->
+      </div>
+      <% end %><!--End each-->
+      <div class="tipos_anoigmatos" id="elefthero">
+        <div class="tipos_name_ekso"><h5 class="tipos_name">Elefthero</h5></div>
+          <img src="/assets/1.png" >
+      </div>
+      
+
+  		
+  	</div><!--End col-md-8-->
+  </div><!--End row-->
+</div><!--End conteiner-->
+
+
+<script>
+
+$(document).ready(function(){
+
+  //var width = $('img').width();
+  //width = width + 5;
+  //$(".tipos_anoigmatos").css("width",width);
+
+	$(".col-xs-6").on("click", ".tipos_anoigmatos", function() {
+
+  //alert( $(this).attr("id") ) ;
+
+    if( $(this).attr("id") == "elefthero"){
+      //alert("elefthero");
+      window.location.href = "<%= etic_elefthero_path %>?open_categorie_name="+"<%= @open_categorie.name %>"+"&material_name="+$(".material").text()+"&constructor_name="+$(".constructor").text()+"&system_name="+$(".system").text()+"&line_name="+$(".line").text()+"&leaf_name="+"<%= @leaf.name %>"+"&open_type_name="+$(this).attr('id')+"";
+    }else{
+      window.location.href = "<%= etic_color_path %>?open_categorie_name="+"<%= @open_categorie.name %>"+"&material_name="+$(".material").text()+"&constructor_name="+$(".constructor").text()+"&system_name="+$(".system").text()+"&line_name="+$(".line").text()+"&leaf_name="+"<%= @leaf.name %>"+"&open_type_name="+$(this).attr('id')+"";
+    }
+
+		
+	});//end click
+
+});//end ready
+
+</script>
