@@ -102,8 +102,11 @@ class EticController < ApplicationController
     if(@open_categorie.systems != nil)
       systems << @open_categorie.systems.to_s.split(",")
     else
-      systems << kata_extra.systems.to_s.split(",")
+      systems_temp = kata_extra.systems.to_s.split(",")
+      systems_temp.delete("7")
+      systems << systems_temp 
     end
+    
 		@system = System.where(:id => systems)
 
 		respond_to do |format|
@@ -1407,7 +1410,7 @@ class EticController < ApplicationController
 		end#end eksw
 
 		##Gia code == 10, 22, 100, 101
-		if ( (@open_type.id == 12) || (@open_type.id == 13) || (@open_type.id == 22) || (@open_type.id == 23) || (@open_type.id == 68) || (@open_type.id == 69) )
+		if ( (@open_type.id == 12) || (@open_type.id == 13) || (@open_type.id == 22) || (@open_type.id == 23) || (@open_type.id == 68) || (@open_type.id == 69) || (@open_type.id == 80) || (@open_type.id == 81) || (@open_type.id == 82) || (@open_type.id == 84) || (@open_type.id == 83))
 
 			puts "Width gia timokatalogo"+width.to_s
 			puts "Height meta apo "+height.to_s
@@ -1467,7 +1470,17 @@ class EticController < ApplicationController
 
 			puts "Τιμή για άνοιγμα απο τιμοκατάλογο: "+@open_type.csv.to_s+" == "+@timi
 
-			@price = @timi.to_f
+			@price = @timi.to_f      
+      
+      #
+  		if ( (@open_type.id == 82) || (@open_type.id == 84) )
+        @price = @price + @price*0.5
+      end
+      
+  		if ( (@open_type.id == 83) )
+        @price = 2*@price
+      end
+      
 		end
 		##Gia code == 16,17
 		if ( (@open_type.id == 38) || (@open_type.id == 39) || (@open_type.id == 40) || (@open_type.id == 41) || (@open_type.id == 42) || (@open_type.id == 43)  )
