@@ -344,10 +344,10 @@ class EticController < ApplicationController
 		    leaf << open_cat_gia_leaf.leaf.to_s.split(",")
 		    @leaf = Leaf.where(:id => leaf)
 		else
-			open_cat_gia_leaf = OpenCategorie.where(:id => @open_categorie.id).first
-		    leaf = []
-		    leaf << open_cat_gia_leaf.leaf.to_s.split(",")
-		    @leaf = Leaf.where(:id => leaf)
+		  open_cat_gia_leaf = OpenCategorie.where(:id => @open_categorie.id).first
+		  leaf = []
+		  leaf << open_cat_gia_leaf.leaf.to_s.split(",")
+		  @leaf = Leaf.where(:id => leaf)
 			#@leaf = Leaf.limit(3)
 			@leaf_epilegmeno = Leaf.first
 		end

@@ -2591,12 +2591,12 @@
     $("input[name='cat_an']").change(function(){
        //$("#"+leaf_name).trigger("click");
 	   $("#1").trigger("click");
+	   
        setTimeout(function(){
-          //$("#1.material").click();
           $("#tab_material").click();
         },500);
-      
     });
+	
     //Οταν κανω click στην κατηγορια ανοιγματος
     $(".cat_anoi").click(function(){
       //Αλλαζω την ονομασια στο πινακακι
@@ -2609,7 +2609,6 @@
       //                scrollTop: target.position().top
       //  }, 1000);
       //}
-	  //olympia
 	  
       $.ajax({
         type:'GET',
@@ -2619,11 +2618,11 @@
         success: function(data) { 
 			$(".fullo").empty();
 			var open_leaf="";
-          $.each(data, function(i, item) {
-	          open_leaf = "<img class='leaf img-responsive' id="+item.name+" src=/assets/"+item.image+" >";
-			  $(open_leaf).appendTo(".fullo");
-          });          
-          },
+          	$.each(data, function(i, item) {
+	        	open_leaf = "<img class='leaf img-responsive' id="+item.name+" src=/assets/"+item.image+" >";
+				$(open_leaf).appendTo(".fullo");
+       	 	});
+	  },
         error: function(data) {}
       });//end ajax
     });
@@ -2938,12 +2937,18 @@
     line_id_name = $( this ).attr('id');
     //Ολα αυτα τα περναω στην επομενη σελιδα που εχει τα φυλλα
     //Εδω ο Αιαντας δεν χρειαζετε, γινπνται ολα με το λινκ
+	
+	var first_id = true;
     if ( "<%= @leaf_epilegmeno.name %>" != ""){
       $(".leaf").each(function( index ) {
         if( $( this ).attr("id") == "<%= @leaf_epilegmeno.name %>" ){
           $( this )[0].click();
+		  first_id = false;
         }
       });
+	  if(first_id) {
+	  	$(".fullo").children(":first").trigger("click");
+	  }
     }
     //Πινακι ποιο επελεξα
     $(".line_table").text($(':nth-child(1)', this).text());
