@@ -788,8 +788,6 @@
 		        	//xwrismata['xwrisma_katheto_px' + index] = (sunoloko_ypsos/finalArray.length);
 		        	//Μονο για την πρωτη row γραμμη. Οριζοντια χωρισματα
 		        	//An exw panw apo ena koyfwma stn grammi
-
-		        	console.log("Arithmos_kouf_se_seira: "+obj.length);
 		        	
 		        	if ( obj.length != 1 ){
 		        		if ( mia_fora_mono ){
@@ -798,14 +796,14 @@
 			        		mpika = true;
 			        	}
 		        		//τετραγωνα
-		        		var rect = makeSVG('line', {class:""+index+""+key+"2", stroke: "black", 'stroke-width': 2, fill: 'none'});
+		        		/*var rect = makeSVG('line', {class:""+index+""+key+"2", stroke: "black", 'stroke-width': 2, fill: 'none'});
 			    		rect.setAttribute('x1',key*xwrismata['xwrisma_orizontio_px' + key]+profil_xwros+kasa_xwros );
 					    rect.setAttribute('y1',profil_xwros + grammes_xwros/2 );
 					    rect.setAttribute('x2',xwrismata['xwrisma_orizontio_px' + key]+profil_xwros+kasa_xwros + key*xwrismata['xwrisma_orizontio_px' + key]);
 					    rect.setAttribute('y2',profil_xwros + grammes_xwros/2);
 					    rect.setAttribute('marker-end',"url(#triangle_t)");
 					    rect.setAttribute('marker-start',"url(#triangle_a)");
-			    		document.getElementById('svg').appendChild(rect);
+			    		document.getElementById('svg').appendChild(rect);*/
 			    		//Text
 			    		var rect = makeSVG('text', {class:""+index+""+key+"2text", fill: 'black'});
 			    		rect.setAttribute('x',( ( key*xwrismata['xwrisma_orizontio_px' + key]+profil_xwros+kasa_xwros) + ( xwrismata['xwrisma_orizontio_px' + key]+profil_xwros+kasa_xwros + key*xwrismata['xwrisma_orizontio_px' + key]) )/2 );
@@ -815,22 +813,246 @@
 					    rect.setAttribute("text-anchor", "middle");
 					    document.getElementById('svg').appendChild(rect);
 					    //Katheti
-					    var rect = makeSVG('line', {class:""+index+""+key+"4",stroke: "black", 'stroke-width': 1, fill: 'none'});
+					    /*var rect = makeSVG('line', {class:""+index+""+key+"4",stroke: "black", 'stroke-width': 1, fill: 'none'});
 					    rect.setAttribute('x1',key*xwrismata['xwrisma_orizontio_px' + key]+profil_xwros+kasa_xwros  );
 					    rect.setAttribute('y1',profil_xwros + grammes_xwros/2 );
 					    rect.setAttribute('x2',key*xwrismata['xwrisma_orizontio_px' + key]+profil_xwros+kasa_xwros);
 					    rect.setAttribute('y2',150);
 					    rect.setAttribute('stroke-dasharray',"5,5");
-					    document.getElementById('svg').appendChild(rect);
+					    document.getElementById('svg').appendChild(rect);*/
 					    //Katheti2
-					    var rect = makeSVG('line', {class:""+index+""+key+"4b",stroke: "black", 'stroke-width': 1, fill: 'none'});
+					    /*var rect = makeSVG('line', {class:""+index+""+key+"4b",stroke: "black", 'stroke-width': 1, fill: 'none'});
 					    rect.setAttribute('x1',xwrismata['xwrisma_orizontio_px' + key]+profil_xwros+kasa_xwros + key*xwrismata['xwrisma_orizontio_px' + key] );
 					    rect.setAttribute('y1',profil_xwros + grammes_xwros/2 );
 					    rect.setAttribute('x2',xwrismata['xwrisma_orizontio_px' + key]+profil_xwros+kasa_xwros + key*xwrismata['xwrisma_orizontio_px' + key]);
 					    rect.setAttribute('y2',150);
 					    rect.setAttribute('stroke-dasharray',"5,5");
-					    document.getElementById('svg').appendChild(rect);
-		        		
+					    document.getElementById('svg').appendChild(rect);*/
+						if(obj.length == 2) {
+							if(key == 0) {
+								var rect = makeSVG('line', {class:""+index+""+key+"2", stroke: "black", 'stroke-width': 2, fill: 'none'});
+								rect.setAttribute('x1',key*xwrismata['xwrisma_orizontio_px' + key]+profil_xwros );
+								rect.setAttribute('y1',profil_xwros + grammes_xwros/2 );
+								rect.setAttribute('x2',xwrismata['xwrisma_orizontio_px' + key]+profil_xwros+kasa_xwros + key*xwrismata['xwrisma_orizontio_px' + key]);
+								rect.setAttribute('y2',profil_xwros + grammes_xwros/2);
+								rect.setAttribute('marker-end',"url(#triangle_t)");
+								rect.setAttribute('marker-start',"url(#triangle_a)");
+								document.getElementById('svg').appendChild(rect);
+								
+								//Katheti1
+							    var rect = makeSVG('line', {class:""+index+""+key+"4",stroke: "black", 'stroke-width': 1, fill: 'none'});
+							    rect.setAttribute('x1',key*xwrismata['xwrisma_orizontio_px' + key]+profil_xwros  );
+							    rect.setAttribute('y1',profil_xwros + grammes_xwros/2 );
+							    rect.setAttribute('x2',key*xwrismata['xwrisma_orizontio_px' + key]+profil_xwros );
+							    rect.setAttribute('y2',150);
+							    rect.setAttribute('stroke-dasharray',"5,5");
+							    document.getElementById('svg').appendChild(rect);
+								
+							    //Katheti2
+								var rect = makeSVG('line', {class:""+index+""+key+"4b",stroke: "black", 'stroke-width': 1, fill: 'none'});
+								rect.setAttribute('x1',xwrismata['xwrisma_orizontio_px' + key]+profil_xwros+kasa_xwros + key*xwrismata['xwrisma_orizontio_px' + key] );
+								rect.setAttribute('y1',profil_xwros + grammes_xwros/2 );
+								rect.setAttribute('x2',xwrismata['xwrisma_orizontio_px' + key]+profil_xwros+kasa_xwros + key*xwrismata['xwrisma_orizontio_px' + key]);
+								rect.setAttribute('y2',150);
+								rect.setAttribute('stroke-dasharray',"5,5");
+								document.getElementById('svg').appendChild(rect);
+							} else {
+								var rect = makeSVG('line', {class:""+index+""+key+"2", stroke: "black", 'stroke-width': 2, fill: 'none'});
+								rect.setAttribute('x1',key*xwrismata['xwrisma_orizontio_px' + key]+profil_xwros + kasa_xwros);
+								rect.setAttribute('y1',profil_xwros + grammes_xwros/2 );
+								rect.setAttribute('x2',xwrismata['xwrisma_orizontio_px' + key]+profil_xwros+2*kasa_xwros + key*xwrismata['xwrisma_orizontio_px' + key]);
+								rect.setAttribute('y2',profil_xwros + grammes_xwros/2);
+								rect.setAttribute('marker-end',"url(#triangle_t)");
+								rect.setAttribute('marker-start',"url(#triangle_a)");
+								document.getElementById('svg').appendChild(rect);
+								
+								//Katheti1
+							    var rect = makeSVG('line', {class:""+index+""+key+"4",stroke: "black", 'stroke-width': 1, fill: 'none'});
+							    rect.setAttribute('x1',key*xwrismata['xwrisma_orizontio_px' + key]+profil_xwros + kasa_xwros);
+							    rect.setAttribute('y1',profil_xwros + grammes_xwros/2 );
+							    rect.setAttribute('x2',key*xwrismata['xwrisma_orizontio_px' + key]+profil_xwros + kasa_xwros);
+							    rect.setAttribute('y2',150);
+							    rect.setAttribute('stroke-dasharray',"5,5");
+							    document.getElementById('svg').appendChild(rect);
+								
+							    //Katheti2
+								var rect = makeSVG('line', {class:""+index+""+key+"4b",stroke: "black", 'stroke-width': 1, fill: 'none'});
+								rect.setAttribute('x1',xwrismata['xwrisma_orizontio_px' + key]+profil_xwros+2*kasa_xwros + key*xwrismata['xwrisma_orizontio_px' + key] );
+								rect.setAttribute('y1',profil_xwros + grammes_xwros/2 );
+								rect.setAttribute('x2',xwrismata['xwrisma_orizontio_px' + key]+profil_xwros+2*kasa_xwros + key*xwrismata['xwrisma_orizontio_px' + key]);
+								rect.setAttribute('y2',150);
+								rect.setAttribute('stroke-dasharray',"5,5");
+								document.getElementById('svg').appendChild(rect);
+							}
+						   
+						} else if(obj.length == 3) {
+							if(key == 0) {
+								var rect = makeSVG('line', {class:""+index+""+key+"2", stroke: "black", 'stroke-width': 2, fill: 'none'});
+								rect.setAttribute('x1',key*xwrismata['xwrisma_orizontio_px' + key]+profil_xwros );
+								rect.setAttribute('y1',profil_xwros + grammes_xwros/2 );
+								rect.setAttribute('x2',xwrismata['xwrisma_orizontio_px' + key]+profil_xwros+kasa_xwros + key*xwrismata['xwrisma_orizontio_px' + key]);
+								rect.setAttribute('y2',profil_xwros + grammes_xwros/2);
+								rect.setAttribute('marker-end',"url(#triangle_t)");
+								rect.setAttribute('marker-start',"url(#triangle_a)");
+								document.getElementById('svg').appendChild(rect);
+								//Katheti1
+													
+							    var rect = makeSVG('line', {class:""+index+""+key+"4",stroke: "black", 'stroke-width': 1, fill: 'none'});
+							    rect.setAttribute('x1',key*xwrismata['xwrisma_orizontio_px' + key]+profil_xwros  );
+							    rect.setAttribute('y1',profil_xwros + grammes_xwros/2 );
+							    rect.setAttribute('x2',key*xwrismata['xwrisma_orizontio_px' + key]+profil_xwros );
+							    rect.setAttribute('y2',150);
+							    rect.setAttribute('stroke-dasharray',"5,5");
+							    document.getElementById('svg').appendChild(rect);
+								
+							    //Katheti2
+								var rect = makeSVG('line', {class:""+index+""+key+"4b",stroke: "black", 'stroke-width': 1, fill: 'none'});
+								rect.setAttribute('x1',xwrismata['xwrisma_orizontio_px' + key]+profil_xwros+kasa_xwros + key*xwrismata['xwrisma_orizontio_px' + key] );
+								rect.setAttribute('y1',profil_xwros + grammes_xwros/2 );
+								rect.setAttribute('x2',xwrismata['xwrisma_orizontio_px' + key]+profil_xwros+kasa_xwros + key*xwrismata['xwrisma_orizontio_px' + key]);
+								rect.setAttribute('y2',150);
+								rect.setAttribute('stroke-dasharray',"5,5");
+								document.getElementById('svg').appendChild(rect);
+							} else if(key == 1) {
+								var rect = makeSVG('line', {class:""+index+""+key+"2", stroke: "black", 'stroke-width': 2, fill: 'none'});
+								rect.setAttribute('x1',key*xwrismata['xwrisma_orizontio_px' + key]+profil_xwros + kasa_xwros);
+								rect.setAttribute('y1',profil_xwros + grammes_xwros/2 );
+								rect.setAttribute('x2',xwrismata['xwrisma_orizontio_px' + key]+profil_xwros+kasa_xwros + key*xwrismata['xwrisma_orizontio_px' + key]);
+								rect.setAttribute('y2',profil_xwros + grammes_xwros/2);
+								rect.setAttribute('marker-end',"url(#triangle_t)");
+								rect.setAttribute('marker-start',"url(#triangle_a)");
+								document.getElementById('svg').appendChild(rect);
+								
+								//Katheti1
+							    var rect = makeSVG('line', {class:""+index+""+key+"4",stroke: "black", 'stroke-width': 1, fill: 'none'});
+							    rect.setAttribute('x1',key*xwrismata['xwrisma_orizontio_px' + key]+profil_xwros + kasa_xwros);
+							    rect.setAttribute('y1',profil_xwros + grammes_xwros/2 );
+							    rect.setAttribute('x2',key*xwrismata['xwrisma_orizontio_px' + key]+profil_xwros + kasa_xwros);
+							    rect.setAttribute('y2',150);
+							    rect.setAttribute('stroke-dasharray',"5,5");
+							    document.getElementById('svg').appendChild(rect);
+								
+							    //Katheti2
+								var rect = makeSVG('line', {class:""+index+""+key+"4b",stroke: "black", 'stroke-width': 1, fill: 'none'});
+								rect.setAttribute('x1',xwrismata['xwrisma_orizontio_px' + key]+profil_xwros+kasa_xwros + key*xwrismata['xwrisma_orizontio_px' + key] );
+								rect.setAttribute('y1',profil_xwros + grammes_xwros/2 );
+								rect.setAttribute('x2',xwrismata['xwrisma_orizontio_px' + key]+profil_xwros+kasa_xwros + key*xwrismata['xwrisma_orizontio_px' + key]);
+								rect.setAttribute('y2',150);
+								rect.setAttribute('stroke-dasharray',"5,5");
+								document.getElementById('svg').appendChild(rect);
+							} else {
+								var rect = makeSVG('line', {class:""+index+""+key+"2", stroke: "black", 'stroke-width': 2, fill: 'none'});
+								rect.setAttribute('x1',key*xwrismata['xwrisma_orizontio_px' + key]+profil_xwros + kasa_xwros);
+								rect.setAttribute('y1',profil_xwros + grammes_xwros/2 );
+								rect.setAttribute('x2',xwrismata['xwrisma_orizontio_px' + key]+profil_xwros+2*kasa_xwros + key*xwrismata['xwrisma_orizontio_px' + key]);
+								rect.setAttribute('y2',profil_xwros + grammes_xwros/2);
+								rect.setAttribute('marker-end',"url(#triangle_t)");
+								rect.setAttribute('marker-start',"url(#triangle_a)");
+								document.getElementById('svg').appendChild(rect);
+								
+								//Katheti1
+							    var rect = makeSVG('line', {class:""+index+""+key+"4",stroke: "black", 'stroke-width': 1, fill: 'none'});
+							    rect.setAttribute('x1',key*xwrismata['xwrisma_orizontio_px' + key]+profil_xwros + kasa_xwros);
+							    rect.setAttribute('y1',profil_xwros + grammes_xwros/2 );
+							    rect.setAttribute('x2',key*xwrismata['xwrisma_orizontio_px' + key]+profil_xwros + kasa_xwros);
+							    rect.setAttribute('y2',150);
+							    rect.setAttribute('stroke-dasharray',"5,5");
+							    document.getElementById('svg').appendChild(rect);
+								
+							    //Katheti2
+								var rect = makeSVG('line', {class:""+index+""+key+"4b",stroke: "black", 'stroke-width': 1, fill: 'none'});
+								rect.setAttribute('x1',xwrismata['xwrisma_orizontio_px' + key]+profil_xwros+2*kasa_xwros + key*xwrismata['xwrisma_orizontio_px' + key] );
+								rect.setAttribute('y1',profil_xwros + grammes_xwros/2 );
+								rect.setAttribute('x2',xwrismata['xwrisma_orizontio_px' + key]+profil_xwros+2*kasa_xwros + key*xwrismata['xwrisma_orizontio_px' + key]);
+								rect.setAttribute('y2',150);
+								rect.setAttribute('stroke-dasharray',"5,5");
+								document.getElementById('svg').appendChild(rect);
+							}
+						    
+						} else {
+							if(key == 0) {
+								var rect = makeSVG('line', {class:""+index+""+key+"2", stroke: "black", 'stroke-width': 2, fill: 'none'});
+								rect.setAttribute('x1',key*xwrismata['xwrisma_orizontio_px' + key]+profil_xwros );
+								rect.setAttribute('y1',profil_xwros + grammes_xwros/2 );
+								rect.setAttribute('x2',xwrismata['xwrisma_orizontio_px' + key]+profil_xwros+kasa_xwros + key*xwrismata['xwrisma_orizontio_px' + key]);
+								rect.setAttribute('y2',profil_xwros + grammes_xwros/2);
+								rect.setAttribute('marker-end',"url(#triangle_t)");
+								rect.setAttribute('marker-start',"url(#triangle_a)");
+								document.getElementById('svg').appendChild(rect);
+								//Katheti1
+													
+							    var rect = makeSVG('line', {class:""+index+""+key+"4",stroke: "black", 'stroke-width': 1, fill: 'none'});
+							    rect.setAttribute('x1',key*xwrismata['xwrisma_orizontio_px' + key]+profil_xwros  );
+							    rect.setAttribute('y1',profil_xwros + grammes_xwros/2 );
+							    rect.setAttribute('x2',key*xwrismata['xwrisma_orizontio_px' + key]+profil_xwros );
+							    rect.setAttribute('y2',150);
+							    rect.setAttribute('stroke-dasharray',"5,5");
+							    document.getElementById('svg').appendChild(rect);
+								
+							    //Katheti2
+								var rect = makeSVG('line', {class:""+index+""+key+"4b",stroke: "black", 'stroke-width': 1, fill: 'none'});
+								rect.setAttribute('x1',xwrismata['xwrisma_orizontio_px' + key]+profil_xwros+kasa_xwros + key*xwrismata['xwrisma_orizontio_px' + key] );
+								rect.setAttribute('y1',profil_xwros + grammes_xwros/2 );
+								rect.setAttribute('x2',xwrismata['xwrisma_orizontio_px' + key]+profil_xwros+kasa_xwros + key*xwrismata['xwrisma_orizontio_px' + key]);
+								rect.setAttribute('y2',150);
+								rect.setAttribute('stroke-dasharray',"5,5");
+								document.getElementById('svg').appendChild(rect);
+							} else if(key == 1) {
+								var rect = makeSVG('line', {class:""+index+""+key+"2", stroke: "black", 'stroke-width': 2, fill: 'none'});
+								rect.setAttribute('x1',key*xwrismata['xwrisma_orizontio_px' + key]+profil_xwros + kasa_xwros);
+								rect.setAttribute('y1',profil_xwros + grammes_xwros/2 );
+								rect.setAttribute('x2',xwrismata['xwrisma_orizontio_px' + key]+profil_xwros+kasa_xwros + key*xwrismata['xwrisma_orizontio_px' + key]);
+								rect.setAttribute('y2',profil_xwros + grammes_xwros/2);
+								rect.setAttribute('marker-end',"url(#triangle_t)");
+								rect.setAttribute('marker-start',"url(#triangle_a)");
+								document.getElementById('svg').appendChild(rect);
+								
+								//Katheti1
+							    var rect = makeSVG('line', {class:""+index+""+key+"4",stroke: "black", 'stroke-width': 1, fill: 'none'});
+							    rect.setAttribute('x1',key*xwrismata['xwrisma_orizontio_px' + key]+profil_xwros + kasa_xwros);
+							    rect.setAttribute('y1',profil_xwros + grammes_xwros/2 );
+							    rect.setAttribute('x2',key*xwrismata['xwrisma_orizontio_px' + key]+profil_xwros + kasa_xwros);
+							    rect.setAttribute('y2',150);
+							    rect.setAttribute('stroke-dasharray',"5,5");
+							    document.getElementById('svg').appendChild(rect);
+								
+							    //Katheti2
+								var rect = makeSVG('line', {class:""+index+""+key+"4b",stroke: "black", 'stroke-width': 1, fill: 'none'});
+								rect.setAttribute('x1',xwrismata['xwrisma_orizontio_px' + key]+profil_xwros+kasa_xwros + key*xwrismata['xwrisma_orizontio_px' + key] );
+								rect.setAttribute('y1',profil_xwros + grammes_xwros/2 );
+								rect.setAttribute('x2',xwrismata['xwrisma_orizontio_px' + key]+profil_xwros+kasa_xwros + key*xwrismata['xwrisma_orizontio_px' + key]);
+								rect.setAttribute('y2',150);
+								rect.setAttribute('stroke-dasharray',"5,5");
+								document.getElementById('svg').appendChild(rect);
+							} else {
+								var rect = makeSVG('line', {class:""+index+""+key+"2", stroke: "black", 'stroke-width': 2, fill: 'none'});
+								rect.setAttribute('x1',key*xwrismata['xwrisma_orizontio_px' + key]+profil_xwros + kasa_xwros);
+								rect.setAttribute('y1',profil_xwros + grammes_xwros/2 );
+								rect.setAttribute('x2',xwrismata['xwrisma_orizontio_px' + key]+profil_xwros+2*kasa_xwros + key*xwrismata['xwrisma_orizontio_px' + key]);
+								rect.setAttribute('y2',profil_xwros + grammes_xwros/2);
+								rect.setAttribute('marker-end',"url(#triangle_t)");
+								rect.setAttribute('marker-start',"url(#triangle_a)");
+								document.getElementById('svg').appendChild(rect);
+								
+								//Katheti1
+							    var rect = makeSVG('line', {class:""+index+""+key+"4",stroke: "black", 'stroke-width': 1, fill: 'none'});
+							    rect.setAttribute('x1',key*xwrismata['xwrisma_orizontio_px' + key]+profil_xwros + kasa_xwros);
+							    rect.setAttribute('y1',profil_xwros + grammes_xwros/2 );
+							    rect.setAttribute('x2',key*xwrismata['xwrisma_orizontio_px' + key]+profil_xwros + kasa_xwros);
+							    rect.setAttribute('y2',150);
+							    rect.setAttribute('stroke-dasharray',"5,5");
+							    document.getElementById('svg').appendChild(rect);
+								
+							    //Katheti2
+								var rect = makeSVG('line', {class:""+index+""+key+"4b",stroke: "black", 'stroke-width': 1, fill: 'none'});
+								rect.setAttribute('x1',xwrismata['xwrisma_orizontio_px' + key]+profil_xwros+2*kasa_xwros + key*xwrismata['xwrisma_orizontio_px' + key] );
+								rect.setAttribute('y1',profil_xwros + grammes_xwros/2 );
+								rect.setAttribute('x2',xwrismata['xwrisma_orizontio_px' + key]+profil_xwros+2*kasa_xwros + key*xwrismata['xwrisma_orizontio_px' + key]);
+								rect.setAttribute('y2',150);
+								rect.setAttribute('stroke-dasharray',"5,5");
+								document.getElementById('svg').appendChild(rect);
+							}
+						}
 		        	}else if( (obj.length) == 1 && ( index != (finalArray.length-1) ) ){//den einai telegtaio
 		        		console.log("Arithmos_kouf_se_seiraMESA_OXI_TELOS: "+obj.length);
 		        		//τετραγωνα
@@ -843,17 +1065,28 @@
 					    rect.setAttribute('marker-start',"url(#triangle_a)");
 			    		document.getElementById('svg').appendChild(rect);
 		        	}else if( (obj.length) == 1 && ( index == (finalArray.length-1) )){
+					//else if (obj.length == 1 && ( index != (finalArray.length-1) || index == (finalArray.length-1))) {	
 		        		console.log("Arithmos_kouf_se_seiraMESA_TELOS: "+obj.length);
 		        		
 		        		//τετραγωνα
-		        		var rect = makeSVG('line', {class:""+index+""+key+"2", stroke: "black", 'stroke-width': 2, fill: 'none'});
-			    		rect.setAttribute('x1',profil_xwros+kasa_xwros );
+						/*var rect = makeSVG('line', {class:""+index+""+key+"2", stroke: "black", 'stroke-width': 2, fill: 'none'});
+			    		rect.setAttribute('x1',profil_xwros +kasa_xwros );
 					    rect.setAttribute('y1',profil_xwros + grammes_xwros/2);
 					    rect.setAttribute('x2',profil_xwros + kasa_xwros +pragmatiko_mikos_mon_px);
 					    rect.setAttribute('y2',profil_xwros + grammes_xwros/2);
 					    rect.setAttribute('marker-end',"url(#triangle_t)");
 					    rect.setAttribute('marker-start',"url(#triangle_a)");
+			    		document.getElementById('svg').appendChild(rect);*/
+						
+		        		var rect = makeSVG('line', {class:""+index+""+key+"2", stroke: "black", 'stroke-width': 2, fill: 'none'});
+			    		rect.setAttribute('x1',profil_xwros );
+					    rect.setAttribute('y1',profil_xwros + grammes_xwros/2);
+					    rect.setAttribute('x2',profil_xwros + 2*kasa_xwros +pragmatiko_mikos_mon_px);
+					    rect.setAttribute('y2',profil_xwros + grammes_xwros/2);
+					    rect.setAttribute('marker-end',"url(#triangle_t)");
+					    rect.setAttribute('marker-start',"url(#triangle_a)");
 			    		document.getElementById('svg').appendChild(rect);
+						
 			    		if ( mia_fora_mono == true ){//Gia mona kai katw katw mona
 			    			$('<p class="labels_sxedio" for="xwrisma_orizontio'+key+'">'+"<%= t('translate.Vertical') %>"+(key+1)+':<input type="text" class="orizontia" id="xwrisma_orizontio'+key+'" size="20" name="" value="'+xwrismata['xwrisma_orizontio' + key]+'" placeholder="'+xwrismata['xwrisma_orizontio' + key]+'" /></p>').appendTo($(".xwrismata_sxedio_orizontia"));
 			    			//Text
@@ -866,7 +1099,7 @@
 						    document.getElementById('svg').appendChild(rect);
 
 						    //Katheti
-						    var rect = makeSVG('line', {class:""+index+""+key+"4",stroke: "black", 'stroke-width': 1, fill: 'none'});
+						    /*var rect = makeSVG('line', {class:""+index+""+key+"4",stroke: "black", 'stroke-width': 1, fill: 'none'});
 						    rect.setAttribute('x1',key*xwrismata['xwrisma_orizontio_px' + key]+profil_xwros+kasa_xwros  );
 						    rect.setAttribute('y1',profil_xwros + grammes_xwros/2 );
 						    rect.setAttribute('x2',key*xwrismata['xwrisma_orizontio_px' + key]+profil_xwros+kasa_xwros);
@@ -880,9 +1113,24 @@
 						    rect.setAttribute('x2',xwrismata['xwrisma_orizontio_px' + key]+profil_xwros+kasa_xwros + key*xwrismata['xwrisma_orizontio_px' + key]);
 						    rect.setAttribute('y2',150);
 						    rect.setAttribute('stroke-dasharray',"5,5");
+						    document.getElementById('svg').appendChild(rect);*/
+							
+						    //Katheti
+						    var rect = makeSVG('line', {class:""+index+""+key+"4",stroke: "black", 'stroke-width': 1, fill: 'none'});
+						    rect.setAttribute('x1',key*xwrismata['xwrisma_orizontio_px' + key]+profil_xwros  );
+						    rect.setAttribute('y1',profil_xwros + grammes_xwros/2 );
+						    rect.setAttribute('x2',key*xwrismata['xwrisma_orizontio_px' + key]+profil_xwros);
+						    rect.setAttribute('y2',150);
+						    rect.setAttribute('stroke-dasharray',"5,5");
 						    document.getElementById('svg').appendChild(rect);
-			    		}else{
-
+						    //Katheti2
+						    var rect = makeSVG('line', {class:""+index+""+key+"4b",stroke: "black", 'stroke-width': 1, fill: 'none'});
+						    rect.setAttribute('x1',xwrismata['xwrisma_orizontio_px' + key]+profil_xwros+2*kasa_xwros + key*xwrismata['xwrisma_orizontio_px' + key] );
+						    rect.setAttribute('y1',profil_xwros + grammes_xwros/2 );
+						    rect.setAttribute('x2',xwrismata['xwrisma_orizontio_px' + key]+profil_xwros+2*kasa_xwros + key*xwrismata['xwrisma_orizontio_px' + key]);
+						    rect.setAttribute('y2',150);
+						    rect.setAttribute('stroke-dasharray',"5,5");
+						    document.getElementById('svg').appendChild(rect);
 			    		}
 		        	}
 			        
@@ -931,6 +1179,7 @@
 					    rect.setAttribute('marker-end',"url(#triangle_t)");
 					    rect.setAttribute('marker-start',"url(#triangle_a)");
 			    		document.getElementById('svg').appendChild(rect);
+						
 			    		//Text
 			    		var rect = makeSVG('text', {class:""+index+""+key+"3text", fill: 'black',style:'writing-mode: tb;'});
 			    		rect.setAttribute('x',key*xwrismata['xwrisma_orizontio_px' + key]+(profil_xwros*4)+sunoloko_mikos+kasa_xwros+kasa_xwros + 11 );
@@ -986,13 +1235,8 @@
 	        xwrisma_y_1 = $("#xwrisma_katheto0").val();
 	        xwrisma_y_2 = $("#xwrisma_katheto1").val();
 	    }
-		//console.log(finalArray.length); //numm of rows
-		//console.log(obj.length); //num of culs in the row
-		//console.log(value); //a,b,c για ζωγραφια
 		$.each(finalArray , function( index, obj ) {
 		    $.each(obj, function( key, value ) {
-		        console.log("row:"+index);
-		        console.log("col:"+key);
 		
 					//Μπορω και ετσι να παρω length
 					//var line1 = $(".0"+key+"2");
@@ -1006,12 +1250,19 @@
 		        	var line = $("."+index+""+key+"2").get(0);
 					var len = dist(line.x1.baseVal.value, line.x2.baseVal.value,
                		line.y1.baseVal.value, line.y2.baseVal.value);
-             
+					
+					//console.log($( ".katheta" ).length);
+					if((obj.length == 2) || (obj.length == 3 && key != 1) || (obj.length == 4 && key != 1)) {
+						len = len - 5;
+					} else if(obj.length == 1 && $("."+index+""+key+"2").css("display") != "none") {
+						len = len - 10;
+					}
+					             
 					//Height καθε γραμμης = Het
                		var line2 = $("."+index+"03").get(0);
 					var het = dist(line2.x1.baseVal.value, line2.x2.baseVal.value,
                		line2.y1.baseVal.value, line2.y2.baseVal.value) ;
-
+					
                		function dist(x1, x2, y1, y2){
 					    return Math.sqrt( (x2-=x1)*x2 + (y2-=y1)*y2 );
 					}
