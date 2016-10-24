@@ -4234,19 +4234,13 @@
         this.seira = seira;
     }
 
-    
-
     $(".extra").on("click", ".penintaena", function() {
-      
       profil_aristera_new = $(this).attr('id');
       //$( this ).css("background-color","#CA3333");
       $( this ).css("background-color","#d9eaed");
       $( this ).css("color","black");
       epilogi_a = $( this );
-      width_profil_a = Number(epilogi_a.next().attr('id'));
-
-      //alert("penintaena: "+profil_aristera_new);
-      
+      width_profil_a = Number(epilogi_a.next().attr('id'));      
     });
 
     $('#myModal_a').on('shown.bs.modal', function (e) {
