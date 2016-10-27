@@ -304,7 +304,7 @@ class EticController < ApplicationController
     ## epikathimena, color_epikathimenou, eksoterika, color_eksoterikou, color_persidas, color_odoigou, tzamia, color_typos, color_profil.
     ## Όλες αυτές τις μεθόδους τις έχω για να πέρνω δεδομένα σε json format.
 	def extra
-       @cat_anoigmatos = OpenCategorie.all.limit(3)
+       @cat_anoigmatos = OpenCategorie.where(:id => [1,2,3,6])
        @uliko = Material.all
 
        ##Κοκκινο πινακάκι
@@ -1235,7 +1235,7 @@ class EticController < ApplicationController
 		height_gia_vasi_new = params[:new_height].to_f
         ### Μεχρι εδώ είναι για view που δεν χρησιμοποιώ.
 
-        if params.has_key?(:elegxos_w)
+    if params.has_key?(:elegxos_w)
 			if ( params[:elegxos_w] == "1" )
 				width = @open_type.max_width
 				width_neo = width
@@ -1408,9 +1408,16 @@ class EticController < ApplicationController
 	
 		  end#end mesa
 		end#end eksw
-
+    
+    @system = System.where(:lines => @line.id).first    
+    if (@open_type.csv != nil)
+      @csv_neo = @open_type.csv
+    else
+      @csv_neo = @system.csv
+    end
+    
 		##Gia code == 10, 22, 100, 101
-		if ( (@open_type.id == 12) || (@open_type.id == 13) || (@open_type.id == 22) || (@open_type.id == 23) || (@open_type.id == 68) || (@open_type.id == 69) || (@open_type.id == 80) || (@open_type.id == 81) || (@open_type.id == 82) || (@open_type.id == 84) || (@open_type.id == 83))
+		if ( (@open_type.id == 12) || (@open_type.id == 13) || (@open_type.id == 22) || (@open_type.id == 23) || (@open_type.id == 68) || (@open_type.id == 69) || (@open_type.id == 80) || (@open_type.id == 81) || (@open_type.id == 82) || (@open_type.id == 84) || (@open_type.id == 83) || (@open_type.id == 85) || (@open_type.id == 86))
 
 			puts "Width gia timokatalogo"+width.to_s
 			puts "Height meta apo "+height.to_s
@@ -1429,11 +1436,11 @@ class EticController < ApplicationController
 
 		    ##Για καθε ανοιγμα τιμη
 		    @col_data_heights = []
-			CSV.foreach("#{Rails.root}/public/pricelist/"+@open_type.csv+".csv", col_sep: ';', headers:true) {|row| @col_data_heights << row[0]}
+			CSV.foreach("#{Rails.root}/public/pricelist/"+@csv_neo+".csv", col_sep: ';', headers:true) {|row| @col_data_heights << row[0]}
 			#puts col_data_heights
 
 			@col_data_widths = []
-			CSV.foreach("#{Rails.root}/public/pricelist/"+@open_type.csv+".csv", col_sep: ';').with_index do |row, i| 
+			CSV.foreach("#{Rails.root}/public/pricelist/"+@csv_neo+".csv", col_sep: ';').with_index do |row, i| 
 				if ( i == 0 )
 					a = 0
 					while a < 20 do
@@ -1462,15 +1469,15 @@ class EticController < ApplicationController
 			puts @thesi_width
 			puts @thesi_height
 
-			CSV.foreach("#{Rails.root}/public/pricelist/"+@open_type.csv+".csv", col_sep: ';',headers:true ).with_index do |row, i| 
+			CSV.foreach("#{Rails.root}/public/pricelist/"+@csv_neo+".csv", col_sep: ';',headers:true ).with_index do |row, i| 
 				if ( i == @thesi_height )
 					@timi = row[@thesi_width]
 				end
 			end
 
-			puts "Τιμή για άνοιγμα απο τιμοκατάλογο: "+@open_type.csv.to_s+" == "+@timi
+			puts "Τιμή για άνοιγμα απο τιμοκατάλογο: "+@csv_neo.to_s+" == "+@timi
 
-			@price = @timi.to_f      
+			@price = @timi.gsub(',', '.').to_f 
       
       #
   		if ( (@open_type.id == 82) || (@open_type.id == 84) )
@@ -1482,6 +1489,7 @@ class EticController < ApplicationController
       end
       
 		end
+    
 		##Gia code == 16,17
 		if ( (@open_type.id == 38) || (@open_type.id == 39) || (@open_type.id == 40) || (@open_type.id == 41) || (@open_type.id == 42) || (@open_type.id == 43)  )
 
@@ -2224,7 +2232,7 @@ class EticController < ApplicationController
 		  end#end mesa
 		end#end eksw
 
-		if ( (@open_type.id == 12) || (@open_type.id == 13) || (@open_type.id == 22) || (@open_type.id == 23) || (@open_type.id == 68) || (@open_type.id == 69) || (@open_type.id == 80) || (@open_type.id == 81) || (@open_type.id == 82) || (@open_type.id == 84) || (@open_type.id == 83))
+		if ( (@open_type.id == 12) || (@open_type.id == 13) || (@open_type.id == 22) || (@open_type.id == 23) || (@open_type.id == 68) || (@open_type.id == 69) || (@open_type.id == 80) || (@open_type.id == 81) || (@open_type.id == 82) || (@open_type.id == 84) || (@open_type.id == 83) || (@open_type.id == 85) || (@open_type.id == 86))
 
 			puts "Width gia timokatalogo"+width_neo.to_s
 			puts "Height meta apo "+height_neo.to_s
@@ -2243,11 +2251,11 @@ class EticController < ApplicationController
 
 		    ##Για καθε ανοιγμα τιμη
 		    @col_data_heights = []
-			CSV.foreach("#{Rails.root}/public/pricelist/"+@open_type.csv+".csv", col_sep: ';', headers:true) {|row| @col_data_heights << row[0]}
+			CSV.foreach("#{Rails.root}/public/pricelist/"+@csv_neo+".csv", col_sep: ';', headers:true) {|row| @col_data_heights << row[0]}
 			#puts col_data_heights
 
 			@col_data_widths = []
-			CSV.foreach("#{Rails.root}/public/pricelist/"+@open_type.csv+".csv", col_sep: ';').with_index do |row, i| 
+			CSV.foreach("#{Rails.root}/public/pricelist/"+@csv_neo+".csv", col_sep: ';').with_index do |row, i| 
 				if ( i == 0 )
 					a = 0
 					while a < 20 do
@@ -2276,15 +2284,15 @@ class EticController < ApplicationController
 			puts @thesi_width
 			puts @thesi_height
 
-			CSV.foreach("#{Rails.root}/public/pricelist/"+@open_type.csv+".csv", col_sep: ';',headers:true ).with_index do |row, i| 
+			CSV.foreach("#{Rails.root}/public/pricelist/"+@csv_neo+".csv", col_sep: ';',headers:true ).with_index do |row, i| 
 				if ( i == @thesi_height )
 					@timi = row[@thesi_width]
 				end
 			end
 
-			puts "Τιμή για άνοιγμα απο τιμοκατάλογο: "+@open_type.csv.to_s+" == "+@timi
+			puts "Τιμή για άνοιγμα απο τιμοκατάλογο: "+@csv_neo.to_s+" == "+@timi
       
-      @timi = @timi.to_f
+      @timi = @timi.gsub(',', '.').to_f
   		if ( (@open_type.id == 82) || (@open_type.id == 84) )
         @timi = @timi + @timi*0.5
       end
@@ -2982,6 +2990,7 @@ class EticController < ApplicationController
 		end
 
         up_od = false
+        
 	    if ( !@odoigos.nil? )
 	    	if ( (@up_odoigou.to_f != 0.0) && (@up_odoigou.to_f > 0.0)  )
 	    		pr_odoig =( ( (@up_odoigou.to_f) * 2 * @odoigos.price.to_f ) / 1000 )#( ( (height_rol_new) * @odoigos.price.to_f ) / 1000 )

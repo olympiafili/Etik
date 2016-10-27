@@ -1700,7 +1700,7 @@
     	var aferesi_gia_xontro = 15;
     	var aferesi_gia_lepto = 10;
 
-    	if (anoigma == "b" || anoigma == "c" || anoigma == "d" || anoigma == "e" || anoigma == "f" || anoigma == "g" || anoigma == "bc" || anoigma == "bd" || anoigma == "be" || anoigma == "bf" || anoigma == "i" || anoigma == "k"){
+    	if (anoigma == "b" || anoigma == "c" || anoigma == "d" || anoigma == "e" || anoigma == "f" || anoigma == "g" || anoigma == "bc" || anoigma == "bd" || anoigma == "be" || anoigma == "bf" || anoigma == "i" || anoigma == "k" || anoigma == "l" || anoigma == "m"){
     		$("."+paidi+"").first().attr('x', x_patera+aferesi_gia_xontro);
     		$("."+paidi+"").first().attr('y', y_patera+aferesi_gia_xontro);
     		$("."+paidi+"").first().attr('width', width_patera - aferesi_gia_xontro*2);
@@ -2624,6 +2624,108 @@
 		    rect.setAttribute('width',xerouli_eksw_width);
 		    rect.setAttribute('height',xerouli_eksw_height);
 		    document.getElementById('svg').appendChild(rect);
+    	}
+    	if ( anoigma == "l"){
+			var rect = makeSVG('defs', {});
+			rect.innerHTML = '<marker id="arrow1" markerWidth="10" markerHeight="10" refx="0" refy="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="black" /></marker>';
+			document.getElementById('svg').appendChild(rect);
+			
+    		var rect = makeSVG('line', {stroke: xrwma_arrow, 'stroke-width': 1, fill: 'none'});
+    		rect.setAttribute('id','');
+    		rect.setAttribute('x1',mesi_aristera_x+10);
+		    rect.setAttribute('y1',mesi_aristera_y+25);
+		    rect.setAttribute('x2',mesi_aristera_x +10);
+		    rect.setAttribute('y2',mesi_deksia_y);
+    		document.getElementById('svg').appendChild(rect);
+			
+    		var rect = makeSVG('line', {stroke: xrwma_arrow, 'stroke-width': 1, fill: 'none', 'marker-end': "url(#arrow1)"});
+    		rect.setAttribute('id','');
+    		rect.setAttribute('x1',mesi_aristera_x+10);
+		    rect.setAttribute('y1',mesi_aristera_y);
+		    rect.setAttribute('x2',mesi_deksia_x -8);
+		    rect.setAttribute('y2',mesi_deksia_y);
+    		document.getElementById('svg').appendChild(rect);
+
+    		var rect = makeSVG('rect', {stroke: xrwma_eksw_xerouli, 'stroke-width': stroke ,fill: xerouli});
+    		rect.setAttribute('x',mesi_aristera_x - aferesi_gia_xontro + (aferesi_gia_xontro - xerouli_width)/2 );
+		    rect.setAttribute('y',mesi_aristera_y - xerouli_height/2 );
+		    rect.setAttribute('width',xerouli_width);
+		    rect.setAttribute('height',xerouli_height);
+		    document.getElementById('svg').appendChild(rect);
+
+		    var rect = makeSVG('rect', {stroke: xrwma_eksw_xerouli, 'stroke-width': stroke , fill: xerouli});
+    		rect.setAttribute('x',mesi_aristera_x - (aferesi_gia_xontro - xerouli_eksw_width) );
+		    rect.setAttribute('y',mesi_aristera_y );
+		    rect.setAttribute('width',xerouli_eksw_width);
+		    rect.setAttribute('height',xerouli_eksw_height);
+		    document.getElementById('svg').appendChild(rect);
+			
+    		var rect = makeSVG('line', {stroke: xrwma, 'stroke-width': stroke, fill: 'none'});
+    		rect.setAttribute('id','');
+    		rect.setAttribute('x1',katw_aristera_x );
+		    rect.setAttribute('y1',katw_aristera_y );
+		    rect.setAttribute('x2',mesi_panw_x);
+		    rect.setAttribute('y2',mesi_panw_y);
+    		document.getElementById('svg').appendChild(rect);
+
+    		var rect = makeSVG('line', {stroke: xrwma, 'stroke-width': stroke, fill: 'none'});
+    		rect.setAttribute('id','');
+    		rect.setAttribute('x1',mesi_panw_x );
+		    rect.setAttribute('y1',mesi_panw_y );
+		    rect.setAttribute('x2',katw_deksia_x);
+		    rect.setAttribute('y2',katw_deksia_y);
+    		document.getElementById('svg').appendChild(rect);
+    	}
+    	if ( anoigma == "m"){
+			var rect = makeSVG('defs', {});
+			rect.innerHTML = '<marker id="arrow1" markerWidth="10" markerHeight="10" refx="0" refy="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="black" /></marker>';
+			document.getElementById('svg').appendChild(rect);
+			
+    		var rect = makeSVG('line', {stroke: xrwma_arrow, 'stroke-width': 1, fill: 'none'});
+    		rect.setAttribute('id','');
+    		rect.setAttribute('x1',mesi_deksia_x-10);
+		    rect.setAttribute('y1',mesi_deksia_y+25);
+		    rect.setAttribute('x2',mesi_deksia_x -10);
+		    rect.setAttribute('y2',mesi_aristera_y);
+    		document.getElementById('svg').appendChild(rect);
+			
+    		var rect = makeSVG('line', {stroke: xrwma_arrow, 'stroke-width': 1, fill: 'none', 'marker-end': "url(#arrow1)"});
+    		rect.setAttribute('id','');
+    		rect.setAttribute('x1',mesi_deksia_x-10);
+		    rect.setAttribute('y1',mesi_deksia_y);
+		    rect.setAttribute('x2',mesi_aristera_x+8);
+		    rect.setAttribute('y2',mesi_aristera_y);
+    		document.getElementById('svg').appendChild(rect);
+
+    		var rect = makeSVG('rect', {stroke: xrwma_eksw_xerouli, 'stroke-width': stroke ,fill: xerouli});
+    		rect.setAttribute('x',mesi_deksia_x + (aferesi_gia_xontro - xerouli_width)/2 );
+		    rect.setAttribute('y',mesi_deksia_y - xerouli_height/2 );
+		    rect.setAttribute('width',xerouli_width);
+		    rect.setAttribute('height',xerouli_height);
+		    document.getElementById('svg').appendChild(rect);
+
+		    var rect = makeSVG('rect', {stroke: xrwma_eksw_xerouli, 'stroke-width': stroke , fill: xerouli});
+    		rect.setAttribute('x',mesi_deksia_x + (aferesi_gia_xontro - xerouli_eksw_width)/2 );
+		    rect.setAttribute('y',mesi_deksia_y );
+		    rect.setAttribute('width',xerouli_eksw_width);
+		    rect.setAttribute('height',xerouli_eksw_height);
+		    document.getElementById('svg').appendChild(rect);
+			
+    		var rect = makeSVG('line', {stroke: xrwma, 'stroke-width': stroke, fill: 'none'});
+    		rect.setAttribute('id','');
+    		rect.setAttribute('x1',katw_aristera_x );
+		    rect.setAttribute('y1',katw_aristera_y );
+		    rect.setAttribute('x2',mesi_panw_x);
+		    rect.setAttribute('y2',mesi_panw_y);
+    		document.getElementById('svg').appendChild(rect);
+
+    		var rect = makeSVG('line', {stroke: xrwma, 'stroke-width': stroke, fill: 'none'});
+    		rect.setAttribute('id','');
+    		rect.setAttribute('x1',mesi_panw_x );
+		    rect.setAttribute('y1',mesi_panw_y );
+		    rect.setAttribute('x2',katw_deksia_x);
+		    rect.setAttribute('y2',katw_deksia_y);
+    		document.getElementById('svg').appendChild(rect);
     	}
     }
 	
