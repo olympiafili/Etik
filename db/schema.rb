@@ -608,6 +608,7 @@ ActiveRecord::Schema.define(version: 20160719070630075818) do
     t.text     "lines"
     t.integer  "order"
     t.integer  "default"
+    t.string   "csv"
   end
 
   create_table "termsops", force: true do |t|
