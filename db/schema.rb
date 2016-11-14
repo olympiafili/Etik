@@ -431,6 +431,10 @@ ActiveRecord::Schema.define(version: 20160719070630075818) do
     t.string   "deroll"
     t.integer  "order"
     t.integer  "default"
+    t.float    "xwrisma4_1",                 limit: 24
+    t.float    "xwrisma4_2",                 limit: 24
+    t.float    "xwrisma4_3",                 limit: 24
+    t.float    "xwrisma4_4",                 limit: 24
   end
 
   create_table "paraggelia", force: true do |t|
