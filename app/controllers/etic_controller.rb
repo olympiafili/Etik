@@ -1227,6 +1227,10 @@ class EticController < ApplicationController
 		xwrisma3_1 = params[:xwrisma3_1]
 		xwrisma3_2 = params[:xwrisma3_2]
 		xwrisma3_3 = params[:xwrisma3_3]
+		xwrisma4_1 = params[:xwrisma4_1]
+		xwrisma4_2 = params[:xwrisma4_2]
+		xwrisma4_3 = params[:xwrisma4_3]
+    xwrisma4_4 = params[:xwrisma4_4]
 		xwrisma_y_1 = params[:xwrisma_y_1]
 		xwrisma_y_2 = params[:xwrisma_y_2]
 		width_neo = params[:new_width].to_f
@@ -3665,6 +3669,12 @@ class EticController < ApplicationController
 		    	@order.xwrisma3_2 = xwrisma3_2
 		    	@order.xwrisma3_3 = xwrisma3_3
 		    end
+		    if ( !xwrisma4_1.nil? && xwrisma4_1 != "0" )
+		    	@order.xwrisma4_1 = xwrisma4_1
+		    	@order.xwrisma4_2 = xwrisma4_2
+		    	@order.xwrisma4_3 = xwrisma4_3
+          @order.xwrisma4_4 = xwrisma4_4
+		    end
 		    if ( !xwrisma_y_1.nil? && xwrisma_y_1 != "0" )
 		    	@order.xwrisma_y_1 = xwrisma_y_1
 		    	@order.xwrisma_y_2 = xwrisma_y_2
@@ -4432,7 +4442,16 @@ class EticController < ApplicationController
         end 
 	end
 
-    require 'csv'
+  require 'csv'
+  
+	def export_order
+    paraggelia = Paraggelia.where(:id => params[:id]).first
+		respond_to do |format|
+          format.csv { filename = "SunGate-#{Time.now.strftime("Date:%d-%m-%Y ---Time:%H:%M:%S")}.csv"
+                       send_data paraggelia.to_csv, :filename => filename}
+    end 
+	end
+  
 	##import απο το csv του wolf-sungate
 	def import_terms
 		#imp = CSV.read('#{Rails.root}/public/sungate_csv/terms-of-payments.csv', headers:true)
@@ -4861,14 +4880,15 @@ class EticController < ApplicationController
 
 	##Ολοκλήρωση παραγγελίας. Κάνω done τον simple user pses
 	def oloklirwsi_simple_user_pses
-		#user = SimpleUserPse.where(:id => params[:id]).first
-        #user.done = 1
-        #user.save
+	  #user = SimpleUserPse.where(:id => params[:id]).first
+    #user.done = 1
+    #user.save
         #redirect_to etic_user_diax_path
-        paraggelia = Paraggelia.where(:id => params[:id]).first
-        paraggelia.done = 1
-        paraggelia.save
-        redirect_to etic_user_diax_path
+    paraggelia = Paraggelia.where(:id => params[:id]).first
+    paraggelia.done = 1
+    paraggelia.save
+        
+    redirect_to etic_user_diax_path
 
 	end
 

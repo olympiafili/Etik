@@ -79,7 +79,8 @@ Rails.application.routes.draw do
   get 'etic/update_pososto'
   get 'etic/update_pososto_sun'
   get 'etic/leaf2'
-
+  get 'etic/export_order'
+  
   get 'data_base_in_out/users'
   get 'data_base_in_out/dashboard'
   get 'data_base_in_out/find_user'
