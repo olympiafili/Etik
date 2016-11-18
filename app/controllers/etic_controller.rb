@@ -5104,6 +5104,7 @@ class EticController < ApplicationController
   	  user.mobile = params[:mobile]
   	  user.postal_code = params[:postal]
   	  user.dealer_num = current_user.sungate_code
+      user.user_id = current_user.id
   	  user.save
   	  rec = SimpleUserPse.order("created_at").last
   	  @id = rec.id
