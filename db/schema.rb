@@ -205,6 +205,7 @@ ActiveRecord::Schema.define(version: 20160719070630075818) do
     t.integer  "order"
     t.integer  "default"
     t.string   "systems"
+    t.string   "sungate_code"
   end
 
   create_table "open_types", force: true do |t|
@@ -222,6 +223,7 @@ ActiveRecord::Schema.define(version: 20160719070630075818) do
     t.integer  "order"
     t.string   "csv"
     t.text     "table"
+    t.string   "sungate_code"
   end
 
   create_table "orders", force: true do |t|
@@ -458,11 +460,12 @@ ActiveRecord::Schema.define(version: 20160719070630075818) do
 
   create_table "persides", force: true do |t|
     t.string   "name"
-    t.float    "price",      limit: 24
+    t.float    "price",        limit: 24
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "order"
     t.integer  "default"
+    t.string   "sungate_code"
   end
 
   create_table "pricelists", force: true do |t|
@@ -523,6 +526,7 @@ ActiveRecord::Schema.define(version: 20160719070630075818) do
     t.datetime "updated_at"
     t.integer  "order"
     t.integer  "default"
+    t.string   "sungate_code"
   end
 
   create_table "rola_epiks", force: true do |t|
@@ -538,15 +542,17 @@ ActiveRecord::Schema.define(version: 20160719070630075818) do
     t.string   "en"
     t.string   "de"
     t.string   "gr"
+    t.string   "sungate_code"
   end
 
   create_table "roll_guides", force: true do |t|
     t.string   "name"
-    t.float    "price",      limit: 24
+    t.float    "price",        limit: 24
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "order"
     t.integer  "default"
+    t.string   "sungate_code"
   end
 
   create_table "sessions", force: true do |t|
@@ -658,13 +664,14 @@ ActiveRecord::Schema.define(version: 20160719070630075818) do
 
   create_table "typoi_prostasia", force: true do |t|
     t.text     "name"
-    t.float    "price",      limit: 24
+    t.float    "price",        limit: 24
     t.integer  "width"
     t.integer  "height"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "order"
     t.integer  "default"
+    t.string   "sungate_code"
   end
 
   create_table "tzamia", force: true do |t|
@@ -676,6 +683,7 @@ ActiveRecord::Schema.define(version: 20160719070630075818) do
     t.integer  "category"
     t.integer  "order"
     t.integer  "default"
+    t.string   "sungate_code"
   end
 
   create_table "users", force: true do |t|
