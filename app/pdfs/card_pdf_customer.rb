@@ -227,7 +227,7 @@ class Card_Pdf_Customer < Prawn::Document
              #:border_width => 2,
              #:border_color => '00FF00',
              :padding => 2
-        image "#{Rails.root}/app/assets/images/logo.png", :width => 175, :height => 110
+        image "#{Rails.root}/app/assets/images/fenstra-logo.png", :width => 122, :height => 110
         stroke_horizontal_rule
         move_down(10)
         font "Helvetica"
@@ -253,11 +253,9 @@ class Card_Pdf_Customer < Prawn::Document
         font "Helvetica"
         stroke_horizontal_rule
         move_down(1)
-        table([ ["Neuffer Fenster + Türen GmbH", "Registergericht Stuttgart HRB 4339", "Baden-Württembergische Bank"], 
-                    ["Kronprinzstraße 8 | 70173 Stuttgart", "Gerichtsstand Stuttgart ", "(BLZ 60050101) Konto 8583921"],
-                    ["Telefon: +49 (0)711 860 60 0", "Geschäftsführer: Jörg Neuffer, Philipp Neuffer", " Kto.­ Inhaber: Neuffer Fenster + Türen GmbH"],
-                    ["Telefax: +49 (0)711 860 60 111", "Steuernummer: 99022/16398 ", " IBAN DE73600501010008583921"],
-                    ["Email: info@fensterversand.com", "Ust.-Ident.Nr.: DE 213172812 ", "BIC SOLADEST"],  ]) do
+        table([ ["FENSTRA e.K.", "Eltinger Str.61", "www.fenstra.de"], 
+                ["KFenster & Türen", "71229 Leonberg", "info@fenstra.de"],
+                ["", "Mobil: 0157-50 120 110", ""], ]) do
          column(0).width = 180
          column(1).width = 180
          column(2).width = 180

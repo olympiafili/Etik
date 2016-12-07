@@ -1538,12 +1538,12 @@ ul {
   .ajax_open_type {
     width: auto !important;
  }
- .logo{
+ /*.logo{
     width: 100% !important;
     height: 100% !important;
     max-width: 500px;
     //width: auto; 
- }
+ }*/
 }
 
 @media (max-width: 360px) {
@@ -1605,7 +1605,6 @@ ul {
 
 .header_logo {
   position: relative;
-  //background-color: #CA3333;
   background-color: #e7e7e7; 
   height: 300px;
   border-bottom: solid;
@@ -1617,13 +1616,29 @@ ul {
   display: block;
   margin-left: auto;
   margin-right: auto;
-  //border-style: solid;
   border-right-width: 12px;
   border-right-color: white;
   border-bottom-width: 12px;
   border-bottom-color: white;
-  width: 500px;
   height: 300px;
+}
+
+.logo-balteco {
+	position: absolute;
+	right: 10px;
+	bottom: 0;
+}
+
+.logo-balteco p {
+	margin: 31px 0 0 0;
+	color: #777;
+	font-size: 15px;
+}
+
+.logo-balteco img {
+	width: 80px;
+	height: auto;
+	float: right;
 }
 
 .fixed_button{
