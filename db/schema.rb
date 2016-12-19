@@ -439,6 +439,14 @@ ActiveRecord::Schema.define(version: 20160719070630075818) do
     t.float    "xwrisma4_4",                 limit: 24
   end
 
+  create_table "panels", force: true do |t|
+    t.string   "name"
+    t.string   "image"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "direction"
+  end
+
   create_table "paraggelia", force: true do |t|
     t.integer  "user"
     t.integer  "customer"
