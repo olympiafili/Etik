@@ -13148,3 +13148,61 @@ input[type="file"] {
 .up_odoigou, .pl_rol_ep, .up_rol_ep, .pl_rol_ek, .up_rol_ek, .pl_persidas, .up_persidas {
   width: 60px;
 }
+
+/* line 2892, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
+#glass_3, .glass_3 {
+  display: none;
+}
+
+/* line 2895, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
+.tipos_anoigmatos.classhide {
+  display: none;
+}
+
+/* line 2899, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
+.tipos_anoigmatos img.panel-img-inner.dir-left {
+  position: absolute;
+  top: 4px;
+  width: 97px;
+  height: 168px;
+  left: 4px;
+  z-index: 1;
+}
+
+/* line 2908, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
+.tipos_anoigmatos img.panel-img-inner.dir-right {
+  position: absolute;
+  top: 4px;
+  width: 97px;
+  height: 168px;
+  right: 4px;
+  z-index: 1;
+}
+
+/* line 2917, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
+.tipos_name_ekso {
+  z-index: 2;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+/* line 2925, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
+.panel {
+  position: relative;
+  display: inline-block;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  cursor: pointer;
+  width: auto;
+  border-style: solid;
+  border-width: 4px;
+  border-color: white;
+}
+
+/* line 2938, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
+.panel img {
+  width: 140px;
+}
