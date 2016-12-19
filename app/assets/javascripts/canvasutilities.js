@@ -1337,7 +1337,6 @@ function Clock(id)
 		brdrclr = 'rgb(0,0,0)';
 	    } 
 	}
-	console.log("makerectimage("+xsize+','+ysize+','+color+")");
 	var tmpcvs=document.createElement('canvas');
 	// and set it to be the image size
 	tmpcvs.height=ysize;
@@ -1361,7 +1360,6 @@ function Clock(id)
 	// we will call the callback passing it the contex, and the scaled 
 	// image.
 	sclimage.onload=function(){
-	  console.log("in makerectimage in sclimage.onload calling callback");
 	  callback(sclimage);
 	}
 	sclimage.src=dataurl;

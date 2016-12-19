@@ -42,12 +42,10 @@
     if($(window).scrollTop() > 630){
    
       // If it's more than or equal to 0, show the toTop button.
-      //console.log("is more");
       //$("#home_right").fadeIn("slow");
     }
     else {
       // If it's less than 0 (at the top), hide the toTop button.
-      //console.log("is less");
       //$("#home_right").fadeOut("slow");
    
     }
@@ -472,7 +470,6 @@
         ekso_val_height = data.ekso_val_height; 
         persida_val_width = data.persida_val_width;
         persida_val_height = data.persida_val_height;
-        console.log(data) //Δινει στοιχεια για τα data
 
         // Αλλαγες σε πινακακι //
         $(".super_apli_timi").text(super_apli_timi.toFixed(2).replace(".", ",")+" €");
@@ -845,7 +842,7 @@
                         var div_data = "<label class=eksoterika_rola_polla id="+item.id+">"+item.name+"</label>";
                         $(div_data).appendTo(".eksoterika_rola");
                       })
-                    console.log(data) //Δινει στοιχεια για τα data
+
                     if ( YES_ROLLA_EK == true ){
                       $(".eksoterika_rola_polla").each(function( index ) {
                         if( $( this ).attr("id") == "<%= @rolo_id %>" ){
@@ -975,21 +972,18 @@ function diagrafi_xwrismatwn(ti_einai, poio_einai){
   Array_me_diegramena.push(poio_einai);
   if ( ti_einai == "1"){
     for(var key in pinakas_kath) {
-      //console.log('key: ' + key + '\n' + 'class_1: ' + pinakas_kath[key].class_1 + ' class_2: ' + pinakas_kath[key].class_2);
       if ( ( pinakas_kath[key].class_1 == poio_einai ) || ( pinakas_kath[key].class_2 == poio_einai ) ){
         diagrafi_xwrismatwn(2,key);
       }
     }
   }else{
     for(var key in pinakas_ori) {
-      //console.log('key: ' + key + '\n' + 'class_1: ' + pinakas_kath[key].class_1 + ' class_2: ' + pinakas_kath[key].class_2);
       if ( ( pinakas_ori[key].class_1 == poio_einai ) || ( pinakas_ori[key].class_2 == poio_einai ) ){
         diagrafi_xwrismatwn(1,key);
       }
     }
 
   }
-  console.log(Array_me_diegramena);
 }
 
   function vres_poio_kontino(offset,upsos,ori_kath,min_etsi){
@@ -997,21 +991,10 @@ function diagrafi_xwrismatwn(ti_einai, poio_einai){
     //min = 9999999999;
     $('.click').each(function(){                                                                                                                            
       var $this = $(this);  
-      console.log($this);
-      console.log("top"+$this.offset().top);
-      console.log("left"+$this.offset().left); 
-      //console.log("top_row"+Math.floor(y));  
-      //console.log("left_row"+Math.floor(x)); 
-      console.log("xwr_offs: "+offset);
-      console.log("xwr_offs_top: "+upsos);
 
       if ( ori_kath == "1" ){
         var apotelesma =  (parseInt(offset) - $this.offset().left) ;
         var apotelesma_2 =  (parseInt(upsos) - $this.offset().top) ;
-        console.log(apotelesma);
-        console.log(apotelesma_2);
-        console.log(min_etsi);
-        console.log(Math.abs(apotelesma));
         if ( (parseInt(apotelesma) < 0) && (parseInt(apotelesma_2) > 0) && (Math.abs(apotelesma_2) < parseInt(min_etsi)) ){
           //alert("!!");
           min_etsi = Math.abs(apotelesma_2);
@@ -1030,10 +1013,7 @@ function diagrafi_xwrismatwn(ti_einai, poio_einai){
           height_tetragnwnou = $("."+class_tet_kali).outerHeight();
           apostasi_tet_apo_panw = $("."+class_tet_kali).offset().top;
           apostasti_tet_apo_aristera = $("."+class_tet_kali).offset().left;
-          console.log("min="+min);
           min = apotelesma;
-          
-          console.log("apo="+apotelesma);
         }
         */
       }else{
@@ -1045,16 +1025,12 @@ function diagrafi_xwrismatwn(ti_einai, poio_einai){
           height_tetragnwnou = $("."+class_tet_kali).outerHeight();
           apostasi_tet_apo_panw = $("."+class_tet_kali).offset().top;
           apostasti_tet_apo_aristera = $("."+class_tet_kali).offset().left;
-          console.log("min="+min);
           min = apotelesma;
-          
-          console.log("apo="+apotelesma);
         }
       }
       
     });
 
-     console.log(element);
      return element; //.attr("class").split(' ')[0];
 
     
@@ -1066,27 +1042,13 @@ function diagrafi_xwrismatwn(ti_einai, poio_einai){
     //min = 9999999999;
     $('.clack').each(function(){                                                                                                                            
       var $this = $(this);  
-      console.log($this);
-      console.log("top"+$this.offset().top);
-      console.log("left"+$this.offset().left); 
-      //console.log("top_row"+Math.floor(y));  
-      //console.log("left_row"+Math.floor(x)); 
-      console.log("xwr_offs: "+offset);
-      console.log("xwr_offs_top: "+mikos);
 
       if ( ori_kath == "1" ){
         var apotelesma =  (parseInt(offset) - $this.offset().top) ;
         var apotelesma_2 =  (parseInt(mikos) - $this.offset().left) ;
-        console.log(apotelesma);
-        console.log(apotelesma_2);
-        console.log(min_etsi);
-        console.log(Math.abs(apotelesma));
         if ( (parseInt(apotelesma) < 0) && (parseInt(apotelesma_2) > 0) && (Math.abs(apotelesma_2) < parseInt(min_etsi)) ){
-          //alert("!!");
           min_etsi = Math.abs(apotelesma_2);
           element = $(this);
-
-          
         }
 
         
@@ -1099,10 +1061,7 @@ function diagrafi_xwrismatwn(ti_einai, poio_einai){
           height_tetragnwnou = $("."+class_tet_kali).outerHeight();
           apostasi_tet_apo_panw = $("."+class_tet_kali).offset().top;
           apostasti_tet_apo_aristera = $("."+class_tet_kali).offset().left;
-          console.log("min="+min);
           min = apotelesma;
-          
-          console.log("apo="+apotelesma);
         }
         */
       }else{
@@ -1114,19 +1073,13 @@ function diagrafi_xwrismatwn(ti_einai, poio_einai){
           height_tetragnwnou = $("."+class_tet_kali).outerHeight();
           apostasi_tet_apo_panw = $("."+class_tet_kali).offset().top;
           apostasti_tet_apo_aristera = $("."+class_tet_kali).offset().left;
-          console.log("min="+min);
           min = apotelesma;
-          
-          console.log("apo="+apotelesma);
         }
       }
       
     });
 
-     console.log(element);
      return element; //.attr("class").split(' ')[0];
-
-    
 
   }
 
@@ -1148,24 +1101,14 @@ function diagrafi_xwrismatwn(ti_einai, poio_einai){
     width_zo = (apostasi/a)*(width);
 
     if ( ori_kath == "1" ){
-      var c = parseInt(y) - parseInt(height_zo) + 10
-      console.log("y= "+ parseInt(y));
-      console.log("height_zo= "+ parseInt(height_zo));
-      console.log("upsos= "+ c);
-      console.log("upsos= "+ apostasi);   
+      var c = parseInt(y) - parseInt(height_zo) + 10 
     }else{
       var c = parseInt(x) - parseInt(width_zo) + 10
-      console.log("mikos= "+ c); 
     }
 
     var min = 9999999999;
     $('.tetragwno').each(function(){                                                                                                                            
       var $this = $(this);  
-      console.log($this);
-      console.log("top"+$this.offset().top);
-      console.log("left"+$this.offset().left); 
-      console.log("top_row"+Math.floor(y));  
-      console.log("left_row"+Math.floor(x)); 
       if ( ori_kath == "1" ){
         var apotelesma =  (parseInt(y) - $this.offset().top) ;
         if ( ( apotelesma > 0 ) && ( Math.floor($this.offset().left) == Math.floor(x) ) && ( apotelesma < min ) ){
@@ -1175,10 +1118,7 @@ function diagrafi_xwrismatwn(ti_einai, poio_einai){
           height_tetragnwnou = $("."+class_tet_kali).outerHeight();
           apostasi_tet_apo_panw = $("."+class_tet_kali).offset().top;
           apostasti_tet_apo_aristera = $("."+class_tet_kali).offset().left;
-          console.log("min="+min);
           min = apotelesma;
-          
-          console.log("apo="+apotelesma);
         }
       }else{
         var apotelesma = Math.abs( (parseInt(x) - $this.offset().left) );
@@ -1189,21 +1129,11 @@ function diagrafi_xwrismatwn(ti_einai, poio_einai){
           height_tetragnwnou = $("."+class_tet_kali).outerHeight();
           apostasi_tet_apo_panw = $("."+class_tet_kali).offset().top;
           apostasti_tet_apo_aristera = $("."+class_tet_kali).offset().left;
-          console.log("min="+min);
           min = apotelesma;
-          
-          console.log("apo="+apotelesma);
         }
       }
       
     });
-    
-    
-
-    console.log(width_tetragwnou);
-    console.log(height_tetragnwnou);
-    console.log(apostasi_tet_apo_panw);
-    console.log(apostasti_tet_apo_aristera);
 
     $(".eswteriko_kasas").removeClass("tetragwno");
 
@@ -1258,9 +1188,7 @@ function diagrafi_xwrismatwn(ti_einai, poio_einai){
 
       var canvas_kouf = $("."+athrisma);
       var class_canvas_kouf = canvas_kouf.attr('class');
-      console.log("epenalipsi: "+epanalipsi_kouf);
       if ( ($(".mple_"+athrisma).length) && (epanalipsi_kouf == "1")){
-        console.log("OKKKKKK");
         var b = $(".mple_"+athrisma).attr('class').split(' ')[1];
         var c = $(".mple_"+athrisma).attr('class').split(' ')[2];
         var d = $(".mple_"+athrisma).attr('class').split(' ')[3];
@@ -1280,7 +1208,6 @@ function diagrafi_xwrismatwn(ti_einai, poio_einai){
         //$(".mple2_"+athrisma).show();
       }
       if ( ($(".mple_"+pros).length) && (epanalipsi_kouf == "1")){
-        console.log("OKKKKKK");
 
         var canvas_kouf = $("."+pros);
         var class_canvas_kouf = canvas_kouf.attr('class');
@@ -1328,7 +1255,6 @@ function diagrafi_xwrismatwn(ti_einai, poio_einai){
       $("."+pros).css("border","solid");
       $("."+pros).css("border-width","1px");
 
-      console.log("epenalipsi: "+epanalipsi_kouf);
       if ( ($(".mple_"+athrisma).length) && (epanalipsi_kouf == "1")){
         var b = $(".mple_"+athrisma).attr('class').split(' ')[1];
         var c = $(".mple_"+athrisma).attr('class').split(' ')[2];
@@ -1378,14 +1304,8 @@ function diagrafi_xwrismatwn(ti_einai, poio_einai){
 
   function kane_koufwmata(a, b, posa_hor, posa_ver){
 
-    console.log($("."+a));
-    console.log(b);
-    console.log(posa_hor);
-    console.log(posa_ver);
-
     var canvas_kouf = $("."+a);
     var class_canvas_kouf = canvas_kouf.attr('class');
-    console.log(class_canvas_kouf);
     $(".mple_"+a).remove();
     $(".mple2_"+a).remove();
     $(".elements_nea").append("<div class='mple_"+a+" "+b+" "+posa_hor+" "+posa_ver+"'></div>");

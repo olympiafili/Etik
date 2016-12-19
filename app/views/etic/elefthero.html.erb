@@ -372,10 +372,8 @@ $(document).ready(function(){
       counter_tetragwnwn = 0;
       $(".eswteriko_kasas").addClass("tetragwno");
       athrisma = 0;
-      //console.log(seira_xwrismatwn);
 
       seira_xwrismatwn.forEach(function(entry){
-          console.log(seira_xwrismatwn);
           if (entry == "orizontio_xwrisma_1"){
             var ori_1_c1 = pinakas_ori[ 'orizontio_xwrisma_1' ][ 'class_1' ];
             var ori_1_c2 = pinakas_ori[ 'orizontio_xwrisma_1' ][ 'class_2' ];
@@ -503,13 +501,6 @@ $(document).ready(function(){
           }
 
         });
-
-      
-
-      console.log("Athrisma: "+athrisma);
-
-      
-
       
     }else{
       //Ta svinw kai ta krivw ola.
@@ -583,9 +574,6 @@ $(document).ready(function(){
                 $( ".ori_1" ).hide();
 
                 pinakas_ori.orizontio_xwrisma_1 = { class_1: myClass_ori_1, class_2: myClass_ori_1_1 };
-                console.log( pinakas_ori[ 'orizontio_xwrisma_1' ][ 'class_1' ] );
-                console.log( pinakas_ori[ 'orizontio_xwrisma_1' ][ 'class_2' ] );
-                //console.dir(pinakas_ori);
                 orizontio_xwrisma_1_true = true;
 
                 seira_xwrismatwn.push("orizontio_xwrisma_1");
@@ -595,7 +583,6 @@ $(document).ready(function(){
 
                 kane_tetragwna(Number($("#width").val()), Number($("#height").val()),pragmatiko_upsos, $(".orizontio_xwrisma_1").offset().left, $(".orizontio_xwrisma_1").offset().top, athrisma, 1, 10,ar_ty,ka_ty,de_ty,pa_ty, counter_tetragwnwn);
 
-                //console.log($(".orizontio_xwrisma_1"));
                 $(".eswteriko_kasas").removeClass("tetragwno");
 
                 $(".orizontio_xwrisma_1").show();
@@ -633,14 +620,12 @@ $(document).ready(function(){
     diagrafi_xwrismatwn(1,"orizontio_xwrisma_1");
     Array_me_diegramena.forEach(function(entry) {
         var index = seira_xwrismatwn.indexOf(entry);
-        console.log(index);
         if (index > -1) {
             seira_xwrismatwn.splice(index, 1);
         }
         
     });
     Array_me_diegramena.forEach(function(entry) {
-        console.log(entry.split('_')[2]);
         if ( entry.split('_')[0] == "orizontio" ){
           $(".ori_"+entry.split('_')[2]).show();
           $(".orizontio_xwrisma_"+entry.split('_')[2]).hide();
@@ -654,9 +639,7 @@ $(document).ready(function(){
         
     });
     
-    console.log(seira_xwrismatwn);
     Array_me_diegramena = [];
-    console.log(seira_xwrismatwn);
     $(".diastaseis_ok").click();
   });
 
@@ -694,9 +677,6 @@ $(document).ready(function(){
                 $( ".ori_2" ).hide();
 
                 pinakas_ori.orizontio_xwrisma_2 = { class_1: myClass_ori_2, class_2: myClass_ori_2_2 };
-                console.log( pinakas_ori[ 'orizontio_xwrisma_2' ][ 'class_1' ] );
-                console.log( pinakas_ori[ 'orizontio_xwrisma_2' ][ 'class_2' ] );
-                //console.dir(pinakas_ori);
                 orizontio_xwrisma_2_true = true;
 
                 seira_xwrismatwn.push("orizontio_xwrisma_2");
@@ -740,14 +720,12 @@ $(document).ready(function(){
     diagrafi_xwrismatwn(1,"orizontio_xwrisma_2");
     Array_me_diegramena.forEach(function(entry) {
         var index = seira_xwrismatwn.indexOf(entry);
-        console.log(index);
         if (index > -1) {
             seira_xwrismatwn.splice(index, 1);
         }
         
     });
     Array_me_diegramena.forEach(function(entry) {
-        console.log(entry.split('_')[2]);
         if ( entry.split('_')[0] == "orizontio" ){
           $(".ori_"+entry.split('_')[2]).show();
           $(".orizontio_xwrisma_"+entry.split('_')[2]).hide();
@@ -761,9 +739,7 @@ $(document).ready(function(){
         
     });
     
-    console.log(seira_xwrismatwn);
     Array_me_diegramena = [];
-    console.log(seira_xwrismatwn);
     $(".diastaseis_ok").click();
   });
 
@@ -801,9 +777,6 @@ $(document).ready(function(){
                 $( ".ori_3" ).hide();
 
                 pinakas_ori.orizontio_xwrisma_3 = { class_1: myClass_ori_3, class_2: myClass_ori_3_3 };
-                console.log( pinakas_ori[ 'orizontio_xwrisma_3' ][ 'class_1' ] );
-                console.log( pinakas_ori[ 'orizontio_xwrisma_3' ][ 'class_2' ] );
-                //console.dir(pinakas_ori);
                 orizontio_xwrisma_3_true = true;
 
                 seira_xwrismatwn.push("orizontio_xwrisma_3");
@@ -849,14 +822,12 @@ $(document).ready(function(){
     diagrafi_xwrismatwn(1,"orizontio_xwrisma_3");
     Array_me_diegramena.forEach(function(entry) {
         var index = seira_xwrismatwn.indexOf(entry);
-        console.log(index);
         if (index > -1) {
             seira_xwrismatwn.splice(index, 1);
         }
         
     });
     Array_me_diegramena.forEach(function(entry) {
-        console.log(entry.split('_')[2]);
         if ( entry.split('_')[0] == "orizontio" ){
           $(".ori_"+entry.split('_')[2]).show();
           $(".orizontio_xwrisma_"+entry.split('_')[2]).hide();
@@ -870,9 +841,7 @@ $(document).ready(function(){
         
     });
     
-    console.log(seira_xwrismatwn);
     Array_me_diegramena = [];
-    console.log(seira_xwrismatwn);
     $(".diastaseis_ok").click();
   });
 
@@ -909,9 +878,6 @@ $(document).ready(function(){
 
                 $( ".kath_1" ).hide();
                 pinakas_kath.katheto_xwrisma_1 = { class_1: myClass_kath_1, class_2: myClass_kath_1_1 };
-                console.log( pinakas_kath[ 'katheto_xwrisma_1' ][ 'class_1' ] );
-                console.log( pinakas_kath[ 'katheto_xwrisma_1' ][ 'class_2' ] );
-                //console.dir(pinakas_ori);
                 katheto_xwrisma_1_true = true;
 
                 seira_xwrismatwn.push("katheto_xwrisma_1");
@@ -958,14 +924,12 @@ $(document).ready(function(){
     diagrafi_xwrismatwn(2,"katheto_xwrisma_1");
     Array_me_diegramena.forEach(function(entry) {
         var index = seira_xwrismatwn.indexOf(entry);
-        console.log(index);
         if (index > -1) {
             seira_xwrismatwn.splice(index, 1);
         }
         
     });
     Array_me_diegramena.forEach(function(entry) {
-        console.log(entry.split('_')[2]);
         if ( entry.split('_')[0] == "orizontio" ){
           $(".ori_"+entry.split('_')[2]).show();
           $(".orizontio_xwrisma_"+entry.split('_')[2]).hide();
@@ -979,9 +943,7 @@ $(document).ready(function(){
         
     });
     
-    console.log(seira_xwrismatwn);
     Array_me_diegramena = [];
-    console.log(seira_xwrismatwn);
     $(".diastaseis_ok").click();
   });
 
@@ -1017,9 +979,6 @@ $(document).ready(function(){
 
                 $( ".kath_2" ).hide();
                 pinakas_kath.katheto_xwrisma_2 = { class_1: myClass_kath_2, class_2: myClass_kath_2_2 };
-                console.log( pinakas_kath[ 'katheto_xwrisma_2' ][ 'class_1' ] );
-                console.log( pinakas_kath[ 'katheto_xwrisma_2' ][ 'class_2' ] );
-                //console.dir(pinakas_ori);
                 katheto_xwrisma_2_true = true;
 
                 seira_xwrismatwn.push("katheto_xwrisma_2");
@@ -1066,14 +1025,12 @@ $(document).ready(function(){
     diagrafi_xwrismatwn(2,"katheto_xwrisma_2");
     Array_me_diegramena.forEach(function(entry) {
         var index = seira_xwrismatwn.indexOf(entry);
-        console.log(index);
         if (index > -1) {
             seira_xwrismatwn.splice(index, 1);
         }
         
     });
     Array_me_diegramena.forEach(function(entry) {
-        console.log(entry.split('_')[2]);
         if ( entry.split('_')[0] == "orizontio" ){
           $(".ori_"+entry.split('_')[2]).show();
           $(".orizontio_xwrisma_"+entry.split('_')[2]).hide();
@@ -1087,9 +1044,7 @@ $(document).ready(function(){
         
     });
     
-    console.log(seira_xwrismatwn);
     Array_me_diegramena = [];
-    console.log(seira_xwrismatwn);
     $(".diastaseis_ok").click();
   });
 
@@ -1125,9 +1080,6 @@ $(document).ready(function(){
 
                 $( ".kath_3" ).hide();
                 pinakas_kath.katheto_xwrisma_3 = { class_1: myClass_kath_3, class_2: myClass_kath_3_3 };
-                console.log( pinakas_kath[ 'katheto_xwrisma_3' ][ 'class_1' ] );
-                console.log( pinakas_kath[ 'katheto_xwrisma_3' ][ 'class_2' ] );
-                //console.dir(pinakas_ori);
                 katheto_xwrisma_3_true = true;
 
                 seira_xwrismatwn.push("katheto_xwrisma_3");
@@ -1174,14 +1126,12 @@ $(document).ready(function(){
     diagrafi_xwrismatwn(2,"katheto_xwrisma_3");
     Array_me_diegramena.forEach(function(entry) {
         var index = seira_xwrismatwn.indexOf(entry);
-        console.log(index);
         if (index > -1) {
             seira_xwrismatwn.splice(index, 1);
         }
         
     });
     Array_me_diegramena.forEach(function(entry) {
-        console.log(entry.split('_')[2]);
         if ( entry.split('_')[0] == "orizontio" ){
           $(".ori_"+entry.split('_')[2]).show();
           $(".orizontio_xwrisma_"+entry.split('_')[2]).hide();
@@ -1195,9 +1145,7 @@ $(document).ready(function(){
         
     });
     
-    console.log(seira_xwrismatwn);
     Array_me_diegramena = [];
-    console.log(seira_xwrismatwn);
     $(".diastaseis_ok").click();
   });
 
@@ -1264,8 +1212,6 @@ $(document).ready(function(){
   $( "body" ).click(function(e) {
     if ( $(event.target).attr('class') !== undefined  ){
       if ( $(event.target).attr('class').split(' ')[1] == "tetragwno" ){
-        console.log( $(event.target).offset().top );
-        console.log($(event.target).attr('class'));
         $('#myModal').modal('show'); 
         $("#koufwma_title").text("Κούφωμα: "+ $(event.target).attr('class').split(' ')[0]);
         poio_koufwma_dialeksa = $(event.target).attr('class').split(' ')[0];
@@ -1276,17 +1222,14 @@ $(document).ready(function(){
   $( "#modal_ok" ).click(function(e) {
     $('#myModal').modal('hide');
     kati = $('input[type=radio][name=kouf]:checked').attr('id');
-    console.log(kati);
     kane_koufwmata(poio_koufwma_dialeksa, kati);
   });
 
    $(".elefthero_ola").on("click", ".epanal", function() {
 
       //var body = $('#wrap');
-     // console.log(body.html());
       //bodycontent = body.html();
 
-      //console.log(bodycontent);
       //localStorage["myKey"] = JSON.stringify($("#wrap").html());
       //$('#wrap').data('store', $('#wrap').html());
 
@@ -1303,11 +1246,7 @@ $(document).ready(function(){
       
 
     });
-  
-  
-  
 
-  
 
   $( ".more_kasa" ).click(function() {
     $( ".epiloges_kasas" ).toggle(1000);

@@ -78,7 +78,6 @@
       
       <!--Class html-->
       <div class="html">
-        
        
       </div>
 
@@ -134,7 +133,6 @@ $(document).ready(function(){
     $( ".kataskevastes" ).empty(); //Αδιαζω το div για να μπει το νεο κλικ
     $( ".systems" ).empty();
     $( ".lines" ).empty();
-    //alert( $(this).attr('id') );
     //Αλλαγη χρωματος
     $( ".material" ).css("background-color","");//Ετσι αφαιρω την ιδιοτητα!!!
     $( ".material" ).css("color","");
@@ -159,7 +157,6 @@ $(document).ready(function(){
                   var div_data = "<a onclick='kata_click()' style='text-decoration: none;'><label class=kataskevastis id="+item.id+">"+item.name+"</label></a><br>";
                   $(div_data).appendTo(".kataskevastes");
               })
-              console.log(data) //Δινει στοιχεια για τα data
               $(".kataskevastis").click();
               },
             error: function(data) { 
@@ -177,7 +174,6 @@ $(document).ready(function(){
     //Εδω αδιάζω ολα τα παρακάτω
     $( ".systems" ).empty();
     $( ".lines" ).empty();
-    //alert( $(this).attr('id') );
     //Αλλαγη χρωματος
     $( ".kataskevastis" ).css("background-color","");
     $( ".kataskevastis" ).css("color","");
@@ -204,8 +200,7 @@ $(document).ready(function(){
                   var div_data = "<a onclick='kata_click()' style='text-decoration: none;'><label class=system id="+item.id+">"+item.name+"</label></a><br>";
                   $(div_data).appendTo(".systems");
               })
-              console.log(data) //Δινει στοιχεια για τα data
-              },
+		  },
             error: function(data) { 
               }
           });//end ejax
@@ -219,7 +214,6 @@ $(document).ready(function(){
     $(p3m).appendTo("#table");
     //Εδω αδιάζω ολα τα παρακάτω
      $( ".lines" ).empty();
-    //alert( $(this).attr('id') );
     //Αλλαγη χρωματος
     $( ".system" ).css("background-color","");
     $( ".system" ).css("color","");
@@ -240,7 +234,6 @@ $(document).ready(function(){
               var header4 = "<h2><%= t 'material.line' %>: "+text+"</h2>" 
               $(header4).appendTo(".lines");
               $.each(data, function(i, item) { //Για κάθε data που παίρνω κανω τα παρακάτο 
-                  //alert(item.name);
                   //return $(".kataskevastes").html(item.name);
                   //$( "<p>item.name</p>" ).appendTo( ".kataskevastes" );
                   if (item.yes == 1) {
@@ -261,8 +254,7 @@ $(document).ready(function(){
                     */
                   }
               })
-              console.log(data) //Δινει στοιχεια για τα data
-              },
+		  },
             error: function(data) { 
               }
           });//end ejax
@@ -270,11 +262,6 @@ $(document).ready(function(){
   });//end click
 
   $(".lines").on("click", ".line_div", function() { //Click σε σειρά για εμφάνηση φύλλων
-    //alert( "Ιd κατηγοριας ανοιγματος: " + $(".open_categorie").text() );//Παίρνω την κατηγορία ανοίγματος
-    //alert( "Id υλικου: " + ulik );
-    //alert( "Id κατασκεβαστη: " + katas );
-    //alert( "Id συστηματος: " + syst );
-    //alert( "Id σειράς: " + $(this).attr('id') );//Παίρνω την σειρά. id
     //Ολα αυτα τα περναω στην επομενη σελιδα που εχει τα φυλλα
     //Εδω ο Αιαντας δεν χρειαζετε, γινπνται ολα με το λινκ
     $.ajax({
@@ -305,13 +292,6 @@ $(document).ready(function(){
     $(".material").click();
     //kata_click();
   }
-  
-
-
-
 
 });//end ready
-
-
-
 </script>
