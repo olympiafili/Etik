@@ -1,12 +1,11 @@
-<svg id="svg" width="" height="" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
+<svg id="svg" width="" height="" xmlns="http://www.w3.org/2000/svg" xmlns:xlink= "http://www.w3.org/1999/xlink" xmlns:svg="http://www.w3.org/2000/svg">
 	<marker xmlns="http://www.w3.org/2000/svg" id="triangle_t" viewBox="0 0 10 10" refX="8" refY="5" markerUnits="strokeWidth" markerWidth="4" markerHeight="3" orient="auto">
       <path d="M 0 0 L 10 5 L 0 10 z"/>
     </marker>
     <marker xmlns="http://www.w3.org/2000/svg" id="triangle_a" viewBox="0 0 10 10" refX="2" refY="5" markerUnits="strokeWidth" markerWidth="4" markerHeight="3" orient="auto">
       <path d="M 0 5 L 10 0 L 10 10 z"/>
     </marker>
-
-
+	
 </svg>
 
 <script type="text/javascript">
@@ -42,7 +41,6 @@
 	    	//Ποια στήλη έχω
 	    	var stili_key = $(this).attr("id").charAt(17);
 	    	//Πέρνω το μιν απο την στήλη
-	    	console.log(table);
 			var tempArray = table.split('|');
 			var finalArray = [];
 			for (var i = 0; i < tempArray.length; i++) {
@@ -52,8 +50,6 @@
 			var promises = [];
 			$.each(finalArray , function( index, obj ) {
 			    $.each(obj, function( key, value ) {
-			        console.log("row:"+index);
-			        console.log("col:"+key);
 			        //An eimai stin stili
 			        //if ( key == stili_key ){
 			        	//To prvto einai min
@@ -67,7 +63,6 @@
 					          success: function(data) {
 					            min_width_anoigmatos = data.min_width_anoigmatos;
 					            max_width_anoigmatos = data.max_width_anoigmatos;
-						        console.log(data) //Δινει στοιχεια για τα data      
 					        },
 					        error: function(data) { 
 					        }
@@ -83,7 +78,6 @@
 					          success: function(data) {
 					            min_width_anoigmatos_this = data.min_width_anoigmatos;
 					            max_width_anoigmatos_this = data.max_width_anoigmatos;
-						        console.log(data) //Δινει στοιχεια για τα data      
 					        },
 					        error: function(data) { 
 					        }
@@ -109,25 +103,14 @@
 			    // code here when all ajax calls are done
 			    // you could also process all the results here if you want
 			    // rather than processing them individually
-			    console.log("TELOSSSSS");
-			    console.log(input_val);
-				console.log(min_width_anoigmatos);
 				if ( parseInt(input_val) < parseInt(min_width_anoigmatos) ){
-					console.log("Den to dexomai...");
-					alert("Min width: "+min_width_anoigmatos+" Max width: "+max_width_anoigmatos);
 					auto_poy_patisa_input.val( geniko_data_val );
 				}else if( parseInt(input_val) > parseInt(max_width_anoigmatos) ){
-					console.log("Den to dexomai...");
-					alert("Min width: "+min_width_anoigmatos+" Max width: "+max_width_anoigmatos);
 					auto_poy_patisa_input.val( geniko_data_val );
 				}else{ //To dexomai
-					console.log("To dexomai...");
 					var arithmos_xwrismatwn = $('.orizontia').length;
 	    			var prwti_aferesi = parseFloat( geniko_data_val ) - parseFloat( input_val );
 	    			var apotelesma = parseFloat( $("#xwrisma_orizontio"+(arithmos_xwrismatwn-1)+"").val() ) + parseFloat( prwti_aferesi );
-	    			console.log(arithmos_xwrismatwn);
-	    			console.log(geniko_data_val);
-	    			console.log(apotelesma);
 	    			//elegxos max
 	    			if (  apotelesma <= max_width_anoigmatos && apotelesma >= min_width_anoigmatos ){
 	    				$("#xwrisma_orizontio"+(arithmos_xwrismatwn-1)+"").val( apotelesma );
@@ -160,7 +143,6 @@
 	    	//Ποια γραμμη έχω
 	    	var grammi_key = $(this).attr("id").charAt(16);
 	    	//Πέρνω το μιν απο την γραμμη
-	    	console.log(table);
 			var tempArray = table.split('|');
 			var finalArray = [];
 			for (var i = 0; i < tempArray.length; i++) {
@@ -170,8 +152,6 @@
 			var promises = [];
 			$.each(finalArray , function( index, obj ) {
 			    $.each(obj, function( key, value ) {
-			        console.log("row:"+index);
-			        console.log("col:"+key);
 			        //An eimai stin stili
 			        if ( index == grammi_key ){
 			        	//To prvto einai min
@@ -185,7 +165,6 @@
 					          success: function(data) {
 					            min_height_anoigmatos = data.min_height_anoigmatos;
 					            max_height_anoigmatos = data.max_height_anoigmatos;
-						        console.log(data) //Δινει στοιχεια για τα data      
 					        },
 					        error: function(data) { 
 					        }
@@ -201,7 +180,6 @@
 					          success: function(data) {
 					            min_height_anoigmatos_this = data.min_height_anoigmatos;
 					            max_height_anoigmatos = data.max_height_anoigmatos;
-						        console.log(data) //Δινει στοιχεια για τα data      
 					        },
 					        error: function(data) { 
 					        }
@@ -224,25 +202,14 @@
 			    // code here when all ajax calls are done
 			    // you could also process all the results here if you want
 			    // rather than processing them individually
-			    console.log("TELOSSSSS");
-			    console.log(input_val_h);
-				console.log(min_height_anoigmatos);
 				if ( parseInt(input_val_h) < parseInt(min_height_anoigmatos) ){
-					console.log("Den to dexomai...");
-					alert("Min height: "+min_height_anoigmatos+" Max height: "+max_height_anoigmatos);
 					auto_poy_patisa_input.val( geniko_data_val );
 				}else if( parseInt(input_val_h) > parseInt(max_height_anoigmatos) ){
-					console.log("Den to dexomai...");
-					alert("Min height: "+min_height_anoigmatos+" Max height: "+max_height_anoigmatos);
 					auto_poy_patisa_input.val( geniko_data_val );
 				}else{ //To dexomai
-					console.log("To dexomai...");
 					var arithmos_xwrismatwn_h = $('.katheta').length;
 	    			var prwti_aferesi_h = parseFloat( geniko_data_val ) - parseFloat( input_val_h );
 	    			var apotelesma_h = parseFloat( $("#xwrisma_katheto0").val() ) + parseFloat( prwti_aferesi_h ); //+(arithmos_xwrismatwn_h-1)+
-	    			console.log(arithmos_xwrismatwn_h);
-	    			console.log(geniko_data_val);
-	    			console.log(apotelesma_h);
 	    			//elegxos max
 	    			if (  apotelesma_h <= max_height_anoigmatos && apotelesma_h >= min_height_anoigmatos ){
 	    				$("#xwrisma_katheto0").val( apotelesma_h );
@@ -307,21 +274,16 @@
 		$("#kasa_svg").attr( "y", rolo_epanw_xwros + profil_xwros + grammes_xwros );
 		$("#kasa_svg").css({ fill: color_typou });
 
-		console.log(table);
 		var tempArray = table.split('|');
 		var finalArray = [];
 		for (var i = 0; i < tempArray.length; i++) {
 		    finalArray[i] = tempArray[i].split(',');
 		} 
-		//console.log(finalArray.length); //numm of rows
-		//console.log(obj.length); //num of culs in the row
-		//console.log(value); //a,b,c για ζωγραφια
+
 		var mia_fora_mono = true;
 		var mpika = false;
 		$.each(finalArray , function( index, obj ) {
 		    $.each(obj, function( key, value ) {
-		        console.log("row:"+index);
-		        console.log("col:"+key);
 		        	//xwrismata = {};
 		        	teliko_width_px = ((metatropi_width( width_new ) - (2*profil_xwros) - grammes_xwros - (2*kasa_xwros)) * parseFloat($("#xwrisma_orizontio"+key+"").val())) / width_new;
 		        	//xwrismata['xwrisma_orizontio' + key] = (width_new/obj.length);
@@ -334,11 +296,9 @@
 		        	pragmatiko_mikos_mon = width_new;
 		        	pragmatiko_mikos_mon_px = sunoloko_mikos;
 		        	//Μονο για την πρωτη row γραμμη. Οριζοντια χωρισματα
-		        	console.log("Arithmos_kouf_se_seira: "+obj.length);
 		        	
 		        	if ( obj.length != 1 ){
 		        		if ( mia_fora_mono ){
-		        			console.log("Arithmos_kouf_se_seiraMESA_POLLA: "+obj.length);
 			        		mpika = true;
 			        	}
 		        		//τετραγωνα
@@ -413,7 +373,6 @@
 			    		
 		        		
 		        	}else if( (obj.length) == 1 && ( index != (finalArray.length-1) ) ){//den einai telegtaio
-		        		console.log("Arithmos_kouf_se_seiraMESA_OXI_TELOS: "+obj.length);
 		        		//τετραγωνα
 		        		var rect = makeSVG('line', {class:""+index+""+key+"2", display: "none", stroke: "black", 'stroke-width': 2, fill: 'none'});
 			    		rect.setAttribute('x1',profil_xwros+kasa_xwros );
@@ -433,7 +392,6 @@
 					    //rect.setAttribute('marker-start',"url(#triangle_a)");
 			    		//document.getElementById('svg').appendChild(rect);
 		        	}else if( (obj.length) == 1 && ( index == (finalArray.length-1) )){
-		        		console.log("Arithmos_kouf_se_seiraMESA_TELOS: "+obj.length);
 		        		//τετραγωνα
 		        		var rect = makeSVG('line', {class:""+index+""+key+"2", stroke: "black", 'stroke-width': 2, fill: 'none'});
 			    		rect.setAttribute('x1',profil_xwros+kasa_xwros );
@@ -620,9 +578,7 @@
 	        xwrisma_y_1 = $("#xwrisma_katheto0").val();
 	        xwrisma_y_2 = $("#xwrisma_katheto1").val();
 	    }
-		//console.log(finalArray.length); //numm of rows
-		//console.log(obj.length); //num of culs in the row
-		//console.log(value); //a,b,c για ζωγραφια
+
 		$.each(finalArray , function( index, obj ) {
 		    $.each(obj, function( key, value ) {
 					//Μπορω και ετσι να παρω length
@@ -647,8 +603,6 @@
 					    return Math.sqrt( (x2-=x1)*x2 + (y2-=y1)*y2 );
 					}
 
-		        	console.log("Width gramhhs: "+len );
-		        	console.log("Height gramhhs: "+het );
 			        //Εξω τετραγωνο με χρώμα
 			        var rect = makeSVG('rect', {class:""+index+""+key+"1" ,x: line.x1.baseVal.value, y: line2.y1.baseVal.value, width:len, height:het, stroke: 'black', 'stroke-width': 2, fill: 'red'});//(sunoloko_mikos/obj.length),(sunoloko_ypsos/finalArray.length)
 	        		document.getElementById('svg').appendChild(rect);
@@ -745,8 +699,6 @@
 			var x1_sum_orizontio = 0;
 			var x_sum_orizontio;
 		    $.each(obj, function( key, value ) {
-		        console.log("row:"+index);
-		        console.log("col:"+key);
 		        	//Διαχωρισμός χωρισματων
 		        	//Πραγματικο μικος-υψος
 		        	pragmatiko_mikos_dia = (width_new/obj.length);
@@ -784,7 +736,6 @@
 		        	
 		        	if ( obj.length != 1 ){
 		        		if ( mia_fora_mono ){
-		        			console.log("Arithmos_kouf_se_seiraMESA_POLLA: "+obj.length);
 			        		$('<p class="labels_sxedio" for="xwrisma_orizontio'+key+'">'+"<%= t('translate.Vertical') %>"+(key+1)+':<input type="text" class="orizontia" id="xwrisma_orizontio'+key+'" size="20" name="" value="'+xwrismata['xwrisma_orizontio' + key]+'" placeholder="'+xwrismata['xwrisma_orizontio' + key]+'" /></p>').appendTo($(".xwrismata_sxedio_orizontia"));
 			        		mpika = true;
 			        	}
@@ -1191,7 +1142,6 @@
 							}
 						}
 		        	}else if( (obj.length) == 1 && ( index != (finalArray.length-1) ) ){//den einai telegtaio
-		        		console.log("Arithmos_kouf_se_seiraMESA_OXI_TELOS: "+obj.length);
 		        		//τετραγωνα
 		        		var rect = makeSVG('line', {class:""+index+""+key+"2", display: "none", stroke: "black", 'stroke-width': 2, fill: 'none'});
 			    		rect.setAttribute('x1',profil_xwros+kasa_xwros );
@@ -1201,9 +1151,7 @@
 					    rect.setAttribute('marker-end',"url(#triangle_t)");
 					    rect.setAttribute('marker-start',"url(#triangle_a)");
 			    		document.getElementById('svg').appendChild(rect);
-		        	}else if( (obj.length) == 1 && ( index == (finalArray.length-1) )){
-		        		console.log("Arithmos_kouf_se_seiraMESA_TELOS: "+obj.length);
-		        		
+		        	}else if( (obj.length) == 1 && ( index == (finalArray.length-1) )){		        		
 		        		//τετραγωνα
 						/*var rect = makeSVG('line', {class:""+index+""+key+"2", stroke: "black", 'stroke-width': 2, fill: 'none'});
 			    		rect.setAttribute('x1',profil_xwros +kasa_xwros );
@@ -1464,6 +1412,8 @@
 	        xwrisma_y_1 = $("#xwrisma_katheto0").val();
 	        xwrisma_y_2 = $("#xwrisma_katheto1").val();
 	    }
+		var paidi_n = null;
+		var anoigma_n = null;
 		$.each(finalArray , function( index, obj ) {
 		    $.each(obj, function( key, value ) {
 		
@@ -1503,8 +1453,6 @@
 					    return Math.sqrt( (x2-=x1)*x2 + (y2-=y1)*y2 );
 					}
 
-		        	console.log("Width gramhhs: "+len );
-		        	console.log("Height gramhhs: "+het );
 			        //Εξω τετραγωνο με χρώμα
 			        var rect = makeSVG('rect', {class:""+index+""+key+"1" ,x: key*len+profil_xwros+kasa_xwros, y: index*het+rolo_epanw_xwros+profil_xwros+grammes_xwros+kasa_xwros, width:len, height:het, stroke: 'black', 'stroke-width': 2, fill: 'red'});//(sunoloko_mikos/obj.length),(sunoloko_ypsos/finalArray.length)
 	        		document.getElementById('svg').appendChild(rect);
@@ -1513,6 +1461,10 @@
 	        		document.getElementById('svg').appendChild(rect);
 
 	        		stroke_guro(""+index+""+key+"1",""+index+""+key+""+"mesa"+"",value);
+					if(value == "n") {
+						paidi_n = ""+index+""+key+""+"mesa"+"";
+						anoigma_n = value;
+					}
 		    });
 		});
 		stroke_profil_katw(sunoloko_mikos,sunoloko_ypsos,profil_xwros,rolo_epanw_xwros,kasa_xwros,grammes_xwros);
@@ -1523,6 +1475,8 @@
 		stroke_epikathimeno(sunoloko_mikos,profil_xwros,rolo_epanw_xwros,kasa_xwros,grammes_xwros);
 		stroke_ekswteriko(sunoloko_mikos,profil_xwros,rolo_epanw_xwros,kasa_xwros,grammes_xwros);
 		stroke_persides(sunoloko_mikos,profil_xwros,rolo_epanw_xwros,kasa_xwros,grammes_xwros);
+		if ( anoigma_n == "n")
+			stroke_n(paidi_n,anoigma_n);
 
 	}
 	
@@ -1555,8 +1509,6 @@
 		//Megales grammes
 		var svg_gia_metra = document.getElementById('kasa_svg');
 		var bBox = svg_gia_metra.getBBox();
-		console.log('XxY', bBox.x + 'x' + bBox.y);
-		console.log('size', bBox.width + 'x' + bBox.height);
 		width_grammis_epanw = bBox.width;
 		height_grammis_deksia = bBox.height;
 		arxi_genikis_grammis = profil_xwros;
@@ -1660,7 +1612,6 @@
 		//Ποσο ειναι αντιστιχα αυτο που εχω στο μικος
 		var auto_pou_leipei = ( (mikos * width) /  max_width_sxedio);
 		var pososto = mikos / auto_pou_leipei;
-		console.log(pososto);
 		eksw_width = ( ((max_width - (max_width/2) ) / pososto) + (max_width/2) );
 
 	  	return eksw_width;
@@ -1672,7 +1623,6 @@
 		//Ποσο ειναι αντιστιχα αυτο που εχω στο μικος
 		var auto_pou_leipei = ( (upsos * height) /  max_height_sxedio);
 		var pososto = upsos / auto_pou_leipei;
-		console.log(pososto);
 		eksw_height = ( ((max_height - (max_height/2) ) / pososto) + (max_height/2) );
 
 		//eksw_height = ( max_width * height_new / width_new );
@@ -1688,7 +1638,6 @@
     function stroke_guro(poio_einai,paidi,anoigma) {
     	//$("."+poio_einai+"").first().css({ stroke: color_typou });
     	//$("."+poio_einai+"").first().attr("stroke-width",10);
-    	console.log($("."+poio_einai+"").first().attr("width"));
         $("."+poio_einai+"").first().css({ fill: color_typou }); //"#5EAFD2"
         stroke_mesa(poio_einai,paidi,anoigma);
     }
@@ -1731,6 +1680,13 @@
     		$("."+paidi+"").first().attr('height', height_patera- aferesi_gia_lepto*2);
     		$("."+paidi+"").first().css({ fill: "#5EAFD2" });
     		$("."+paidi+"").first().css({ stroke: "black" });
+    	}
+    	if (anoigma == "n"){
+    		$("."+paidi+"").first().attr('x', x_patera);
+    		$("."+paidi+"").first().attr('y', y_patera);
+    		$("."+paidi+"").first().attr('width', width_patera);
+    		$("."+paidi+"").first().attr('height', height_patera);
+			$("."+paidi+"").first().css({ fill: "transparent" });
     	}
     	stroke_anoigma(aferesi_gia_xontro,paidi,anoigma);
     	
@@ -2728,5 +2684,21 @@
     		document.getElementById('svg').appendChild(rect);
     	}
     }
+	
+	function stroke_n(paidi,anoigma) {
+		var panw_aristera_x = parseInt( $("."+paidi+"").first().attr("x") );
+		var panw_aristera_y = parseInt( $("."+paidi+"").first().attr("y") );
+		var paidi_width = parseInt( $("."+paidi+"").first().attr("width") );
+		var paidi_height = parseInt( $("."+paidi+"").first().attr("height") );
+			
+		var $img_tag = document.createElementNS('http://www.w3.org/2000/svg','image');
+		$img_tag.setAttributeNS(null,'height', paidi_height);
+		$img_tag.setAttributeNS(null,'width', paidi_width);
+		$img_tag.setAttributeNS('http://www.w3.org/1999/xlink','href',$("img[panel_selected='yes']").attr("src"));
+		$img_tag.setAttributeNS(null, 'x', panw_aristera_x );
+		$img_tag.setAttributeNS(null, 'y', panw_aristera_y );
+		$img_tag.setAttributeNS(null, 'preserveAspectRatio', "none" );
+		document.getElementById('svg').appendChild($img_tag);
+	}
 	
 </script>
