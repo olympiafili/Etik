@@ -36,6 +36,13 @@ ActiveRecord::Schema.define(version: 20160719070630075818) do
   add_index "audits", ["request_uuid"], name: "index_audits_on_request_uuid", using: :btree
   add_index "audits", ["user_id", "user_type"], name: "user_index", using: :btree
 
+  create_table "cat_panels", force: true do |t|
+    t.string   "name"
+    t.string   "panel"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "cat_tzamia", force: true do |t|
     t.text     "name"
     t.text     "code"
@@ -598,6 +605,13 @@ ActiveRecord::Schema.define(version: 20160719070630075818) do
     t.integer  "pososto_sun"
     t.integer  "order"
     t.integer  "default"
+  end
+
+  create_table "supplier_panels", force: true do |t|
+    t.string   "name"
+    t.string   "panel"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "system_lines", force: true do |t|
