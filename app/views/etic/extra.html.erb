@@ -351,6 +351,7 @@
                       <label id="glass_0" class="label_tab_top active"><%= t('translate.Inside_Outside_glass') %></label>
                       <label id="glass_1" class="label_tab_top"><%= t('translate.Inside_glass') %></label>
                       <label id="glass_2" class="label_tab_top"><%= t('translate.Outside_glass') %></label>
+                      <label id="glass_3" class="label_tab_top"><%= t('translate.Panel') %></label>
                     </div>
                   </div>
                   <hr>
@@ -451,6 +452,40 @@
                         </div><!-- End extra -->
                       </div> <!--click_tzamia-->
                     </div><!-- end Τζαμια 2 -->
+                    <hr>
+                  </div>
+				  
+                  <!-- Panel -->
+                  <div class="glass_3 label_tab_bottom">
+                      <div class=""> 
+                        <div class="extra ">
+                          <!-- Κατηγοριες -->
+                          <div class="row">
+                            <div class="col-xs-6" >
+							<h5><%= t('translate.Supplier_Panel') %></h5>
+                              <div class="supplier_panels">
+                                <% @supplier_panels.each do |z| %>
+                                    <a  style="text-decoration: none; color:black;">
+                                      <label id="<%= z.id %>" class="sup_panels"><%= z.name %></label>
+                                    </a>
+                                <% end %><!--End each-->
+                              </div>
+                            </div>
+							<div class="col-xs-6">
+								<h5><%= t('translate.Type_Panel') %></h5>
+                                <div class="cat_panels" id="cat_panels">
+                                </div>
+							</div>
+							
+							<div class="col-xs-12 panels_wrapper">
+								<hr>
+                                <div class="panels" id="">
+                                </div>
+							</div>
+                          </div>
+                          
+                        </div><!-- End extra -->
+                      </div> <!--click_tzamia-->
                     <hr>
                   </div>
                   
@@ -920,7 +955,7 @@
       <div id="sxedio_new" height="400" width="400" style="width: 400px;">
         <%= render 'diafora/sxedio' %>
       </div> 
-      <div class="center_right">   
+      <div class="center_right" id="test">   
         <button type="button" id="home_right" class='btn btn-danger order_prin order_prin_deksia' ><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> <%= t 'translate.Continue' %></button>
         <button type="button" id="home_price" class='btn btn-warning order_price order_prin_deksia' ><span class="glyphicon glyphicon-euro" aria-hidden="true"></span> <%= t 'translate.Price' %></button>
       </div> 
@@ -2262,8 +2297,15 @@
 
     $(".kath_tzam").mouseup(function(){
       //$("#myForm").scrollTo("#pane_xrwma", 1000); //custom animation speed
-      $("#tab_leaf").click();
+		if($("#glass_3").css('display') == 'inline-block') {
+			$("#glass_3").click();
+		} else  
+    		$("#tab_leaf").click();
     });
+	
+	$(".panels_wrapper").on("mouseup", ".panel", function() {
+		$("#tab_leaf").click();
+	});
 
     $(".m_e").mouseup(function(){
       //$("#myForm").scrollTo(".xrwma_katw", 1000); //custom animation speed
@@ -2359,6 +2401,10 @@
     tzamia0 = 0;
     tzamia = 0;
     tzamia2 = 0;
+	panel = 1;
+	sup_panel = 1;
+	cat_panel = 1;
+	panel_img = "";
     prostasia = 0;
     typos = 0;
     color_typos = 0;
@@ -2595,7 +2641,10 @@
     $("input[name='cat_an']").change(function(){
        //$("#"+leaf_name).trigger("click");
 	   $("#1").trigger("click");
-	   
+	   $(".supplier_panels a:first-child .sup_panels").trigger("click");
+	   /*if($(this).attr("id") == "porta") {
+		   $("#tab_leaf").hide();
+	   }*/
        setTimeout(function(){
           $("#tab_material").click();
         },500);
@@ -2607,12 +2656,6 @@
       $(".open_categorie_table").text($( this ).attr('id'));
       //Παω στο υλικο
       $("#tab_material").click();
-      //var target = $("#pane_uliko");
-      //if (target.length) {
-      //  $('#myForm').animate({
-      //                scrollTop: target.position().top
-      //  }, 1000);
-      //}
 	  
       $.ajax({
         type:'GET',
@@ -2629,6 +2672,13 @@
 	  },
         error: function(data) {}
       });//end ajax
+	  
+	  //panels
+	  if($( this ).attr('class').split(' ')[0] != '5') {
+		  $("#glass_3, .glass_3").hide();
+	  } else {
+	  	  $("#glass_3, .glass_3").show();
+	  }
     });
 
     //..2..Υλικό. 
@@ -2662,7 +2712,6 @@
             var div_data = "<!--<a data-toggle='popover' title='' data-content='<div class=gen_info2 style=margin-top:10px;><p class=gen_p_info2>"+item.desc+"</p></div>' data-html='true' popover-append-to-body='true' class='bstooltip' data-original-title='<b>"+item.name+"<b>'>--><input class='kataskevastis hide_radio' type=radio name=cat_kata id="+item.name+"><label for="+item.name+">"+item.name+"</label><!--</a>-->";
               $(div_data).appendTo(".kataskevastes");
           })
-          //console.log(data); //Δινει στοιχεια για τα data
           //Κανονικα θα πρεπει να κανω κλικ σε αυτον που ειναι επιλεγμενος απο επαναληψη
           //$(".kataskevastis").trigger("click");
           //popover_open();
@@ -2795,11 +2844,9 @@
           var div_data = "<input class='system hide_radio' type=radio name=cat_syst id="+item.name+" ><label id="+item.id+" for="+item.name+">"+item.name+"</label><br>";
           $(div_data).appendTo(".systems");
         })
-        //console.log(data) //Δινει στοιχεια για τα data
         //$("#material_3").click();
         if ( "<%= @sys %>" == 1) {
           $("#"+"<%= @system.name %>").trigger("click");
-          //console.log(data[0].name);
         }else{
           $("#"+data[0].name).trigger("click");
         }
@@ -2844,7 +2891,6 @@
           var div_data2 = "<label class='line2' id="+item.id+"><img src=/assets/"+item.direct_img+" ></label>";
           $(div_data2).appendTo(line).hide().fadeIn(500);
         })
-        //console.log(data) //Δινει στοιχεια για τα data
         if ( "<%= @system.id %>" == syst ){
           $("#"+"<%= @line.name_allo %>").trigger("click");
         }else{
@@ -2895,14 +2941,22 @@
       type:'GET',
       url:'/etic/open_type',
       dataType: "json",
-      data: { open_categorie_name: $('input[name=cat_an]:checked', '#myForm').attr('id'), material_name: $('input[name=cat_mat]:checked', '#myForm').attr('id'), constructor_name: $('input[name=cat_kata]:checked', '#myForm').attr('id'), system_name: $('input[name=cat_syst]:checked', '#myForm').attr('id'), line_name: line_id_name, leaf_name: leaf_name   },
+      data: { open_categorie_name: $('input[name=cat_an]:checked', '#myForm').attr('id'), material_name: $('input[name=cat_mat]:checked', '#myForm').attr('id'), constructor_name: $('input[name=cat_kata]:checked', '#myForm').attr('id'), system_name: $('input[name=cat_syst]:checked', '#myForm').attr('id'), line_name: line_id_name, leaf_name: leaf_name, panel: panel },
       success: function(data) { 
-        $.each(data, function(i, item) { //Για κάθε data που παίρνω κανω τα παρακάτο 
-          var open_div = "<div class='tipos_anoigmatos img-responsive' id="+item.id+"><div class=tipos_name_ekso><h5 class=tipos_name >"+item.name+"</h5></div><img class=img-responsive id="+item.code+" src=/assets/"+item.image+" ></div>" 
+        $.each(data.open_type1, function(i, item) { //Για κάθε data που παίρνω κανω τα παρακάτο 
+		if($("#glass_3").css('display') == 'inline-block') {
+			var classname = "";
+			if((data.panel.direction == "left" && item.image == "29.2.png") || (data.panel.direction == "right" && item.image == "29.1.png"))
+				classname = "classhide"
+			var open_div = "<div class='tipos_anoigmatos img-responsive "+classname+"' id="+item.id+"><div class=tipos_name_ekso><h5 class=tipos_name >"+item.name+"</h5></div><img class=img-responsive id="+item.code+" src=/assets/"+item.image+" ><img class='dir-"+data.panel.direction+" img-responsive panel-img-inner' src=/assets/doors/"+data.panel.image+" ></div>";
+			
+		} else {
+			var open_div = "<div class='tipos_anoigmatos img-responsive' id="+item.id+"><div class=tipos_name_ekso><h5 class=tipos_name >"+item.name+"</h5></div><img class=img-responsive id="+item.code+" src=/assets/"+item.image+" ></div>" 
+		}
+          
           $(open_div).appendTo(".ajax_open_type");
              
         })
-        //console.log(data) //Δινει στοιχεια για τα data
         kanw = false;
         if ( "<%= @open_type_epilegmeno.id %>" != ""){
           $(".tipos_anoigmatos").each(function( index ) {
@@ -3032,8 +3086,6 @@
               }
           }
           else{
-            //alert("Prwtes");
-            //$("#tab_glass").trigger('click');
             kanw_prwti_fora_tzami = false;
             if( "<%= @tzami0_id %>" == "" ){
                 if ( syst == "1" || syst == "4" ){
@@ -3306,7 +3358,6 @@
         },500);
         //Ξαναπερναω ολα τα extra για να υπαρχει ο ΕΛΕΓΧΟΣ στις διαστασεις
         if ( !extra_diastaseis_flag ) {
-          console.log("NANANANANAN");
         }else{
           if (typeof kinisi !== "undefined" ){
             kinisi = kinisi;
@@ -3485,7 +3536,6 @@
           profil_typos_2_json_arithmos = "0";
           profil_typos_3_id = "0";
           profil_typos_3_json_arithmos = "0";
-          //console.log("typos:"+typos_katw_1a);
           $.ajax({
             
             type:'GET',
@@ -3493,10 +3543,7 @@
             dataType: "json",
             data: {open_cat: $('input[name=cat_an]:checked', '#myForm').attr('id'), lastixa: lastixo_epilogh,cat_tzamia0: cat_tzamia0, cat_tzamia: cat_tzamia, cat_tzamia2: cat_tzamia2, tzamia0: tzamia0, tzamia: tzamia, tzamia2: tzamia2,cat_rolo: cat_rolo, rolo_name: rolo_name, xrwma_rolo: xrwma_rolo ,kinisi_deksia_aristera: kinisi, klap_ep: klap_ep, deroll: deroll, pl_rolou_ek: pl_rol_ek,pl_rolou_ep: pl_rol_ep, up_rolou_ep: up_rol_ep, up_rolou_ek: up_rol_ek, persida: persida , xrwma_persidas: color_persidas ,pl_persidas: pl_persidas,up_persidas: up_persidas,odoigos: odoigos,xrwma_odoigou: color_odoigou,up_odigou: up_odoigou, prostasia: prostasia, typos: typos_katw_1a, typos_col: color_profil_katw, pr_ar_1: profil_aristera_1a, col_ar: color_profil_aristera, pr_ar_1_ar: profil_aristera_1_arithmosa, pr_ar_2: profil_aristera_2a, col_ar: color_profil_aristera, pr_ar_2_ar: profil_aristera_2_arithmosa, pr_ar_3: profil_aristera_3a, col_ar: color_profil_aristera, pr_ar_3_ar: profil_aristera_3_arithmosa, pr_de_1: profil_deksia_1a, col_de: color_profil_deksia, pr_de_1_de: profil_deksia_1_arithmosa, pr_de_2: profil_deksia_2a, col_de: color_profil_deksia, pr_de_2_de: profil_deksia_2_arithmosa, pr_de_3: profil_deksia_3a, col_de: color_profil_deksia, pr_de_3_de: profil_deksia_3_arithmosa, pr_pa_1: profil_panw_1a, col_pa: color_profil_panw, pr_pa_1_pa: profil_panw_1_arithmosa, pr_pa_2: profil_panw_2a, col_pa: color_profil_panw, pr_pa_2_pa: profil_panw_2_arithmosa, pr_pa_3: profil_panw_3a, col_pa: color_profil_panw, pr_pa_3_pa: profil_panw_3_arithmosa, pr_ka_1: profil_katw_1a, col_ka: color_profil_katw, pr_ka_1_ka: profil_katw_1_arithmosa, pr_ka_2: profil_katw_2a, col_ka: color_profil_katw, pr_ka_2_ka: profil_katw_2_arithmosa, pr_ka_3: profil_katw_3a, col_ka: color_profil_katw, pr_ka_3_ka: profil_katw_3_arithmosa  },
             success: function(data) { 
-              //console.log("Metra= "+epanal_width);
-              //console.log(epanal_height);
-              //console.log("Metra2= "+$("#width").val());
-              //console.log($("#height").val());
+             
               if ( (epanal_width == $("#width").val()) && (epanal_height == $("#height").val()) ){
                 pl_rolou_ek_0 = data.pl_rolou_ek;
                 up_rolou_ek_0 = data.up_rolou_ek;
@@ -3519,7 +3566,6 @@
               nea_extra(data.lastixa,data.tzami0_id, data.tzami0_cat ,data.tzami_id ,data.tzami_cat ,data.tzami2_id ,data.tzami2_cat,data.cat_rolo, data.rolo_id, data.ti_rolo , data.color_rolo , pl_rolou_ek_0 , up_rolou_ek_0, pl_rolou_ep_0, up_rolou_ep_0 , data.kinisi_deksia_aristera , data.persida_id, data.color_persidas , pl_persidas_0 , up_persidas_0, data.odoigos_id , data.color_odoigou , up_odoigou_0 , data.prostasia_id , data.typos_id , data.color_typos , data.typos_arithmos, data.col_ar, data.epilogi_ar_1, data.pr_ar_1_ar, data.pr_ar_1_id, data.epilogi_ar_2, data.pr_ar_2_ar, data.pr_ar_2_id, data.epilogi_ar_3, data.pr_ar_3_ar, data.pr_ar_3_id, data.col_de,  data.epilogi_de_1, data.pr_de_1_de, data.pr_de_1_id, data.epilogi_de_2, data.pr_de_2_de, data.pr_de_2_id, data.epilogi_de_3, data.pr_de_3_de, data.pr_de_3_id, data.col_pa, data.epilogi_pa_1, data.pr_pa_1_pa, data.pr_pa_1_id, data.epilogi_pa_2, data.pr_pa_2_pa, data.pr_pa_2_id, data.epilogi_pa_3, data.pr_pa_3_pa, data.pr_pa_3_id, data.col_ka , data.epilogi_ka_1, data.pr_ka_1_ka, data.pr_ka_1_id, data.epilogi_ka_2, data.pr_ka_2_ka, data.pr_ka_2_id, data.epilogi_ka_3, data.pr_ka_3_ka, data.pr_ka_3_id );
               
 
-                console.log(data); //Δινει στοιχεια για τα data
               },
             error: function(data) { 
               }
@@ -3596,43 +3642,43 @@
 
     $(".epik_none").on("blur", ".pl_rol_ep", function() {
       pl_rol_ep = $(".pl_rol_ep").val();
-      console.log(pl_rol_ep);
+	  
       times_json(tipos_name_gia_xrwma, $(".width").text(), $(".height").text(), line_id_name, mesa_eksw, color_aplo, width_new ,height_new, epikathimeno_rolo,eksoteriko_rolo,persida,tzamia,profil_deksia,profil_aristera,profil_panw,profil_katw,$(".input_deksia").val(),$(".input_panw").val(),$(".input_katw").val(),$(".input_aristera").val(),typos,color_typos,odoigos,$(".color_deksia").text(),$(".color_aristera").text(),$(".color_panw").text(),$(".color_katw").text(),$(".color_fullou").text(),0,profil_deksia_1_id,profil_deksia_1_json_arithmos,profil_deksia_2_id,profil_deksia_2_json_arithmos,profil_deksia_3_id,profil_deksia_3_json_arithmos,profil_aristera_1_id,profil_aristera_1_json_arithmos,profil_aristera_2_id,profil_aristera_2_json_arithmos,profil_aristera_3_id,profil_aristera_3_json_arithmos,profil_panw_1_id,profil_panw_1_json_arithmos,profil_panw_2_id,profil_panw_2_json_arithmos,profil_panw_3_id,profil_panw_3_json_arithmos,profil_katw_1_id,profil_katw_1_json_arithmos,profil_katw_2_id,profil_katw_2_json_arithmos,profil_katw_3_id,profil_katw_3_json_arithmos,profil_typos_1_id,profil_typos_1_json_arithmos,profil_typos_2_id,profil_typos_2_json_arithmos,profil_typos_3_id,profil_typos_3_json_arithmos,prostasia,tzamia2,lastixo_epilogh,pl_rol_ep,up_rol_ep,pl_rol_ek,up_rol_ek,pl_persidas,up_persidas,up_odoigou,color_epikathimenou,color_eksoterikou,color_persidas,color_odoigou,color_profil_katw,color_profil_deksia,color_profil_aristera,color_profil_panw,elegxos_gia_parapanw_diastaseis_w,elegxos_gia_parapanw_diastaseis_h,xwrisma1,xwrisma2,xwrisma_y_1,xwrisma_y_2,xwrisma3_1,xwrisma3_2,xwrisma3_3,color_aplo_eksw,tzamia0,xwrisma4_1,xwrisma4_2,xwrisma4_3,xwrisma4_4);
 
     });
     $(".epik_none").on("blur", ".up_rol_ep", function() {
       up_rol_ep = $(".up_rol_ep").val();
-      console.log(up_rol_ep);
+	  
       times_json(tipos_name_gia_xrwma, $(".width").text(), $(".height").text(), line_id_name, mesa_eksw, color_aplo, width_new ,height_new, epikathimeno_rolo,eksoteriko_rolo,persida,tzamia,profil_deksia,profil_aristera,profil_panw,profil_katw,$(".input_deksia").val(),$(".input_panw").val(),$(".input_katw").val(),$(".input_aristera").val(),typos,color_typos,odoigos,$(".color_deksia").text(),$(".color_aristera").text(),$(".color_panw").text(),$(".color_katw").text(),$(".color_fullou").text(),0,profil_deksia_1_id,profil_deksia_1_json_arithmos,profil_deksia_2_id,profil_deksia_2_json_arithmos,profil_deksia_3_id,profil_deksia_3_json_arithmos,profil_aristera_1_id,profil_aristera_1_json_arithmos,profil_aristera_2_id,profil_aristera_2_json_arithmos,profil_aristera_3_id,profil_aristera_3_json_arithmos,profil_panw_1_id,profil_panw_1_json_arithmos,profil_panw_2_id,profil_panw_2_json_arithmos,profil_panw_3_id,profil_panw_3_json_arithmos,profil_katw_1_id,profil_katw_1_json_arithmos,profil_katw_2_id,profil_katw_2_json_arithmos,profil_katw_3_id,profil_katw_3_json_arithmos,profil_typos_1_id,profil_typos_1_json_arithmos,profil_typos_2_id,profil_typos_2_json_arithmos,profil_typos_3_id,profil_typos_3_json_arithmos,prostasia,tzamia2,lastixo_epilogh,pl_rol_ep,up_rol_ep,pl_rol_ek,up_rol_ek,pl_persidas,up_persidas,up_odoigou,color_epikathimenou,color_eksoterikou,color_persidas,color_odoigou,color_profil_katw,color_profil_deksia,color_profil_aristera,color_profil_panw,elegxos_gia_parapanw_diastaseis_w,elegxos_gia_parapanw_diastaseis_h,xwrisma1,xwrisma2,xwrisma_y_1,xwrisma_y_2,xwrisma3_1,xwrisma3_2,xwrisma3_3,color_aplo_eksw,tzamia0,xwrisma4_1,xwrisma4_2,xwrisma4_3,xwrisma4_4);
 
     });
     $(".ekso_none").on("blur", ".pl_rol_ek", function() {
       pl_rol_ek = $(".pl_rol_ek").val();
-      console.log(pl_rol_ek);
+	  
       times_json(tipos_name_gia_xrwma, $(".width").text(), $(".height").text(), line_id_name, mesa_eksw, color_aplo, width_new ,height_new, epikathimeno_rolo,eksoteriko_rolo,persida,tzamia,profil_deksia,profil_aristera,profil_panw,profil_katw,$(".input_deksia").val(),$(".input_panw").val(),$(".input_katw").val(),$(".input_aristera").val(),typos,color_typos,odoigos,$(".color_deksia").text(),$(".color_aristera").text(),$(".color_panw").text(),$(".color_katw").text(),$(".color_fullou").text(),0,profil_deksia_1_id,profil_deksia_1_json_arithmos,profil_deksia_2_id,profil_deksia_2_json_arithmos,profil_deksia_3_id,profil_deksia_3_json_arithmos,profil_aristera_1_id,profil_aristera_1_json_arithmos,profil_aristera_2_id,profil_aristera_2_json_arithmos,profil_aristera_3_id,profil_aristera_3_json_arithmos,profil_panw_1_id,profil_panw_1_json_arithmos,profil_panw_2_id,profil_panw_2_json_arithmos,profil_panw_3_id,profil_panw_3_json_arithmos,profil_katw_1_id,profil_katw_1_json_arithmos,profil_katw_2_id,profil_katw_2_json_arithmos,profil_katw_3_id,profil_katw_3_json_arithmos,profil_typos_1_id,profil_typos_1_json_arithmos,profil_typos_2_id,profil_typos_2_json_arithmos,profil_typos_3_id,profil_typos_3_json_arithmos,prostasia,tzamia2,lastixo_epilogh,pl_rol_ep,up_rol_ep,pl_rol_ek,up_rol_ek,pl_persidas,up_persidas,up_odoigou,color_epikathimenou,color_eksoterikou,color_persidas,color_odoigou,color_profil_katw,color_profil_deksia,color_profil_aristera,color_profil_panw,elegxos_gia_parapanw_diastaseis_w,elegxos_gia_parapanw_diastaseis_h,xwrisma1,xwrisma2,xwrisma_y_1,xwrisma_y_2,xwrisma3_1,xwrisma3_2,xwrisma3_3,color_aplo_eksw,tzamia0,xwrisma4_1,xwrisma4_2,xwrisma4_3,xwrisma4_4);
 
     });
     $(".ekso_none").on("blur", ".up_rol_ek", function() {
       up_rol_ek = $(".up_rol_ek").val();
-      console.log(up_rol_ek);
+      
       times_json(tipos_name_gia_xrwma, $(".width").text(), $(".height").text(), line_id_name, mesa_eksw, color_aplo, width_new ,height_new, epikathimeno_rolo,eksoteriko_rolo,persida,tzamia,profil_deksia,profil_aristera,profil_panw,profil_katw,$(".input_deksia").val(),$(".input_panw").val(),$(".input_katw").val(),$(".input_aristera").val(),typos,color_typos,odoigos,$(".color_deksia").text(),$(".color_aristera").text(),$(".color_panw").text(),$(".color_katw").text(),$(".color_fullou").text(),0,profil_deksia_1_id,profil_deksia_1_json_arithmos,profil_deksia_2_id,profil_deksia_2_json_arithmos,profil_deksia_3_id,profil_deksia_3_json_arithmos,profil_aristera_1_id,profil_aristera_1_json_arithmos,profil_aristera_2_id,profil_aristera_2_json_arithmos,profil_aristera_3_id,profil_aristera_3_json_arithmos,profil_panw_1_id,profil_panw_1_json_arithmos,profil_panw_2_id,profil_panw_2_json_arithmos,profil_panw_3_id,profil_panw_3_json_arithmos,profil_katw_1_id,profil_katw_1_json_arithmos,profil_katw_2_id,profil_katw_2_json_arithmos,profil_katw_3_id,profil_katw_3_json_arithmos,profil_typos_1_id,profil_typos_1_json_arithmos,profil_typos_2_id,profil_typos_2_json_arithmos,profil_typos_3_id,profil_typos_3_json_arithmos,prostasia,tzamia2,lastixo_epilogh,pl_rol_ep,up_rol_ep,pl_rol_ek,up_rol_ek,pl_persidas,up_persidas,up_odoigou,color_epikathimenou,color_eksoterikou,color_persidas,color_odoigou,color_profil_katw,color_profil_deksia,color_profil_aristera,color_profil_panw,elegxos_gia_parapanw_diastaseis_w,elegxos_gia_parapanw_diastaseis_h,xwrisma1,xwrisma2,xwrisma_y_1,xwrisma_y_2,xwrisma3_1,xwrisma3_2,xwrisma3_3,color_aplo_eksw,tzamia0,xwrisma4_1,xwrisma4_2,xwrisma4_3,xwrisma4_4);
 
     });
     $(".diorth_per").on("blur", ".pl_persidas", function() {
       pl_persidas = $(".pl_persidas").val();
-      console.log(pl_persidas);
+      
       times_json(tipos_name_gia_xrwma, $(".width").text(), $(".height").text(), line_id_name, mesa_eksw, color_aplo, width_new ,height_new, epikathimeno_rolo,eksoteriko_rolo,persida,tzamia,profil_deksia,profil_aristera,profil_panw,profil_katw,$(".input_deksia").val(),$(".input_panw").val(),$(".input_katw").val(),$(".input_aristera").val(),typos,color_typos,odoigos,$(".color_deksia").text(),$(".color_aristera").text(),$(".color_panw").text(),$(".color_katw").text(),$(".color_fullou").text(),0,profil_deksia_1_id,profil_deksia_1_json_arithmos,profil_deksia_2_id,profil_deksia_2_json_arithmos,profil_deksia_3_id,profil_deksia_3_json_arithmos,profil_aristera_1_id,profil_aristera_1_json_arithmos,profil_aristera_2_id,profil_aristera_2_json_arithmos,profil_aristera_3_id,profil_aristera_3_json_arithmos,profil_panw_1_id,profil_panw_1_json_arithmos,profil_panw_2_id,profil_panw_2_json_arithmos,profil_panw_3_id,profil_panw_3_json_arithmos,profil_katw_1_id,profil_katw_1_json_arithmos,profil_katw_2_id,profil_katw_2_json_arithmos,profil_katw_3_id,profil_katw_3_json_arithmos,profil_typos_1_id,profil_typos_1_json_arithmos,profil_typos_2_id,profil_typos_2_json_arithmos,profil_typos_3_id,profil_typos_3_json_arithmos,prostasia,tzamia2,lastixo_epilogh,pl_rol_ep,up_rol_ep,pl_rol_ek,up_rol_ek,pl_persidas,up_persidas,up_odoigou,color_epikathimenou,color_eksoterikou,color_persidas,color_odoigou,color_profil_katw,color_profil_deksia,color_profil_aristera,color_profil_panw,elegxos_gia_parapanw_diastaseis_w,elegxos_gia_parapanw_diastaseis_h,xwrisma1,xwrisma2,xwrisma_y_1,xwrisma_y_2,xwrisma3_1,xwrisma3_2,xwrisma3_3,color_aplo_eksw,tzamia0,xwrisma4_1,xwrisma4_2,xwrisma4_3,xwrisma4_4);
 
     });
     $(".diorth_per").on("blur", ".up_persidas", function() {
       up_persidas = $(".up_persidas").val();
-      console.log(pl_persidas);
+      
       times_json(tipos_name_gia_xrwma, $(".width").text(), $(".height").text(), line_id_name, mesa_eksw, color_aplo, width_new ,height_new, epikathimeno_rolo,eksoteriko_rolo,persida,tzamia,profil_deksia,profil_aristera,profil_panw,profil_katw,$(".input_deksia").val(),$(".input_panw").val(),$(".input_katw").val(),$(".input_aristera").val(),typos,color_typos,odoigos,$(".color_deksia").text(),$(".color_aristera").text(),$(".color_panw").text(),$(".color_katw").text(),$(".color_fullou").text(),0,profil_deksia_1_id,profil_deksia_1_json_arithmos,profil_deksia_2_id,profil_deksia_2_json_arithmos,profil_deksia_3_id,profil_deksia_3_json_arithmos,profil_aristera_1_id,profil_aristera_1_json_arithmos,profil_aristera_2_id,profil_aristera_2_json_arithmos,profil_aristera_3_id,profil_aristera_3_json_arithmos,profil_panw_1_id,profil_panw_1_json_arithmos,profil_panw_2_id,profil_panw_2_json_arithmos,profil_panw_3_id,profil_panw_3_json_arithmos,profil_katw_1_id,profil_katw_1_json_arithmos,profil_katw_2_id,profil_katw_2_json_arithmos,profil_katw_3_id,profil_katw_3_json_arithmos,profil_typos_1_id,profil_typos_1_json_arithmos,profil_typos_2_id,profil_typos_2_json_arithmos,profil_typos_3_id,profil_typos_3_json_arithmos,prostasia,tzamia2,lastixo_epilogh,pl_rol_ep,up_rol_ep,pl_rol_ek,up_rol_ek,pl_persidas,up_persidas,up_odoigou,color_epikathimenou,color_eksoterikou,color_persidas,color_odoigou,color_profil_katw,color_profil_deksia,color_profil_aristera,color_profil_panw,elegxos_gia_parapanw_diastaseis_w,elegxos_gia_parapanw_diastaseis_h,xwrisma1,xwrisma2,xwrisma_y_1,xwrisma_y_2,xwrisma3_1,xwrisma3_2,xwrisma3_3,color_aplo_eksw,tzamia0,xwrisma4_1,xwrisma4_2,xwrisma4_3,xwrisma4_4);
 
     });
     $(".diorth_odoi").on("blur", ".up_odoigou", function() {
       up_odoigou = $(".up_odoigou").val();
-      console.log(up_odoigou);
+      
       times_json(tipos_name_gia_xrwma, $(".width").text(), $(".height").text(), line_id_name, mesa_eksw, color_aplo, width_new ,height_new, epikathimeno_rolo,eksoteriko_rolo,persida,tzamia,profil_deksia,profil_aristera,profil_panw,profil_katw,$(".input_deksia").val(),$(".input_panw").val(),$(".input_katw").val(),$(".input_aristera").val(),typos,color_typos,odoigos,$(".color_deksia").text(),$(".color_aristera").text(),$(".color_panw").text(),$(".color_katw").text(),$(".color_fullou").text(),0,profil_deksia_1_id,profil_deksia_1_json_arithmos,profil_deksia_2_id,profil_deksia_2_json_arithmos,profil_deksia_3_id,profil_deksia_3_json_arithmos,profil_aristera_1_id,profil_aristera_1_json_arithmos,profil_aristera_2_id,profil_aristera_2_json_arithmos,profil_aristera_3_id,profil_aristera_3_json_arithmos,profil_panw_1_id,profil_panw_1_json_arithmos,profil_panw_2_id,profil_panw_2_json_arithmos,profil_panw_3_id,profil_panw_3_json_arithmos,profil_katw_1_id,profil_katw_1_json_arithmos,profil_katw_2_id,profil_katw_2_json_arithmos,profil_katw_3_id,profil_katw_3_json_arithmos,profil_typos_1_id,profil_typos_1_json_arithmos,profil_typos_2_id,profil_typos_2_json_arithmos,profil_typos_3_id,profil_typos_3_json_arithmos,prostasia,tzamia2,lastixo_epilogh,pl_rol_ep,up_rol_ep,pl_rol_ek,up_rol_ek,pl_persidas,up_persidas,up_odoigou,color_epikathimenou,color_eksoterikou,color_persidas,color_odoigou,color_profil_katw,color_profil_deksia,color_profil_aristera,color_profil_panw,elegxos_gia_parapanw_diastaseis_w,elegxos_gia_parapanw_diastaseis_h,xwrisma1,xwrisma2,xwrisma_y_1,xwrisma_y_2,xwrisma3_1,xwrisma3_2,xwrisma3_3,color_aplo_eksw,tzamia0,xwrisma4_1,xwrisma4_2,xwrisma4_3,xwrisma4_4);
 
     });
@@ -3664,7 +3710,6 @@
             var div_data = "<div class='xrwma xrwma2'><h5 class='tipos_name'> "+item.name+" </h5><img src='/assets/"+item.image+"' class=color_deksia_profil id="+item.name+"><span id="+item.code+"></span></div>";
             $(div_data).appendTo(".ola_ta_profil_deksia_color");
           })
-        console.log(data) //Δινει στοιχεια για τα data
       },
       error: function(data) { 
       }
@@ -3767,10 +3812,8 @@
           $('.modal').modal('hide');
           $('.modal').modal('hide');
           $('.modal-backdrop').remove();
-          console.log("Width new"+width_new);
 
           //deksia_hide_modal = true;
-          //alert(typeof(ti_epeleksa));
           if(typeof ti_epeleksa === 'undefined'){
              ti_epeleksa = 0;
            };
@@ -3791,11 +3834,7 @@
               $(".diastaseis_table_extra_tm").append( ( (parseFloat(width_new)*parseFloat(height_new))/1000000 ).toFixed(2)+" <p>m"+"2".sup()+"</p>" );
               var index = functiontofindIndexByKeyValue(profil_deksia_array, "id", profil_deksia_new);
               if (index > -1) {
-                  console.log("Profil:"+profil_deksia_new);
                   profil_deksia_array.splice(index, 1);
-                  console.log("Μετα απο αλλαγη");
-                  console.log(profil_deksia_array);
-                  console.log("Μετα απο αλλαγη");
                   if ( index == 0 ){
                   //profil_deksia_1_id = 0;
                   //profil_deksia_1_json_arithmos = 0;
@@ -3825,8 +3864,7 @@
             }
 
             width_profil = Number(epilogi.next().attr('id'));
-            console.log("Width profil"+width_profil);
-            console.log("Width new"+width_new);
+
             $.ajax({
               
                 type:'GET',
@@ -3845,8 +3883,7 @@
                   //////////////////////////////////////////////////////////////////////////////
                   profil_deksia_counter = profil_deksia_counter + 1;
                   sunolika_profil_deksia = sunolika_profil_deksia + parseInt(ti_epeleksa);
-                  console.log("Counter: "+profil_deksia_counter);
-                  console.log("Sunolika: "+sunolika_profil_deksia);
+
                   if (sunolika_profil_deksia <= 3 && profil_deksia_counter <= 3){
                   if(profil_deksia_counter == 1){
                       profil_deksia_1 = new deksia_profil(profil_deksia_new, ti_epeleksa, profil_deksia_counter);
@@ -3855,9 +3892,7 @@
                       profil_deksia_1_id = profil_deksia_new;
                       profil_deksia_1_json_arithmos = ti_epeleksa;
                       //
-                      console.log(profil_deksia_1);
                       profil_deksia_array.push(profil_deksia_1);
-                      console.log(profil_deksia_array);
                   }else if( profil_deksia_counter == 2){
                     profil_deksia_2 = new deksia_profil(profil_deksia_new, ti_epeleksa, profil_deksia_counter);
                     //sunolika_profil_deksia = sunolika_profil_deksia + ti_epeleksa;
@@ -3865,9 +3900,7 @@
                     profil_deksia_2_id = profil_deksia_new;
                     profil_deksia_2_json_arithmos = ti_epeleksa;
                     //
-                    console.log(profil_deksia_2);
                     profil_deksia_array.push(profil_deksia_2);
-                    console.log(profil_deksia_array);
                   }else if( profil_deksia_counter == 3){
                     profil_deksia_3 = new deksia_profil(profil_deksia_new, ti_epeleksa, profil_deksia_counter);
                     //sunolika_profil_deksia = sunolika_profil_deksia + ti_epeleksa;
@@ -3875,18 +3908,14 @@
                     profil_deksia_3_id = profil_deksia_new;
                     profil_deksia_3_json_arithmos = ti_epeleksa;
                     //
-                    console.log(profil_deksia_3);
                     profil_deksia_array.push(profil_deksia_3);
-                    console.log(profil_deksia_array);
                   }
           
                   }//end if ελεγχου <= 3
                   else{
                       profil_deksia_counter = profil_deksia_counter - 1;
                       sunolika_profil_deksia = sunolika_profil_deksia - parseInt(ti_epeleksa);
-                      console.log("Counter: "+profil_deksia_counter);
-                      console.log("Sunolika: "+sunolika_profil_deksia);
-
+                      
                       width_new = width_new + (width_profil * parseInt(ti_epeleksa));
                       $(".diastaseis_extra").text(width_new +"X"+height_new);
                       $(".diastaseis_table_extra_tm").empty();
@@ -3901,7 +3930,6 @@
                   }
 
                   if (sunolika_profil_deksia > 0 && profil_deksia_counter > 0){
-                  console.log("Μπηκα στο ιφ");
                   //Αν μπει κανονικα το προφιλ, τοτε το ζογραφιζω
                   if ( profil_deksia_new !== "32" && profil_deksia_new !== "33" && profil_deksia_new !== "34" ){
                     $(".ola_ta_profil_deksia_color").show();
@@ -4038,7 +4066,7 @@
             if (result.length == 0) {
               // not found
             } else if (result.length == 1) {
-              console.log(result[0].arithmo);
+              
               sunolika_profil_deksia = sunolika_profil_deksia - parseInt(result[0].arithmo);
               width_new = width_new + (width_profil * result[0].arithmo);
               $(".diastaseis_extra").text(width_new +"X"+height_new);
@@ -4049,7 +4077,7 @@
               // multiple items found
             }
             var index = functiontofindIndexByKeyValue(profil_deksia_array, "id", profil_deksia_new);
-            console.log(index);
+           
             if (index > -1) {
                 profil_deksia_array.splice(index, 1);
 
@@ -4079,15 +4107,10 @@
             if ( index != null ){
               profil_deksia_counter = profil_deksia_counter - 1;
             }
-            //console.log(profil_deksia_array);
             $( epilogi ).css("background-color","");//Ετσι αφαιρω την ιδιοτητα!!!
             $( epilogi ).css("color","");
-            console.log("Counter: "+profil_deksia_counter);
-            console.log("Sunolika: "+sunolika_profil_deksia);
-            console.log("Μετα απο διαγραφή"+profil_deksia_array);
 
             if (sunolika_profil_deksia > 0 && profil_deksia_counter > 0){
-            console.log("Μπηκα στο ιφ");
             //Αν μπει κανονικα το προφιλ, τοτε το ζογραφιζω
             if ( profil_deksia_new !== "32" && profil_deksia_new !== "33" && profil_deksia_new !== "34" ){
                     $(".ola_ta_profil_deksia_color").show();
@@ -4217,7 +4240,6 @@
             var div_data = "<div class='xrwma xrwma2'><h5 class='tipos_name'> "+item.name+" </h5><img src='/assets/"+item.image+"' class=color_aristera_profil id="+item.name+"><span id="+item.code+"></span></div>";
             $(div_data).appendTo(".ola_ta_profil_aristera_color");
           })
-        console.log(data) //Δινει στοιχεια για τα data
       },
       error: function(data) { 
       }
@@ -4302,7 +4324,6 @@
     $(".modal_a").on("click", ".arithmos_profil_aristera", function() {
           //ti_epeleksa_a = $("input:checked").val();
           ti_epeleksa_a = $('input[name=optradio_a]:checked', '#myForm_a').val();
-          console.log("Ti epeleksa:"+ti_epeleksa_a);
           $('.modal_a').modal('hide');
           $('.modal_a').modal('hide');
           $('.modal-backdrop').remove();
@@ -4330,7 +4351,6 @@
               var index = functiontofindIndexByKeyValue(profil_aristera_array, "id", profil_aristera_new);
               if (index > -1) {
                   profil_aristera_array.splice(index, 1);
-                  console.log("Μετα απο αλλαγη"+profil_aristera_array);
                   if ( index == 0 ){
                   //profil_deksia_1_id = 0;
                   //profil_deksia_1_json_arithmos = 0;
@@ -4364,9 +4384,7 @@
               //prof = "<%= @pr_ar_1_id %>";
               //profil_aristera_new = prof;
             //}
-            
-            console.log("Width profil"+width_profil_a);
-            console.log("anoigma: "+tipos_name_gia_xrwma)
+
             $.ajax({
               
                 type:'GET',
@@ -4385,8 +4403,7 @@
                   //////////////////////////////////////////////////////////////////////////////
                   profil_aristera_counter = profil_aristera_counter + 1;
                   sunolika_profil_aristera = sunolika_profil_aristera + parseInt(ti_epeleksa_a);
-                  console.log("Counter: "+profil_aristera_counter);
-                  console.log("Sunolika: "+sunolika_profil_aristera);
+                 
                   if (sunolika_profil_aristera <= 3 && profil_aristera_counter <= 3){
                   if(profil_aristera_counter == 1){
                       profil_aristera_1 = new aristera_profil(profil_aristera_new, ti_epeleksa_a, profil_aristera_counter);
@@ -4395,9 +4412,7 @@
                       profil_aristera_1_id = profil_aristera_new;
                       profil_aristera_1_json_arithmos = ti_epeleksa_a;
                       //
-                      console.log(profil_aristera_1);
                       profil_aristera_array.push(profil_aristera_1);
-                      console.log(profil_aristera_array);
                   }else if( profil_aristera_counter == 2){
                     profil_aristera_2 = new aristera_profil(profil_aristera_new, ti_epeleksa_a, profil_aristera_counter);
                     //sunolika_profil_deksia = sunolika_profil_deksia + ti_epeleksa;
@@ -4405,9 +4420,7 @@
                     profil_aristera_2_id = profil_aristera_new;
                     profil_aristera_2_json_arithmos = ti_epeleksa_a;
                     //
-                    console.log(profil_aristera_2);
                     profil_aristera_array.push(profil_aristera_2);
-                    console.log(profil_aristera_array);
                   }else if( profil_aristera_counter == 3){
                     profil_aristera_3 = new aristera_profil(profil_aristera_new, ti_epeleksa_a, profil_aristera_counter);
                     //sunolika_profil_deksia = sunolika_profil_deksia + ti_epeleksa;
@@ -4415,17 +4428,13 @@
                     profil_aristera_3_id = profil_aristera_new;
                     profil_aristera_3_json_arithmos = ti_epeleksa_a;
                     //
-                    console.log(profil_aristera_3);
                     profil_aristera_array.push(profil_aristera_3);
-                    console.log(profil_aristera_array);
                   }
           
                   }//end if ελεγχου <= 3
                   else{
                       profil_aristera_counter = profil_aristera_counter - 1;
                       sunolika_profil_aristera = sunolika_profil_aristera - parseInt(ti_epeleksa_a);
-                      console.log("Counter: "+profil_aristera_counter);
-                      console.log("Sunolika: "+sunolika_profil_aristera);
 
                       width_new = width_new + (width_profil_a * parseInt(ti_epeleksa_a));
                       $(".diastaseis_extra").text(width_new +"X"+height_new);
@@ -4442,7 +4451,6 @@
                   }
 
                   if (sunolika_profil_aristera > 0 && profil_aristera_counter > 0){
-                  console.log("Μπηκα στο ιφ");
                   //Αν μπει κανονικα το προφιλ, τοτε το ζογραφιζω
                   if ( profil_aristera_new !== "32" && profil_aristera_new !== "33" && profil_aristera_new !== "34" ){
                     $(".ola_ta_profil_aristera_color").show();
@@ -4576,7 +4584,7 @@
             if (result.length == 0) {
               // not found
             } else if (result.length == 1) {
-              console.log(result[0].arithmo);
+              
               sunolika_profil_aristera = sunolika_profil_aristera - parseInt(result[0].arithmo);
               width_new = width_new + (width_profil_a * result[0].arithmo);
               $(".diastaseis_extra").text(width_new +"X"+height_new);
@@ -4587,7 +4595,7 @@
               // multiple items found
             }
             var index = functiontofindIndexByKeyValue(profil_aristera_array, "id", profil_aristera_new);
-            console.log(index);
+           
             if (index > -1) {
                 profil_aristera_array.splice(index, 1);
 
@@ -4617,15 +4625,10 @@
             if ( index != null ){
               profil_aristera_counter = profil_aristera_counter - 1;
             }
-            //console.log(profil_deksia_array);
             $( epilogi_a ).css("background-color","");//Ετσι αφαιρω την ιδιοτητα!!!
             $( epilogi_a ).css("color","");
-            console.log("Counter: "+profil_aristera_counter);
-            console.log("Sunolika: "+sunolika_profil_aristera);
-            console.log("Μετα απο διαγραφή"+profil_aristera_array);
 
             if (sunolika_profil_aristera > 0 && profil_aristera_counter > 0){
-            console.log("Μπηκα στο ιφ");
             //Αν μπει κανονικα το προφιλ, τοτε το ζογραφιζω
             if ( profil_aristera_new !== "32" && profil_aristera_new !== "33" && profil_aristera_new !== "34" ){
                     $(".ola_ta_profil_aristera_color").show();
@@ -4756,7 +4759,6 @@
             var div_data = "<div class='xrwma xrwma2'><h5 class='tipos_name'> "+item.name+" </h5><img src='/assets/"+item.image+"' class=color_panw_profil id="+item.name+"><span id="+item.code+"></span></div>";
             $(div_data).appendTo(".ola_ta_profil_panw_color");
           })
-        console.log(data) //Δινει στοιχεια για τα data
       },
       error: function(data) { 
       }
@@ -4791,9 +4793,7 @@
       $( this ).css("color","black");
       epilogi_p = $( this );
       height_profil_p = Number(epilogi_p.next().attr('class'));
-      console.log(height_profil_p);
       
-
     });
 
     $('#myModal_p').on('shown.bs.modal', function (e) {
@@ -4845,7 +4845,6 @@
     $(".modal_p").on("click", ".arithmos_profil_panw", function() {
           //ti_epeleksa_a = $("input:checked").val();
           ti_epeleksa_p = $('input[name=optradio_p]:checked', '#myForm_p').val();
-          console.log("Ti epeleksa p:"+ti_epeleksa_p);
           $('.modal_p').modal('hide');
           $('.modal_p').modal('hide');
           $('.modal-backdrop').remove();
@@ -4873,7 +4872,6 @@
               var index = functiontofindIndexByKeyValue(profil_panw_array, "id", profil_panw_new);
               if (index > -1) {
                   profil_panw_array.splice(index, 1);
-                  console.log("Μετα απο αλλαγη πανω"+profil_panw_array);
                   if ( index == 0 ){
                   //profil_deksia_1_id = 0;
                   //profil_deksia_1_json_arithmos = 0;
@@ -4900,7 +4898,6 @@
             }
 
             height_profil_p = Number(epilogi_p.next().attr('class'));
-            console.log("Height profil"+height_profil_p);
             $.ajax({
               
                 type:'GET',
@@ -4919,8 +4916,7 @@
                   //////////////////////////////////////////////////////////////////////////////
                   profil_panw_counter = profil_panw_counter + 1;
                   sunolika_profil_panw = sunolika_profil_panw + parseInt(ti_epeleksa_p);
-                  console.log("Counter: "+profil_panw_counter);
-                  console.log("Sunolika: "+sunolika_profil_panw);
+                  
                   if (sunolika_profil_panw <= 3 && profil_panw_counter <= 3){
                   if(profil_panw_counter == 1){
                       profil_panw_1 = new panw_profil(profil_panw_new, ti_epeleksa_p, profil_panw_counter);
@@ -4929,9 +4925,7 @@
                       profil_panw_1_id = profil_panw_new;
                       profil_panw_1_json_arithmos = ti_epeleksa_p;
                       //
-                      console.log(profil_panw_1);
                       profil_panw_array.push(profil_panw_1);
-                      console.log(profil_panw_array);
                   }else if( profil_panw_counter == 2){
                     profil_panw_2 = new panw_profil(profil_panw_new, ti_epeleksa_p, profil_panw_counter);
                     //sunolika_profil_deksia = sunolika_profil_deksia + ti_epeleksa;
@@ -4939,9 +4933,7 @@
                     profil_panw_2_id = profil_panw_new;
                     profil_panw_2_json_arithmos = ti_epeleksa_p;
                     //
-                    console.log(profil_panw_2);
                     profil_panw_array.push(profil_panw_2);
-                    console.log(profil_panw_array);
                   }else if( profil_panw_counter == 3){
                     profil_panw_3 = new panw_profil(profil_panw_new, ti_epeleksa_p, profil_panw_counter);
                     //sunolika_profil_deksia = sunolika_profil_deksia + ti_epeleksa;
@@ -4949,17 +4941,13 @@
                     profil_panw_3_id = profil_panw_new;
                     profil_panw_3_json_arithmos = ti_epeleksa_p;
                     //
-                    console.log(profil_panw_3);
                     profil_panw_array.push(profil_panw_3);
-                    console.log(profil_panw_array);
                   }
           
                   }//end if ελεγχου <= 3
                   else{
                       profil_panw_counter = profil_panw_counter - 1;
                       sunolika_profil_panw = sunolika_profil_panw - parseInt(ti_epeleksa_p);
-                      console.log("Counter: "+profil_panw_counter);
-                      console.log("Sunolika: "+sunolika_profil_panw);
 
                       height_new = height_new + (height_profil_p * parseInt(ti_epeleksa_p));
                       $(".diastaseis_extra").text(width_new +"X"+height_new);
@@ -4976,7 +4964,6 @@
                   }
 
                   if (sunolika_profil_panw > 0 && profil_panw_counter > 0){
-                  console.log("Μπηκα στο ιφ");
                   //Αν μπει κανονικα το προφιλ, τοτε το ζογραφιζω
                   if ( profil_panw_new !== "32" && profil_panw_new !== "33" && profil_panw_new !== "34" ){
                     $(".ola_ta_profil_panw_color").show();
@@ -5112,7 +5099,6 @@
             if (result.length == 0) {
               // not found
             } else if (result.length == 1) {
-              console.log(result[0].arithmo);
               sunolika_profil_panw = sunolika_profil_panw - parseInt(result[0].arithmo);
               height_new = height_new + (height_profil_p * result[0].arithmo);
               height_p = height_p - (height_profil_p * result[0].arithmo);
@@ -5124,7 +5110,6 @@
               // multiple items found
             }
             var index = functiontofindIndexByKeyValue(profil_panw_array, "id", profil_panw_new);
-            console.log(index);
             if (index > -1) {
                 profil_panw_array.splice(index, 1);
 
@@ -5152,15 +5137,10 @@
             if ( index != null ){
               profil_panw_counter = profil_panw_counter - 1;
             }
-            //console.log(profil_deksia_array);
             $( epilogi_p ).css("background-color","");//Ετσι αφαιρω την ιδιοτητα!!!
             $( epilogi_p ).css("color","");
-            console.log("Counter: "+profil_panw_counter);
-            console.log("Sunolika: "+sunolika_profil_panw);
-            console.log("Μετα απο διαγραφή"+profil_panw_array);
 
             if (sunolika_profil_panw > 0 && profil_panw_counter > 0){
-            console.log("Μπηκα στο ιφ");
             //Αν μπει κανονικα το προφιλ, τοτε το ζογραφιζω
             if ( profil_panw_new !== "32" && profil_panw_new !== "33" && profil_panw_new !== "34" ){
                     $(".ola_ta_profil_panw_color").show();
@@ -5290,7 +5270,6 @@
             var div_data = "<div class='xrwma xrwma2'><h5 class='tipos_name'> "+item.name+" </h5><img src='/assets/"+item.image+"' class=color_katw_profil id="+item.name+"><span id="+item.code+"></span></div>";
             $(div_data).appendTo(".ola_ta_profil_katw_color");
           })
-        console.log(data) //Δινει στοιχεια για τα data
       },
       error: function(data) { 
       }
@@ -5324,9 +5303,7 @@
       $( this ).css("background-color","#d9eaed");
       $( this ).css("color","black");
       epilogi_k = $( this );
-      height_profil_k = Number(epilogi_k.next().attr('class'));
-      console.log(height_profil_k);
-      
+      height_profil_k = Number(epilogi_k.next().attr('class'));      
 
     });
 
@@ -5379,7 +5356,6 @@
     $(".modal_k").on("click", ".arithmos_profil_katw", function() {
           //ti_epeleksa_a = $("input:checked").val();
           ti_epeleksa_k = $('input[name=optradio_k]:checked', '#myForm_k').val();
-          console.log("Ti epeleksa k:"+ti_epeleksa_k);
           $('.modal_k').modal('hide');
           $('.modal_k').modal('hide');
           $('.modal-backdrop').remove();
@@ -5407,7 +5383,6 @@
               var index = functiontofindIndexByKeyValue(profil_katw_array, "id", profil_katw_new);
               if (index > -1) {
                   profil_katw_array.splice(index, 1);
-                  console.log("Μετα απο αλλαγη κατω"+profil_katw_array);
                   if ( index == 0 ){
                   //profil_deksia_1_id = 0;
                   //profil_deksia_1_json_arithmos = 0;
@@ -5434,7 +5409,6 @@
             }
 
             height_profil_k = Number(epilogi_k.next().attr('class'));
-            console.log("Height profil"+height_profil_k);
             $.ajax({
               
                 type:'GET',
@@ -5453,8 +5427,7 @@
                   //////////////////////////////////////////////////////////////////////////////
                   profil_katw_counter = profil_katw_counter + 1;
                   sunolika_profil_katw = sunolika_profil_katw + parseInt(ti_epeleksa_k);
-                  console.log("Counter: "+profil_katw_counter);
-                  console.log("Sunolika: "+sunolika_profil_katw);
+                  
                   if (sunolika_profil_katw <= 3 && profil_katw_counter <= 3){
                   if(profil_katw_counter == 1){
                       profil_katw_1 = new katw_profil(profil_katw_new, ti_epeleksa_k, profil_katw_counter);
@@ -5463,9 +5436,7 @@
                       profil_katw_1_id = profil_katw_new;
                       profil_katw_1_json_arithmos = ti_epeleksa_k;
                       //
-                      console.log(profil_katw_1);
                       profil_katw_array.push(profil_katw_1);
-                      console.log(profil_katw_array);
                   }else if( profil_katw_counter == 2){
                     profil_katw_2 = new katw_profil(profil_katw_new, ti_epeleksa_k, profil_katw_counter);
                     //sunolika_profil_deksia = sunolika_profil_deksia + ti_epeleksa;
@@ -5473,9 +5444,7 @@
                     profil_katw_2_id = profil_katw_new;
                     profil_katw_2_json_arithmos = ti_epeleksa_k;
                     //
-                    console.log(profil_katw_2);
                     profil_katw_array.push(profil_katw_2);
-                    console.log(profil_katw_array);
                   }else if( profil_katw_counter == 3){
                     profil_katw_3 = new katw_profil(profil_katw_new, ti_epeleksa_k, profil_katw_counter);
                     //sunolika_profil_deksia = sunolika_profil_deksia + ti_epeleksa;
@@ -5483,17 +5452,13 @@
                     profil_katw_3_id = profil_katw_new;
                     profil_katw_3_json_arithmos = ti_epeleksa_k;
                     //
-                    console.log(profil_katw_3);
                     profil_katw_array.push(profil_katw_3);
-                    console.log(profil_katw_array);
                   }
           
                   }//end if ελεγχου <= 3
                   else{
                       profil_katw_counter = profil_katw_counter - 1;
                       sunolika_profil_katw = sunolika_profil_katw - parseInt(ti_epeleksa_k);
-                      console.log("Counter: "+profil_katw_counter);
-                      console.log("Sunolika: "+sunolika_profil_katw);
 
                       height_new = height_new + (height_profil_k * parseInt(ti_epeleksa_k));
                       $(".diastaseis_extra").text(width_new +"X"+height_new);
@@ -5510,7 +5475,6 @@
                   }
 
                   if (sunolika_profil_katw > 0 && profil_katw_counter > 0){
-                  console.log("Μπηκα στο ιφ");
                   //Αν μπει κανονικα το προφιλ, τοτε το ζογραφιζω
                   if ( profil_katw_new !== "32" && profil_katw_new !== "33" && profil_katw_new !== "34" ){
                     $(".ola_ta_profil_katw_color").show();
@@ -5658,7 +5622,6 @@
             if (result.length == 0) {
               // not found
             } else if (result.length == 1) {
-              console.log(result[0].arithmo);
               sunolika_profil_katw = sunolika_profil_katw - parseInt(result[0].arithmo);
               height_new = height_new + (height_profil_k * result[0].arithmo);
               $(".diastaseis_extra").text(width_new +"X"+height_new);
@@ -5670,7 +5633,6 @@
               // multiple items found
             }
             var index = functiontofindIndexByKeyValue(profil_katw_array, "id", profil_katw_new);
-            console.log(index);
             if (index > -1) {
                 profil_katw_array.splice(index, 1);
 
@@ -5698,15 +5660,10 @@
             if ( index != null ){
               profil_katw_counter = profil_katw_counter - 1;
             }
-            //console.log(profil_deksia_array);
             $( epilogi_k ).css("background-color","");//Ετσι αφαιρω την ιδιοτητα!!!
             $( epilogi_k ).css("color","");
-            console.log("Counter: "+profil_katw_counter);
-            console.log("Sunolika: "+sunolika_profil_katw);
-            console.log("Μετα απο διαγραφή"+profil_katw_array);
 
             if (sunolika_profil_katw > 0 && profil_katw_counter > 0){
-            console.log("Μπηκα στο ιφ");
             //Αν μπει κανονικα το προφιλ, τοτε το ζογραφιζω
             if ( profil_katw_new !== "32" && profil_katw_new !== "33" && profil_katw_new !== "34" ){
                     $(".ola_ta_profil_katw_color").show();
@@ -5851,7 +5808,6 @@
             var div_data = "<div class='xrwma xrwma2'><h5 class='tipos_name'> "+item.name+" </h5><img src='/assets/"+item.image+"' class=color_typos_katw id="+item.name+"><span id="+item.code+"></span></div>";
             $(div_data).appendTo(".color_typos");
           })
-        console.log(data) //Δινει στοιχεια για τα data
         $("#"+color_profil_katw+".color_typos").click();
       },
       error: function(data) { 
@@ -5901,7 +5857,6 @@
         $( this ).css("color","black");
         epilogi_t = $( this );
         height_typos_k = Number(epilogi_t.next().attr('id'));
-        console.log(height_typos_k);
         META_YES_TYPOS = true;
       }
 
@@ -5935,11 +5890,9 @@
     $(".modal_t").on("click", ".arithmos_typos", function() {
           //ti_epeleksa_a = $("input:checked").val();
           ti_epeleksa_t = $('input[name=optradio_t]:checked', '#myForm_t').val();
-          console.log("Ti epeleksa t:"+ti_epeleksa_t);
           $('.modal_t').modal('hide');
           $('.modal_t').modal('hide');
           $('.modal-backdrop').remove();
-          console.log("new_height: "+height_new);
           //alert(typeof(ti_epeleksa));
           //typos_hide_modal = true;
 
@@ -5960,7 +5913,6 @@
               var index = functiontofindIndexByKeyValue(profil_typos_array, "id", profil_typos_new);
               if (index > -1) {
                   profil_typos_array.splice(index, 1);
-                  console.log("Μετα απο αλλαγη τυπου"+profil_typos_array);
                   if ( index == 0 ){
                   //profil_deksia_1_id = 0;
                   //profil_deksia_1_json_arithmos = 0;
@@ -5987,8 +5939,7 @@
             }
 
             height_typos_k = Number(epilogi_t.next().attr('id'));
-            console.log("Height typos"+height_typos_k);
-            console.log("new_height: "+height_new);
+            
             $.ajax({
               
                 type:'GET',
@@ -6007,8 +5958,7 @@
                   //////////////////////////////////////////////////////////////////////////////
                   profil_typos_counter = profil_typos_counter + 1;
                   sunolika_profil_katw = sunolika_profil_katw + parseInt(ti_epeleksa_t);
-                  console.log("Counter: "+profil_typos_counter);
-                  console.log("Sunolika: "+sunolika_profil_katw);
+                  
                   if (sunolika_profil_katw <= 3 && profil_typos_counter <= 1){
                   if(profil_typos_counter == 1){
                       profil_typos_1 = new typos_profil(profil_typos_new, ti_epeleksa_t, profil_typos_counter);
@@ -6017,9 +5967,7 @@
                       profil_typos_1_id = profil_typos_new;
                       profil_typos_1_json_arithmos = ti_epeleksa_t;
                       //
-                      console.log(profil_typos_1);
                       profil_typos_array.push(profil_typos_1);
-                      console.log(profil_typos_array);
                   }else if( profil_typos_counter == 2){
                     profil_typos_2 = new typos_profil(profil_typos_new, ti_epeleksa_t, profil_typos_counter);
                     //sunolika_profil_deksia = sunolika_profil_deksia + ti_epeleksa;
@@ -6027,9 +5975,7 @@
                     profil_typos_2_id = profil_typos_new;
                     profil_typos_2_json_arithmos = ti_epeleksa_t;
                     //
-                    console.log(profil_typos_2);
                     profil_typos_array.push(profil_typos_2);
-                    console.log(profil_typos_array);
                   }else if( profil_typos_counter == 3){
                     profil_typos_3 = new typos_profil(profil_typos_new, ti_epeleksa_t, profil_typos_counter);
                     //sunolika_profil_deksia = sunolika_profil_deksia + ti_epeleksa;
@@ -6037,17 +5983,13 @@
                     profil_typos_3_id = profil_typos_new;
                     profil_typos_3_json_arithmos = ti_epeleksa_t;
                     //
-                    console.log(profil_typos_3);
                     profil_typos_array.push(profil_typos_3);
-                    console.log(profil_typos_array);
                   }
           
                   }//end if ελεγχου <= 3
                   else{
                       profil_typos_counter = profil_typos_counter - 1;
                       sunolika_profil_katw = sunolika_profil_katw - parseInt(ti_epeleksa_t);
-                      console.log("Counter: "+profil_typos_counter);
-                      console.log("Sunolika: "+sunolika_profil_katw);
 
                       height_new = height_new + (height_typos_k * parseInt(ti_epeleksa_t));
                       $(".diastaseis_extra").text(width_new +"X"+height_new);
@@ -6060,7 +6002,6 @@
                   }
 
                   if (sunolika_profil_katw > 0 && profil_typos_counter > 0){
-                  console.log("Μπηκα στο ιφ για τυπο");
                   //Αν μπει κανονικα το προφιλ, τοτε το ζογραφιζω
                   $(".color_typos").show();
                   $("#"+color_profil_katw+".color_typos_katw").click();
@@ -6180,7 +6121,6 @@
             if (result.length == 0) {
               // not found
             } else if (result.length == 1) {
-              console.log(result[0].arithmo);
               sunolika_profil_katw = sunolika_profil_katw - parseInt(result[0].arithmo);
               height_new = height_new + (height_typos_k * result[0].arithmo);
               $(".diastaseis_extra").text(width_new +"X"+height_new);
@@ -6194,7 +6134,6 @@
             }
             var index = functiontofindIndexByKeyValue(profil_typos_array, "id", profil_typos_new);
             profil_typos_new = 0;
-            console.log(index);
             if (index > -1) {
                 profil_typos_array.splice(index, 1);
 
@@ -6222,15 +6161,10 @@
             if ( index != null ){
               profil_typos_counter = profil_typos_counter - 1;
             }
-            //console.log(profil_deksia_array);
             $( epilogi_t ).css("background-color","");//Ετσι αφαιρω την ιδιοτητα!!!
             $( epilogi_t ).css("color","");
-            console.log("Counter typos: "+profil_typos_counter);
-            console.log("Sunolika: "+sunolika_profil_katw);
-            console.log("Μετα απο διαγραφή typos"+profil_typos_array);
 
             if (sunolika_profil_katw > 0 && profil_typos_counter > 0){
-            console.log("Μπηκα στο ιφ typos");
             //Αν μπει κανονικα το προφιλ, τοτε το ζογραφιζω
             $(".color_typos").show();
 
@@ -6334,7 +6268,6 @@
       //alert("!11!!!1!!"); && ( lastixo_epilogh == "mauro_lastixo")
       lastixo = 1;
       lastixo_epilogh = $(this).attr('id');
-      console.log(lastixo_epilogh);
       //$( this ).css("background-color","#CA3333");
       $( this ).css("background-color","#D9EAED");
       $( this ).css("color","black");
@@ -6349,7 +6282,7 @@
       $( ".lastixo" ).css("color","");
       epilogi = true;
       lastixo_epilogh = 0;
-      console.log(lastixo_epilogh);
+     
       times_json(tipos_name_gia_xrwma, $(".width").text(), $(".height").text(), line_id_name, mesa_eksw, color_aplo, width_new ,height_new, epikathimeno_rolo,eksoteriko_rolo,persida,tzamia,profil_deksia,profil_aristera,profil_panw,profil_katw,$(".input_deksia").val(),$(".input_panw").val(),$(".input_katw").val(),$(".input_aristera").val(),typos,color_typos,odoigos,$(".color_deksia").text(),$(".color_aristera").text(),$(".color_panw").text(),$(".color_katw").text(),$(".color_fullou").text(),0,profil_deksia_1_id,profil_deksia_1_json_arithmos,profil_deksia_2_id,profil_deksia_2_json_arithmos,profil_deksia_3_id,profil_deksia_3_json_arithmos,profil_aristera_1_id,profil_aristera_1_json_arithmos,profil_aristera_2_id,profil_aristera_2_json_arithmos,profil_aristera_3_id,profil_aristera_3_json_arithmos,profil_panw_1_id,profil_panw_1_json_arithmos,profil_panw_2_id,profil_panw_2_json_arithmos,profil_panw_3_id,profil_panw_3_json_arithmos,profil_katw_1_id,profil_katw_1_json_arithmos,profil_katw_2_id,profil_katw_2_json_arithmos,profil_katw_3_id,profil_katw_3_json_arithmos,profil_typos_1_id,profil_typos_1_json_arithmos,profil_typos_2_id,profil_typos_2_json_arithmos,profil_typos_3_id,profil_typos_3_json_arithmos,prostasia,tzamia2,lastixo_epilogh,pl_rol_ep,up_rol_ep,pl_rol_ek,up_rol_ek,pl_persidas,up_persidas,up_odoigou,color_epikathimenou,color_eksoterikou,color_persidas,color_odoigou,color_profil_katw,color_profil_deksia,color_profil_aristera,color_profil_panw,elegxos_gia_parapanw_diastaseis_w,elegxos_gia_parapanw_diastaseis_h,xwrisma1,xwrisma2,xwrisma_y_1,xwrisma_y_2,xwrisma3_1,xwrisma3_2,xwrisma3_3,color_aplo_eksw,tzamia0,xwrisma4_1,xwrisma4_2,xwrisma4_3,xwrisma4_4);
 
 
@@ -6360,7 +6293,6 @@
 
       lastixo = 1;
       lastixo_epilogh = $(this).attr('id');
-      console.log(lastixo_epilogh);
       //$( this ).css("background-color","#CA3333");
       $( this ).css("background-color","#D9EAED");
       $( this ).css("color","black");
@@ -6384,10 +6316,9 @@
 
   
     if (epilogi_pr){  
-      //alert("!11!!!1!!"); && ( lastixo_epilogh == "mauro_lastixo")
+     
       prostasia = 1;
       //lastixo_epilogh = $(this).attr('id');
-      //console.log(lastixo_epilogh);
       //$( this ).css("background-color","#CA3333");
       $( this ).css("background-color","#d9eaed");
       $( this ).css("color","black");
@@ -6410,7 +6341,6 @@
 
       prostasia = 0;
       //lastixo_epilogh = $(this).attr('id');
-      //console.log(lastixo_epilogh);
       //$( this ).css("background-color","#CA3333");
       //$( this ).css("background-color","#666666");
       //$( this ).css("color","white");
@@ -6510,7 +6440,6 @@
                         $(div_data).appendTo(".div_col_od");
                       })
                     $("#"+color_odoigou+".color_odoig").click();
-                    console.log(data) //Δινει στοιχεια για τα data
                     if ( YES_ODOIGOI ){
                       $(".up_odoigou").val(up_odoigou);
                        $(".up_odoigou").trigger('blur');
@@ -6525,7 +6454,6 @@
                     }
 
                     if ( META_YES_ODOIGOI ){
-                      console.log("YPSOSODOIGOU: "+up_odoigou_meta);
                       $(".up_odoigou").val(up_odoigou_meta);
                        $(".up_odoigou").trigger('blur');
                        if (typeof odoigos_id !== "undefined") {
@@ -6632,8 +6560,7 @@
                             var div_data = "<label class=tzamia_polla0 id="+item.id+">"+item.name+"</label>";
                             $(div_data).appendTo(".tzamia0");
                           })
-                        console.log(data) //Δινει στοιχεια για τα data
-                        if ( YES_TZAMIA0 ){
+						  if ( YES_TZAMIA0 ){
                           $(".tzamia_polla0").each(function( index ) {
                             if( $( this ).attr("id") == "<%= @tzami0_id %>" ){
                               $( this ).trigger('click');
@@ -6643,7 +6570,6 @@
                         }
 
                         if ( META_YES_TZAMIA0 ){
-                          console.log($(".tzamia_polla0"));
                           $(".tzamia_polla0").each(function( index ) {
                               if( $( this ).attr("id") == tzami0_id ){
                                 $( this ).trigger('click');
@@ -6740,8 +6666,7 @@
                             var div_data = "<label class=tzamia_polla id="+item.id+">"+item.name+"</label>";
                             $(div_data).appendTo(".tzamia");
                           })
-                        console.log(data) //Δινει στοιχεια για τα data
-                        if ( YES_TZAMIA ){
+						  if ( YES_TZAMIA ){
                           $(".tzamia_polla").each(function( index ) {
                             if( $( this ).attr("id") == "<%= @tzami_id %>" ){
                               $( this ).trigger('click');
@@ -6751,7 +6676,6 @@
                         }
 
                         if ( META_YES_TZAMIA ){
-                          console.log($(".tzamia_polla"));
                           $(".tzamia_polla").each(function( index ) {
                               if( $( this ).attr("id") == tzami_id ){
                                 $( this ).trigger('click');
@@ -6849,8 +6773,7 @@
                             var div_data = "<label class=tzamia_polla2 id="+item.id+">"+item.name+"</label>";
                             $(div_data).appendTo(".tzamia2");
                           })
-                        console.log(data) //Δινει στοιχεια για τα data
-                        if ( YES_TZAMIA2 ){
+						  if ( YES_TZAMIA2 ){
                           $(".tzamia_polla2").each(function( index ) {
                             if( $( this ).attr("id") == "<%= @tzami2_id %>" ){
                               $( this ).trigger('click');
@@ -6860,7 +6783,6 @@
                         }
 
                         if ( META_YES_TZAMIA2 ){
-                          console.log($(".tzamia_polla2"));
                           $(".tzamia_polla2").each(function( index ) {
                               if( $( this ).attr("id") == tzami2_id ){
                                 $( this ).trigger('click');
@@ -6884,17 +6806,102 @@
       $( ".tzamia_polla2" ).css("background-color","");//Ετσι αφαιρω την ιδιοτητα!!!
       $( ".tzamia_polla2" ).css("color","");
       $( ".tzamia_polla2" ).css("border-color","");
-      //
+      
       //$( this ).css("background-color","#CA3333");
       $( this ).css("background-color","#d9eaed");
       $( this ).css("color","black");
       $( this ).css("border-color","#007389");
-      //
 
       tzamia2 = $(this).attr('id'); //Global variable για να την περασω στην αλλη σελιδα
       times_json(tipos_name_gia_xrwma, $(".width").text(), $(".height").text(), line_id_name, mesa_eksw, color_aplo, width_new ,height_new, epikathimeno_rolo,eksoteriko_rolo,persida,tzamia,profil_deksia,profil_aristera,profil_panw,profil_katw,$(".input_deksia").val(),$(".input_panw").val(),$(".input_katw").val(),$(".input_aristera").val(),typos,color_typos,odoigos,$(".color_deksia").text(),$(".color_aristera").text(),$(".color_panw").text(),$(".color_katw").text(),$(".color_fullou").text(),0,profil_deksia_1_id,profil_deksia_1_json_arithmos,profil_deksia_2_id,profil_deksia_2_json_arithmos,profil_deksia_3_id,profil_deksia_3_json_arithmos,profil_aristera_1_id,profil_aristera_1_json_arithmos,profil_aristera_2_id,profil_aristera_2_json_arithmos,profil_aristera_3_id,profil_aristera_3_json_arithmos,profil_panw_1_id,profil_panw_1_json_arithmos,profil_panw_2_id,profil_panw_2_json_arithmos,profil_panw_3_id,profil_panw_3_json_arithmos,profil_katw_1_id,profil_katw_1_json_arithmos,profil_katw_2_id,profil_katw_2_json_arithmos,profil_katw_3_id,profil_katw_3_json_arithmos,profil_typos_1_id,profil_typos_1_json_arithmos,profil_typos_2_id,profil_typos_2_json_arithmos,profil_typos_3_id,profil_typos_3_json_arithmos,prostasia,tzamia2,lastixo_epilogh,pl_rol_ep,up_rol_ep,pl_rol_ek,up_rol_ek,pl_persidas,up_persidas,up_odoigou,color_epikathimenou,color_eksoterikou,color_persidas,color_odoigou,color_profil_katw,color_profil_deksia,color_profil_aristera,color_profil_panw,elegxos_gia_parapanw_diastaseis_w,elegxos_gia_parapanw_diastaseis_h,xwrisma1,xwrisma2,xwrisma_y_1,xwrisma_y_2,xwrisma3_1,xwrisma3_2,xwrisma3_3,color_aplo_eksw,tzamia0,xwrisma4_1,xwrisma4_2,xwrisma4_3,xwrisma4_4);
 
 
+    });
+	
+	//Panels click
+    $(".supplier_panels").on("click", ".sup_panels", function() {
+
+      //Αλλαγη χρωματος
+      $( ".sup_panels" ).css("background-color","");//Ετσι αφαιρω την ιδιοτητα!!!
+      $( ".sup_panels" ).css("color","");
+      $( ".sup_panels" ).css("border-color","");
+      $( ".cat_panels" ).empty();
+	  
+      $( this ).css("background-color","#d9eaed");
+      $( this ).css("color","black");
+      $( this ).css("border-color","#007389");
+     
+      sup_panel = $(this).attr('id'); //Global variable για να την περασω στην αλλη σελιδα
+	  
+      $.ajax({
+
+        type:'GET',
+        url:'/etic/cat_panels',
+        dataType: "json",
+        data: { id: sup_panel},
+        success: function(data) {
+                $.each(data, function(i, item) { //Για κάθε data που παίρνω κανω τα παρακάτο  
+                    var div_data = "<a style='text-decoration: none; color:black;'><label class='cat_panel' id="+item.id+">"+item.name+"</label></a>";
+                    $(div_data).appendTo(".cat_panels");
+				});
+				$(".cat_panels a:first-child .cat_panel").trigger("click");
+              },
+              error: function(data) { 
+              }
+        });//end ejax
+		
+    });
+	
+    $(".cat_panels").on("click", ".cat_panel", function() {
+
+      //Αλλαγη χρωματος
+      $( ".cat_panel" ).css("background-color","");//Ετσι αφαιρω την ιδιοτητα!!!
+      $( ".cat_panel" ).css("color","");
+      $( ".cat_panel" ).css("border-color","");
+      $( ".panels" ).empty();
+	  
+      $( this ).css("background-color","#d9eaed");
+      $( this ).css("color","black");
+      $( this ).css("border-color","#007389");
+     
+      cat_panel = $(this).attr('id'); //Global variable για να την περασω στην αλλη σελιδα
+	  
+      $.ajax({
+
+        type:'GET',
+        url:'/etic/panels',
+        dataType: "json",
+        data: { id: cat_panel},
+        success: function(data) {
+          //var header2 = "<h5 style=''><%= t 'translate.Inside_Outside_glass' %>: "+cat_tzamia0_text+"</h5>" 
+         // $(header2).appendTo(".tzamia0");
+                $.each(data, function(i, item) { //Για κάθε data που παίρνω κανω τα παρακάτο									
+                    var div_data = "<div class='panel img-responsive' id='"+item.id+"'><img class='img-responsive' id="+item.id+" src='/assets/doors/"+item.image+"'></label></div>";
+                    $(div_data).appendTo(".panels");
+				});
+				$(".panels .panel:first-child").trigger("click");
+              },
+              error: function(data) { 
+              }
+        });//end ejax
+    });
+	
+    $(".panels_wrapper").on("click", ".panel", function() {
+
+      //Αλλαγη χρωματος
+      $( ".panel" ).css("border","");//Ετσι αφαιρω την ιδιοτητα!!!
+      $( ".panel" ).css("border-width","");
+      $( ".panel" ).css("border-color","");
+	  $( ".panel img" ).attr("panel_selected","no");
+	  
+      $( this ).css("border","solid");
+      $( this ).css("border-color","#007389");
+      $( this ).css("border-width","4px");
+	  $(this).find("img").attr("panel_selected","yes");
+     
+      panel = $(this).attr('id'); //Global variable για να την περασω στην αλλη σελιδα
+	  panel_img = $(this).attr('src');
+      //times_json(tipos_name_gia_xrwma, $(".width").text(), $(".height").text(), line_id_name, mesa_eksw, color_aplo, width_new ,height_new, epikathimeno_rolo,eksoteriko_rolo,persida,tzamia,profil_deksia,profil_aristera,profil_panw,profil_katw,$(".input_deksia").val(),$(".input_panw").val(),$(".input_katw").val(),$(".input_aristera").val(),typos,color_typos,odoigos,$(".color_deksia").text(),$(".color_aristera").text(),$(".color_panw").text(),$(".color_katw").text(),$(".color_fullou").text(),0,profil_deksia_1_id,profil_deksia_1_json_arithmos,profil_deksia_2_id,profil_deksia_2_json_arithmos,profil_deksia_3_id,profil_deksia_3_json_arithmos,profil_aristera_1_id,profil_aristera_1_json_arithmos,profil_aristera_2_id,profil_aristera_2_json_arithmos,profil_aristera_3_id,profil_aristera_3_json_arithmos,profil_panw_1_id,profil_panw_1_json_arithmos,profil_panw_2_id,profil_panw_2_json_arithmos,profil_panw_3_id,profil_panw_3_json_arithmos,profil_katw_1_id,profil_katw_1_json_arithmos,profil_katw_2_id,profil_katw_2_json_arithmos,profil_katw_3_id,profil_katw_3_json_arithmos,profil_typos_1_id,profil_typos_1_json_arithmos,profil_typos_2_id,profil_typos_2_json_arithmos,profil_typos_3_id,profil_typos_3_json_arithmos,prostasia,tzamia2,lastixo_epilogh,pl_rol_ep,up_rol_ep,pl_rol_ek,up_rol_ek,pl_persidas,up_persidas,up_odoigou,color_epikathimenou,color_eksoterikou,color_persidas,color_odoigou,color_profil_katw,color_profil_deksia,color_profil_aristera,color_profil_panw,elegxos_gia_parapanw_diastaseis_w,elegxos_gia_parapanw_diastaseis_h,xwrisma1,xwrisma2,xwrisma_y_1,xwrisma_y_2,xwrisma3_1,xwrisma3_2,xwrisma3_3,color_aplo_eksw,tzamia0,xwrisma4_1,xwrisma4_2,xwrisma4_3,xwrisma4_4);
     });
 
     $("#roll_top_m").click(function(){
@@ -6971,7 +6978,7 @@
         //$(".ekso_none").css("display","none");
         if (typeof(eksoteriko_cat) !== "undefined"){
           //$("#roll_front_m").click();
-          console.log("EKSOTERIKO_CAT: "+eksoteriko_cat);
+         
           //$.when(ajaxEksoterika()).done(function(a1){
               // the code here will be executed when all four ajax requests resolve.
               // a1, a2, a3 and a4 are lists of length 3 containing the response text,
@@ -7039,7 +7046,7 @@
                             var div_data = "<label class=epikathimena_rola_polla id="+item.id+">"+item[glwssa]+"</label><span class=span_none id="+item.height+"><span><br>";
                             $(div_data).appendTo(".epikathimena_rola");
                           })
-                        console.log(data) //Δινει στοιχεια για τα data
+                        
                         if ( YES_ROLLA_EP == true ){
                           $(".epikathimena_rola_polla").each(function( index ) {
                             if( $( this ).attr("id") == "<%= @rolo_id %>" ){
@@ -7121,7 +7128,6 @@
           //$(".epik_none").css("display","none");
           if (typeof(epikathimeno_cat) !== "undefined"){
             //$("#roll_front_m").click();
-            console.log("EPIKATHIMENO_CAT: "+epikathimeno_cat);
             //$.when(ajaxEksoterika()).done(function(a1){
                 // the code here will be executed when all four ajax requests resolve.
                 // a1, a2, a3 and a4 are lists of length 3 containing the response text,
@@ -7183,8 +7189,7 @@
                               var div_data = "<label class=eksoterika_rola_polla id="+item.id+">"+item.name+"</label>";
                               $(div_data).appendTo(".eksoterika_rola");
                             })
-                          console.log(data) //Δινει στοιχεια για τα data
-                          if ( YES_ROLLA_EK == true ){
+							if ( YES_ROLLA_EK == true ){
                             $(".eksoterika_rola_polla").each(function( index ) {
                               if( $( this ).attr("id") == "<%= @rolo_id %>" ){
                                 $( this ).trigger('click');
@@ -7373,14 +7378,12 @@
                           var div = "<div class='div_col_ep'></div>"
                           $(div).appendTo(".color_epikathimenou");
                           $.each(data, function(i, item) { //Για κάθε data που παίρνω κανω τα παρακάτο 
-                              //alert(item.name);
                               //return $(".kataskevastes").html(item.name);
                               //$( "<p>item.name</p>" ).appendTo( ".kataskevastes" );
                               var div_data = "<div class='xrwma xrwma2'><h5 class='tipos_name'> "+item.name+" </h5><img src='/assets/"+item.image+"' class=color_epik id="+item.name+"><span id="+item.code+"></span></div>";
                               $(div_data).appendTo(".div_col_ep");
                             })
                           $("#"+color_epikathimenou+".color_epik").click();
-                          console.log(data) //Δινει στοιχεια για τα data
                           if ( YES_ROLLA_EP_YPO == true ){
                             $(".pl_rol_ep").val(pl_rol_ep);//"<%= @pl_rolou_ep %>"
                               $(".up_rol_ep").val(up_rol_ep);//"<%= @up_rolou_ep %>"
@@ -7412,7 +7415,6 @@
                                 klap_ep = "b";  
                                 $("input[name=klap_ep][value=" + klap_ep + "]").prop('checked', true);
                               }
-                              console.log("<%= @color_rolo %>"+"!!!!!");
                               $(".color_epik").each(function( index ) {
                               if( $( this ).attr("id") == "<%= @color_rolo %>" ){
                                 $( this ).trigger('click');
@@ -7457,7 +7459,6 @@
                                 klap_ep = "b";  
                                 $("input[name=klap_ep][value=" + klap_ep + "]").prop('checked', true);
                               }
-                              console.log("<%= @color_rolo %>"+"!!!!!");
                               $(".color_epik").each(function( index ) {
                               if( $( this ).attr("id") == color_rolo ){
                                 $( this ).trigger('click');
@@ -7510,7 +7511,6 @@
                        color_epikathimenou = 0;
                      }
 
-                console.log(data) //Δινει στοιχεια για τα data
               },
               error: function(data) { 
                 $(".alert_mikro_parathiro_roll").show();
@@ -7545,7 +7545,6 @@
       geniko_rolo = "1";
       var b = pro_a+pro_d+pro_k+pro_p+geniko_persida+geniko_rolo;
       var decimal = parseInt(b, 2);
-      console.log(decimal);
       //zwgrafia(decimal,1,0,color_rolou,color_pers,color_p,color_k,color_d,color_a,leaf);
       sxedio_epik = true;
       sxedio_color_epik = color;
@@ -7698,7 +7697,6 @@
               $(div_data).appendTo(".div_col_ek");
             })
           $("#"+color_eksoterikou+".color_ekso").click();
-          console.log(data) //Δινει στοιχεια για τα data
           if ( YES_ROLLA_EK_YPO == true ){
             $(".pl_rol_ek").val("<%= @pl_rolou_ek %>");
               $(".up_rol_ek").val("<%= @up_rolou_ek %>");
@@ -7734,7 +7732,6 @@
                 deroll = "c";  
                 $("input[name=deroll][value=" + deroll + "]").prop('checked', true);
               }
-              console.log("<%= @color_rolo %>"+"!!!!!");
               $(".color_ekso").each(function( index ) {
               if( $( this ).attr("id") == "<%= @color_rolo %>" ){
                 $( this ).trigger('click');
@@ -7782,7 +7779,6 @@
                 deroll = "c";  
                 $("input[name=deroll][value=" + deroll + "]").prop('checked', true);
               }
-              console.log("<%= @color_rolo %>"+"!!!!!");
               $(".color_ekso").each(function( index ) {
               if( $( this ).attr("id") == color_rolo ){
                 $( this ).trigger('click');
@@ -7874,7 +7870,6 @@
               var div_data = "<div class='xrwma xrwma2'><h5 class='tipos_name'> "+item.name+" </h5><img src='/assets/"+item.image+"' class=color_ekso id="+item.name+"><span id="+item.code+"></span></div>";
               $(div_data).appendTo(".div_col_ek");
             })
-          console.log(data) //Δινει στοιχεια για τα data
         },
         error: function(data) { 
         }
@@ -8021,7 +8016,6 @@
                         $(div_data).appendTo(".div_col_pe");
                       })
                     $("#"+color_persidas+".color_pers").click();
-                    console.log(data) //Δινει στοιχεια για τα data
                     if ( YES_PERSIDES == true ){
                       $(".up_persidas").val(pl_persidas);
                       $(".pl_persidas").val(up_persidas);
@@ -8164,7 +8158,6 @@
         if (leaf == "1fullo" && ( (parseFloat(tipos_code)  === 14) || ( parseFloat(tipos_code)  === 14.1) || ( parseFloat(tipos_code)  === 15) || (parseFloat(tipos_code)  === 16) || (parseFloat(tipos_code)  === 16.1) || (parseFloat(tipos_code)  === 17) || (parseFloat(tipos_code)  === 18) || (parseFloat(tipos_code)  === 21) ) ){
                 
                 height_dua_duo_new = ( height_new / 2 );
-                console.log("OKKK");
         
                 $("input[name='panw_xwrisma']").val("380");
                 ypsos_katw = height_new - 380;
@@ -8370,10 +8363,8 @@
     $(".row_mat").on("click", ".epanal", function() {
 
       var body = $('body');
-      console.log(body.html());
       //bodycontent = body.html();
 
-      //console.log(bodycontent);
       //localStorage["myKey"] = JSON.stringify($("#wrap").html());
       //$('#wrap').data('store', $('#wrap').html());
 
@@ -8435,7 +8426,6 @@
             img.onerror = function(){
                 alert("Wrong argument...");
             }
-            console.log(myCanvas.toDataURL('image/png'));
             
             img.src = url;  
 
@@ -8443,8 +8433,6 @@
 
         // usage:
         drawInlineSVG(ctxt, svgText, function() {
-            //console.log(canvas.toDataURL());  // -> PNG
-            //alert("see console for output...");
         });
 
 
@@ -8885,7 +8873,6 @@
         META_counter_pinakas_arxikos = META_counter_pinakas_arxikos + 1; 
         META_counter_pinakas_arxikos_metavlites =  META_counter_pinakas_arxikos_metavlites + 3;
         if ( META_counter_pinakas_arxikos == META_PINAKAS_ARXIKO_FOR.length ){
-          console.log("Telos meta_next_insert");
           META_ARXIKO_FOR = false;
           $('#loading').fadeOut(100);
           geniko_ok = true;
@@ -8904,7 +8891,6 @@
           //  scrollTop: $(".navbar").offset().top},
           //  'slow');
           }
-        console.log(META_ARXIKO_FOR);
     } 
 
 
@@ -8954,23 +8940,17 @@
 
       $('#loading').show();
       if (lastixa !== "0") {
-      console.log("<%= @lastixa %>");
-      console.log($("#"+"<%= @lastixa %>"));
+      
       $("#"+lastixa).click();
       $("#"+lastixa).click();
       //alert("Lastixo");
-      }else{
-        console.log("<%= @lastixa %>"+"!!!!!");
       }
 
-      console.log("PROS:"+prostasia_id);
       if (prostasia_id !== "") {
-        console.log("<%= @lastixa %>");
-        console.log($("#"+"<%= @prostasia_id %>"));
+        
         //$(".prostasia").click();
         //$(".prostasia").click();
       }else{
-        console.log("<%= @prostasia_id %>"+"!!!!!");
         $(".prostasia").click();
       }
 
@@ -8986,20 +8966,6 @@
       //setTimeout(do_persides, 400);
       //setTimeout(do_odoigous, 500);
 
-      console.log("pr"+pr_ar_1_id);
-      console.log("pr"+pr_ar_2_id);
-      console.log("pr"+pr_ar_3_id);
-      console.log("pr"+pr_de_1_id);
-      console.log("pr"+pr_de_2_id);
-      console.log("pr"+pr_de_3_id);
-      console.log("pr"+pr_pa_1_id);
-      console.log("pr"+pr_pa_2_id);
-      console.log("pr"+pr_pa_3_id);
-      console.log("pr"+pr_ka_1_id);
-      console.log("pr"+pr_ka_2_id);
-      console.log("pr"+pr_ka_3_id);
-      console.log("pr"+pr_ar_1_id);
-      
       timeout_profil = 1000;
 
       if ( pr_ar_1_id != null) {
@@ -9097,8 +9063,7 @@
 
       setTimeout(function(){
         //timeout_profil = timeout_profil + 1500;
-        console.log(META_PINAKAS_ARXIKO_FOR);
-        console.log(META_PINAKAS_ARXIKO_FOR_METAVLITES);
+       
         if ( META_EXW_PROFIL ){
             META_ARXIKO_FOR = true;
             meta_next_insert();
@@ -9124,9 +9089,7 @@
 
     function do_tzamia0() {
         if (typeof tzami0_cat !== "undefined") {
-          console.log(tzami0_cat);
-          console.log(tzami0_id);
-          console.log($(".cat_tzamia0"));
+         
           $(".cat_tzamia0").each(function( index ) {
             if( $( this ).attr("id") == tzami0_cat ){
               window.tzami0_id = tzami0_id;
@@ -9137,14 +9100,11 @@
           });
           //$("#<%= @tzami_cat %>.cat_tzamia").trigger('click');
           //$("#"+"<%= @lastixa %>").click();
-        }else{
-          console.log("<%= @lastixa %>"+"!!!!!");
         }
         //setTimeout(do_tzamia_cat, 1000);
     }
 
     function do_tzamia0_cat() {
-        console.log($(".tzamia_polla0"));
         $(".tzamia_polla0").each(function( index ) {
             if( $( this ).attr("id") == tzami0_id ){
               $( this ).trigger('click');
@@ -9155,9 +9115,7 @@
 
     function do_tzamia() {
         if (typeof tzami_cat !== "undefined") {
-          console.log(tzami_cat);
-          console.log(tzami_id);
-          console.log($(".cat_tzamia"));
+         
           $(".cat_tzamia").each(function( index ) {
             if( $( this ).attr("id") == tzami_cat ){
               window.tzami_id = tzami_id;
@@ -9168,14 +9126,11 @@
           });
           //$("#<%= @tzami_cat %>.cat_tzamia").trigger('click');
           //$("#"+"<%= @lastixa %>").click();
-        }else{
-          console.log("<%= @lastixa %>"+"!!!!!");
         }
         //setTimeout(do_tzamia_cat, 1000);
     }
 
     function do_tzamia_cat() {
-        console.log($(".tzamia_polla"));
         $(".tzamia_polla").each(function( index ) {
             if( $( this ).attr("id") == tzami_id ){
               $( this ).trigger('click');
@@ -9186,9 +9141,7 @@
 
     function do_tzamia2() {
         if (typeof tzami2_cat !== "undefined") {
-          console.log(tzami2_cat);
-          console.log(tzami2_id);
-          console.log($(".cat_tzamia2"));
+          
           $(".cat_tzamia2").each(function( index ) {
             if( $( this ).attr("id") == tzami2_cat ){
               META_YES_TZAMIA2 = true;
@@ -9199,14 +9152,11 @@
           });
           //$("#<%= @tzami_cat %>.cat_tzamia").trigger('click');
           //$("#"+"<%= @lastixa %>").click();
-        }else{
-          console.log("<%= @lastixa %>"+"!!!!!");
         }
         //setTimeout(do_tzamia2_cat, 1000);
     }
 
     function do_tzamia2_cat() {
-        console.log($(".tzamia_polla2"));
         $(".tzamia_polla2").each(function( index ) {
             if( $( this ).attr("id") == tzami2_id ){
               $( this ).trigger('click');
@@ -9244,8 +9194,6 @@
 
           }
           
-        }else{
-          console.log("<%= @lastixa %>"+"!!!!!");
         }
         //setTimeout(do_rolla_upo, 1000);
     }
@@ -9279,7 +9227,6 @@
           //}else{
           //  $(".kin_ek_de").trigger('click');
          //}
-          console.log("<%= @color_rolo %>"+"!!!!!");
           $(".color_ekso").each(function( index ) {
           if( $( this ).attr("id") == color_rolo ){
             $( this ).trigger('click');
@@ -9296,7 +9243,6 @@
           //}else{
           //  $(".kin_ep_de").trigger('click');
           //}
-          console.log("<%= @color_rolo %>"+"!!!!!");
           $(".color_epik").each(function( index ) {
           if( $( this ).attr("id") == color_rolo ){
             $( this ).trigger('click');
@@ -9308,9 +9254,7 @@
 
     function do_persides() {
         if (typeof persida_id !== "undefined") {
-          //console.log("Persida"+"<%= @persida_id %>");
-          //console.log("<%= @tzami_id %>");
-          //console.log($(".cat_tzamia"));
+        
           $(".perisdes").each(function( index ) {
             if( $( this ).attr("id") == persida_id ){
               META_YES_PERSIDES = true;
@@ -9324,8 +9268,6 @@
           });
           //$("#<%= @tzami_cat %>.cat_tzamia").trigger('click');
           //$("#"+"<%= @lastixa %>").click();
-        }else{
-          console.log("<%= @lastixa %>"+"!!!!!");
         }
         //setTimeout(do_persides_xrwma, 1000);
     }
@@ -9346,19 +9288,14 @@
 
     function do_odoigous() {
         if (typeof odoigos_id !== "undefined") {
-          //console.log("Persida"+"<%= @persida_id %>");
-          //console.log("<%= @tzami_id %>");
-          //console.log($(".cat_tzamia"));
+         
           $(".odoigoi").each(function( index ) {
             if( $( this ).attr("id") == odoigos_id ){
-              //alert(typeof up_odoigou);
               META_YES_ODOIGOI = true;
               if ( up_odoigou != "" ){
                 window.up_odoigou_meta = up_odoigou;
-                console.log("UPSOSSSSS: "+up_odoigou);
               }else{
                 //window.up_odoigou_meta = height;
-                //console.log("UPSOSSSSS: "+height);
               }
               window.odoigos_id = odoigos_id;
               window.color_odoigou_meta = color_odoigou;
@@ -9375,10 +9312,8 @@
                 META_YES_ODOIGOI = true;
                 if ( up_odoigou != "" ){
                   window.up_odoigou_meta = up_odoigou;
-                  console.log("UPSOSSSSS: "+up_odoigou);
                 }else{
                   //window.up_odoigou_meta = height;
-                  //console.log("UPSOSSSSS: "+height);
                 }
                 window.odoigos_id = odoigos_id;
                 window.color_odoigou_meta = color_odoigou;
@@ -9392,8 +9327,6 @@
           }
           //$("#<%= @tzami_cat %>.cat_tzamia").trigger('click');
           //$("#"+"<%= @lastixa %>").click();
-        }else{
-          console.log("<%= @lastixa %>"+"!!!!!");
         }
         //setTimeout(do_odoigous_xrwma, 1000);
     }
@@ -9412,10 +9345,7 @@
 
     function do_typos() {
         if (typeof typos_id !== "undefined") {
-          //alert("mal");
-          console.log(typos_id);
-          console.log(typos_id);
-          console.log($(".typos"));
+         
           $(".typos").each(function( index ) {
             if( $( this ).attr("id") == typos_id ){
               window.color_typos = color_typos;
@@ -9442,8 +9372,6 @@
 
           //$("#<%= @tzami_cat %>.cat_tzamia").trigger('click');
           //$("#"+"<%= @lastixa %>").click();
-        }else{
-          console.log("<%= @lastixa %>"+"!!!!!");
         }
         //setTimeout(do_typos_ar, 500);
     }
@@ -9467,8 +9395,7 @@
 
     function do_pr_ar(ar_pr,ar_ar,poio) {
         if (typeof ar_pr !== "undefined") {
-          //alert("!!");
-          console.log(ar_pr);
+          
           $( "#aristera" ).trigger('click');
           //width_profil_a = ar_pr;
           //prof = ar_pr;
@@ -9494,8 +9421,7 @@
               $( this ).trigger('click');
             }
           });
-          //console.log(ar_pr);
-          //console.log($(".typos"));
+        
           //$(".penintaena").each(function( index ) {
           //  if( $( this ).attr("id") == ar_pr ){
           //    $( this ).trigger('click');
@@ -9504,8 +9430,6 @@
           
           //$("#<%= @tzami_cat %>.cat_tzamia").trigger('click');
           //$("#"+"<%= @lastixa %>").click();
-        }else{
-          console.log("<%= @lastixa %>"+"!!!!!");
         }
         //setTimeout(function() { do_pr_ar_ar(ar_ar) }, 500);
         //setTimeout(do_pr_ar_ar(ar_ar), 500);
@@ -9529,8 +9453,7 @@
 
     function do_pr_de(de_pr,de_de,poio) {
         if (typeof de_pr !== "undefined") {
-          //alert("!!");
-          console.log(de_pr);
+
           $( "#deksia" ).trigger('click');
           //width_profil_a = ar_pr;
           //prof = ar_pr;
@@ -9557,8 +9480,7 @@
               $( this ).trigger('click');
             }
           });
-          //console.log(ar_pr);
-          //console.log($(".typos"));
+         
           //$(".peninta").each(function( index ) {
           //  if( $( this ).attr("id") == de_pr ){
           //    $( this ).trigger('click');
@@ -9567,8 +9489,6 @@
           
           //$("#<%= @tzami_cat %>.cat_tzamia").trigger('click');
           //$("#"+"<%= @lastixa %>").click();
-        }else{
-          console.log("<%= @lastixa %>"+"!!!!!");
         }
         //setTimeout(function() { do_pr_de_de(de_de) }, 500);
         //setTimeout(do_pr_ar_ar(ar_ar), 500);
@@ -9592,8 +9512,7 @@
 
     function do_pr_pa(pa_pr,pa_pa,poio) {
         if (typeof pa_pr !== "undefined") {
-          //alert("!!");
-          console.log(pa_pr);
+          
           $( "#panw" ).trigger('click');
           //width_profil_a = ar_pr;
           //prof = ar_pr;
@@ -9620,8 +9539,7 @@
               $( this ).trigger('click');
             }
           });
-          //console.log(ar_pr);
-          //console.log($(".typos"));
+          
           //$(".penintaduo").each(function( index ) {
           //  if( $( this ).attr("id") == pa_pr ){
           //    $( this ).trigger('click');
@@ -9630,8 +9548,6 @@
           
           //$("#<%= @tzami_cat %>.cat_tzamia").trigger('click');
           //$("#"+"<%= @lastixa %>").click();
-        }else{
-          console.log("<%= @lastixa %>"+"!!!!!");
         }
         //setTimeout(function() { do_pr_pa_pa(pa_pa) }, 500);
         //setTimeout(do_pr_ar_ar(ar_ar), 500);
@@ -9655,8 +9571,7 @@
 
     function do_pr_ka(ka_pr,ka_ka,poio) {
         if (typeof ka_pr !== "undefined") {
-          //alert("!!");
-          console.log(ka_pr);
+         
           $( "#katw" ).trigger('click');
           //width_profil_a = ar_pr;
           //prof = ar_pr;
@@ -9683,8 +9598,7 @@
               $( this ).trigger('click');
             }
           });
-          //console.log(ar_pr);
-          //console.log($(".typos"));
+          
           //$(".penintatria").each(function( index ) {
           //  if( $( this ).attr("id") == ka_pr ){
           //    $( this ).trigger('click');
@@ -9693,8 +9607,6 @@
           
           //$("#<%= @tzami_cat %>.cat_tzamia").trigger('click');
           //$("#"+"<%= @lastixa %>").click();
-        }else{
-          console.log("<%= @lastixa %>"+"!!!!!");
         }
         //setTimeout(function() { do_pr_ka_ka(ka_ka) }, 500);
         //setTimeout(do_pr_ar_ar(ar_ar), 500);
@@ -9725,7 +9637,6 @@
         counter_pinakas_arxikos = counter_pinakas_arxikos + 1; 
         counter_pinakas_arxikos_metavlites =  counter_pinakas_arxikos_metavlites + 3;
         if ( counter_pinakas_arxikos == PINAKAS_ARXIKO_FOR.length ){
-          console.log("Telos next_insert");
           ARXIKO_FOR = false;
           $('#loading').fadeOut(100);
           $(".hide_extra").hide();
@@ -9744,7 +9655,6 @@
             },timeout_profil);
             //$(".ok").click();
         }
-        console.log(ARXIKO_FOR);
     } 
   
   
@@ -9794,20 +9704,12 @@
 
       $('#loading').show();
       if ("<%= @lastixa %>" !== "0") {
-      console.log("<%= @lastixa %>");
-      console.log($("#"+"<%= @lastixa %>"));
+      
       $("#"+"<%= @lastixa %>").click();
-      }else{
-        console.log("<%= @lastixa %>"+"!!!!!");
       }
 
-      console.log("PROS:"+"<%= @prostasia_id %>");
       if ("<%= @prostasia_id %>" != "") {
-        console.log("<%= @lastixa %>");
-        console.log($("#"+"<%= @prostasia_id %>"));
         $(".prostasia").click();
-      }else{
-        console.log("<%= @prostasia_id %>"+"!!!!!");
       }
       
       do_tzamia0();
@@ -9923,8 +9825,7 @@
       setTimeout(function(){
         
         timeout_profil = timeout_profil + 0;
-        console.log(PINAKAS_ARXIKO_FOR);
-        console.log(PINAKAS_ARXIKO_FOR_METAVLITES);
+        
         if ( EXW_PROFIL  ){
             next_insert();
         }
@@ -9955,10 +9856,7 @@
 
     function do_typos(a,b,c) {
         if (typeof "<%= @typos_id %>" !== "undefined") {
-          //alert("mal");
-          console.log("<%= @typos_id %>");
-          console.log("<%= @typos_id %>");
-          console.log($(".typos"));
+          
           $(".typos").each(function( index ) {
             if( $( this ).attr("id") == "<%= @typos_id %>" ){
               YES_TYPOS = true;
@@ -9980,9 +9878,6 @@
           }
           //$("#<%= @tzami_cat %>.cat_tzamia").trigger('click');
           //$("#"+"<%= @lastixa %>").click();
-        }else{
-
-          //console.log("<%= @lastixa %>"+"!!!!!");
         }
         //setTimeout(do_typos_ar, 500);
     }
@@ -10008,10 +9903,7 @@
 
     function do_pr_ar(ar_pr,ar_ar,poio) {
         if (typeof ar_pr !== "undefined") {
-          //alert("!!");
-          console.log(ar_pr);
-          console.log(ar_ar);
-          //console.log(poio);
+         
           $( "#aristera" ).trigger('click');
           //width_profil_a = ar_pr;
           //prof = ar_pr;
@@ -10022,8 +9914,7 @@
           //    $( this ).css("color","white");
           //  }
           //});
-          //console.log(ar_pr);
-          //console.log($(".typos"));
+         
           window.ar_pr = ar_pr;
           window.ar_ar = ar_ar;
           $(".penintaena").each(function( index ) {
@@ -10031,13 +9922,10 @@
               //alert(ar_pr);
               if ( poio == 1 ){
                   YES_TYP_AR = true;
-                  console.log(poio);
               }else if ( poio == 2 ){
                   YES_TYP_AR2 = true;
-                  console.log(poio);
               }else{
                   YES_TYP_AR3 = true;
-                  console.log(poio);
               }
               $( this ).trigger('click');
             }
@@ -10045,8 +9933,6 @@
           
           //$("#<%= @tzami_cat %>.cat_tzamia").trigger('click');
           //$("#"+"<%= @lastixa %>").click();
-        }else{
-          console.log("<%= @lastixa %>"+"!!!!!");
         }
         //setTimeout(function() { do_pr_ar_ar(ar_ar) }, 500);
         //setTimeout(do_pr_ar_ar(ar_ar), 500);
@@ -10073,8 +9959,7 @@
 
     function do_pr_de(de_pr,de_de,poio) {
         if (typeof de_pr !== "undefined") {
-          //alert("!!");
-          console.log(de_pr);
+         
           $( "#deksia" ).trigger('click');
           //width_profil_a = ar_pr;
           //prof = ar_pr;
@@ -10085,8 +9970,7 @@
           //    $( this ).css("color","white");
           //  }
           //});
-          //console.log(ar_pr);
-          //console.log($(".typos"));
+          
           window.de_pr = de_pr;
           window.de_de = de_de;
           $(".peninta").each(function( index ) {
@@ -10105,8 +9989,6 @@
           
           //$("#<%= @tzami_cat %>.cat_tzamia").trigger('click');
           //$("#"+"<%= @lastixa %>").click();
-        }else{
-          console.log("<%= @lastixa %>"+"!!!!!");
         }
         //setTimeout(function() { do_pr_de_de(de_de) }, 500);
         //setTimeout(do_pr_ar_ar(ar_ar), 500);
@@ -10132,8 +10014,6 @@
 
     function do_pr_pa(pa_pr,pa_pa,poio) {
         if (typeof pa_pr !== "undefined") {
-          //alert("!!");
-          console.log(pa_pr);
           $( "#panw" ).trigger('click');
           //width_profil_a = ar_pr;
           //prof = ar_pr;
@@ -10144,8 +10024,7 @@
           //    $( this ).css("color","white");
           //  }
           //});
-          //console.log(ar_pr);
-          //console.log($(".typos"));
+          
           window.pa_pr = pa_pr;
           window.pa_pa = pa_pa;
           $(".penintaduo").each(function( index ) {
@@ -10164,8 +10043,6 @@
           
           //$("#<%= @tzami_cat %>.cat_tzamia").trigger('click');
           //$("#"+"<%= @lastixa %>").click();
-        }else{
-          console.log("<%= @lastixa %>"+"!!!!!");
         }
         //setTimeout(function() { do_pr_pa_pa(pa_pa) }, 500);
         //setTimeout(do_pr_ar_ar(ar_ar), 500);
@@ -10191,8 +10068,7 @@
 
     function do_pr_ka(ka_pr,ka_ka,poio) {
         if (typeof ka_pr !== "undefined") {
-          //alert("!!");
-          console.log(ka_pr);
+         
           $( "#katw" ).trigger('click');
           //width_profil_a = ar_pr;
           //prof = ar_pr;
@@ -10203,8 +10079,7 @@
           //    $( this ).css("color","white");
           //  }
           //});
-          //console.log(ar_pr);
-          //console.log($(".typos"));
+          
           window.ka_pr = ka_pr;
           window.ka_ka = ka_ka;
           $(".penintatria").each(function( index ) {
@@ -10223,8 +10098,6 @@
           
           //$("#<%= @tzami_cat %>.cat_tzamia").trigger('click');
           //$("#"+"<%= @lastixa %>").click();
-        }else{
-          console.log("<%= @lastixa %>"+"!!!!!");
         }
         //setTimeout(function() { do_pr_ka_ka(ka_ka) }, 500);
         //setTimeout(do_pr_ar_ar(ar_ar), 500);
@@ -10250,9 +10123,7 @@
 
     function do_tzamia() {
         if (typeof "<%= @tzami_cat %>" !== "undefined") {
-          console.log("<%= @tzami_cat %>");
-          console.log("<%= @tzami_id %>");
-          console.log($(".cat_tzamia"));
+         
           $(".cat_tzamia").each(function( index ) {
             if( $( this ).attr("id") == "<%= @tzami_cat %>" ){
               YES_TZAMIA = true;
@@ -10260,15 +10131,12 @@
               //return true;
             }
           });
-        }else{
-          console.log("<%= @lastixa %>"+"!!!!!");
         }
         //setTimeout(do_tzamia_cat, 1000);
     }
 
     /*
     function do_tzamia_cat() {
-        console.log($(".tzamia_polla"));
         $(".tzamia_polla").each(function( index ) {
             if( $( this ).attr("id") == "<%= @tzami_id %>" ){
               $( this ).trigger('click');
@@ -10280,9 +10148,7 @@
 
     function do_tzamia2() {
         if (typeof "<%= @tzami2_cat %>" !== "undefined") {
-          console.log("<%= @tzami2_cat %>");
-          console.log("<%= @tzami2_id %>");
-          console.log($(".cat_tzamia2"));
+          
           $(".cat_tzamia2").each(function( index ) {
             if( $( this ).attr("id") == "<%= @tzami2_cat %>" ){
               YES_TZAMIA2 = true;
@@ -10291,8 +10157,6 @@
           });
           //$("#<%= @tzami_cat %>.cat_tzamia").trigger('click');
           //$("#"+"<%= @lastixa %>").click();
-        }else{
-          console.log("<%= @lastixa %>"+"!!!!!");
         }
         
         //setTimeout(do_tzamia2_cat, 1000);
@@ -10300,9 +10164,7 @@
 
     function do_tzamia0() {
         if (typeof "<%= @tzami0_cat %>" !== "undefined") {
-          console.log("<%= @tzami0_cat %>");
-          console.log("<%= @tzami0_id %>");
-          console.log($(".cat_tzamia0"));
+         
           $(".cat_tzamia0").each(function( index ) {
             if( $( this ).attr("id") == "<%= @tzami0_cat %>" ){
               YES_TZAMIA0 = true;
@@ -10311,8 +10173,6 @@
           });
           //$("#<%= @tzami_cat %>.cat_tzamia").trigger('click');
           //$("#"+"<%= @lastixa %>").click();
-        }else{
-          console.log("<%= @lastixa %>"+"!!!!!");
         }
         
         //setTimeout(do_tzamia2_cat, 1000);
@@ -10320,7 +10180,6 @@
 
     /*
     function do_tzamia2_cat() {
-        console.log($(".tzamia_polla2"));
         $(".tzamia_polla2").each(function( index ) {
             if( $( this ).attr("id") == "<%= @tzami2_id %>" ){
               $( this ).trigger('click');
@@ -10350,8 +10209,6 @@
 
           }
           
-        }else{
-          console.log("<%= @lastixa %>"+"!!!!!");
         }
         //setTimeout(do_rolla_upo, 1000);
     }
@@ -10385,7 +10242,6 @@
           }else{
             $(".kin_ek_de").trigger('click');
           }
-          console.log("<%= @color_rolo %>"+"!!!!!");
           $(".color_ekso").each(function( index ) {
           if( $( this ).attr("id") == "<%= @color_rolo %>" ){
             $( this ).trigger('click');
@@ -10402,7 +10258,6 @@
           }else{
             $(".kin_ep_de").trigger('click');
           }
-          console.log("<%= @color_rolo %>"+"!!!!!");
           $(".color_epik").each(function( index ) {
           if( $( this ).attr("id") == "<%= @color_rolo %>" ){
             $( this ).trigger('click');
@@ -10415,9 +10270,7 @@
 
     function do_persides() {
         if (typeof "<%= @persida_id %>" !== "undefined") {
-          //console.log("Persida"+"<%= @persida_id %>");
-          //console.log("<%= @tzami_id %>");
-          //console.log($(".cat_tzamia"));
+         
           $(".perisdes").each(function( index ) {
             if( $( this ).attr("id") == "<%= @persida_id %>" ){
               YES_PERSIDES = true;
@@ -10426,8 +10279,6 @@
           });
           //$("#<%= @tzami_cat %>.cat_tzamia").trigger('click');
           //$("#"+"<%= @lastixa %>").click();
-        }else{
-          console.log("<%= @lastixa %>"+"!!!!!");
         }
         //setTimeout(do_persides_xrwma, 1000);
     }
@@ -10450,9 +10301,7 @@
 
     function do_odoigous() {
         if (typeof "<%= @odoigos_id %>" !== "undefined") {
-          //console.log("Persida"+"<%= @persida_id %>");
-          //console.log("<%= @tzami_id %>");
-          //console.log($(".cat_tzamia"));
+         
           $(".odoigoi").each(function( index ) {
             if( $( this ).attr("id") == "<%= @odoigos_id %>" ){
               YES_ODOIGOI = true;
@@ -10460,7 +10309,6 @@
             }
           });
           if ( kanw_prwti_fora_odoigoi ){
-            //alert("!!");
             $(".odoigoi").each(function( index ) {
             if( $( this ).attr("id") == "<%= @odoigos_id %>" ){
               YES_ODOIGOI = true;
@@ -10473,8 +10321,6 @@
           }
           //$("#<%= @tzami_cat %>.cat_tzamia").trigger('click');
           //$("#"+"<%= @lastixa %>").click();
-        }else{
-          console.log("<%= @lastixa %>"+"!!!!!");
         }
         //setTimeout(do_odoigous_xrwma, 1000);
     }

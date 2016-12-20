@@ -80,6 +80,8 @@ Rails.application.routes.draw do
   get 'etic/update_pososto_sun'
   get 'etic/leaf2'
   get 'etic/export_order'
+  get 'etic/cat_panels'
+  get 'etic/panels'
   
   get 'data_base_in_out/users'
   get 'data_base_in_out/dashboard'

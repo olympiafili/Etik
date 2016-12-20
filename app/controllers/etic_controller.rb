@@ -172,6 +172,7 @@ class EticController < ApplicationController
 		@system = System.where(:name => params[:system_name]).first
 		@line = Line.where(:name_allo => params[:line_name]).first
 		@leaf = Leaf.where(:name => params[:leaf_name]).first
+    @panel = Panel.where(:id => params[:panel]).first
 		##
 		#@open_type = OpenType.joins(:system_open_types).where(["system_open_types.line_id = ?", @line.id]).order(:order)
 		#@open_type1 = @open_type.where(:leaf_id => @leaf.id, :open_categorie_id => @open_categorie.id)
@@ -181,9 +182,10 @@ class EticController < ApplicationController
 		open_t << line.open_types.to_s.split(",")
 		@open_type = OpenType.where(:id => open_t).order(:order)
 		@open_type1 = @open_type.where(:leaf_id => @leaf.id, :open_categorie_id => @open_categorie.id)
-
+    
+		@response = {:open_type1 => @open_type1, :panel => @panel}
 		respond_to do |format|
-          format.json { render json: @open_type1.to_json}
+          format.json { render json: @response.to_json}
         end
         
 	end
@@ -304,7 +306,7 @@ class EticController < ApplicationController
     ## epikathimena, color_epikathimenou, eksoterika, color_eksoterikou, color_persidas, color_odoigou, tzamia, color_typos, color_profil.
     ## Όλες αυτές τις μεθόδους τις έχω για να πέρνω δεδομένα σε json format.
 	def extra
-       @cat_anoigmatos = OpenCategorie.where(:id => [1,2,3,6])
+       @cat_anoigmatos = OpenCategorie.where(:id => [1,2,3,5,6])
        @uliko = Material.all
 
        ##Κοκκινο πινακάκι
@@ -466,6 +468,7 @@ class EticController < ApplicationController
 		@cat_tzamia0 = GlassCatInOut.all
 		@cat_tzamia1 = GlassCatIn.all
 		@cat_tzamia2 = GlassCatOut.all
+    @supplier_panels = SupplierPanel.all
 		#
 		@prostasia = TypoiProstasia.all
 		@typos = Profil.where(:width => 0)
@@ -983,6 +986,26 @@ class EticController < ApplicationController
 		respond_to do |format|
           format.json { render json: @tzamia.to_json}
         end
+	end
+  
+	def cat_panels
+		#tzamia = []
+		#tzamia << @tzami_cat.lista.to_s.split(",")
+		#@cat_panels = CatPanel.where(:id => tzamia)
+    @cat_panels = CatPanel.all
+		respond_to do |format|
+      format.json { render json: @cat_panels.to_json}
+    end
+	end
+  
+	def panels
+    @cat_panel = CatPanel.where(:id => params[:id]).first
+		panels = []
+		panels << @cat_panel.panel.to_s.split(",")
+		@panels = Panel.where(:id => panels)
+		respond_to do |format|
+      format.json { render json: @panels.to_json}
+    end
 	end
 
 	def color_typos
