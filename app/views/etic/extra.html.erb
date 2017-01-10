@@ -608,7 +608,7 @@
 			  <!--Left tab window still-->
               <div id="tab_window_still" class="tab-window_still left_tab_extra ">
                 <div class="left_tab_gly">
-                  <%= image_tag("mine_icons/roll_main.png") %>
+                  <%= image_tag("mine_icons/window_still.png") %>
                 </div>
                 <div class="left_tab_header">
                   <p><%= t('translate.WindowStill') %></p>
@@ -954,7 +954,7 @@
                         <div class="extra">
                           <!-- Κατηγοριες -->
                           <div class="row">
-                            <div class="col-xs-6" >
+                            <div class="col-xs-5" >
                               <div class="epik_none">
                                 <h5><%= t('translate.Window_stills') %></h5>
                                 <% @window_still_cat.each do |e| %>
@@ -962,15 +962,13 @@
                                   <!--</div>-->
                                 <% end %><!--End each-->
                               </div>
-                            </div>
-                            <div class="col-xs-6" >
-                              <!-- Επικαθημενα και χρωματα με ajax -->
-                              <div class="window_still_wrapper"></div>
+							  <div class="window_still_wrapper"></div>
                             </div>
                             <div class="col-xs-7" >
                               <!-- Επικαθημενα και χρωματα με ajax -->
                               <div class="window_still_wrapper_big"></div>
                             </div>
+                            
                           </div>
                         
                           <div class="color_epikathimenou"></div>

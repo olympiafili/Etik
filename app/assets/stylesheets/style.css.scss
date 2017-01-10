@@ -863,7 +863,8 @@ label {
 
 .epikathimena_rola label:hover,
 .window_still_wrapper label:hover,
-.window_still_wrapper_big label:hover {
+.window_still_wrapper_big label:hover,
+.window_still_cat:hover {
   //background-color: #8C7A7A;
   //background-color: #777777;
   //color: white;
@@ -871,7 +872,8 @@ label {
 
 .epikathimena_rola label,
 .window_still_wrapper label,
-.window_still_wrapper_big label {
+.window_still_wrapper_big label,
+.window_still_cat {
   display: block;
   //width: 150px;
   text-align: center;
@@ -879,6 +881,11 @@ label {
   border-color: black;
   border-width: 1px; 
   transition: all 0.3s ease 0s;
+}
+
+.window_still_wrapper_big {
+	height: 400px;
+	overflow: scroll;
 }
 
 

@@ -935,7 +935,7 @@ class EticController < ApplicationController
   
 	def window_still_sub_cats
 		##Me ajax na pernw epikath an kanw click se epikath
-		@window_still_sub_cats = WindowStillSubCat.where(:window_still_cat_id => params[:window_still_cat_id])
+		@window_still_sub_cats = WindowStillSubCat.where(:window_still_cat_id => params[:window_still_cat_id]).order(:order)
 		respond_to do |format|
           format.json { render json: @window_still_sub_cats.to_json}
         end
@@ -4799,7 +4799,7 @@ class EticController < ApplicationController
   #window_sill
   def import_window_stills 
 		CSV.foreach("#{Rails.root}/public/sungate_csv/additional-objects.csv", col_sep: ';', encoding: 'iso-8859-1') do |row|  ##, encoding: 'iso-8859-1'
-      if(row[1] == "AGA")
+      if(row[1] == "afs")
         new_window_still = WindowStill.new
         if ( !row[4].nil? )
           new_window_still.name = row[5] + " " + row[4]

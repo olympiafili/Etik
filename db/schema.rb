@@ -782,6 +782,7 @@ ActiveRecord::Schema.define(version: 20160719070630075818) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "window_still_cat_id"
+    t.integer  "order"
   end
 
   create_table "window_stills", force: true do |t|
