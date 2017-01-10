@@ -464,6 +464,7 @@ class EticController < ApplicationController
 		@epikathimena_cat = Epikathimeno.all
 		@eksoteriko_cat = Eksoterika.all
 		@persides = Persides.all
+    @window_still_cat = WindowStillCat.all
 		#Glass
 		@cat_tzamia0 = GlassCatInOut.all
 		@cat_tzamia1 = GlassCatIn.all
@@ -929,6 +930,22 @@ class EticController < ApplicationController
 		@response = { :epikathimena => @epikathimena, :glwssa => @glwssa }
 		respond_to do |format|
           format.json { render json: @response.to_json}
+        end
+	end
+  
+	def window_still_sub_cats
+		##Me ajax na pernw epikath an kanw click se epikath
+		@window_still_sub_cats = WindowStillSubCat.where(:window_still_cat_id => params[:window_still_cat_id])
+		respond_to do |format|
+          format.json { render json: @window_still_sub_cats.to_json}
+        end
+	end
+  
+	def window_stills
+		##Me ajax na pernw epikath an kanw click se epikath
+		@window_stills = WindowStill.where(:window_still_cat_id => params[:window_still_subcat_id])
+		respond_to do |format|
+          format.json { render json: @window_stills.to_json}
         end
 	end
 
@@ -3151,12 +3168,30 @@ class EticController < ApplicationController
           	@price_extra = @price_extra + pro
           	tm_p_prostasia = width_n
           	timi_m_p_prostasia = TypoiProstasia.all.first.price.to_f
-
+        end
+        
+        #window_still
+        if ( params[:window_still_single] != "0" )
+          @window_still = WindowStill.where(:id => params[:window_still_single]).first          
+            if ( width_gia_vasi_new != 0)
+	    		    width_n = width_gia_vasi_new
+	    	    else
+	    		    width_n = width
+	    	    end
+            if(@window_still.unit == 'm')
+          	  window_still_price = ((width_n * @window_still.price.to_f) / 1000 )
+            else
+              window_still_price = @window_still.price.to_f
+            end
+            
+            window_still_name = @window_still.name
+            @price_extra = @price_extra + window_still_price
+          	tm_p_window_still = width_n
+          	timi_m_window_still = @window_still.price.to_f
         end
         
         ##TIMH ME ΠΡΟΦΙΛ
         profil_sum = 0
-
 
         ### Νεα προφιλ
         if ( !@profil_deksia_1.nil? )
@@ -4071,6 +4106,15 @@ class EticController < ApplicationController
         	prostasia_name = ""
         	prostasia_timi = 0
         end
+        
+        if (params[:window_still_single] != "0")
+        	window_still_name = window_still_name
+        	window_still_timi = window_still_price
+        else
+        	window_still_name = ""
+        	window_still_timi = 0
+        end
+        
         if !@odoigos.nil?
         	odoigos_name = @odoigos.name
         	odoigos_timi = pr_odoig
@@ -4259,7 +4303,6 @@ class EticController < ApplicationController
         	profil_posotita = 0
         end
         		
-        		
         	
 
 	    respond_to do |format|
@@ -4320,6 +4363,8 @@ class EticController < ApplicationController
           	                          :teliki_timi => @price_sum,
           	                          :prostasia_name => prostasia_name,
           	                          :prostasia_timi => prostasia_timi,
+          	                          :window_still_name => window_still_name,
+          	                          :window_still_timi => window_still_timi,
           	                          :lastixo => lastixo_name,
           	                          :lastixo_price => lastixo_price, 
           	                          :tzami0 => tzami0_name,
@@ -4531,6 +4576,246 @@ class EticController < ApplicationController
 		end
 		redirect_to etic_user_diax_path
 	end
+  
+  #colors
+	def import_colors
+		CSV.foreach("#{Rails.root}/public/sungate_csv/colorgroups.csv", col_sep: ';', encoding: 'iso-8859-1') do |row|  ##, encoding: 'iso-8859-1'
+			# Παίρνω τον αριθμό του για να τον συνδέσω με τον πελάτι του. ( Το χρειαζομαι μετα αν εχω νέους πελάτες στο sungate )
+      new_colorteam = ColorTeam.new
+      new_colorteam.color_team_name = row[1]
+      new_colorteam.epivarinsi = row[2]
+      new_colorteam.sungate_code = row[0]
+      new_colorteam.save
+    end
+    
+		CSV.foreach("#{Rails.root}/public/sungate_csv/colors.csv", col_sep: ';', encoding: 'iso-8859-1') do |row|  ##, encoding: 'iso-8859-1'
+      new_color = Color.new
+      new_color.name = row[1]
+      #new_color. = row[]
+      #new_color. = row[]
+      #new_color.save
+    end
+    
+    redirect_to etic_user_diax_path
+	end
+  
+  #import glasses&panels
+	def import_glasses_panels
+		CSV.foreach("#{Rails.root}/public/sungate_csv/glasses.csv", col_sep: ';', encoding: 'iso-8859-1') do |row|  ##, encoding: 'iso-8859-1'
+      if (row[1] != "ACT")
+        new_glass = Tzamia.new
+        new_glass.name = row[5]
+        new_glass.sungate_code = row[3]
+        new_glass.price = row[6]
+        new_glass.save
+        
+        if (row[7] == "yes")
+    			glass_cat_in = GlassCatIn.where(:sungate_code => row[1]).first
+    			if ( !glass_cat_in.nil? )
+            glass_cat_in.lista = glass_cat_in.lista + "," + new_glass.id.to_s
+            glass_cat_in.save
+          end
+        end
+        if (row[8] == "yes")
+    			glass_cat_out = GlassCatOut.where(:sungate_code => row[1]).first
+    			if ( !glass_cat_out.nil? )
+            glass_cat_out.lista = glass_cat_out.lista + "," + new_glass.id.to_s
+            glass_cat_out.save
+          end
+        end
+        if (row[9] == "yes")
+    			glass_cat_in_out = GlassCatInOut.where(:sungate_code => row[1]).first
+    			if ( !glass_cat_in_out.nil? )
+            glass_cat_in_out.lista = glass_cat_in_out.lista + "," + new_glass.id.to_s
+            glass_cat_in_out.save
+          end
+        end
+      else
+        new_panel = Panel.new
+        new_panel.name = row[5]
+        new_panel.sungate_code = row[3]
+        new_panel.price = row[6]
+        new_panel.save
+        
+  			cat_panel = CatPanel.where(:sungate_code => row[1]).first
+  			if ( !cat_panel.nil? )
+          if(cat_panel.panel.nil?) 
+            cat_panel.panel = new_panel.id.to_s
+          else
+            cat_panel.panel = cat_panel.panel + "," + new_panel.id.to_s
+          end
+          cat_panel.save
+        end	
+      end#end initial if
+    end#end csv foreach
+    
+    redirect_to etic_user_diax_path
+	end
+  
+  #constructors
+	def import_constructors
+		CSV.foreach("#{Rails.root}/public/sungate_csv/suppliers.csv", col_sep: ';', encoding: 'iso-8859-1') do |row|  ##, encoding: 'iso-8859-1'
+      new_constructor = Constructor.new
+      new_constructor.name = row[2]
+      new_constructor.sungate_code = row[0]
+      new_constructor.save
+    end
+    
+    redirect_to etic_user_diax_path
+	end
+  
+  #systems
+	def import_systems
+		CSV.foreach("#{Rails.root}/public/sungate_csv/profile-systems.csv", col_sep: ';', encoding: 'iso-8859-1') do |row|  ##, encoding: 'iso-8859-1'
+			# Παίρνω τον αριθμό του για να τον συνδέσω με τον πελάτι του. ( Το χρειαζομαι μετα αν εχω νέους πελάτες στο sungate )
+      new_system = System.new
+      new_system.sungate_code = row[0]
+      new_system.name = row[5]
+      
+			constructor = Constructor.where(:sungate_code => row[7]).first
+			if ( !constructor.nil? )
+        new_system.constructor_id = constructor.id
+      end
+      
+      new_system.save
+      
+			if ( !constructor.nil? )
+        if(cat_panel.panel.nil?) 
+          constructor.systems = new_system.id.to_s
+        else
+          constructor.systems = constructor.systems + "," + new_system.id.to_s
+        end
+        constructor.save
+      end
+    end
+    
+    redirect_to etic_user_diax_path
+	end
+  
+  #lines
+	def import_lines
+		CSV.foreach("#{Rails.root}/public/sungate_csv/profile-groups.csv", col_sep: ';', encoding: 'iso-8859-1') do |row|  ##, encoding: 'iso-8859-1'
+			# Παίρνω τον αριθμό του για να τον συνδέσω με τον πελάτι του. ( Το χρειαζομαι μετα αν εχω νέους πελάτες στο sungate )
+      new_line = Line.new
+      new_line.sungate_code = row[0]
+      new_line.epivarinsi_line = row[3]
+      new_line.name = row[6]
+      new_line.sungate_description = row[6]
+      new_line.epivarinsi_gri = 0
+      new_line.epivarinsi_lastixo = 0
+      new_line.koimeno = "#" + row[7]
+      new_line.save
+      
+			system1 = System.where(:sungate_code => row[2]).first
+			if ( !system1.nil? )
+        system1.lines = system1.lines + "," + new_line.id.to_s
+        system1.save
+      end
+    end
+    
+    redirect_to etic_user_diax_path
+	end
+  
+  #customers
+	def import_customers
+		CSV.foreach("#{Rails.root}/public/sungate_csv/customers.csv", col_sep: ';', encoding: 'iso-8859-1') do |row|  ##, encoding: 'iso-8859-1'
+      if(row[13] == "WVK")
+        new_user = User.new
+        new_user.email = row[10]
+        new_user.name = row[2]
+        new_user.epitheto = row[3]
+        new_user.phone = row[8]
+        new_user.region = row[7]
+        new_user.address1 = row[4]
+        new_user.sungate_code = row[0]
+        new_user.save
+      else
+        new_customer = Customer.new
+        new_customer.name = row[2]
+        new_customer.eponimo = row[3]
+        new_customer.address = row[4]
+        new_customer.phone = row[8]
+        new_customer.email = row[10]
+        new_customer.mr = row[1]
+        new_customer.city = row[5]
+        new_customer.postal_code = row[6]
+        new_customer.country_code = row[7]
+        new_customer.mobile = row[9]
+        new_customer.fax = row[11]
+        new_customer.VAT = row[12]
+        new_customer.sungate_num = row[0]
+        new_customer.save
+      end
+      
+    end
+    
+    redirect_to etic_user_diax_path
+	end
+  
+  #additional_objects
+	def import_additional_objects
+		CSV.foreach("#{Rails.root}/public/sungate_csv/additional-objects.csv", col_sep: ';', encoding: 'iso-8859-1') do |row|  ##, encoding: 'iso-8859-1'
+      if(row[1] == "Rok")
+        new_rolo_ekso = RolaEkso.new
+        new_rolo_ekso.name = row[3]
+        new_rolo_ekso.price = row[6]
+        new_rolo_ekso.sungate_code = row[3]
+        #new_rolo_ekso.rola_ekso_id = row[]
+            
+        new_rolo_ekso.save
+      elsif(row[1] == "Min")
+        new_rolo_epik = RolaEpik.new
+        new_rolo_epik.name = row[3]
+        new_rolo_epik.height = row[10]
+        new_rolo_epik.sungate_code = row[3]
+        new_rolo_epik.price = row[6]
+        new_rolo_epik.en = row[3]
+        new_rolo_epik.de = row[3]
+        new_rolo_epik.gr = row[3]
+        #new_rolo_epik.epikathimeno_id = row[]
+        
+        new_rolo_epik.save
+      elsif(row[1] == "Rop")
+        new_persida = Persides.new
+        new_persida.name = row[5]
+        new_persida.sungate_code = row[3]
+        new_persida.price = row[6]
+        
+        new_persida.save
+      elsif(row[1] == "Ust")
+        new_profil = Profil.new
+        new_profil.name = row[5]
+        new_profil.code = row[3]
+        new_profil.price = row[6]
+        
+        new_profil.save
+      end
+      
+    end
+    
+    redirect_to etic_user_diax_path
+	end
+  
+  #window_sill
+  def import_window_stills 
+		CSV.foreach("#{Rails.root}/public/sungate_csv/additional-objects.csv", col_sep: ';', encoding: 'iso-8859-1') do |row|  ##, encoding: 'iso-8859-1'
+      if(row[1] == "ast")
+        new_window_still = WindowStill.new
+        if ( !row[4].nil? )
+          new_window_still.name = row[5] + " " + row[4]
+        else
+          new_window_still.name = row[5]
+        end
+        new_window_still.price = row[6]
+        new_window_still.sungate_code = row[3]
+        new_window_still.window_still_cat_id = 1
+        new_window_still.unit = row[7]
+            
+        new_window_still.save
+      end
+    end
+    redirect_to etic_user_diax_path
+  end
 
     ## Διαγράφω το επιλεγμένο κούφωμα. 
 	def destroy
