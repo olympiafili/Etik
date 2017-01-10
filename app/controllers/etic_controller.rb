@@ -4799,7 +4799,7 @@ class EticController < ApplicationController
   #window_sill
   def import_window_stills 
 		CSV.foreach("#{Rails.root}/public/sungate_csv/additional-objects.csv", col_sep: ';', encoding: 'iso-8859-1') do |row|  ##, encoding: 'iso-8859-1'
-      if(row[1] == "afs")
+      if(row[1] == "AGA")
         new_window_still = WindowStill.new
         if ( !row[4].nil? )
           new_window_still.name = row[5] + " " + row[4]
