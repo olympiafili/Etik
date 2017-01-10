@@ -4798,8 +4798,8 @@ class EticController < ApplicationController
   
   #window_sill
   def import_window_stills 
-		CSV.foreach("#{Rails.root}/public/sungate_csv/additional-objects.csv", col_sep: ';', encoding: 'iso-8859-1') do |row|  ##, encoding: 'iso-8859-1'
-      if(row[1] == "afs")
+		CSV.foreach("#{Rails.root}/public/sungate_csv/AFB.csv", col_sep: ';', encoding: 'iso-8859-1') do |row|  ##, encoding: 'iso-8859-1'
+      
         new_window_still = WindowStill.new
         if ( !row[4].nil? )
           new_window_still.name = row[5] + " " + row[4]
@@ -4812,7 +4812,7 @@ class EticController < ApplicationController
         new_window_still.unit = row[7]
             
         new_window_still.save
-      end
+      
     end
     redirect_to etic_user_diax_path
   end
