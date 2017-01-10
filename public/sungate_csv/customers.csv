@@ -1,941 +1,392 @@
-DEALER;Etik_Sun01;0;;;;;;;;;;;;
-CUSTOMER;0;1010001;Fa;BRITNER Montageunternehmen;;Europastr. 27;Stetten a.k.M;72510;D;07573-404545;0173-5655122;info@fensterplus.com;;yes
-CUSTOMER;0;1010002;;Rauch sen.;;;;;;;;;;yes
-CUSTOMER;0;1010003;;Stärtz;Gerd;Am Süssberg 26;Dittelbrunn;97456;D;;;;;yes
-CUSTOMER;0;1010004;;Müller;Klaus;Frankenstr. 5;Würzburg;97320;D;;;;;yes
-CUSTOMER;0;1010005;;Herrmann;Georg;Walter-Nernst-Str. 20;Würzburg;97080;D;0931/91401;;;;yes
-CUSTOMER;0;1010006;;Maier;Max;Hartmann 4;W-E;91639;;09875-224615;;;;yes
-CUSTOMER;0;1010007;;Straud;Reinhard;Mühlacker-Str.9;Unterpleichfeld;97294;D;09367/2212;;;;yes
-CUSTOMER;0;1010008;;Stöhr;Roland;Lippertstraße 18;Röthlein;97520;D;09723/3348;;;;yes
-CUSTOMER;0;1010009;;Evangelos Gimoussiakakis;;Neckarstraße 94;Ludwigsburg;71640;D;;0157-37740812;info@dis-bauzentrale.de;;yes
-CUSTOMER;0;1010010;F;Maier;Julia;Eichendorffstr.10;Reutlingen;72762;D;;;julia.ftl@gmail.com;;yes
-CUSTOMER;0;1010011;;Cetin;Metin;Bricciusstr. 40/1;Rottenburg-Wurmlingen;72108;D;;;;;yes
-CUSTOMER;0;1010012;;Mayer;Marcel;Ronhartstr.6;Melchingen;72393;D;;;marcel@dnsg-melchingen.org;;yes
-CUSTOMER;0;1010013;F;Haap;Daniela;Theodor-Fontane-Str. 45;Reutlingen;72760;D;07121 330354;0163 3000353;;;yes
-CUSTOMER;0;1010014;;Zorlu;Hüssein;Staig 17;Hechingen;72379;D;;;;;yes
-CUSTOMER;0;1010015;Fa;Denkinger GmbH;;An der Sägmühle 18;Jungingen;72417;D;07477 91898 0;;goran.ivkovic@denkinger.de;07477 91898 18;yes
-CUSTOMER;0;1010016;;Sahin;Osman;Achalmstr. 34;Hechingen;72379;D;;;Sahin_bau@live.de;;yes
-CUSTOMER;0;1010017;Fa;RZ Bausysteme - Zoll Ralf;;Marie-Schenk Str. 11;Burladingen;72393;D;07475 4360;0174 9549544;ralph-zoll@gmx.de;07475 9553737;yes
-CUSTOMER;0;1010018;;Selvi;Ibrahim;Im Maierhof 21;Hechingen;72379;D;;0152-56903158;;;yes
-CUSTOMER;0;1010019;;Koukoulis;Anastasios;Lindauerstr. 21b;Großeitingen;86845;;;0176-98102377;mikkap74@gmail.com;;yes
-CUSTOMER;0;1010020;Fa;EXKLUSIV Wohnbau;;Tübinger Straße 30;Gomaringen;72108;;07072-1262280;;p.janzen@exklusiv-wohnbau.de;07072-1262538;yes
-CUSTOMER;0;1010021;;Mourgas;Jannis;Rütli Str. 50;Stuttgart;70435;D;;;;;yes
-CUSTOMER;0;1010022;;Yalcintas;Sener;Hospitalstrasse 16;Hechingen;72379;;;;;;yes
-CUSTOMER;0;1010023;Fa;Meier;Fenstertechnik;Am Englischen Garten 34;Landsberg am Lech;88899;D;08191 1780;0173 3627881;;08191 931719;yes
-CUSTOMER;0;1010024;Fa;Schlichter;Fensterbau;Bergstr. 7;Obermühlhausen;86911;D;;;kathrinstreiter@yahoo.de;;yes
-CUSTOMER;0;1010025;Fa;Schetter GmbH & Co. KG;H. Schetter;Im Greut 2;Bisingen-Wessingen;72406;D;07471 9858 0;;info@schetter-natursteine.de;07471 9858 48;yes
-CUSTOMER;0;1010026;Fa;Wolf;Fensterbau;Stuttgarter Straße 20;Eislingen;73054;;07161/388157;0171-2850912;info@wolf-fensterbau.de;07161/8082951;yes
-CUSTOMER;0;1010027;Fa;Ratio Wohnbau GmbH;;Turmstraße 37;Lörrach;79539;D;07621 1633700;0172 7612678;info@ratio-wohnbau.de;;yes
-CUSTOMER;0;1010028;Fa;KS Fenster- und Türtechnik;;Im Öschle 5;Altenried;72657;D;07127 9326 71;0172 2345509;schaefer@ks-fensterundtueren.de;07127 9326 80;yes
-CUSTOMER;0;1010029;;Alexander Stepanov;;Unter der Steigstr. 35;Gomaringen;72810;D;;;denisstepanov@web.de;;yes
-CUSTOMER;0;1010030;Fa;Stefan Gabor Montageservice;;Hanauer Straße 65;Freigericht;63579;D;06055 907340;0171 7528437;info@gabor-ft.de oder stefangabor@gabor-ft.de;06055 9073419;yes
-CUSTOMER;0;1010031;;Fenster-Sonnenschutz;Markus Götz;Römerstrasse 1;Radolfzell-Stahringen;78315;D;07738-97075;;markus@goetz-singen.de;07738-97074;yes
-CUSTOMER;0;1010032;Fa;IDEMATECH GmbH;Herr Kurz;Großeislingerstraße 64;Göppingen;73033;D;07161 5045983;;hausundraum@arcor.de;07161 5045984;yes
-CUSTOMER;0;1010033;;Asterios Katselas;Trockenbau;Stuttgarter Straße 14;Schorndorf;73614;D;07181 474482;0172 7318285;info@dein-trockenbau.de;07181 474483;yes
-CUSTOMER;0;1010034;Fa;HomeTec24 GmbH;;Lüneburger Tor 9;Hamburg;21073;D;040 241 958 90;0178 47 67 47 8;architekt@omer.info;040 241 959 49;yes
-CUSTOMER;0;1010035;;Mustafa Sönmez;;Elsässer Str. 16;Zuffenhausen;70435;D;;;;;yes
-CUSTOMER;0;1010036;;Muhammed Sarimese;;Steigstrasse 35;Oberbohingen;72644;D;;0163 2101155;sarimesetransporte@hotmail.com;;yes
-CUSTOMER;0;1010037;;Grauer;Johannes;Jochan-Strauß-Str. 6;Hechingen;72379;D;;;johanka06@gmx.de;;yes
-CUSTOMER;0;1010038;Fa;Freese Mathias;Fenster & Türen;Mittelstrsße 9;Lengerich;49838;D;05904 919599;;info@handwerk-freese.de;05904 919597;yes
-CUSTOMER;0;1010039;AB;Stock Hirschfeld;v. Poswik;Linzer Straße 36;Stuttgrart-Feuerbach;70469;D;0711 814093;;;0711 851829;yes
-CUSTOMER;0;1010040;AB;Freier Architekt;Reinhold Müller Dipl. Ing. (FH);Karlstraße 7;Winnenden;71364;D;07195 941185;0172 7344990;abreinholdmueller@web.de;07195 941186;yes
-CUSTOMER;0;1010041;Fa;TBS Toscani Bausysteme;;Friedrich-Ochs-Str.1;Weiden i.d.Opf.;92637;D;0961 47030720;0171 2108709;info@toscani-bausysteme.de;0961 47030722;yes
-CUSTOMER;0;1010042;H;Satilmis;Ilhami;Königsbergerstr. 21;Böblingen;71034;D;;;;;yes
-CUSTOMER;0;1010043;;FensterTech Bauelemente;;Reiffeisenstraße 7;Ortenburg;94496;D;08542 1336;;alex@fenstertech.de: sandra@fenstertech.de;08542 91418;yes
-CUSTOMER;0;1010044;Fa;Interio Baudesign GmbH & Co. KG;;Sigmaringer Straße 10;Hechingen;72379;D;07471 9699490;07471 9699492;manfred.lerner@interio-baudesign.de;07471 9699493;yes
-CUSTOMER;0;1010045;Fa;Fehrmann-Teepker Gmbh;;Daimlerstraße 3;Wietmarschen-Lohne;49835;D;05908 - 8833;0176 34429684;Info@fehrmann-teepker.de;05908 - 88340;yes
-CUSTOMER;0;1010046;Fa;Forstenhäusler GmbH;;Treutweg 29;Bieberach;88400;D;;1713866749;info@forstenhaeusler.eu;;yes
-CUSTOMER;0;1010047;;Muli Driton;;Edelmannsweg 24;Mössingen;72116;D;;;;;yes
-CUSTOMER;0;1010048;Fa;Denk Schreinerei;Schreinerstudio;Hauptstraße 23;Urbach;73660;D;07181-81317;;wolfgangdenk@t-online.de;07181-81317;yes
-CUSTOMER;0;1010049;;Dimitrios Arapis;;Lindenstraße 32;Bodelshausen;72411;;;;;;yes
-CUSTOMER;0;1010050;Fa;Vollmer Massivhaus GmbH;;Ebinger Straße 4;Albstadt-Margrethausen;72459;;07431-957440;;info@vollmermassivhaus.de;;yes
-CUSTOMER;0;1010051;Fa;Gabor Montagetechnik;Stefan Gabor -;Hanauer Str. 65;Freigericht;63579;D;06055 9073411;;;06055 9073419;yes
-CUSTOMER;0;1010052;;Keiler;Nikolai;Carl-Baur-Weg 38;Hechingen;72379;D;;0174-2979314;N.Keiler@gmx.de;;yes
-CUSTOMER;0;1010053;;IBRAHIM;SELVI;;HECHINGEN;72379;;;;;;yes
-CUSTOMER;0;1010054;Fa;Grafschafter Bauelemente;;Wasserstr. 8;Nordhorn;48531;D;;0176-34429684;grafschafter-bauelemente@gmx.de;;yes
-CUSTOMER;0;1010055;;BHV - Stuttgart;Petrovic;Unterländer Str. 51A;Stuttgart-Zuffenhausen;70435;D;;;;;yes
-CUSTOMER;0;1010056;;Skendaj;Ilir;"La 16 Prilli
-";"Fier Albania
-";;AL;;;info.newsystem@gmail.com;;yes
-CUSTOMER;0;1010057;Fa;ALKU Fenster & Türen GmbH;;Sparrhärmlingweg 42;Stuttgart;70376;D;0711-544707;;alkufenstertueren@t-online.de;0711-541827;yes
-CUSTOMER;0;1010058;Fa;Windoor;Kiritsis;x;Greece;;GR;;;;;yes
-CUSTOMER;0;1010059;BHG;Elisabeth Schetter;Marcus, Peter und;Kirchstr. 1;Hechingen;72379;D;07471 6201826;;eusche45@gmx.de;;yes
-CUSTOMER;0;1010060;Fa;Fenstor - Senad Oruc;;Opelstraße 8; Konstanz;78467;;07531 36 96 952;0174 243 1006;oruc@fenstor.de,  wolf@fenstor.de, info@fenstor.de;07531 36 96 953;yes
-CUSTOMER;0;1010061;F;Wick;Monika;Brunnenstr.12;Kippenheim;77971;D;07825 879943;0175 2731837;monika-wick@t-online.de;07825 879943;yes
-CUSTOMER;0;1010062;;Koukoulis;Anastasios;Lindauerstr. 21b;Großeitingen;86845;;0176-98102377;0176-98102377;mikkap74@gmail.com;;yes
-CUSTOMER;0;1010063;Ads;Nadine Ben Amara;Planungsbüro;Hofstattäcker 28;Burgthann;90559;D;09187 4091551;0176 242 72754;b_amara_n@yahoo.de;;yes
-CUSTOMER;0;1010064;Arg;Poswick Stock Hirschfeld;Architekten und Inginieure;Linzerstraße 36;Stuttgart;70469;D;0711 814093;;mail@psh-architekten.de;0711 851829;yes
-CUSTOMER;0;1010065;;Bilger;Norbert;Avenue Moliére 85;Brüssel 19;1190;B;;;;;yes
-CUSTOMER;0;1010066;Fa;SGS Grundstücksentwicklungsgesellschaft mbH;;Kohlenstrasse 47a;Kassel;34121;D; +49 561 / 28 61 849;;streletz@sgs-realestate.de;+49 561 / 28 61 850;yes
-CUSTOMER;0;1010067;;Eren;Abdurrahim;Auf dem Hommerich;Niederkassel-Rheidt;53859;D;;1784040413;abdueren@web.de;;yes
-CUSTOMER;0;1010068;Fa;LUXFEN GmbH;Fenster und Türen;Lange Hecke 12a;Fleringen;54597;D;06558 900080;;info@luxfen.com;06558 9000829;yes
-CUSTOMER;0;1010069;FAM;Dangelmayer;H.&G;Hartmann v.d.Auestr.4;Wolframs-Eschenbach;91639;;09875-224615;0171-5849509;;09875-224616;yes
-CUSTOMER;0;1010070;AD;Charalambos;Tragas;Schlossstrasse 21;Hechingen;72379;D;7471984470;;tragas@etik-gmbh.de;74719844720;yes
-CUSTOMER;0;1010071;Fa;DIS-Bauzentrale GmbH;;Schuckertstr. 6;Ditzingen;71254;D;;0157 37740812;;;yes
-CUSTOMER;0;1010072;AB;Eckert;Georg;;Rottenburg;72108;D;;;mail@eckert-Architektur.de;;yes
-CUSTOMER;0;1010073;;Mazur;J.;Pfahlgasse 6/2;Hardhausen;74239;D;;0163 7172969;mazurjo@gmx.de;;yes
-CUSTOMER;0;1010074;;Katselas;Asterios;Stuttgarter Straße 14;Schorndorf;73614;D;;0172-7318285;;;yes
-CUSTOMER;0;1010076;;Sasse;Bernhard;Asternweg 1;Taifingen;72461;D;;;filippo.marrazzo@gmx.net;;yes
-CUSTOMER;0;1010077;;Kamert;Patrik;Thomas-Mann-Ring 10;Balingen;72336;D;;0176 63304157;p.kamertgmx.net;;yes
-CUSTOMER;0;1010078;Fa;S & L Szymanski GmbH Jena;;Im Steinfeld 4;Jena-Maua;7751;D;;;;;yes
-CUSTOMER;0;1010079;F;Toprak;Serife;Wilchelm Kraut Str. 16;Balingen;72336;D;;;;;yes
-CUSTOMER;0;1010080;;Müller;Waldemar;;;;;07351 373571;;imueller1980@web.de;;yes
-CUSTOMER;0;1010081;Fa;Heer Montagebetrieb;Daniel;Zum Kirschbuckel 2;Sinsheim-Hilsbach;74899;D;;0172 7757053;daniel.heer@gmx.net;;yes
-CUSTOMER;0;1010082;;Sezer;Erol;Bahnhofstr. 6;Neuffen;72639;D;;;;;yes
-CUSTOMER;0;1010083;;Oehme;Markus;Hauptstraße 129;Dorfchemnitz;9619;D;;0152 2719448;equipment-service@gmx.de;037320 809727;yes
-CUSTOMER;0;1010084;;;;;;;;;;;;yes
-CUSTOMER;0;1010085;;NAPERKOWSKI ALFRED;FENSTER UND TÜRTECHNIK;SCHWEIGENERSTR. 56;GEMMINGEN;75050;D;07267 9619582;0049-176-77275117;;;yes
-CUSTOMER;0;1010086;;Eisele;Josef;Zaisentalstr. 84;Reutlingen;72760;D;07121 503998;;amanda.eisele@arcor.de;;yes
-CUSTOMER;0;1010087;Fa;Höfling Baumarkt GmbH;;Johanstraße 3;Mainhausen;63533;D;;;tr@hoefling.i-m.de      Thomas Rachor;06182/28515;yes
-CUSTOMER;0;1010088;;Ugur;Erdem;Wuhrstraße 7;Hechingen;72379;;;15164610158;;;yes
-CUSTOMER;0;1010089;Fa;ETIK GmbH;;;Hechingen;72379;D;;;;;yes
-CUSTOMER;0;1010090;;Dojcinovic;Dragan;NeuköllnerStraße 7;Leonberg;71229;;;0175-9171797;;;yes
-CUSTOMER;0;1010091;F;Richter;Agata;Wielandweg 13;Hechingen;72379;D;;;;;yes
-CUSTOMER;0;1010092;Fa;Dionysiou;Dimitrios;;Chalkida;34100;GR;;;;;yes
-CUSTOMER;0;1010093;Fa;Awramidi O.E. Handel mit Aluminium;AFI;Komwos P.O.E. Katerinis-Thessa;Katerini;;GR;0030 23820 82979;0030 6973 741777;;0030 6980 522555;yes
-CUSTOMER;0;1010094;;Lomis;Alessantro;;Geislingen;;D;;;;;yes
-CUSTOMER;0;1010095;FAM;Conti;Il Cavallino;;Balingen;72336;D;07433 382622;;il_cavallino@gmx.de;;yes
-CUSTOMER;0;1010096;;Müller;Waldemar;Berggrubenweg 32;Birkenhard;88447;D;07351 373571;;imueller1980@web.de;;yes
-CUSTOMER;0;1010097;;Zozonis;Dimitris;Papageorgiou 47;Pyrgos Ilias;82100;GR;;;;;yes
-CUSTOMER;0;1010098;;Eyaggeliou;Eyaggelos;Drosopoula-Mykonos;Mykonos;;GR;0030 23820 82979;0030 6973 741777;;;yes
-CUSTOMER;0;1010099;Fa;Gradinski Kompletthandel;Daniel;Tannecker Strasse 1;Kerpen;50170;D;;0175 9641631;mike-melone@gmx.net / d.gradinski@mike-melone.de;;yes
-CUSTOMER;0;1010100;;B. Schmid;Türen- u. Fenstermontage;Erpfinger Str. 17;Landsberg / Lech;86899;D;;;;08191 3055808;yes
-CUSTOMER;0;1010101;;Mario;Roberto;Schrambergerstr. 4/1;Balingen;72336;D;;;;;yes
-CUSTOMER;0;1010102;;Lorenzo;Enrico;Wilchelmstr. 7;Bitz;;D;;;;;yes
-CUSTOMER;0;1010103;;Vollmer;Claus;Friedensweg 1;Hochdorf;88454;D;;0174 5445244;claus-vollmer@gmx.de;;yes
-CUSTOMER;0;1010104;Fa;Giuseppina Alo-David;Farben Arena;Haßlerstraße 17;Ulm;89077;D;0731 1525441;;info@farben-arena.ulm.de;0731 1525442;yes
-CUSTOMER;0;1010105;;Matthes;;Baumgarten Str. 77;Lichtenstein;72805;D;;;;;yes
-CUSTOMER;0;1010106;F;Katke;Olga;Friedrich-Wolf-Weg 17;Hechingen;72379;D;;;Olgakatke@gmail.com;;yes
-CUSTOMER;0;1010107;;Georgoulis Georgios;Alouminiumconstruction;Spyridon 69;Chios;82100;GR;;;;;yes
-CUSTOMER;0;1010108;;DÜSSELDORF;;;;;;;;;;yes
-CUSTOMER;0;1010109;;EINKAUFSPREISE;;;;;;;;;;yes
-CUSTOMER;0;1010111;Fa;FENSTERLAND;;;;;;;;;;yes
-CUSTOMER;0;1010112;;Schiemann;Edwin;Kaunterweg 4;Balingen;72336;D;07433 3094292;0176 42599400;info@eddies-welt.de;07433 3094065;yes
-CUSTOMER;0;1010114;F;Mamedov;Ekaterina;Göppingerstr. 25;Leonberg;71229;D;;;;;yes
-CUSTOMER;0;1010115;;PIERDOOR;;;;;;;;;;yes
-CUSTOMER;0;1010117;;Ayvoci;Hasan;Bismarckstr. 29;Reutlingen;72764;D;;;;;yes
-CUSTOMER;0;1010118;;MADRUGADA;;;;;;;;;;yes
-CUSTOMER;0;1010119;;Kliggopoulos;Asterios;Litochoro Pierias;Litochoro - Pierias;60200;GR;;;;;yes
-CUSTOMER;0;1010120;;PRESVERGLEICH;;;;;;;;;;yes
-CUSTOMER;0;1010121;;Preisvergleich;;;;;;;;;;yes
-CUSTOMER;0;1010122;;Achterberg;Dirk;Am Schlichtenbach;Balingen;72336;D;;;;;yes
-CUSTOMER;0;1010123;F;Schoy;Helga;Waldstr. 3/2;Bisingen;72406;D;;;;;yes
-CUSTOMER;0;1010124;Fa;AC-Therm GmbH;;Erperstraße 29;Bielefeld;33649;D;0521 94743 47;0171 3300977;e.citak@ac-therm.de;0521 94743 10;yes
-CUSTOMER;0;1010125;Fa;KTIRIO 59;;;;;;;;;;yes
-CUSTOMER;0;1010126;Fa;Escher & Partner Ingineure;;Schlehenring 3;Lauterbach;89584;D;;;;;yes
-CUSTOMER;0;1010127;Fa;Wagenas Eygenios;Kataskeys Aluminiou;Kalthea Konitsas;Kalithea - Konitsas;;GR;;;;;yes
-CUSTOMER;0;1010128;;Bassler;Christoph;Mozart Str. 9;Sickingen;72379;D;;;;;yes
-CUSTOMER;0;1010129;Fa;Skoulikas;Lazaros;Achlada;Achlada - Ioannina;44009;GR;;;;;yes
-CUSTOMER;0;1010130;Fa;Mbombas;Andreas;Astras Ilias;Astras - Ilias;27063;GR;;;;;yes
-CUSTOMER;0;1010131;Fa;Schilder; Fenster + Türen;Zeppelinstr. 25;Kornwestheim;70806;D;07154 180072;;heinz.schilder@schilder-fenster.de;7154180073;yes
-CUSTOMER;0;1010132;;DIMIDIDAS@GOOGLEMAIL.COM;;;;;;;;;;yes
-CUSTOMER;0;1010133;Fa;Freitag Bau;;Am Vogelherd 4/1;Scheer;72516;D;;15164817084;info@bauen-mit-freitag.de;;yes
-CUSTOMER;0;1010134;AD;Freie Evangeliumschristengemeinde Meßkirch;;Schnerkingerstr. 14;Meßkirch;88605;D;;1726267250;;;yes
-CUSTOMER;0;1010135;;Katsiouras;Georg;Roßbergstraße 14;Bodelshausen;72411;;;0174-3999070;;;yes
-CUSTOMER;0;1010137;;EUROFEN;KALIWA FOTINI;Kyprou 31;Ierapetra - Kreta;;GR;;;eurofen7@gmail.com;;yes
-CUSTOMER;0;1010138;Fa;Estia;;x;Düsseldorf;12345;D;;;;;yes
-CUSTOMER;0;1010140;;DOGANDENIZ;;;;;;;;dogandeniz@hotmail.de;;yes
-CUSTOMER;0;1010141;Fa;P. und G. Montageservice;;Bremer Str. 1a;Trendelburg;34388;D;;0157 50935777;;0561 57435893;yes
-CUSTOMER;0;1010142;Fa;Klaus-D. Friedrich - Schreinermeister;"
-";"Konrad-Adenauer-Str. 33
-";Mainhausen;63533;D;06182 29 04 82;0172 953 28 13;info@kd-friedrich.de;06182 29 04 83;yes
-CUSTOMER;0;1010143;Fa;Home Doc GmbH;Nikos Didas;;;;;;;;;yes
-CUSTOMER;0;1010144;;Zimmermann;alex;;;;;;;;;yes
-CUSTOMER;0;1010145;FAM;Liontos;Familie;Asperger Straße 8;Bietigheim-Bissingen;74321;D;;0160 7082930;eliontos@gmx.de;;yes
-CUSTOMER;0;1010146;F;Vollrath;Margrit;Asperger Straße 8;Bietigheim-Bissingen;74321;D;;;;;yes
-CUSTOMER;0;1010147;Fa;Urban;Nikolaus;Cunnersdorf 1;Pirna;1796;D;3501755065;1729859550;ft-urban@gmx.de;;yes
-CUSTOMER;0;1010148;;Volm Wärmequellen;;Salztalstr. 19;Haigerloch-Owingen;72401;D;07474-91183;0175 2407551;info@volm-waermequellen.de;07474-91184;yes
-CUSTOMER;0;1010149;Fa;Siegel;Marc;;;;D;;;;;yes
-CUSTOMER;0;1010150;Fa;"Bornschlegl 
-";Fenster & Türen - Anton;Friedrich-Ebert Straße 49;"Schwandorf
-";92421;D;;;"info@fenster-bornschlegl.de
-";09431 99 62 70;yes
-CUSTOMER;0;1010151;Fa;Würges Vertriebs GmbH;Fenster;Industriestr. 12;Weghäusel;68753;D;07254 9393 0;;kevin.herfort@fenster-wuerges.de;07254 9393 29;yes
-CUSTOMER;0;1010152;;Andree Muggengitter & Schreinerei;Willy;Königstrasse 24;Aurachtal;91086;D;09132 8948;;willyandree1000@yahoo.de;09132 63178;yes
-CUSTOMER;0;1010153;Fa;Thümmler Montagen;Andy;Zinkenstr. 19;Balingen-Roswangen;72336;D;07433 930047 56;0157 77566140;thuemmlermontagen@web.de;;yes
-CUSTOMER;0;1010154;Fa;Wallaston GmbH;Herr Schmidt;Im Rindfleischgrund 6;Offenburg;77654;D;0781 9242410;0171 8639090;juergen.schmidt@wallastone.de;;yes
-CUSTOMER;0;1010155;;Bulut;Simon;Mühläckerring 28;Gießen-Wieseck;35396;D;;0176 94855152;sino91@hotmail.de;;yes
-CUSTOMER;0;1010156;Fa;1A Fenster in BB;;Im Rüblander 14;Böblingen;71034;D;0152 53811400;0173 9538812;christof.drobny@arcor.de;07031 6136584;yes
-CUSTOMER;0;1010157;FAM;Ebel;Heidi und Roland;Rieselfeldallee 38;Freiburg;79111;D;0761 89765225;0173 5296050;info@dreisamtaeler-lachsmanufaktur.de;;yes
-CUSTOMER;0;1010158;Fa;BORNSCHLEGL Fenster & Türen;;"Freidrich-Ebert-Straße 49
-";Schwadorf;92421;D;"09431 99 62 75
-";;"info@fenster-bornschlegl.de
-";"09431 99 62 70
-";yes
-CUSTOMER;0;1010159;Fa;Häfner;Schreinerei Gerd;Im Hof 10;Hochdorf;73269;D;07153 51519;0172 7471711;;07153 52385;yes
-CUSTOMER;0;1010160;;Djuric;Bozzo;Schillerstraße 8/1;Rutesheim;71277;D;;;;;yes
-CUSTOMER;0;1010161;Fa;Fenstermarkt Arapis;;Lindenstraße 32;Bodelshausen;72411;;;0173-2735060;info@fenstermarkt-arapis.de;;yes
-CUSTOMER;0;1010162;;Vinzenzino;Sebastiano;Albblick Str. 15;Ofterdingen;72131;D;;0152 34559391;;;yes
-CUSTOMER;0;1010163;;Riedel;Ralf;Am Dumpfgraben 23;Bad Krozingen;79189;D;;;;;yes
-CUSTOMER;0;1010164;;Reichardt;Peter;;Hechingen;72379;D;;;;;yes
-CUSTOMER;0;1010165;FAM;Steiner;Eugen und Julia;Kurfürst-Wilhelm-Strasse 7;Künzell;36093;D;;1752338868;eugensteiner@gmx.de;;yes
-CUSTOMER;0;1010166;FAM;Fertig;Lumila und Konstantin;Theodor-Heuss-Ring 16;Troisdorf;53840;D;;;;;yes
-CUSTOMER;0;1010167;;Muhammer;Uzun;Ganzhornstr. 118;Neckarsulm;74172;D;;1721349925;muhammeruzun@gmail.com;;yes
-CUSTOMER;0;1010168;;Karlis;Giannis;In den Bachgärten 11A;Rüsselsheim;65428;D;;0177 8363672;kretagr@aol.com;;yes
-CUSTOMER;0;1010169;Fa;k2fenstertechnik GmbH;;Heckerstr.18;Schwetzingen;68723;D;06202 9274822;0160 90265909;"info@k2fenstertechnik.de
-";06202 9274823;yes
-CUSTOMER;0;1010170;;Sanozidis;Panagiotis;Berlinerstr. 24;Rüsselsheim;65428;D;;0049 1634110000;panos24v@gmx.de;;yes
-CUSTOMER;0;1010171;Fa;Mike-Melone.de;Daniel Gradiski;Tannecker Strasse 1;"Kerpen
-";50170;D;0157 79766652;0175 9641631;mike-melone@gmx.net;;yes
-CUSTOMER;0;1010172;Fa;FraMa Ltd. & Co. KG;;Keiser-Ludwig-Str. 21;Fürstenfeldbrück;82256;D;;0174 3104962;info@frama-denkmalschutz.de;7571728860;yes
-CUSTOMER;0;1010173;Fa;Etik GmbH;;Schlossstrasse 21;Hechingen;72379;D;0049 7471 98447 0;;info@etik-gmbh.de;0049 7471 98447 20;yes
-CUSTOMER;0;1010174;Fa;Lucas Fenster & Sonnenschutzsysteme GmbH & Co. KG;;Am Darmer Bahndamm 6-8;Lingen (Erms);49808;D;0591 80060 40;;hanenkamp@lucas-lingen.de;0591 80060 41;yes
-CUSTOMER;0;1010175;;Bakal;Idris;Barbarahalden Straße 31;Oberndorf a. N.;78727;D;;;;;yes
-CUSTOMER;0;1010176;;Nteli;;Bottwarstr. 1;Stuttgart;70435;D;;;;;yes
-CUSTOMER;0;1010177;Fa;Steif Fensterbau GmbH;Streif Hubert;Salzmatten 10;Kenzingen;79341;D;0049 7644 92761 0;;steif@streif-fensterbau.de;0049 7644 92761 29;yes
-CUSTOMER;0;1010178;;Kunst;Claus;Freiferr-von-Stein-Straße 35;Kippenheim;77971;D;;0171 9885280;claus.kunst@gmail.com;;yes
-CUSTOMER;0;1010179;Fa;LiK Wohnbau GmbH;;Obere Zeil 4;Oberursel;61440;D;06171 2079039;;info@lik-wohnbau.de;06171 2079237;yes
-CUSTOMER;0;1010180;;Peiffer;Martin;Holzer Straße 171;Jüchen;41363;D;;0173 3651060;martin_peiffer@hotmail.com;;yes
-CUSTOMER;0;1010181;;Toprak;Matthias;Zur Lutherlinde 40;Polheim;35415;D;0172 6576512;17651063798;matthias.gino@hotmail.com;;yes
-CUSTOMER;0;1010182;FAM;Manolopoulou & Tsantilis;;Max-Liebermann-Starße 9;Naunheim;64569;D;;0163 2993999;;;yes
-CUSTOMER;0;1010183;Fa;Losigkeit;Fensterbau Reinhold;Rosmart 43;Altena;58762;D;02351 14400;;info@losigkeit.com;02351 140199;yes
-CUSTOMER;0;1010184;;Otten;Jörg;Am Beckersberg 2;Mehren;54552;D;;0171 6744731;;;yes
-CUSTOMER;0;1010185;F;Galante;Elena;Mainstraße 1-5;Raunheim;65479;D;;0163 6408050;siopis@rocketmail.com;;yes
-CUSTOMER;0;1010186;EH;Cirino;Daniela & Liborio;Brahmsstr. 19;Elsdotf;50189;D;;0177 2002517;;;yes
-CUSTOMER;0;1010187;Fa;Siegel;Marc;Am Alten Brunnen 5a;Albig;55234;D;67314840423;15115224032;firmasiegel@aol.com;67314840424;yes
-CUSTOMER;0;1010188;;Safak;Adnan;Lehrter Straße 38;Hannover;30559;D;;0171 6405028;safak@ok.de;;yes
-CUSTOMER;0;1010189;;;;;;;;;;;;yes
-CUSTOMER;0;1010190;F;Kisaoglu;Hanna;Bahnhof Str. 23;Hechingen;72379;D;;;;;yes
-CUSTOMER;0;1010191;;Alkan;Sukru;;;;D;;0172 8384794;;;yes
-CUSTOMER;0;1010192;;Göket;Emrah;Luppack Str. 44;Nehren;72147;D;;;;;yes
-CUSTOMER;0;1010193;Fa;Emde;GmbH & Co. KG;Graf-Gottfried-Straße 49;Arnsberg-Neheim;59755;D;02932 22271;;info@emde-net.de;02932 82557;yes
-CUSTOMER;0;1010194;Fa;Winterhalter Fensterbau;Bernd;Pasteurallee 7;Binzen;79589;D;07621 96 78 0;;bw@winterhalter-fenster.de;07621 96 78 23;yes
-CUSTOMER;0;1010195;Fa;Pfister;Bautechnisches Büro U.;Jakobusweg 2;Burladingen - Killer;72393;D;;;bautechnischesbuero@t-online.de;;yes
-CUSTOMER;0;1010196;;Tikil;Zeki;Wilhelmstr. 55;Albstadt;72461;D;;0173 5914087;;;yes
-CUSTOMER;0;1010197;;Sen;Göhhan;Wilhelmstr. 25;Albstadt;72461;D;;0173 7459255;;;yes
-CUSTOMER;0;1010198;Fa;Sidiropoulos;Hristos;Idrea-Arideas;Idrea - Arideas;58400;GR;;;;;yes
-CUSTOMER;0;1010199;;Özyilmaz;Ender;Hauptstraße 5;Weisenbach;76599;D;07224 650220;0176 97828964;;;yes
-CUSTOMER;0;1010200;;Zargas;Konstantin;Wilhelm-Sturmer-Str. 34;Rüsselsheim;65428;D;;0177 7776006;impe2000@gmx.de;;yes
-CUSTOMER;0;1010201;;Aygün;Unal;Steig 13;Hechingen;72379;D;;;;;yes
-CUSTOMER;0;1010202;FAM;Melissis;Evangelia und Kostas;Zollbergstraße 32;Esslingen;73734;D;;;p.melissis@web.de;;yes
-CUSTOMER;0;1010203;;Özcan;AV;Oberstadt Str. 48;;72401;D;;;;;yes
-CUSTOMER;0;1010204;;Kalogeropoulos;Dr. Jur. Theo;Friedhofstrasse 11;Hochdorf;73269;D;07153 9998413;0157 85543124;tk@atk-kanzlei.de;;yes
-CUSTOMER;0;1010205;F;Us;Sayme;Neckar Str. 36;Fellbach;70736;D;;;;;yes
-CUSTOMER;0;1010206;;Agirman;Robil;Am Kesslergarten 15;Pohlheim;35415;D;;0172 7706492;casanendelssohn@yahoo.de;;yes
-CUSTOMER;0;1010207;;Pasali;Mahir;Plochinger Str. 69;Esslingen;73730;D;;;;;yes
-CUSTOMER;0;1010208;;Bille;Alexander;Jura Str. 4;Obernheim;72364;D;;;;;yes
-CUSTOMER;0;1010209;;Topcu;Göksel;Kloster Str. 20;Leonberg;71229;D;;0173 9262161;;;yes
-CUSTOMER;0;1010210;;Nemtut;Christian;Karlsbach Str. 14;Bad Nauheim;61231;D;;0151 16720523;christiannemtut@aol.com;;yes
-CUSTOMER;0;1010211;;Hunn;Philipp;Waldstraße 31;March;79323;D;;0171 1562476;philipp-hunn@t-online.de;;yes
-CUSTOMER;0;1010212;FAM;Homann;Sabine und Fridel;Zum Luckner 29;Schmelz;66839;D;;0178 2317146;stephinchen@web.de;;yes
-CUSTOMER;0;1010213;;Aljkovic;Safet;Berliner Str. 24;Rüsselsheim;65428;D;;;;;yes
-CUSTOMER;0;1010214;;Ibrahim;Izci;Stuttgarter Str. 21;Böblingen;;D;;;;;yes
-CUSTOMER;0;1010215;;Steinfarz;Elmar;Jägerhof 1;Jüchen;41363;D;;;;;yes
-CUSTOMER;0;1010216;F;Schönenstein-Draut;Barbara;Siegburger Str. 339;Bonn;53229;D;;;;;yes
-CUSTOMER;0;1010217;;Nemtut;Christian;Karlsbader Straße 14;Bad Nauheim;61231;D;;0151 16720523;;;yes
-CUSTOMER;0;1010218;;Stenzel;Thomas;Daimler Str. 38;Hechingen;72379;D;;;t.stenzel2006@web.de;;yes
-CUSTOMER;0;1010219;;Maisinger;Artsom;Franzensbader Str. 5;Giessen;35396;D;;0176 62544458;m.a.r80@mail.ru;;yes
-CUSTOMER;0;1010220;;Chau;Van Rang;Härdtleweg 5;Lichtenstein;72805;D;;0163 6355369;;;yes
-CUSTOMER;0;1010221;;Karabacak;;Raichsberg Str. 17;Bisingen;72406;D;;;;;yes
-CUSTOMER;0;1010222;FAM;Robertella;Sigrid;Schlesier Str. 2;Bisingen;72406;D;;;;;yes
-CUSTOMER;0;1010223;FAM;Nenad;Ljubicic;Hintere Wiesen 16;Rottenburg-Seebronn;72108;D;;;;;yes
-CUSTOMER;0;1010224;FAM;Schon;Teresa;Hintere Wiesen 16;Rottenburg-Seebronn;72108;D;;;;;yes
-CUSTOMER;0;1010225;;Christ;Martin;Hintere Wiesen 16;Rottenburg-Seebronn;72108;D;;;;;yes
-CUSTOMER;0;1010226;;Jarczyk;Jens;Berlinerstraße 23;Trebur-Astheim;65468;D;;;;;yes
-CUSTOMER;0;1010227;Fa;M&C Fensterbau;Metin Yavuz;Erlenstraße 17;Erlensee;63526;D;06183 9299649;0049 175 2927794;m&cfensterbau@gmail.com;06183 9299648;yes
-CUSTOMER;0;1010228;F;Weberling;Julia;Boeckh Str. 13;Karlsruhe;76137;D;;;;;yes
-CUSTOMER;0;1010229;BHG;Gerhardt;Ollie Hahn und Viktor;Unterstadt 20;Haigerloch;72401;D;;15229401879;ollie.hahn@arcor.de;;yes
-CUSTOMER;0;1010230;;Brunner;Eugen;Am Filzhaug 7;Künzell;36093;D;;0176 62467984;brunnereugen@web.de;;yes
-CUSTOMER;0;1010231;F;Wagner;Tanja;Robert Bosch Str. 2;Schwalbach;66773;D;;;;;yes
-CUSTOMER;0;1010232;F;Kreimer;Olga;Rhein Str. 8A;Herbolzheim;79336;D;;;;;yes
-CUSTOMER;0;1010233;;Maisner;Rudi;Bohnenberg Str. 10;Balingen;72336;D;;;;;yes
-CUSTOMER;0;1010234;;Karabacak;Memet;Reichberg Str. 17;Bisingen;72406;D;;;;;yes
-CUSTOMER;0;1010235;Fa;FEHATEC;CHT-Tragas;Am Meisenbächle 17;Hechingen;72379;D;;;;;yes
-CUSTOMER;0;1010236;Fa;Schober;Schreinerei Stefan;Zollinger Str. 6;Freising-Tüntenhause;83356;D;08167-479;;stefan@schreinerei-schober.net;08167-6879;yes
-CUSTOMER;0;1010237;;Niebes;Manfred;Hans-Mock-Straße 30;Wesseling;50389;D;0221 84690929;0160 8891038;niebes@fs-direkt.com;0221 84690969;yes
-CUSTOMER;0;1010238;;Lakner;Nikolai;Pomtivy Str. 1;Wesseling;50389;D;02236 3289124;0176 23601828;niko61@gmx.de;;yes
-CUSTOMER;0;1010239;;Zygolikas;Konstantinos;;Frankfurt;;D;;;;;yes
-CUSTOMER;0;1010240;F;Wetzel;Nadine;;Hechingen;72379;D;;0176 84419780;nadinehiller@rocketmail.com;;yes
-CUSTOMER;0;1010241;;Bille;Alexander;Jurastraße 4;Obernheim;72364;D;07436 901671;0173 4450984;alexbille@gmx.de;;yes
-CUSTOMER;0;1010242;F;Valea;Mariana;Waldstr. 31;Rüsselsheim;;D;;0157 39422891;;;yes
-CUSTOMER;0;1010243;FAM;Wagner;;Schwarzwald Str. 180;Freiburg;;D;;;;;yes
-CUSTOMER;0;1010244;;Trepto;Andreas;Hebelstr. 1;Wehingen;;D;;;;;yes
-CUSTOMER;0;1010245;;Schumacher;Vitali;Alemannenstr. 1/3;Rust;;D;;;;;yes
-CUSTOMER;0;1010246;FAM;Veith;;Beethoven Str. 38;Bühl;;D;;;;;yes
-CUSTOMER;0;1010247;F;Wagner;Larissa;Erich-Kästner-Straße 8;Lich;35423;D;06404 650934;0176 41832290;;;yes
-CUSTOMER;0;1010248;;Ruppel;Sergej;Am Marktplatz 3;Otzenhausen;66620;D;06873 993990;0176 63077864;ruppel-84@web.de;;yes
-CUSTOMER;0;1010249;;Heinke;Thomas;Quellenstr. 1;Bad Imnau;72401;D;;;;;yes
-CUSTOMER;0;1010250;;Hofmann;Artur;Im Strittacker 4;Kippenheimweiler;77933;D;;0173 3474385;;;yes
-DEALER;Etik_Sun02;0;;;;;;;;;;;;
-CUSTOMER;0;1020000;;test123456;;;;;;;;;;yes
-CUSTOMER;0;1020001;FAM;Stemplewitz;Reinhard und Ute;Obere Halde 33;Bisingen-Wessingen;72406;;;;;;yes
-CUSTOMER;0;1020002;Fa;ETIK GmbH;;Schloßstraße 21;Hechingen;72379;;;;;;yes
-CUSTOMER;0;1020003;;Özer;Güner;Königsberger Weg 50;Hechingen;72379;;;;;;yes
-CUSTOMER;0;1020004;;Licht und Schatten e.K;Andre Dahr;Gleeser Straße 14;Wassenach;56653;;02636-808506;17680009298;firma-lus@gmx.de;02636-808507;yes
-CUSTOMER;0;1020005;Fa;Nusser Yachtbau;Gerhard;Pfaffenbogen 22;Offingen;89362;D;08224-967782;1713593333;info@nusser-yachtbau.de;;yes
-CUSTOMER;0;1020006;Fa;WeTo Handelsvertretung;Werner Topp;Villastr 69;Reutlingen;72770;D;;1707561785;weto-handelsvertretung@posteo.de;71211361391;yes
-CUSTOMER;0;1020007;;Özel;Sevgi;Kayatanweg 10;Hechingen;72379;;;;;;yes
-CUSTOMER;0;1020008;Fa;Rezat Fenster U.G. - Gerhard Dudziak;;Hartmann von der Aue Straße 4;Wolframs-Eschenbach;91639;;0981-9722285;0171-5849509;info@rezat-fenster.de;0981-9722286;yes
-CUSTOMER;0;1020009;;Schmidt;Michael;Schloßackerstrasse 74;Hechingen;72379;;07471-4324;;heidi1306@gmx.de;;yes
-CUSTOMER;0;1020010;;Fischer;Michael;Waldstrasse 42;Niedernau;72108;;;0173-1374949;road.r@hotmail.de;;yes
-CUSTOMER;0;1020011;F;Wolf;Gaby;Burgstrasse;Hechingen;72379;;;;;;yes
-CUSTOMER;0;1020012;Fa;MEY-FA;;Dornierstraße 14;Böblingen;71034;;07031-9243046;0173-1598422;mey-fa-dach-und-wand@web.de;07031-4281686;yes
-CUSTOMER;0;1020013;;Pieger;Alfred;Clauseweg 2/1;Althengststett;75382;;07051/30737;;;;yes
-CUSTOMER;0;1020014;Fa;ETG Teckstrasse 21 Fellbach-Schmieden;;Am Schönblick 3;Leonberg;71229;;;;;;yes
-DEALER;Etik_Sun03;0;;;;;;;;;;;;
-CUSTOMER;0;1030001;;Bolle;Jörg;Burgstraße 1;Ascheberg-Davensberg;59387;D;02593 477;;standuhren-bolle@t-online.de;02593 1301;yes
-CUSTOMER;0;1030002;;Julian Heesen;Tanja Geiger &;Hagäckerstr. 9;Rottenburg-Seebronn;72108;D;;;;;yes
-CUSTOMER;0;1030003;H;Rajab;Dr. Hussein;Schützenstraße6;Hirrlingen;72145;;07478-8000;;;;yes
-CUSTOMER;0;1030004;Bv.;Endres Anita;Leitz Ewald &;Oberstr. 13;Hilzingen;78247;D;;;;;yes
-CUSTOMER;0;1030005;EH;Stehle;Christina & Roland;Auf den Bergen 19;Trillfingen;72401;;0 74 74 - 74 30;;rolandstehle@gmx.net;;yes
-CUSTOMER;0;1030006;Fa;Bühler & Wolber GmbH;;Herdweg 206;Schiltach;77761;D;0 78 36 - 15 65;0170 241 67 05;buehler-wolber@t-online.de;0 78 36 - 26 05;yes
-CUSTOMER;0;1030007;;Faiß;Lorenz;Bienentraße 10;Starzach;72181;D;0 74 83 - 213;;faiss-waermetechnik@t-online.de;;yes
-CUSTOMER;0;1030008;Fa;Helmut Geiger Schlosserei;;Roseckstraße 25;Rottenburg - Seebronn;72108;D;0 74 57 41 59;0172 741 68 35;helmutgeiger@swol.net;0 74 57  64 65;yes
-CUSTOMER;0;1030009;Fa;Schönbuch Wohnbau GmbH;;Alte Gärtringer Straße 6/1;Nufringen;71154;D;07032-9568894;;info@schoenbuch-wohnbau.eu;07032-9568741;yes
-CUSTOMER;0;1030010;;Schmidt;Michael;Bruckwiesenstraße 40;Balingen;72336;D;7433559900;1762222970;;;yes
-CUSTOMER;0;1030011;Bv.;Eberhard;Ralf;;;;;;;;;yes
-CUSTOMER;0;1030012;H;Hentschel;Dr. Thomas;Dorfstraße 7;Murr;71711;;;;;;yes
-CUSTOMER;0;1030014;;A-Seifer;;;;;;;;;;yes
-CUSTOMER;0;1030015;;Brand;Thomas;Flurstr. 21;Sinzing;93161;;0 94 04 / 95 41 71;01 57 / 87 65 75 75;28tjb0970@googlemail.com;;yes
-CUSTOMER;0;1030019;;Michael Pätz;;Quergasse 8;Freyburg-Unstrut;6632;D;;0175 7177114;;;yes
-CUSTOMER;0;1030023;H;Schlichter;Anton;In der Röte 8;Starzach;72181;;07478-760;;;;yes
-CUSTOMER;0;1030024;Fa;Vollmer Massivhaus GmbH;;Ebinger Straße 4;Albstadt - Magrethausen;72459;D;7431957440;;info@vollmermassivhaus.de;;yes
-CUSTOMER;0;1030035;;Arlberg;Friedrich;;;;;;;;;yes
-CUSTOMER;0;1030036;Fa;Klaus Fahrner Wohnkonzept GmbH & Co. KG;;Panoramastraße 1;Rangendingen;72414;;07478-9200;;info@fahrner.de;;yes
-CUSTOMER;0;1030037;;Eberhart;Jochen;Zollerblick 7;Bietenhausen;72141;;747881911;1726719580;;;yes
-CUSTOMER;0;1030038;Fa;Fahrner Betriebsanlagen GmbH & Co. KG;;Panoramastraße 1;Rangendingen;72414;D;;;;;yes
-CUSTOMER;0;1030039;;Kirchner;Arne;;;;;;;;;yes
-CUSTOMER;0;1030040;;Fahrner;Herbert;;;;;;;;;yes
-CUSTOMER;0;1030041;Fa;Montagearbeiten AE;;;;;;;;;;yes
-CUSTOMER;0;1030042;;Faiss;Ulrich;;;;;;;;;yes
-CUSTOMER;0;1030043;;Ott;Chris;;;;;;;;;yes
-CUSTOMER;0;1030044;FAM;Bepple;;Waldstraße 38;;;;;;;;yes
-CUSTOMER;0;1030047;;rehm;;;Muster;;;;;;;yes
-CUSTOMER;0;1030048;;Wagner;Roland;;Starzach;72181;;;;;;yes
-CUSTOMER;0;1030049;;Lohmüller;Rainer;Kleinfelderstraße 5; Rangendingen-Bietenhausen;72414;;7478261000;1629026204;;7478929082;yes
-CUSTOMER;0;1030050;;Schmider;Stefan;Rosengartenstraße 20;Hailfingen;72108;;;1711161032;;;yes
-CUSTOMER;0;1030051;Fa;Autohaus Schimmler;;Imnauer Straße 2;Horb-Mühringen;72160;;07483 1270;;;;yes
-CUSTOMER;0;1030052;;Greule;Claus;Imnauer Straße 2;Horb-Mühringen;72160;;07483 9292756;;;;yes
-CUSTOMER;0;1030053;;Klein;Fabian;;Kemnat;;;;;kurt15@gmx.de;;yes
-CUSTOMER;0;1030054;;Erlewein;Siegfried;Birkenstraße 24;Seebronn;72108;;;;;;yes
-CUSTOMER;0;1030055;;Lache;Klaus-Dieter;;Renningen;;;;;;;yes
-CUSTOMER;0;1030056;Fa;Rapp;Ernst;Hochbergstraße 42;Horb-Dießen;72160;;07482 506;;ernst.rapp@gmx.de;07482 913 71 78;yes
-CUSTOMER;0;1030057;;Anghel;Florian;Ludwigsburger Straße 5;Steinheim;71711;;;1775831498;floriananghel@hotmail.de;;yes
-CUSTOMER;0;1030058;;Isenaj;;;Baiersbronn;;;;15155969114;;;yes
-CUSTOMER;0;1030059;F;Hofer;Andrea;Gartenstraße 45;Rottenburg;72108;;;15734215033;;;yes
-CUSTOMER;0;1030060;F;Springer;Brita;Empfinger Straße 50;Sulz;72172;;;1787773619;brita.springer@t-online.de;;yes
-CUSTOMER;0;1030061;AB;Immo-Bio Natürlich Wochnen GmbH;Karl-Heinz Müller;;Herrenberg;71083;D;07032 953333;;;07032 953346;yes
-CUSTOMER;0;1030062;Fa;Lutz GmbH;Gerhard;Moltkestr. 81;Reutlingen;72762;;712126980;;WMarx@hausverwaltung-lutz.de;7121269820;yes
-CUSTOMER;0;1030063;;Junger;Tilman;Rohrhaldenstraße 28;Rottenburg-Kiebingen;72108;;;71639027180;platypus@web.de;;yes
-CUSTOMER;0;1030064;;Merkle;Peter;;Rottweil;78628;;;;;;yes
-CUSTOMER;0;1030065;;Vaniére;Kai;;;;;;;;;yes
-CUSTOMER;0;1030066;Fa;Kirchner;Arne;Osterstraße 34;Trillingen;72401;;7474918687;;;7474918689;yes
-CUSTOMER;0;1030067;F;Brohm;Margit;Anton-Hoch-Str. 1;Hechingen;72379;;;;;;yes
-DEALER;Etik_Sun04;0;;;;;;;;;;;;
-CUSTOMER;0;1101000;;Passas Test;Thanassis;;;;;;;;;yes
-CUSTOMER;0;1101001;F;Kouparani;Petroula;1km Giannitson-Thessalonikis;Giannitsa;58100;GR;;;;;yes
-CUSTOMER;0;1101003;;Markakis;Ioannis;;Kreta;;GR;0030 2811 751 260;0030-69 78 33 80 80;;0030 2811 751 260;yes
-CUSTOMER;0;1101004;;Bagenas;Eygenios;;Konitsa;;GR;;;;;yes
-CUSTOMER;0;1101005;Fa;ALSYK;Sykovaris Stamatis;10Km E.O Chalkidas-Artakis;Nea Artaki;34600;GR;22210 40144-44002;2221600754;ss@alsyk.gr;22210 45201;yes
-CUSTOMER;0;1101006;;Georgoulis;Georgios;Agiou Spiridona 69;North Aegean Islands;82100;GR;;;;;yes
-DEALER;Etik_Sun05;0;;;;;;;;;;;;
-CUSTOMER;0;1550000;H;Büscher Test 2;;;;;;;;;;yes
-CUSTOMER;0;1550001;;Mesters;;;;;;;;;;yes
-CUSTOMER;0;1550002;F;Stracke;;;;;;;;;;yes
-CUSTOMER;0;1550003;;Hoffmann;Axel;;;;;;;;;yes
-CUSTOMER;0;1550004;H;Voß;;;;;;;;;;yes
-DEALER;Etik_Sun06;0;;;;;;;;;;;;
-CUSTOMER;0;1060001;;Blank;Wolfgang;Nußstrasse 3;Würzburg;97080;D;0931/98873;;;;yes
-CUSTOMER;0;1060002;;maier;Norbert;Nürnberger straße 5;Ansbach;91522;;0981 34564;;;;yes
-CUSTOMER;0;1060003;F;Weber;Marlena;Abtsleitenweg 4;Würzburg;97074;D;0931/74307;;;;yes
-CUSTOMER;0;1060004;;Steinfort;Karl;Kreuzstraße 3;Grafenrheinfeld;97506;D;09723/2160;;;;yes
-CUSTOMER;0;1060005;;Frosch;Peter;Untereisenheimer 10;Bergtheim;97241;D;09384-316;;;;yes
-CUSTOMER;0;1060006;;Tokarek;Jessica;Zellingerstr.34;Leinach;97274;D;09364-8173512;;;;yes
-CUSTOMER;0;1060007;;Bodenschlägel;Jürgen;Am Katzbach 1;Rugendorf;95365;D;09223 971-37;;;;yes
-CUSTOMER;0;1060008;;Wenzel;Martin;Georg Nickelstr. 6;Röthlein;97520;D;09723-9371305;;;;yes
-CUSTOMER;0;1060010;;Vornberger;Georg;Sidlerstr. 6;Estenfeld;97230;D;09305-1681;;;;yes
-CUSTOMER;0;1060011;;Test-Sonderbau;;;;;;;;;;yes
-CUSTOMER;0;1060012;;Häfner;Manfrad;Bärenloh 10;Hemhofen;91334;D;09195/1565;;;;yes
-CUSTOMER;0;1060014;;;;;;;;;;;;yes
-CUSTOMER;0;1060016;;Häfner;Manfred;Bärenloh 10;Hemhofen;91334;D;09195/1565;;;;yes
-CUSTOMER;0;1060019;;Steinberger;Paul;Hauptstraße 48;Wiesenbronn;97355;D;09325/902423;;;;yes
-CUSTOMER;0;1060020;;Dürner;Peter;Spülseestr. 19;Wiesenbronn;97355;D;09325/1327;;;;yes
-CUSTOMER;0;1060021;F;Pfister;Kerstin;Lindenstraße 17;Üchtelhausen;97532;D;09720/1070;;;;yes
-CUSTOMER;0;1060022;;Schneider;Karl-Heinz;Reihendorfer Weg 22;Hemhofen;91334;D;09195/4192;;;;yes
-CUSTOMER;0;1060023;;Gruber;Roland;Am Heigelsbach 27;Würzburg;97084;D;0931/659812;;;;yes
-CUSTOMER;0;1060024;;Krieger;Helmut;Gnötzheim 19;Martinsheim;97340;D;09339/601;;;;yes
-CUSTOMER;0;1060025;;Hartmann;Franz;Südring 4;Scheinfeld;91443;D;09162/8976;;;;yes
-CUSTOMER;0;1060026;;Müller;Peter;Bahnhofstraße 3;Buchbrunn;97320;D;09321/8436;;;;yes
-CUSTOMER;0;1060027;;Richter;Manfred;Am Schelm 14;Buchbrunn;97320;D;09321/8181;;;;yes
-CUSTOMER;0;1060028;;Schmitz;Peter;Am Schöpfbrunnen 12;Üchtelhausen;97532;D;09720/1853;;;;yes
-CUSTOMER;0;1060029;F;Gundel;Erna;Ringstraße 19;Volkach;97332;D;09381/531;;;;yes
-CUSTOMER;0;1060030;;Klühspies;Herbert;Würzburgerstr.3;Randersacker;97236;D;0931/706741;;;;yes
-CUSTOMER;0;1060031;;Häring;Klaus;Ringstr. 18;Obereuernheim;97508;D;09729/7461;;;;yes
-CUSTOMER;0;1060032;;Kramer;Karl;Sickershäuserweg 3;Mainbernheim;97350;D;09723/3549;;;;yes
-CUSTOMER;0;1060033;;Gold;Norbert;Finkenstr.11;Hemhofen;91334;D;09195/993585;;;;yes
-CUSTOMER;0;1060034;FAM;Reuss + Krämer;;Dundeestr.6;Würzburg;97084;D;0931/661054;15153554258;;;yes
-CUSTOMER;0;1060035;;Schüll;Rainer;Raiffeisenstr.6;Grettstadt;97508;D;09729/1828;;;;yes
-CUSTOMER;0;1060036;;Weimann;Theo;Bambergerstr. 24;Dettelbach;97337;D;09324/99844;1637741825;;;yes
-CUSTOMER;0;1060037;F;Geiss;Traudl;Oberer Bux 11;Randersacker;97236;D;09303/2298;;;;yes
-CUSTOMER;0;1060038;;Weiß;Rudolf;Hauptstr.47;Wiesentheid;97353;D;09383/7019;;;;yes
-CUSTOMER;0;1060039;;Katzenberger;Klaus;Nutzingweg 2;Üchtelhausen;97532;D;09720/1047;;;;yes
-CUSTOMER;0;1060040;;Börschlein;Lorenz;Jüthstr.60;Ansbach;91522;D;0981/9722285;;;;yes
-CUSTOMER;0;1060041;;Weimann;Theo;Bambergerstraße 24;Dettelbach;97337;D;09324/99844;;;;yes
-CUSTOMER;0;1060042;;Daumberger;Rainer;Thüngenerstraße 50;Zellingen;97225;D;09364/814393;;;;yes
-CUSTOMER;0;1060043;;Schmilewski;Ulrich;Berliner Ring 37;Karlstadt;97753;D;09353/2216;;;;yes
-CUSTOMER;0;1060044;;Lehmann;Andreas;An der Heide 2A;Thüngersheim;97291;D;09364/815628;;;;yes
-CUSTOMER;0;1060046;;Lehmann;Andreas;An der Heide 2A;Thüngersheim;97291;D;09364/815628;;;;yes
-CUSTOMER;0;1060047;;Seuffert;Lukas;Am Weiher 6;Dittelbrunn;97456;D;09725/709750;;;;yes
-CUSTOMER;0;1060048;;Seuffert;Lukas;Am Weiher 6;Dittelbrunn;97456;D;09725/709750;;;;yes
-CUSTOMER;0;1060049;F;Fuchs;Elke;Lederhosenstraße 10;Röttenbach;91341;D;0160/93928158;;;;yes
-CUSTOMER;0;1060050;;Laufer;Paul;Weizendorfer Str. 6;Wolframs Eschenbach;91639;D;;;;;yes
-CUSTOMER;0;1060051;F;Bäumler;Inna;Bergleinstraße 7;Schonungen;97453;D;09727/909700;;;;yes
-CUSTOMER;0;1060052;;Wehr;Reinhold;Kairlindacherstr.60;Weisendorf;91085;D;09135/3674;;;;yes
-CUSTOMER;0;1060053;;Wagner;Bernhard;Am Weißen Berg 35;Weisendorf;91085;D;09135/1800;;;;yes
-CUSTOMER;0;1060054;;Kunzmann;Barwig;Hartmann von der Auestr,1;Wolframs Eschenbach;91639;D;09875/281;;;;yes
-CUSTOMER;0;1060055;;Diele;Oliver;Alte Schulstr.22;Ilshofen;74532;D;07940/1590156;;;;yes
-CUSTOMER;0;1060056;;Diele;Oliver;Alte Schulstr.22;Ilshofen;74532;D;07940/1590156;;;;yes
-CUSTOMER;0;1060057;;Wolf;Thomas;An den Dorfbrunnen 17;Biebelried;97318;D;09321/4062;;;;yes
-CUSTOMER;0;1060058;;Laufer;Paul;Weizendorfer 6;Wolframs Eschenbach;91639;D;;;;;yes
-CUSTOMER;0;1060059;;Laufer;Paul;Weizendorferstr. 6;Wolframs Eschenbach;91639;D;;;;;yes
-CUSTOMER;0;1060060;;Keller;Klaus;Ansbacherstraße 11;Gunzenhausen;91710;D;09831/67895;;;;yes
-CUSTOMER;0;1060061;F;Weiß;Lore;Hauptstraße 47;Wiesentheid;97353;D;09383/7019;;;;yes
-CUSTOMER;0;1060062;;Frewer;Stefan;Hauptstraße 7;Sommerhausen;97286;D;09333/9043;;;;yes
-CUSTOMER;0;1060063;;Schwind;Harald;Untere Rehwiese 11;Prosselsheim;97279;D;09386/431;;;;yes
-CUSTOMER;0;1060064;;Walter;Horst;Tannenweg 10;Theilheim;97288;D;09303/1800;;;;yes
-CUSTOMER;0;1060065;;Schmitt;Norbert;Beetenstraße 24;Retzstadt;97282;D;09364/2143;;;;yes
-CUSTOMER;0;1060066;;Abelein;Franz Test;Ansbacherstr.12;Gunzenhausen;91710;D;09831/2333333;;;;yes
-CUSTOMER;0;1060067;F;Hauck;;Holzgasse 23;Teilheim;97288;D;09303/318;;;;yes
-CUSTOMER;0;1060068;;Kaiser;Georg;Im Oberdorf 5;Castell;97355;D;09325/6415;;;;yes
-CUSTOMER;0;1060069;;Schmitt;Norbert;Beetenstraße 24;Retzstadt;97282;D;09364/2143;;;;yes
-CUSTOMER;0;1060070;;Mändlein;M.;Schloßstraße 33;Ansbach;91522;D;;;;;yes
-CUSTOMER;0;1060071;;Schmitt;Norbert;Beetenstraße 24;Retzstadt;97282;D;09364/2143;;;;yes
-CUSTOMER;0;1060072;;Marquard;Heinz;Dorfstraße 16;Großrinderfeld;97950;D;09344/689;;;;yes
-CUSTOMER;0;1060073;F;Walter;Theresia;Finkenweg 7;Leinach;97274;D;09364/2887;;;;yes
-CUSTOMER;0;1060074;;Göpfert;Georg;Ahornstraße 11;Schonungen;97453;D;09721/58843;;;;yes
-CUSTOMER;0;1060075;F;Müller;Nicole;Fischergasse 18;Frickenhausen;97252;D;09331/20210;;;;yes
-CUSTOMER;0;1060076;F;Vornberger;Martina;Friedrich Ebert-straße 29;Estenfeld;97230;D;0176-20619461;;;;yes
-CUSTOMER;0;1060077;;Öffner;Gerhard;Kantstraße 13;Bergtheim;97241;D;09384/881608;;;;yes
-CUSTOMER;0;1060078;F;Hummel;Anne;Rankenweg 5;Dittelbrunn;97456;D;09725/5408;;;;yes
-CUSTOMER;0;1060079;;Kunz;Gerd;Bergstraße 33;Leinach;97274;D;09364/9317;;;;yes
-CUSTOMER;0;1060080;;Körting;Roland;Am Hoch 4;Dettelbach;97337;D;09324/978677;;;;yes
-CUSTOMER;0;1060081;;Schreck;Horst;Charlottenhöhe 2;Ansbach;91522;D;;;;;yes
-CUSTOMER;0;1060082;F;Engel;Doris;Meisenweg 53;Würzburg;97082;D;0931/72674;;;;yes
-CUSTOMER;0;1060083;F;Kirschner;Sonja;Lindenstraße 1a;Gädheim;97503;D;09727/907705;;;;yes
-CUSTOMER;0;1060084;F;Geist;Hanelore;Langer Baum 4;Segnitz;97340;D;09332/4849;;;;yes
-CUSTOMER;0;1060085;;Müller;Günter;Untere Leite 13;Üchtelhausen;97532;D;09720/813;;;;yes
-CUSTOMER;0;1060086;;Lill;Ralf;Tannenstraße 20;Albertshofen;97320;D;09321/31975;;;;yes
-CUSTOMER;0;1060087;;Klein;Karl Heinz;Lindenstraße 11;Altertheim;97237;D;09307/1026;;;;yes
-CUSTOMER;0;1060088;;Laborde;Marco;Dipbacherstraße 4;Eisenheim;97247;D;09386/245;;;;yes
-CUSTOMER;0;1060089;;Frey;Klaus;Ringgasse 5;Untereisenheim;97247;D;09386/978903;;;;yes
-CUSTOMER;0;1060090;;Zimmermann;Edgar;Industriestraße 5;Bergtheim;97241;D;09367/3795;;;;yes
-CUSTOMER;0;1060091;;Seufert;Erich;Hahnstraße 18;Kirchheim;97268;D;09336/459;;;;yes
-CUSTOMER;0;1060092;;Volkmann;Christian;Grobenstraße 18;Karlstadt;97753;D;09353/7862;;;;yes
-CUSTOMER;0;1060093;;Matzke;Horst;Matthias-Ehrenfried-Str.33;Würzburg;97074;D;0931/1958;;;;yes
-CUSTOMER;0;1060094;;Hobiger;Thomas;Flürleinstraße 21;Würzburg;97076;D;0931/273729;;;;yes
-CUSTOMER;0;1060095;;Scholz;Wolfgang;Goethestraße 24;Lonnerstadt;91475;D;09193/7709;;;;yes
-CUSTOMER;0;1060096;;Betz;Erhard;Bachstraße 21;Giebelstadt;97232;D;09337/90137;;;;yes
-CUSTOMER;0;1060097;F;Weissenberger;Rita;Hofstraße 5;Bergtheim;97241;D;09384/8730;;;;yes
-CUSTOMER;0;1060098;F;Prozeller;Ursula;Bärngasse 2;Unterpleichfeld;97294;D;09367/3420;;;;yes
-CUSTOMER;0;1060099;;Roßmark;Matin;Bachgasse 14;Rödelsee;97348;D;09323/1205;;;;yes
-CUSTOMER;0;1060100;;Tokarek;Martin;Zellingerstraße 34;Leinach;97274;D;09364/8173512;;;;yes
-CUSTOMER;0;1060101;;Henneberger;Klaus;Seeweg 30;Euerbach;97502;D;09726/2650;;;;yes
-CUSTOMER;0;1060102;;Brennfleck;Gerhard;Hohe Turmstraße 3;Sulzfeld;97320;D;09321/5965;;;;yes
-CUSTOMER;0;1060103;;Geltinger;Georg;Effenstätt 2;Fischbachau;83730;D;08028/909647;;;;yes
-CUSTOMER;0;1060104;;Lea;Rolf;Am Hohen Weg 3;Volkach;97332;D;09381/6725;;;;yes
-CUSTOMER;0;1060105;;Schmitt;Josef;Würzburgerstraße 15;Rimpar;97222;D;09365/9042;;;;yes
-CUSTOMER;0;1060106;;Weisenberger;Karl-Heinz;Rathausstraße 12;Leinach;97274;D;09364/5966;;;;yes
-CUSTOMER;0;1060107;F;Hämmelmann;Maria;Hoffeldäcker 25;Würzburg;97084;D;0931/67784;;;;yes
-CUSTOMER;0;1060108;;Arnold;Andreas;St.-Jakobusstraße 11;Werneck;97440;D;09722/9441801;;;;yes
-CUSTOMER;0;1060109;;Sahlmüller;Hilmar;Zürch 16;Geldersheim;97505;D;09721/84665;;;;yes
-CUSTOMER;0;1060110;;Kaiser;Nikolaus;Volkersteig 2;Üchtelhausen;97532;D;09720/1327;;;;yes
-CUSTOMER;0;1060111;;Strauß;Michael;Frühlingsstraße 17;Kürnach;97273;D;09367/1588;;;;yes
-CUSTOMER;0;1060112;;Meißner;Peer;Hauptstraße 51;Eisingen;97249;D;09306/304151;;;;yes
-CUSTOMER;0;1060113;F;Schneider;Friedel;Lange Schränke 14;Schweinfurt;97422;D;09723/4950;;;;yes
-CUSTOMER;0;1060114;F;Geuter;Irene;Blumenstraße 9;Wiesentheid;97353;D;09383/6566;;;;yes
-CUSTOMER;0;1060115;;Meeder;Norbert;Enheim 43;Martinsheim;97340;D;09332/3960;;;;yes
-CUSTOMER;0;1060116;;Kreisl;Christian;Konrad Adenauer Straße;Röthlein;97520;D;09723/7014144;;;;yes
-CUSTOMER;0;1060117;;Bidner;Reinhard;Gartenstraße 16;Sommerhausen;97286;D;09333/645;;;;yes
-CUSTOMER;0;1060118;;Willnauer;Paul;Glauberstraße 26;Eußenheim;97776;D;16095232719;;;;yes
-CUSTOMER;0;1060119;;Denninger;Hermann;Nürnbergerstraße 9;Markt Einersheim;97348;D;09326/552;;;;yes
-CUSTOMER;0;1060120;;Roth;Holger;Birkenweg 5;Geroldshausen;97258;D;09366/982130;;;;yes
-CUSTOMER;0;1060121;;Gistel;Harald;Georg Ludwigstraße 3;Dettelbach;97337;D;09324/3649;;;;yes
-CUSTOMER;0;1060122;;Walter;Dieter;Jägerpfad 7;Volkach;97332;D;09381/1619;;;;yes
-CUSTOMER;0;1060123;F;Thomas;Sabine;Kirchbühlstraße 17;Würzburg;97074;D;0931/32987795;;;;yes
-CUSTOMER;0;1060124;;Lienig;Uwe;Unterer Weinbergsweg 10;Üchtelhausen;97532;D;09720/448056;;;;yes
-CUSTOMER;0;1060125;;Leicht;Paul;Hallburgweg 4;Nordheim;97334;D;09381/2706;;;;yes
-CUSTOMER;0;1060126;;Markert;Engelbert;Weinbergstraße 15;Holzhausen;97456;D;09725/6460;;;;yes
-CUSTOMER;0;1060127;;Bieber;Heinrich;Pfarrer  Henninger Str. 2;Eisingen;97249;D;09306/980643;;;;yes
-CUSTOMER;0;1060128;;Fenn;Wolfgang;Oberer Kirchweg 1;Karlstadt;97753;D;09353/4484;;;;yes
-CUSTOMER;0;1060129;;Blos;Lorenz;Wertheimer Ring 8;Neubrunn;97277;D;09349/1667;;;;yes
-CUSTOMER;0;1060130;;Rügamer;Hermann;Albrecht Dürer Straße 20;Erlabrunn;97250;D;09364/5136;;;;yes
-CUSTOMER;0;1060131;F;Müller;Elfi;Ringstraße 13;Thüngersheim;97291;D;09364/3344;;;;yes
-CUSTOMER;0;1060132;F;Sycha;Ute;Hügelstraße 16 A;Albertshofen;97320;D;09321/34116;;;;yes
-CUSTOMER;0;1060133;;Schmolke;Robert;Friedrich-Ebert Straße 9A;Estenfeld;97230;D;09305/1415;;;;yes
-CUSTOMER;0;1060134;;Wiederer;Reinhold;Kapellenweg 6;Kolitzheim;97509;D;09385/980088;;;;yes
-CUSTOMER;0;1060135;;Müller;Stefan;Fischergasse 1;Dettelbach;97337;D;09324/981462;;;;yes
-CUSTOMER;0;1060136;;Schmidt;Oliver;Stückackerweg 16;Gerbrunn;97218;D;0931/7052897;;;;yes
-CUSTOMER;0;1060137;;Keller;Gerd;Raiffeisenstraße 10;Donnersdorf;97499;D;09528/286015;;;;yes
-CUSTOMER;0;1060138;;Streit;Helmut;Am Hainisch 20;Schonungen;97453;D;09721/59305;;;;yes
-CUSTOMER;0;1060139;;Hub;Gerhard;Steinweg 18;Schonungen;97453;D;09721/7383798;;;;yes
-CUSTOMER;0;1060140;;Staudacher;;Am Buck 8;Rödelsee;97348;D;09323/5347;;;;yes
-CUSTOMER;0;1060141;;Rügamer;Hubert;An der Lohwiese 3;Albertshofen;97320;D;09321/31896;;;;yes
-CUSTOMER;0;1060142;;Stühler;Frank;Wiesengarten 12;Schonungen;97453;D;09526/1262;;;;yes
-CUSTOMER;0;1060143;;Sander;Jürgen;Sennfelderstraße 51;Gochsheim;97649;D;09721/61519;;;;yes
-CUSTOMER;0;1060144;;Streit;Helmut;Am Hainisch 20;Schonungen;97453;D;09721/59305;;;;yes
-CUSTOMER;0;1060145;;Kümmel;Georg;Am Falter 4;Buchbrunn;97320;D;09321/6327;;;;yes
-CUSTOMER;0;1060146;;Schmitt;Konrad;Am Röslein 8;Üchtelhausen;97532;D;09720/1727;;;;yes
-CUSTOMER;0;1060147;;Müller;Joachim;Am Hölzlein 3;Dittelbrunn;97456;D;09721/469211;;;;yes
-CUSTOMER;0;1060148;F;Antonella;Ricotta;Milchhöferstraße 29;Dittelbrunn;97456;D;9738262;;;;yes
-CUSTOMER;0;1060149;;Ganz;Harald;Hintere Gasse 6;Großrinderfeld;97950;D;09349/95053;;;;yes
-CUSTOMER;0;1060150;;Reuss;Roman;Ochsentalstr.19;Ochsenfurt;97199;D;09331/1602;;;;yes
-CUSTOMER;0;1060151;;Brunner;Heinz;Holzspitze 4;Dittelbrunn;97456;D;09725/9150;;;;yes
-CUSTOMER;0;1060152;;Brunner;Heinz;Waldstraße 4;Hambach;97456;D;09725/9150;;;;yes
-CUSTOMER;0;1060153;;Appold;Jürgen;Buchenhain 1;Giebelstadt;97232;D;09334/367;;;;yes
-CUSTOMER;0;1060154;;Krapf;Siegbert;Zur weißen Marter 24;Sulzheim;97529;D;09382/4346;;;;yes
-CUSTOMER;0;1060155;;Meier;Walter;Sudetenstraße 21 A;Iphofen;97346;D;09323/3860;;;;yes
-CUSTOMER;0;1060156;;Mix;Ernst;Ringstraße 31;Abtswind;97355;D;09383/1003;;;;yes
-CUSTOMER;0;1060157;;Grabowski;Norbert;Schützenweg 4;Üchtelhausen;97532;D;09720/1211;;;;yes
-CUSTOMER;0;1060158;;Barthel;Robert;Karl-Ebenauer-Ring 3;Prichsenstadt;97357;D;09383/1008;;;;yes
-CUSTOMER;0;1060159;;Henig;Norbert;Bachstraße 21;Theilheim;97288;D;09303/1393;;;;yes
-CUSTOMER;0;1060160;;Schleyer;Philipp;Alfred-Nobel-Straße 7;Würzburg;97080;D;0931/95854;;;;yes
-CUSTOMER;0;1060161;;Ganz;Harald;Hintere Gasse 6;Großrinderfeld;97950;D;09349/95053;;;;yes
-CUSTOMER;0;1060162;F;Nadler;Theresia;Ingolstädterstraße 19;Geroldshausen;97256;D;09366/990815;;;;yes
-CUSTOMER;0;1060163;;Baumann;Leonhard;Buchenstraße 2;Eisingen;97249;D;09306/1417;;;;yes
-CUSTOMER;0;1060164;F;Bartus;Friederike;Wiesenbronnerstr 33;Kleinlangheim;97355;D;09325/6201;;;;yes
-CUSTOMER;0;1060165;;Borst;Oliver;Raiffeisenstraße 36;Nordheim;97334;D;09381/9430;;;;yes
-DEALER;Etik_Sun07;0;;;;;;;;;;;;
-CUSTOMER;0;1070000;;Siegl;Marc;;;;;;;;;yes
-CUSTOMER;0;1070001;;Siegel;Marc;Am Alten Brunnen 5 a;Albig;55234;D;06731-4840425;0151-15224032;firmasiegel@aol.com;06731-4840424;yes
-CUSTOMER;0;1070002;;Ilgar;Suat;Rudloser Strasse 78;Wartenberg;36367;;;0177-5250987;;;yes
-CUSTOMER;0;1070003;;Uzun;Muhammer;Ganshorner Straße 118;Neckarsulm;74172;;;0172-1349925;muhammeruzun@gmail.com;;yes
-CUSTOMER;0;1070004;;t;t;t;;;;;;;;yes
-DEALER;Etik_Sun08;0;;;;;;;;;;;;
-CUSTOMER;0;1080001;Fa;Estia-Bauelemente;Estia GmbH;Graf-Adolf Str 88;Düsseldorf;40210;D;0211 93073538;;info@estia-bauelemente.de;0211 95987798;yes
-CUSTOMER;0;1080002;;GG IMMO EXPERTS GMBH;Werner Heinrich;Zanderweg 21;Langenfeld;40764;D;0212 230033-17;0177 8023242;info@gg-immoexperts.de;0212 23003-44;yes
-CUSTOMER;0;1080004;;Home Doc GmbH;Nikos Didas;Eller str 161;Düsseldorf;40227;D;0211-94215041;0174-2663515;homdocgmbh@gmail.com;;yes
-CUSTOMER;0;1080005;Fa;Gebr. Thiele GmbH;;Farbmühle 8 A;Wuppertal;42285;;0202 503 544;0172 8850758;;0202 508568;yes
-CUSTOMER;0;1080006;Fa;KFZ-Meisterbetrieb;AutoServiceCenter;Kölner Str. 38-40;Düsseldorf;40211;D;0211 973090;15771364156;dangira@tassone.de;0211 9730922;yes
-CUSTOMER;0;1080007;Fa;ARTRELOAD GmbH;;Am Wehrhahn 59;Düsseldorf;40211;D;0211/54412585;0157 38055705;info@artreload.de;;yes
-CUSTOMER;0;1080008;Fa;GbR;Schmidt + Andres;Kaiser Straße160;Radevormwald;42477;;02195 6889772;;info@immobilien-radevormwald.de;02195 6889773;yes
-CUSTOMER;0;1080009;Fa;Schmitz;Hausverwaltung;Weyersberger Str. 65;Solingen;42655;;0212 12012;0178 7812012;schmitz@unser-hausverwalter.de;0212 2241999;yes
-CUSTOMER;0;1080010;Fa;IBO GmbH;;Brillerstr. 1 b;Wuppertal;42103;D;0202 30 31 32;0160 3655559;ibofenster@arcor.de;0202 272 12 95;yes
-CUSTOMER;0;1080011;Fa;Schreinerei;Lars Rollshäuser;Greuel 17;Remscheid;42897;D;02191 69 11 714;0170 834 91 80;kontakt@schreinerei-lr.de;02191 69 11 715;yes
-CUSTOMER;0;1080012;F;PB Immobilien GmbH;Peters;Küllenhahner Str 9;Wuppertal;42349;D;0202 4690077;;info@pb-immo.de;0202 4690078;yes
-CUSTOMER;0;1080013;Fa;Schmidt & Andres GBR;Roland Andres;Kaiser Str. 166;Radevormwald;42477;;02195-6889772;;info@immobilien-radevormwald.de;02195-6889773;yes
-CUSTOMER;0;1080015;F;Grotendorp;;Wilhelmring 33;Wuppertal;42349;D;0202 9632302;;;;yes
-CUSTOMER;0;1080016;;Klingsöhr;Tischlerei;Kirchhofstr 37;Wuppertal;42327;D;2022742887;1626713568;info@tischlerei-klingsoehr.de;;yes
-CUSTOMER;0;1080017;;Haus & Grund Dienstleistungen;Jürgen Fahrenberg;Finkengasse 4;Remscheid;42853;D;;0171 2135164;mein.hausverwalter@gmx.de;;yes
-CUSTOMER;0;1080018;;Olaf Wolka;Maurer & Betonmeister;Forststr. 19;Solingen;42697;D;0212 2429831;0152 23479064;maurermeister-wolka@gmx.de;0212 22662274;yes
-CUSTOMER;0;1080019;;Celec & Halmes GbR;;Krefelder Str. 43 b;Viersen;41748;;02162 351048;;celec-halmes@t-online.de;02162 351756;yes
-CUSTOMER;0;1080020;;Theodosiadis;Georgios;;Thessaloniki;;GR;;;;;yes
-CUSTOMER;0;1080021;Fa;Drese Innenausbau GmbH & Co. KG;;Benzenbergstr. 29;Düsseldorf;40219;;0211 391284;;dreseinnenausbau@t-online.de;0211 397316;yes
-CUSTOMER;0;1080022;;Losberg;Walter;Hovener Str. 220;Mönchengladbach;41066;;02161 97 13 51;0172 2127004;;02161 602832;yes
-CUSTOMER;0;1080023;;Immobilien & Service Richter e.K.;Stephan Richter;Stortsweg 14-16;Dortmund;44227;D;0231 95007300;;info@dortmund-immobilienservice.de;0231 95007301;yes
-CUSTOMER;0;1080024;;Bücker;Kandy;Theodor-Fontane-Str. 6;Grevenbroich;41515;D;02181 2140870;;kontakt@buecker.com;02181 2140871;yes
-CUSTOMER;0;1080025;Fa;Berg und Mark eG;Bauzentrum Baubedarf;Unterdörnen 39 - 45;Wuppertal;42283;;0202 255420;;gp@berg-mark.i-m.de;0202 2554255;yes
-CUSTOMER;0;1080026;Fa;Petermann;Schreinerei;Elberfelder Str. 191;Mettmann;40822;;02104 13401;;;;yes
-CUSTOMER;0;1080027;;Kaldewei;Horst;Löffelbeckweg 225;Mettmann;40822;;02104 52227;;;02104 542077;yes
-CUSTOMER;0;1080028;Fa;ALPO-Fenster;;Hüttenstr. 2;Remscheid;42857;;02191 209 83 87;0176 99667647;;;yes
-CUSTOMER;0;1080029;Fa;Regula GmbH;;Altenderner Str. 19;Dortmund;44329;D;0231 5860444;;info@regula-gmbh.com;0231 5860872;yes
-CUSTOMER;0;1080030;Fa;Wupper Fenster & Türen;;Simonshöfchen 2;Wuppertal;42327;D;0202 87023656;;info@wupperfenster.com;0202 87023657;yes
-CUSTOMER;0;1080031;Fa;Holz Atelier;Hans Bongartz;Metgesheide 38;Nettetal;41334;;02153 9103707;1749610344;;02153 9103707;yes
-CUSTOMER;0;1080032;;Domus-Estia E.P.E.;Konstantinidis;Pl. Dimokratias 12;Thessaloniki;54626;GR;0030 2310 692253;0030 6936690650;domusestia@yahoo.gr;;yes
-CUSTOMER;0;1080033;;Max Empersmann GmbH & Co.KG;;Jahnstr. 25;Wermelskirchen;42929;D;02196 2823;;empersmann@t-online.de;02196 84723;yes
-CUSTOMER;0;1080034;Fa;Kondor Wessels;;Deutscher Ring 71;Wuppertal;42327;D;0202 66931 - 142;0172 1880247;dbomholt@kondorwessels.com;0202 66931 199;yes
-CUSTOMER;0;1080035;;Herff Schreinerei;Axel;Fester Str 13;Ratingen;;D;02102 83525;;;02102 846504;yes
-CUSTOMER;0;1080036;;WBS Wuppertaler Bau-und Sparverein;Müller;Sanderstraße 142;Wuppertal-Barmen;42283;D;0202 83515;;info@wbs-wuppertal.de;0202 86996;yes
-CUSTOMER;0;1080037;;Ramadani;Temuran und Rejhan;Ludwigshafener Straße 4;Düsseldorf;40229;D;;;temuran@hotmail.de;;yes
-CUSTOMER;0;1080038;;LOBO GmbH;Frederic Lodde;Hammer Str 14;Bochum;44866;D;02327 954951;;frderic.lodde@lobo-bauunternehmen.de;02327 954571;yes
-CUSTOMER;0;1080039;;IBS GmbH;Tobias Sobottka;Havelring 37;Essen;45136;D;0201 81408-15;;ts@sobottka.eu;0201 81408-25;yes
-CUSTOMER;0;1080040;;Rurhtal Bau GmbH;Sabahudin Fazlic;An den Sportstätten 1;Mülheim an der Ruhr;45468;D;0208 43910744;0174 9921710;info@ruhrtalbau.de;0208 43910743;yes
-CUSTOMER;0;1080041;;Schreinerei Bärz;Jonas Bärz;Mühlenstr 101;Mülheim;45473;D;0208 753245;;info@schreinerei-baerz.de;0208 759638;yes
-CUSTOMER;0;1080042;;Schmeling GmbH;Michael Schmeling;Solinger Straße 12;Mülheim an der Ruhr;;D;0208 4841522;0163 4841522;schmeling@schmeling-gmbh.de;0208 4841520;yes
-CUSTOMER;0;1080043;;Wiegers Bauunternehmung GmbH;Johannes Wiegers;Gassstraße 2b;Essen;45257;D;0201 485549;0177 7485549;info@wiegers-bau.de;0201 485524;yes
-CUSTOMER;0;1080044;;Kultur-Bau;Rainer Krägenow;Markfelder Str. 9;Datteln;45711;;02363 51256;;;;yes
-CUSTOMER;0;1080045;;Friedrich Schmeling GmbH;Friedrich Schmeling;Alte Straße 67;Mülheim an der Ruhr;45481;D;0208 424559;;info@schreinerei-schmeling.de;0208 421147;yes
-CUSTOMER;0;1080046;F;Hausverwaltung Berns - Duddeck;Ingrid Berns;Victoriastr 124;Marl;45772;D;02365-46434;;ingris-berns@berns-duddeck.de;02365-46458;yes
-CUSTOMER;0;1080047;Fa;Marek - Fenster & Türen;;Rheinstr. 5;Hückelhoven;41836;D;02433 93 85 00;;;02433 93 85 01;yes
-CUSTOMER;0;1080048;Fa;Prang Bau GmbH;PRABAG;Prangerkotten 2;Remscheid;42857;D;0202 94 64 767 0;;info@prabag.de;0202 94 64 767 26;yes
-CUSTOMER;0;1080049;;Gertz & Partner GbR;Alexander Gertz;Planckstr. 85;Essen;45147;D;0201 479 54 22;0172 212 49 39;info@gp-essen.de;;yes
-CUSTOMER;0;1080050;;Romahn Hausverwaltung;Thomas Romahn;Am Fettingkotten 3;Gelsenkirchen;45891;D;0209 9774431;0177 7979899;romahnhausverwaltung@nexgo.de;;yes
-CUSTOMER;0;1080051;;Mucollari;Eduert Odusseas;Ehrenstr 26;Düsseldorf;40479;D;;0163 8217081;odusseas84@hotmail.com;;yes
-CUSTOMER;0;1080052;;Hausverwaltung Meyer GmbH;Martin Meyer;Roonstr 6;Bocholt;46399;;02871 2399797;;info@verwaltung-meyer.de;02871 2399799;yes
-CUSTOMER;0;1080053;;Kati Bauunternehmung;Zafer Kati;Im Westenfeld 24;Hatingen;45529;D;02324 902363;0170 2966666;info@kati-bauunternehmung.de;02324 902388;yes
-CUSTOMER;0;1080054;;Bauuntern.  EPLER GmbH & Co. KG;Udo Epler;Manderscheidtstr 17;Essen;45141;D;0201 530035;;bau.epler@t-online.de;0201 530622;yes
-CUSTOMER;0;1080055;;König Klinkerarbeiten;Rüdiger;Castroper Str 207B;Datteln;45711;D;02363 363637;0175 1509533;klinkerarbeitenkoenig@web.de;02363 363638;yes
-CUSTOMER;0;1080056;;Bauelemente Lamers UG;Ingo Lamers;Feldwickler Weg 19;Wesel;46487;D;02859 901747;0151 52512623;info@ingo-lamers.de;02859 9099947;yes
-CUSTOMER;0;1080057;;Dipl. Ing. Benedikt Arntzen;Benedikt Arntzen;Neustadt 48;Emmerich am Rhein;46446;D;02828 928373;;info@sv-arntzen.de;02828 928372;yes
-CUSTOMER;0;1080058;;Architektur- und Sachverständigenbüro Bücker GbR;Heidrun Bücker;Schwickingfeld 20;Dorsten;46282;D;02362 26733;;heidrunbuecker@t-online.de;02362 2029223;yes
-CUSTOMER;0;1080059;;DSD Bau;Thomas Dahlke;Am Bahnhof 1;Velen;46342;;02863 76 18 32;0176 24 43 05 92;mail@dsd-bau.de;02863 92 40 55;yes
-CUSTOMER;0;1080060;;Rosendahl;Johannes;Wassenbergstr. 46;Emmerich am Rhein;46446;;02822 98 11 405;0171 1714087;rosendahl-johannes@t-online.de;;yes
-CUSTOMER;0;1080061;;Braune;Siegmund;Weseler Str. 108;Hünxe;46569;;02858 918090;;braune.statik@t-online.de;02858 918099;yes
-CUSTOMER;0;1080062;;Büning;Theo;Antoniusstr. 23;Hamminkeln;46499;;02852 91440;;info@buening-architekt.de;;yes
-CUSTOMER;0;1080063;;Schreinerei Rottstegge;Bernfried;Zu Mühle 4;Rhede-Krommert;46414;D;02872 980571;0171 6498570;schreinerei-rottstegge@krommert.de;02872 5096;yes
-CUSTOMER;0;1080064;;Tischlerei Knoor;Elmar Knoor;Kengen 35;Rheurdt-Kngen;47509;D;02833 601727;;info@tischlerei-knoor.de;02833 601728;yes
-CUSTOMER;0;1080065;;Werkstätten für Innenausbau & Objekteinrichtungen;Poorten;Herder Straße 77-79;Hilden;40721;D;02103 31093-94;;info@schreinereipoorten.de;02103 31442;yes
-CUSTOMER;0;1080066;;Architekturbüro Özcan;Ahmet Emin Özcan;Karrenweg 32;Diusburg;47239;D;02151 4545320;0163 2724483;aeoezcan@web.de;02151 4545319;yes
-CUSTOMER;0;1080067;;Delphi-MG Hochbau GmbH;Vladimir Cupurdija;Bismarckstrasse 142a;Duisburg;47057;D;0203 3062120;0172 2437731;f.ohnrich@delphi-mg.com;0203 3062121;yes
-CUSTOMER;0;1080068;;Architekturbüro Pierre Wettels;Pierre Wettels;Rheinberger Strasse 101;Alpen;46519;D;02802 800055;0177 7208426;info@architekt-wettels.de;02802 800054;yes
-CUSTOMER;0;1080069;;Toulas;Georgios;Kölner Land Straße 264;Düsseldorf;40589;D;0211 765121;;;;yes
-CUSTOMER;0;1080070;;Bau Teck;Wolfram Büren;Löwenfeld 14;Sonsbeck;47665;D;02838 776773-8;;bau_teck@yahoo.de;02838 776773-9;yes
-CUSTOMER;0;1080071;;Architekten BDA;Jörg Thorissen;Gutenbergstr 12;Krefeld;47803;D;02151 84499-0;;thorissen@t-online.de;02151 8449915;yes
-CUSTOMER;0;1080072;;KenChiku Architektur & Design;Holger Gravius;Ripshorsterstr.366;Essen;45357;D;0201 64610440;;info@kenchiku.de;0201 64610442;yes
-CUSTOMER;0;1080073;;Dipl.-ing. Architekt Thomas Rudolf;Thomas Rudolf;Von-Steuben-Straße 15;Krefeld;47803;D;02151 227555;;rudolfkr@aol.com;02151 227552;yes
-CUSTOMER;0;1080074;;T. Bunse GmbH;Jürgen Dicken;Cuxhafener Str. 6;Düsseldorf;40221;D;0211 3033548;0171 9365317;tisclerei.bunse@mail.isis.de;0211 3033549;yes
-CUSTOMER;0;1080075;;Langels Bauelemente;Karl Langels;Unterschelthof 21;Tönisvorst;47918;D;02152 895610;;info@langels-bauelemente.de;02152 895612;yes
-CUSTOMER;0;1080076;;Kooi Imomobilien;Stephan van der Kooi;Lilienstr 132;Kempen;47906;D;02152 50344;;svdk@kooi-immobilien.de;02152 517865;yes
-CUSTOMER;0;1080077;;Dipl.-Ing. Architekt;Karl-Heinz Krämer;Dorfstraße 55;Duisburg;47259;D;0203-751101;0172-2630108;architekt_kraemer@web.de;0203-751102;yes
-DEALER;Etik_Sun09;0;;;;;;;;;;;;
-CUSTOMER;0;1090001;H;Klenk;Heinz;Weißdornstraße 8;Rottenburg-Kieblingen;72108;D;;;;;yes
-CUSTOMER;0;1090002;H;Ettle;Eduard;Belchenstrasse 14;Keltern;75210;D;07236-982469;;;;yes
-CUSTOMER;0;1090003;H;Peter;Endre;Waldstrasse 4;Magstadt;71106;D;;;;;yes
-CUSTOMER;0;1090004;H;Beck;Brigitte;Stahlweg 6;Calw;75365;D;;;;;yes
-CUSTOMER;0;1090005;F;Kupferschmidt;Bettina;Roggenstraße 56;Filderstadt;70794;D;;;;;yes
-CUSTOMER;0;1090006;H;Schnadt;Robert;Keilbergstrasse 1;Böblingen;71032;D;;;;;yes
-CUSTOMER;0;1090007;H;Bednarz;Jerzy;Rötestrasse 10;Gäufelden;71126;D;;;;;yes
-CUSTOMER;0;1090008;H;Kahrimanidis;Ioannis;Fichtelbergstrasse 40;Gerlingen;70469;D;;;;;yes
-CUSTOMER;0;1090009;F;Ebel;Melte;Bismarckstrasse 35;Stuttgart;72793;D;;;;;yes
-CUSTOMER;0;1090010;H;Kleinecke;Detlef;Lailbergstrasse 23;Heimsheim;71296;D;;;;;yes
-CUSTOMER;0;1090011;F;Fürgut;Helga;Heidenstückerweg 34c;Karlsruhe;76189;D;;;;;yes
-CUSTOMER;0;1090013;H;Erakca;Nizamettin;Friedrich-Schofer-Strasse 34;Waiblingen;71332;D;;;;;yes
-CUSTOMER;0;1090014;H;Klein;Hermann;Waidmannstrasse 34;Straubnehardt;75334;D;;;;;yes
-CUSTOMER;0;1090015;H;Moser;Willi;Rotenwaldstrasse 20;Stuttgart;70197;D;;;;;yes
-CUSTOMER;0;1090016;H;Eissler;Christian;Schillerstrasse 19;Hambrücken;76707;D;;;;;yes
-CUSTOMER;0;1090017;H;Graf;Heiko;Mühlweingärten 62;Waiblingen;71336;D;;;;;yes
-CUSTOMER;0;1090018;F;Friedrich;Melanie;Bismarckstrasse 14;Bad Wildbad;75323;D;;;;;yes
-CUSTOMER;0;1090019;F;Zimmer;Sabine;Bolbergstrasse 50;Mössingen;72116;D;;;;;yes
-CUSTOMER;0;1090020;H;Mehlhorn;Tobias;Rossbergweg 1;Pfullingen;72793;D;;;;;yes
-CUSTOMER;0;1090021;H;Benko;Vincenzo;Berliner Strasse 21;Pforzheim;75172;D;;;;;yes
-CUSTOMER;0;1090022;H;Bednarz;Jerzy;Aichtalstrasse 19;Holzgerlingen;71008;D;;;;;yes
-CUSTOMER;0;1090024;F;Schummer;.;Alter Bahnhof 4;Eutlingen im Gäu;72184;D;;;;;yes
-CUSTOMER;0;1090025;H;Domigjoni;;;Nürtingen;;D;;;;;yes
-CUSTOMER;0;1090026;H;Lindner;Thomas;Gartenstrasse 32;Großbettlingen;72663;D;;;;;yes
-CUSTOMER;0;1090027;H;Schönleber;Walter;;Pforzheim;75175;D;;;;;yes
-CUSTOMER;0;1090028;H;Weiblen;Helmut;Mörikestrasse 22;Metzingen;72555;D;;;;;yes
-CUSTOMER;0;1090029;H;Karel;Rolf;Horber Weg 24;Sindelfingen;72401;D;;;;;yes
-CUSTOMER;0;1090030;H;Sens;Stephan;Hermann-Röger-Str.15;Maulbronn;75433;D;;;;;yes
-CUSTOMER;0;1090031;F;Seyboth;Maria;Washingtonring 73;Remseck am Neckar;71686;D;;;;;yes
-CUSTOMER;0;1090032;F;Kraus;Dorothea;Pfadstrasse 18;Leonberg;71229;D;;;;;yes
-CUSTOMER;0;1090033;H;Baitinger;Michael;Meisenstrasse 58;Pforzheim;75181;D;;;;;yes
-CUSTOMER;0;1090035;H;Pape;;Danziger Str.3/1;Korntal-Münchingen;70825;D;;;;;yes
-CUSTOMER;0;1090036;H;Osmanaj;Hysen;Bahnhofstrasse 16;Illingen;71665;D;;;;;yes
-CUSTOMER;0;1090037;F;Schenk;Irene;Fuchshaldenweg 36;Reutlingen;72766;D;;;;;yes
-CUSTOMER;0;1090038;H;Hachem;Ali;Bohrainstrasse 34;Pforzheim;75175;D;;;;;yes
-CUSTOMER;0;1090039;H;Kluge;Michael;Weidenweg 44;Ettlingen;76275;D;;;;;yes
-CUSTOMER;0;1090040;F;Schilling;Ira;Dreherstrasse 6;Ötigheim;76470;D;;;;;yes
-CUSTOMER;0;1090041;F;Bromberger;Andrea;Scottweg 17;Stuttgart;70469;D;;;;;yes
-CUSTOMER;0;1090042;H;Oestereich;Alex;Reutweg 6;Baden-Baden;76530;D;;;;;yes
-CUSTOMER;0;1090043;H;Dill;Dieter;Herrenalberstrasse 42;Straubenhardt;75334;D;;;;;yes
-CUSTOMER;0;1090044;H;Waechter;H;Elfenstrasse 40;Stuttgart;70567;D;;;;;yes
-CUSTOMER;0;1090045;F;Koropenko;Olga;Altze Nagolder Str. 23;Bondorf;71149;D;;;;;yes
-CUSTOMER;0;1090046;F;Kappler;C-3;Stuttgarter Str. 20;Ostelsheim;75395;D;;;;;yes
-CUSTOMER;0;1090047;H;Bethke;Gerd;Teinacher Strasse 26;Neubulach;75387;D;;;;;yes
-CUSTOMER;0;1090048;H;Steinel;Tim;Winterlinger Weg 13;Stuttgart;70567;D;;;;;yes
-CUSTOMER;0;1090049;F;Lüsch;Jutta;Jahnstrasse 20;Balingen;72336;D;;;;;yes
-CUSTOMER;0;1090050;H;Dinkelmann;Werner;Friedrichstrasse 46;Ostfildern;73760;D;;;;;yes
-CUSTOMER;0;1090051;H;Hummel;Peter;Reblandstrasse 6;Neuenbürg;75305;D;;;;;yes
-CUSTOMER;0;1090052;H;Höllmüller;Erich;Höhefeldstrasse 15d;Weingarten (Baden);76356;D;;;;;yes
-CUSTOMER;0;1090053;F;Burgstrahler;Rita;Königsberger Strasse 20;Mössingen;72116;D;;;;;yes
-CUSTOMER;0;1090054;H;Licha;Walter;Siegfriedstrasse 6;Althengststett;75382;D;;;;;yes
-CUSTOMER;0;1090055;H;Dassias;Christos;Rotebühlstrasse 68;Sindelfingen;71065;D;;;;;yes
-CUSTOMER;0;1090056;AB;Waldmann;Tina;Friedenstraße 43;Langenburg;74595;D;;;;;yes
-CUSTOMER;0;1090057;H;Kelm;Carsten;Mozartstrasse 20;Marbach am Neckar;71672;D;;;;;yes
-CUSTOMER;0;1090058;H;Mollenkopf;Kurt;Oberhaldenweg 24;Pfullingen;72793;D;;;;;yes
-CUSTOMER;0;1090059;F;Ziemba;Dorothee;Andeckallee 13;Mössingen;72116;D;;;;;yes
-CUSTOMER;0;1090060;H;Schneider;Karlheinz;Melancholthonstrasse;Remchingen;75196;D;;;;;yes
-CUSTOMER;0;1090061;H;Calero;;Akzienweg 7;Nufringen;71154;D;;;;;yes
-CUSTOMER;0;1090062;H;Hanselmann;;Akazienweg 5;Nufringen;71154;D;;;;;yes
-CUSTOMER;0;1090063;H;Luca;Ciccio;Bietigheimerstrasse 33;Ingersheim;74379;D;;0176-99969653;;;yes
-CUSTOMER;0;1090064;H;Schwander;Helmut;Goethestrasse 46;Weingarten / Baden;76356;D;;;;;yes
-CUSTOMER;0;1090065;BHG;ETG Trochtelfingener Weg 21;;;Leonberg;71229;D;;;;;yes
-CUSTOMER;0;1090066;H;Dojcinovic;Dragan;Neuköllnerstrasse 7;Leonberg;71229;D;;;;;yes
-CUSTOMER;0;1090067;H;Bezgin;Jan;Kirchsteige 16;Eisingen;75239;D;;;;;yes
-CUSTOMER;0;1090069;H;Skrijelj;Safet;Torfstrasse 14;Leonberg;71229;D;;;;;yes
-CUSTOMER;0;1090070;H;Stumm;Ronald;Maurice-Ravel-Str. 4;Pforzheim;75179;D;;;;;yes
-CUSTOMER;0;1090071;H;Lukschanderl;Pascal;Andeckallee 13;Mössingen;72116;D;;;;;yes
-CUSTOMER;0;1090072;H;Gazel;;;Gerlingen;;D;;;;;yes
-CUSTOMER;0;1090073;Fa;Freundorfer GmbH;Schreinerei;Roggenweg 4;Barbing;93092;D;;;;;yes
-CUSTOMER;0;1090074;Fa;Schüßler;Günther;Weisendorfer Straße 1a;Erlangen;91056;D;;;;;yes
-CUSTOMER;0;1090075;H;Rumpel;;Lenzhalde 20;Stuttgart;70192;D;;;;;yes
-CUSTOMER;0;1090076;Fa;Jarusch;Tischlerei;Kirchweg 5;Friedenweiler-Rötenbach;79877;D;;;tischlerei.jarusch@t-online.de;;yes
-CUSTOMER;0;1090077;H;Müssig;Walter;Kernerstrasse 4;Markgröningen;71706;D;;;;;yes
-CUSTOMER;0;1090078;;Bretschneider;Fritz;Teckstrasse 11;Fellbach;70734;D;;;;;yes
-CUSTOMER;0;1090079;H;Schöffler;Walter;Friedhofstrasse 51/1;Althengstett;75382;D;;;;;yes
-CUSTOMER;0;1090080;FAM;;Kulle;Zeppelinstrasse 44;Fellbach-Schmieden;70734;D;;17648763262;;;yes
-CUSTOMER;0;1090081;H;Vrdoljak;Sinisa;;Leonberg;71229;;;;;;yes
-CUSTOMER;0;1090082;F;Us;Sayme;Württembergstr. 59;Fellbach;70736;D;;;;;yes
-CUSTOMER;0;1090084;H;Welte;Jürgen;Vorstadtstrasse 26;Geislingen;72351;D;;;;;yes
-CUSTOMER;0;1090085;H;Weißenberg;Klaus;Adenauerstrasse 36;Aalen;73433;D;;;;;yes
-CUSTOMER;0;1090086;H;Enssle;Volker;Michael-Braun-Ring 52;Aalen;73431;D;;;;;yes
-CUSTOMER;0;1090087;H;Melmann;Alexander;Alemannenstrasse 13;Sigmaringen;72488;D;;;;;yes
-CUSTOMER;0;1090088;H;Kümmerle;Gert;Belinostrasse 48;Reutlingen;72764;D;;;;;yes
-CUSTOMER;0;1090089;H;Wurst;Reiner;Weinbergweg 26;Stuttgart;70569;D;;;;;yes
-CUSTOMER;0;1090090;H;Schadel;Thomas;Pfaffenwiesenstrasse 7;Leonberg;71229;D;;;;;yes
-CUSTOMER;0;1090091;F;Schmidt;Liese;Kegelgäßle 24;Horb am Neckar;72160;D;;;;;yes
-CUSTOMER;0;1090092;F;Neubauer;Tina;Kleines Egart 8;Sindelfingen;71069;D;;;;;yes
-CUSTOMER;0;1090093;FAM;Meier;;Kreuzäckerstrasse 44;Mögglingen;73563;D;;;;;yes
-CUSTOMER;0;1090094;F;Dannenhauer;Margit;Schwalbenweg 10;Plüderhausen;73655;D;;;;;yes
-CUSTOMER;0;1090095;H;Haug;Erwin;Badstrasse 25;Aidlingen;71134;D;;;;;yes
-CUSTOMER;0;1090096;H;Hellbardt;Günter;Taunusstrasse 54;Böblingen;71032;D;;;;;yes
-CUSTOMER;0;1090097;H;Belz;Andreas;Hauffstrasse 123/1;Pfullingen;72764;D;;;;;yes
-CUSTOMER;0;1090098;H;Schlotter;Dieter;Landhausstrasse 18;Simmersfeld;72226;D;;;;;yes
-CUSTOMER;0;1090099;H;Amenitsch;Klaus-Peter;Pfeiferstrasse 75;Nürtingen;72622;D;;;;;yes
-CUSTOMER;0;1090100;H;Ofner;Werner;Amselweg 5;Eschach;73575;D;;;;;yes
-CUSTOMER;0;1090101;H;Burlak;Sergej;Dobelstrasse 5;Stuttgart;70184;D;;;;;yes
-CUSTOMER;0;1090102;H;Ivsic;Goran;;;;D;;;;;yes
-CUSTOMER;0;1090103;H;Sparr;Detlef;;Horb am Neckar;72160;D;;;;;yes
-CUSTOMER;0;1090104;F;Tuncel;Selina;;;;D;;;;;yes
-CUSTOMER;0;1090105;H;Hipp;Thomas;Stegäckerstrasse 55;Riederich;72585;D;;;;;yes
-CUSTOMER;0;1090106;H;Werner;Bruno;Sulmstrasse 5;Herrneberg;71083;D;;;;;yes
-CUSTOMER;0;1090107;ARC;AK;;;Stuttgart;70188;D;;;;;yes
-CUSTOMER;0;1090108;H;Narr;Willi;Hanfweg 5;Rottenburg am Neckar;72108;D;;;;;yes
-CUSTOMER;0;1090109;H;Hennig;Uwe;Hörnlestrasse 1;Frickenhausen;72636;D;;;;;yes
-CUSTOMER;0;1090110;H;Rumberger;Jürgen;Ditzingerstrasse 25;Gerlingen;70839;D;;;;;yes
-CUSTOMER;0;1090111;AB;Knorr;;Grazer Straße 4A;Stuttgart;70469;D;;;;;yes
-CUSTOMER;0;1090112;H;Festinese;;Eschestrasse 6;Mössingen;72116;D;;;;;yes
-CUSTOMER;0;1090113;H;Jetter;Reinhard;Nägelestrasse 92;Albstadt;72461;D;;;;;yes
-CUSTOMER;0;1090114;F;Kimmler-Muffler;Corinna;Schwabenstrasse 26;Reutlingen;72768;D;;;;;yes
-CUSTOMER;0;1090115;H;Petrovic;Drazen;;Stuttgart;;D;;;;;yes
-CUSTOMER;0;1090116;H;Schlutter;Matthias;Gladiolenstrasse 2;Böblingen;71093;D;;;;;yes
-CUSTOMER;0;1090117;H;Hagenmeier;Dirk;Eichelbachstrasse 30;Freudenstadt;72250;D;;;;;yes
-CUSTOMER;0;1090118;H;Heinz;Alexander;Banaterstrasse 1;Schönaich;71101;D;;;;;yes
-CUSTOMER;0;1090119;H;Lörcher;Andre;Brühlwasserstrasse 23;Mötzingen;71159;D;;;;;yes
-CUSTOMER;0;1090120;H;Sick;Winfried;Klagenfurter Str. 55;Stuttgart;70469;D;;;;;yes
-CUSTOMER;0;1090121;H;Lamparter;Frank;Landhausstrasse 40;Böblingen;71032;D;;;;;yes
-CUSTOMER;0;1090122;H;Döme;Franz;Altensteiger Strasse 10;Böblingen;71034;D;;;;;yes
-CUSTOMER;0;1090123;F;Filipov;Margerita;Eugen-Bolz-Str.42;Böblingen;71034;D;;;;;yes
-CUSTOMER;0;1090124;H;Djuric;Bozo;Schillerstr. 8/1;Rutesheim;71277;D;;;;;yes
-CUSTOMER;0;1090125;H;Karim;Mohamed;Weinlandstrasse 14;Bad Urach;72574;D;;;;;yes
-CUSTOMER;0;1090126;H;Merk;Lothar;Samenhandelstrasse 21;Reutlingen;72770;D;;;;;yes
-CUSTOMER;0;1090127;F;Fechter;Christa;Mozartstrasse 33;Veringenstadt;72519;D;;;;;yes
-CUSTOMER;0;1090128;H;Martone;Antonio;Ebertstr.31;Leonberg;71272;D;;;;;yes
-CUSTOMER;0;1090129;H;Garbuzov;Valentin;Theobald-Kerner-Straße 10;Stuttgart;70372;D;;;;;yes
-CUSTOMER;0;1090130;F;von Polenz;Andrea;Hutteneichenweg 64c;Stuttgart;70565;D;;;;;yes
-CUSTOMER;0;1090131;F;Gille;Nadine;Steige 9;Döffingen;;D;;;;;yes
-CUSTOMER;0;1090132;;Chudy;Bernhard;Leinäckerstr 8;Stuttgart;71384;D;;;;;yes
-CUSTOMER;0;1090133;H;Dorn;Alexander;Erwin-Häusler-Strasse 4;Stuttgart;70378;D;;;;;yes
-CUSTOMER;0;1090134;F;Jantos;Maria;Bunsenstrasse 88;Böblingen;710342;D;;;;;yes
-CUSTOMER;0;1090135;F;Trinkle;Gerda;Weilimdorferstrasse 24;Stuttgart;70839;D;;;;;yes
-CUSTOMER;0;1090136;H;Friemann;;Untertürkheimerstrasse 147;Fellbach;70734;D;;;;;yes
-CUSTOMER;0;1090137;H;Omer;Davor;;Sachsenheim;74343;D;;;;;yes
-CUSTOMER;0;1090139;H;Voigt;Reinhard;;Mark;;D;;;;;yes
-CUSTOMER;0;1090140;H;Saage;Christoph;Griesheimerstr.61 A;;;D;;;;;yes
-DEALER;Etik_Sun10;0;;;;;;;;;;;;
-CUSTOMER;0;1110001;H;Aslanidis;Theodoros;Max-Eythstr.61;Reutlingen;72760;D;71216951162;;;;yes
-CUSTOMER;0;1110002;H;Cokgüzel;Mevlüt;Danzigerstr.21;Bodelshausen;72411;D;1731545865;;;;yes
-CUSTOMER;0;1110005;;Akil;Remzi;Friedrichstr.59;Unterhausen;72805;;;;;;yes
-DEALER;Etik_Sun11;0;;;;;;;;;;;;
-CUSTOMER;0;1200000;F;Gözübüyük;Emine;Tübinger Straße 12;Hechingen;72379;;07471-6201909;;;;yes
-CUSTOMER;0;1200001;;Marrazzo;Filippo;Drosselweg;Hechingen;72379;D;;;;;yes
-CUSTOMER;0;1200002;;Math;Winfried;Treutweg 13;Biberach- Mettenberg;88400;D;;;arch.math@t-online.de;;yes
-CUSTOMER;0;1200003;;Sapina;Anto;;;;;;;a.sapina@hotmail.com;;yes
-CUSTOMER;0;1200004;;Starkes;Cafe;Neuestr. 21;Hechingen;72379;D;;;;;yes
-CUSTOMER;0;1200005;Fa;Christof Drobny und Alexander Zimmermann;;Im Rübländer 14;Böblingen;71034;D;;;;;yes
-CUSTOMER;0;1200006;;Cafer;Uysal;Schreinergasse 8;Grosselfinegn;72415;D;;0174 859 88 30;;;yes
-CUSTOMER;0;1200008;;Schmoll GmbH;Friedrich;Friedrich-List-Straße 11;Sigmaringen;72488;D;7571682385;;info@f-s-baufachmarkt.de;7571682387;yes
-CUSTOMER;0;1200009;;Steinle;Hans-Eugen;Ölbergstrasse 11;Balingen;72336;D;743327284;0173 6552540;;743327294;yes
-CUSTOMER;0;1200010;;Papazoglou;Abraham;Schreinergasse 5;Grosselfingen;72415;D;1737069762;;abraham.papazoglu@gmail.com;;yes
-CUSTOMER;0;1200011;;Kurban;Murat;Immenhauserstr 9;Mähringen;72127;D;;;;;yes
-CUSTOMER;0;1200012;;Papadopoulos;Konstantinos;Linden str 29;Bodelshausen;72411;D;07471 72856;;;;yes
-CUSTOMER;0;1200013;;Schmoll;Friedrich;Friedrich-List-Straße 11;Sigmaringen;72488;D;7571682385;;info@f-s-baufachmarkt.de;7571682387;yes
-CUSTOMER;0;1200014;;Kuban;Siegmund;Königsberger Weg 48;Hechingen;72379;;;;;;yes
-CUSTOMER;0;1200015;;Huke;Marco;Am Kirchenköpfle 8;Hechingen-Schlatt;72379;;;;marcohuke2@googlemail.com;;yes
-CUSTOMER;0;1200016;Fa;Wendler Beteiligungen GmbH & Co. KG;Gebrüder;Albstraße 52;Reutlingen;72764;;7121337777;;info@wendler-vermoegensverwaltung.de;7121935820;yes
-CUSTOMER;0;1200017;;Corovic;Suat;Rosenstr 31;Geislingen;72351;;;17631580103;;;yes
-CUSTOMER;0;1200019;;Heinritz;Max;Kuckucksruf 52;Stuttgart;70569;;7114515983;;maxlein.heinritz@web.de;;yes
-CUSTOMER;0;1200020;;Seel;Waldemar;Egart str 18;Grosselfingen;72145;D;;0173/8898951;seelwalde@gmail.com;;yes
-CUSTOMER;0;1200021;;Liske;Jens;;Wasungen;98634;;;;;;yes
-CUSTOMER;0;1200022;;Christou;Sotiris;Hika Thesprotias;Igoumenitsa-Hika Thesprotias;;GR;;;;;yes
-CUSTOMER;0;1200023;;Göker;Mutlu;;d;;;;;mtlgkr78@gmail.com;;yes
-CUSTOMER;0;1200024;;Birecik;Sevki;Lindenstraße 7;Söhrewald;34320;D;;0152-09515885;sevki1@hotmail.de;;yes
-CUSTOMER;0;1200025;;Reoio;Rafael;Ebingerstr 63;Hausen;72393;D;;;;;yes
-CUSTOMER;0;1200026;;Erath;Manfred;; Geislingen;72351;;;;;;yes
-CUSTOMER;0;1200027;;Herfort;Hans-Georg;Kohlbrunnenweg 42;Hechingen;72379;;;;;;yes
-CUSTOMER;0;1200028;Fa;Filippo Padri;Ristorante L'Antico;Freudenweilerstr.1;Bitz;7;D;;;;;yes
-CUSTOMER;0;1200029;;Yurtseven;Mehmet;Untere Stein Str. 32/1;Kirchheim/ Teck;73230;;;;;;yes
-CUSTOMER;0;1200030;;Kraz;Erni;Schubertstr. 3;Bodelhausen;72411;;;;;;yes
-CUSTOMER;0;1200031;F;Hafner;Petra;Walther-Rathenau-Str.27;Reutlingen;72766;D;;173666623;p.hafner@apollo11.de;;yes
-CUSTOMER;0;1200032;;Lindenlaub;Fritz;Zollernstr. 30;Balingen;72336;;;;;;yes
-CUSTOMER;0;1200033;;Plocki;Thomas;Kapellenstr 9;Hechingen;72379;D;07471/16692;;maclamato@aol.com;;yes
-CUSTOMER;0;1200034;;Huke;Marco;Am Kirchenköpfle;Hechingen;72379;D;;;marcohuke2@gmail.com;;yes
-CUSTOMER;0;1200035;;Özdemir;Ali;;;;;;;;;yes
-CUSTOMER;0;1200036;;Schenke;Dirk;;Durdenstadt;37115;;;;scholz-schenke@gmx.de;;yes
-CUSTOMER;0;1200037;;Recio;Rafael;Ebinger Straße 63;Hausen;72393;;;;;;yes
-CUSTOMER;0;1200038;F;Braun;Marion;;Balingen;;;;;;;yes
-CUSTOMER;0;1200039;;Stenzel;Alexander;Hinter Höfen 9;Ofterdingen;;D;7473956655;1794572326;;;yes
-CUSTOMER;0;1200040;Fa;Allg. Dienstleistungsservice;Harald Priem;Dietzenbachstr 1;Heusenstamm;63150;D;;;;610461162;yes
-CUSTOMER;0;1200041;;De Donna;;Staigle str 4;Balingen;;;;;;;yes
-CUSTOMER;0;1200042;Fa;Farina Salvatore;Pizzaexpress Bella Italia;Badstrasse 1;Balingen;72336;;;;;;yes
-CUSTOMER;0;1200043;;Yolcu;Bekir;Freigasse 1;Haigerloch;72401;D;7474916498;;;;yes
-CUSTOMER;0;1200044;;Speidel;Rolf;Wertenbachstr 32;Balingen-Engstlatt;72336;D;;;;;yes
-CUSTOMER;0;1200045;;Fohner;Matthias;Ludwigstraße 4;Stuttgart;70176;D;;;Matthias.fohner@me.com;;yes
-CUSTOMER;0;1200046;Fa;Terra-Flexx Systeme GmbH;;Theodor-Litt-Str.65;Bonn;53121;D;0228/62037637;;info@terra-flexx-systeme.de;;yes
-CUSTOMER;0;1200047;Fa;Schilder Fenster + Türen;;Zeppelinstr 25;Kornwestheim;70806;D;7154180072;;kontakt@schilder-fenster.de;7154180073;yes
-CUSTOMER;0;1200048;F;Faigle;Barbara;;Hechingen;72379;D;;;;;yes
-CUSTOMER;0;1200049;;Greger;Schreinerei Greger;Walbenreuthstr 15;Waldendorf;95679;D;923172542;;schreinerei-greger@t-online.de;923171984;yes
-CUSTOMER;0;1200050;;Fenster Neumann;Heiko;Pappelweg 2;Rövershagen;18182;D;3820230096;1718340401;fensterneumann@gmx.de;3820230097;yes
-CUSTOMER;0;1200051;Fa;AKF Fenster H&F GmbH;;Phillippstraße 35;Nürnberg;90431;D;911211180;;info@akf-fenster.de;9112441815;yes
-CUSTOMER;0;1200052;Fa;Schreinerei Anton Rauscher;;Gronadorf Straße 3-5;Haar;85540;D;89463907;;;089/4603145;yes
-CUSTOMER;0;1200053;;Özcan;Vedat;Hauptstr 18/1;Dotternhausen;72359;D;;1728314637;v.oezcan@web.de;;yes
-CUSTOMER;0;1200054;;Tschernenko;Konstantin;Brühlerstr 14/2;Bisingen;72416;D;;;konstantin.tschernenko@gmx.de;;yes
-CUSTOMER;0;1200055;;Schramm;Markus;Waldrenachersteige 13;Neuenburg;75305;D;;;;;yes
-CUSTOMER;0;1200056;Fa;Wick Fenster-Türen-Rollladen;;Brunnenstr 12;Kippenheim;77971;D;7825879943;1752731837;monika-wick@t-online.de;;yes
-CUSTOMER;0;1200057;Fa;Verlinden Montagebau;;Schillerstraße 20;Prien am Chiemsee;83209;D;;;marcel.verlinden@freenet.de;;yes
-CUSTOMER;0;1200058;;Deluci;Antonio;Obertorplatz 7;Hechingen;72379;D;;;;;yes
-CUSTOMER;0;1200059;;Löffler;Uwe;Am Fürstengarten 13;Hechingen;72379;D;;;;;yes
-CUSTOMER;0;1200060;;Dippel;Jens;Dorfstr. 20;Hechingen;72379;D;;;;;yes
-CUSTOMER;0;1200061;Fa;Reutlinger Wohnbaugesellschaft mbH;;Burkhard-Weber str 57;Reutlingen;72760;D;;;;;yes
-CUSTOMER;0;1200062;;Hogenmüller;Peter;;Reutlingen;;D;71216287940;;pphoges@t-online.de;;yes
-CUSTOMER;0;1200063;;Becker;;Kärtnerstr 39;Hechingen;72379;D;;;;;yes
-CUSTOMER;0;1200064;Fa;Büscher Fenster Türen Glas;;Widayweg 6;Arnsberg;59823;D;02937-9682085;;info@fenster-tueren-buescher.de;02937-9682086;yes
-CUSTOMER;0;1200065;;Kartmann;Johann;Ermelestraße 74;Hechingen;72379;D;;1734446022;;;yes
-CUSTOMER;0;1200066;;Cakir;Ahmet;Tübingerstr 4;Hechingen;72379;D;;;;;yes
-CUSTOMER;0;1200067;;Barschina;Herbert;Silcherstr 12;Spaichingen;78549;D;;0179-7093735;herbar1@web.de;;yes
-CUSTOMER;0;1200068;AB;Architektbüro Mantei;;An der Breite 5;Hechingen;72379;D;;;;;yes
-CUSTOMER;0;1200069;;Leider;Eduard;Keltenstraße 8;Mahlberg;77972;D;;0176 21783874;eduard.leider@gmx.de;;yes
-CUSTOMER;0;1200070;Fa;Mand;Baubetreuung & Beratung;Am Kreuzacker 4 c;Teningen;79331;D;07641 572769;;;07641 931730;yes
-CUSTOMER;0;1200071;Fa;Schrode-Katzenschläger;;Schönbergstr 27;Kusterdingen-Wankheim;72127;D;07071/37897;;schroka@t-online.de;07071/31704;yes
-CUSTOMER;0;1200072;;Calafato;Lilio;Hauptstraße 22;Nalbach;66809;D;;;;;yes
-CUSTOMER;0;1200073;;Haupt;Dennis;;Grosselfingen;;D;;1705664529;dennis.haupt@hausch-gmbh.de;;yes
-CUSTOMER;0;1200074;;Schmelzle;Paul;;;;;;;;;yes
-CUSTOMER;0;1200075;;Engel Rechtsanwalt und Notar;Jürgen;Ringstr 29;Pfungstadt;64319;D;;;;;yes
-CUSTOMER;0;1200076;FAM;Benisch;;;Bisingen;72406;;;0172-2104126;d-day87@web.de;;yes
-CUSTOMER;0;1200077;;Gaetano;Fiorilli;Rohrbachstr 40;St.Ingbort-Hassel;66386;D;;;;;yes
-CUSTOMER;0;1200078;;Bayer;Robin;;Burladingen;;D;;;aquahaus1@gmail.com;;yes
-CUSTOMER;0;1200079;Fa;Dari Baufertigung;;Römerstr 22;Rottenburg;72108;D;74729569442;15257923201;kontakt@dari-baufertigung.de;74729569443;yes
-CUSTOMER;0;1200080;;Bitsch;Oleg;Hindenburgstraße 15A;Rust;77977;D;;17664365807;;;yes
-CUSTOMER;0;1200081;F;Arnold;Helena;Hauptstraße 48;Sinzheim;76547;D;;;;;yes
-CUSTOMER;0;1200082;;Raul;Tamas;Eichgasse 7;Bisingen;72406;D;;15734499326;;;yes
-CUSTOMER;0;1200083;Fa;Kuhn+Dörr;;Gartenstr 47;Tauberbischhofsheim;97947;D;93415084;;fenster-k-d@t-online.de;93411744;yes
-CUSTOMER;0;1200084;;Schröder;Alex;Wilhem-Mayerstr 11;Ravensburg;88213;D;;;;;yes
-CUSTOMER;0;1200085;;Yildirim;Daniel;Wilhelm-Liebknecht-str.4;Giessen-Wieseck;35396;D;;0176-39660275;info@stockholm-hairsoloon.de;;yes
-CUSTOMER;0;1200086;;Korcz;Adam;Zollerstr 25;Hechingen;72379;D;;;;;yes
-CUSTOMER;0;1200087;;Mirschel;Frank;Lodenbergerstr 18;Reutlingen;72766;D;707131528;;;;yes
-CUSTOMER;0;1200088;;Hölzl;Dieter;Am Mösle;Kaufbeuren;87600;D;;0151/75051489;d.hoelzl@live.de;;yes
-CUSTOMER;0;1200089;F;Zürcher;Nadja;Im Hätzgert 19;Rangendingen;72414;D;;;;;yes
-CUSTOMER;0;1200090;;Lazaros;Skoulikas;Achlada;Ioannina;44009;;;;;;yes
-CUSTOMER;0;1200091;;Gerhardt;Viktor;Unterstadt 20;Haigerloch;72401;D;;;;;yes
-CUSTOMER;0;1200092;Fa;Griese-Bauelemente;;Rostockerstr 89;Schwaan;18258;D;03844/810877;0171/6414285;bauelemente@schwaan.info;;yes
-CUSTOMER;0;1200093;;Onür;Yürmüz;Bogenstr 17;Gronsheim;64579;D;;15170011189;;;yes
-DEALER;Etik_Sun12;0;;;;;;;;;;;;
-CUSTOMER;0;1401001;Fa;Denkinger;;An der Sägmüle 18;Jungingen;72417;D;07477 91898 0;;goran.ivkovic@denkinger.de;07477 91898 18;yes
-CUSTOMER;0;1401002;;Müller;Waldemar;Berggrunbenweg 32;Birkenhard;88447;;07351 373571;;imueller1980@web.de;;yes
-CUSTOMER;0;1401003;;test;;;Hechingen;;;;;;;yes
-CUSTOMER;0;1401004;;;;;;;;;;;;yes
-CUSTOMER;0;1401005;;Test Faigle 1;;;;;;;;;;yes
-CUSTOMER;0;1401006;;Mustafa;Dogan;Heinlenstr. 7;Tübingen;72072;;;;espere@hotmail.de;;yes
-CUSTOMER;0;1401007;F;Horak;Cornelia;Stingstr. 55;Balingen;72336;;;;;;yes
-CUSTOMER;0;1401008;;test;test;;;;;;;;;yes
-CUSTOMER;0;1401009;;Löffler;Uwe;Am Fürstengarten 13;Hechingen;72379;;;;;;yes
-CUSTOMER;0;1401012;F;Wetzel;Nadine;Hennental 6;Tübingen;72070;;;;nadinehiller@rocketmail.com;;yes
-CUSTOMER;0;1401013;;Yolcu;Bekir;Freigasse 1;Haigerloch;72401;;;;;;yes
-CUSTOMER;0;1401014;;Selvi;Ibrahim;Im Maierhof 25;Hechingen;72379;;;;;;yes
-CUSTOMER;0;1401017;;Faigle;Björn;Bildäckerstr. 20;Hechingen-Stein;72379;;;;;;yes
-CUSTOMER;0;1401018;F;Mücke;;Kanzleistr.;Hechingen;72379;;;;;;yes
-CUSTOMER;0;1401020;;Barbje;;Beethofenstr. 6;Bodelshausen;72411;;;;;;yes
-CUSTOMER;0;1401021;Fa;Farina;;;Balingen;;;;;;;yes
-CUSTOMER;0;1401022;;Sezer;Bülent;Grafenberger Str. 4;Kohlberg;72664;;;;;;yes
-CUSTOMER;0;1401023;FAM;Conti;;St. Gallus Str. 34;Balingen;72336;;;;patrizia.dimottia@gmx.de;;yes
-CUSTOMER;0;1401024;F;Konstanzer;Claudia;;Burladingen;72393;;;;;;yes
-CUSTOMER;0;1401025;F;Braun;Silvia;Balinger Str. 71;Balingen;72336;;;;;;yes
-CUSTOMER;0;1401026;;Djuric;Bozo;Schillerstraße 8/1;Rutesheim;71277;;;0173 6607635;bozo@djuric.eu;07152 6104823;yes
-CUSTOMER;0;1401027;;Herfort;Hans Georg;Kohlbrunnenweg 42;Hechingen;72379;;07471 4399;;;;yes
-CUSTOMER;0;1401028;;Cica;Natasa;Klingenstr. 7;Leonberg;71229;;;;;;yes
-CUSTOMER;0;1401029;;Schmelzle;Eugen;Dorfwiesen Str. 15;Ensberg;75417;;;;;;yes
-CUSTOMER;0;1401030;F;Haberstroh;Stephanie;Am Stöckenhof 25;Emmendingen;79312;;;0171 74115392;;;yes
-CUSTOMER;0;1401031;;Özgür;Behzat;Mössinger Str. 26;Mössingen;72411;;747171568;;behzatözgür@gmail.com;;yes
-CUSTOMER;0;1401032;;Jönsson;Nikolai;Ebertstraße 63;Tübingen;72072;;;0175 6645961;nikolai@joenssonmail.de;;yes
-CUSTOMER;0;1401033;;Noyal;Yilmaz;Amselberg 1;Heuchelheim;35452;;;0173 6550197;;;yes
-CUSTOMER;0;1401034;;David;Alexander;Daimlerstr. 12;Massenbachhausen;74252;;;;;;yes
-CUSTOMER;0;1401035;;Catania;Salvatore;;;;;;;;;yes
-CUSTOMER;0;1401036;FAM;Do;Huu Ban;Härdtleweg 5;Lichtenstein;72805;;;0163 6355369;;;yes
-CUSTOMER;0;1401037;;;;;;;;;;;;yes
-CUSTOMER;0;1401039;;Palmer;Ulrich;Waldstr. 1;Kusterdingen;72127;D;07071/38472;;ulrich.palmer@freenet.de;;yes
-CUSTOMER;0;1401040;EH;Kaiser;Alexej und Irina;Ohnestalweg 5;Endingen-Kichlinsbergen;79346;;;;;;yes
-CUSTOMER;0;1401041;;Hofmann;Artur;Im Stritacker 4;Lahr;77933;;07825 6160945;0173 3474385;arturhofmann1@gmx.de;;yes
-CUSTOMER;0;1401042;F;Karsten;Lydia;Kolberger Straße 5;Euskirchen;53879;;02251 9217199;0160 2417988;lydia.karsten@gmx.de;;yes
-CUSTOMER;0;1401043;Fa;CUBUS Designhaus GmbH;;In der Pützgewann 10a;Mülheim-Kärlich;56218;;02630 96460;;info@cubus-designhaus.de;02630 964610;yes
-CUSTOMER;0;1401044;;Bittner;Dimitri;Halberstunger Feld 8;Sinzheim;76547;;;0170 3289887;;;yes
-CUSTOMER;0;1401046;Fa;Rubikon Bau;;Schlossstr. 52;Seeheim;64342;;;0160 8039084;;;yes
-CUSTOMER;0;1401047;;Vladimirov;;Alteburgstr. 111;Reutlingen;72762;;;0176 40276503;i.vladimirov@gmx.de;;yes
-CUSTOMER;0;1401049;Fa;Kurt Wellmann;ICW Wellmann;Daimlerstrasse 4;Wimsheim;71299;;07044 48104;0173 3259071;icw-wellmann@t-online.de;07044 48105;yes
-CUSTOMER;0;1401050;Fa;ICW Wellmann;;Daimlerstrasse 4;Wimsheim;71299;;07044 48104;0173 3259071;icw-wellmann@t-online.de;07044 48105;yes
-CUSTOMER;0;1401051;;Kavun;Andreas;Hauptstraße 34;Kretzhaus;53560;;;0172 2474090;;;yes
-CUSTOMER;0;1401052;;Schneider;Benjamin;Ekkard Str. 39;Friedrichshafen;88046;;;;;;yes
-CUSTOMER;0;1401054;;Wagner;;Hirsauer Str. 119;Pforzheim;75180;;;;;;yes
-CUSTOMER;0;1401055;;;;;;;;;;;;yes
-CUSTOMER;0;1401056;;Stolte;Dieter;Alkofen 10;Bad Abbach;93077;;09405 1424;;stolte-innenausbau@t-online.de;09405 1425;yes
-CUSTOMER;0;1401057;;Außersteiner;Rene;;;;;;15208936162;raussersteiner@aol.com;;yes
-CUSTOMER;0;1401058;;Gimoussiakakis;Dr. Evangelos;Fichte Strasse 20;Ludwigsburg;71640;;07141 55032;0172 7375082;dimitra1970@me.com;;yes
-CUSTOMER;0;1401059;Fa;AE-Baustoffe GbR;;Am Kirchpfad 65;Weiterstadt;64331;;;0152 53518116;info@ae-baustoffe.de;;yes
-DEALER;Etik_Sun13;0;;;;;;;;;;;;
-CUSTOMER;0;1301000;;test1 heer;;;;;;;;;;yes
-CUSTOMER;0;1301002;;Hauser;Richard;;Sinsheim Weiler;;;;;;;yes
-CUSTOMER;0;1301003;456;Heer;Daniel;;;;;;;;;yes
-CUSTOMER;0;1301004;Bv.;Beispielvorhaben;;Beispielstraße 22;Musterhausen;0;D;;;;;yes
-CUSTOMER;0;1301005;;Wörner;Erwin;;Hilsbach;;;;;;;yes
-CUSTOMER;0;1301010;FAM;Dick;Peter;;;;;;;;;yes
-CUSTOMER;0;1301012;FAM;Dick;;;Heilbronn;;;;;;;yes
-CUSTOMER;0;1301013;;Schmidgall;Heiko;;Wüstenrot;;;;;;;yes
-CUSTOMER;0;1301014;AB;Müller;;;;;;;;;;yes
-DEALER;Etik_Sun14;0;;;;;;;;;;;;
-CUSTOMER;0;1501000;;zimmermann;ale;;;71034;;;;;;yes
-CUSTOMER;0;1501001;;Thoman;Karl;;;;;;;;;yes
-CUSTOMER;0;1501002;;Thoman;Michael;Brechengasse 5;Starzach-Bierlingen;72181;;;;;;yes
-CUSTOMER;0;1501003;;Fritz;Jakob;;Eutingen;;;;;;;yes
-CUSTOMER;0;1501004;;Glaserei Knapp OHG;;Schäferhauserstr.12;Wendlingen;73240;;;;;;yes
-CUSTOMER;0;1501007;;Benisch;David;Königsbergerstr 11/1;;;;;;;;yes
-CUSTOMER;0;1501008;;Singer;Peter;;;;;;;;;yes
-CUSTOMER;0;1501009;;Ahmed;;;da;;;;;;;yes
-CUSTOMER;0;1501010;;Zimmermann;Michael;;;;;;;;;yes
-CUSTOMER;0;1501011;;Emir BV-Holzgerlingen;;;Bondorf;;;;;;;yes
-CUSTOMER;0;1501012;;Muharem;Muharem;;x;x;D;;;;;yes
-CUSTOMER;0;1501013;;Emir  BV Oberndorf;;;Bondorf;;;;;;;yes
-CUSTOMER;0;1501014;;Nun;;;;;;;;;;yes
-CUSTOMER;0;1501015;;Jürgen;;;;;;;;;;yes
-CUSTOMER;0;1501016;;Arthur Schiebetürenbeispiel;;;;;;;;;;yes
-CUSTOMER;0;1501017;;Ketterer;;;;;;;;;;yes
-CUSTOMER;0;1501018;;Muharem 2 Kom.Yanisch;;;;;;;;;;yes
-CUSTOMER;0;1501019;;Muharem 3 Kom.Savas Türe;;;;;;;;;;yes
-CUSTOMER;0;1501020;;Steev Engländer;;;;;;;;;;yes
-CUSTOMER;0;1501021;;Jakob;;;;;;;;;;yes
-CUSTOMER;0;1501022;;Binefeld;;;;;;;;;;yes
-CUSTOMER;0;1501023;;Leinäcker;Stanislav;;;;;;;;;yes
-CUSTOMER;0;1501024;;Eger Graf;;;;;;;;;;yes
-CUSTOMER;0;1501025;;Toni;;;;;;;;;;yes
-CUSTOMER;0;1501026;;Domenico;;;;;;;;;;yes
-CUSTOMER;0;1501027;;Necatti;;;;;;;;;;yes
-CUSTOMER;0;1501028;;Bady;;;;;;;;;;yes
-CUSTOMER;0;1501029;;Kurt;;;;;;;;;;yes
-CUSTOMER;0;1501030;;Danner;;;;;;;;;;yes
-CUSTOMER;0;1501031;;Rolf;;;;;;;;;;yes
-CUSTOMER;0;1501032;;Rolf Kellerfenster;;;;;;;;;;yes
-CUSTOMER;0;1501033;;Staeinsimse;;;;;;;;;;yes
-CUSTOMER;0;1501036;;Dennis Montör;;;;;;;;;;yes
-CUSTOMER;0;1501037;;Slave;;;;;;;;;;yes
-CUSTOMER;0;1501038;;Arthur;;;;;;;;;;yes
-CUSTOMER;0;1501039;;;;;;;;;;;;yes
-CUSTOMER;0;1501040;;Thorsten Schulze;;;;;;;;;;yes
-CUSTOMER;0;1501041;;Arslan;;;;;;;;;;yes
-CUSTOMER;0;1501042;;Frank Türen;;;;;;;;;;yes
-CUSTOMER;0;1501043;;Korkmaz;;;;;;;;;;yes
-CUSTOMER;0;1501044;;Aydin;;;;;;;;;;yes
-CUSTOMER;0;1501045;;Muharem;;;;;;;;;;yes
-CUSTOMER;0;1501046;;Salver Kusine;;;;;;;;;;yes
-CUSTOMER;0;1501047;;Darek;;;;;;;;;;yes
-CUSTOMER;0;1501048;;Versi;;;;;;;;;;yes
-CUSTOMER;0;1501049;;Aytekin;;;;;;;;;;yes
-CUSTOMER;0;1501050;;Ponton Turek;;;;;;;;;;yes
-CUSTOMER;0;1501051;;Jürgen;;;;;;;;;;yes
-CUSTOMER;0;1501052;;Jürgen Kieferfenster;;;;;;;;;;yes
-CUSTOMER;0;1501053;;Kemal;;;;;;;;;;yes
-CUSTOMER;0;1501054;;Ahmed;;;;;;;;;;yes
-CUSTOMER;0;1501055;;Ahmed Hake;;;;;;;;;;yes
-CUSTOMER;0;1501056;;Achmed Kollege;;;;;;;;;;yes
-CUSTOMER;0;1501057;;Daniel;;;;;;;;;;yes
-CUSTOMER;0;1501058;;Alex Schaab;;;;;;;;;;yes
-CUSTOMER;0;1501059;;Nesenthiran;;;;;;;;;;yes
-CUSTOMER;0;1501060;;Agic Osman;;;;;;;;;;yes
-CUSTOMER;0;1501061;;Klebsattel;;;;;;;;;;yes
-CUSTOMER;0;1501062;;Test;;;;;;;;;;yes
-CUSTOMER;0;1501063;;Johan Schaab;;;;;;;;;;yes
-CUSTOMER;0;1501064;;Emir;;;;;;;;;;yes
-CUSTOMER;0;1501065;;Hilinski;;;;;;;;;;yes
-CUSTOMER;0;1501066;;Osman von Ömer rangendingen;;;;;;;;;;yes
-CUSTOMER;0;1501067;;Andrzej;;;;;;;;;;yes
-CUSTOMER;0;1501068;;Sahim;;;;;;;;;;yes
-CUSTOMER;0;1501069;;Marinko;;;;;;;;;;yes
-CUSTOMER;0;1501070;;Ahmed Kollege;;;;;;;;;;yes
-CUSTOMER;0;1501071;;Ania;;;;;;;;;;yes
-CUSTOMER;0;1501072;;Dieter Meiksner;;;;;;;;;;yes
+"Sungate Cust.No";"Mr/Mrs";"Name";"Surname";"Street";"City";"Postal code";"Country code";"Phone";"Mobile";"Email";"Fax";"VAT code";"Cust.group"
+999;"";"Asik";"Ümit";"Pforzheimerstr.28";"Heimsheim";"71296";"D";"";"";"";"";1;"PK"
+33333;"F";"Widmann";"Simone";"Sandwiesenstrasse 8";"Waiblingen";"71334";"D";"";"";"";"";1;""
+1010022;"";"Weizel";"Eduard";"Urnenfelderstr.14";"Geldersheim";"97505";"D";"";"";"";"";3;""
+1010041;"";"Gelesch";"Hartmut";"Scottweg 13B";"Stuttgart";"70439";"D";"";"";"";"";3;"BT"
+1010042;"";"Tran";"Thu";"Roseneggstrasse 6";"Leonberg";"71229";"D";"";"";"";"";1;""
+1010044;"";"Tittmann";"Jens";"Strohgäustr.1";"Leonberg";"71229";"D";"";"";"";"";3;""
+1010070;"";"Chatzi";"Vasilios";"Aldingerstrasse 139";"Stuttgart";"70378";"";"";"";"";"";3;""
+1030003;"";"Katic";"Mijo";"Kornbergstrasse 26";"Stuttgart";"70176";"";"";"";"mijo.katic@gmx.de";"";3;"PK"
+3001000;"";"test";"";"";"";"";"";"";"";"";"";1;""
+3001001;"H";"Tokarsky.";"Michael";"";"Kornwestheim";"";"D";"";"";"";"";3;"PK"
+3001002;"H";"Scheuermann";"Jürgen";"Paulinenstr. 20";"Weil im Schönbuch";"71093";"";"";"";"";"";3;"PK"
+3001003;"F";"Egelhof";"Gisela";"Bramsweg 26";"Stuttgart";"70195";"D";"";"";"";"";3;"PK"
+3001004;"F";"Al-Kutbi";"Lina";"Dobelstrasse 63";"Leonberg";"71229";"D";"";"";"";"";3;"PK"
+3001005;"H";"Schulz";"Alexander";"Böhmstr. 4";"Stuttgart";"70597";"";"";"";"";"";3;"PK"
+3001006;"";"Gosse";"Sergej";"Tannenweg 3";"Winnenden";"71364";"";"";"";"";"";3;"PK"
+3001007;"H";"Schnabel";"Wolfgang";"Rohrackerstr. 244";"Stuttgart";"70329";"";"";"";"";"";3;"PK"
+3001008;"H";"Elzner";"Benjamin";"";"Leonberg";"71229";"";"";"";"";"";3;""
+3001009;"H";"Drodofsky";"Sven";"Pelikanstr 53D";"Stuttgart";"70378";"";"";"";"";"";3;"PK"
+8888888;"";"Test-Kunde";"";"";"";"";"";"";"";"";"";3;""
+8888890;"H";"Dojcinovic";"Dragan";"Neuköllnerstrasse 7";"Leonberg";"71229";"D";"";"";"dojci@fenstra.de";"";3;"PK"
+8888891;"";"Perc";"Rainer";"Im Pflästerle 4";"Sindelfingen";"70195";"D";"";"";"";"";3;"PK"
+8888892;"";"Eulitz";"Tobias";"Feuerbacherstr.15";"Gerlingen";"70839";"D";"";"";"";"";3;""
+8888893;"";"Asik";"Ümit";"Pforzheimerstr.28";"Heimsheim";"71296";"D";"";"";"";"";3;""
+8888894;"";"Braun";"Bernd";"August-Lämmle-Weg 24";"Leonberg";"71229";"D";"";"";"";"";3;"PK"
+8888895;"H";"Jetter";"Reinhard";"Nägelestrasse 92";"Albstadt";"72461";"";"";"";"";"";1;""
+8888896;"";"Willmann";"Dieter";"Mörikestrasse 10";"Nufringen";"71154";"D";"";"";"";"";3;"PK"
+8888897;"F";"Musmeci";"Andrea";"Waldmühlenweg 3";"Waiblingen";"71332";"D";"";"";"";"";3;""
+8888898;"F";"Widmann";"Simone";"Sandwiesenstrasse 8";"Waiblingen";"71334";"D";"";"";"";"";3;""
+8888899;"";"Lieb";"Wolfgang";"Mollenbachstrasse 14";"Leonberg";"71229";"D";"";"";"";"";3;"PK"
+8888900;"";"Tran";"Thu";"Roseneggstrasse 6";"Leonberg";"71229";"D";"";"";"";"";3;"PK"
+8888901;"";"Weizel";"Eduard";"Urnenfelderstr.14";"Geldersheim";"97505";"D";"";"";"";"";3;"PK"
+8888902;"";"Prochnau";"Dimitri";"Robert-Koch-Str.18";"Leonberg";"71229";"D";"";"";"";"";3;"PK"
+8888903;"F";"Milojevic";"Biljana";"Max-Reger-Strasse 9";"Sindelfingen";"71065";"D";"";"";"";"";3;"PK"
+8888904;"";"Tittmann";"Jens";"Strohgäustr.1";"Leonberg";"71229";"D";"";"";"";"";3;"PK"
+8888905;"F";"Herzog";"Sandra";"Theodor-Heuss-Str.24";"Kornwestheim";"70806";"D";"";"";"";"";3;"PK"
+8888906;"";"Gelesch";"Hartmut";"Scottweg 13B";"Stuttgart";"70439";"D";"";"";"";"";3;"PK"
+8888907;"";"Meier";"Ralph";"Zeisigweg 51";"Waldenbuch";"71111";"D";"";"";"";"";3;"PK"
+8888908;"";"Lauterbach";"Michael";"Bismarckstrasse 60";"Ludwigsburg";"71636";"D";"";"";"";"";3;"PK"
+8888909;"";"Jüptner";"Frank";"In der Halde 100";"Sindelfingen";"71063";"D";"";"";"";"";3;"PK"
+8888910;"H";"stefanos";"test";"alexander 14";"";"77845";"";"";"";"";"";3;"PK"
+8888911;"";"Scheeff";"Wolfgang";"Kirchbachstrasse 35";"Leonberg";"71229";"";"";"";"";"";3;"PK"
+8888912;"";"Müller";"Karl";"Neusatzstrasse 18";"Herrenberg";"71083";"";"";"";"";"";3;"PK"
+8888913;"";"Katic";"Mijo";"Kornbergstrasse 26";"Stuttgart";"70176";"";"";"";"mijo.katic@gmx.de";"";3;"PK"
+8888914;"";"Chatzi";"Vasilios";"Aldingerstrasse 139";"Stuttgart";"70378";"";"";"";"";"";3;"PK"
+8888915;"";"Linke";"";"Scottweg 3A";"Stuttgart";"70439";"";"";"";"";"";3;"PK"
+8888916;"";"Meixner";"Thomas";"Brunnenstrasse 5";"Weil im Schönbuch";"71093";"";"";"";"";"";3;"PK"
+8888917;"Bv.";"B & V Verwaltungs GmbH";"";"Carl-Zeiss-Str. 11/1";"Leonberg";"71229";"";"";"";"";"";3;"PK"
+8888918;"";"Mancic";"Radisav";"Adlerstrasse 3";"Kornwestheim";"70806";"";"";"";"";"";3;"PK"
+8888919;"";"Sousa";"Michael";"Schmiedenerstr.210B";"Stuttgart";"70734";"";"";"";"";"";3;"PK"
+8888920;"";"Halmagen";"Vasile";"Laibelbergstrasse 10L";"Heimsheim";"71296";"";"";"";"";"";3;"PK"
+8888921;"H";"Wildermuth";"J.";"Hauptstrasse 90";"Ludwigsburg";"71642";"";"";"";"";"";3;"PK"
+8888922;"";"Maaz";"Michael";"Guttenbrunnstrasse 66";"Sindelfingen";"71067";"";"";"";"";"";3;"PK"
+8888923;"F";"Werner";"Jacqueline";"Tulpenstrasse 9";"Sindelfingen";"71063";"";"";"";"";"";3;"PK"
+8888924;"";"Schilling";"Klaus";"Stifterstr.5";"Bondorf";"71149";"";"";"";"";"";3;"PK"
+8888925;"F";"Rittinger";"Ilse";"Elzacherstrasse 35";"Böblingen";"71034";"";"";"";"";"";3;"PK"
+8888926;"";"Glavas";"";"Feuerbacher Strasse 15";"Gerlingen";"70839";"";"";"";"";"";3;"PK"
+8888927;"";"Wagner";"Andreas";"Mühlweingärten 74";"Waiblingen";"71336";"";"";"";"";"";3;"PK"
+8888928;"F";"Laur";"Meike";"Tiergartenstrasse 11";"Böblingen";"71032";"";"";"";"";"";3;"PK"
+8888929;"";"Linke";"";"Im Scottweg 3A";"Stuttgart";"70439";"";"";"";"";"";3;"PK"
+8888930;"";"Chatzi";"Vasilios";"Aldinger Str.139";"Stuttgart";"70378";"";"";"";"";"";3;"PK"
+8888931;"";"Wagner";"Jürgen";"Rinkenberg 6";"Stuttgart";"70327";"";"";"";"";"";3;"PK"
+8888932;"";"Haas";"Joachim";"August-Lämmle-Str.24";"Leonberg";"71229";"";"";"";"";"";3;"PK"
+8888933;"F";"Winkler";"Heidrun";"Karl-Zeiss-Str.7";"Waiblingen";"71336";"";"";"";"";"";3;"PK"
+8888934;"";"Singh";"Harjit";"Luisenstrasse 28";"Stuttgart";"70188";"";"";"";"";"";3;"PK"
+8888935;"";"Oezdemir";"T.";"Brandenkopfstrasse 11";"Sindelfingen";"71067";"";"";"";"";"";3;"PK"
+8888936;"";"Sickert";"Stefan";"Karlstraße 28";"Ludwigsburg";"71638";"";"";"";"";"";3;"PK"
+8888937;"";"Eitel";"Ulrich";"Hauptstrasse 111";"Weinstadt";"71384";"";"";"";"";"";3;"PK"
+8888938;"";"Sudermann";"Arthur";"Brühlstrasse 8";"Steinheim an der Murr";"71711";"";"";"";"";"";3;"PK"
+8888939;"F";"Kyrmanidis";"Suzana";"Wilhelm-Raabe-Str.9";"Stuttgart";"70188";"";"";"";"";"";3;"PK"
+8888940;"";"Aziz";"Wahidullah";"Katzenbachstr.8";"Stuttgart";"70563";"";"";"";"";"";3;""
+8888941;"";"Deuscher";"Matts";"Mittlere Ringstrasse 71";"Gerlingen";"70839";"";"";"";"";"";3;"PK"
+8888942;"";"Pflugfelder";"Michael";"Hauptstrasse 34";"Marbach am Neckar";"71672";"";"";"";"";"";3;"PK"
+8888943;"F";"Gudic";"Marijana";"Gutenbergstrasse  86";"Stuttgart";"70197";"";"";"";"";"";3;"PK"
+8888944;"";"Weißang";"Jens";"Grabenstrasse 63A";"Gärtringen";"71116";"";"";"";"";"";3;"PK"
+8888945;"";"Orlowski";"Janusz";"Schwalbenweg 28";"Asperg";"71679";"";"";"";"";"";3;"PK"
+8888946;"";"Fakioglu";"Mesut";"Warmbronnerstrasse 6";"Sindelfingen";"71063";"";"";"";"";"";3;"PK"
+8888947;"";"Isemann";"";"Mörikestrasse 27";"Gosbach";"73342";"";"";"";"";"";3;"PK"
+8888948;"";"Gaudino";"Marco";"Bahnhofstrasse 38";"Leonberg";"71229";"";"";"";"";"";3;"PK"
+8888949;"H";"Müller";"Martin";"Rauhhalde 22";"Überlingen";"88662";"D";"";"";"";"";3;"PK"
+8888950;"GSG";"ETG Feldbergstrasse";"";"Feldbergstrasse 63";"Stuttgart";"70569";"";"";"";"";"";3;"PK"
+8888951;"";"Sand";"Hartmut";"Neue Strasse 46/1";"Ludwigsburg";"71642";"";"";"";"";"";3;"PK"
+8888952;"";"Berger";"Andreas";"Pfarrgartenstrasse 21";"Holzgerlingen";"71088";"";"";"";"";"";3;"PK"
+8888953;"";"Bellia";"Giuseppe";"Feldbergstrasse 63";"Stuttgart";"70569";"";"";"";"";"";3;"PK"
+8888954;"";"Bohl";"Ralf";"Ackerweg 27";"Stuttgart";"70372";"";"";"";"";"";3;"PK"
+8888955;"";"Merz";"Roland";"Herrenbergerstrasse 109";"Sindelfingen";"71067";"";"";"";"";"";3;"PK"
+8888956;"";"Gerlach";"Heiko";"Römerstrasse 22";"Gärtringen";"71116";"";"";"";"";"";3;"PK"
+8888957;"";"Haug";"Oliver";"Talstrasse 54";"Renningen";"71272";"";"";"";"";"";3;"PK"
+8888958;"H";"Landsmann";"";"";"Leonberg";"71229";"D";"";"";"";"";3;"PK"
+8888959;"F";"Werner";"Silke";"Silcherstr.2";"Weinstadt";"71384";"";"";"";"";"";3;"PK"
+8888960;"F";"Krewenka";"Samia";"Rankstr.12";"Ostelsheim";"71263";"";"";"";"";"";3;"PK"
+8888961;"";"Erath";"Tilo";"Milanweg 3";"Filderstadt";"70794";"D";"";"";"";"";3;"PK"
+8888962;"";"Djuric";"Bozo";"Hofrainstr.27";"Leonberg";"71229";"";"";"";"";"";3;"WVK"
+8888963;"F";"Hundt";"Julia";"Glemseckstrasse 3";"Leonberg";"71229";"";"";"";"";"";3;"PK"
+8888964;"F";"Leber";"Christine";"Willy-Rüschstr.3";"Kernen i.R.";"71394";"";"";"";"";"";3;"PK"
+8888965;"";"Shen";"Yong";"Gutacher Weg 21";"Stuttgart";"70184";"";"";"";"";"";3;"PK"
+8888966;"F";"Golgotiu";"Brigitte";"Oberbrunnweg 20";"Sindelfingen";"71069";"";"";"0152-54013615";"";"";3;"PK"
+8888967;"";"Tunsch";"Michael";"Wunnensteinstrasse 33";"Remseck am Neckar";"71686";"";"";"";"";"";3;"PK"
+8888968;"";"Tim";"Paul";"Paul-Klee-Str. 58a";"Fulda";"36041";"";"";"";"";"";3;"BT"
+8888969;"F";"Unger";"";"August-Lämmle-Weg 24";"Leonberg";"71229";"";"";"";"";"";3;"PK"
+8888970;"";"Krauss";"Martin";"Waiblingerstrasse 49";"Stuttgart";"70372";"D";"";"";"";"";3;"PK"
+8888971;"";"Hartmann";"Manfred";"Auf´m Bildkäppele 3";"Herrenberg";"71083";"D";"";"";"";"";3;"PK"
+8888972;"";"Weeber";"Rudolf";"Oberdorferstr.74";"Filderstadt";"70794";"D";"";"";"";"";3;"PK"
+8888973;"H";"Drca";"Momcilo";"Seehalde 10/2";"Winnenden";"71364";"D";"";"";"";"";3;"PK"
+8888974;"F";"Torbar";"Leonila";"Stitzenburgstr.1";"Stuttgart";"70182";"D";"";"";"";"";3;"PK"
+8888975;"HER";"Sabuncuoglu";"Selahattin";"Schloßstr.21";"Ludwigsburg";"71634";"D";"";"";"";"";3;"BT"
+8888976;"H";"Deniz";"Ersan";"Aspergerstrasse 16";"Ludwigsburg";"71634";"D";"";"";"";"";3;"WVK"
+8888977;"H";"Jehle";"Sebastian";"Marquardstr.42";"Stuttgart";"70186";"D";"";"";"";"";3;"PK"
+8888978;"H";"Vrdoljak";"Sinisa";"Römerstrasse 109";"Leonberg";"71229";"D";"";"";"";"";3;"WVK"
+8888979;"H";"Dalipi";"Ersan";"Ebniseestrasse 44";"Althütte";"71566";"D";"";"";"";"";3;"PK"
+8888980;"H";"Kübler";"Torstem u. Tatjana";"Achalmstrasse 29";"Leonberg";"71229";"D";"";"";"";"";3;"PK"
+8888981;"F";"Friese";"Sabrina";"Hasenäcker 13";"Weil der Stadt";"71263";"D";"";"";"";"";3;"PK"
+8888982;"H";"Munzig";"Wolfgang";"TalStrasse 31";"Leonberg";"71229";"D";"";"";"";"";3;"PK"
+8888983;"F";"Moore";"Kerstin";"Chemnitzerweg 5";"Weil im Schönbuch";"71093";"D";"";"";"";"";3;"PK"
+8888984;"H";"Trifkovic";"Alexandar";"Klopstockstrasse 16";"Stuttgart";"70193";"D";"";"";"";"";3;"PK"
+8888985;"F";"Keim";"Esther";"Paul-Linke-Strasse 32";"Stuttgart";"70195";"D";"";"";"";"";3;"PK"
+8888986;"F";"Kittan";"";"Voithstr.11";"Fellbach";"70736";"D";"";"";"";"";3;"PK"
+8888987;"F";"Bender";"Helga";"Schafbergstrasse 10";"Kornwestheim";"70806";"D";"";"";"";"";3;"PK"
+8888988;"H";"Niculescu";"Christian";"Ludwigstrasse 18";"Backnang";"71522";"D";"";"";"";"";3;"PK"
+8888989;"H";"Blazevic";"Domagoj";"Freiligrathstr.25";"Stuttgart";"70372";"D";"";"";"";"";3;"PK"
+8888990;"H";"Landsgesell";"Peter";"Krebsstrasse 4";"Stuttgart";"70378";"D";"";"";"";"";3;"PK"
+8888991;"H";"Bastian";"";"Engelbergstr.31";"Leonberg";"71229";"D";"";"";"";"";3;"PK"
+8888992;"H";"Ljubijankic";"Suhret";"Maicklerstr.56";"Stuttgart";"70736";"D";"";"";"";"";3;"PK"
+8888993;"H";"Zacher";"Tom";"Einsiedelweg 16";"Feierbach";"70469";"D";"";"";"";"";3;"PK"
+8888994;"H";"Ucan";"Tuncay";"Hegelstrasse 24";"Backnang";"";"D";"";"";"";"";3;"PK"
+8888995;"H";"Braun";"Ingo";"Tübinger Strasse 35";"Tamm";"71732";"D";"";"";"";"";3;"PK"
+8888996;"AD";"Hoffnungsträger Stiftung";"";"Mollenbachstrasse 14";"Leonberg";"71229";"D";"";"";"";"";3;"BT"
+8888997;"AB";"Knorr";"Michael";"Grazer Str. 4a";"Stuttgart";"70469";"D";"";"";"";"";3;"PK"
+8888998;"H";"Frank";"Peter";"Kelterstrasse 13";"Auenwald";"71549";"D";"";"";"";"";3;"PK"
+8888999;"F";"Platz";"Pegah";"Karlstrasse 24";"Ludwigsburg";"71638";"D";"";"";"";"";3;"PK"
+8889000;"Fa";"Topp";"Werner";"";"Reutlingen";"72770";"D";"";"";"";"";3;"BT"
+8889001;"H";"Bock";"Andreas";"Friedhofstrasse 4";"Tübingen";"72074";"D";"";"";"";"";3;"PK"
+8889002;"F";"Riese";"Ingrid";"Neckarstrasse 49";"Remseck am Neckar";"71686";"D";"";"";"";"";3;"PK"
+8889003;"";"Schmidt";"Oliver";"";"Ditzingen";"";"D";"";"";"";"";3;"PK"
+8889004;"F";"Lamann";"Erika";"Baurstr. 18";"Kornwestheim";"70806";"D";"";"";"";"";3;"PK"
+8889005;"F";"Rack";"Brigitte";"Sehäuserstr.20";"Mainhardt";"74535";"D";"";"";"";"";3;"PK"
+8889006;"H";"Weiß";"Manfred";"Lindenstrasse 53";"Renningen";"71272";"D";"";"";"";"";3;"PK"
+8889007;"F";"Wagner";"Sabine";"Schmale Str.3";"Wiernsheim";"";"D";"";"";"";"";1;"PK"
+8889008;"H";"Theodorakakis";"Pashalis";"Schmiedenerstr.210A";"Stuttgart";"70374";"D";"";"";"";"";3;"PK"
+8889009;"H";"Bicer";"Cihan";"Vogelsngstr.2";"Weil im Schönbuch";"71093";"D";"";"";"";"";3;"PK"
+8889010;"H";"Messer";"Kai";"Schubertstrasse 12";"Schönaich";"71101";"D";"";"";"";"";3;"PK"
+8889011;"H";"Schwaderer";"Robin";"Stuttgarter Str.26";"Leonberg";"71229";"D";"";"";"";"";3;"PK"
+8889012;"FAM";"Fahrbach";"";"In den Weinbergen 24";"Stuttgart / Stammheim";"";"D";"";"";"";"";3;"PK"
+8889013;"H";"Werner";"Michael";"Melunerstrasse 44";"Stuttgart";"70569";"D";"";"";"";"";3;"PK"
+8889014;"H";"Lechner";"Markus";"Paulinenstraße 34";"Ludwigsburg";"71642";"D";"";"";"";"";3;"PK"
+8889015;"H";"Celik";"Ibrahim";"Feigenweg 11";"Stuttgart";"70619";"D";"";"";"";"";3;"PK"
+8889016;"FAM";"Thimm";"";"Königsbergerstrasse 12";"Waldenbuch";"71111";"D";"";"";"";"";3;"PK"
+8889017;"H";"Uhlmann";"Kevin";"Teichstrasse 18";"Wüstenrot";"71543";"D";"";"";"";"";3;"PK"
+8889018;"F";"Brust";"Ellen";"Pforzheimer Str.20/1";"Leonberg";"71229";"D";"";"";"";"";3;"PK"
+8889019;"H";"Gomer";"Dimitro";"Schauinslandstr.19";"Jettingen";"71131";"D";"";"";"";"";3;"PK"
+8889020;"H";"Schuessler";"Marco";"Gerhardstrasse 14";"Sindelfingen";"71063";"D";"";"";"";"";3;"PK"
+8889021;"H";"Littvay de Sebedras";"Stefan";"Schlosserstrasse 17";"Stuttgart";"70180";"D";"";"";"";"";3;"PK"
+8889022;"H";"Pfleiderer";"Willi";"Sängerstrasse 6";"Winnenden";"71364";"D";"";"";"";"";3;"PK"
+8889023;"H";"Hartung";"";"Sudetenstrasse 5";"Kürnach";"70437";"D";"";"";"";"";1;"PK"
+8889024;"F";"Khadijeh";"Vesali";"Hallstadtweg 2";"Gerlingen";"70839";"";"";"";"";"";3;""
+8889025;"H";"Höfer";"Uwe";"Kaffeeberg 10";"Auenwald";"71549";"";"";"";"";"";3;"PK"
+8889026;"F";"Cica";"Natasa";"Klingenstrasse 7";"Leonberg";"71229";"D";"";"";"";"";3;"PK"
+8889027;"H";"Säum";"Tobias";"Molkereigasse 7";"Gärtringen";"71116";"D";"";"";"";"";3;""
+8889028;"";"Exner";"Bernhard";"Mühlwasen 14";"Stuttgart";"70469";"";"";"";"";"";3;"PK"
+8889029;"H";"Anshelm";"Gerd";"Otto-Weddingen-Strasse 5";"Gerlingen";"70839";"D";"";"";"";"";3;"PK"
+8889030;"H";"Ciapura";"Gerhard";"Mergenthalerstrasse 1";"Vaihingen an der Enz";"71665";"D";"";"";"";"";3;"PK"
+8889031;"H";"Kikillus";"Oliver";"Blumernstr.9";"Leonberg";"71229";"D";"";"";"";"";3;"PK"
+8889032;"";"Steinkopf";"";"";"";"";"";"";"";"";"";3;""
+8889033;"";"Wickert";"";"";"";"";"";"";"";"";"";3;""
+8889034;"H";"Ebert";"Wolfgang";"Rainwiesenstrasse 41";"Remseck am Neckar";"71686";"D";"";"";"";"";3;""
+8889035;"H";"Ezel & Partner Massivhaus";"";"Schießmauerstrasse 39";"Stuttgart";"70563";"D";"";"";"";"";3;"PK"
+8889036;"F";"Monreal";"Ingrid";"Rhönstr.17";"Filderstadt";"70794";"D";"";"";"";"";3;"PK"
+8889037;"H";"Schäberle";"Michael";"Schweichinger Höfe 1";"Tailfingen";"71126";"D";"";"";"";"";3;""
+8889038;"H";"Schmidt";"Jörg";"Karlstr. 15";"Waiblingen";"71332";"D";"";"";"";"";3;""
+8889039;"Fa";"Sailer";"Uwe";"Kirchensallerstr.36";"Neuenstein";"74632";"D";"";"";"";"";3;""
+8889040;"H";"Bickici";"Sirvan";"Hans-Berlachstrasse 16";"Sindelfinngen";"71065";"D";"";"";"";"";3;"PK"
+8889041;"";"Jenner";"Stefan";"Leuschnerstr.8";"Ludwigsburg";"71642";"";"07141 58827";"";"";"";3;""
+8889042;"F";"Bassman";"Karin";"Langobardenstrasse 45";"Stuttgart";"70435";"D";"";"";"";"";3;""
+8889043;"F";"Milas";"";"";"";"";"";"";"";"";"";3;""
+8889044;"H";"Pauls";"Alex";"Chrishan-Rolfs Strasse 5a";"Fulda";"36041";"";"";"";"";"";3;""
+8889045;"F";"Steck";"Beatrice";"Alte Straße 24";"Höfen an der Enz";"75339";"D";"";"";"";"";3;"PK"
+8889046;"H";"Ramadan";"Zaher";"Waldburgerstrasse 135A";"Stuttgart";"70563";"D";"";"";"";"";3;"PK"
+8889047;"H";"Paluschka";"";"";"";"";"";"";"";"";"";3;""
+8889048;"H";"Lukic";"Dominik";"Richthofenstr.7";"Ditzingen";"71254";"D";"";"";"";"";3;""
+8889049;"H";"Birgül";"Hüseyin";"Nusackerweg 40";"Ludwigsburg";"71634";"D";"";"";"";"";3;""
+8889050;"H";"Özdemir";"Erdal";"Laurentiusstr.36";"Sindelfingen";"71032";"D";"";"";"";"";3;"PK"
+8889051;"H";"Öztürk";"Ali";"Wagrainstrasse";"Stuttgart";"70376";"D";"";"";"";"";1;"PK"
+8889052;"H";"Kilper";"Günther";"Hauptstrasse 49";"Leonberg";"71229";"D";"";"";"";"";1;"PK"
+8889053;"H";"Hespeler";"Daniel";"Esslinger Str. 4";"Kernen im Remstal";"71394";"D";"";"";"";"";3;"PK"
+8889054;"H";"Schuhmann";"Günter";"Bockelstrasse 99";"Stuttgart";"70619";"D";"";"";"";"";3;"PK"
+8889055;"";"Morrone";"Ernesto";"";"";"";"";"";"";"";"";3;""
+8889056;"H";"Schneider";"Andreas";"Beethovenstrasse 9";"Vaihingen an der Enz";"71665";"D";"";"";"";"";3;""
+8889057;"";"Eisenhard";"";"";"";"";"";"";"";"";"";3;""
+8889058;"H";"Prislan";"Oliver";"Im Rübländer 30";"Weil der Stadt";"71034";"D";"";"";"";"";3;"PK"
+8889059;"";"Steiger";"";"";"";"";"";"";"";"";"";3;""
+8889060;"";"Pekbey";"";"";"";"";"";"";"";"";"";3;""
+8889061;"";"Braun";"";"";"";"";"";"";"";"";"";3;""
+8889062;"FAM";"Melchior";"Carina und Martin";"Weinstr.61";"Freudental";"74392";"D";"";"";"";"";3;""
+8889063;"";"Kircher";"";"";"";"";"";"";"";"";"";3;""
+8889064;"H";"Lange";"Andreas";"Gleiwitzer Str.26";"Leonberg";"71229";"D";"";"";"";"";3;"PK"
+8889065;"H";"Eble";"Achim";"Mörikestrasse 3";"Tamm";"71732";"D";"";"";"";"";3;""
+8889066;"";"Gauss";"";"";"";"";"";"";"";"";"";3;""
+8889067;"";"Meichele";"";"";"";"";"";"";"";"";"";3;""
+8889068;"";"Hasani";"Ekrem";"";"";"";"";"";"";"";"";3;""
+8889069;"H";"Gromer";"Nikolas";"Emil-Haag-Str.4";"Weil der Stadt";"71263";"D";"";"";"";"";3;""
+8889070;"F";"Wolf";"Claudia";"Emil-Haag-Str. 4";"Weil der Stadt";"71263";"D";"";"";"";"";3;""
+8889071;"";"Celik";"";"";"";"";"";"";"";"";"";1;""
+8889072;"";"Celik";"";"";"";"";"";"";"";"";"";3;""
+8889073;"FAM";"Nuno";"Lopes";"Nippenburger Str.7";"Schwieberdingen";"71701";"D";"";"";"";"";3;""
+8889074;"";"Winkle";"Bernd";"Talstrasse 2";"Murrhardt";"71540";"D";"07192900588";"";"kawasaki-winkle@t-online.de";"";3;"PK"
+8889075;"";"Andris";"Rudolf";"Floridaring 26";"Kornwestheim";"70806";"D";"07141903360";"01639708267";"rudi.alla@freenet.de";"";3;"PK"
+8889076;"F";"Denner";"Christel";"Schwaikheimer Str. 23/1";"Winnenden";"71364";"";"01729079057";"";"christel.denner@online.de";"";3;""
+8889077;"";"Palushi";"Zeqir";"Danziger Strasse 12";"Oppenweiler";"71570";"D";"071913803304";"";"kosvari1989@hotmail.com";"";3;""
+8889078;"H";"Angebot";"Schnellkunde";"";"";"";"";"";"";"";"";3;"PK"
+8889079;"";"Faure";"Xavier";"Landhausstrasse 44";"Stuttgart";"70190";"D";"";"01731438888";"faure_xavier@hotmail.com";"";3;"PK"
+8889080;"F";"Röse";"Eva";"Urbanstrasse 70";"Stuttgart";"70182";"D";"+4971155347567";"01512046946";"eva.röse@gmx.de";"";3;"PK"
+8889081;"";"Schrem";"Jürgen";"Auenweg 51";"Schwieberdingen";"71701";"D";"0715032802";"";"i.j.schrem@gmx.de";"";3;"PK"
+8889082;"";"Firass";"";"";"";"";"";"";"";"";"";3;""
+8889083;"H";"Burr";"Michel";"In der Steige 33/1";"Oppenweiler";"71570";"D";"";"";"";"";3;"PK"
+8889084;"";"Samhat";"";"";"";"";"";"";"";"";"";3;"PK"
+8889085;"FAM";"Turakhia";"";"Anna-Petersstrasse 51 a";"Sonnenberg";"";"";"";"";"";"";3;"PK"
+8889086;"";"Hampu";"Dan";"";"";"";"";"";"";"";"";3;"PK"
+8889087;"";"Krauter";"";"Kesselberstrasse 6";"Stuttgart";"";"";"";"";"";"";3;"PK"
+8889088;"H";"Raith";"Mathias";"Birkenweg 6";"Asperg";"";"D";"";"";"";"";3;"PK"
+8889089;"H";"Temizer";"Durak";"Urbanstr.86";"Stuttgart";"70190";"D";"";"";"";"";3;"PK"
+8889090;"H";"Mavridis";"Thomas";"Hauptstr. 35/2";"Weil der Stadt";"71263";"D";"";"";"";"";3;"PK"
+8889091;"";"Kalpakidis";"Ioannis";"Schellingstraße 6";"Weil der Stadt";"7163";"";"";"";"";"";3;"PK"
+8889092;"H";"Horst";"Alexander";"Domburgerstrasse 1";"Oppenweiler";"71570";"D";"";"";"";"";3;"PK"
+8889093;"GSG";"Wachter";"Gebr.";"Rosentalstr.10";"Stuttgart";"70563";"D";"";"";"";"";3;"PK"
+8889094;"H";"Szegedi";"Stefan";"Eschenweg 19";"Altdorf";"71155";"D";"";"";"";"";3;"PK"
+8889095;"H";"Seyfang";"Horst";"Finkenstrasse 39";"Friolzheim";"71292";"D";"";"";"";"";3;"PK"
+8889096;"H";"Walter";"Tobias";"Robert-Schumanstr.39";"Gerlingen";"70839";"D";"";"";"";"";3;"PK"
+8889097;"";"Kallenberger";"";"";"";"";"";"";"";"";"";3;"PK"
+8889098;"F";"Ratzky";"Sigrid";"";"";"";"D";"";"";"";"";3;"PK"
+8889099;"";"Bässler";"";"";"";"";"";"";"";"";"";3;"PK"
+8889100;"H";"Benko";"Bastian";"Hornbergstrasse 42";"Leonberg";"71254";"D";"";"";"";"";3;"PK"
+8889101;"H";"Horst";"Alexander";"Domburgerstrasse 1";"Oppenweiler";"71570";"D";"";"";"";"";3;"PK"
+8889102;"";"Dag";"Robil";"Friedrich Dürr Stasse 37";"Heilbronn";"74074";"";"";"";"";"";3;"PK"
+8889103;"";"Vetter";"Tobias";"";"";"";"";"";"";"";"";3;"PK"
+8889104;"";"Perviti";"";"";"";"";"";"";"";"";"";3;"PK"
+8889105;"";"Zwirner";"";"";"";"";"";"";"";"";"";3;"PK"
+8889106;"H";"Herfurth";"Tobias";"";"Ditzingen";"";"D";"";"";"";"";3;""
+8889107;"H";"Schuster";"Horst";"Oswaldstrasse 50";"Magstadt";"71106";"D";"";"";"";"";3;"PK"
+8889108;"H";"Ivenz";"Erich";"Jasminstrasse 12";"Weinstadt";"71384";"D";"";"";"";"";3;"PK"
+8889109;"H";"Meise";"Michael";"Hauptstrasse 93";"Stuttgart";"70563";"D";"";"";"";"";4;"PK"
+8889110;"H";"Hägele";"Willy";"Rossbergstrasse 15";"Winnenden";"71364";"D";"";"";"";"";3;"PK"
+8889111;"";"Misterfeld";"";"";"";"";"";"";"";"";"";3;"PK"
+8889112;"";"Koch";"Jochen";"";"";"";"";"";"";"";"";3;"PK"
+8889113;"H";"Hachem";"Ali";"";"";"";"D";"";"";"";"";3;"PK"
+8889114;"F";"Wahl";"Monika";"Gutenbergstrasse 7";"Markgröningen";"71706";"D";"";"";"";"";3;"PK"
+8889115;"";"Matin";"";"";"";"";"";"";"";"";"";3;"PK"
+8889116;"F";"Illeson";"Kurt";"Bahnhofstr.2";"Rutesheim";"71277";"";"";"";"";"";3;"PK"
+8889117;"";"Yilmaz";"Cem";"";"";"";"";"";"";"";"";3;"PK"
+8889118;"";"Ohngemach";"Jürgen";"Römerstrasse 109";"Leonberg";"71229";"D";"";"";"";"";3;"BT"
+8889119;"F";"Beckmann";"Claudia";"Buchenweg 3";"Ehningen";"71139";"D";"";"";"";"";3;"PK"
+8889120;"";"Lamparter";"";"";"";"";"";"";"";"";"";3;"PK"
+8889121;"";"Pelzer";"Rolf";"Bahnhofstrasse 19";"Magstadt";"71106";"";"071598059231";"";"perox@gmx.de";"";3;"PK"
+8889122;"F";"Jäckle";"Regine";"Auf der Kanzel 31";"Stuttgart";"70191";"D";"";"";"";"";3;"PK"
+8889123;"F";"Lezakov";"Danijela";"Lerchenstr.13";"Recmseck am Neckar";"71686";"D";"";"";"";"";3;"PK"
+8889124;"H";"Kakus";"Daniel";"Warmbronner Weg 9";"Leonberg";"7122";"D";"";"";"";"";3;"PK"
+8889125;"H";"Gurjanov";"Dieter";"Rembrandtstr.13";"Wiernsheim";"";"D";"";"";"";"";3;"PK"
+8889126;"H";"Tokarsky";"Michael";"";"Kornwestheim";"";"D";"";"";"";"";3;"PK"
+8889127;"F";"Zhao";"Guoshai";"Schönblickstrasse 17";"Eberdingen";"71735";"D";"";"";"";"";3;"PK"
+8889128;"H";"Klozenbuecher";"Claus";"Alemannenstr.49";"Renningen";"71272";"D";"";"";"";"";3;"PK"
+8889129;"H";"Sens";"Stephan";"Herman Rögerstrasse 17";"Maulbronn";"75433";"D";"";"";"";"";3;"PK"
+8889130;"EGM";"Gutscher";"A.";"Quellenstrasse 3";"Leonberg";"71229";"D";"";"";"";"";3;""
+8889131;"H";"Walkowiak";"Udo";"Knappenweg 81A";"Stuttgart";"70569";"D";"";"";"";"";3;"PK"
+8889132;"H";"Rößger";"Frank";"Wengertgasse 6";"Leonberg";"71229";"D";"";"";"";"";3;"PK"
+8889133;"H";"Illeson";"Kurt";"Bahnhofstr.2";"Rutesheim";"71277";"";"";"0173/3025229";"j.frank-spina@gmx.de";"";3;"PK"
+8889134;"";"Groshans";"";"";"";"";"";"";"";"";"";3;"PK"
+8889135;"";"Dempf";"Marco";"Straifstrasse 77";"Stuttgart";"70597";"";"";"01714340015";"marco.dempf@t-online.de";"";3;"PK"
+8889136;"";"Zimmermann";"";"";"";"";"";"";"";"";"";3;"PK"
+8889137;"F";"Langnau";"Brigitte";"Ditzenbrunnerstr.59";"Ditzingen";"";"D";"";"";"";"";3;"PK"
+8889138;"F";"Langkau";"Susanne";"";"";"";"";"";"";"";"";3;"PK"
+8889139;"H";"Hinz";"Dan";"Breitscheidstr.65";"Stuttgart";"70176";"D";"";"";"";"";3;""
+8889140;"F";"Differt";"Maike";"Leonorenstr.55";"Stuttgart";"70597";"D";"";"";"";"";3;"PK"
+8889141;"F";"Cutkovic";"Nada";"Poststr.36";"Leonberg";"71229";"D";"";"";"";"";3;"PK"
+8889142;"";"Bonaventura";"Carmelo";"";"";"";"";"";"";"melo46@yahoo.de";"";3;"PK"
+8889143;"H";"Stadtmüller";"Thomas";"";"";"";"";"";"";"thommy.stadtmueller@googlemail.com";"";3;"PK"
+8889144;"";"Quick";"";"";"";"";"";"";"";"kl.ka.quick@kabelbw.de";"";3;"PK"
+8889145;"H";"Schleicher";"Holger";"Brunnenweg 21";"Leinfelden-Echterdingen";"70771";"D";"";"";"";"";3;"PK"
+8889146;"AD";"Werner Hauseigentümergemeinschaft";"";"";"";"";"";"";"";"";"";3;"PK"
+8889147;"F";"von Polenz";"Andrea";"Hutteneichenweg 64C";"Stuttgart";"70565";"D";"";"";"";"";3;"PK"
+8889148;"H";"Schmidt";"Sascha";"";"";"";"";"";"";"";"";3;"PK"
+8889149;"";"Frisch";"Roland";"Forchenrainstrasse 12";"Gerlingen";"70839";"";"";"017650340166";"frisch.roland@gmx.de";"";3;"PK"
+8889150;"H";"Gellert";"Kurt";"Dornburgerstr.2";"Oppenweiler";"71570";"D";"";"";"";"";3;""
+8889151;"";"Krauss";"Oliver";"";"";"";"";"";"";"";"";4;"PK"
+8889152;"H";"Ciriello";"Mario";"Wächterstrasse 4";"Stuttgart";"70182";"D";"";"";"";"";3;"PK"
+8889153;"H";"Doderer";"Paul";"Lindenbachstr.31";"Stuttgart";"70499";"D";"";"";"";"";3;""
+8889154;"F";"Geiger";"Christine";"Frankenstrasse 22";"Schwieberdingen";"71701";"D";"";"";"";"";3;"PK"
+8889155;"H";"Baur";"Josef";"Panoramastrasse 33";"Weil der Stadt";"71263";"D";"";"";"";"";3;"PK"
+8889156;"H";"Radovanovic";"Dragan";"Ostertagstrasse 21";"Leonberg";"71229";"D";"";"";"";"";3;"WVK"
+8889157;"H";"Omrcen";"Davor";"Hauptstr.10";"Sachsenheim";"74343";"D";"";"";"";"";3;"BT"
+8889158;"H";"Schmid";"H.O.";"Heilbronnerstrasse 28";"Esslingen";"73728";"D";"";"";"";"";3;"PK"
+8889159;"H";"Schmidt";"Bernhard";"Keltenstr.26";"Renningen";"71272";"D";"";"";"";"";3;""
+8889160;"H";"Abromeit";"Dirk";"Danneckerstrasse 15";"Stuttgart";"70182";"D";"";"";"";"";3;""
+8889161;"H";"Uhlmann";"Patrick";"Hofstatt 11";"Untergruppenbach";"74199";"D";"";"";"";"";3;"PK"
+8889162;"H";"Secci";"";"Eierstrasse 85";"Stuttgart";"";"D";"";"";"";"";3;"PK"
+8889163;"F";"Klink";"Judith";"Orplidstr.15";"Stuttgart";"70186";"D";"";"";"";"";3;"PK"
+8889164;"H";"Lächele";"Michael";"Bruno-Frank-Str.17";"Stuttgart";"70619";"D";"";"";"";"";3;"PK"
+8889165;"F";"Vogt";"Evdoika";"Gemsenweg 45";"Stuttgart";"70499";"D";"";"";"";"";3;"PK"
+8889166;"H";"Mayer";"Jörn";"Markgröninger Str.24";"Möglingen";"71696";"D";"";"";"";"";3;"PK"
+8889167;"F";"Trinkle";"Gerda";"Weilimdorferstrasse 24";"Gerlingen";"70839";"D";"";"";"";"";3;"PK"
+8889168;"H";"Stöckle";"Robert";"Kirchbergerstr.20";"Erdmannhausen";"71642";"D";"";"";"";"";3;"PK"
+8889169;"H";"Hild";"Jogi";"Friedhofstrasse 54";"Holzgerlingen";"71088";"D";"";"";"";"";3;""
+8889170;"F";"Zydko";"Ingrid";"Pelikanstrasse 61A";"Stuttgart";"70378";"D";"";"";"";"";3;""
+8889171;"H";"Jaich";"Jochen";"Hornemannweg 71";"Stuttgart";"70439";"D";"";"";"";"";1;""
+8889172;"H";"Schubitschew";"Andreas";"Filsstrasse 7";"Asperg";"71679";"D";"";"";"";"";3;""
+8889173;"H";"Gallina";"Ralf";"Unterer Staigacker 10";"Oppenweiler";"71570";"D";"";"";"";"";3;""
+8889174;"H";"Müller";"";"Haufstrasse 30";"Weil der Stadt";"71263";"D";"";"";"";"";3;"PK"
+8889175;"H";"Buortmes";"Thomas";"Stöckachstrasse 31";"Stuttgart";"70190";"D";"";"";"";"";3;"PK"
+8889176;"H";"Schweigard";"Andreas";"Glemsgaustr.82A";"Stuttgart";"70499";"D";"";"";"";"";3;"PK"
+8889177;"F";"Dick";"Pia";"Haldenweg 6";"Schwaikheim";"71409";"D";"";"";"";"";3;"PK"
+8889178;"H";"Michailidis";"Nikiforos";"Gerberstrasse 5F";"Stuttgart";"70178";"D";"";"";"";"";3;""
+8889179;"H";"Trzoska";"Jürgen";"Reutlingerstrasse 27";"Tamm";"71732";"D";"";"";"";"";3;""
+8889180;"F";"Hauser";"Nicole";"Wagrainstrasse 47";"Stuttgart";"70378";"D";"";"";"";"";3;""
+8889181;"H";"Braig";"Werner";"Max-Planck-Str.7";"Winnenden";"71364";"D";"";"";"";"";3;""
+8889182;"H";"Meier";"Norbert";"Uhlandstr.1";"Weil im Schönbuch";"71093";"D";"";"";"";"";3;"PK"
+8889183;"H";"Busz";"Martin";"Erwin Schöttle Str.11";"Leonberg";"71229";"D";"";"";"";"";3;"PK"
+8889184;"H";"Spanic";"";"Steinheimer Weg 3";"Leonberg";"71229";"D";"";"";"";"";3;"PK"
+8889185;"H";"Özel";"Okaj";"Landstuhler Str.7";"Stuttgart";"70499";"D";"";"";"";"";3;"PK"
+8889186;"H";"Rapp";"Fritz";"Hinterer Bergweg 10";"Leonberg";"71229";"D";"";"";"";"";3;"PK"
+8889187;"AD";"otmargötz GmbH";"";"";"Stuttgart";"70572";"D";"";"";"";"";3;"PK"
+8889188;"H";"Langer";"Ralf";"Maichingerstrasse 13/4";"Böblingen";"71034";"D";"";"";"";"";3;"PK"
+8889189;"H";"Hagel";"Michael";"Bockelstrasse 30";"Stutgart";"70619";"D";"";"";"";"";3;"PK"
+8889190;"H";"Cakir";"Ufur";"Fichtenweg 3";"Remseck am Neckar";"71686";"D";"";"";"";"";3;"PK"
+8889191;"ARC";"Thalheimer";"Markus";"";"";"";"";"";"";"";"";1;""
+8889192;"H";"Schiller";"Emma";"Wiesenstr.1";"Steinenbronn";"71144";"D";"";"";"";"";3;"PK"
+8889193;"F";"Höhler";"Marianne";"Julius-Specht Str.5";"Pforzheim";"75173";"D";"";"";"";"";3;"PK"
+8889194;"F";"Klein";"Nadine";"Hinterhagstr.56";"Aidlingen";"71134";"D";"";"";"";"";3;"PK"
+8889195;"H";"Raab";"Roman";"Norderneystrasse 41";"Stuttgart";"70439";"D";"";"";"";"";3;"PK"
+8889196;"FAM";"Möller";"";"Markgröningerstr.14";"Stuttgart-Zuffenhausen";"70435";"D";"";"";"";"";1;""
+8889197;"H";"Böttle";"Armin";"Entringerstrasse 38";"Stuttgart";"70597";"D";"";"";"";"";3;""
+8889198;"F";"Grießinger";"";"August-Lämmle Weg 26";"Leonberg";"71229";"D";"";"";"";"";3;""
+8889199;"";"Rebmann";"";"";"";"";"";"";"";"";"";1;""
+8889200;"H";"Bekdas";"Selcuk";"Schwabstrasse 129";"Marbach am Neckar";"71675";"D";"";"";"";"";3;"PK"
+8889201;"H";"Wolfinger";"Hans F.";"Tannenweg 4";"Filderstadt";"70794";"D";"";"";"";"";3;""
+8889202;"H";"Fischer";"Wolfgang";"Achalmstr.71";"Böblingen";"71032";"D";"";"";"";"";1;""
+8889203;"H";"Khaan";"";"Poststrasse 21";"Leonberg";"71229";"D";"";"";"";"";3;"PK"
+8889204;"H";"Meller";"Thorsten";"Kuckucksruf 37";"Stuttgart";"70569";"D";"";"";"";"";3;"PK"
+8889205;"F";"Kellerer";"Sandra";"Jakobstrasse 3";"Kornttal-Münchingen";"70825";"D";"";"";"";"";3;""
+8889206;"H";"Kamlage";"Thomas";"Eichendorfstrasse 18";"Backnang";"71522";"D";"";"";"";"";3;"PK"
+8889207;"H";"Fallwarczny";"Dan";"Pforzheimer Str. 47";"Kämpfelbach-Ersingen";"75236";"D";"";"";"";"";3;""
+8889208;"H";"Osmakcic";"Goran";"Sonnenhalde 34";"Steinenbronn";"71144";"D";"";"";"";"";3;""
+8889209;"H";"Altendorf";"";"Warmbronner Weg 9";"Leonberg";"71229";"D";"";"";"";"";3;"PK"
+8889210;"FAM";"Amann";"";"August Brändle Strasse 12";"Fellbach";"70734";"";"";"";"";"";3;"PK"
+8889211;"FAM";"Wolff";"Jens-Christian";"Mozartsrasse 11";"Merklingen";"";"";"";"";"";"";3;"PK"
+8889212;"H";"Richter";"Martin";"Mühlstrasse 3/4";"Herrenberg";"71083";"D";"";"";"";"";3;"PK"
+8889213;"";"Darmstadt";"Markus";"";"";"";"";"";"";"";"";1;""
+8889214;"H";"Darmstadt";"Markus";"Amsterdammer Str.5";"Böblingen";"71065";"D";"";"";"";"";3;"PK"
+8889215;"";"Beicher";"";"";"";"";"";"";"";"";"";3;"PK"
+8889216;"H";"Osman";"";"Im Mohn 9";"Kornwestheim";"70806";"D";"";"";"";"";3;"PK"
+8889217;"H";"Cikojevic";"Danijel";"Kastanienallee 4";"Ludwigsburg";"71638";"D";"";"";"";"";3;"BT"
+8889218;"H";"Yacoub";"Rudi";"Katharinenstr.33";"Ludwigsburg";"71634";"D";"";"";"";"";3;"PK"
+8889219;"H";"Kienle";"";"Schillerstr.14";"Böblingen-Dagersheim";"71034";"D";"";"";"";"";3;"PK"
+8889220;"F";"Toporow";"Ida";"Stauffenbergstr.10";"Böblingen";"71034";"D";"";"";"";"";3;""
+8889221;"H";"Einicke";"Gerhard";"Enzstrasse 49";"Stuttgart";"70376";"D";"";"";"";"";3;""
+8889222;"H";"Acar";"Engin";"Stuttgarterstr.24";"Leutenbach";"71397";"D";"";"";"";"";3;""
+8889223;"H";"Hammerschmidt";"Nikolai";"Stuttgarterstr.40";"Sindelfingen";"71069";"D";"";"";"";"";3;""
+8889224;"H";"Brandsch";"Hermann";"Muggensturmstr.23";"Stuttgart";"70469";"D";"";"";"";"";3;"PK"
+8889225;"H";"Maric";"Slaven";"Glemseckstrasse";"Leonberg";"71229";"D";"";"";"";"";3;"PK"
+8889226;"H";"Spac";"Cajus";"Marstallstr. 9-S";"Ludwigsburg";"71634";"D";"";"";"";"";3;"PK"
+8889227;"H";"Beck";"Cornelius";"Heideäckerstr.44";"Leinfelden-Echterdingen";"70771";"D";"";"";"";"";3;"PK"
+8889228;"H";"Strack";"Dennis";"Kollbachstr.7";"Bad Liebenzell";"75378";"D";"";"";"";"";3;"PK"
+8889229;"EH";"Schneider";"W+S";"";"Leonberg";"71229";"D";"";"";"";"";3;"PK"
+8889230;"H";"Isbeceren";"Kemal";"Ludwig Herr Str. 56";"Kornwestheim";"";"D";"";"";"";"";3;"PK"
+8889231;"";"Davidek";"";"Heilbronner Str.59";"Leonberg";"71229";"D";"";"";"";"";3;"PK"
+8889232;"H";"Kohler";"Wolfgang";"Lange Gasse 11";"Aspach";"71546";"D";"";"";"";"";3;"PK"
+8889233;"H";"Gerst";"Michael";"Helmstettstrasse 4";"Stuttgart";"70499";"D";"";"";"";"";3;""
+8889234;"F";"Fischer";"Gabriela";"Althengststätter Str.12/5";"Weil der Stadt";"71263";"D";"";"";"";"";3;"PK"
+8889235;"H";"Stegmann";"Jan";"Gänsefußallee 85";"Ludwigsburg";"71636";"D";"";"";"";"";3;"PK"
+8889236;"H";"Devardo";"Umberto";"Scharfenschloßstr.3";"Stuttgart";"70469";"D";"";"";"";"";3;"PK"
+8889237;"F";"Cendamo";"Tina";"Im Brandfeld 9";"Filderstadt";"70794";"D";"";"";"";"";3;"PK"
+8889238;"F";"Stähle";"Katrin";"Ulmenweg 18";"Freiberg am Neckar";"71691";"D";"";"";"katrin.staehle@hotmail.de";"";3;"PK"
+8889239;"";"König";"Sven";"Wagner Str. 47";"Sulzbach an der Murr";"71560";"D";"";"";"sven.koenig89@gmx.de";"";3;"PK"
+8889240;"H";"Lerga";"Josip";"Autenstr.3";"Ditzingen";"71254";"D";"";"";"";"";3;"WVK"
+8889241;"H";"Berberich";"Stefan";"Wolframstrasse 35";"Stuttgart";"70191";"D";"";"";"sb@sb-web.net";"";3;"A1"
+8889242;"HG";"Kottre";"";"Hechinger Str.22";"Sindelfingen/Maichingen";"71069";"";"";"";"";"";3;"A1"
+8889243;"H";"Can";"Veli";"Eugenstrasse 21";"Nürtingen";"72622";"D";"";"";"";"";3;"BT"
+8889244;"H";"Rotermund";"Gerhard";"Gehrenwaldstr.31";"Stuttgart";"70327";"D";"";"";"";"";3;"PK"
+8889245;"H";"Hausburg";"Sebastian";"Sindelfinger Str.118";"Sindelfingen";"71069";"";"";"";"";"";3;"PK"
+8889246;"H";"Scharpf";"Gerhard";"Thüringer-Wald-Str.11";"Stuttgart";"70469";"";"";"";"";"";3;"PK"
+8889247;"H";"Hoppmann";"Severin";"Tangertenstrasse 33";"Stuttgart";"70567";"";"";"";"";"";3;"PK"
+8889248;"H";"Schick";"Kurt";"Lindenstr. 2/1";"Sulzbach an der Murr";"71560";"";"";"";"";"";3;"PK"
+8889249;"H";"Babayev";"Islam";"Wilhelm-Leuschner-Str.14";"Böblingen";"71034";"";"";"";"";"";3;"PK"
+8889250;"H";"Hübner";"Joachim";"Dornbuschweg 17";"Stuttgart";"70191";"";"";"";"";"";1;""
+8889251;"H";"Kel";"Dietmar";"Holbeinstrasse 3";"Vaihingen an der Enz";"71665";"D";"";"";"";"";3;"PK"
+8889252;"H";"Schorr";"Manfred";"Jahnstrasse 19";"Marbach am Neckar";"71672";"D";"";"";"";"";3;"PK"
+8889253;"H";"Muzikulaj";"Meryem";"Schwieberdinger Str.10+12";"Möglingen";"71696";"D";"";"";"";"";3;"PK"
+8889254;"F";"Schmelzle";"Sabine";"Nelkenweg 11/1";"Jettlingen";"71131";"D";"";"";"";"";3;"PK"
+8889255;"EH";"Paschke";"Karin und Werner";"Alte Vaihinger Str.13";"Schwieberdingen";"71701";"D";"";"";"";"";3;"PK"
+8889256;"H";"Rehak";"Michael";"Lindenweg 2";"Oberstenfeld-Gronau";"71720";"D";"";"";"";"";3;"PK"
+8889257;"H";"Schwarz";"Helmut";"Herzog-Philip Str.23";"Winnenden";"71364";"D";"";"";"";"";3;"PK"
+8889258;"H";"Engelhard";"Adam";"Brächterstrasse 33";"Tamm";"71732";"D";"";"";"";"";3;"A1"
+8889259;"H";"Ay";"T";"Schützenweg 81";"Böblingen";"71034";"D";"";"";"";"";3;"PK"
+8889260;"H";"Gabriel";"Armin";"Steinstrasse 44";"Korb";"71404";"D";"";"";"";"";3;"PK"
+8889261;"F";"Kolendaric";"Sladjana";"Schafmeierweg 9";"Gäufelden";"71226";"D";"";"";"";"";3;"PK"

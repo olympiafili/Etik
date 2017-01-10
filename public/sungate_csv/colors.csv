@@ -1,0 +1,223 @@
+WE;WE;
+;Ohne Farbe;
+02;Grau;FZ050
+03;Dunkelgr�n;FZ050
+06;Dunkelrot;FZ050
+09;Graubeige;FZ050
+10;Moosgr�n;FZ050
+11;Stahlblau;FZ050
+14;Brilliantblau;FZ050
+19;Weinrot;FZ050
+21;Nussbaum;FZ040
+25;Mooreiche;FZ040
+26;Mahagoni;FZ040
+27;Streifen Douglasie;FZ050
+39;Wei� Antik;FZ050
+40;Macore;FZ050
+43;Polareiche;FZ050
+44;Birke Rose;FZ050
+50;Bergkiefer;FZ050
+51;Golden Oak;FZ040
+52;Oregon;FZ050
+59;Creme;FZ040
+60;Vermont;FZ050
+61;Meranti;FZ050
+62;Tiama;FZ050
+63;Montana;FZ040
+64;Cheyenne;FZ050
+65;Teak arte;FZ050
+69;Metbrush Alu;FZ050
+70;Anthrazitgrau;FZ040
+71;Schwarzbraun;FZ050
+72;Achatgrau;FZ050
+73;Lichtgrau;FZ050
+74;Basaltgrau;FZ050
+78;Quarzgrau;FZ050
+81;Achatgrau / Satin;FZ050
+84;Basaltgrau / Satin;FZ050
+87;Signalgrau / Satin;FZ050
+88;Anthrazitgrau / Satin;FZ040
+89;Signalrot / Satin;FZ050
+90;Quarzgrau / Satin;FZ050
+02WE;Innen Grau / Aussen Weiss;FZA050
+03WE;Innen Dunkelgr�n / Aussen Weiss;FZ050
+06WE;Innen Dunkelrot / Aussen Weiss;FZA050
+09WE;Innen Graubeige / Aussen Weiss;FZA050
+10WE;Innen Moosgr�n / Aussen Weiss;FZA050
+11WE;Innen Stahlblau / Aussen Weiss;FZA050
+14WE;Innen Brilliantblau / Aussen Weiss;FZA050
+19WE;Innen Weinrot / Aussen Weiss;FZA050
+21WE;Innen Nu�baum / Aussen Weiss;FZA050
+25WE;Innen Mooreiche / Aussen Weiss;FZA050
+26WE;Innen Mahagoni / Aussen Weiss;FZA050
+27WE;Innen Streifen Douglasie / Aussen Weiss;FZA050
+39WE;Innen Wei� Antik / Aussen Weiss;FZA050
+40WE;Innen Macore / Aussen Weiss;FZA050
+43WE;Innen Polareiche / Aussen Weiss;FZA050
+44WE;Innen Birke Rose / Aussen Weiss;FZ050
+50WE;Innen Bergkiefer / Aussen Weiss;FZA050
+51WE;Innen Golden Oak / Aussen Weiss;FZA050
+52WE;Innen Oregon / Aussen Weiss;FZA050
+59WE;Innen Creme / Aussen Weiss;FZA050
+60WE;Innen Vermont / Aussen Weiss;FZA050
+61WE;Innen Meranti / Aussen Weiss;FZA050
+62WE;Innen Tiama / Aussen Weiss;FZA050
+63WE;Innen Montana / Aussen Weiss;FZA050
+64WE;Innen Cheyenne / Aussen Weiss;FZA050
+65WE;Innen Teak arte / Aussen Weiss;FZA050
+69WE;Innen Metbrush Alu / Aussen Weiss;FZA050
+70WE;Innen Anthrazitgrau / Aussen Weiss;FZA050
+71WE;Innen Schwarzbraun / Aussen Weiss;FZA050
+72WE;Innen Achatgrau / Aussen Weiss;FZA050
+73WE;Innen Lichtgrau / Aussen Weiss;FZA050
+74WE;Innen Basaltgrau / Aussen Weiss;FZA050
+78WE;Innen Quarzgrau / Aussen Weiss;FZA050
+81WE;Innen Achatgrau / Satin / Aussen Weiss;FZA050
+84WE;Innen Basaltgrau / Satin / Aussen Weiss;FZA050
+87WE;Innen Signalgrau / Satin / Aussen Weiss;FZA050
+88WE;Innen Anthrazitgrau / Satin / Aussen Weiss;FZA050
+89WE;Innen Signalrot / Satin / Aussen Weiss;FZA050
+90WE;Innen Quarzgrau / Satin / Aussen Weiss;FZA050
+WE02;Aussen Grau / Innen Weiss;FZ025
+WE03;Aussen Dunkelgr�n / Innen Weiss;FZ025
+WE06;Aussen Dunkelrot / Innen Weiss;FZ025
+WE09;Aussen Graubeige / Innen Weiss;FZ025
+WE10;Aussen Moosgr�n / Innen Weiss;FZ025
+WE11;Aussen Stahlblau / Innen Weiss;FZ025
+WE14;Aussen Brilliantblau / Innen Weiss;FZ025
+WE19;Aussen Weinrot / Innen Weiss;FZ025
+WE21;Aussen Nussbaum / Innen Weiss;FZ020
+WE25;Aussen Mooreiche / Innen Weiss;FZ020
+WE26;Aussen Mahagoni / Innen Weiss;FZ020
+WE27;Aussen Streifen Douglasie / Innen Weiss;FZ025
+WE39;Aussen Wei� Antik / Innen Weiss;FZ025
+WE40;Aussen Macore / Innen Weiss;FZ025
+WE43;Aussen Polareiche / Innen Weiss;FZ025
+WE44;Aussen Birke Rose / Innen Weiss;FZ025
+WE50;Aussen Bergkiefer / Innen Weiss;FZ025
+WE51;Aussen Golden Oak / Innen Weiss;FZ020
+WE52;Aussen Oregon / Innen Weiss;FZ025
+WE59;Aussen Creme / Innen Weiss;FZ025
+WE60;Aussen Vermont / Innen Weiss;FZ025
+WE61;Aussen Meranti / Innen Weiss;FZ025
+WE62;Aussen Tiama / Innen Weiss;FZ025
+WE63;Aussen Montana / Innen Weiss;FZ020
+WE64;Aussen Cheyenne / Innen Weiss;FZ025
+WE65;Aussen Teak arte / Innen Weiss;FZ025
+WE69;Aussen Metbrush Alu / Innen Weiss;FZ025
+WE70;Aussen Anthrazitgrau / Innen Weiss;FZ020
+WE71;Aussen Schwarzbraun / Innen Weiss;
+WE72;Aussen Achatgrau / Innen Weiss;FZ025
+WE73;Aussen Lichtgrau / Innen Weiss;FZ025
+WE74;Aussen Basaltgrau / Innen Weiss;FZ025
+WE78;Aussen Quarzgrau / Innen Weiss;FZ025
+WE81;Aussen Achatgrau / Satin / Innen Weiss;FZ025
+WE84;Aussen Basaltgrau / Satin / Innen Weiss;FZ025
+WE87;Aussen Signalgrau / Satin / Innen Weiss;FZ025
+WE88;Aussen Anthrazitgrau / Satin / Innen Weiss;FZ020
+WE89;Aussen Signalrot / Satin / Innen Weiss;FZ025
+WE90;Aussen Quarzgrau / Satin / Innen Weiss;FZ025
+WP01;Rolo Innen Weiss / Aussen Silber;FZ013
+WP03;Rolo Innen Weiss / Aussen Grau;FZ013
+WP04;Rolo Innen Weiss / Aussen Dunkelbeige;FZ013
+WP05;Rolo Innen Weiss / Aussen Beige;FZ013
+WP07;Rolo Innen Weiss / Aussen Hellgrau;FZ013
+WP08;Rolo Innen Weiss / Aussen Dunkelbraun;FZ013
+WP09;Rolo Innen Weiss / Aussen Braun;FZ013
+WP13;Rolo Innen Weiss / Aussen Gr�n;FZ013
+WP15;Rolo Innen Weiss / Aussen Creamwei�;FZ013
+WP16;Rolo Innen Weiss / Aussen Elfenbein;FZ013
+WP19;Rolo Innen Weiss / Aussen Bordeauxrot;FZ013
+WP23;Rolo Innen Weiss / Aussen Anthrazit;FZ013
+WP26;Rolo Innen Weiss / Aussen Stahlolive;FZ013
+PVC2;Wei� Portos PVC;P.RoPanz
+PVC3;Grau Portos PVC;P.RoPanz
+PVC5;Beige Portos PVC;P.RoPanz
+WP;Wei� Alu;FZX00
+X01;Silber Alu;FZX00
+X03;Grau Alu;FZX00
+X04;Dunkelbeige Alu;FZX00
+X05;Beige Alu;FZX00
+X07;Hellgrau Alu;FZX00
+X08;Dunkelbraun Alu;FZX00
+X09;Braun Alu;FZX00
+X13;Gr�n Alu;FZX00
+X15;Creamwei� Alu;FZX00
+X16;Elfenbein Alu;FZX00
+X19;Bordeauxrot Alu;FZX00
+X22;Mahagoni Alu;FZX00
+X23;Anthrazit Alu;FZX00
+X26;Stahlolive Alu;FZX00
+X30;Nussbaum Alu;FZX00
+X34;Sumpfeiche Alu;FZX00
+X48;Goldeiche Alu;FZX00
+6170;Innen Meranti / Aussen Antrazit;1st+1so
+6926;Innen MetbrushAlu / Aussen Mahagoni;1st+1so
+9016;RAL 9016 (Wei�);
+BR;Braun;
+BRO;Bronze;
+BRwk;Warme Kante Braun;
+C33;C33 (Eloxalspray);
+C34;C34 (Eloxalspray);
+DB;DB (E6/C34 Eloxiert);
+EV1;EV 1 (E6/EV1 Eloxiert);
+GRwk;Warme Kante Grau;
+ISG;Insektenschutzgitter Grau;
+ISS;Insektenschutzgitter Schwarz;
+MB;MB (E6/C33 Eloxiert);
+P10;Anthrazit glatt Portos PVC;PPVC1
+P11;Palisander Portos PVC;PPVC1
+P12;Anthrazit Portos PVC;PPVC1
+P14;Cremewei�;PPVC1
+P17;Schokoladenbraun Portos PVC;PPVC1
+P22;Mahagoni Portos PVC;PPVC1
+P24;Kirsche Douglaise Portos PVC;PPVC1
+P25;Macore Portos PVC;PPVC1
+P30;Nussbaum Portos PVC;PPVC1
+P33;Eiche St-G Portos PVC;PPVC1
+P34;Sumpfeiche Portos PVC;PPVC1
+P38;Eiche Dunkel Portos PVC;PPVC1
+P39;Eiche Rustikal;PPVC1
+P43;Oregon Portos PVC;PPVC1
+P48;Goldeiche Portos PVC;PPVC1
+P51;Indiana Portos PVC;PPVC1
+P52;Siena Rosso Portos PVC;PPVC1
+P53;Siena Noce Portos PVC;PPVC1
+P54;Winchester Portos PVC;PPVC1
+P61;Quarzgrau Portos PVC;PPVC1
+P62;Basaltgrau Portos PVC;PPVC1
+P63;Innen Weiss/Aussen Basaltgrau glatt Portos PVC;PPVC1
+P66;Gr�n Portos PVC;PPVC1
+P67;Waldgr�n Portos PVC;PPVC1
+P94;Hellgrau Portos PVC;PPVC1
+P99;Grau Portos PVC;PPVC1
+R999;Andere RAL-T�ne;
+SI;Silber;
+SW;Schwarz;
+WP10;Innen Weiss/Aussen Anthrazit Glatt Portos PVC;P1F
+WP11;Innen Weiss/Aussen Palisander Portos PVC;P1F
+WP12;Innen Weiss/Aussen Anthrazit Portos PVC;P1F
+WP14;Innen Weiss/Aussen Cremewei� Portos PVC;P1F
+WP17;Innen Weiss/Aussen Schokoladenbraun Portos PVC;P1F
+WP22;Innen Weiss/Aussen Mahagoni Portos PVC;P1F
+WP24;Innen Weiss/Aussen Kirsche Dougl.Portos PVC;P1F
+WP25;Innen Weiss/Aussen Macore Portos PVC;P1F
+WP30;Innen Weiss/Aussen Nussbaum Portos PVC;P1F
+WP33;Innen Weiss/Aussen Eiche St-G Portos PVC;P1F
+WP34;Innen Weiss/Aussen Sumpfeiche Portos PVC;P1F
+WP38;Innen Weiss/Aussen Eiche Dunkel Portos PVC;P1F
+WP39;Innen Weiss/Aussen Eiche Rustikal Portos PVC;P1F
+WP43;Innen Weiss/AussenOregon Portos PVC;P1F
+WP48;Innen Weiss/Aussen Goldeiche Portos PVC;P1F
+WP51;Innen Weiss/Aussen Indiana Portos PVC;P1F
+WP52;Innen Weiss/Aussen Siena Rosso Portos PVC;P1F
+WP53;Innen Weiss/Aussen Siena Noce Portos PVC;P1F
+WP54;Innen Weiss/Aussen Winchester Portos PVC;P1F
+WP61;Innen Weiss/Aussen Quarzgrau Portos PVC;P1F
+WP62;Innen Weiss/Aussen Basaltgrau Portos PVC;P1F
+WP63;Innen Weiss/Aussen Basaltgrau glatt Portos PVC;P1F
+WP66;Innen Weiss/Aussen Gr�n Portos PVC;P1F
+WP67;Innen Weiss/Aussen Waldgr�n Portos PVC;P1F
+WP94;Innen Weiss/Aussen Hellgrau Portos PVC;P1F
+WP99;Innen Weiss/Aussen Gau Portos PVC;P1F
+X27;Basaltgrau;FZX00
