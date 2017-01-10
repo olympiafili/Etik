@@ -861,13 +861,17 @@ label {
 }
 
 
-.epikathimena_rola label:hover {
+.epikathimena_rola label:hover,
+.window_still_wrapper label:hover,
+.window_still_wrapper_big label:hover {
   //background-color: #8C7A7A;
   //background-color: #777777;
   //color: white;
 }
 
-.epikathimena_rola label {
+.epikathimena_rola label,
+.window_still_wrapper label,
+.window_still_wrapper_big label {
   display: block;
   //width: 150px;
   text-align: center;
