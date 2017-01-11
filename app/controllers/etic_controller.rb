@@ -475,6 +475,11 @@ class EticController < ApplicationController
 		@typos = Profil.where(:width => 0)
 		@profil = Profil.where.not(:width => 0)
 		@roll_guide = RollGuide.all.order(:order)
+    @roll_rat = RatRoll.all
+    @roll_rlt = RltRoll.all
+    @roll_rdm = RdmRoll.all
+    @roll_pss = PssRoll.all
+    @roll_pfm = PfmRoll.all
 		@order = Order.where(:id => params[:order]).first
 		if !@order.nil?
 			@order = Order.where(:id => params[:order]).first
@@ -3190,6 +3195,106 @@ class EticController < ApplicationController
           	timi_m_window_still = @window_still.price.to_f
         end
         
+        #roll rat
+        if ( params[:roll_rat] != "0" )
+          @roll_rat = RatRoll.where(:id => params[:roll_rat]).first          
+            if ( width_gia_vasi_new != 0)
+	    		    width_n = width_gia_vasi_new
+	    	    else
+	    		    width_n = width
+	    	    end
+            if(@roll_rat.unit == 'm')
+          	  roll_rat_price = ((width_n * @roll_rat.price.to_f) / 1000 )
+            else
+              roll_rat_price = @roll_rat.price.to_f
+            end
+            
+            roll_rat_name = @roll_rat.name
+            @price_extra = @price_extra + roll_rat_price
+          	tm_p_roll_rat = width_n
+          	timi_m_roll_rat = @roll_rat.price.to_f
+        end
+        
+        #roll rlt
+        if ( params[:roll_rlt] != "0" )
+          @roll_rlt = RltRoll.where(:id => params[:roll_rlt]).first          
+            if ( width_gia_vasi_new != 0)
+	    		    width_n = width_gia_vasi_new
+	    	    else
+	    		    width_n = width
+	    	    end
+            if(@roll_rlt.unit == 'm')
+          	  roll_rlt_price = ((width_n * @roll_rlt.price.to_f) / 1000 )
+            else
+              roll_rlt_price = @roll_rlt.price.to_f
+            end
+            
+            roll_rlt_name = @roll_rlt.name
+            @price_extra = @price_extra + roll_rlt_price
+          	tm_p_roll_rlt = width_n
+          	timi_m_roll_rlt = @roll_rlt.price.to_f
+        end
+        
+        #roll rdm
+        if ( params[:roll_rdm] != "0" )
+          @roll_rdm = RdmRoll.where(:id => params[:roll_rdm]).first          
+            if ( width_gia_vasi_new != 0)
+	    		    width_n = width_gia_vasi_new
+	    	    else
+	    		    width_n = width
+	    	    end
+            if(@roll_rdm.unit == 'm')
+          	  roll_rdm_price = ((width_n * @roll_rdm.price.to_f) / 1000 )
+            else
+              roll_rdm_price = @roll_rdm.price.to_f
+            end
+            
+            roll_rdm_name = @roll_rdm.name
+            @price_extra = @price_extra + roll_rdm_price
+          	tm_p_roll_rdm = width_n
+          	timi_m_roll_rdm = @roll_rdm.price.to_f
+        end
+        
+        #roll pss
+        if ( params[:roll_pss] != "0" )
+          @roll_pss = PssRoll.where(:id => params[:roll_pss]).first          
+            if ( width_gia_vasi_new != 0)
+	    		    width_n = width_gia_vasi_new
+	    	    else
+	    		    width_n = width
+	    	    end
+            if(@roll_pss.unit == 'm')
+          	  roll_pss_price = ((width_n * @roll_pss.price.to_f) / 1000 )
+            else
+              roll_pss_price = @roll_pss.price.to_f
+            end
+            
+            roll_pss_name = @roll_pss.name
+            @price_extra = @price_extra + roll_pss_price
+          	tm_p_roll_pss = width_n
+          	timi_m_roll_pss = @roll_pss.price.to_f
+        end
+        
+        #roll pfm
+        if ( params[:roll_pfm] != "0" )
+          @roll_pfm = PfmRoll.where(:id => params[:roll_pfm]).first          
+            if ( width_gia_vasi_new != 0)
+	    		    width_n = width_gia_vasi_new
+	    	    else
+	    		    width_n = width
+	    	    end
+            if(@roll_pfm.unit == 'm')
+          	  roll_pfm_price = ((width_n * @roll_pfm.price.to_f) / 1000 )
+            else
+              roll_pfm_price = @roll_pfm.price.to_f
+            end
+            
+            roll_pfm_name = @roll_pfm.name
+            @price_extra = @price_extra + roll_pfm_price
+          	tm_p_roll_pfm = width_n
+          	timi_m_roll_pfm = @roll_pfm.price.to_f
+        end
+        
         ##TIMH ME ΠΡΟΦΙΛ
         profil_sum = 0
 
@@ -4115,6 +4220,42 @@ class EticController < ApplicationController
         	window_still_timi = 0
         end
         
+        if (params[:roll_rat] != "0")
+        	roll_rat_name = roll_rat_name
+        	roll_rat_timi = roll_rat_price
+        else
+        	roll_rat_name = ""
+        	roll_rat_timi = 0
+        end
+        if (params[:roll_rlt] != "0")
+        	roll_rlt_name = roll_rlt_name
+        	roll_rlt_timi = roll_rlt_price
+        else
+        	roll_rlt_name = ""
+        	roll_rlt_timi = 0
+        end
+        if (params[:roll_rdm] != "0")
+        	roll_rdm_name = roll_rdm_name
+        	roll_rdm_timi = roll_rdm_price
+        else
+        	roll_rdm_name = ""
+        	roll_rdm_timi = 0
+        end
+        if (params[:roll_pss] != "0")
+        	roll_pss_name = roll_pss_name
+        	roll_pss_timi = roll_pss_price
+        else
+        	roll_pss_name = ""
+        	roll_pss_timi = 0
+        end
+        if (params[:roll_pfm] != "0")
+        	roll_pfm_name = roll_pfm_name
+        	roll_pfm_timi = roll_pfm_price
+        else
+        	roll_pfm_name = ""
+        	roll_pfm_timi = 0
+        end
+        
         if !@odoigos.nil?
         	odoigos_name = @odoigos.name
         	odoigos_timi = pr_odoig
@@ -4365,6 +4506,16 @@ class EticController < ApplicationController
           	                          :prostasia_timi => prostasia_timi,
           	                          :window_still_name => window_still_name,
           	                          :window_still_timi => window_still_timi,
+          	                          :roll_rat_name => roll_rat_name,
+          	                          :roll_rat_timi => roll_rat_timi,
+          	                          :roll_rlt_name => roll_rlt_name,
+          	                          :roll_rlt_timi => roll_rlt_timi,
+          	                          :roll_rdm_name => roll_rdm_name,
+          	                          :roll_rdm_timi => roll_rdm_timi,
+          	                          :roll_pss_name => roll_pss_name,
+          	                          :roll_pss_timi => roll_pss_timi,
+          	                          :roll_pfm_name => roll_pfm_name,
+          	                          :roll_pfm_timi => roll_pfm_timi,
           	                          :lastixo => lastixo_name,
           	                          :lastixo_price => lastixo_price, 
           	                          :tzami0 => tzami0_name,
@@ -4813,6 +4964,74 @@ class EticController < ApplicationController
             
         new_window_still.save
       
+    end
+    redirect_to etic_user_diax_path
+  end
+  
+  #rolls
+  def import_rolls
+		CSV.foreach("#{Rails.root}/public/sungate_csv/Rollo.csv", col_sep: ';', encoding: 'iso-8859-1') do |row|  ##, encoding: 'iso-8859-1'
+      if(row[1] == 'Rat')
+        new_rolo = RatRoll.new
+        if ( !row[4].nil? )
+          new_rolo.name = row[5] + " " + row[4]
+        else
+          new_rolo.name = row[5]
+        end
+        new_rolo.price = row[6]
+        new_rolo.sungate_code = row[3]
+        new_rolo.unit = row[7]
+            
+        new_rolo.save
+      elsif(row[1] == 'RLT')
+        new_rolo = RltRoll.new
+        if ( !row[4].nil? )
+          new_rolo.name = row[5] + " " + row[4]
+        else
+          new_rolo.name = row[5]
+        end
+        new_rolo.price = row[6]
+        new_rolo.sungate_code = row[3]
+        new_rolo.unit = row[7]
+            
+        new_rolo.save
+      elsif(row[1] == 'RDM')
+        new_rolo = RdmRoll.new
+        if ( !row[4].nil? )
+          new_rolo.name = row[5] + " " + row[4]
+        else
+          new_rolo.name = row[5]
+        end
+        new_rolo.price = row[6]
+        new_rolo.sungate_code = row[3]
+        new_rolo.unit = row[7]
+            
+        new_rolo.save
+      elsif(row[1] == 'PSS')
+        new_rolo = PssRoll.new
+        if ( !row[4].nil? )
+          new_rolo.name = row[5] + " " + row[4]
+        else
+          new_rolo.name = row[5]
+        end
+        new_rolo.price = row[6]
+        new_rolo.sungate_code = row[3]
+        new_rolo.unit = row[7]
+            
+        new_rolo.save
+      elsif(row[1] == 'PFM')
+        new_rolo = PfmRoll.new
+        if ( !row[4].nil? )
+          new_rolo.name = row[5] + " " + row[4]
+        else
+          new_rolo.name = row[5]
+        end
+        new_rolo.price = row[6]
+        new_rolo.sungate_code = row[3]
+        new_rolo.unit = row[7]
+            
+        new_rolo.save
+      end
     end
     redirect_to etic_user_diax_path
   end

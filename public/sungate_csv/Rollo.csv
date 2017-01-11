@@ -1,0 +1,52 @@
+AP;RLT;Rolladentraversen;SAL 416 055;WE;Rolladentraverse SL76;14.1;m;;0;0
+AP;RLT;Rolladentraversen;SAL 416 055;BR;Rolladentraverse SL76;14.1;m;;0;0
+AP;RLT;Rolladentraversen;SAL 476 055;WE;Rolladentraverse BE92;14.1;m;;0;0
+AP;RLT;Rolladentraversen;SAL 476 055;BR;Rolladentraverse BE92;14.1;m;;0;0
+AP;Rat;Rollladenantrieb;DELUX 60/15;;Motor 60/15  60 mm  mit Hinderniserkennung;199;St;;0;0
+AP;Rat;Rollladenantrieb;Gurtwickler o.B. Li;;Gurtwickler standard o.B. Links;0;St;;0;0
+AP;Rat;Rollladenantrieb;Gurtwickler RECHTS;;Gurtwickler standard o.B. Rechts;0;St;;0;0
+AP;Rat;Rollladenantrieb;K-EP Zwischenlager;;K-EP Zwischenlager  schmal mit Kugellagereinsaetzen;38.71;St;;0;0
+AP;Rat;Rollladenantrieb;K-SW-60;;K-SW-60;6.8;m;;0;0
+AP;Rat;Rollladenantrieb;KRA 195;WE;Revisionsklappe universell 195mm mit Adapterprofil und erhöter Wärmedämmung und zusätzliche Isolationsfolie für RKS-Rollläden / R=0 76m² K/W bei einer Dicke von 20mm;34.13;m;;0;0
+AP;Rat;Rollladenantrieb;KRA 195;BR;Revisionsklappe universell 195mm mit Adapterprofil und erhöter Wärmedämmung und zusätzliche Isolationsfolie für RKS-Rollläden / R=0 76m² K/W bei einer Dicke von 20mm;34.13;m;;0;0
+AP;Rat;Rollladenantrieb;KRD90-32;;Kurbelantrieb mit Kurbelstange 90° bis 32 kg;100;St;;0;0
+AP;Rat;Rollladenantrieb;RFS Bohrungen;;Führungsschienen Bohrungen Typ B;0;St;;0;0
+AP;Rat;Rollladenantrieb;S-40/10 S;;Motor 40/10 für Stahlwelle Ø 40 (min Rollladenbreite 55 cm);127;St;;0;0
+AP;Rat;Rollladenantrieb;S-60/08;;Motor 60/08 für Stahlwelle Ø 60 ***;132;St;;0;0
+AP;Rat;Rollladenantrieb;S-60/1,3;;Motor 60/1 3 für Stahlwelle Ø 60 ***;137;St;;0;0
+AP;Rat;Rollladenantrieb;S-60/2;;Motor 60/2 für Stahlwelle Ø 60 ***;145;St;;0;0
+AP;Rat;Rollladenantrieb;Schnurwickler o.B;WE;Schnurwickler o.B;0;St;;0;0
+AP;Rat;Rollladenantrieb;US-DELUX PVC;;Motorlager DELUX für Aufsatzrollladen;3;St;;0;0
+AP;Rat;Rollladenantrieb;UZB-E;;Ausstattung für Elektroantrieb: 1 Motorlager  1 Kastenlager  Ausladung 35mmnach innen gekantet  1 Kugellagereinsatz 40/12 3  1 Walzenkapsel Länge 4cm für Stahlwelle Ø60mm  ohne Elektroantrieb.;26;St;;0;0
+AP;Rat;Rollladenantrieb;UZB-N/ASW;;Ausstattung mit manuellem Antrieb bis 12m mit Aufsatzschwenkgurtwickler  K-ZP-12 : 1 Kastenlager flach 1 Kastenlager Ausladung 35mm nach innen gekantet  2 Kugelleagereinsätze 40/12 3  1 Walzenkapsel Länge 4cm für 8-kant Stahlwelle Ø60mm  1 Gurtscheibe Ø17cm mit innenliegendem Stahlstift. 1 Gurtwicklersatz mit Gurt(max. Höhe 250cm) 1 Kastengurtführung  Stahlwelle Ø60mm Länge Bestellungsabhängig;46;m;;0;0
+AP;Rat;Rollladenantrieb;UZB-N/M;;Ausstattung mit manuellem Antrieb bis 12m mit Gurtwickler in der Mauer K-ZP-12 : 1 Kastenlager flach 1 Kastenlager Ausladung 35mm nach innen gekantet  2 Kugelleagereinsätze 40/12 3  1 Walzenkapsel Länge 4cm für 8-kant Stahlwelle Ø60mm  1 Gurtscheibe Ø17cm mit innenliegendem Stahlstift. 1 Gurtwicklersatz mit Gurt(max. Höhe 250cm) 1 Kastengurtführung  Stahlwelle Ø60mm Länge Bestellungsabhängig;46;m;;0;0
+AP;Rat;Rollladenantrieb;WBLTP 60;;"Verbinder ""Lock to Play"" 60";9;St;;0;0
+AP;PSS;Portos Steuerungssysteme;PK-1;;1-Kanal Schlüssel - Handsender;21;St;;0;0
+AP;PSS;Portos Steuerungssysteme;PPKR 313;;Schalter mit integrierter Funksteuerung - für normalen Motor;80;St;;0;0
+AP;PSS;Portos Steuerungssysteme;PRN-1;;1-Kanal Funkschalter;34;St;;0;0
+AP;PSS;Portos Steuerungssysteme;PRN-15;;15-Kanal Funkschalter;52;St;;0;0
+AP;PSS;Portos Steuerungssysteme;PRN-2;;2-Kanal Funkschalter;36;St;;0;0
+AP;PSS;Portos Steuerungssysteme;PRN-5T;;5-Kanal Funkschalter + Timer;77;St;;0;0
+AP;PSS;Portos Steuerungssysteme;PS-1;;1-Kanal Schalter;65;St;;0;0
+AP;PSS;Portos Steuerungssysteme;PS-1T;;1-Kanal Schalter + Timer;90;St;;0;0
+AP;PSS;Portos Steuerungssysteme;PS-2;;2-Kanal Schalter;72;St;;0;0
+AP;PSS;Portos Steuerungssysteme;RR-1;;1-Kanal Handsender;39;St;;0;0
+AP;PSS;Portos Steuerungssysteme;RR-15;;15-Kanal Handsender;52;St;;0;0
+AP;PSS;Portos Steuerungssysteme;RR-5;;5-Kanal Handsender;44;St;;0;0
+AP;PSS;Portos Steuerungssysteme;RR-5T;;5-Kanal Handsender + Timer;70;St;;0;0
+AP;PSS;Portos Steuerungssysteme;RS-R;;Funkempfänger (in der Rolladenbüchse montiert);93;St;;0;0
+AP;PSS;Portos Steuerungssysteme;SIR;;Rollladen-Steuergerät Unterputz;62;St;;0;0
+AP;PSS;Portos Steuerungssysteme;XT-R;;Funkempfänger Unterputz;82;St;;0;0
+AP;PFM;Portos Funkmotoren;KRH-150;;Kurbelstange 150 cm für NHK;49;St;;0;0
+AP;PFM;Portos Funkmotoren;S-40/10 R;;Funkmotoren 40/10 für Stahlwelle Ø 40;223;St;;0;0
+AP;PFM;Portos Funkmotoren;S-60/08 R;;Funkmotoren 60/08 für Stahlwelle Ø 60;228;St;;0;0
+AP;PFM;Portos Funkmotoren;S-60/1,3 NHK R;;Funkmotoren 60/1 3 NHK für Stahlwelle Ø 60 mit Nothandkurbelbedienung;281;St;;0;0
+AP;PFM;Portos Funkmotoren;S-60/1,3 R;;Funkmotoren 60/1 3 für Stahlwelle Ø 60;233;St;;0;0
+AP;PFM;Portos Funkmotoren;S-60/1,3NHK;;Motor 60/1 3 NHK für Stahlwelle Ø 60 mit Nothandkurbelbedienung;186;St;;0;0
+AP;PFM;Portos Funkmotoren;S-60/2 NHK;;Motor 60/2 NHK für Stahlwelle Ø 60 mit Nothandkurbelbedienung;193;St;;0;0
+AP;PFM;Portos Funkmotoren;S-60/2 NHK R;;Funkmotoren 60/2 NHK für Stahlwelle Ø 60 mit Nothandkurbelbedienung;291;St;;0;0
+AP;PFM;Portos Funkmotoren;S-60/2 R;;Funkmotoren 60/2 für Stahlwelle Ø 60;241;St;;0;0
+AP;PFM;Portos Funkmotoren;TZU;;Öse für Antrieb NHK (Länge 17 cm);49;St;;0;0
+AP;PFM;Portos Funkmotoren;ZM-SKK;;Kastenschloss mit Schlüssel für NHK (für Aussenrollladen Aluminium  Kasten 205 mm);26;St;;0;0
+AP;RDM;Rollladendämmungen;RDM 13mm;;RDM 13mm;43;m;;0;0
+AP;RDM;Rollladendämmungen;RDM 25-40mm;;RDM 25-40mm;43;m;;0;0

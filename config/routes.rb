@@ -90,6 +90,7 @@ Rails.application.routes.draw do
   get 'etic/import_additional_objects'
   get 'etic/import_glasses_panels'
   get 'etic/import_window_stills'
+  get 'etic/import_rolls'
   
   get 'data_base_in_out/users'
   get 'data_base_in_out/dashboard'

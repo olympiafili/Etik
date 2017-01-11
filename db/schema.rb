@@ -491,6 +491,16 @@ ActiveRecord::Schema.define(version: 20160719070630075818) do
     t.string   "sungate_code"
   end
 
+  create_table "pfm_rolls", force: true do |t|
+    t.string   "name"
+    t.float    "price",        limit: 24
+    t.string   "sungate_code"
+    t.integer  "order"
+    t.string   "unit"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "pricelists", force: true do |t|
     t.integer "width"
     t.integer "height"
@@ -526,6 +536,46 @@ ActiveRecord::Schema.define(version: 20160719070630075818) do
     t.text     "user_id"
     t.integer  "order"
     t.integer  "default"
+  end
+
+  create_table "pss_rolls", force: true do |t|
+    t.string   "name"
+    t.float    "price",        limit: 24
+    t.string   "sungate_code"
+    t.integer  "order"
+    t.string   "unit"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "rat_rolls", force: true do |t|
+    t.text     "name",         limit: 2147483647
+    t.float    "price",        limit: 24
+    t.string   "sungate_code"
+    t.integer  "order"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "unit"
+  end
+
+  create_table "rdm_rolls", force: true do |t|
+    t.string   "name"
+    t.float    "price",        limit: 24
+    t.string   "sungate_code"
+    t.integer  "order"
+    t.string   "unit"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "rlt_rolls", force: true do |t|
+    t.string   "name"
+    t.float    "price",        limit: 24
+    t.string   "sungate_code"
+    t.integer  "order"
+    t.string   "unit"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "rola_colors", force: true do |t|

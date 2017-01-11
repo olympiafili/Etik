@@ -2285,6 +2285,11 @@ label > input:checked + img{ /* (RADIO CHECKED) IMAGE STYLES */
   border-bottom-color: black;
 }
 
+.rat_none {
+	height: 400px;
+	overflow: scroll;
+}
+
 #myForm{
   //margin-left: 400px;
   //width: 700px;
