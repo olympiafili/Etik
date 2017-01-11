@@ -808,11 +808,13 @@
                     <label id="roll_front_m" class="label_tab_top"><%= t('translate.Front_mounted') %></label>
                     <label id="roll_profil" class="label_tab_top"><%= t('translate.Profil_for_shutters') %></label>
                     <label id="roll_rails" class="label_tab_top"><%= t('translate.Rails') %></label>
+					<br/>
 					<label id="roll_rat" class="label_tab_top"><%= t('translate.Rat') %></label>
 					<label id="roll_rlt" class="label_tab_top"><%= t('translate.Rlt') %></label>
 					<label id="roll_rdm" class="label_tab_top"><%= t('translate.Rdm') %></label>
-					<label id="roll_pss" class="label_tab_top"><%= t('translate.Pss') %></label>
+					<br/>
 					<label id="roll_pfm" class="label_tab_top"><%= t('translate.Pfm') %></label>
+					<label id="roll_pss" class="label_tab_top"><%= t('translate.Pss') %></label>
                   </div>
                 </div>
                 <hr>
@@ -994,24 +996,6 @@
                   </div>
 			 	</div><!--End rolls rdm-->
 				
-			  	<!-- begin rolls pss -->
-                <div class="roll_pss label_tab_bottom">
-                  <div class="click_roll_pss" style=""> 
-                    <h5><%= t 'translate.Pss' %></h5>
-                    <div class="row">
-                      <div class="col-xs-5" >
-                        <div class="extra pss_none">
-                          <% @roll_pss.each do |r| %>
-                            <a  style="text-decoration: none; color:black;">
-                              <label class="rolls_pss" id="<%= r.id %>" style="display:block;"><%= r.name %></label>
-                            </a>
-                          <% end %><!--End each-->
-                        </div><!-- End extra-->
-                      </div>
-                    </div>
-                  </div>
-			 	</div><!--End rolls pss-->
-				
 			  	<!-- begin rolls pfm -->
                 <div class="roll_pfm label_tab_bottom">
                   <div class="click_roll_pfm" style=""> 
@@ -1029,6 +1013,24 @@
                     </div>
                   </div>
 			 	</div><!--End rolls pfm-->
+				
+			  	<!-- begin rolls pss -->
+                <div class="roll_pss label_tab_bottom">
+                  <div class="click_roll_pss" style=""> 
+                    <h5><%= t 'translate.Pss' %></h5>
+                    <div class="row">
+                      <div class="col-xs-5" >
+                        <div class="extra pss_none">
+                          <% @roll_pss.each do |r| %>
+                            <a  style="text-decoration: none; color:black;">
+                              <label class="rolls_pss" id="<%= r.id %>" style="display:block;"><%= r.name %></label>
+                            </a>
+                          <% end %><!--End each-->
+                        </div><!-- End extra-->
+                      </div>
+                    </div>
+                  </div>
+			 	</div><!--End rolls pss-->
 			  
 			  </div><!--Rolls-->
 			  
