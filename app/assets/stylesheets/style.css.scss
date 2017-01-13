@@ -960,7 +960,6 @@ label {
   color: black;
 }
 
-
 .d_x_c, .a_x_c, .p_x_c, .k_x_c {
   display: inline;
   position: absolute;
@@ -1340,6 +1339,7 @@ td {
 
 td > label {
   margin-bottom: 0px;
+  margin-left: 3px;
 }
 
 
@@ -2960,4 +2960,10 @@ input[type="file"] {
 
 .glass_3 label {
 	padding: 0 3px;
+}
+
+.modal_times {
+	height: 400px;
+	overflow: scroll;
+	display: none;
 }

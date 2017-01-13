@@ -1107,7 +1107,379 @@
         <button type="button" id="home_price" class='btn btn-warning order_price order_prin_deksia' ><span class="glyphicon glyphicon-euro" aria-hidden="true"></span> <%= t 'translate.Price' %></button>
       </div> 
       <hr>
-
+	  
+	  <!-- olympia -->
+      <!-- Μodal για τιμες -->
+      <div class="modal_times " id="myModal_times">
+                  <!-- Πίνακας πανω με αρχικες πληροφοριες -->
+                  <div class="table-responsive extra_table1" style="">
+                    <table class="table table1 table-condensed">
+                      <tr>
+                        <td class="td_left"><label><%= t 'translate.Open_Category'  %>:</label></td>
+                        <td class="open_categorie_table"><label></label></td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td class="pin1h td_left"><label><%= t 'translate.Profile_systems'  %>: </label></td>
+                        <td class="pin1"><label class="material_table"></label></td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td class="pin2h td_left"><label><%= t 'translate.constructor'  %>: </label></td>
+                        <td class="pin2"><label class="constructor_table"></label></td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td class="pin3h td_left"><label><%= t 'translate.System_A'  %>: </label></td>
+                        <td class="pin3"><label class="system_table"></label></td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td class="td_left"><label><%= t 'translate.System_B'  %>: </label></td>
+                        <td class=""><label class="line_table"></label></td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td class="td_left"><label><%= t 'translate.Leaf'  %>: </label></td>
+                        <td class=""><label class="leaf_table"></label></td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td class="td_left"><label><%= t 'translate.Open_type'  %>: </label></td>
+                        <td class=""><label class="open_type_table"></label></td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <!--
+                      <tr>
+                        <td class="td_left"><label><%= t 'material_pinakas.diastaseis'  %>: </label></td>
+                        <td class=""><label class="diastaseis_table"><%= @width %> X <%= @height %></label></td>
+                        <td class="table_tm"> <label class="diastaseis_table_tm"></label></td>
+                        <td></td>
+                      </tr>
+                      -->
+                      <tr class="neess_diastaseis">
+                        <td class="td_left"><label><%= t 'translate.Start_price'  %>: </label></td>
+                        <td class=""><label class="diastaseis_table"><%= @width %> X <%= @height %></label></td>
+                        <td class="table_tm"> <label class="diastaseis_table_tm"></label></td>
+                        <td class="td_right"><label class="super_apli_timi"></label></td>
+                      </tr>
+                      <tr>
+                        <td class="td_left"><label><%= t 'translate.Inside_color'  %>: </label></td>
+                        <td class=""><label class="color_main"></label></td>
+                        <td class="table_tm"><label class="ep_mesa_p"></label></td>
+                        <td class="td_right"><label class="ep_mesa"></label></td>
+                      </tr>
+                      <tr>
+                        <td class="td_left"><label><%= t 'translate.Outside_color'  %>: </label></td>
+                        <td class=""><label class="color_main_eksw"></label></td>
+                        <td class="table_tm"><label class="ep_eksw_p"></label></td>
+                        <td class="td_right"><label class="ep_eksw"></label></td>
+                      </tr>
+                      <tr class="tzami0_show_hide" style="display:none;">
+                        <td class="td_left"><label><%= t 'translate.Inside_Outside_glass'  %>: </label></td>
+                        <td class=""><label class="table_tzami0"></label></td>
+                        <td class="table_tm"><label class="tm_tz_0"></label></td>
+                        <td class="td_right"><label class="timi_tzami0"></label></td>
+                      </tr>
+                      <tr class="tzami2_show_hide" style="display:none;">
+                        <td class="td_left"><label><%= t 'translate.Inside_glass'  %>: </label></td>
+                        <td class=""><label class="table_tzami2"></label></td>
+                        <td class="table_tm"><label class="tm_tz_2"></label></td>
+                        <td class="td_right"><label class="timi_tzami2"></label></td>
+                      </tr>
+                      <tr class="tzami_show_hide" style="display:none;">
+                        <td class="td_left"><label><%= t 'translate.Outside_glass'  %>: </label></td>
+                        <td class=""><label class="table_tzami"></label></td>
+                        <td class="table_tm"><label class="tm_tz_1"></label></td>
+                        <td class="td_right"><label class="timi_tzami"></label></td>
+                      </tr>
+                      <!--KAI AYTA ME IF EXISTS-->
+                      <% if (!@color_deksia.nil?) %>
+                      <tr>
+                        <td class="td_left"><label><%= t 'diastaseis.color_deksia'  %>: </label></td>
+                        <td class=""><label class="color_deksia"><%= @color_deksia.name %></label></td>
+                      </tr>
+                      <tr>
+                        <td class="td_left"><label><%= t 'diastaseis.color_aristera'  %>: </label></td>
+                        <td class=""><label class="color_aristera"><%= @color_aristera.name %></label></td>
+                      </tr>
+                      <tr>
+                        <td class="td_left"><label><%= t 'diastaseis.color_panw'  %>: </label></td>
+                        <td class=""><label class="color_panw"><%= @color_panw.name %></label></td>
+                      </tr>
+                      <tr>
+                        <td class="td_left"><label><%= t 'diastaseis.color_katw'  %>: </label></td>
+                        <td class=""><label class="color_katw"><%= @color_katw.name %></label></td>
+                      </tr>
+                      <% end %>
+                      <% if (!@color_fulou.nil?) %>
+                      <tr>
+                        <td class="td_left"><label><%= t 'diastaseis.color_fullou'  %>: </label></td>
+                        <td class=""><label class="color_fullou"><%= @color_fulou.name %></label></td>
+                        <td></td>
+                      </tr>
+                      <% end %>
+                      <tr class="neess_diastaseis">
+                        <td class="td_left"><label><%= t 'translate.Start_price'  %>: </label></td>
+                        <td></td>
+                        <td></td>
+                        <td class="td_right"><label class="arxiki_timi"></label></td>
+                      </tr>
+                    </table>
+                  </div>
+                  <!-- end πανω πινακα -->
+                  <!-- Κατω πινακας με extra -->
+                  <div class="table-responsive extra_table2" style="/*overflow-y:scroll; height:250px;*/">
+                    <table class="table table2 table-condensed">
+                      <tr class="neess_diastaseis neess_diastaseis_first">
+                        <td class="td_left"><label><%= t 'translate.New_dimensions'  %>: </label></td>
+                        <td class=""><label class="diastaseis_extra"><%= @width %>X<%= @height %></label></td>
+                        <td class="table_tm"> <label class="diastaseis_table_extra_tm"></label></td>
+                        <td class="td_right"><label class="nea_timi"></label></td>
+                      </tr>
+                      <tr class="lastixo_show_hide" style="display:none;">
+                        <td class="td_left"><label><%= t 'translate.lastixo'  %>: </label></td>
+                        <td class=""><label class="table_lastixo_black"><%= t 'translate.black_gasket'  %></label><label class="table_lastixo_grey"><%= t 'translate.grey_gasket'  %></label></td>
+                        <td class=""><label class=""></label></td>
+                        <td class="td_right"><label class="timi_lastixo"></label></td>
+                      </tr>
+                      <tr class="epik_show_hide" style="display:none;">
+                        <td class="td_left"><label><%= t 'translate.Top_mounted'  %>: </label></td>
+                        <td class=""><label class="table_epikathimeno"></label></td>
+                        <td class="table_tm"><label class="tm_ep"></label></td>
+                        <td class="td_right"><label class="timi_epikathimenou"></label></td>
+                      </tr>
+                      <tr class="epik_show_hide" style="display:none;">
+                        <td class="td_left"><label><%= t 'translate.Top_mounted' %> <%= t 'translate.Color' %>: </label></td>
+                        <td class=""><label class="table_xrwma_epikathimeno"></label></td>
+                        <td class=""><label class=""></label></td>
+                        <td class="td_right"><label class="table_timi_xrwma_epikathimenou"></label></td>
+                      </tr>
+                      <tr class="ekso_show_hide" style="display:none;">
+                        <td class="td_left"><label><%= t 'translate.Front_mounted'  %>: </label></td>
+                        <td class=""><label class="table_eksoteriko"></label></td>
+                        <td class="table_tm"><label class="tm_ek"></label></td>
+                        <td class="td_right"><label class="timi_eksoterikou"></label></td>
+                      </tr>
+                      <tr class="ekso_show_hide" style="display:none;">
+                        <td class="td_left"><label><%= t 'translate.Front_mounted' %> <%= t 'translate.Color'  %>: </label></td>
+                        <td class=""><label class="table_xrwma_eksoteriko"></label></td>
+                        <td class=""><label class=""></label></td>
+                        <td class="td_right"><label class="table_timi_xrwma_eksoterikou"></label></td>
+                      </tr>
+                      <tr class="persida_show_hide" style="display:none;">
+                        <td class="td_left"><label><%= t 'translate.Profil_for_shutters' %>: </label></td>
+                        <td class=""><label class="table_persida"></label></td>
+                        <td class="table_tm"><label class="tm_per"></label></td>
+                        <td class="td_right"><label class="timi_persida"></label></td>
+                      </tr>
+                      <tr class="persida_show_hide" style="display:none;">
+                        <td class="td_left"><label><%= t 'translate.Profil_for_shutters' %> <%= t 'translate.Color'  %>: </label></td>
+                        <td class=""><label class="table_xrwma_persida"></label></td>
+                        <td class=""><label class=""></label></td>
+                        <td class="td_right"><label class="table_timi_xrwma_persida"></label></td>
+                      </tr>
+                      <tr class="odoigos_show_hide" style="display:none;">
+                        <td class="td_left"><label><%= t 'translate.Rails'  %>: </label></td>
+                        <td class=""><label class="table_odoigos"></label></td>
+                        <td class="table_tm"><label class="tm_od"></label></td>
+                        <td class="td_right"><label class="timi_odoigos"></label></td>
+                      </tr>
+                      <tr class="odoigos_show_hide" style="display:none;">
+                        <td class="td_left"><label><%= t 'translate.Rails' %> <%= t 'translate.Color'  %>: </label></td>
+                        <td class=""><label class="table_xrwma_odoigos"></label></td>
+                        <td class=""><label class=""></label></td>
+                        <td class="td_right"><label class="table_timi_xrwma_odoigos"></label></td>
+                      </tr>
+                      <tr class="profil_deksia_1_show_hide" style="display:none;">
+                        <td class="td_left"><label><%= t 'translate.External_profile_right'  %>: </label></td>
+                        <td class=""><label class="table_profil_deksia_1"></label></td>
+                        <td class=""><label class="table_profil_deksia_1_arithmos"></label></td>
+                        <td class="td_right"><label class="timi_profil_deksia_1"></label></td>
+                      </tr>
+                      <tr class="profil_deksia_2_show_hide" style="display:none;">
+                        <td class="td_left"><label><%= t 'translate.External_profile_right'  %>: </label></td>
+                        <td class=""><label class="table_profil_deksia_2"></label></td>
+                        <td class=""><label class="table_profil_deksia_2_arithmos"></label></td>
+                        <td class="td_right"><label class="timi_profil_deksia_2"></label></td>
+                      </tr>
+                      <tr class="profil_deksia_3_show_hide" style="display:none;">
+                        <td class="td_left"><label><%= t 'translate.External_profile_right'  %>: </label></td>
+                        <td class=""><label class="table_profil_deksia_3"></label></td>
+                        <td class=""><label class="table_profil_deksia_3_arithmos"></label></td>
+                        <td class="td_right"><label class="timi_profil_deksia_3"></label></td>
+                      </tr>
+                      <tr class="profil_deksia_xrwma_show_hide" style="display:none;">
+                        <td class="td_left"><label><%= t 'translate.External_profile_right_color' %> </label></td>
+                        <td class=""><label class="table_profil_deksia_xrwma"></label></td>
+                        <td class=""><label class=""></label></td>
+                        <td class="td_right"><label class="timi_profil_deksia_xrwma"></label></td>
+                      </tr>
+                      <tr class="profil_aristera_1_show_hide" style="display:none;">
+                        <td class="td_left"><label><%= t 'translate.External_profile_left'  %>: </label></td>
+                        <td class=""><label class="table_profil_aristera_1"></label></td>
+                        <td class=""><label class="table_profil_aristera_1_arithmos"></label></td>
+                        <td class="td_right"><label class="timi_profil_aristera_1"></label></td>
+                      </tr>
+                      <tr class="profil_aristera_2_show_hide" style="display:none;">
+                        <td class="td_left"><label><%= t 'translate.External_profile_left'  %>: </label></td>
+                        <td class=""><label class="table_profil_aristera_2"></label></td>
+                        <td class=""><label class="table_profil_aristera_2_arithmos"></label></td>
+                        <td class="td_right"><label class="timi_profil_aristera_2"></label></td>
+                      </tr>
+                      <tr class="profil_aristera_3_show_hide" style="display:none;">
+                        <td class="td_left"><label><%= t 'translate.External_profile_left'  %>: </label></td>
+                        <td class=""><label class="table_profil_aristera_3"></label></td>
+                        <td class=""><label class="table_profil_aristera_3_arithmos"></label></td>
+                        <td class="td_right"><label class="timi_profil_aristera_3"></label></td>
+                      </tr>
+                      <tr class="profil_aristera_xrwma_show_hide" style="display:none;">
+                        <td class="td_left"><label><%= t 'translate.External_profile_Left_color' %> </label></td>
+                        <td class=""><label class="table_profil_aristera_xrwma"></label></td>
+                        <td class=""><label class=""></label></td>
+                        <td class="td_right"><label class="timi_profil_aristera_xrwma"></label></td>
+                      </tr>
+                      <tr class="profil_panw_1_show_hide" style="display:none;">
+                        <td class="td_left"><label><%= t 'translate.External_profile_top'  %>: </label></td>
+                        <td class=""><label class="table_profil_panw_1"></label></td>
+                        <td class=""><label class="table_profil_panw_1_arithmos"></label></td>
+                        <td class="td_right"><label class="timi_profil_panw_1"></label></td>
+                      </tr>
+                      <tr class="profil_panw_2_show_hide" style="display:none;">
+                        <td class="td_left"><label><%= t 'translate.External_profile_top'  %>: </label></td>
+                        <td class=""><label class="table_profil_panw_2"></label></td>
+                        <td class=""><label class="table_profil_panw_2_arithmos"></label></td>
+                        <td class="td_right"><label class="timi_profil_panw_2"></label></td>
+                      </tr>
+                      <tr class="profil_panw_3_show_hide" style="display:none;">
+                        <td class="td_left"><label><%= t 'translate.External_profile_top'  %>: </label></td>
+                        <td class=""><label class="table_profil_panw_3"></label></td>
+                        <td class=""><label class="table_profil_panw_3_arithmos"></label></td>
+                        <td class="td_right"><label class="timi_profil_panw_3"></label></td>
+                      </tr>
+                      <tr class="profil_panw_xrwma_show_hide" style="display:none;">
+                        <td class="td_left"><label><%= t 'translate.External_profile_Top_color' %> </label></td>
+                        <td class=""><label class="table_profil_panw_xrwma"></label></td>
+                        <td class=""><label class=""></label></td>
+                        <td class="td_right"><label class="timi_profil_panw_xrwma"></label></td>
+                      </tr>
+                      <tr class="profil_katw_1_show_hide" style="display:none;">
+                        <td class="td_left"><label><%= t 'translate.External_profile_bottom'  %>: </label></td>
+                        <td class=""><label class="table_profil_katw_1"></label></td>
+                        <td class=""><label class="table_profil_katw_1_arithmos"></label></td>
+                        <td class="td_right"><label class="timi_profil_katw_1"></label></td>
+                      </tr>
+                      <tr class="profil_katw_2_show_hide" style="display:none;">
+                        <td class="td_left"><label><%= t 'translate.External_profile_bottom'  %>: </label></td>
+                        <td class=""><label class="table_profil_katw_2"></label></td>
+                        <td class=""><label class="table_profil_katw_2_arithmos"></label></td>
+                        <td class="td_right"><label class="timi_profil_katw_2"></label></td>
+                      </tr>
+                      <tr class="profil_katw_3_show_hide" style="display:none;">
+                        <td class="td_left"><label><%= t 'translate.External_profile_bottom'  %>: </label></td>
+                        <td class=""><label class="table_profil_katw_3"></label></td>
+                        <td class=""><label class="table_profil_katw_3_arithmos"></label></td>
+                        <td class="td_right"><label class="timi_profil_katw_3"></label></td>
+                      </tr>
+                      <tr class="profil_katw_xrwma_show_hide" style="display:none;">
+                        <td class="td_left"><label><%= t 'translate.External_profile_Bottom_color' %> </label></td>
+                        <td class=""><label class="table_profil_katw_xrwma"></label></td>
+                        <td class=""><label class=""></label></td>
+                        <td class="td_right"><label class="timi_profil_katw_xrwma"></label></td>
+                      </tr>
+                      <tr class="typos_katw_1_show_hide" style="display:none;">
+                        <td class="td_left"><label><%= t 'translate.Types'  %>: </label></td>
+                        <td class=""><label class="table_typos_katw_1"></label></td>
+                        <td class=""><label class="table_typos_katw_1_arithmos"></label></td>
+                        <td class="td_right"><label class="timi_typos_katw_1"></label></td>
+                      </tr>
+                      <tr class="typos_katw_2_show_hide" style="display:none;">
+                        <td class="td_left"><label><%= t 'translate.Types'  %>: </label></td>
+                        <td class=""><label class="table_typos_katw_2"></label></td>
+                        <td class=""><label class="table_typos_katw_2_arithmos"></label></td>
+                        <td class="td_right"><label class="timi_typos_katw_2"></label></td>
+                      </tr>
+                      <tr class="typos_katw_3_show_hide" style="display:none;">
+                        <td class="td_left"><label><%= t 'translate.Types'  %>: </label></td>
+                        <td class=""><label class="table_typos_katw_3"></label></td>
+                        <td class=""><label class="table_typos_katw_3_arithmos"></label></td>
+                        <td class="td_right"><label class="timi_typos_katw_3"></label></td>
+                      </tr>
+                      <!--
+                      <tr class="profil_typos_xrwma_show_hide" style="display:none;">
+                        <td class="td_left"><label><%= t 'translate.Type_color' %> </label></td>
+                        <td class=""><label class="table_profil_typos_xrwma"></label></td>
+                        <td class=""><label class=""></label></td>
+                        <td class="td_right"><label class="timi_profil_typos_xrwma"></label></td>
+                      </tr>
+                      -->
+                      <tr class="prostasia_show_hide" style="display:none;">
+                        <td class="td_left"><label><%= t 'translate.Protection' %> </label></td>
+                        <td class=""><label class="table_prostasia"></label></td>
+                        <td class=""><label class=""></label></td>
+                        <td class="td_right"><label class="timi_prostasia"></label></td>
+                      </tr>
+					
+                      <tr class="window_still_show_hide" style="display:none;">
+                        <td class="td_left"><label><%= t 'translate.WindowStill' %> </label></td>
+                        <td class=""><label class="table_window_still"></label></td>
+                        <td class=""><label class=""></label></td>
+                        <td class="td_right"><label class="timi_window_still"></label></td>
+                      </tr>
+					
+                      <tr class="roll_rat_show_hide" style="display:none;">
+                        <td class="td_left"><label><%= t 'translate.RollRat' %> </label></td>
+                        <td class=""><label class="table_roll_rat"></label></td>
+                        <td class=""><label class=""></label></td>
+                        <td class="td_right"><label class="timi_roll_rat"></label></td>
+                      </tr>
+					
+                      <tr class="roll_rlt_show_hide" style="display:none;">
+                        <td class="td_left"><label><%= t 'translate.RollRlt' %> </label></td>
+                        <td class=""><label class="table_roll_rlt"></label></td>
+                        <td class=""><label class=""></label></td>
+                        <td class="td_right"><label class="timi_roll_rlt"></label></td>
+                      </tr>
+					
+                      <tr class="roll_rdm_show_hide" style="display:none;">
+                        <td class="td_left"><label><%= t 'translate.RollRdm' %> </label></td>
+                        <td class=""><label class="table_roll_rdm"></label></td>
+                        <td class=""><label class=""></label></td>
+                        <td class="td_right"><label class="timi_roll_rdm"></label></td>
+                      </tr>
+					
+                      <tr class="roll_pss_show_hide" style="display:none;">
+                        <td class="td_left"><label><%= t 'translate.RollPss' %> </label></td>
+                        <td class=""><label class="table_roll_pss"></label></td>
+                        <td class=""><label class=""></label></td>
+                        <td class="td_right"><label class="timi_roll_pss"></label></td>
+                      </tr>
+					
+                      <tr class="roll_pfm_show_hide" style="display:none;">
+                        <td class="td_left"><label><%= t 'translate.RollPfm' %> </label></td>
+                        <td class=""><label class="table_roll_pfm"></label></td>
+                        <td class=""><label class=""></label></td>
+                        <td class="td_right"><label class="timi_roll_pfm"></label></td>
+                      </tr>
+                    
+                      <tr class="neess_diastaseis">
+                        <td class="td_left"><label><%= t 'translate.Final_price'  %>: </label></td>
+                        <td></td>
+                        <td class=""><label class=""></label></td>
+                        <td class="td_right"><label class="teliki_timi"></label></td>
+                      </tr>
+                      <!--KAI AYTA ME IF EXISTS-->
+                    </table>
+                  </div>
+      </div>
+      <!--End modal για τιμες-->
       
 
       <!-- Times me info apeuthias molis to patisw
@@ -1334,393 +1706,6 @@
         </div>
       </div>
     </div>
-    <!-- Μodal για τιμες -->
-    <div class="modal modal_times " id="myModal_times" role="dialog"  >
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h4 class="modal-title">
-            <b><%= t 'translate.Price' %></b>
-            <button type="button" class="btn btn-primary close_price"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
-            </h4>
-          </div>
-          <div class="modal-body">
-                <!-- Πίνακας πανω με αρχικες πληροφοριες -->
-                <div class="table-responsive extra_table1" style="">
-                  <table class="table table1 table-condensed">
-                    <tr>
-                      <td class="td_left"><label><%= t 'translate.Open_Category'  %>:</label></td>
-                      <td class="open_categorie_table"><label></label></td>
-                      <td></td>
-                      <td></td>
-                    </tr>
-                    <tr>
-                      <td class="pin1h td_left"><label><%= t 'translate.Profile_systems'  %>: </label></td>
-                      <td class="pin1"><label class="material_table"></label></td>
-                      <td></td>
-                      <td></td>
-                    </tr>
-                    <tr>
-                      <td class="pin2h td_left"><label><%= t 'translate.constructor'  %>: </label></td>
-                      <td class="pin2"><label class="constructor_table"></label></td>
-                      <td></td>
-                      <td></td>
-                    </tr>
-                    <tr>
-                      <td class="pin3h td_left"><label><%= t 'translate.System_A'  %>: </label></td>
-                      <td class="pin3"><label class="system_table"></label></td>
-                      <td></td>
-                      <td></td>
-                    </tr>
-                    <tr>
-                      <td class="td_left"><label><%= t 'translate.System_B'  %>: </label></td>
-                      <td class=""><label class="line_table"></label></td>
-                      <td></td>
-                      <td></td>
-                    </tr>
-                    <tr>
-                      <td class="td_left"><label><%= t 'translate.Leaf'  %>: </label></td>
-                      <td class=""><label class="leaf_table"></label></td>
-                      <td></td>
-                      <td></td>
-                    </tr>
-                    <tr>
-                      <td class="td_left"><label><%= t 'translate.Open_type'  %>: </label></td>
-                      <td class=""><label class="open_type_table"></label></td>
-                      <td></td>
-                      <td></td>
-                    </tr>
-                    <!--
-                    <tr>
-                      <td class="td_left"><label><%= t 'material_pinakas.diastaseis'  %>: </label></td>
-                      <td class=""><label class="diastaseis_table"><%= @width %> X <%= @height %></label></td>
-                      <td class="table_tm"> <label class="diastaseis_table_tm"></label></td>
-                      <td></td>
-                    </tr>
-                    -->
-                    <tr class="neess_diastaseis">
-                      <td class="td_left"><label><%= t 'translate.Start_price'  %>: </label></td>
-                      <td class=""><label class="diastaseis_table"><%= @width %> X <%= @height %></label></td>
-                      <td class="table_tm"> <label class="diastaseis_table_tm"></label></td>
-                      <td class="td_right"><label class="super_apli_timi"></label></td>
-                    </tr>
-                    <tr>
-                      <td class="td_left"><label><%= t 'translate.Inside_color'  %>: </label></td>
-                      <td class=""><label class="color_main"></label></td>
-                      <td class="table_tm"><label class="ep_mesa_p"></label></td>
-                      <td class="td_right"><label class="ep_mesa"></label></td>
-                    </tr>
-                    <tr>
-                      <td class="td_left"><label><%= t 'translate.Outside_color'  %>: </label></td>
-                      <td class=""><label class="color_main_eksw"></label></td>
-                      <td class="table_tm"><label class="ep_eksw_p"></label></td>
-                      <td class="td_right"><label class="ep_eksw"></label></td>
-                    </tr>
-                    <tr class="tzami0_show_hide" style="display:none;">
-                      <td class="td_left"><label><%= t 'translate.Inside_Outside_glass'  %>: </label></td>
-                      <td class=""><label class="table_tzami0"></label></td>
-                      <td class="table_tm"><label class="tm_tz_0"></label></td>
-                      <td class="td_right"><label class="timi_tzami0"></label></td>
-                    </tr>
-                    <tr class="tzami2_show_hide" style="display:none;">
-                      <td class="td_left"><label><%= t 'translate.Inside_glass'  %>: </label></td>
-                      <td class=""><label class="table_tzami2"></label></td>
-                      <td class="table_tm"><label class="tm_tz_2"></label></td>
-                      <td class="td_right"><label class="timi_tzami2"></label></td>
-                    </tr>
-                    <tr class="tzami_show_hide" style="display:none;">
-                      <td class="td_left"><label><%= t 'translate.Outside_glass'  %>: </label></td>
-                      <td class=""><label class="table_tzami"></label></td>
-                      <td class="table_tm"><label class="tm_tz_1"></label></td>
-                      <td class="td_right"><label class="timi_tzami"></label></td>
-                    </tr>
-                    <!--KAI AYTA ME IF EXISTS-->
-                    <% if (!@color_deksia.nil?) %>
-                    <tr>
-                      <td class="td_left"><label><%= t 'diastaseis.color_deksia'  %>: </label></td>
-                      <td class=""><label class="color_deksia"><%= @color_deksia.name %></label></td>
-                    </tr>
-                    <tr>
-                      <td class="td_left"><label><%= t 'diastaseis.color_aristera'  %>: </label></td>
-                      <td class=""><label class="color_aristera"><%= @color_aristera.name %></label></td>
-                    </tr>
-                    <tr>
-                      <td class="td_left"><label><%= t 'diastaseis.color_panw'  %>: </label></td>
-                      <td class=""><label class="color_panw"><%= @color_panw.name %></label></td>
-                    </tr>
-                    <tr>
-                      <td class="td_left"><label><%= t 'diastaseis.color_katw'  %>: </label></td>
-                      <td class=""><label class="color_katw"><%= @color_katw.name %></label></td>
-                    </tr>
-                    <% end %>
-                    <% if (!@color_fulou.nil?) %>
-                    <tr>
-                      <td class="td_left"><label><%= t 'diastaseis.color_fullou'  %>: </label></td>
-                      <td class=""><label class="color_fullou"><%= @color_fulou.name %></label></td>
-                      <td></td>
-                    </tr>
-                    <% end %>
-                    <tr class="neess_diastaseis">
-                      <td class="td_left"><label><%= t 'translate.Start_price'  %>: </label></td>
-                      <td></td>
-                      <td></td>
-                      <td class="td_right"><label class="arxiki_timi"></label></td>
-                    </tr>
-                  </table>
-                </div>
-                <!-- end πανω πινακα -->
-                <!-- Κατω πινακας με extra -->
-                <div class="table-responsive extra_table2" style="/*overflow-y:scroll; height:250px;*/">
-                  <table class="table table2 table-condensed">
-                    <tr class="neess_diastaseis">
-                      <td class="td_left"><label><%= t 'translate.New_dimensions'  %>: </label></td>
-                      <td class=""><label class="diastaseis_extra"><%= @width %>X<%= @height %></label></td>
-                      <td class="table_tm"> <label class="diastaseis_table_extra_tm"></label></td>
-                      <td class="td_right"><label class="nea_timi"></label></td>
-                    </tr>
-                    <tr class="lastixo_show_hide" style="display:none;">
-                      <td class="td_left"><label><%= t 'translate.lastixo'  %>: </label></td>
-                      <td class=""><label class="table_lastixo_black"><%= t 'translate.black_gasket'  %></label><label class="table_lastixo_grey"><%= t 'translate.grey_gasket'  %></label></td>
-                      <td class=""><label class=""></label></td>
-                      <td class="td_right"><label class="timi_lastixo"></label></td>
-                    </tr>
-                    <tr class="epik_show_hide" style="display:none;">
-                      <td class="td_left"><label><%= t 'translate.Top_mounted'  %>: </label></td>
-                      <td class=""><label class="table_epikathimeno"></label></td>
-                      <td class="table_tm"><label class="tm_ep"></label></td>
-                      <td class="td_right"><label class="timi_epikathimenou"></label></td>
-                    </tr>
-                    <tr class="epik_show_hide" style="display:none;">
-                      <td class="td_left"><label><%= t 'translate.Top_mounted' %> <%= t 'translate.Color' %>: </label></td>
-                      <td class=""><label class="table_xrwma_epikathimeno"></label></td>
-                      <td class=""><label class=""></label></td>
-                      <td class="td_right"><label class="table_timi_xrwma_epikathimenou"></label></td>
-                    </tr>
-                    <tr class="ekso_show_hide" style="display:none;">
-                      <td class="td_left"><label><%= t 'translate.Front_mounted'  %>: </label></td>
-                      <td class=""><label class="table_eksoteriko"></label></td>
-                      <td class="table_tm"><label class="tm_ek"></label></td>
-                      <td class="td_right"><label class="timi_eksoterikou"></label></td>
-                    </tr>
-                    <tr class="ekso_show_hide" style="display:none;">
-                      <td class="td_left"><label><%= t 'translate.Front_mounted' %> <%= t 'translate.Color'  %>: </label></td>
-                      <td class=""><label class="table_xrwma_eksoteriko"></label></td>
-                      <td class=""><label class=""></label></td>
-                      <td class="td_right"><label class="table_timi_xrwma_eksoterikou"></label></td>
-                    </tr>
-                    <tr class="persida_show_hide" style="display:none;">
-                      <td class="td_left"><label><%= t 'translate.Profil_for_shutters' %>: </label></td>
-                      <td class=""><label class="table_persida"></label></td>
-                      <td class="table_tm"><label class="tm_per"></label></td>
-                      <td class="td_right"><label class="timi_persida"></label></td>
-                    </tr>
-                    <tr class="persida_show_hide" style="display:none;">
-                      <td class="td_left"><label><%= t 'translate.Profil_for_shutters' %> <%= t 'translate.Color'  %>: </label></td>
-                      <td class=""><label class="table_xrwma_persida"></label></td>
-                      <td class=""><label class=""></label></td>
-                      <td class="td_right"><label class="table_timi_xrwma_persida"></label></td>
-                    </tr>
-                    <tr class="odoigos_show_hide" style="display:none;">
-                      <td class="td_left"><label><%= t 'translate.Rails'  %>: </label></td>
-                      <td class=""><label class="table_odoigos"></label></td>
-                      <td class="table_tm"><label class="tm_od"></label></td>
-                      <td class="td_right"><label class="timi_odoigos"></label></td>
-                    </tr>
-                    <tr class="odoigos_show_hide" style="display:none;">
-                      <td class="td_left"><label><%= t 'translate.Rails' %> <%= t 'translate.Color'  %>: </label></td>
-                      <td class=""><label class="table_xrwma_odoigos"></label></td>
-                      <td class=""><label class=""></label></td>
-                      <td class="td_right"><label class="table_timi_xrwma_odoigos"></label></td>
-                    </tr>
-                    <tr class="profil_deksia_1_show_hide" style="display:none;">
-                      <td class="td_left"><label><%= t 'translate.External_profile_right'  %>: </label></td>
-                      <td class=""><label class="table_profil_deksia_1"></label></td>
-                      <td class=""><label class="table_profil_deksia_1_arithmos"></label></td>
-                      <td class="td_right"><label class="timi_profil_deksia_1"></label></td>
-                    </tr>
-                    <tr class="profil_deksia_2_show_hide" style="display:none;">
-                      <td class="td_left"><label><%= t 'translate.External_profile_right'  %>: </label></td>
-                      <td class=""><label class="table_profil_deksia_2"></label></td>
-                      <td class=""><label class="table_profil_deksia_2_arithmos"></label></td>
-                      <td class="td_right"><label class="timi_profil_deksia_2"></label></td>
-                    </tr>
-                    <tr class="profil_deksia_3_show_hide" style="display:none;">
-                      <td class="td_left"><label><%= t 'translate.External_profile_right'  %>: </label></td>
-                      <td class=""><label class="table_profil_deksia_3"></label></td>
-                      <td class=""><label class="table_profil_deksia_3_arithmos"></label></td>
-                      <td class="td_right"><label class="timi_profil_deksia_3"></label></td>
-                    </tr>
-                    <tr class="profil_deksia_xrwma_show_hide" style="display:none;">
-                      <td class="td_left"><label><%= t 'translate.External_profile_right_color' %> </label></td>
-                      <td class=""><label class="table_profil_deksia_xrwma"></label></td>
-                      <td class=""><label class=""></label></td>
-                      <td class="td_right"><label class="timi_profil_deksia_xrwma"></label></td>
-                    </tr>
-                    <tr class="profil_aristera_1_show_hide" style="display:none;">
-                      <td class="td_left"><label><%= t 'translate.External_profile_left'  %>: </label></td>
-                      <td class=""><label class="table_profil_aristera_1"></label></td>
-                      <td class=""><label class="table_profil_aristera_1_arithmos"></label></td>
-                      <td class="td_right"><label class="timi_profil_aristera_1"></label></td>
-                    </tr>
-                    <tr class="profil_aristera_2_show_hide" style="display:none;">
-                      <td class="td_left"><label><%= t 'translate.External_profile_left'  %>: </label></td>
-                      <td class=""><label class="table_profil_aristera_2"></label></td>
-                      <td class=""><label class="table_profil_aristera_2_arithmos"></label></td>
-                      <td class="td_right"><label class="timi_profil_aristera_2"></label></td>
-                    </tr>
-                    <tr class="profil_aristera_3_show_hide" style="display:none;">
-                      <td class="td_left"><label><%= t 'translate.External_profile_left'  %>: </label></td>
-                      <td class=""><label class="table_profil_aristera_3"></label></td>
-                      <td class=""><label class="table_profil_aristera_3_arithmos"></label></td>
-                      <td class="td_right"><label class="timi_profil_aristera_3"></label></td>
-                    </tr>
-                    <tr class="profil_aristera_xrwma_show_hide" style="display:none;">
-                      <td class="td_left"><label><%= t 'translate.External_profile_Left_color' %> </label></td>
-                      <td class=""><label class="table_profil_aristera_xrwma"></label></td>
-                      <td class=""><label class=""></label></td>
-                      <td class="td_right"><label class="timi_profil_aristera_xrwma"></label></td>
-                    </tr>
-                    <tr class="profil_panw_1_show_hide" style="display:none;">
-                      <td class="td_left"><label><%= t 'translate.External_profile_top'  %>: </label></td>
-                      <td class=""><label class="table_profil_panw_1"></label></td>
-                      <td class=""><label class="table_profil_panw_1_arithmos"></label></td>
-                      <td class="td_right"><label class="timi_profil_panw_1"></label></td>
-                    </tr>
-                    <tr class="profil_panw_2_show_hide" style="display:none;">
-                      <td class="td_left"><label><%= t 'translate.External_profile_top'  %>: </label></td>
-                      <td class=""><label class="table_profil_panw_2"></label></td>
-                      <td class=""><label class="table_profil_panw_2_arithmos"></label></td>
-                      <td class="td_right"><label class="timi_profil_panw_2"></label></td>
-                    </tr>
-                    <tr class="profil_panw_3_show_hide" style="display:none;">
-                      <td class="td_left"><label><%= t 'translate.External_profile_top'  %>: </label></td>
-                      <td class=""><label class="table_profil_panw_3"></label></td>
-                      <td class=""><label class="table_profil_panw_3_arithmos"></label></td>
-                      <td class="td_right"><label class="timi_profil_panw_3"></label></td>
-                    </tr>
-                    <tr class="profil_panw_xrwma_show_hide" style="display:none;">
-                      <td class="td_left"><label><%= t 'translate.External_profile_Top_color' %> </label></td>
-                      <td class=""><label class="table_profil_panw_xrwma"></label></td>
-                      <td class=""><label class=""></label></td>
-                      <td class="td_right"><label class="timi_profil_panw_xrwma"></label></td>
-                    </tr>
-                    <tr class="profil_katw_1_show_hide" style="display:none;">
-                      <td class="td_left"><label><%= t 'translate.External_profile_bottom'  %>: </label></td>
-                      <td class=""><label class="table_profil_katw_1"></label></td>
-                      <td class=""><label class="table_profil_katw_1_arithmos"></label></td>
-                      <td class="td_right"><label class="timi_profil_katw_1"></label></td>
-                    </tr>
-                    <tr class="profil_katw_2_show_hide" style="display:none;">
-                      <td class="td_left"><label><%= t 'translate.External_profile_bottom'  %>: </label></td>
-                      <td class=""><label class="table_profil_katw_2"></label></td>
-                      <td class=""><label class="table_profil_katw_2_arithmos"></label></td>
-                      <td class="td_right"><label class="timi_profil_katw_2"></label></td>
-                    </tr>
-                    <tr class="profil_katw_3_show_hide" style="display:none;">
-                      <td class="td_left"><label><%= t 'translate.External_profile_bottom'  %>: </label></td>
-                      <td class=""><label class="table_profil_katw_3"></label></td>
-                      <td class=""><label class="table_profil_katw_3_arithmos"></label></td>
-                      <td class="td_right"><label class="timi_profil_katw_3"></label></td>
-                    </tr>
-                    <tr class="profil_katw_xrwma_show_hide" style="display:none;">
-                      <td class="td_left"><label><%= t 'translate.External_profile_Bottom_color' %> </label></td>
-                      <td class=""><label class="table_profil_katw_xrwma"></label></td>
-                      <td class=""><label class=""></label></td>
-                      <td class="td_right"><label class="timi_profil_katw_xrwma"></label></td>
-                    </tr>
-                    <tr class="typos_katw_1_show_hide" style="display:none;">
-                      <td class="td_left"><label><%= t 'translate.Types'  %>: </label></td>
-                      <td class=""><label class="table_typos_katw_1"></label></td>
-                      <td class=""><label class="table_typos_katw_1_arithmos"></label></td>
-                      <td class="td_right"><label class="timi_typos_katw_1"></label></td>
-                    </tr>
-                    <tr class="typos_katw_2_show_hide" style="display:none;">
-                      <td class="td_left"><label><%= t 'translate.Types'  %>: </label></td>
-                      <td class=""><label class="table_typos_katw_2"></label></td>
-                      <td class=""><label class="table_typos_katw_2_arithmos"></label></td>
-                      <td class="td_right"><label class="timi_typos_katw_2"></label></td>
-                    </tr>
-                    <tr class="typos_katw_3_show_hide" style="display:none;">
-                      <td class="td_left"><label><%= t 'translate.Types'  %>: </label></td>
-                      <td class=""><label class="table_typos_katw_3"></label></td>
-                      <td class=""><label class="table_typos_katw_3_arithmos"></label></td>
-                      <td class="td_right"><label class="timi_typos_katw_3"></label></td>
-                    </tr>
-                    <!--
-                    <tr class="profil_typos_xrwma_show_hide" style="display:none;">
-                      <td class="td_left"><label><%= t 'translate.Type_color' %> </label></td>
-                      <td class=""><label class="table_profil_typos_xrwma"></label></td>
-                      <td class=""><label class=""></label></td>
-                      <td class="td_right"><label class="timi_profil_typos_xrwma"></label></td>
-                    </tr>
-                    -->
-                    <tr class="prostasia_show_hide" style="display:none;">
-                      <td class="td_left"><label><%= t 'translate.Protection' %> </label></td>
-                      <td class=""><label class="table_prostasia"></label></td>
-                      <td class=""><label class=""></label></td>
-                      <td class="td_right"><label class="timi_prostasia"></label></td>
-                    </tr>
-					
-                    <tr class="window_still_show_hide" style="display:none;">
-                      <td class="td_left"><label><%= t 'translate.WindowStill' %> </label></td>
-                      <td class=""><label class="table_window_still"></label></td>
-                      <td class=""><label class=""></label></td>
-                      <td class="td_right"><label class="timi_window_still"></label></td>
-                    </tr>
-					
-                    <tr class="roll_rat_show_hide" style="display:none;">
-                      <td class="td_left"><label><%= t 'translate.RollRat' %> </label></td>
-                      <td class=""><label class="table_roll_rat"></label></td>
-                      <td class=""><label class=""></label></td>
-                      <td class="td_right"><label class="timi_roll_rat"></label></td>
-                    </tr>
-					
-                    <tr class="roll_rlt_show_hide" style="display:none;">
-                      <td class="td_left"><label><%= t 'translate.RollRlt' %> </label></td>
-                      <td class=""><label class="table_roll_rlt"></label></td>
-                      <td class=""><label class=""></label></td>
-                      <td class="td_right"><label class="timi_roll_rlt"></label></td>
-                    </tr>
-					
-                    <tr class="roll_rdm_show_hide" style="display:none;">
-                      <td class="td_left"><label><%= t 'translate.RollRdm' %> </label></td>
-                      <td class=""><label class="table_roll_rdm"></label></td>
-                      <td class=""><label class=""></label></td>
-                      <td class="td_right"><label class="timi_roll_rdm"></label></td>
-                    </tr>
-					
-                    <tr class="roll_pss_show_hide" style="display:none;">
-                      <td class="td_left"><label><%= t 'translate.RollPss' %> </label></td>
-                      <td class=""><label class="table_roll_pss"></label></td>
-                      <td class=""><label class=""></label></td>
-                      <td class="td_right"><label class="timi_roll_pss"></label></td>
-                    </tr>
-					
-                    <tr class="roll_pfm_show_hide" style="display:none;">
-                      <td class="td_left"><label><%= t 'translate.RollPfm' %> </label></td>
-                      <td class=""><label class="table_roll_pfm"></label></td>
-                      <td class=""><label class=""></label></td>
-                      <td class="td_right"><label class="timi_roll_pfm"></label></td>
-                    </tr>
-                    
-                    <tr class="neess_diastaseis">
-                      <td class="td_left"><label><%= t 'translate.Final_price'  %>: </label></td>
-                      <td></td>
-                      <td class=""><label class=""></label></td>
-                      <td class="td_right"><label class="teliki_timi"></label></td>
-                    </tr>
-                    <!--KAI AYTA ME IF EXISTS-->
-                  </table>
-                </div>
-          
-          </div>
-          <div class="modal-footer">
-            <!--<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>-->
-          </div>
-        </div>
-      </div>
-    </div>
-    <!--End modal για τιμες-->
         <!-- Μodal για confirm -->
     <div class="modal modal_confirm " id="myModal_confirm" role="dialog"  >
       <div class="modal-dialog">
@@ -4094,6 +4079,10 @@
                       profil_deksia_1_json_arithmos = ti_epeleksa;
                       //
                       profil_deksia_array.push(profil_deksia_1);
+					  
+					  $('.modal_times .profil_deksia_xrwma_show_hide').insertAfter('.modal_times .neess_diastaseis_first');
+                      $('.modal_times .profil_deksia_1_show_hide').insertAfter('.modal_times .neess_diastaseis_first');
+		 			  
                   }else if( profil_deksia_counter == 2){
                     profil_deksia_2 = new deksia_profil(profil_deksia_new, ti_epeleksa, profil_deksia_counter);
                     //sunolika_profil_deksia = sunolika_profil_deksia + ti_epeleksa;
@@ -4102,6 +4091,10 @@
                     profil_deksia_2_json_arithmos = ti_epeleksa;
                     //
                     profil_deksia_array.push(profil_deksia_2);
+					
+					$('.modal_times .profil_deksia_xrwma_show_hide').insertAfter('.modal_times .neess_diastaseis_first');
+					$('.modal_times .profil_deksia_1_show_hide').insertAfter('.modal_times .neess_diastaseis_first');
+					$('.modal_times .profil_deksia_2_show_hide').insertAfter('.modal_times .neess_diastaseis_first');
                   }else if( profil_deksia_counter == 3){
                     profil_deksia_3 = new deksia_profil(profil_deksia_new, ti_epeleksa, profil_deksia_counter);
                     //sunolika_profil_deksia = sunolika_profil_deksia + ti_epeleksa;
@@ -4110,6 +4103,11 @@
                     profil_deksia_3_json_arithmos = ti_epeleksa;
                     //
                     profil_deksia_array.push(profil_deksia_3);
+					
+					$('.modal_times .profil_deksia_xrwma_show_hide').insertAfter('.modal_times .neess_diastaseis_first');
+                    $('.modal_times .profil_deksia_1_show_hide').insertAfter('.modal_times .neess_diastaseis_first');
+					$('.modal_times .profil_deksia_2_show_hide').insertAfter('.modal_times .neess_diastaseis_first');
+					$('.modal_times .profil_deksia_3_show_hide').insertAfter('.modal_times .neess_diastaseis_first');
                   }
           
                   }//end if ελεγχου <= 3
@@ -4614,6 +4612,9 @@
                       profil_aristera_1_json_arithmos = ti_epeleksa_a;
                       //
                       profil_aristera_array.push(profil_aristera_1);
+					  
+  					$('.modal_times .profil_aristera_xrwma_show_hide').insertAfter('.modal_times .neess_diastaseis_first');
+  					$('.modal_times .profil_aristera_1_show_hide').insertAfter('.modal_times .neess_diastaseis_first');
                   }else if( profil_aristera_counter == 2){
                     profil_aristera_2 = new aristera_profil(profil_aristera_new, ti_epeleksa_a, profil_aristera_counter);
                     //sunolika_profil_deksia = sunolika_profil_deksia + ti_epeleksa;
@@ -4622,6 +4623,10 @@
                     profil_aristera_2_json_arithmos = ti_epeleksa_a;
                     //
                     profil_aristera_array.push(profil_aristera_2);
+					
+					$('.modal_times .profil_aristera_xrwma_show_hide').insertAfter('.modal_times .neess_diastaseis_first');
+					$('.modal_times .profil_aristera_1_show_hide').insertAfter('.modal_times .neess_diastaseis_first');
+					$('.modal_times .profil_aristera_2_show_hide').insertAfter('.modal_times .neess_diastaseis_first');
                   }else if( profil_aristera_counter == 3){
                     profil_aristera_3 = new aristera_profil(profil_aristera_new, ti_epeleksa_a, profil_aristera_counter);
                     //sunolika_profil_deksia = sunolika_profil_deksia + ti_epeleksa;
@@ -4630,6 +4635,11 @@
                     profil_aristera_3_json_arithmos = ti_epeleksa_a;
                     //
                     profil_aristera_array.push(profil_aristera_3);
+					
+					$('.modal_times .profil_aristera_xrwma_show_hide').insertAfter('.modal_times .neess_diastaseis_first');
+					$('.modal_times .profil_aristera_1_show_hide').insertAfter('.modal_times .neess_diastaseis_first');
+					$('.modal_times .profil_aristera_2_show_hide').insertAfter('.modal_times .neess_diastaseis_first');
+					$('.modal_times .profil_aristera_3_show_hide').insertAfter('.modal_times .neess_diastaseis_first');
                   }
           
                   }//end if ελεγχου <= 3
@@ -5127,6 +5137,9 @@
                       profil_panw_1_json_arithmos = ti_epeleksa_p;
                       //
                       profil_panw_array.push(profil_panw_1);
+					  
+  					$('.modal_times .profil_panw_xrwma_show_hide').insertAfter('.modal_times .neess_diastaseis_first');
+  					$('.modal_times .profil_panw_1_show_hide').insertAfter('.modal_times .neess_diastaseis_first');
                   }else if( profil_panw_counter == 2){
                     profil_panw_2 = new panw_profil(profil_panw_new, ti_epeleksa_p, profil_panw_counter);
                     //sunolika_profil_deksia = sunolika_profil_deksia + ti_epeleksa;
@@ -5135,6 +5148,10 @@
                     profil_panw_2_json_arithmos = ti_epeleksa_p;
                     //
                     profil_panw_array.push(profil_panw_2);
+					
+					$('.modal_times .profil_panw_xrwma_show_hide').insertAfter('.modal_times .neess_diastaseis_first');
+					$('.modal_times .profil_panw_1_show_hide').insertAfter('.modal_times .neess_diastaseis_first');
+					$('.modal_times .profil_panw_2_show_hide').insertAfter('.modal_times .neess_diastaseis_first');
                   }else if( profil_panw_counter == 3){
                     profil_panw_3 = new panw_profil(profil_panw_new, ti_epeleksa_p, profil_panw_counter);
                     //sunolika_profil_deksia = sunolika_profil_deksia + ti_epeleksa;
@@ -5143,6 +5160,11 @@
                     profil_panw_3_json_arithmos = ti_epeleksa_p;
                     //
                     profil_panw_array.push(profil_panw_3);
+					
+					$('.modal_times .profil_panw_xrwma_show_hide').insertAfter('.modal_times .neess_diastaseis_first');
+					$('.modal_times .profil_panw_1_show_hide').insertAfter('.modal_times .neess_diastaseis_first');
+					$('.modal_times .profil_panw_2_show_hide').insertAfter('.modal_times .neess_diastaseis_first');
+					$('.modal_times .profil_panw_3_show_hide').insertAfter('.modal_times .neess_diastaseis_first');
                   }
           
                   }//end if ελεγχου <= 3
@@ -5638,6 +5660,9 @@
                       profil_katw_1_json_arithmos = ti_epeleksa_k;
                       //
                       profil_katw_array.push(profil_katw_1);
+					  
+  					$('.modal_times .profil_katw_xrwma_show_hide').insertAfter('.modal_times .neess_diastaseis_first');
+  					$('.modal_times .profil_katw_1_show_hide').insertAfter('.modal_times .neess_diastaseis_first');
                   }else if( profil_katw_counter == 2){
                     profil_katw_2 = new katw_profil(profil_katw_new, ti_epeleksa_k, profil_katw_counter);
                     //sunolika_profil_deksia = sunolika_profil_deksia + ti_epeleksa;
@@ -5646,6 +5671,10 @@
                     profil_katw_2_json_arithmos = ti_epeleksa_k;
                     //
                     profil_katw_array.push(profil_katw_2);
+					
+					$('.modal_times .profil_katw_xrwma_show_hide').insertAfter('.modal_times .neess_diastaseis_first');
+					$('.modal_times .profil_katw_1_show_hide').insertAfter('.modal_times .neess_diastaseis_first');
+					$('.modal_times .profil_katw_2_show_hide').insertAfter('.modal_times .neess_diastaseis_first');
                   }else if( profil_katw_counter == 3){
                     profil_katw_3 = new katw_profil(profil_katw_new, ti_epeleksa_k, profil_katw_counter);
                     //sunolika_profil_deksia = sunolika_profil_deksia + ti_epeleksa;
@@ -5654,6 +5683,11 @@
                     profil_katw_3_json_arithmos = ti_epeleksa_k;
                     //
                     profil_katw_array.push(profil_katw_3);
+					
+					$('.modal_times .profil_katw_xrwma_show_hide').insertAfter('.modal_times .neess_diastaseis_first');
+					$('.modal_times .profil_katw_1_show_hide').insertAfter('.modal_times .neess_diastaseis_first');
+					$('.modal_times .profil_katw_2_show_hide').insertAfter('.modal_times .neess_diastaseis_first');
+					$('.modal_times .profil_katw_3_show_hide').insertAfter('.modal_times .neess_diastaseis_first');
                   }
           
                   }//end if ελεγχου <= 3
@@ -6028,18 +6062,15 @@
     profil_typos_3_id = "0";
     profil_typos_3_json_arithmos = "0";
     
-
     function typos_profil(id, arithmo, seira) {
         this.id = id;
         this.arithmo = arithmo;
         this.seira = seira;
     }
-
     
     profil_typos_new = 0;
     $(".extra").on("click", ".typos", function() {
-
-
+		$('.modal_times .typos_katw_1_show_hide').insertAfter('.modal_times .neess_diastaseis_first');
       
       if(profil_typos_new === $(this).attr('id')){
         profil_typos_new = $(this).attr('id');
@@ -6463,7 +6494,7 @@
     lastixo_epilogh = 0;
     
     $(".extra").on("click", ".lastixo", function() {
-
+		$('.modal_times .lastixo_show_hide').insertAfter('.modal_times .neess_diastaseis_first');
   
     if (epilogi){  
       //alert("!11!!!1!!"); && ( lastixo_epilogh == "mauro_lastixo")
@@ -6510,7 +6541,8 @@
   
   //// Window still ////
   $(".extra").on("click", ".window_still", function() {
-
+	$('.modal_times .window_still_show_hide').insertAfter('.modal_times .neess_diastaseis_first');
+	  
     epilogi_ws = true;
 
     if (typeof(window_still_single) !== "undefined"){
@@ -6554,6 +6586,8 @@
 
   //// Roll rat ////
   $(".extra").on("click", ".rolls_rat", function() {
+  	$('.modal_times .roll_rat_show_hide').insertAfter('.modal_times .neess_diastaseis_first');
+	  
     epilogi_rat = true;
     if (typeof(roll_rat) !== "undefined"){
       if (roll_rat == $(this).attr('id')){
@@ -6580,6 +6614,8 @@
 
   //// Roll rlt ////
   $(".extra").on("click", ".rolls_rlt", function() {
+    	$('.modal_times .roll_rlt_show_hide').insertAfter('.modal_times .neess_diastaseis_first');
+	  
     epilogi_rlt = true;
     if (typeof(roll_rlt) !== "undefined"){
       if (roll_rlt == $(this).attr('id')){
@@ -6606,6 +6642,8 @@
 
   //// Roll rdm ////
   $(".extra").on("click", ".rolls_rdm", function() {
+  	$('.modal_times .roll_rdm_show_hide').insertAfter('.modal_times .neess_diastaseis_first');
+	  
     epilogi_rdm = true;
     if (typeof(roll_rdm) !== "undefined"){
       if (roll_rdm == $(this).attr('id')){
@@ -6632,6 +6670,7 @@
 
   //// Roll pss ////
   $(".extra").on("click", ".rolls_pss", function() {
+	$('.modal_times .roll_pss_show_hide').insertAfter('.modal_times .neess_diastaseis_first');
     epilogi_pss = true;
     if (typeof(roll_pss) !== "undefined"){
       if (roll_pss == $(this).attr('id')){
@@ -6658,6 +6697,8 @@
 
   //// Roll pfm ////
   $(".extra").on("click", ".rolls_pfm", function() {
+    	$('.modal_times .roll_pfm_show_hide').insertAfter('.modal_times .neess_diastaseis_first');
+	  
     epilogi_pfm = true;
     if (typeof(roll_pfm) !== "undefined"){
       if (roll_pfm == $(this).attr('id')){
@@ -6689,7 +6730,7 @@
 	
     
     $(".extra").on("click", ".prostasia", function() {
-
+		$('.modal_times .prostasia_show_hide').insertAfter('.modal_times .neess_diastaseis_first');
   
     if (epilogi_pr){  
      
@@ -6734,7 +6775,7 @@
     ///////////////// ΟΔΟΙΓΟΙ NA BAΛΩ TIMI/////////////////////
 
     $(".extra").on("click", ".odoigoi", function() {
-
+		$('.modal_times .odoigos_show_hide').insertAfter('.modal_times .neess_diastaseis_first');
       epilogi_ksana_odoigou = true;
 
       if (typeof(odoigos) !== "undefined"){
@@ -7451,7 +7492,7 @@
         });
 	
 	
-	/////////// window still cats ///////////////////////////olympia
+	/////////// window still cats ///////////////////////////
 	    $(".extra").on("click", ".window_still_cat", function() { 
 
 	      $('.popover').popover('hide');
@@ -7782,7 +7823,7 @@
     // Αρχικοποιω χρωμα επικαθημενου, κρηβω χρωματα για να μην ξαναεμφανιζονται, αλλαζω χρωμα σε label επιλεγμενο, και εμφανιζω χρωματα για το συγκεκριμενο κουφωμα + button για συνεχεια.
 
     $(".epikathimena_rola").on("click", ".epikathimena_rola_polla", function() {
-
+		$('.modal_times .epik_show_hide').insertAfter('.modal_times .neess_diastaseis_first');
       epilogi_ksana_rola_polla = true;
       height_new = Number(height) - height_p - height_k;
 
@@ -8115,7 +8156,7 @@
 
 
     $(".eksoterika_rola").on("click", ".eksoterika_rola_polla", function() {
-
+		$('.modal_times .ekso_show_hide').insertAfter('.modal_times .neess_diastaseis_first');
       epilogi_ksana_rola_polla2 = true;
       //height_new = Number(height) - height_p - height_k;
 
@@ -8480,7 +8521,7 @@
     ///////////////// ΠΕΡΣΙΔΕΣ NA BAΛΩ TIMI/////////////////////
 
     $(".extra").on("click", ".perisdes", function() {
-
+		$('.modal_times .persida_show_hide').insertAfter('.modal_times .neess_diastaseis_first');
       epilogi_ksana_persides = true;
 
       if (typeof(persida) !== "undefined"){
@@ -8692,7 +8733,8 @@
 
     
     $( ".order_price" ).click(function() {
-      $('#myModal_times').appendTo("body").modal('show');
+      $('#myModal_times').show();
+	  //olympia
     });
 
 
