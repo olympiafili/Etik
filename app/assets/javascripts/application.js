@@ -631,7 +631,6 @@
             $(".roll_rlt_show_hide").css("display","none");
 		
         if (roll_rdm_timi != 0){
-			//$('.roll_rdm_show_hide').insertAfter('.extra_table2 .neess_diastaseis_first');
             $(".roll_rdm_show_hide").css("display","table-row");
             $(".table_roll_rdm").text(roll_rdm_name);
             $(".timi_roll_rdm").text(roll_rdm_timi.toFixed(2).replace(".", ",")+" €");

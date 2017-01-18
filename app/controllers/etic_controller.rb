@@ -3176,8 +3176,8 @@ class EticController < ApplicationController
         end
         
         #window_still
-        if ( params[:window_still_single] != "0" )
-          @window_still = WindowStill.where(:id => params[:window_still_single]).first          
+        @window_still = WindowStill.where(:id => params[:window_still_single]).first
+        if ( !@window_still.nil? )
             if ( width_gia_vasi_new != 0)
 	    		    width_n = width_gia_vasi_new
 	    	    else
@@ -3196,8 +3196,8 @@ class EticController < ApplicationController
         end
         
         #roll rat
-        if ( params[:roll_rat] != "0" )
-          @roll_rat = RatRoll.where(:id => params[:roll_rat]).first          
+        @roll_rat = RatRoll.where(:id => params[:roll_rat]).first
+        if ( !@roll_rat.nil? )
             if ( width_gia_vasi_new != 0)
 	    		    width_n = width_gia_vasi_new
 	    	    else
@@ -3216,8 +3216,8 @@ class EticController < ApplicationController
         end
         
         #roll rlt
-        if ( params[:roll_rlt] != "0" )
-          @roll_rlt = RltRoll.where(:id => params[:roll_rlt]).first          
+        @roll_rlt = RltRoll.where(:id => params[:roll_rlt]).first
+        if ( !@roll_rlt.nil? )
             if ( width_gia_vasi_new != 0)
 	    		    width_n = width_gia_vasi_new
 	    	    else
@@ -3236,8 +3236,8 @@ class EticController < ApplicationController
         end
         
         #roll rdm
-        if ( params[:roll_rdm] != "0" )
-          @roll_rdm = RdmRoll.where(:id => params[:roll_rdm]).first          
+        @roll_rdm = RdmRoll.where(:id => params[:roll_rdm]).first
+        if ( !@roll_rdm.nil? )
             if ( width_gia_vasi_new != 0)
 	    		    width_n = width_gia_vasi_new
 	    	    else
@@ -3256,8 +3256,8 @@ class EticController < ApplicationController
         end
         
         #roll pss
-        if ( params[:roll_pss] != "0" )
-          @roll_pss = PssRoll.where(:id => params[:roll_pss]).first          
+        @roll_pss = PssRoll.where(:id => params[:roll_pss]).first
+        if ( !@roll_pss.nil? )
             if ( width_gia_vasi_new != 0)
 	    		    width_n = width_gia_vasi_new
 	    	    else
@@ -3276,8 +3276,8 @@ class EticController < ApplicationController
         end
         
         #roll pfm
-        if ( params[:roll_pfm] != "0" )
-          @roll_pfm = PfmRoll.where(:id => params[:roll_pfm]).first          
+        @roll_pfm = PfmRoll.where(:id => params[:roll_pfm]).first
+        if ( !@roll_pfm.nil? ) 
             if ( width_gia_vasi_new != 0)
 	    		    width_n = width_gia_vasi_new
 	    	    else
