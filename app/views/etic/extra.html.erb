@@ -1051,7 +1051,7 @@
 	                        <!-- Κατηγοριες -->
 	                        <div class="row">
 	                          <div class="col-xs-5" >
-	                            <div class="epik_none">
+	                            <div class="window_still_none">
 	                              <h5><%= t('translate.Window_stills') %></h5>
 	                              <% @window_still_cat.each do |e| %>
 	                                  <label class="window_still_cat" id="<%= e.id %>"><%= e.name %></label>
@@ -1066,9 +1066,6 @@
 	                          </div>
                           
 	                        </div>
-                      
-	                        <div class="color_epikathimenou"></div>
-
 	                      </div><!-- End extra-->
 	                    </div><!-- end adio -->
 	                  </div><!-- End επικαθημενα -->
@@ -1107,8 +1104,7 @@
         <button type="button" id="home_price" class='btn btn-warning order_price order_prin_deksia' ><span class="glyphicon glyphicon-euro" aria-hidden="true"></span> <%= t 'translate.Price' %></button>
       </div> 
       <hr>
-	  
-	  <!-- olympia -->
+
       <!-- Μodal για τιμες -->
       <div class="modal_times " id="myModal_times">
                   <!-- Πίνακας πανω με αρχικες πληροφοριες -->
@@ -2385,15 +2381,15 @@
       $(".col_right_svg").removeClass("col-xs-6");
       $('#row').attr("onMouseOver", "this.bgColor='red'")
       //$(".col_right_svg").hide();
-      $(".right_panel_first").attr("onMouseOver", "");
-      $(".right_panel_second").attr("onMouseOver", "");
+      //$(".right_panel_first").attr("onMouseOver", "");
+      //$(".right_panel_second").attr("onMouseOver", "");
     }
     else {
       $(".Left_main_panel").removeClass("col-xs-12");
       $(".Left_main_panel").addClass("col-xs-6");
       $(".col_right_svg").addClass("col-xs-6");
-      $(".right_panel_first").attr("onMouseOver", "document.body.style.overflow='hidden';");
-      $(".right_panel_second").attr("onMouseOver", "document.body.style.overflow='hidden';");
+      //$(".right_panel_first").attr("onMouseOver", "document.body.style.overflow='hidden';");
+      //$(".right_panel_second").attr("onMouseOver", "document.body.style.overflow='hidden';");
       //$(".col_right_svg").show();
     }
 
@@ -3825,6 +3821,13 @@
  //Τα φορτωνω πρωτα για να τα εχω για τις γραμμες
  ypsos_a($(".height").text());
  mikos_a($(".width").text());
+ 
+ //olympia
+ /*$(".window_still_none").on("blur", ".pl_win_st", function() {
+   pl_win_st = $(".pl_win_st").val();
+  
+   times_json(tipos_name_gia_xrwma, $(".width").text(), $(".height").text(), line_id_name, mesa_eksw, color_aplo, width_new ,height_new, epikathimeno_rolo,eksoteriko_rolo,persida,tzamia,profil_deksia,profil_aristera,profil_panw,profil_katw,$(".input_deksia").val(),$(".input_panw").val(),$(".input_katw").val(),$(".input_aristera").val(),typos,color_typos,odoigos,$(".color_deksia").text(),$(".color_aristera").text(),$(".color_panw").text(),$(".color_katw").text(),$(".color_fullou").text(),0,profil_deksia_1_id,profil_deksia_1_json_arithmos,profil_deksia_2_id,profil_deksia_2_json_arithmos,profil_deksia_3_id,profil_deksia_3_json_arithmos,profil_aristera_1_id,profil_aristera_1_json_arithmos,profil_aristera_2_id,profil_aristera_2_json_arithmos,profil_aristera_3_id,profil_aristera_3_json_arithmos,profil_panw_1_id,profil_panw_1_json_arithmos,profil_panw_2_id,profil_panw_2_json_arithmos,profil_panw_3_id,profil_panw_3_json_arithmos,profil_katw_1_id,profil_katw_1_json_arithmos,profil_katw_2_id,profil_katw_2_json_arithmos,profil_katw_3_id,profil_katw_3_json_arithmos,profil_typos_1_id,profil_typos_1_json_arithmos,profil_typos_2_id,profil_typos_2_json_arithmos,profil_typos_3_id,profil_typos_3_json_arithmos,prostasia,tzamia2,lastixo_epilogh,pl_rol_ep,up_rol_ep,pl_rol_ek,up_rol_ek,pl_persidas,up_persidas,up_odoigou,color_epikathimenou,color_eksoterikou,color_persidas,color_odoigou,color_profil_katw,color_profil_deksia,color_profil_aristera,color_profil_panw,elegxos_gia_parapanw_diastaseis_w,elegxos_gia_parapanw_diastaseis_h,xwrisma1,xwrisma2,xwrisma_y_1,xwrisma_y_2,xwrisma3_1,xwrisma3_2,xwrisma3_3,color_aplo_eksw,tzamia0,xwrisma4_1,xwrisma4_2,xwrisma4_3,xwrisma4_4,window_still_single,roll_rat,roll_rlt,roll_rdm,roll_pss,roll_pfm);
+ });*/
 
     $(".epik_none").on("blur", ".pl_rol_ep", function() {
       pl_rol_ep = $(".pl_rol_ep").val();
@@ -6539,7 +6542,7 @@
 
   }); 
   
-  //// Window still ////
+  //// Window still ////olympia
   $(".extra").on("click", ".window_still", function() {
 	$('.modal_times .window_still_show_hide').insertAfter('.modal_times .neess_diastaseis_first');
 	  
@@ -6552,14 +6555,26 @@
           $( ".window_still" ).css("background-color","");//Ετσι αφαιρω την ιδιοτητα!!!
           $( ".window_still" ).css("color","");
           epilogi_ws = false;
+		  
+          /*$(".pl_win_st").remove();
+          $(".metafraw").remove();
+          $(".br_input").remove();
+          $(".kanoniko_platos_window_still").remove();*/
           
           times_json(tipos_name_gia_xrwma, $(".width").text(), $(".height").text(), line_id_name, mesa_eksw, color_aplo, width_new ,height_new, epikathimeno_rolo,eksoteriko_rolo,persida,tzamia,profil_deksia,profil_aristera,profil_panw,profil_katw,$(".input_deksia").val(),$(".input_panw").val(),$(".input_katw").val(),$(".input_aristera").val(),typos,color_typos,odoigos,$(".color_deksia").text(),$(".color_aristera").text(),$(".color_panw").text(),$(".color_katw").text(),$(".color_fullou").text(),0,profil_deksia_1_id,profil_deksia_1_json_arithmos,profil_deksia_2_id,profil_deksia_2_json_arithmos,profil_deksia_3_id,profil_deksia_3_json_arithmos,profil_aristera_1_id,profil_aristera_1_json_arithmos,profil_aristera_2_id,profil_aristera_2_json_arithmos,profil_aristera_3_id,profil_aristera_3_json_arithmos,profil_panw_1_id,profil_panw_1_json_arithmos,profil_panw_2_id,profil_panw_2_json_arithmos,profil_panw_3_id,profil_panw_3_json_arithmos,profil_katw_1_id,profil_katw_1_json_arithmos,profil_katw_2_id,profil_katw_2_json_arithmos,profil_katw_3_id,profil_katw_3_json_arithmos,profil_typos_1_id,profil_typos_1_json_arithmos,profil_typos_2_id,profil_typos_2_json_arithmos,profil_typos_3_id,profil_typos_3_json_arithmos,prostasia,tzamia2,lastixo_epilogh,pl_rol_ep,up_rol_ep,pl_rol_ek,up_rol_ek,pl_persidas,up_persidas,up_odoigou,color_epikathimenou,color_eksoterikou,color_persidas,color_odoigou,color_profil_katw,color_profil_deksia,color_profil_aristera,color_profil_panw,elegxos_gia_parapanw_diastaseis_w,elegxos_gia_parapanw_diastaseis_h,xwrisma1,xwrisma2,xwrisma_y_1,xwrisma_y_2,xwrisma3_1,xwrisma3_2,xwrisma3_3,color_aplo_eksw,tzamia0,xwrisma4_1,xwrisma4_2,xwrisma4_3,xwrisma4_4, window_still_single,roll_rat,roll_rlt,roll_rdm,roll_pss,roll_pfm);
-
         }
       }
 
       if (epilogi_ws) {
-
+          /*$(".pl_win_st").remove();
+          $(".metafraw").remove();
+          $(".kanoniko_platos_window_still").remove();
+		  
+	      var input0_0 = "<div class=metafraw ><p class=metafraw><%= t 'translate.Width' %>:</p> <p class=kanoniko_platos_window_still></p><br></div>"
+	      var input = "<div class=metafraw ><p class=metafraw><%= t 'translate.Change_width' %>:</p> <p><input type=text name=pl_win_st class=pl_win_st placeholder=<%= t 'translate.Width' %>></p><p class=br_input></p><br></div>"
+	      $(input0_0).appendTo(".window_still_wrapper");
+	      $(input).appendTo(".window_still_wrapper");*/
+		  
               //Αλλαγη χρωματος
               $( ".window_still" ).css("background-color","");//Ετσι αφαιρω την ιδιοτητα!!!
               $( ".window_still" ).css("color","");
@@ -6580,7 +6595,6 @@
                     {
                     $(".warning_times").fadeOut('slow');
                   }, 6000);*/
-
 }
 });
 
@@ -8251,7 +8265,7 @@
           //$(".pl_rol_ek").val(pl_rol_ek);//"<%= @pl_rolou_ep %>"
           //$(".up_rol_ek").val(up_rol_ek);//"<%= @up_rolou_ep %>"
           //$(".pl_rol_ek").trigger('blur');
-          $//(".up_rol_ek").trigger('blur');
+         //(".up_rol_ek").trigger('blur');
 
           //$(".pl_rol_ek").focus();
 
@@ -8734,7 +8748,6 @@
     
     $( ".order_price" ).click(function() {
       $('#myModal_times').show();
-	  //olympia
     });
 
 
