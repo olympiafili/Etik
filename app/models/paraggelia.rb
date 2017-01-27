@@ -39,6 +39,16 @@ class Paraggelia < ActiveRecord::Base
         csv << ["ELEPOS", order.id, order.posotoita, @open_type.code, @open_type.code, @main_color.sungate_both, order.open_type_id, 
           order.width, order.height, order.width_new, order.height_new, @line.sungate_code, order.tzamia0, "<Handle inside>", "<Handle outside>", 
           "<Discount/Surcharge%>", "<Discount/Surcharge per unit>", order.price_sum]
+          
+        #INITIAL_PRICE
+        csv << ["INITIAL_PRICE", order.super_apli_timi]
+        
+        #SURCHARGE_LINE
+        csv << ["SURCHARGE_LINE", order.surcharge_line]
+        
+        #SURCHARGE_COLOR
+        csv << ["SURCHARGE_COLOR_IN", order.surcharge_color]
+        csv << ["SURCHARGE_COLOR_OUT", order.surcharge_color_eksw]
         
         #ADDOPTPOS
         #roll guides

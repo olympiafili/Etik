@@ -450,6 +450,9 @@ ActiveRecord::Schema.define(version: 20160719070630075818) do
     t.float    "xwrisma4_2",                 limit: 24
     t.float    "xwrisma4_3",                 limit: 24
     t.float    "xwrisma4_4",                 limit: 24
+    t.float    "surcharge_line",             limit: 24
+    t.float    "surcharge_color",            limit: 24
+    t.float    "surcharge_color_eksw",       limit: 24
   end
 
   create_table "panels", force: true do |t|

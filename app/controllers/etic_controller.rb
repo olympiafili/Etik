@@ -1458,7 +1458,7 @@ class EticController < ApplicationController
 		  end#end mesa
 		end#end eksw
     
-    @system = System.where(:lines => @line.id).first    
+    @system = System.where('lines like ?', "%#{@line.id.to_s}%")
     if (@open_type.csv != nil)
       @csv_neo = @open_type.csv
     else
@@ -2114,6 +2114,9 @@ class EticController < ApplicationController
 
         ep_mesa_gia_pinaka = ( @price_temp * (ep_mesa / 100) )
         ep_eksw_gia_pinaka = ( @price_temp * (ep_eksw / 100) )
+        
+        @surcharge_color = ep_mesa_gia_pinaka
+        @surcharge_color_eksw = ep_eksw_gia_pinaka
 
         @timi_mono_aspro_super_apli = @price
 
@@ -2950,6 +2953,7 @@ class EticController < ApplicationController
         end 
 =end
 	    ## ΕΠΙΒΑΡΙΝΣΗ ΓΡΑΜΜΗΣ
+      @surcharge_line = @price_temp * (@line.epivarinsi_line / 100)
 	    @price_temp = @price_temp + (@price_temp * (@line.epivarinsi_line / 100))
 	    ## ΕΠΙΒΑΡΙΝΣΗ ΛΑΣΤΙΧΟΥ
 	    ## ΕΠΙΒΑΡΙΝΣΗ ΛΑΣΤΙΧΟΥ
@@ -4116,6 +4120,9 @@ class EticController < ApplicationController
 		    @order.price_sum = @price_sum
 		    @order.price_update = @price_sum
 		    @order.posotoita = @posotita
+        @order.surcharge_line = @surcharge_line
+        @order.surcharge_color = @surcharge_color
+        @order.surcharge_color_eksw = @surcharge_color_eksw
 		    #### USER
 		    if current_user.admin == 1
 		      user = PseUser.where(:id => session[:pseUserId]).first
