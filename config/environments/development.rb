@@ -43,7 +43,7 @@ Rails.application.configure do
   config.assets.raise_runtime_errors = true
 
   config.action_mailer.default_url_options = { 
-    host: "46.101.236.245:8850"
+    host: "46.101.236.245:8860"
 
    }
 
