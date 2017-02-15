@@ -3128,9 +3128,26 @@
         $.each(data.open_type1, function(i, item) { //Για κάθε data που παίρνω κανω τα παρακάτο 
 		if($("#glass_3").css('display') == 'inline-block') {
 			var classname = "";
-			if((data.panel.direction == "left" && item.image == "29.2.png") || (data.panel.direction == "right" && item.image == "29.1.png"))
-				classname = "classhide"
-			var open_div = "<div class='tipos_anoigmatos img-responsive "+classname+"' id="+item.id+"><div class=tipos_name_ekso><h5 class=tipos_name >"+item.name+"</h5></div><img class=img-responsive id="+item.code+" src=/assets/"+item.image+" ><img class='dir-"+data.panel.direction+" img-responsive panel-img-inner' src=/assets/doors/"+data.panel.image+" ></div>";
+			//if((data.panel.direction == "left" && item.image == "29.2.png") || (data.panel.direction == "right" && item.image == "29.1.png"))
+				//classname = "classhide"
+			if(item.image == "29.1.png")
+				classname = "left"
+			else if(item.image == "29.2.png")
+				classname = "right"
+			else if(item.image == "real_triplo.png")
+				classname = "center"
+			else if(item.image == "30.1.png")
+				classname = "center-min"
+			else if(item.image == "30.2.png")
+				classname = "right-min"
+			else if(item.image == "30.3.png")
+				classname = "left-min"
+			else if(item.image == "30.4.png")
+				classname = "center-center-min"
+					
+			
+			var open_div = "<div class='tipos_anoigmatos img-responsive' id="+item.id+"><div class=tipos_name_ekso><h5 class=tipos_name >"+item.name+"</h5></div><img class=img-responsive id="+item.code+" src=/assets/"+item.image+" ><img class='dir-"+classname+" img-responsive panel-img-inner' src=/assets/doors/"+data.panel.image+" ></div>";
+				
 			
 		} else {
 			var open_div = "<div class='tipos_anoigmatos img-responsive' id="+item.id+"><div class=tipos_name_ekso><h5 class=tipos_name >"+item.name+"</h5></div><img class=img-responsive id="+item.code+" src=/assets/"+item.image+" ></div>" 

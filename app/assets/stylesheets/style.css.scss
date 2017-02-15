@@ -2915,7 +2915,7 @@ input[type="file"] {
 	position: absolute;
 	top: 4px;
 	width: 97px;
-	height: 168px;
+	height: 166px;
 	left: 4px;
 	z-index: 1;
 }
@@ -2924,8 +2924,53 @@ input[type="file"] {
 	position: absolute;
 	top: 4px;
 	width: 97px;
-	height: 168px;
+	height: 166px;
 	right: 4px;
+	z-index: 1;
+}
+
+.tipos_anoigmatos img.panel-img-inner.dir-center {
+	position: absolute;
+	top: 4px;
+	width: 97px;
+	height: 166px;
+	left: 104px;
+	z-index: 1;
+}
+
+.tipos_anoigmatos img.panel-img-inner.dir-left-min {
+	position: absolute;
+	top: 45px;
+	width: 98px;
+	height: 125px;
+	left: 4px;
+	z-index: 1;
+}
+
+.tipos_anoigmatos img.panel-img-inner.dir-right-min {
+	position: absolute;
+	top: 45px;
+	width: 98px;
+	height: 125px;
+	right: 4px;
+	z-index: 1;
+}
+
+.tipos_anoigmatos img.panel-img-inner.dir-center-min {
+	position: absolute;
+	top: 45px;
+	width: 95px;
+	height: 125px;
+	left: 4px;
+	z-index: 1;
+}
+
+.tipos_anoigmatos img.panel-img-inner.dir-center-center-min {
+	position: absolute;
+	top: 45px;
+	width: 102px;
+	height: 125px;
+	left: 101px;
 	z-index: 1;
 }
 
