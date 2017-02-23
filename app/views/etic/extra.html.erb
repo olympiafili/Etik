@@ -88,7 +88,8 @@
               </div>
               
             </div>
-            <div class="col-xs-10 right_panel_first" onmouseover="document.body.style.overflow='hidden';" onmouseout="document.body.style.overflow='auto';">
+			<!-- onmouseover="document.body.style.overflow='hidden';" onmouseout="document.body.style.overflow='auto';" -->
+            <div class="col-xs-10 right_panel_first">
               <form id="myForm">
                 <div class="Open_Category tab_home tab_right">
                   <div class="row">
@@ -361,7 +362,8 @@
                     <div class="row">
                           <div class="col-xs-12">
                             <label id="back_7" class="label_tab_top_next"><%= t('translate.Back') %></label>
-                            <label id="next_7" class="label_tab_top_next"><%= t('translate.Next') %></label>
+                            <label id="go_glass_1" class="go_glass_1 label_tab_top_next"><%= t('translate.Next') %></label>
+							<label id="next_7" style="float:right" class="next_7 label_tab_top_next"><%= t('translate.ContinueToLeafs') %></label>
                           </div>
                         </div>
                         <hr>
@@ -396,6 +398,14 @@
 
                   <!-- Τζαμια μέσα-->
                   <div class="glass_1 label_tab_bottom">
+                      <div class="row">
+                            <div class="col-xs-12">
+                              <label id="go_glass_0" class="label_tab_top_next"><%= t('translate.Back') %></label>
+                              <label id="go_glass_2" class="label_tab_top_next"><%= t('translate.Next') %></label>
+							  <label id="next_7" style="float:right" class="next_7 label_tab_top_next"><%= t('translate.ContinueToLeafs') %></label>
+                            </div>
+                          </div>
+                          <hr>
                     <div style="">
                       <div class="click_tzamia2"> 
                         <div class="extra ">
@@ -427,6 +437,14 @@
                   
                   <!-- Τζαμια έξω -->
                   <div class="glass_2 label_tab_bottom">
+                      <div class="row">
+                            <div class="col-xs-12">
+                              <label id="go_glass_1" class="go_glass_1 label_tab_top_next"><%= t('translate.Back') %></label>
+                              <label id="next_7" class="label_tab_top_next"><%= t('translate.Next') %></label>
+							  <label id="next_7" style="float:right" class="next_7 label_tab_top_next"><%= t('translate.ContinueToLeafs') %></label>
+                            </div>
+                          </div>
+                          <hr>
                     <div style="">
                       <div class="click_tzamia"> 
                         <div class="extra ">
@@ -615,7 +633,8 @@
                 </div>
               </div>
             </div>
-            <div class="col-xs-10 right_panel_second" onmouseover="document.body.style.overflow='hidden';" onmouseout="document.body.style.overflow='auto';">
+			<!-- onmouseover="document.body.style.overflow='hidden';" onmouseout="document.body.style.overflow='auto';" -->
+            <div class="col-xs-10 right_panel_second">
 
             <!--Profils-->
               <div class="Profils tab_profils tab_right">
@@ -2307,7 +2326,7 @@
     $("#back_7").click(function(){
       $("#tab_color").click();
     });
-    $("#next_7").click(function(){
+    $("#next_7, .next_7").click(function(){
       $("#tab_leaf").click();
     });
     $("#back_8").click(function(){
@@ -2325,6 +2344,15 @@
     $("#back_10").click(function(){
       $("#tab_open_type").click();
     });
+	$("#go_glass_0").click(function(){
+		$("#glass_0").click();
+	});
+	$(".go_glass_1").click(function(){
+		$("#glass_1").click();
+	});
+	$("#go_glass_2").click(function(){
+		$("#glass_2").click();
+	});
 
     $(".label_tab_top").click(function(){
       var id = this.id;
