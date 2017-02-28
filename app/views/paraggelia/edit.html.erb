@@ -1,0 +1,39 @@
+<div class="container">
+<div class="row">
+	<div class="col-md-6 col-md-offset-3">
+		<h2>Update total order</h2>
+	</div>
+	<div class="col-md-6 col-md-offset-3">
+		<%= form_for(@paraggelia) do |p| %>
+		
+		<div class="row">
+			<div class="col-md-6"><label>Customer </label></div>
+			<div class="col-md-6"><%= p.text_field :name, class: 'form-control' %></div>
+		</div>
+		
+		<div class="row">
+			<div class="col-md-6"><label>Total Price</label></div>
+			<div class="col-md-6"><%= p.text_field :sum, class: 'form-control' %></div>
+		</div>
+
+		<%= p.submit "Save changes", class: "btn btn-primary" %>
+		<% end %>
+	</div>
+</div><!-- row -->
+<div class="row">
+	<div class="col-md-6 col-md-offset-3">
+		<h4>Orders</h4>
+	</div>
+	<div class="col-md-6 col-md-offset-3">
+		<table><tbody>
+		<% count = 1 %>
+		<% @orders.each do |o| %>
+			<tr><td>
+				<%= link_to "Order #{count}", edit_order_path(o.id) %>
+				<% count = count + 1 %>
+			</td></tr>
+		<% end %>
+	</tbody></table>
+	</div>
+</div>
+</div>

@@ -1,5 +1,7 @@
 class ParaggeliaController < ApplicationController
   before_action :set_paraggelia, only: [:show, :edit, :update, :destroy, :destroy_files]
+  
+	layout "app"
 
   skip_before_filter :verify_authenticity_token, :only => [:update]
 
@@ -20,6 +22,8 @@ class ParaggeliaController < ApplicationController
   end
 
   def edit
+    @paraggelia = Paraggelia.find(params[:id])
+    @orders = Order.where(:paraggelia_id => @paraggelia.id)
   end
 
   def create
@@ -74,7 +78,6 @@ class ParaggeliaController < ApplicationController
     FileUtils.rm_rf(Dir.glob("#{Rails.root}/public/uploads/paraggelia/avatar/"+params[:id]+""+"/*"+""))
     redirect_to etic_user_diax_path
   end
-
 
   private
     def set_paraggelia

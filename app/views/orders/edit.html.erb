@@ -1,0 +1,109 @@
+<div class="container">
+<div class="row">
+	<div class="col-md-6 col-md-offset-3">
+		<h2>Update total order</h2>
+	</div>
+	<div class="col-md-6 col-md-offset-3">
+		<%= form_for(@order) do |p| %>
+		
+		<div class="row">
+			<div class="col-md-6"><label>Customer </label></div>
+			<div class="col-md-6"><%= p.text_field :open_categorie_id, class: 'form-control' %></div>
+		</div>
+		
+		<div class="row">
+			<div class="col-md-6"><label>Material</label></div>
+			<div class="col-md-6"><%= p.text_field :material_id, class: 'form-control' %></div>
+		</div>
+		
+		<div class="row">
+			<div class="col-md-6"><label>Constructor</label></div>
+			<div class="col-md-6"><%= p.text_field :constructor_id, class: 'form-control' %></div>
+		</div>
+		
+		<div class="row">
+			<div class="col-md-6"><label>System</label></div>
+			<div class="col-md-6"><%= p.text_field :system_id, class: 'form-control' %></div>
+		</div>
+		
+		<div class="row">
+			<div class="col-md-6"><label>Line</label></div>
+			<div class="col-md-6"><%= p.text_field :line_id, class: 'form-control' %></div>
+		</div>
+		
+		<!--
+	    `main_color_id` text,
+	    `leaf_color_id` text,
+	    `right_color_id` text,
+	    `left_color_id` text,
+	    `up_color_id` text,
+	    `down_color_id` text,
+		 -->
+			
+		<div class="row">
+			<div class="col-md-6"><label>Open Type</label></div>
+			<div class="col-md-6"><%= p.text_field :open_type_id, class: 'form-control' %></div>
+		</div>
+		
+		<div class="row">
+			<div class="col-md-6"><label>Width</label></div>
+			<div class="col-md-6"><%= p.text_field :width, class: 'form-control' %></div>
+		</div>
+		
+		<div class="row">
+			<div class="col-md-6"><label>Height</label></div>
+			<div class="col-md-6"><%= p.text_field :height, class: 'form-control' %></div>
+		</div>
+		
+		<div class="row">
+			<div class="col-md-6"><label>Price</label></div>
+			<div class="col-md-6"><%= p.text_field :price, class: 'form-control' %></div>
+		</div>
+		
+		<div class="row">
+			<div class="col-md-6"><label>Price Extra</label></div>
+			<div class="col-md-6"><%= p.text_field :price_extra, class: 'form-control' %></div>
+		</div>
+		
+		<div class="row">
+			<div class="col-md-6"><label>Quantity</label></div>
+			<div class="col-md-6"><%= p.text_field :posotoita, class: 'form-control' %></div>
+		</div>
+		
+		<div class="row">
+			<div class="col-md-6"><label>Roll</label></div>
+			<div class="col-md-6"><%= p.text_field :rolo, class: 'form-control' %></div>
+		</div>
+		
+		<div class="row">
+			<div class="col-md-6"><label>Color Roll</label></div>
+			<div class="col-md-6"><%= p.text_field :color_rolou, class: 'form-control' %></div>
+		</div>
+		
+		<div class="row">
+			<div class="col-md-6"><label>Color Roll</label></div>
+			<div class="col-md-6"><%= p.text_field :color_rolou, class: 'form-control' %></div>
+		</div>
+		
+		<!--
+		    `xwrisma1` float DEFAULT NULL,
+		    `xwrisma2` float DEFAULT NULL,
+		    `xwrisma3_1` float DEFAULT NULL,
+		    `xwrisma3_2` float DEFAULT NULL,
+		    `xwrisma3_3` float DEFAULT NULL,
+		-->
+		
+		<div class="row">
+			<div class="col-md-6"><label>Profil For Shutters</label></div>
+			<div class="col-md-6"><%= p.text_field :persida, class: 'form-control' %></div>
+		</div>
+		
+		<div class="row">
+			<div class="col-md-6"><label>Color Profil For Shutters</label></div>
+			<div class="col-md-6"><%= p.text_field :color_persidas, class: 'form-control' %></div>
+		</div>
+
+		<%= p.submit "SAVE", class: "btn btn-primary" %>
+		<% end %>
+	</div>
+</div><!-- row -->

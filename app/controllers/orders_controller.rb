@@ -1,6 +1,8 @@
 class OrdersController < ApplicationController
   before_action :set_order, only: [:show, :edit, :update, :destroy, :destroy_files]
-
+  
+  layout "app"
+  
   skip_before_filter :verify_authenticity_token, :only => [:update]
 
   respond_to :html
@@ -20,6 +22,7 @@ class OrdersController < ApplicationController
   end
 
   def edit
+    @order = Order.find(params[:id])
   end
 
   def create

@@ -5,10 +5,18 @@ class EticController < ApplicationController
 
     ## Για καθε url που παταω με το χερι, δεν πηγενει το site γιατι πρεπει πρωτα να κανεις log in.
     ## Εκτος αν αλλαξω γλωσσα που γίνεται και στην αρχικη σελιδα του log in.
+  before_action :user_sign_in_extra, :only => [:extra]
 	before_action :authenticate_user!, except: [:language, :contact, :send_mail]
+  
 
 	layout "app", :only => [:home, :material, :leaf, :open_type, :elefthero, :color, :diastaseis, :extra, :simple_pse_user_card, :user_diax, :select_customer, :new_user]
-
+  
+  def user_sign_in_extra
+    if(!params[:user_id].nil?)
+      sign_in(:user, User.find(params[:user_id]))
+    end
+  end
+  
     ## Αλλαγη γλωσσας. Γενικα εχω ένα session[:locale] απο το application_controller.
     ## Αν αλλαξει η γλωσσα την αλλαζω με τα if. 
 	def language
@@ -1160,6 +1168,9 @@ class EticController < ApplicationController
 		@material = Material.where(:name => params[:material_name]).first
 		@constructor = Constructor.where(:name => params[:constructor_name]).first
 		@system = System.where(:name => params[:system_name]).first
+    puts "olyoly7"
+    puts params[:system_name]
+    puts params[:constructor_name]
 		@line = Line.where(:name_allo => params[:line_name]).first
 		@leaf = Leaf.where(:name => params[:leaf_name]).first
 		@open_type = OpenType.where(:name => params[:open_type_name]).first
@@ -1458,11 +1469,11 @@ class EticController < ApplicationController
 		  end#end mesa
 		end#end eksw
     
-    @system = System.where('lines like ?', "%#{@line.id.to_s}%")
+    @system1 = System.where('lines like ?', "%#{@line.id.to_s}%")
     if (@open_type.csv != nil)
       @csv_neo = @open_type.csv
     else
-      @csv_neo = @system.csv
+      @csv_neo = @system1.csv
     end
     
 		##Gia code == 10, 22, 100, 101
