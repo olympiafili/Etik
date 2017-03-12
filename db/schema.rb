@@ -453,6 +453,14 @@ ActiveRecord::Schema.define(version: 20160719070630075818) do
     t.float    "surcharge_line",             limit: 24
     t.float    "surcharge_color",            limit: 24
     t.float    "surcharge_color_eksw",       limit: 24
+    t.string   "window_still"
+    t.float    "timi_m_window_still",        limit: 24
+    t.float    "price_window_still",         limit: 24
+    t.string   "place"
+    t.float    "timi_m_place",               limit: 24
+    t.float    "price_place",                limit: 24
+    t.string   "m_window_still"
+    t.string   "m_place"
   end
 
   create_table "panels", force: true do |t|
@@ -499,6 +507,14 @@ ActiveRecord::Schema.define(version: 20160719070630075818) do
     t.float    "price",        limit: 24
     t.string   "sungate_code"
     t.integer  "order"
+    t.string   "unit"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "places", force: true do |t|
+    t.string   "name"
+    t.float    "price",      limit: 24
     t.string   "unit"
     t.datetime "created_at"
     t.datetime "updated_at"
