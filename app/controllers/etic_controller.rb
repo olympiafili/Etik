@@ -472,7 +472,8 @@ class EticController < ApplicationController
 		@epikathimena_cat = Epikathimeno.all
 		@eksoteriko_cat = Eksoterika.all
 		@persides = Persides.all
-    @window_still_cat = WindowStillCat.all
+    	@window_still_cat = WindowStillCat.all
+    	@places = Place.all
 		#Glass
 		@cat_tzamia0 = GlassCatInOut.all
 		@cat_tzamia1 = GlassCatIn.all
@@ -1168,9 +1169,6 @@ class EticController < ApplicationController
 		@material = Material.where(:name => params[:material_name]).first
 		@constructor = Constructor.where(:name => params[:constructor_name]).first
 		@system = System.where(:name => params[:system_name]).first
-    puts "olyoly7"
-    puts params[:system_name]
-    puts params[:constructor_name]
 		@line = Line.where(:name_allo => params[:line_name]).first
 		@leaf = Leaf.where(:name => params[:leaf_name]).first
 		@open_type = OpenType.where(:name => params[:open_type_name]).first
@@ -3208,6 +3206,37 @@ class EticController < ApplicationController
             @price_extra = @price_extra + window_still_price
           	tm_p_window_still = width_n
           	timi_m_window_still = @window_still.price.to_f
+          	m_window_still = @window_still.unit
+        end
+
+        #place
+        @place = Place.where(:id => params[:place]).first
+        if ( !@place.nil? )
+            if ( width_gia_vasi_new != 0)
+	    		width_n = width_gia_vasi_new
+	    	else
+	    		width_n = width
+	    	end
+
+	    	if (height_gia_vasi_new != 0)
+	    		height_n = height_gia_vasi_new
+	    	else
+	    		height_n = height
+	    	end
+
+            if(@place.unit == 'm')
+          	  place_price = ((width_n * height_n * @place.price.to_f) / 1000000 )
+          	elsif (@place.unit == '4m')
+          		 place_price = (((2*height_n + 2*width_n) * @place.price.to_f) / 1000)
+            else
+              place_price = @place.price.to_f
+            end
+            
+            place_name = @place.name
+            @price_extra = @price_extra + place_price
+          	tm_p_place = width_n
+          	timi_m_place = @place.price.to_f
+          	m_place = @place.unit
         end
         
         #roll rat
@@ -3969,6 +3998,22 @@ class EticController < ApplicationController
 		    	@order.timi_m_persidas = timi_m_persidas
 		    	@order.price_persidas = pr_per
 		    end
+		    #window still
+		    if !@window_still.nil?
+		    	@order.window_still = window_still_name
+		    	@order.timi_m_window_still = timi_m_window_still
+		    	@order.price_window_still = window_still_price
+		    	@order.m_window_still = m_window_still
+		    end
+
+		    #place
+		    if !@place.nil?
+		    	@order.place = @place.name
+		    	@order.timi_m_place = timi_m_place
+		    	@order.price_place = place_price
+		    	@order.m_place = m_place
+		    end
+
 		    ### Nea profil
 		    if !@profil_deksia_1.nil?
 		    	@order.profil_deksia_1 = @profil_deksia_1.name
@@ -4236,6 +4281,14 @@ class EticController < ApplicationController
         else
         	window_still_name = ""
         	window_still_timi = 0
+        end
+
+        if (params[:place] != "0")
+        	place_name = place_name
+        	place_timi = place_price
+        else
+        	place_name = ""
+        	place_timi = 0
         end
         
         if (params[:roll_rat] != "0")
@@ -4524,6 +4577,8 @@ class EticController < ApplicationController
           	                          :prostasia_timi => prostasia_timi,
           	                          :window_still_name => window_still_name,
           	                          :window_still_timi => window_still_timi,
+          	                          :place_name => place_name,
+          	                          :place_timi => place_timi,
           	                          :roll_rat_name => roll_rat_name,
           	                          :roll_rat_timi => roll_rat_timi,
           	                          :roll_rlt_name => roll_rlt_name,

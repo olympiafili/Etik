@@ -615,6 +615,40 @@
                     </td> 
                     </tr>
                     <% end %>
+                    <!-- window still-->
+                     <% if ( !item.window_still.nil? ) %>
+                    <tr>
+                    <td class="extra_subtable">
+                      <b><%= t 'translate.WindowStill' %></b>: <%= item.window_still %>
+                      <!--<br><%= t 'translate.Width' %>: <%= item.tm_p_prostasia %> mm<br>-->
+                    <td class="unit_subtable">
+                      <%= item.m_window_still %>
+                    </td>
+                    <td class="m_subtable">
+                    <color style="color:green"><%= number_with_precision(item.timi_m_window_still, :precision => 2, separator: ",", :delimiter => '.') %></color> €
+                    </td>
+                    <td class="c_subtable"></td>
+                    <td class="p_subtable">
+                      <color style="color:#ff0000"><%= number_with_precision(item.price_window_still, :precision => 2, separator: ",", :delimiter => '.') %></color> €</td> 
+                    </tr>
+                    <% end %>
+                    <!-- place -->
+                    <% if ( !item.place.nil? ) %>
+                    <tr>
+                    <td class="extra_subtable">
+                      <b><%= t 'translate.Place' %></b>: <%= item.place %>
+                      <!--<br><%= t 'translate.Width' %>: <%= item.tm_p_prostasia %> mm<br>-->
+                    <td class="unit_subtable">
+                      <%= item.m_place %>
+                    </td>
+                    <td class="m_subtable">
+                    <color style="color:green"><%= number_with_precision(item.timi_m_place, :precision => 2, separator: ",", :delimiter => '.') %></color> €
+                    </td>
+                    <td class="c_subtable"></td>
+                    <td class="p_subtable">
+                      <color style="color:#ff0000"><%= number_with_precision(item.price_place, :precision => 2, separator: ",", :delimiter => '.') %></color> €</td> 
+                    </tr>
+                    <% end %>
 
                     <tr>
                     <td class="extra_subtable">

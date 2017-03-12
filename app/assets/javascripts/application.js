@@ -236,7 +236,7 @@
   
   /////// Υπολογισμος json ////////
   //Ajax για αρχικη τιμη
-  function times_json(open_type_name,width,height,line_name,mesa_eksw,color_name,new_width,new_height,epikathimeno_rolo,eksoteriko_rolo,persida,tzami,profil_deksia,profil_aristera,profil_panw,profil_katw,input_deksia,input_panw,input_katw,input_aristera,typos,color_typos,odoigos,color_deksia,color_aristera,color_panw,color_katw,color_fulou,lastixo,profil_deksia_1,profil_deksia_1_arithmos,profil_deksia_2,profil_deksia_2_arithmos,profil_deksia_3,profil_deksia_3_arithmos,profil_aristera_1,profil_aristera_1_arithmos,profil_aristera_2,profil_aristera_2_arithmos,profil_aristera_3,profil_aristera_3_arithmos,profil_panw_1,profil_panw_1_arithmos,profil_panw_2,profil_panw_2_arithmos,profil_panw_3,profil_panw_3_arithmos,profil_katw_1,profil_katw_1_arithmos,profil_katw_2,profil_katw_2_arithmos,profil_katw_3,profil_katw_3_arithmos,typos_katw_1,typos_katw_1_arithmos,typos_katw_2,typos_katw_2_arithmos,typos_katw_3,typos_katw_3_arithmos,prostasia,tzami2,lastixo,pl_rol_ep,up_rol_ep,pl_rol_ek,up_rol_ek,pl_persidas,up_persidas,up_odoigou,color_epikathimenou,color_eksoterikou,color_persidas,color_odoigou,color_profil_katw,color_profil_deksia,color_profil_aristera,color_profil_panw, elegxos_w, elegxos_h,xwrisma1,xwrisma2,xwrisma_y_1,xwrisma_y_2,xwrisma3_1,xwrisma3_2,xwrisma3_3,color_eksw_name,tzami0,xwrisma4_1,xwrisma4_2,xwrisma4_3,xwrisma4_4,window_still_single,roll_rat,roll_rlt,roll_rdm,roll_pss,roll_pfm){
+  function times_json(open_type_name,width,height,line_name,mesa_eksw,color_name,new_width,new_height,epikathimeno_rolo,eksoteriko_rolo,persida,tzami,profil_deksia,profil_aristera,profil_panw,profil_katw,input_deksia,input_panw,input_katw,input_aristera,typos,color_typos,odoigos,color_deksia,color_aristera,color_panw,color_katw,color_fulou,lastixo,profil_deksia_1,profil_deksia_1_arithmos,profil_deksia_2,profil_deksia_2_arithmos,profil_deksia_3,profil_deksia_3_arithmos,profil_aristera_1,profil_aristera_1_arithmos,profil_aristera_2,profil_aristera_2_arithmos,profil_aristera_3,profil_aristera_3_arithmos,profil_panw_1,profil_panw_1_arithmos,profil_panw_2,profil_panw_2_arithmos,profil_panw_3,profil_panw_3_arithmos,profil_katw_1,profil_katw_1_arithmos,profil_katw_2,profil_katw_2_arithmos,profil_katw_3,profil_katw_3_arithmos,typos_katw_1,typos_katw_1_arithmos,typos_katw_2,typos_katw_2_arithmos,typos_katw_3,typos_katw_3_arithmos,prostasia,tzami2,lastixo,pl_rol_ep,up_rol_ep,pl_rol_ek,up_rol_ek,pl_persidas,up_persidas,up_odoigou,color_epikathimenou,color_eksoterikou,color_persidas,color_odoigou,color_profil_katw,color_profil_deksia,color_profil_aristera,color_profil_panw, elegxos_w, elegxos_h,xwrisma1,xwrisma2,xwrisma_y_1,xwrisma_y_2,xwrisma3_1,xwrisma3_2,xwrisma3_3,color_eksw_name,tzami0,xwrisma4_1,xwrisma4_2,xwrisma4_3,xwrisma4_4,window_still_single,roll_rat,roll_rlt,roll_rdm,roll_pss,roll_pfm, place){
     
     $.ajax({
       async: false,
@@ -339,7 +339,8 @@
 		  	roll_rlt: roll_rlt,
 		  	roll_rdm: roll_rdm,
 		  	roll_pss: roll_pss,
-		  	roll_pfm: roll_pfm},
+		  	roll_pfm: roll_pfm,
+        place: place},
       success: function(data) {
         arxiki_timi = parseFloat(data.arxiki_timi);
         super_apli_timi = parseFloat(data.super_apli_timi);
@@ -389,6 +390,9 @@
         prostasia_timi = data.prostasia_timi;
         window_still_name = data.window_still_name;
         window_still_timi = data.window_still_timi;
+
+        place_name = data.place_name;
+        place_timi = data.place_timi;
 		
         roll_rat_name = data.roll_rat_name;
         roll_rat_timi = data.roll_rat_timi;
@@ -612,6 +616,15 @@
         }
         else{
             $(".window_still_show_hide").css("display","none");
+        }
+
+        if (place_timi != 0){
+            $(".place_show_hide").css("display","table-row");
+            $(".table_place").text(place_name);
+            $(".timi_place").text(place_timi.toFixed(2).replace(".", ",")+" €");
+        }
+        else{
+            $(".place_show_hide").css("display","none");
         }
 		
         if (roll_rat_timi != 0){
