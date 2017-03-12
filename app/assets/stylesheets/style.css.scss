@@ -856,7 +856,7 @@ label {
   //width: 500px;
 }
 
-.epikathimena, .eksoterika{
+.epikathimena, .eksoterika {
   display: block;
 }
 
@@ -864,7 +864,8 @@ label {
 .epikathimena_rola label:hover,
 .window_still_wrapper label:hover,
 .window_still_wrapper_big label:hover,
-.window_still_cat:hover {
+.window_still_cat:hover,
+.place:hover {
   //background-color: #8C7A7A;
   //background-color: #777777;
   //color: white;
@@ -873,7 +874,8 @@ label {
 .epikathimena_rola label,
 .window_still_wrapper label,
 .window_still_wrapper_big label,
-.window_still_cat {
+.window_still_cat,
+.place {
   display: block;
   //width: 150px;
   text-align: center;
