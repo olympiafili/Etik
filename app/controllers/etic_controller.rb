@@ -5440,9 +5440,9 @@ class EticController < ApplicationController
 	    @user_par = User.where(:id => @par.user).first
 	    @pososto_market = @user_par.pososto
 	    
-	    if (current_user.admin == 1)
+	    #if (current_user.admin == 1)
         	@pososto_dealer = @user_par.pososto_dealer
-        end
+        #end
         
 	end
 
