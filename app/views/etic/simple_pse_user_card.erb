@@ -177,7 +177,7 @@
                         <td class="extra_subtable"><%= t("translate.MarketPrice") %></td>
                         <td class="unit_subtable"></td><td class="m_subtable"></td><td class="c_subtable"></td>
                         <td class="p_subtable">
-                          <% market_price = item.price_sum - (@pososto_market/100)*item.price_sum %>
+                          <% market_price = item.price_new - (@pososto_market/100)*item.price_new %>
                           <%= number_with_precision(market_price, :precision => 2, separator: ",", :delimiter => '.') %> €
                         </td>
                       </tr>
@@ -189,7 +189,7 @@
                         <td class="unit_subtable"></td><td class="m_subtable"></td><td class="c_subtable"></td>
                         <td class="p_subtable">
                          <% if (!@pososto_dealer.nil?) %>
-                            <% dealer_price = item.price_sum - (@pososto_dealer/100)*item.price_sum %>
+                            <% dealer_price = item.price_new - (@pososto_dealer/100)*item.price_new %>
                             <%= number_with_precision(dealer_price, :precision => 2, separator: ",", :delimiter => '.') %> €
                          <% end %>
                       </td>
