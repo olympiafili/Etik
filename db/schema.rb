@@ -817,6 +817,7 @@ ActiveRecord::Schema.define(version: 20160719070630075818) do
     t.integer  "order"
     t.integer  "default"
     t.float    "pososto",                limit: 24
+    t.float    "pososto_dealer",         limit: 24
   end
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree

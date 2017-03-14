@@ -5436,10 +5436,14 @@ class EticController < ApplicationController
             #  @items.each do |i| 
 	        #      @sunolo = @sunolo + i.price_sum #panta to swsto
 	        #  end 
-
+	    
+	    @user_par = User.where(:id => @par.user).first
+	    @pososto_market = @user_par.pososto
+	    
+	    if (current_user.admin == 1)
+        	@pososto_dealer = @user_par.pososto_dealer
+        end
         
-        #@done = @user.done
-        #@admin = params[:admin]
 	end
 
 	def update_pososto

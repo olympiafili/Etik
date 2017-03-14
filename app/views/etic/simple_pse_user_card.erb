@@ -28,7 +28,6 @@
                 <th id="kartoula_head"><%= t("translate.Image") %></th>
                 <th id="kartoula_head"><%= t("translate.Info") %></th>  
                 <th id="kartoula_head"><%= t("translate.Price") %></th> 
-                <th></th>
               </tr>
             </thead>
 
@@ -173,6 +172,30 @@
                       <color style="color:#ff0000"><%= number_with_precision(item.price_new, :precision => 2, separator: ",", :delimiter => '.') %></color> €</td> 
                     </tr>
                     
+                    <% if (!@pososto_market.nil?) %>
+                      <tr>
+                        <td class="extra_subtable"><%= t("translate.MarketPrice") %></td>
+                        <td class="unit_subtable"></td><td class="m_subtable"></td><td class="c_subtable"></td>
+                        <td class="p_subtable">
+                          <% market_price = item.price_sum - (@pososto_market/100)*item.price_sum %>
+                          <%= number_with_precision(market_price, :precision => 2, separator: ",", :delimiter => '.') %> €
+                        </td>
+                      </tr>
+                    <% end %>
+                    
+                    <% if (!@pososto_dealer.nil?) %>
+                      <tr>
+                        <td class="extra_subtable"><%= t("translate.DealerPrice") %></td>
+                        <td class="unit_subtable"></td><td class="m_subtable"></td><td class="c_subtable"></td>
+                        <td class="p_subtable">
+                         <% if (!@pososto_dealer.nil?) %>
+                            <% dealer_price = item.price_sum - (@pososto_dealer/100)*item.price_sum %>
+                            <%= number_with_precision(dealer_price, :precision => 2, separator: ",", :delimiter => '.') %> €
+                         <% end %>
+                      </td>
+                      </tr>
+                    <% end %>
+
                     <% if ( !item.tzamia0.nil? ) %>
                     <tr>
                     <td class="extra_subtable">
