@@ -494,9 +494,14 @@
         ekso_val_height = data.ekso_val_height; 
         persida_val_width = data.persida_val_width;
         persida_val_height = data.persida_val_height;
+        super_apli_timi_market = data.market_price;
+        super_apli_timi_dealer = data.dealer_price;
 
         // Αλλαγες σε πινακακι //
         $(".super_apli_timi").text(super_apli_timi.toFixed(2).replace(".", ",")+" €");
+        $(".super_apli_timi_market").text(super_apli_timi_market.toFixed(2).replace(".", ",")+" €");
+        $(".super_apli_timi_dealer").text(super_apli_timi_dealer.toFixed(2).replace(".", ",")+" €");
+        
         $(".arxiki_timi").text(arxiki_timi.toFixed(2).replace(".", ",")+" €");
         $(".teliki_timi").text(teliki_timi.toFixed(2).replace(".", ",")+" €");
         $(".nea_timi").text(nea_timi.toFixed(2).replace(".", ",")+"€");

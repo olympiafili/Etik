@@ -1249,7 +1249,7 @@ class EticController < ApplicationController
 		@numero_katw_2 = params[:profil_katw_2_arithmos].to_i
 		#@timi_profil_deksia_2 = ( @profil_deksia_2.price * @numero_deksia_2 )
 		@profil_katw_3 = Profil.where(:id => params[:profil_katw_3]).first
-		@numero_katw_3 = params[:profil_katw_3_arithmos].to_i
+		@numero_katw_3 = params[:prƒofil_katw_3_arithmos].to_i
 		########
 		@typos_katw_1 = Profil.where(:id => params[:typos_katw_1]).first
 		@numero_typos_1 = params[:typos_katw_1_arithmos].to_i
@@ -2277,9 +2277,6 @@ class EticController < ApplicationController
 				end
 			end
 
-			puts @thesi_width
-			puts @thesi_height
-
 			CSV.foreach("#{Rails.root}/public/pricelist/"+anoigma+".csv", col_sep: ';',headers:true ).with_index do |row, i| 
 				if ( i == @thesi_height )
 					@timi = row[@thesi_width]
@@ -2341,9 +2338,6 @@ class EticController < ApplicationController
 					@thesi_height = i
 				end
 			end
-
-			puts @thesi_width
-			puts @thesi_height
 
 			CSV.foreach("#{Rails.root}/public/pricelist/"+@csv_neo+".csv", col_sep: ';',headers:true ).with_index do |row, i| 
 				if ( i == @thesi_height )
@@ -2454,9 +2448,6 @@ class EticController < ApplicationController
 						end
 					end
 
-					puts @thesi_width
-					puts @thesi_height
-
 					CSV.foreach("#{Rails.root}/public/pricelist/"+anoigma+".csv", col_sep: ';',headers:true ).with_index do |row, i| 
 						if ( i == @thesi_height )
 							@timi = row[@thesi_width]
@@ -2517,9 +2508,6 @@ class EticController < ApplicationController
 					@thesi_height = i
 				end
 			end
-
-			puts @thesi_width
-			puts @thesi_height
 
 			CSV.foreach("#{Rails.root}/public/pricelist/"+@open_type.csv+".csv", col_sep: ';',headers:true ).with_index do |row, i| 
 				if ( i == @thesi_height )
@@ -2787,9 +2775,6 @@ class EticController < ApplicationController
 						end
 					end
 
-					puts @thesi_width
-					puts @thesi_height
-
 					CSV.foreach("#{Rails.root}/public/pricelist/"+anoigma+".csv", col_sep: ';',headers:true ).with_index do |row, i| 
 						if ( i == @thesi_height )
 							@timi = row[@thesi_width]
@@ -2849,9 +2834,6 @@ class EticController < ApplicationController
 					@thesi_height = i
 				end
 			end
-
-			puts @thesi_width
-			puts @thesi_height
 
 			CSV.foreach("#{Rails.root}/public/pricelist/"+@open_type.csv+".csv", col_sep: ';',headers:true ).with_index do |row, i| 
 				if ( i == @thesi_height )
@@ -4176,9 +4158,9 @@ class EticController < ApplicationController
 		    @order.price_sum = @price_sum
 		    @order.price_update = @price_sum
 		    @order.posotoita = @posotita
-        @order.surcharge_line = @surcharge_line
-        @order.surcharge_color = @surcharge_color
-        @order.surcharge_color_eksw = @surcharge_color_eksw
+        	@order.surcharge_line = @surcharge_line
+        	@order.surcharge_color = @surcharge_color
+        	@order.surcharge_color_eksw = @surcharge_color_eksw
 		    #### USER
 		    if current_user.admin == 1
 		      user = PseUser.where(:id => session[:pseUserId]).first
@@ -4514,8 +4496,14 @@ class EticController < ApplicationController
         	profil_price = 0
         	profil_posotita = 0
         end
-        		
-        	
+        
+        #olympia		
+        @user_cur = User.where(:id => current_user.id).first
+	    market_price = @price - (@user_cur.pososto/100)*@price
+	    
+	    #if (current_user.admin == 1)
+        	dealer_price = @price - (@user_cur.pososto_dealer/100)*@price
+        #end
 
 	    respond_to do |format|
 	      format.html { if current_user.admin == 1
@@ -4672,7 +4660,9 @@ class EticController < ApplicationController
           	                          :ekso_val_width => ekso_val_width,
           	                          :ekso_val_height => ekso_val_height,
           	                          :persida_val_width => persida_val_width,
-          	                          :persida_val_height => persida_val_height } }
+          	                          :persida_val_height => persida_val_height,
+          	                          :market_price => market_price,
+          	                          :dealer_price => dealer_price } }
         end
 	end
 
@@ -5429,13 +5419,13 @@ class EticController < ApplicationController
 		@pososto = @user.pososto
 		@pososto_par_sun = @par.pososto_sun
 		@pososto_sun = @user.pososto_sun
-            @items =  Order.where(:paraggelia_id => params[:id]).order("aukson")#0.043
-            @sunolo = 100
-            @number = @items.count
-            #@sunolo = 0; 
-            #  @items.each do |i| 
-	        #      @sunolo = @sunolo + i.price_sum #panta to swsto
-	        #  end 
+        @items =  Order.where(:paraggelia_id => params[:id]).order("aukson")#0.043
+        @sunolo = 100
+        @number = @items.count
+        #@sunolo = 0; 
+        #  @items.each do |i| 
+        #      @sunolo = @sunolo + i.price_sum #panta to swsto
+        #  end 
 	    
 	    @user_par = User.where(:id => @par.user).first
 	    @pososto_market = @user_par.pososto
