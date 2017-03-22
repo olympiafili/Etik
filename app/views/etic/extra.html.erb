@@ -1229,19 +1229,6 @@
                         <td class="td_right"><label class="super_apli_timi"></label></td>
                       </tr>
 
-                      <tr class="neess_diastaseis">
-                        <td class="td_left"><label><%= t 'translate.MarketPrice'  %>: </label></td>
-                        <td class=""><label class="diastaseis_table"><%= @width %> X <%= @height %></label></td>
-                        <td class="table_tm"> <label class="diastaseis_table_tm"></label></td>
-                        <td class="td_right"><label class="super_apli_timi_market"></label></td>
-                      </tr>
-                      <tr class="neess_diastaseis">
-                        <td class="td_left"><label><%= t 'translate.DealerPrice'  %>: </label></td>
-                        <td class=""><label class="diastaseis_table"><%= @width %> X <%= @height %></label></td>
-                        <td class="table_tm"> <label class="diastaseis_table_tm"></label></td>
-                        <td class="td_right"><label class="super_apli_timi_dealer"></label></td>
-                      </tr>
-
                       <tr>
                         <td class="td_left"><label><%= t 'translate.Inside_color'  %>: </label></td>
                         <td class=""><label class="color_main"></label></td>
@@ -1310,12 +1297,26 @@
                   <!-- Κατω πινακας με extra -->
                   <div class="table-responsive extra_table2" style="/*overflow-y:scroll; height:250px;*/">
                     <table class="table table2 table-condensed">
-                      <tr class="neess_diastaseis neess_diastaseis_first">
+                      <tr class="neess_diastaseis">
                         <td class="td_left"><label><%= t 'translate.New_dimensions'  %>: </label></td>
                         <td class=""><label class="diastaseis_extra"><%= @width %>X<%= @height %></label></td>
                         <td class="table_tm"> <label class="diastaseis_table_extra_tm"></label></td>
                         <td class="td_right"><label class="nea_timi"></label></td>
                       </tr>
+
+                      <tr class="neess_diastaseis">
+                        <td class="td_left"><label><%= t 'translate.MarketPrice'  %>: </label></td>
+                        <td class=""><label class="diastaseis_extra"><%= @width %>X<%= @height %></label></td>
+                        <td class="table_tm"> <label class="diastaseis_table_extra_tm"></label></td>
+                        <td class="td_right"><label class="nea_timi_market"></label></td>
+                      </tr>
+                      <tr class="neess_diastaseis neess_diastaseis_first">
+                        <td class="td_left"><label><%= t 'translate.DealerPrice'  %>: </label></td>
+                        <td class=""><label class="diastaseis_extra"><%= @width %>X<%= @height %></label></td>
+                        <td class="table_tm"> <label class="diastaseis_table_extra_tm"></label></td>
+                        <td class="td_right"><label class="nea_timi_dealer"></label></td>
+                      </tr>
+
                       <tr class="lastixo_show_hide" style="display:none;">
                         <td class="td_left"><label><%= t 'translate.lastixo'  %>: </label></td>
                         <td class=""><label class="table_lastixo_black"><%= t 'translate.black_gasket'  %></label><label class="table_lastixo_grey"><%= t 'translate.grey_gasket'  %></label></td>
@@ -1856,6 +1857,7 @@
                       <td class="table_tm"> <label class="diastaseis_table_tm"></label></td>
                       <td class="td_right"><label class="super_apli_timi"></label></td>
                     </tr>
+
                     <tr>
                       <td class="td_left"><label><%= t 'translate.Inside_color'  %>: </label></td>
                       <td class=""><label class="color_main"></label></td>
@@ -1930,6 +1932,20 @@
                       <td class="table_tm"> <label class="diastaseis_table_extra_tm"></label></td>
                       <td class="td_right"><label class="nea_timi"></label></td>
                     </tr>
+
+                    <tr class="neess_diastaseis">
+                      <td class="td_left"><label><%= t 'translate.MarketPrice'  %>: </label></td>
+                      <td class=""><label class="diastaseis_extra"><%= @width %>X<%= @height %></label></td>
+                      <td class="table_tm"> <label class="diastaseis_table_extra_tm"></label></td>
+                      <td class="td_right"><label class="nea_timi_market"></label></td>
+                    </tr>
+                    <tr class="neess_diastaseis">
+                      <td class="td_left"><label><%= t 'translate.DealerPrice'  %>: </label></td>
+                      <td class=""><label class="diastaseis_extra"><%= @width %>X<%= @height %></label></td>
+                      <td class="table_tm"> <label class="diastaseis_table_extra_tm"></label></td>
+                      <td class="td_right"><label class="nea_timi_dealer"></label></td>
+                    </tr>
+
                     <tr class="lastixo_show_hide" style="display:none;">
                       <td class="td_left"><label><%= t 'translate.lastixo'  %>: </label></td>
                       <td class=""><label class="table_lastixo_black"><%= t 'translate.black_gasket'  %></label><label class="table_lastixo_grey"><%= t 'translate.grey_gasket'  %></label></td>

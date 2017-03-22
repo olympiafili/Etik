@@ -4499,10 +4499,10 @@ class EticController < ApplicationController
         
         #olympia		
         @user_cur = User.where(:id => current_user.id).first
-	    market_price = @price - (@user_cur.pososto/100)*@price
+	    market_price = @price_new - (@user_cur.pososto/100)*@price_new
 	    
 	    #if (current_user.admin == 1)
-        	dealer_price = @price - (@user_cur.pososto_dealer/100)*@price
+        	dealer_price = @price_new - (@user_cur.pososto_dealer/100)*@price_new
         #end
 
 	    respond_to do |format|
