@@ -3793,6 +3793,14 @@ class EticController < ApplicationController
           @price_sum = @price_new + @price_extra	
         end
 
+        #Market and Dealer price
+    	@user_cur = User.where(:id => current_user.id).first
+	    market_price = @price_new - (@user_cur.pososto/100)*@price_new
+	    
+	    #if (current_user.admin == 1)
+        	dealer_price = @price_new - (@user_cur.pososto_dealer/100)*@price_new
+        #end
+
         ## Εδώ αν το αίτημα είναι html μπορω να αποθηκεύσω στην βάση την παραγγελία.
         if request.format.html?
         	diorthwsi_aukson = 0
@@ -4161,6 +4169,14 @@ class EticController < ApplicationController
         	@order.surcharge_line = @surcharge_line
         	@order.surcharge_color = @surcharge_color
         	@order.surcharge_color_eksw = @surcharge_color_eksw
+
+        	#Market and Dealer price
+		    @order.price_market = market_price
+		    
+		    #if (current_user.admin == 1)
+	        	@order.price_dealer = dealer_price
+	        #end
+
 		    #### USER
 		    if current_user.admin == 1
 		      user = PseUser.where(:id => session[:pseUserId]).first
@@ -4496,14 +4512,6 @@ class EticController < ApplicationController
         	profil_price = 0
         	profil_posotita = 0
         end
-        
-        #olympia		
-        @user_cur = User.where(:id => current_user.id).first
-	    market_price = @price_new - (@user_cur.pososto/100)*@price_new
-	    
-	    #if (current_user.admin == 1)
-        	dealer_price = @price_new - (@user_cur.pososto_dealer/100)*@price_new
-        #end
 
 	    respond_to do |format|
 	      format.html { if current_user.admin == 1

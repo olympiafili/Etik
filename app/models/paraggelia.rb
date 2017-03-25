@@ -46,7 +46,9 @@ class Paraggelia < ActiveRecord::Base
           "<Discount/Surcharge%>", "<Discount/Surcharge per unit>", order.price_sum, test]
           #'=HYPERLINK("'+test+'"; "Link")'
         #INITIAL_PRICE
-        csv << ["INITIAL_PRICE", order.super_apli_timi]
+        csv << ["INITIAL_PRICE", order.price_new]
+        csv << ["PRICE 1", order.price_market]
+        csv << ["PRICE 2", order.price_dealer]
         
         #SURCHARGE_LINE
         csv << ["SURCHARGE_LINE", order.surcharge_line]
