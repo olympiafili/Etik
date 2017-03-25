@@ -461,6 +461,8 @@ ActiveRecord::Schema.define(version: 20160719070630075818) do
     t.float    "price_place",                limit: 24
     t.string   "m_window_still"
     t.string   "m_place"
+    t.float    "price_market",               limit: 24
+    t.float    "price_dealer",               limit: 24
   end
 
   create_table "panels", force: true do |t|
