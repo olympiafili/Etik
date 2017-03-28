@@ -363,7 +363,7 @@
                           <div class="col-xs-12">
                             <label id="back_7" class="label_tab_top_next"><%= t('translate.Back') %></label>
                             <label id="go_glass_1" class="go_glass_1 label_tab_top_next"><%= t('translate.Next') %></label>
-							<label id="next_7" style="float:right" class="next_7 label_tab_top_next"><%= t('translate.ContinueToLeafs') %></label>
+							               <label id="next_7" style="float:right" class="next_7 label_tab_top_next"><%= t('translate.ContinueToNextStep') %></label>
                           </div>
                         </div>
                         <hr>
@@ -402,7 +402,7 @@
                             <div class="col-xs-12">
                               <label id="go_glass_0" class="label_tab_top_next"><%= t('translate.Back') %></label>
                               <label id="go_glass_2" class="label_tab_top_next"><%= t('translate.Next') %></label>
-							  <label id="next_7" style="float:right" class="next_7 label_tab_top_next"><%= t('translate.ContinueToLeafs') %></label>
+							               <label id="next_7" style="float:right" class="next_7 label_tab_top_next"><%= t('translate.ContinueToNextStep') %></label>
                             </div>
                           </div>
                           <hr>
@@ -437,14 +437,14 @@
                   
                   <!-- Τζαμια έξω -->
                   <div class="glass_2 label_tab_bottom">
-                      <div class="row">
-                            <div class="col-xs-12">
-                              <label id="go_glass_1" class="go_glass_1 label_tab_top_next"><%= t('translate.Back') %></label>
-                              <label id="next_7" class="label_tab_top_next"><%= t('translate.Next') %></label>
-							  <label id="next_7" style="float:right" class="next_7 label_tab_top_next"><%= t('translate.ContinueToLeafs') %></label>
-                            </div>
+                    <div class="row">
+                          <div class="col-xs-12">
+                            <label id="go_glass_1" class="go_glass_1 label_tab_top_next"><%= t('translate.Back') %></label>
+                            <label id="next_to_panels" class="label_tab_top_next"><%= t('translate.Next') %></label>
+						                 <label id="next_7" style="float:right" class="next_7 label_tab_top_next"><%= t('translate.ContinueToNextStep') %></label>
                           </div>
-                          <hr>
+                        </div>
+                        <hr>
                     <div style="">
                       <div class="click_tzamia"> 
                         <div class="extra ">
@@ -475,12 +475,20 @@
 				  
                   <!-- Panel -->
                   <div class="glass_3 label_tab_bottom">
+                      <div class="row">
+                        <div class="col-xs-12">
+                          <label id="go_glass_2" class="go_glass_2 label_tab_top_next"><%= t('translate.Back') %></label>
+                          <label id="next_7" class="label_tab_top_next"><%= t('translate.Next') %></label>
+                          <label id="next_7" style="float:right" class="next_7 label_tab_top_next"><%= t('translate.ContinueToNextStep') %></label>
+                        </div>
+                      </div>
+                      <hr>
                       <div class=""> 
                         <div class="extra ">
                           <!-- Κατηγοριες -->
                           <div class="row">
                             <div class="col-xs-6" >
-							<h5><%= t('translate.Supplier_Panel') %></h5>
+							               <h5><%= t('translate.Supplier_Panel') %></h5>
                               <div class="supplier_panels">
                                 <% @supplier_panels.each do |z| %>
                                     <a  style="text-decoration: none; color:black;">
@@ -489,17 +497,17 @@
                                 <% end %><!--End each-->
                               </div>
                             </div>
-							<div class="col-xs-6">
-								<h5><%= t('translate.Type_Panel') %></h5>
+                						<div class="col-xs-6">
+                							<h5><%= t('translate.Type_Panel') %></h5>
                                 <div class="cat_panels" id="cat_panels">
                                 </div>
-							</div>
+							               </div>
 							
-							<div class="col-xs-12 panels_wrapper">
-								<hr>
+                  					<div class="col-xs-12 panels_wrapper">
+                  						<hr>
                                 <div class="panels" id="">
                                 </div>
-							</div>
+							             </div>
                           </div>
                           
                         </div><!-- End extra -->
@@ -1301,189 +1309,234 @@
                         <td class="td_left"><label><%= t 'translate.New_dimensions'  %>: </label></td>
                         <td class=""><label class="diastaseis_extra"><%= @width %>X<%= @height %></label></td>
                         <td class="table_tm"> <label class="diastaseis_table_extra_tm"></label></td>
-                        <td class="td_right"><label class="nea_timi"></label></td>
-                      </tr>
-
-                      <tr class="neess_diastaseis">
-                        <td class="td_left"><label><%= t 'translate.MarketPrice'  %>: </label></td>
-                        <td class=""><label class="diastaseis_extra"><%= @width %>X<%= @height %></label></td>
-                        <td class="table_tm"> <label class="diastaseis_table_extra_tm"></label></td>
-                        <td class="td_right"><label class="nea_timi_market"></label></td>
-                      </tr>
-                      <tr class="neess_diastaseis neess_diastaseis_first">
-                        <td class="td_left"><label><%= t 'translate.DealerPrice'  %>: </label></td>
-                        <td class=""><label class="diastaseis_extra"><%= @width %>X<%= @height %></label></td>
-                        <td class="table_tm"> <label class="diastaseis_table_extra_tm"></label></td>
-                        <td class="td_right"><label class="nea_timi_dealer"></label></td>
+                        <td><label><%= t 'translate.MarketPrice'  %>: </label><label class="nea_timi_market"></label></td>
+                        <td><label><%= t 'translate.DealerPrice'  %>: </label><label class="nea_timi_dealer"></label></td>
+                        <td style="text-align: right"><label class="nea_timi"></label></td>
                       </tr>
 
                       <tr class="lastixo_show_hide" style="display:none;">
                         <td class="td_left"><label><%= t 'translate.lastixo'  %>: </label></td>
                         <td class=""><label class="table_lastixo_black"><%= t 'translate.black_gasket'  %></label><label class="table_lastixo_grey"><%= t 'translate.grey_gasket'  %></label></td>
                         <td class=""><label class=""></label></td>
-                        <td class="td_right"><label class="timi_lastixo"></label></td>
+                        <td><label><%= t 'translate.MarketPrice'  %>: </label><label class="timi_market_lastixo"></label></td>
+                        <td><label><%= t 'translate.DealerPrice'  %>: </label><label class="timi_dealer_lastixo"></label></td>
+                        <td style="text-align: right"><label class="timi_lastixo"></label></td>
                       </tr>
                       <tr class="epik_show_hide" style="display:none;">
                         <td class="td_left"><label><%= t 'translate.Top_mounted'  %>: </label></td>
                         <td class=""><label class="table_epikathimeno"></label></td>
                         <td class="table_tm"><label class="tm_ep"></label></td>
-                        <td class="td_right"><label class="timi_epikathimenou"></label></td>
+                        <td><label><%= t 'translate.MarketPrice'  %>: </label><label class="timi_market_epikathimenou"></label></td>
+                        <td><label><%= t 'translate.DealerPrice'  %>: </label><label class="timi_dealer_epikathimenou"></label></td>
+                        <td style="text-align: right"><label class="timi_epikathimenou"></label></td>
                       </tr>
                       <tr class="epik_show_hide" style="display:none;">
                         <td class="td_left"><label><%= t 'translate.Top_mounted' %> <%= t 'translate.Color' %>: </label></td>
                         <td class=""><label class="table_xrwma_epikathimeno"></label></td>
                         <td class=""><label class=""></label></td>
-                        <td class="td_right"><label class="table_timi_xrwma_epikathimenou"></label></td>
+                        <td><label><%= t 'translate.MarketPrice'  %>: </label><label class="timi_market_xrwma_epikathimenou">0 €</label></td>
+                        <td><label><%= t 'translate.DealerPrice'  %>: </label><label class="timi_dealer_xrwma_epikathimenou">0 €</label></td>
+                        <td style="text-align: right"><label class="table_timi_xrwma_epikathimenou"></label></td>
                       </tr>
                       <tr class="ekso_show_hide" style="display:none;">
                         <td class="td_left"><label><%= t 'translate.Front_mounted'  %>: </label></td>
                         <td class=""><label class="table_eksoteriko"></label></td>
                         <td class="table_tm"><label class="tm_ek"></label></td>
-                        <td class="td_right"><label class="timi_eksoterikou"></label></td>
+                        <td><label><%= t 'translate.MarketPrice'  %>: </label><label class="timi_market_eksoterikou"></label></td>
+                        <td><label><%= t 'translate.DealerPrice'  %>: </label><label class="timi_dealer_eksoterikou"></label></td>
+                        <td style="text-align: right"><label class="timi_eksoterikou"></label></td>
                       </tr>
                       <tr class="ekso_show_hide" style="display:none;">
                         <td class="td_left"><label><%= t 'translate.Front_mounted' %> <%= t 'translate.Color'  %>: </label></td>
                         <td class=""><label class="table_xrwma_eksoteriko"></label></td>
                         <td class=""><label class=""></label></td>
-                        <td class="td_right"><label class="table_timi_xrwma_eksoterikou"></label></td>
+                        <td><label><%= t 'translate.MarketPrice'  %>: </label><label class="timi_market_xrwma_eksoterikou">0 €</label></td>
+                        <td><label><%= t 'translate.DealerPrice'  %>: </label><label class="timi_dealer_xrwma_eksoterikou">0 €</label></td>
+                        <td style="text-align: right"><label class="table_timi_xrwma_eksoterikou"></label></td>
                       </tr>
                       <tr class="persida_show_hide" style="display:none;">
                         <td class="td_left"><label><%= t 'translate.Profil_for_shutters' %>: </label></td>
                         <td class=""><label class="table_persida"></label></td>
                         <td class="table_tm"><label class="tm_per"></label></td>
-                        <td class="td_right"><label class="timi_persida"></label></td>
+                        <td><label><%= t 'translate.MarketPrice'  %>: </label><label class="timi_market_persida"></label></td>
+                        <td><label><%= t 'translate.DealerPrice'  %>: </label><label class="timi_dealer_persida"></label></td>
+                        <td style="text-align: right"><label class="timi_persida"></label></td>
                       </tr>
                       <tr class="persida_show_hide" style="display:none;">
                         <td class="td_left"><label><%= t 'translate.Profil_for_shutters' %> <%= t 'translate.Color'  %>: </label></td>
                         <td class=""><label class="table_xrwma_persida"></label></td>
                         <td class=""><label class=""></label></td>
-                        <td class="td_right"><label class="table_timi_xrwma_persida"></label></td>
+                        <td><label><%= t 'translate.MarketPrice'  %>: </label><label class="timi_market_xrwma_persida">0 €</label></td>
+                        <td><label><%= t 'translate.DealerPrice'  %>: </label><label class="timi_dealer_xrwma_persida">0 €</label></td>
+                        <td style="text-align: right"><label class="table_timi_xrwma_persida"></label></td>
                       </tr>
                       <tr class="odoigos_show_hide" style="display:none;">
                         <td class="td_left"><label><%= t 'translate.Rails'  %>: </label></td>
                         <td class=""><label class="table_odoigos"></label></td>
                         <td class="table_tm"><label class="tm_od"></label></td>
-                        <td class="td_right"><label class="timi_odoigos"></label></td>
+                        <td><label><%= t 'translate.MarketPrice'  %>: </label><label class="timi_market_odoigos"></label></td>
+                        <td><label><%= t 'translate.DealerPrice'  %>: </label><label class="timi_dealer_odoigos"></label></td>
+                        <td style="text-align: right"><label class="timi_odoigos"></label></td>
                       </tr>
                       <tr class="odoigos_show_hide" style="display:none;">
                         <td class="td_left"><label><%= t 'translate.Rails' %> <%= t 'translate.Color'  %>: </label></td>
                         <td class=""><label class="table_xrwma_odoigos"></label></td>
                         <td class=""><label class=""></label></td>
-                        <td class="td_right"><label class="table_timi_xrwma_odoigos"></label></td>
+                        <td><label><%= t 'translate.MarketPrice'  %>: </label><label class="timi_market_xrwma_odoigos">0 €</label></td>
+                        <td><label><%= t 'translate.DealerPrice'  %>: </label><label class="timi_dealer_xrwma_odoigos">0 €</label></td>
+                        <td style="text-align: right"><label class="table_timi_xrwma_odoigos"></label></td>
                       </tr>
                       <tr class="profil_deksia_1_show_hide" style="display:none;">
                         <td class="td_left"><label><%= t 'translate.External_profile_right'  %>: </label></td>
                         <td class=""><label class="table_profil_deksia_1"></label></td>
                         <td class=""><label class="table_profil_deksia_1_arithmos"></label></td>
-                        <td class="td_right"><label class="timi_profil_deksia_1"></label></td>
+                        <td><label><%= t 'translate.MarketPrice'  %>: </label><label class="timi_market_profil_deksia_1"></label></td>
+                        <td><label><%= t 'translate.DealerPrice'  %>: </label><label class="timi_dealer_profil_deksia_1"></label></td>
+                        <td style="text-align: right"><label class="timi_profil_deksia_1"></label></td>
                       </tr>
                       <tr class="profil_deksia_2_show_hide" style="display:none;">
                         <td class="td_left"><label><%= t 'translate.External_profile_right'  %>: </label></td>
                         <td class=""><label class="table_profil_deksia_2"></label></td>
                         <td class=""><label class="table_profil_deksia_2_arithmos"></label></td>
-                        <td class="td_right"><label class="timi_profil_deksia_2"></label></td>
+                        <td><label><%= t 'translate.MarketPrice'  %>: </label><label class="timi_market_profil_deksia_2"></label></td>
+                        <td><label><%= t 'translate.DealerPrice'  %>: </label><label class="timi_dealer_profil_deksia_2"></label></td>
+                        <td style="text-align: right"><label class="timi_profil_deksia_2"></label></td>
                       </tr>
                       <tr class="profil_deksia_3_show_hide" style="display:none;">
                         <td class="td_left"><label><%= t 'translate.External_profile_right'  %>: </label></td>
                         <td class=""><label class="table_profil_deksia_3"></label></td>
                         <td class=""><label class="table_profil_deksia_3_arithmos"></label></td>
-                        <td class="td_right"><label class="timi_profil_deksia_3"></label></td>
+                        <td><label><%= t 'translate.MarketPrice'  %>: </label><label class="timi_market_profil_deksia_3"></label></td>
+                        <td><label><%= t 'translate.DealerPrice'  %>: </label><label class="timi_dealer_profil_deksia_3"></label></td>
+                        <td style="text-align: right"><label class="timi_profil_deksia_3"></label></td>
                       </tr>
                       <tr class="profil_deksia_xrwma_show_hide" style="display:none;">
                         <td class="td_left"><label><%= t 'translate.External_profile_right_color' %> </label></td>
                         <td class=""><label class="table_profil_deksia_xrwma"></label></td>
                         <td class=""><label class=""></label></td>
-                        <td class="td_right"><label class="timi_profil_deksia_xrwma"></label></td>
+                        <td><label><%= t 'translate.MarketPrice'  %>: </label><label class="timi_market_profil_deksia_xrwma">0 €</label></td>
+                        <td><label><%= t 'translate.DealerPrice'  %>: </label><label class="timi_dealer_profil_deksia_xrwma">0 €</label></td>
+                        <td style="text-align: right"><label class="timi_profil_deksia_xrwma"></label></td>
                       </tr>
                       <tr class="profil_aristera_1_show_hide" style="display:none;">
                         <td class="td_left"><label><%= t 'translate.External_profile_left'  %>: </label></td>
                         <td class=""><label class="table_profil_aristera_1"></label></td>
                         <td class=""><label class="table_profil_aristera_1_arithmos"></label></td>
-                        <td class="td_right"><label class="timi_profil_aristera_1"></label></td>
+                        <td><label><%= t 'translate.MarketPrice'  %>: </label><label class="timi_market_profil_aristera_1"></label></td>
+                        <td><label><%= t 'translate.DealerPrice'  %>: </label><label class="timi_dealer_profil_aristera_1"></label></td>
+                        <td style="text-align: right"><label class="timi_profil_aristera_1"></label></td>
                       </tr>
                       <tr class="profil_aristera_2_show_hide" style="display:none;">
                         <td class="td_left"><label><%= t 'translate.External_profile_left'  %>: </label></td>
                         <td class=""><label class="table_profil_aristera_2"></label></td>
                         <td class=""><label class="table_profil_aristera_2_arithmos"></label></td>
-                        <td class="td_right"><label class="timi_profil_aristera_2"></label></td>
+                        <td><label><%= t 'translate.MarketPrice'  %>: </label><label class="timi_market_profil_aristera_2"></label></td>
+                        <td><label><%= t 'translate.DealerPrice'  %>: </label><label class="timi_dealer_profil_aristera_2"></label></td>
+                        <td style="text-align: right"><label class="timi_profil_aristera_2"></label></td>
                       </tr>
                       <tr class="profil_aristera_3_show_hide" style="display:none;">
                         <td class="td_left"><label><%= t 'translate.External_profile_left'  %>: </label></td>
                         <td class=""><label class="table_profil_aristera_3"></label></td>
                         <td class=""><label class="table_profil_aristera_3_arithmos"></label></td>
-                        <td class="td_right"><label class="timi_profil_aristera_3"></label></td>
+                        <td><label><%= t 'translate.MarketPrice'  %>: </label><label class="timi_market_profil_aristera_3"></label></td>
+                        <td><label><%= t 'translate.DealerPrice'  %>: </label><label class="timi_dealer_profil_aristera_3"></label></td>
+                        <td style="text-align: right"><label class="timi_profil_aristera_3"></label></td>
                       </tr>
                       <tr class="profil_aristera_xrwma_show_hide" style="display:none;">
                         <td class="td_left"><label><%= t 'translate.External_profile_Left_color' %> </label></td>
                         <td class=""><label class="table_profil_aristera_xrwma"></label></td>
                         <td class=""><label class=""></label></td>
-                        <td class="td_right"><label class="timi_profil_aristera_xrwma"></label></td>
+                        <td><label><%= t 'translate.MarketPrice'  %>: </label><label class="timi_market_profil_aristera_xrwma">0 €</label></td>
+                        <td><label><%= t 'translate.DealerPrice'  %>: </label><label class="timi_dealer_profil_aristera_xrwma">0 €</label></td>
+                        <td style="text-align: right"><label class="timi_profil_aristera_xrwma"></label></td>
                       </tr>
                       <tr class="profil_panw_1_show_hide" style="display:none;">
                         <td class="td_left"><label><%= t 'translate.External_profile_top'  %>: </label></td>
                         <td class=""><label class="table_profil_panw_1"></label></td>
                         <td class=""><label class="table_profil_panw_1_arithmos"></label></td>
-                        <td class="td_right"><label class="timi_profil_panw_1"></label></td>
+                        <td><label><%= t 'translate.MarketPrice'  %>: </label><label class="timi_market_profil_panw_1"></label></td>
+                        <td><label><%= t 'translate.DealerPrice'  %>: </label><label class="timi_dealer_profil_panw_1"></label></td>
+                        <td style="text-align: right"><label class="timi_profil_panw_1"></label></td>
                       </tr>
                       <tr class="profil_panw_2_show_hide" style="display:none;">
                         <td class="td_left"><label><%= t 'translate.External_profile_top'  %>: </label></td>
                         <td class=""><label class="table_profil_panw_2"></label></td>
                         <td class=""><label class="table_profil_panw_2_arithmos"></label></td>
-                        <td class="td_right"><label class="timi_profil_panw_2"></label></td>
+                        <td><label><%= t 'translate.MarketPrice'  %>: </label><label class="timi_market_profil_panw_2"></label></td>
+                        <td><label><%= t 'translate.DealerPrice'  %>: </label><label class="timi_dealer_profil_panw_2"></label></td>
+                        <td style="text-align: right"><label class="timi_profil_panw_2"></label></td>
                       </tr>
                       <tr class="profil_panw_3_show_hide" style="display:none;">
                         <td class="td_left"><label><%= t 'translate.External_profile_top'  %>: </label></td>
                         <td class=""><label class="table_profil_panw_3"></label></td>
                         <td class=""><label class="table_profil_panw_3_arithmos"></label></td>
-                        <td class="td_right"><label class="timi_profil_panw_3"></label></td>
+                        <td><label><%= t 'translate.MarketPrice'  %>: </label><label class="timi_market_profil_panw_3"></label></td>
+                        <td><label><%= t 'translate.DealerPrice'  %>: </label><label class="timi_dealer_profil_panw_3"></label></td>
+                        <td style="text-align: right"><label class="timi_profil_panw_3"></label></td>
                       </tr>
                       <tr class="profil_panw_xrwma_show_hide" style="display:none;">
                         <td class="td_left"><label><%= t 'translate.External_profile_Top_color' %> </label></td>
                         <td class=""><label class="table_profil_panw_xrwma"></label></td>
                         <td class=""><label class=""></label></td>
-                        <td class="td_right"><label class="timi_profil_panw_xrwma"></label></td>
+                        <td><label><%= t 'translate.MarketPrice'  %>: </label><label class="timi_market_profil_panw_xrwma">0 €</label></td>
+                        <td><label><%= t 'translate.DealerPrice'  %>: </label><label class="timi_dealer_profil_panw_xrwma">0 €</label></td>
+                        <td style="text-align: right"><label class="timi_profil_panw_xrwma"></label></td>
                       </tr>
                       <tr class="profil_katw_1_show_hide" style="display:none;">
                         <td class="td_left"><label><%= t 'translate.External_profile_bottom'  %>: </label></td>
                         <td class=""><label class="table_profil_katw_1"></label></td>
                         <td class=""><label class="table_profil_katw_1_arithmos"></label></td>
-                        <td class="td_right"><label class="timi_profil_katw_1"></label></td>
+                        <td><label><%= t 'translate.MarketPrice'  %>: </label><label class="timi_market_profil_katw_1"></label></td>
+                        <td><label><%= t 'translate.DealerPrice'  %>: </label><label class="timi_dealer_profil_katw_1"></label></td>
+                        <td style="text-align: right"><label class="timi_profil_katw_1"></label></td>
                       </tr>
                       <tr class="profil_katw_2_show_hide" style="display:none;">
                         <td class="td_left"><label><%= t 'translate.External_profile_bottom'  %>: </label></td>
                         <td class=""><label class="table_profil_katw_2"></label></td>
                         <td class=""><label class="table_profil_katw_2_arithmos"></label></td>
-                        <td class="td_right"><label class="timi_profil_katw_2"></label></td>
+                        <td><label><%= t 'translate.MarketPrice'  %>: </label><label class="timi_market_profil_katw_2"></label></td>
+                        <td><label><%= t 'translate.DealerPrice'  %>: </label><label class="timi_dealer_profil_katw_2"></label></td>
+                        <td style="text-align: right"><label class="timi_profil_katw_2"></label></td>
                       </tr>
                       <tr class="profil_katw_3_show_hide" style="display:none;">
                         <td class="td_left"><label><%= t 'translate.External_profile_bottom'  %>: </label></td>
                         <td class=""><label class="table_profil_katw_3"></label></td>
                         <td class=""><label class="table_profil_katw_3_arithmos"></label></td>
-                        <td class="td_right"><label class="timi_profil_katw_3"></label></td>
+                        <td><label><%= t 'translate.MarketPrice'  %>: </label><label class="timi_market_profil_katw_3"></label></td>
+                        <td><label><%= t 'translate.DealerPrice'  %>: </label><label class="timi_dealer_profil_katw_3"></label></td>
+                        <td style="text-align: right"><label class="timi_profil_katw_3"></label></td>
                       </tr>
                       <tr class="profil_katw_xrwma_show_hide" style="display:none;">
                         <td class="td_left"><label><%= t 'translate.External_profile_Bottom_color' %> </label></td>
                         <td class=""><label class="table_profil_katw_xrwma"></label></td>
                         <td class=""><label class=""></label></td>
-                        <td class="td_right"><label class="timi_profil_katw_xrwma"></label></td>
+                        <td><label><%= t 'translate.MarketPrice'  %>: </label><label class="timi_market_profil_katw_xrwma">0 €</label></td>
+                        <td><label><%= t 'translate.DealerPrice'  %>: </label><label class="timi_dealer_profil_katw_xrwma">0 €</label></td>
+                        <td style="text-align: right"><label class="timi_profil_katw_xrwma"></label></td>
                       </tr>
                       <tr class="typos_katw_1_show_hide" style="display:none;">
                         <td class="td_left"><label><%= t 'translate.Types'  %>: </label></td>
                         <td class=""><label class="table_typos_katw_1"></label></td>
                         <td class=""><label class="table_typos_katw_1_arithmos"></label></td>
-                        <td class="td_right"><label class="timi_typos_katw_1"></label></td>
+                        <td><label><%= t 'translate.MarketPrice'  %>: </label><label class="timi_market_typos_katw_1"></label></td>
+                        <td><label><%= t 'translate.DealerPrice'  %>: </label><label class="timi_dealer_typos_katw_1"></label></td>
+                        <td style="text-align: right"><label class="timi_typos_katw_1"></label></td>
                       </tr>
                       <tr class="typos_katw_2_show_hide" style="display:none;">
                         <td class="td_left"><label><%= t 'translate.Types'  %>: </label></td>
                         <td class=""><label class="table_typos_katw_2"></label></td>
                         <td class=""><label class="table_typos_katw_2_arithmos"></label></td>
-                        <td class="td_right"><label class="timi_typos_katw_2"></label></td>
+                        <td><label><%= t 'translate.MarketPrice'  %>: </label><label class="timi_market_typos_katw_2"></label></td>
+                        <td><label><%= t 'translate.DealerPrice'  %>: </label><label class="timi_dealer_typos_katw_2"></label></td>
+                        <td style="text-align: right"><label class="timi_typos_katw_2"></label></td>
                       </tr>
                       <tr class="typos_katw_3_show_hide" style="display:none;">
                         <td class="td_left"><label><%= t 'translate.Types'  %>: </label></td>
                         <td class=""><label class="table_typos_katw_3"></label></td>
                         <td class=""><label class="table_typos_katw_3_arithmos"></label></td>
-                        <td class="td_right"><label class="timi_typos_katw_3"></label></td>
+                        <td><label><%= t 'translate.MarketPrice'  %>: </label><label class="timi_market_typos_katw_3"></label></td>
+                        <td><label><%= t 'translate.DealerPrice'  %>: </label><label class="timi_dealer_typos_katw_3"></label></td>
+                        <td style="text-align: right"><label class="timi_typos_katw_3"></label></td>
                       </tr>
                       <!--
                       <tr class="profil_typos_xrwma_show_hide" style="display:none;">
@@ -1497,63 +1550,80 @@
                         <td class="td_left"><label><%= t 'translate.Protection' %> </label></td>
                         <td class=""><label class="table_prostasia"></label></td>
                         <td class=""><label class=""></label></td>
-                        <td class="td_right"><label class="timi_prostasia"></label></td>
+                        <td><label><%= t 'translate.MarketPrice'  %>: </label><label class="timi_market_prostasia"></label></td>
+                        <td><label><%= t 'translate.DealerPrice'  %>: </label><label class="timi_dealer_prostasia"></label></td>
+                        <td style="text-align: right"><label class="timi_prostasia"></label></td>
                       </tr>
 					
                       <tr class="window_still_show_hide" style="display:none;">
                         <td class="td_left"><label><%= t 'translate.WindowStill' %> </label></td>
                         <td class=""><label class="table_window_still"></label></td>
                         <td class=""><label class=""></label></td>
-                        <td class="td_right"><label class="timi_window_still"></label></td>
+                        <td><label><%= t 'translate.MarketPrice'  %>: </label><label class="timi_market_window_still"></label></td>
+                        <td><label><%= t 'translate.DealerPrice'  %>: </label><label class="timi_dealer_window_still"></label></td>
+                        <td style="text-align: right"><label class="timi_window_still"></label></td>
                       </tr>
 
                       <tr class="place_show_hide" style="display:none;">
                         <td class="td_left"><label><%= t 'translate.Place' %> </label></td>
                         <td class=""><label class="table_place"></label></td>
                         <td class=""><label class=""></label></td>
-                        <td class="td_right"><label class="timi_place"></label></td>
+                        <td><label><%= t 'translate.MarketPrice'  %>: </label><label class="timi_market_place"></label></td>
+                        <td><label><%= t 'translate.DealerPrice'  %>: </label><label class="timi_dealer_place"></label></td>
+                        <td style="text-align: right"><label class="timi_place"></label></td>
                       </tr>
 					
                       <tr class="roll_rat_show_hide" style="display:none;">
                         <td class="td_left"><label><%= t 'translate.RollRat' %> </label></td>
                         <td class=""><label class="table_roll_rat"></label></td>
                         <td class=""><label class=""></label></td>
-                        <td class="td_right"><label class="timi_roll_rat"></label></td>
+                        <td><label><%= t 'translate.MarketPrice'  %>: </label><label class="timi_market_roll_rat"></label></td>
+                        <td><label><%= t 'translate.DealerPrice'  %>: </label><label class="timi_dealer_roll_rat"></label></td>
+                        <td style="text-align: right"><label class="timi_roll_rat"></label></td>
                       </tr>
 					
                       <tr class="roll_rlt_show_hide" style="display:none;">
                         <td class="td_left"><label><%= t 'translate.RollRlt' %> </label></td>
                         <td class=""><label class="table_roll_rlt"></label></td>
                         <td class=""><label class=""></label></td>
-                        <td class="td_right"><label class="timi_roll_rlt"></label></td>
+                        <td><label><%= t 'translate.MarketPrice'  %>: </label><label class="timi_market_roll_rlt"></label></td>
+                        <td><label><%= t 'translate.DealerPrice'  %>: </label><label class="timi_dealer_roll_rlt"></label></td>
+                        <td style="text-align: right"><label class="timi_roll_rlt"></label></td>
                       </tr>
 					
                       <tr class="roll_rdm_show_hide" style="display:none;">
                         <td class="td_left"><label><%= t 'translate.RollRdm' %> </label></td>
                         <td class=""><label class="table_roll_rdm"></label></td>
                         <td class=""><label class=""></label></td>
-                        <td class="td_right"><label class="timi_roll_rdm"></label></td>
+                        <td><label><%= t 'translate.MarketPrice'  %>: </label><label class="timi_market_roll_rdm"></label></td>
+                        <td><label><%= t 'translate.DealerPrice'  %>: </label><label class="timi_dealer_roll_rdm"></label></td>
+                        <td style="text-align: right"><label class="timi_roll_rdm"></label></td>
                       </tr>
 					
                       <tr class="roll_pss_show_hide" style="display:none;">
                         <td class="td_left"><label><%= t 'translate.RollPss' %> </label></td>
                         <td class=""><label class="table_roll_pss"></label></td>
                         <td class=""><label class=""></label></td>
-                        <td class="td_right"><label class="timi_roll_pss"></label></td>
+                        <td><label><%= t 'translate.MarketPrice'  %>: </label><label class="timi_market_roll_pss"></label></td>
+                        <td><label><%= t 'translate.DealerPrice'  %>: </label><label class="timi_dealer_roll_pss"></label></td>
+                        <td style="text-align: right"><label class="timi_roll_pss"></label></td>
                       </tr>
 					
                       <tr class="roll_pfm_show_hide" style="display:none;">
                         <td class="td_left"><label><%= t 'translate.RollPfm' %> </label></td>
                         <td class=""><label class="table_roll_pfm"></label></td>
                         <td class=""><label class=""></label></td>
-                        <td class="td_right"><label class="timi_roll_pfm"></label></td>
+                        <td><label><%= t 'translate.MarketPrice'  %>: </label><label class="timi_market_roll_pfm"></label></td>
+                        <td><label><%= t 'translate.DealerPrice'  %>: </label><label class="timi_dealer_roll_pfm"></label></td>
+                        <td style="text-align: right"><label class="timi_roll_pfm"></label></td>
                       </tr>
                     
                       <tr class="neess_diastaseis">
                         <td class="td_left"><label><%= t 'translate.Final_price'  %>: </label></td>
                         <td></td>
                         <td class=""><label class=""></label></td>
-                        <td class="td_right"><label class="teliki_timi"></label></td>
+                        <td></td><td></td>
+                        <td style="text-align: right"><label class="teliki_timi"></label></td>
                       </tr>
                       <!--KAI AYTA ME IF EXISTS-->
                     </table>
@@ -1930,189 +2000,234 @@
                       <td class="td_left"><label><%= t 'translate.New_dimensions'  %>: </label></td>
                       <td class=""><label class="diastaseis_extra"><%= @width %>X<%= @height %></label></td>
                       <td class="table_tm"> <label class="diastaseis_table_extra_tm"></label></td>
-                      <td class="td_right"><label class="nea_timi"></label></td>
-                    </tr>
-
-                    <tr class="neess_diastaseis">
-                      <td class="td_left"><label><%= t 'translate.MarketPrice'  %>: </label></td>
-                      <td class=""><label class="diastaseis_extra"><%= @width %>X<%= @height %></label></td>
-                      <td class="table_tm"> <label class="diastaseis_table_extra_tm"></label></td>
-                      <td class="td_right"><label class="nea_timi_market"></label></td>
-                    </tr>
-                    <tr class="neess_diastaseis">
-                      <td class="td_left"><label><%= t 'translate.DealerPrice'  %>: </label></td>
-                      <td class=""><label class="diastaseis_extra"><%= @width %>X<%= @height %></label></td>
-                      <td class="table_tm"> <label class="diastaseis_table_extra_tm"></label></td>
-                      <td class="td_right"><label class="nea_timi_dealer"></label></td>
+                      <td><label><%= t 'translate.MarketPrice'  %>: </label><label class="nea_timi_market"></label></td>
+                      <td><label><%= t 'translate.DealerPrice'  %>: </label><label class="nea_timi_dealer"></label></td>
+                      <td style="text-align: right"><label class="nea_timi"></label></td>
                     </tr>
 
                     <tr class="lastixo_show_hide" style="display:none;">
                       <td class="td_left"><label><%= t 'translate.lastixo'  %>: </label></td>
                       <td class=""><label class="table_lastixo_black"><%= t 'translate.black_gasket'  %></label><label class="table_lastixo_grey"><%= t 'translate.grey_gasket'  %></label></td>
                       <td class=""><label class=""></label></td>
-                      <td class="td_right"><label class="timi_lastixo"></label></td>
+                      <td><label><%= t 'translate.MarketPrice'  %>: </label><label class="timi_market_lastixo"></label></td>
+                      <td><label><%= t 'translate.DealerPrice'  %>: </label><label class="timi_dealer_lastixo"></label></td>
+                      <td style="text-align: right"><label class="timi_lastixo"></label></td>
                     </tr>
                     <tr class="epik_show_hide" style="display:none;">
                       <td class="td_left"><label><%= t 'translate.Top_mounted'  %>: </label></td>
                       <td class=""><label class="table_epikathimeno"></label></td>
                       <td class="table_tm"><label class="tm_ep"></label></td>
-                      <td class="td_right"><label class="timi_epikathimenou"></label></td>
+                      <td><label><%= t 'translate.MarketPrice'  %>: </label><label class="timi_market_epikathimenou"></label></td>
+                      <td><label><%= t 'translate.DealerPrice'  %>: </label><label class="timi_dealer_epikathimenou"></label></td>
+                      <td style="text-align: right"><label class="timi_epikathimenou"></label></td>
                     </tr>
                     <tr class="epik_show_hide" style="display:none;">
                       <td class="td_left"><label><%= t 'translate.Top_mounted' %> <%= t 'translate.Color' %>: </label></td>
                       <td class=""><label class="table_xrwma_epikathimeno"></label></td>
                       <td class=""><label class=""></label></td>
-                      <td class="td_right"><label class="table_timi_xrwma_epikathimenou"></label></td>
+                      <td><label><%= t 'translate.MarketPrice'  %>: </label><label class="timi_market_xrwma_epikathimenou">0 €</label></td>
+                      <td><label><%= t 'translate.DealerPrice'  %>: </label><label class="timi_dealer_xrwma_epikathimenou">0 €</label></td>
+                      <td style="text-align: right"><label class="table_timi_xrwma_epikathimenou"></label></td>
                     </tr>
                     <tr class="ekso_show_hide" style="display:none;">
                       <td class="td_left"><label><%= t 'translate.Front_mounted'  %>: </label></td>
                       <td class=""><label class="table_eksoteriko"></label></td>
                       <td class="table_tm"><label class="tm_ek"></label></td>
-                      <td class="td_right"><label class="timi_eksoterikou"></label></td>
+                      <td><label><%= t 'translate.MarketPrice'  %>: </label><label class="timi_market_eksoterikou"></label></td>
+                      <td><label><%= t 'translate.DealerPrice'  %>: </label><label class="timi_dealer_eksoterikou"></label></td>
+                      <td style="text-align: right"><label class="timi_eksoterikou"></label></td>
                     </tr>
                     <tr class="ekso_show_hide" style="display:none;">
                       <td class="td_left"><label><%= t 'translate.Front_mounted' %> <%= t 'translate.Color'  %>: </label></td>
                       <td class=""><label class="table_xrwma_eksoteriko"></label></td>
                       <td class=""><label class=""></label></td>
-                      <td class="td_right"><label class="table_timi_xrwma_eksoterikou"></label></td>
+                      <td><label><%= t 'translate.MarketPrice'  %>: </label><label class="timi_market_xrwma_eksoterikou">0 €</label></td>
+                      <td><label><%= t 'translate.DealerPrice'  %>: </label><label class="timi_dealer_xrwma_eksoterikou">0 €</label></td>
+                      <td style="text-align: right"><label class="table_timi_xrwma_eksoterikou"></label></td>
                     </tr>
                     <tr class="persida_show_hide" style="display:none;">
                       <td class="td_left"><label><%= t 'translate.Profil_for_shutters' %>: </label></td>
                       <td class=""><label class="table_persida"></label></td>
                       <td class="table_tm"><label class="tm_per"></label></td>
-                      <td class="td_right"><label class="timi_persida"></label></td>
+                      <td><label><%= t 'translate.MarketPrice'  %>: </label><label class="timi_market_persida"></label></td>
+                      <td><label><%= t 'translate.DealerPrice'  %>: </label><label class="timi_dealer_persida"></label></td>
+                      <td style="text-align: right"><label class="timi_persida"></label></td>
                     </tr>
                     <tr class="persida_show_hide" style="display:none;">
                       <td class="td_left"><label><%= t 'translate.Profil_for_shutters' %> <%= t 'translate.Color'  %>: </label></td>
                       <td class=""><label class="table_xrwma_persida"></label></td>
                       <td class=""><label class=""></label></td>
-                      <td class="td_right"><label class="table_timi_xrwma_persida"></label></td>
+                      <td><label><%= t 'translate.MarketPrice'  %>: </label><label class="timi_market_xrwma_persida">0 €</label></td>
+                      <td><label><%= t 'translate.DealerPrice'  %>: </label><label class="timi_dealer_xrwma_persida">0 €</label></td>
+                      <td style="text-align: right"><label class="table_timi_xrwma_persida"></label></td>
                     </tr>
                     <tr class="odoigos_show_hide" style="display:none;">
                       <td class="td_left"><label><%= t 'translate.Rails'  %>: </label></td>
                       <td class=""><label class="table_odoigos"></label></td>
                       <td class="table_tm"><label class="tm_od"></label></td>
-                      <td class="td_right"><label class="timi_odoigos"></label></td>
+                      <td><label><%= t 'translate.MarketPrice'  %>: </label><label class="timi_market_odoigos"></label></td>
+                      <td><label><%= t 'translate.DealerPrice'  %>: </label><label class="timi_dealer_odoigos"></label></td>
+                      <td style="text-align: right"><label class="timi_odoigos"></label></td>
                     </tr>
                     <tr class="odoigos_show_hide" style="display:none;">
                       <td class="td_left"><label><%= t 'translate.Rails' %> <%= t 'translate.Color'  %>: </label></td>
                       <td class=""><label class="table_xrwma_odoigos"></label></td>
                       <td class=""><label class=""></label></td>
-                      <td class="td_right"><label class="table_timi_xrwma_odoigos"></label></td>
+                      <td><label><%= t 'translate.MarketPrice'  %>: </label><label class="timi_market_xrwma_odoigos">0 €</label></td>
+                      <td><label><%= t 'translate.DealerPrice'  %>: </label><label class="timi_dealer_xrwma_odoigos">0 €</label></td>
+                      <td style="text-align: right"><label class="table_timi_xrwma_odoigos"></label></td>
                     </tr>
                     <tr class="profil_deksia_1_show_hide" style="display:none;">
                       <td class="td_left"><label><%= t 'translate.External_profile_right'  %>: </label></td>
                       <td class=""><label class="table_profil_deksia_1"></label></td>
                       <td class=""><label class="table_profil_deksia_1_arithmos"></label></td>
-                      <td class="td_right"><label class="timi_profil_deksia_1"></label></td>
+                      <td><label><%= t 'translate.MarketPrice'  %>: </label><label class="timi_market_profil_deksia_1"></label></td>
+                      <td><label><%= t 'translate.DealerPrice'  %>: </label><label class="timi_dealer_profil_deksia_1"></label></td>
+                      <td style="text-align: right"><label class="timi_profil_deksia_1"></label></td>
                     </tr>
                     <tr class="profil_deksia_2_show_hide" style="display:none;">
                       <td class="td_left"><label><%= t 'translate.External_profile_right'  %>: </label></td>
                       <td class=""><label class="table_profil_deksia_2"></label></td>
                       <td class=""><label class="table_profil_deksia_2_arithmos"></label></td>
-                      <td class="td_right"><label class="timi_profil_deksia_2"></label></td>
+                      <td><label><%= t 'translate.MarketPrice'  %>: </label><label class="timi_market_profil_deksia_2"></label></td>
+                      <td><label><%= t 'translate.DealerPrice'  %>: </label><label class="timi_dealer_profil_deksia_2"></label></td>
+                      <td style="text-align: right"><label class="timi_profil_deksia_2"></label></td>
                     </tr>
                     <tr class="profil_deksia_3_show_hide" style="display:none;">
                       <td class="td_left"><label><%= t 'translate.External_profile_right'  %>: </label></td>
                       <td class=""><label class="table_profil_deksia_3"></label></td>
                       <td class=""><label class="table_profil_deksia_3_arithmos"></label></td>
-                      <td class="td_right"><label class="timi_profil_deksia_3"></label></td>
+                      <td><label><%= t 'translate.MarketPrice'  %>: </label><label class="timi_market_profil_deksia_3"></label></td>
+                      <td><label><%= t 'translate.DealerPrice'  %>: </label><label class="timi_dealer_profil_deksia_3"></label></td>
+                      <td style="text-align: right"><label class="timi_profil_deksia_3"></label></td>
                     </tr>
                     <tr class="profil_deksia_xrwma_show_hide" style="display:none;">
                       <td class="td_left"><label><%= t 'translate.External_profile_right_color' %> </label></td>
                       <td class=""><label class="table_profil_deksia_xrwma"></label></td>
                       <td class=""><label class=""></label></td>
-                      <td class="td_right"><label class="timi_profil_deksia_xrwma"></label></td>
+                      <td><label><%= t 'translate.MarketPrice'  %>: </label><label class="timi_market_profil_deksia_xrwma">0 €</label></td>
+                      <td><label><%= t 'translate.DealerPrice'  %>: </label><label class="timi_dealer_profil_deksia_xrwma">0 €</label></td>
+                      <td style="text-align: right"><label class="timi_profil_deksia_xrwma"></label></td>
                     </tr>
                     <tr class="profil_aristera_1_show_hide" style="display:none;">
                       <td class="td_left"><label><%= t 'translate.External_profile_left'  %>: </label></td>
                       <td class=""><label class="table_profil_aristera_1"></label></td>
                       <td class=""><label class="table_profil_aristera_1_arithmos"></label></td>
-                      <td class="td_right"><label class="timi_profil_aristera_1"></label></td>
+                      <td><label><%= t 'translate.MarketPrice'  %>: </label><label class="timi_market_profil_aristera_1"></label></td>
+                      <td><label><%= t 'translate.DealerPrice'  %>: </label><label class="timi_dealer_profil_aristera_1"></label></td>
+                      <td style="text-align: right"><label class="timi_profil_aristera_1"></label></td>
                     </tr>
                     <tr class="profil_aristera_2_show_hide" style="display:none;">
                       <td class="td_left"><label><%= t 'translate.External_profile_left'  %>: </label></td>
                       <td class=""><label class="table_profil_aristera_2"></label></td>
                       <td class=""><label class="table_profil_aristera_2_arithmos"></label></td>
-                      <td class="td_right"><label class="timi_profil_aristera_2"></label></td>
+                      <td><label><%= t 'translate.MarketPrice'  %>: </label><label class="timi_market_profil_aristera_2"></label></td>
+                      <td><label><%= t 'translate.DealerPrice'  %>: </label><label class="timi_dealer_profil_aristera_2"></label></td>
+                      <td style="text-align: right"><label class="timi_profil_aristera_2"></label></td>
                     </tr>
                     <tr class="profil_aristera_3_show_hide" style="display:none;">
                       <td class="td_left"><label><%= t 'translate.External_profile_left'  %>: </label></td>
                       <td class=""><label class="table_profil_aristera_3"></label></td>
                       <td class=""><label class="table_profil_aristera_3_arithmos"></label></td>
-                      <td class="td_right"><label class="timi_profil_aristera_3"></label></td>
+                      <td><label><%= t 'translate.MarketPrice'  %>: </label><label class="timi_market_profil_aristera_3"></label></td>
+                      <td><label><%= t 'translate.DealerPrice'  %>: </label><label class="timi_dealer_profil_aristera_3"></label></td>
+                      <td style="text-align: right"><label class="timi_profil_aristera_3"></label></td>
                     </tr>
                     <tr class="profil_aristera_xrwma_show_hide" style="display:none;">
                       <td class="td_left"><label><%= t 'translate.External_profile_Left_color' %> </label></td>
                       <td class=""><label class="table_profil_aristera_xrwma"></label></td>
                       <td class=""><label class=""></label></td>
-                      <td class="td_right"><label class="timi_profil_aristera_xrwma"></label></td>
+                      <td><label><%= t 'translate.MarketPrice'  %>: </label><label class="timi_market_profil_aristera_xrwma">0 €</label></td>
+                      <td><label><%= t 'translate.DealerPrice'  %>: </label><label class="timi_dealer_profil_aristera_xrwma">0 €</label></td>
+                      <td style="text-align: right"><label class="timi_profil_aristera_xrwma"></label></td>
                     </tr>
                     <tr class="profil_panw_1_show_hide" style="display:none;">
                       <td class="td_left"><label><%= t 'translate.External_profile_top'  %>: </label></td>
                       <td class=""><label class="table_profil_panw_1"></label></td>
                       <td class=""><label class="table_profil_panw_1_arithmos"></label></td>
-                      <td class="td_right"><label class="timi_profil_panw_1"></label></td>
+                      <td><label><%= t 'translate.MarketPrice'  %>: </label><label class="timi_market_profil_panw_1"></label></td>
+                      <td><label><%= t 'translate.DealerPrice'  %>: </label><label class="timi_dealer_profil_panw_1"></label></td>
+                      <td style="text-align: right"><label class="timi_profil_panw_1"></label></td>
                     </tr>
                     <tr class="profil_panw_2_show_hide" style="display:none;">
                       <td class="td_left"><label><%= t 'translate.External_profile_top'  %>: </label></td>
                       <td class=""><label class="table_profil_panw_2"></label></td>
                       <td class=""><label class="table_profil_panw_2_arithmos"></label></td>
-                      <td class="td_right"><label class="timi_profil_panw_2"></label></td>
+                      <td><label><%= t 'translate.MarketPrice'  %>: </label><label class="timi_market_profil_panw_2"></label></td>
+                      <td><label><%= t 'translate.DealerPrice'  %>: </label><label class="timi_dealer_profil_panw_2"></label></td>
+                      <td style="text-align: right"><label class="timi_profil_panw_2"></label></td>
                     </tr>
                     <tr class="profil_panw_3_show_hide" style="display:none;">
                       <td class="td_left"><label><%= t 'translate.External_profile_top'  %>: </label></td>
                       <td class=""><label class="table_profil_panw_3"></label></td>
                       <td class=""><label class="table_profil_panw_3_arithmos"></label></td>
-                      <td class="td_right"><label class="timi_profil_panw_3"></label></td>
+                      <td><label><%= t 'translate.MarketPrice'  %>: </label><label class="timi_market_profil_panw_3"></label></td>
+                      <td><label><%= t 'translate.DealerPrice'  %>: </label><label class="timi_dealer_profil_panw_3"></label></td>
+                      <td style="text-align: right"><label class="timi_profil_panw_3"></label></td>
                     </tr>
                     <tr class="profil_panw_xrwma_show_hide" style="display:none;">
                       <td class="td_left"><label><%= t 'translate.External_profile_Top_color' %> </label></td>
                       <td class=""><label class="table_profil_panw_xrwma"></label></td>
                       <td class=""><label class=""></label></td>
-                      <td class="td_right"><label class="timi_profil_panw_xrwma"></label></td>
+                      <td><label><%= t 'translate.MarketPrice'  %>: </label><label class="timi_market_profil_panw_xrwma">0 €</label></td>
+                      <td><label><%= t 'translate.DealerPrice'  %>: </label><label class="timi_dealer_profil_panw_xrwma">0 €</label></td>
+                      <td style="text-align: right"><label class="timi_profil_panw_xrwma"></label></td>
                     </tr>
                     <tr class="profil_katw_1_show_hide" style="display:none;">
                       <td class="td_left"><label><%= t 'translate.External_profile_bottom'  %>: </label></td>
                       <td class=""><label class="table_profil_katw_1"></label></td>
                       <td class=""><label class="table_profil_katw_1_arithmos"></label></td>
-                      <td class="td_right"><label class="timi_profil_katw_1"></label></td>
+                      <td><label><%= t 'translate.MarketPrice'  %>: </label><label class="timi_market_profil_katw_1"></label></td>
+                      <td><label><%= t 'translate.DealerPrice'  %>: </label><label class="timi_dealer_profil_katw_1"></label></td>
+                      <td style="text-align: right"><label class="timi_profil_katw_1"></label></td>
                     </tr>
                     <tr class="profil_katw_2_show_hide" style="display:none;">
                       <td class="td_left"><label><%= t 'translate.External_profile_bottom'  %>: </label></td>
                       <td class=""><label class="table_profil_katw_2"></label></td>
                       <td class=""><label class="table_profil_katw_2_arithmos"></label></td>
-                      <td class="td_right"><label class="timi_profil_katw_2"></label></td>
+                      <td><label><%= t 'translate.MarketPrice'  %>: </label><label class="timi_market_profil_katw_2"></label></td>
+                      <td><label><%= t 'translate.DealerPrice'  %>: </label><label class="timi_dealer_profil_katw_2"></label></td>
+                      <td style="text-align: right"><label class="timi_profil_katw_2"></label></td>
                     </tr>
                     <tr class="profil_katw_3_show_hide" style="display:none;">
                       <td class="td_left"><label><%= t 'translate.External_profile_bottom'  %>: </label></td>
                       <td class=""><label class="table_profil_katw_3"></label></td>
                       <td class=""><label class="table_profil_katw_3_arithmos"></label></td>
-                      <td class="td_right"><label class="timi_profil_katw_3"></label></td>
+                      <td><label><%= t 'translate.MarketPrice'  %>: </label><label class="timi_market_profil_katw_3"></label></td>
+                      <td><label><%= t 'translate.DealerPrice'  %>: </label><label class="timi_dealer_profil_katw_3"></label></td>
+                      <td style="text-align: right"><label class="timi_profil_katw_3"></label></td>
                     </tr>
                     <tr class="profil_katw_xrwma_show_hide" style="display:none;">
                       <td class="td_left"><label><%= t 'translate.External_profile_Bottom_color' %> </label></td>
                       <td class=""><label class="table_profil_katw_xrwma"></label></td>
                       <td class=""><label class=""></label></td>
-                      <td class="td_right"><label class="timi_profil_katw_xrwma"></label></td>
+                      <td><label><%= t 'translate.MarketPrice'  %>: </label><label class="timi_market_profil_katw_xrwma">0 €</label></td>
+                      <td><label><%= t 'translate.DealerPrice'  %>: </label><label class="timi_dealer_profil_katw_xrwma">0 €</label></td>
+                      <td style="text-align: right"><label class="timi_profil_katw_xrwma"></label></td>
                     </tr>
                     <tr class="typos_katw_1_show_hide" style="display:none;">
                       <td class="td_left"><label><%= t 'translate.Types'  %>: </label></td>
                       <td class=""><label class="table_typos_katw_1"></label></td>
                       <td class=""><label class="table_typos_katw_1_arithmos"></label></td>
-                      <td class="td_right"><label class="timi_typos_katw_1"></label></td>
+                      <td><label><%= t 'translate.MarketPrice'  %>: </label><label class="timi_market_typos_katw_1"></label></td>
+                      <td><label><%= t 'translate.DealerPrice'  %>: </label><label class="timi_dealer_typos_katw_1"></label></td>
+                      <td style="text-align: right"><label class="timi_typos_katw_1"></label></td>
                     </tr>
                     <tr class="typos_katw_2_show_hide" style="display:none;">
                       <td class="td_left"><label><%= t 'translate.Types'  %>: </label></td>
                       <td class=""><label class="table_typos_katw_2"></label></td>
                       <td class=""><label class="table_typos_katw_2_arithmos"></label></td>
-                      <td class="td_right"><label class="timi_typos_katw_2"></label></td>
+                      <td><label><%= t 'translate.MarketPrice'  %>: </label><label class="timi_market_typos_katw_2"></label></td>
+                      <td><label><%= t 'translate.DealerPrice'  %>: </label><label class="timi_dealer_typos_katw_2"></label></td>
+                      <td style="text-align: right"><label class="timi_typos_katw_2"></label></td>
                     </tr>
                     <tr class="typos_katw_3_show_hide" style="display:none;">
                       <td class="td_left"><label><%= t 'translate.Types'  %>: </label></td>
                       <td class=""><label class="table_typos_katw_3"></label></td>
                       <td class=""><label class="table_typos_katw_3_arithmos"></label></td>
-                      <td class="td_right"><label class="timi_typos_katw_3"></label></td>
+                      <td><label><%= t 'translate.MarketPrice'  %>: </label><label class="timi_market_typos_katw_3"></label></td>
+                      <td><label><%= t 'translate.DealerPrice'  %>: </label><label class="timi_dealer_typos_katw_3"></label></td>
+                      <td style="text-align: right"><label class="timi_typos_katw_3"></label></td>
                     </tr>
                     <!--
                     <tr class="profil_typos_xrwma_show_hide" style="display:none;">
@@ -2126,28 +2241,80 @@
                       <td class="td_left"><label><%= t 'translate.Protection' %> </label></td>
                       <td class=""><label class="table_prostasia"></label></td>
                       <td class=""><label class=""></label></td>
-                      <td class="td_right"><label class="timi_prostasia"></label></td>
+                      <td><label><%= t 'translate.MarketPrice'  %>: </label><label class="timi_market_prostasia"></label></td>
+                      <td><label><%= t 'translate.DealerPrice'  %>: </label><label class="timi_dealer_prostasia"></label></td>
+                      <td style="text-align: right"><label class="timi_prostasia"></label></td>
                     </tr>
 
                     <tr class="window_still_show_hide" style="display:none;">
                       <td class="td_left"><label><%= t 'translate.WindowStill' %> </label></td>
                       <td class=""><label class="table_window_still"></label></td>
                       <td class=""><label class=""></label></td>
-                      <td class="td_right"><label class="timi_window_still"></label></td>
+                      <td><label><%= t 'translate.MarketPrice'  %>: </label><label class="timi_market_window_still"></label></td>
+                      <td><label><%= t 'translate.DealerPrice'  %>: </label><label class="timi_dealer_window_still"></label></td>
+                      <td style="text-align: right"><label class="timi_window_still"></label></td>
                     </tr>
 
                     <tr class="place_show_hide" style="display:none;">
                       <td class="td_left"><label><%= t 'translate.Place' %> </label></td>
                       <td class=""><label class="table_place"></label></td>
                       <td class=""><label class=""></label></td>
-                      <td class="td_right"><label class="timi_place"></label></td>
+                      <td><label><%= t 'translate.MarketPrice'  %>: </label><label class="timi_market_place"></label></td>
+                      <td><label><%= t 'translate.DealerPrice'  %>: </label><label class="timi_dealer_place"></label></td>
+                      <td style="text-align: right"><label class="timi_place"></label></td>
                     </tr>
+
+                    <tr class="roll_rat_show_hide" style="display:none;">
+                        <td class="td_left"><label><%= t 'translate.RollRat' %> </label></td>
+                        <td class=""><label class="table_roll_rat"></label></td>
+                        <td class=""><label class=""></label></td>
+                        <td><label><%= t 'translate.MarketPrice'  %>: </label><label class="timi_market_roll_rat"></label></td>
+                        <td><label><%= t 'translate.DealerPrice'  %>: </label><label class="timi_dealer_roll_rat"></label></td>
+                        <td style="text-align: right"><label class="timi_roll_rat"></label></td>
+                      </tr>
+          
+                      <tr class="roll_rlt_show_hide" style="display:none;">
+                        <td class="td_left"><label><%= t 'translate.RollRlt' %> </label></td>
+                        <td class=""><label class="table_roll_rlt"></label></td>
+                        <td class=""><label class=""></label></td>
+                        <td><label><%= t 'translate.MarketPrice'  %>: </label><label class="timi_market_roll_rlt"></label></td>
+                        <td><label><%= t 'translate.DealerPrice'  %>: </label><label class="timi_dealer_roll_rlt"></label></td>
+                        <td style="text-align: right"><label class="timi_roll_rlt"></label></td>
+                      </tr>
+          
+                      <tr class="roll_rdm_show_hide" style="display:none;">
+                        <td class="td_left"><label><%= t 'translate.RollRdm' %> </label></td>
+                        <td class=""><label class="table_roll_rdm"></label></td>
+                        <td class=""><label class=""></label></td>
+                        <td><label><%= t 'translate.MarketPrice'  %>: </label><label class="timi_market_roll_rdm"></label></td>
+                        <td><label><%= t 'translate.DealerPrice'  %>: </label><label class="timi_dealer_roll_rdm"></label></td>
+                        <td style="text-align: right"><label class="timi_roll_rdm"></label></td>
+                      </tr>
+          
+                      <tr class="roll_pss_show_hide" style="display:none;">
+                        <td class="td_left"><label><%= t 'translate.RollPss' %> </label></td>
+                        <td class=""><label class="table_roll_pss"></label></td>
+                        <td class=""><label class=""></label></td>
+                        <td><label><%= t 'translate.MarketPrice'  %>: </label><label class="timi_market_roll_pss"></label></td>
+                        <td><label><%= t 'translate.DealerPrice'  %>: </label><label class="timi_dealer_roll_pss"></label></td>
+                        <td style="text-align: right"><label class="timi_roll_pss"></label></td>
+                      </tr>
+          
+                      <tr class="roll_pfm_show_hide" style="display:none;">
+                        <td class="td_left"><label><%= t 'translate.RollPfm' %> </label></td>
+                        <td class=""><label class="table_roll_pfm"></label></td>
+                        <td class=""><label class=""></label></td>
+                        <td><label><%= t 'translate.MarketPrice'  %>: </label><label class="timi_market_roll_pfm"></label></td>
+                        <td><label><%= t 'translate.DealerPrice'  %>: </label><label class="timi_dealer_roll_pfm"></label></td>
+                        <td style="text-align: right"><label class="timi_roll_pfm"></label></td>
+                      </tr>
                     
                     <tr class="neess_diastaseis">
                       <td class="td_left"><label><%= t 'translate.Final_price'  %>: </label></td>
                       <td></td>
                       <td class=""><label class=""></label></td>
-                      <td class="td_right"><label class="teliki_timi"></label></td>
+                      <td></td><td></td>
+                      <td style="text-align: right"><label class="teliki_timi"></label></td>
                     </tr>
                     <!--KAI AYTA ME IF EXISTS-->
                   </table>
@@ -2421,7 +2588,11 @@
       $("#tab_color").click();
     });
     $("#next_7, .next_7").click(function(){
-      $("#tab_leaf").click();
+      if($('input[name=cat_an]:checked', '#myForm').attr('id') == 'porta') {
+        $("#tab_leaf").click();
+        $("#tab_open_type").click();
+      } else
+        $("#tab_leaf").click();
     });
     $("#back_8").click(function(){
       $("#tab_glass").click();
@@ -2444,9 +2615,16 @@
 	$(".go_glass_1").click(function(){
 		$("#glass_1").click();
 	});
-	$("#go_glass_2").click(function(){
+	$("#go_glass_2, .go_glass_2").click(function(){
 		$("#glass_2").click();
 	});
+
+  $("#next_to_panels").click(function(){
+    if($('input[name=cat_an]:checked', '#myForm').attr('id') != 'porta')
+      $("#tab_leaf").click();
+    else
+      $("#glass_3").click();
+  });
 
     $(".label_tab_top").click(function(){
       var id = this.id;
@@ -2978,12 +3156,19 @@
         error: function(data) {}
       });//end ajax
 	
-	  //panels
-	  if($( this ).attr('class').split(' ')[0] != '5') {
-		  $("#glass_3, .glass_3").hide();
-	  } else {
-	  	  $("#glass_3, .glass_3").show();
-	  }
+  	  //panels
+  	  if($( this ).attr('class').split(' ')[0] != '5') {
+  		  $("#glass_3, .glass_3").hide();
+  	  } else {
+  	  	  $("#glass_3, .glass_3").show();
+  	  }
+      //portes
+      //olympia
+      if($('input[name=cat_an]:checked', '#myForm').attr('id') == 'porta') {
+        $("#tab_leaf").css("visibility", "hidden");
+        $("#tab_leaf").css("height", "0");
+      } else
+         $("#tab_leaf").show();
     });
 
     //..2..Υλικό. 
@@ -6738,7 +6923,7 @@
 }
 });
 
-  //// Place ////olympia
+  //// Place //
   $(".extra").on("click", ".place", function() {
   $('.modal_times .place_show_hide').insertAfter('.modal_times .neess_diastaseis_first');
     
