@@ -463,6 +463,8 @@ ActiveRecord::Schema.define(version: 20160719070630075818) do
     t.string   "m_place"
     t.float    "price_market",               limit: 24
     t.float    "price_dealer",               limit: 24
+    t.string   "window_still_code"
+    t.string   "place_code"
   end
 
   create_table "panels", force: true do |t|
@@ -516,10 +518,11 @@ ActiveRecord::Schema.define(version: 20160719070630075818) do
 
   create_table "places", force: true do |t|
     t.string   "name"
-    t.float    "price",      limit: 24
+    t.float    "price",        limit: 24
     t.string   "unit"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "sungate_code"
   end
 
   create_table "pricelists", force: true do |t|
