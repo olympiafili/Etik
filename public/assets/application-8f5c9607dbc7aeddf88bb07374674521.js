@@ -9099,6 +9099,8 @@ b=new Uint8Array(b);return a(1,b)});return g});
         persida_val_height = data.persida_val_height;
         nea_timi_market = data.market_price;
         nea_timi_dealer = data.dealer_price;
+        pososto_market = data.pososto_market;
+        pososto_dealer = data.pososto_dealer;
 
         // Αλλαγες σε πινακακι //
         $(".super_apli_timi").text(super_apli_timi.toFixed(2).replace(".", ",")+" €");
@@ -9106,6 +9108,7 @@ b=new Uint8Array(b);return a(1,b)});return g});
         $(".teliki_timi").text(teliki_timi.toFixed(2).replace(".", ",")+" €");
         $(".nea_timi").text(nea_timi.toFixed(2).replace(".", ",")+"€");
 
+        //Market and Dealer Price
         $(".nea_timi_market").text(nea_timi_market.toFixed(2).replace(".", ",")+" €");
         $(".nea_timi_dealer").text(nea_timi_dealer.toFixed(2).replace(".", ",")+" €");
         
@@ -9128,6 +9131,8 @@ b=new Uint8Array(b);return a(1,b)});return g});
         $(".tm_od").empty();
         $(".tm_od").append( ( tm_od ).toFixed(2)+" <p>m"+"</p>" );
         if (timi_epikathimenou != 0){
+            $(".timi_market_epikathimenou").text((timi_epikathimenou - pososto_market * timi_epikathimenou).toFixed(2).replace(".", ",")+" €");
+            $(".timi_dealer_epikathimenou").text((timi_epikathimenou - pososto_dealer * timi_epikathimenou).toFixed(2).replace(".", ",")+" €");
             $(".epik_show_hide").css("display","table-row");
             $(".table_epikathimeno").text(epikathimeno_rolo);
             $(".timi_epikathimenou").text(timi_epikathimenou.toFixed(2).replace(".", ",")+" €");
@@ -9142,6 +9147,8 @@ b=new Uint8Array(b);return a(1,b)});return g});
             $(".epik_show_hide").css("display","none");
         }
         if (timi_eksoterikou != 0){
+            $(".timi_market_eksoterikou").text((timi_eksoterikou - pososto_market * timi_eksoterikou).toFixed(2).replace(".", ",")+" €");
+            $(".timi_dealer_eksoterikou").text((timi_eksoterikou - pososto_dealer * timi_eksoterikou).toFixed(2).replace(".", ",")+" €");
             $(".ekso_show_hide").css("display","table-row");
             $(".table_eksoteriko").text(eksoteriko_rolo);
             $(".timi_eksoterikou").text(timi_eksoterikou.toFixed(2).replace(".", ",")+" €");
@@ -9156,6 +9163,8 @@ b=new Uint8Array(b);return a(1,b)});return g});
             $(".ekso_show_hide").css("display","none");
         }
         if (persida_price != 0){
+            $(".timi_market_persida").text((persida_price - pososto_market * persida_price).toFixed(2).replace(".", ",")+" €");
+            $(".timi_dealer_persida").text((persida_price - pososto_dealer * persida_price).toFixed(2).replace(".", ",")+" €");
             $(".persida_show_hide").css("display","table-row");
             $(".table_persida").text(persida);
             $(".timi_persida").text(persida_price.toFixed(2).replace(".", ",")+" €");
@@ -9180,6 +9189,9 @@ b=new Uint8Array(b);return a(1,b)});return g});
               $(".table_lastixo_black").hide();
               $(".table_lastixo_grey").show();
             }
+
+            $(".timi_market_lastixo").text((lastixo_price - pososto_market * lastixo_price).toFixed(2).replace(".", ",")+" €");
+            $(".timi_dealer_lastixo").text((lastixo_price - pososto_dealer * lastixo_price).toFixed(2).replace(".", ",")+" €");
             $(".timi_lastixo").text(lastixo_price.toFixed(2).replace(".", ",")+" €");
         }
         else{
@@ -9210,6 +9222,8 @@ b=new Uint8Array(b);return a(1,b)});return g});
             $(".tzami2_show_hide").css("display","none");
         }
         if (prostasia_timi != 0){
+            $(".timi_market_prostasia").text((prostasia_timi - pososto_market * prostasia_timi).toFixed(2).replace(".", ",")+" €");
+            $(".timi_dealer_prostasia").text((prostasia_timi - pososto_dealer * prostasia_timi).toFixed(2).replace(".", ",")+" €");
             $(".prostasia_show_hide").css("display","table-row");
             $(".table_prostasia").text(prostasia_name);
             $(".timi_prostasia").text(prostasia_timi.toFixed(2).replace(".", ",")+" €");
@@ -9219,6 +9233,8 @@ b=new Uint8Array(b);return a(1,b)});return g});
         }
 		
         if (window_still_timi != 0){
+            $(".timi_market_window_still").text((window_still_timi - pososto_market * window_still_timi).toFixed(2).replace(".", ",")+" €");
+            $(".timi_dealer_window_still").text((window_still_timi - pososto_dealer * window_still_timi).toFixed(2).replace(".", ",")+" €");
             $(".window_still_show_hide").css("display","table-row");
             $(".table_window_still").text(window_still_name);
             $(".timi_window_still").text(window_still_timi.toFixed(2).replace(".", ",")+" €");
@@ -9228,6 +9244,8 @@ b=new Uint8Array(b);return a(1,b)});return g});
         }
 
         if (place_timi != 0){
+            $(".timi_market_place").text((place_timi - pososto_market * place_timi).toFixed(2).replace(".", ",")+" €");
+            $(".timi_dealer_place").text((place_timi - pososto_dealer * place_timi).toFixed(2).replace(".", ",")+" €");
             $(".place_show_hide").css("display","table-row");
             $(".table_place").text(place_name);
             $(".timi_place").text(place_timi.toFixed(2).replace(".", ",")+" €");
@@ -9237,6 +9255,8 @@ b=new Uint8Array(b);return a(1,b)});return g});
         }
 		
         if (roll_rat_timi != 0){
+            $(".timi_market_roll_rat").text((roll_rat_timi - pososto_market * roll_rat_timi).toFixed(2).replace(".", ",")+" €");
+            $(".timi_dealer_roll_rat").text((roll_rat_timi - pososto_dealer * roll_rat_timi).toFixed(2).replace(".", ",")+" €");
             $(".roll_rat_show_hide").css("display","table-row");
             $(".table_roll_rat").text(roll_rat_name);
             $(".timi_roll_rat").text(roll_rat_timi.toFixed(2).replace(".", ",")+" €");
@@ -9245,6 +9265,8 @@ b=new Uint8Array(b);return a(1,b)});return g});
             $(".roll_rat_show_hide").css("display","none");
 		
         if (roll_rlt_timi != 0){
+            $(".timi_market_roll_rlt").text((roll_rlt_timi - pososto_market * roll_rlt_timi).toFixed(2).replace(".", ",")+" €");
+            $(".timi_dealer_roll_rlt").text((roll_rlt_timi - pososto_dealer * roll_rlt_timi).toFixed(2).replace(".", ",")+" €");
             $(".roll_rlt_show_hide").css("display","table-row");
             $(".table_roll_rlt").text(roll_rlt_name);
             $(".timi_roll_rlt").text(roll_rlt_timi.toFixed(2).replace(".", ",")+" €");
@@ -9253,6 +9275,8 @@ b=new Uint8Array(b);return a(1,b)});return g});
             $(".roll_rlt_show_hide").css("display","none");
 		
         if (roll_rdm_timi != 0){
+            $(".timi_market_roll_rdm").text((roll_rdm_timi - pososto_market * roll_rdm_timi).toFixed(2).replace(".", ",")+" €");
+            $(".timi_dealer_roll_rdm").text((roll_rdm_timi - pososto_dealer * roll_rdm_timi).toFixed(2).replace(".", ",")+" €");
             $(".roll_rdm_show_hide").css("display","table-row");
             $(".table_roll_rdm").text(roll_rdm_name);
             $(".timi_roll_rdm").text(roll_rdm_timi.toFixed(2).replace(".", ",")+" €");
@@ -9261,6 +9285,8 @@ b=new Uint8Array(b);return a(1,b)});return g});
             $(".roll_rdm_show_hide").css("display","none");
 		
         if (roll_pss_timi != 0){
+            $(".timi_market_roll_pss").text((roll_pss_timi - pososto_market * roll_pss_timi).toFixed(2).replace(".", ",")+" €");
+            $(".timi_dealer_roll_pss").text((roll_pss_timi - pososto_dealer * roll_pss_timi).toFixed(2).replace(".", ",")+" €");
             $(".roll_pss_show_hide").css("display","table-row");
             $(".table_roll_pss").text(roll_pss_name);
             $(".timi_roll_pss").text(roll_pss_timi.toFixed(2).replace(".", ",")+" €");
@@ -9269,6 +9295,8 @@ b=new Uint8Array(b);return a(1,b)});return g});
             $(".roll_pss_show_hide").css("display","none");
 		
         if (roll_pfm_timi != 0){
+            $(".timi_market_roll_pfm").text((roll_pfm_timi - pososto_market * roll_pfm_timi).toFixed(2).replace(".", ",")+" €");
+            $(".timi_dealer_roll_pfm").text((roll_pfm_timi - pososto_dealer * roll_pfm_timi).toFixed(2).replace(".", ",")+" €");
             $(".roll_pfm_show_hide").css("display","table-row");
             $(".table_roll_pfm").text(roll_pfm_name);
             $(".timi_roll_pfm").text(roll_pfm_timi.toFixed(2).replace(".", ",")+" €");
@@ -9277,6 +9305,8 @@ b=new Uint8Array(b);return a(1,b)});return g});
             $(".roll_pfm_show_hide").css("display","none");
 		
         if (profil_price_deksia_1 != 0){
+            $(".timi_market_profil_deksia_1").text((profil_price_deksia_1 - pososto_market * profil_price_deksia_1).toFixed(2).replace(".", ",")+" €");
+            $(".timi_dealer_profil_deksia_1").text((profil_price_deksia_1 - pososto_dealer * profil_price_deksia_1).toFixed(2).replace(".", ",")+" €");
             $(".profil_deksia_1_show_hide").css("display","table-row");
             $(".table_profil_deksia_1").text(profil_deksia_1+", "+profil_deksia_1_code);
             $(".table_profil_deksia_1_arithmos").empty();
@@ -9291,6 +9321,8 @@ b=new Uint8Array(b);return a(1,b)});return g});
             $(".profil_deksia_1_show_hide").css("display","none");
         }
         if (profil_price_deksia_2 != 0){
+            $(".timi_market_profil_deksia_2").text((profil_price_deksia_2 - pososto_market * profil_price_deksia_2).toFixed(2).replace(".", ",")+" €");
+            $(".timi_dealer_profil_deksia_2").text((profil_price_deksia_2 - pososto_dealer * profil_price_deksia_2).toFixed(2).replace(".", ",")+" €");
             $(".profil_deksia_2_show_hide").css("display","table-row");
             $(".table_profil_deksia_2").text(profil_deksia_2+", "+profil_deksia_2_code);
             $(".table_profil_deksia_2_arithmos").empty();
@@ -9305,6 +9337,8 @@ b=new Uint8Array(b);return a(1,b)});return g});
             $(".profil_deksia_2_show_hide").css("display","none");
         }
         if (profil_price_deksia_3 != 0){
+            $(".timi_market_profil_deksia_3").text((profil_price_deksia_3 - pososto_market * profil_price_deksia_3).toFixed(2).replace(".", ",")+" €");
+            $(".timi_dealer_profil_deksia_3").text((profil_price_deksia_3 - pososto_dealer * profil_price_deksia_3).toFixed(2).replace(".", ",")+" €");
             $(".profil_deksia_3_show_hide").css("display","table-row");
             $(".table_profil_deksia_3").text(profil_deksia_3+", "+profil_deksia_3_code);
             $(".table_profil_deksia_3_arithmos").empty();
@@ -9319,6 +9353,8 @@ b=new Uint8Array(b);return a(1,b)});return g});
             $(".profil_deksia_3_show_hide").css("display","none");
         }
         if (profil_price_aristera_1 != 0){
+            $(".timi_market_profil_aristera_1").text((profil_price_aristera_1 - pososto_market * profil_price_aristera_1).toFixed(2).replace(".", ",")+" €");
+            $(".timi_dealer_profil_aristera_1").text((profil_price_aristera_1 - pososto_dealer * profil_price_aristera_1).toFixed(2).replace(".", ",")+" €");
             $(".profil_aristera_1_show_hide").css("display","table-row");
             $(".table_profil_aristera_1").text(profil_aristera_1+", "+profil_aristera_1_code);
             $(".table_profil_aristera_1_arithmos").empty();
@@ -9333,6 +9369,8 @@ b=new Uint8Array(b);return a(1,b)});return g});
             $(".profil_aristera_1_show_hide").css("display","none");
         }
         if (profil_price_aristera_2 != 0){
+            $(".timi_market_profil_aristera_2").text((profil_price_aristera_2 - pososto_market * profil_price_aristera_2).toFixed(2).replace(".", ",")+" €");
+            $(".timi_dealer_profil_aristera_2").text((profil_price_aristera_2 - pososto_dealer * profil_price_aristera_2).toFixed(2).replace(".", ",")+" €");
             $(".profil_aristera_2_show_hide").css("display","table-row");
             $(".table_profil_aristera_2").text(profil_aristera_2+", "+profil_aristera_2_code);
             $(".table_profil_aristera_2_arithmos").empty();
@@ -9347,6 +9385,8 @@ b=new Uint8Array(b);return a(1,b)});return g});
             $(".profil_aristera_2_show_hide").css("display","none");
         }
         if (profil_price_aristera_3 != 0){
+            $(".timi_market_profil_aristera_3").text((profil_price_aristera_3 - pososto_market * profil_price_aristera_3).toFixed(2).replace(".", ",")+" €");
+            $(".timi_dealer_profil_aristera_3").text((profil_price_aristera_3 - pososto_dealer * profil_price_aristera_3).toFixed(2).replace(".", ",")+" €");
             $(".profil_aristera_3_show_hide").css("display","table-row");
             $(".table_profil_aristera_3").text(profil_aristera_3+", "+profil_aristera_3_code);
             $(".table_profil_aristera_3_arithmos").empty();
@@ -9361,6 +9401,8 @@ b=new Uint8Array(b);return a(1,b)});return g});
             $(".profil_aristera_3_show_hide").css("display","none");
         }
         if (profil_price_panw_1 != 0){
+            $(".timi_market_profil_panw_1").text((profil_price_panw_1 - pososto_market * profil_price_panw_1).toFixed(2).replace(".", ",")+" €");
+            $(".timi_dealer_profil_panw_1").text((profil_price_panw_1 - pososto_dealer * profil_price_panw_1).toFixed(2).replace(".", ",")+" €");
             $(".profil_panw_1_show_hide").css("display","table-row");
             $(".table_profil_panw_1").text(profil_panw_1+", "+profil_panw_1_code);
             $(".table_profil_panw_1_arithmos").empty();
@@ -9375,6 +9417,8 @@ b=new Uint8Array(b);return a(1,b)});return g});
             $(".profil_panw_1_show_hide").css("display","none");
         }
         if (profil_price_panw_2 != 0){
+            $(".timi_market_profil_panw_2").text((profil_price_panw_2 - pososto_market * profil_price_panw_2).toFixed(2).replace(".", ",")+" €");
+            $(".timi_dealer_profil_panw_2").text((profil_price_panw_2 - pososto_dealer * profil_price_panw_2).toFixed(2).replace(".", ",")+" €");
             $(".profil_panw_2_show_hide").css("display","table-row");
             $(".table_profil_panw_2").text(profil_panw_2+", "+profil_panw_2_code);
             $(".table_profil_panw_2_arithmos").empty();
@@ -9389,6 +9433,8 @@ b=new Uint8Array(b);return a(1,b)});return g});
             $(".profil_panw_2_show_hide").css("display","none");
         }
         if (profil_price_panw_3 != 0){
+            $(".timi_market_profil_panw_3").text((profil_price_panw_3 - pososto_market * profil_price_panw_3).toFixed(2).replace(".", ",")+" €");
+            $(".timi_dealer_profil_panw_3").text((profil_price_panw_3 - pososto_dealer * profil_price_panw_3).toFixed(2).replace(".", ",")+" €");
             $(".profil_panw_3_show_hide").css("display","table-row");
             $(".table_profil_panw_3").text(profil_panw_3+", "+profil_panw_3_code);
             $(".table_profil_panw_3_arithmos").empty();
@@ -9403,6 +9449,8 @@ b=new Uint8Array(b);return a(1,b)});return g});
             $(".profil_panw_3_show_hide").css("display","none");
         }
         if (profil_price_katw_1 != 0){
+            $(".timi_market_profil_katw_1").text((profil_price_katw_1 - pososto_market * profil_price_katw_1).toFixed(2).replace(".", ",")+" €");
+            $(".timi_dealer_profil_katw_1").text((profil_price_katw_1 - pososto_dealer * profil_price_katw_1).toFixed(2).replace(".", ",")+" €");
             $(".profil_katw_1_show_hide").css("display","table-row");
             $(".table_profil_katw_1").text(profil_katw_1+", "+profil_katw_1_code);
             $(".table_profil_katw_1_arithmos").empty();
@@ -9417,6 +9465,8 @@ b=new Uint8Array(b);return a(1,b)});return g});
             $(".profil_katw_1_show_hide").css("display","none");
         }
         if (profil_price_katw_2 != 0){
+            $(".timi_market_profil_katw_2").text((profil_price_katw_2 - pososto_market * profil_price_katw_2).toFixed(2).replace(".", ",")+" €");
+            $(".timi_dealer_profil_katw_2").text((profil_price_katw_2 - pososto_dealer * profil_price_katw_2).toFixed(2).replace(".", ",")+" €");
             $(".profil_katw_2_show_hide").css("display","table-row");
             $(".table_profil_katw_2").text(profil_katw_2+", "+profil_katw_2_code);
             $(".table_profil_katw_2_arithmos").empty();
@@ -9431,6 +9481,8 @@ b=new Uint8Array(b);return a(1,b)});return g});
             $(".profil_katw_2_show_hide").css("display","none");
         }
         if (profil_price_katw_3 != 0){
+            $(".timi_market_profil_katw_3").text((profil_price_katw_3 - pososto_market * profil_price_katw_3).toFixed(2).replace(".", ",")+" €");
+            $(".timi_dealer_profil_katw_3").text((profil_price_katw_3 - pososto_dealer * profil_price_katw_3).toFixed(2).replace(".", ",")+" €");
             $(".profil_katw_3_show_hide").css("display","table-row");
             $(".table_profil_katw_3").text(profil_katw_3+", "+profil_katw_3_code);
             $(".table_profil_katw_3_arithmos").empty();
@@ -9457,6 +9509,8 @@ b=new Uint8Array(b);return a(1,b)});return g});
             $(".profil_aristera_xrwma_show_hide").css("display","none");
         }
         if (typos_price_katw_1 != 0){
+            $(".timi_market_typos_katw_1").text((typos_price_katw_1 - pososto_market * typos_price_katw_1).toFixed(2).replace(".", ",")+" €");
+            $(".timi_dealer_typos_katw_1").text((typos_price_katw_1 - pososto_dealer * typos_price_katw_1).toFixed(2).replace(".", ",")+" €");
             $(".typos_katw_1_show_hide").css("display","table-row");
             $(".table_typos_katw_1").text(typos_katw_1 +", "+ typos_katw_1_code);
             $(".table_typos_katw_1_arithmos").empty();
@@ -9471,6 +9525,8 @@ b=new Uint8Array(b);return a(1,b)});return g});
             $(".typos_katw_1_show_hide").css("display","none");
         }
         if (typos_price_katw_2 != 0){
+            $(".timi_market_typos_katw_2").text((typos_price_katw_2 - pososto_market * typos_price_katw_2).toFixed(2).replace(".", ",")+" €");
+            $(".timi_dealer_typos_katw_2").text((typos_price_katw_2 - pososto_dealer * typos_price_katw_2).toFixed(2).replace(".", ",")+" €");
             $(".typos_katw_2_show_hide").css("display","table-row");
             $(".table_typos_katw_2").text(typos_katw_2 +", "+ typos_katw_2_code);
             $(".table_typos_katw_2_arithmos").text(typos_katw_2_arithmos);
@@ -9483,6 +9539,8 @@ b=new Uint8Array(b);return a(1,b)});return g});
             $(".typos_katw_2_show_hide").css("display","none");
         }
         if (typos_price_katw_3 != 0){
+            $(".timi_market_typos_katw_3").text((typos_price_katw_3 - pososto_market * typos_price_katw_3).toFixed(2).replace(".", ",")+" €");
+            $(".timi_dealer_typos_katw_3").text((typos_price_katw_3 - pososto_dealer * typos_price_katw_3).toFixed(2).replace(".", ",")+" €");
             $(".typos_katw_3_show_hide").css("display","table-row");
             $(".table_typos_katw_3").text(typos_katw_3 +", "+ typos_katw_3_code);
             $(".table_typos_katw_3_arithmos").text(typos_katw_3_arithmos);
@@ -9496,6 +9554,8 @@ b=new Uint8Array(b);return a(1,b)});return g});
         }
         
         if (odoigos_name != "" /*odoigos_timi != 0*/){
+            $(".timi_market_odoigos").text((odoigos_timi - pososto_market * odoigos_timi).toFixed(2).replace(".", ",")+" €");
+            $(".timi_dealer_odoigos").text((odoigos_timi - pososto_dealer * odoigos_timi).toFixed(2).replace(".", ",")+" €");
             $(".odoigos_show_hide").css("display","table-row");
             $(".table_odoigos").text(odoigos_name);
             $(".timi_odoigos").text(odoigos_timi.toFixed(2).replace(".", ",")+" €");
