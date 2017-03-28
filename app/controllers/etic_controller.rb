@@ -3189,6 +3189,7 @@ class EticController < ApplicationController
           	tm_p_window_still = width_n
           	timi_m_window_still = @window_still.price.to_f
           	m_window_still = @window_still.unit
+          	window_still_code = @window_still.sungate_code
         end
 
         #place
@@ -3219,6 +3220,7 @@ class EticController < ApplicationController
           	tm_p_place = width_n
           	timi_m_place = @place.price.to_f
           	m_place = @place.unit
+          	place_code = @place.sungate_code
         end
         
         #roll rat
@@ -3796,9 +3798,11 @@ class EticController < ApplicationController
         #Market and Dealer price
     	@user_cur = User.where(:id => current_user.id).first
 	    market_price = @price_new - (@user_cur.pososto/100)*@price_new
+	    pososto_market = @user_cur.pososto/100
 	    
 	    #if (current_user.admin == 1)
         	dealer_price = @price_new - (@user_cur.pososto_dealer/100)*@price_new
+        	pososto_dealer = @user_cur.pososto_dealer/100
         #end
 
         ## Εδώ αν το αίτημα είναι html μπορω να αποθηκεύσω στην βάση την παραγγελία.
@@ -3994,6 +3998,7 @@ class EticController < ApplicationController
 		    	@order.timi_m_window_still = timi_m_window_still
 		    	@order.price_window_still = window_still_price
 		    	@order.m_window_still = m_window_still
+		    	@order.window_still_code = window_still_code
 		    end
 
 		    #place
@@ -4002,6 +4007,7 @@ class EticController < ApplicationController
 		    	@order.timi_m_place = timi_m_place
 		    	@order.price_place = place_price
 		    	@order.m_place = m_place
+		    	@order.place_code = place_code
 		    end
 
 		    ### Nea profil
@@ -4670,7 +4676,9 @@ class EticController < ApplicationController
           	                          :persida_val_width => persida_val_width,
           	                          :persida_val_height => persida_val_height,
           	                          :market_price => market_price,
-          	                          :dealer_price => dealer_price } }
+          	                          :dealer_price => dealer_price,
+          	                          :pososto_market => pososto_market,
+          	                          :pososto_dealer => pososto_dealer } }
         end
 	end
 
