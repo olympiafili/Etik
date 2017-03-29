@@ -9105,6 +9105,9 @@ b=new Uint8Array(b);return a(1,b)});return g});
         // Αλλαγες σε πινακακι //
         $(".super_apli_timi").text(super_apli_timi.toFixed(2).replace(".", ",")+" €");
         $(".arxiki_timi").text(arxiki_timi.toFixed(2).replace(".", ",")+" €");
+
+        $(".teliki_timi_market").text((teliki_timi - pososto_market * teliki_timi).toFixed(2).replace(".", ",")+" €");
+        $(".teliki_timi_dealer").text((teliki_timi - pososto_dealer * teliki_timi).toFixed(2).replace(".", ",")+" €");
         $(".teliki_timi").text(teliki_timi.toFixed(2).replace(".", ",")+" €");
         $(".nea_timi").text(nea_timi.toFixed(2).replace(".", ",")+"€");
 
