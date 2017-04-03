@@ -3169,8 +3169,10 @@
       if($('input[name=cat_an]:checked', '#myForm').attr('id') == 'porta') {
         $("#tab_leaf").css("visibility", "hidden");
         $("#tab_leaf").css("height", "0");
-      } else
-         $("#tab_leaf").show();
+      } else {
+        $("#tab_leaf").css("visibility", "visible");
+        $("#tab_leaf").css("height", "80px");
+      }
     });
 
     //..2..Υλικό. 
@@ -9138,7 +9140,25 @@
         var cloneSVG = $('#svg').clone();
         cloneSVG.appendTo('#sxedio_new2');
 
-        var code = parseFloat(tipos_code); 
+        var code = parseFloat(tipos_code);
+
+        /*if ( tipos_code === '1122' ){
+              width_dua_duo_new = ( width_new / 2 );
+              
+                $("input[name='deksia_xwrisma']").val(Math.floor(width_dua_duo_new));
+                $("input[name='aristera_xwrisma']").val(Math.ceil(width_dua_duo_new));
+
+                $(".modal_da").show();
+
+                xwrisma1 = Math.ceil(width_dua_duo_new);
+                xwrisma2 = Math.floor(width_dua_duo_new);
+                xwrisma3_1 = 0;
+                xwrisma3_2 = 0;
+                xwrisma3_3 = 0;
+                xwrisma_y_1 = 0;
+                xwrisma_y_2 = 0;
+        }*/
+
 
         if (leaf == "1fullo" && ( (parseFloat(tipos_code)  === 14) || ( parseFloat(tipos_code)  === 14.1) || ( parseFloat(tipos_code)  === 15) || (parseFloat(tipos_code)  === 16) || (parseFloat(tipos_code)  === 16.1) || (parseFloat(tipos_code)  === 17) || (parseFloat(tipos_code)  === 18) || (parseFloat(tipos_code)  === 21) ) ){
                 
@@ -9156,9 +9176,9 @@
                 xwrisma3_3 = 0;
                 xwrisma_y_1 = 380;
                 xwrisma_y_2 = ypsos_katw;
-    
 
         }
+
         if ( leaf == "2fullo" && (parseFloat(tipos_code) === 16 || parseFloat(tipos_code) === 16.1 || parseFloat(tipos_code) === 17 || parseFloat(tipos_code) === 18)){
 
                 height_dua_duo_new = ( height_new / 2 );
@@ -9184,6 +9204,7 @@
                 xwrisma_y_2 = Math.floor(height_dua_duo_new);
 
         }else if ( leaf == "2fullo" && (parseFloat(tipos_code) !== 16 || parseFloat(tipos_code) !== 16.1 || parseFloat(tipos_code) !== 17 || parseFloat(tipos_code) !== 18)){
+           
               width_dua_duo_new = ( width_new / 2 );
               
                 $("input[name='deksia_xwrisma']").val(Math.floor(width_dua_duo_new));
@@ -9200,6 +9221,7 @@
                 xwrisma_y_2 = 0;
                 
         }else if ( leaf == "3fullo" ) {
+           
               width_dua_tria_new = ( width_new / 3 );
               
                 if ( ( width_new % 3 ) == 1 ){
@@ -9380,14 +9402,16 @@
                 domURL = self.URL || self.webkitURL || self,
                 url = domURL.createObjectURL(svg),
                 img = new Image();
-               
-            img.onload = function(){
+            
+            img.addEventListener('load', function () {
+            //img.onload = function(){
                 ctx.drawImage(this, 0, 0);     
                 domURL.revokeObjectURL(url);
                 callback(this);
 
                 c = document.getElementById("canvas2");
                 var dataURL = c.toDataURL('image/png');
+                console.log(dataURL);
                 var file = dataURLtoBlob(dataURL);
                 var fd = new FormData();
                 // Append our Canvas image file to the form data
@@ -9407,7 +9431,7 @@
                   error: function(data) { 
                   }
                 });//end ejax
-            }
+            })
             img.onerror = function(){
                 alert("Wrong argument...");
             }

@@ -45,7 +45,8 @@
 			var finalArray = [];
 			for (var i = 0; i < tempArray.length; i++) {
 			    finalArray[i] = tempArray[i].split(',');
-			} 
+			}
+
 			//Gia ajax;
 			var promises = [];
 			$.each(finalArray , function( index, obj ) {
@@ -115,7 +116,7 @@
 	    			if (  apotelesma <= max_width_anoigmatos && apotelesma >= min_width_anoigmatos ){
 	    				$("#xwrisma_orizontio"+(arithmos_xwrismatwn-1)+"").val( apotelesma );
 	    				meta_apo_ajax_xwrismata();
-	    				times_json(tipos_name_gia_xrwma, $(".width").text(), $(".height").text(), line_id_name, mesa_eksw, color_aplo, width_new ,height_new, epikathimeno_rolo,eksoteriko_rolo,persida,tzamia,profil_deksia,profil_aristera,profil_panw,profil_katw,$(".input_deksia").val(),$(".input_panw").val(),$(".input_katw").val(),$(".input_aristera").val(),typos,color_typos,odoigos,$(".color_deksia").text(),$(".color_aristera").text(),$(".color_panw").text(),$(".color_katw").text(),$(".color_fullou").text(),0,profil_deksia_1_id,profil_deksia_1_json_arithmos,profil_deksia_2_id,profil_deksia_2_json_arithmos,profil_deksia_3_id,profil_deksia_3_json_arithmos,profil_aristera_1_id,profil_aristera_1_json_arithmos,profil_aristera_2_id,profil_aristera_2_json_arithmos,profil_aristera_3_id,profil_aristera_3_json_arithmos,profil_panw_1_id,profil_panw_1_json_arithmos,profil_panw_2_id,profil_panw_2_json_arithmos,profil_panw_3_id,profil_panw_3_json_arithmos,profil_katw_1_id,profil_katw_1_json_arithmos,profil_katw_2_id,profil_katw_2_json_arithmos,profil_katw_3_id,profil_katw_3_json_arithmos,profil_typos_1_id,profil_typos_1_json_arithmos,profil_typos_2_id,profil_typos_2_json_arithmos,profil_typos_3_id,profil_typos_3_json_arithmos,prostasia,tzamia2,lastixo_epilogh,pl_rol_ep,up_rol_ep,pl_rol_ek,up_rol_ek,pl_persidas,up_persidas,up_odoigou,color_epikathimenou,color_eksoterikou,color_persidas,color_odoigou,color_profil_katw,color_profil_deksia,color_profil_aristera,color_profil_panw,elegxos_gia_parapanw_diastaseis_w,elegxos_gia_parapanw_diastaseis_h,xwrisma1,xwrisma2,xwrisma_y_1,xwrisma_y_2,xwrisma3_1,xwrisma3_2,xwrisma3_3,color_aplo_eksw);
+	    				times_json(tipos_name_gia_xrwma, $(".width").text(), $(".height").text(), line_id_name, mesa_eksw, color_aplo, width_new ,height_new, epikathimeno_rolo,eksoteriko_rolo,persida,tzamia,profil_deksia,profil_aristera,profil_panw,profil_katw,$(".input_deksia").val(),$(".input_panw").val(),$(".input_katw").val(),$(".input_aristera").val(),typos,color_typos,odoigos,$(".color_deksia").text(),$(".color_aristera").text(),$(".color_panw").text(),$(".color_katw").text(),$(".color_fullou").text(),0,profil_deksia_1_id,profil_deksia_1_json_arithmos,profil_deksia_2_id,profil_deksia_2_json_arithmos,profil_deksia_3_id,profil_deksia_3_json_arithmos,profil_aristera_1_id,profil_aristera_1_json_arithmos,profil_aristera_2_id,profil_aristera_2_json_arithmos,profil_aristera_3_id,profil_aristera_3_json_arithmos,profil_panw_1_id,profil_panw_1_json_arithmos,profil_panw_2_id,profil_panw_2_json_arithmos,profil_panw_3_id,profil_panw_3_json_arithmos,profil_katw_1_id,profil_katw_1_json_arithmos,profil_katw_2_id,profil_katw_2_json_arithmos,profil_katw_3_id,profil_katw_3_json_arithmos,profil_typos_1_id,profil_typos_1_json_arithmos,profil_typos_2_id,profil_typos_2_json_arithmos,profil_typos_3_id,profil_typos_3_json_arithmos,prostasia,tzamia2,lastixo_epilogh,pl_rol_ep,up_rol_ep,pl_rol_ek,up_rol_ek,pl_persidas,up_persidas,up_odoigou,color_epikathimenou,color_eksoterikou,color_persidas,color_odoigou,color_profil_katw,color_profil_deksia,color_profil_aristera,color_profil_panw,elegxos_gia_parapanw_diastaseis_w,elegxos_gia_parapanw_diastaseis_h,xwrisma1,xwrisma2,xwrisma_y_1,xwrisma_y_2,xwrisma3_1,xwrisma3_2,xwrisma3_3,color_aplo_eksw,tzamia0,xwrisma4_1,xwrisma4_2,xwrisma4_3,xwrisma4_4,window_still_single,roll_rat,roll_rlt,roll_rdm,roll_pss,roll_pfm, place);
 	    			}else{
 	    				auto_poy_patisa_input.val( geniko_data_val );
 	    			}
@@ -133,6 +134,7 @@
 	    	$("#xwrisma_orizontio"+(arithmos_xwrismatwn-1)+"").val( apotelesma );
 		}
 		if ( $(this).attr("class") == "katheta" ){
+
 			//Poio input einai
 			var auto_poy_patisa_input = $( this );
 			//Ολο το height
@@ -214,7 +216,7 @@
 	    			if (  apotelesma_h <= max_height_anoigmatos && apotelesma_h >= min_height_anoigmatos ){
 	    				$("#xwrisma_katheto0").val( apotelesma_h );
 	    				meta_apo_ajax_xwrismata();
-	    				times_json(tipos_name_gia_xrwma, $(".width").text(), $(".height").text(), line_id_name, mesa_eksw, color_aplo, width_new ,height_new, epikathimeno_rolo,eksoteriko_rolo,persida,tzamia,profil_deksia,profil_aristera,profil_panw,profil_katw,$(".input_deksia").val(),$(".input_panw").val(),$(".input_katw").val(),$(".input_aristera").val(),typos,color_typos,odoigos,$(".color_deksia").text(),$(".color_aristera").text(),$(".color_panw").text(),$(".color_katw").text(),$(".color_fullou").text(),0,profil_deksia_1_id,profil_deksia_1_json_arithmos,profil_deksia_2_id,profil_deksia_2_json_arithmos,profil_deksia_3_id,profil_deksia_3_json_arithmos,profil_aristera_1_id,profil_aristera_1_json_arithmos,profil_aristera_2_id,profil_aristera_2_json_arithmos,profil_aristera_3_id,profil_aristera_3_json_arithmos,profil_panw_1_id,profil_panw_1_json_arithmos,profil_panw_2_id,profil_panw_2_json_arithmos,profil_panw_3_id,profil_panw_3_json_arithmos,profil_katw_1_id,profil_katw_1_json_arithmos,profil_katw_2_id,profil_katw_2_json_arithmos,profil_katw_3_id,profil_katw_3_json_arithmos,profil_typos_1_id,profil_typos_1_json_arithmos,profil_typos_2_id,profil_typos_2_json_arithmos,profil_typos_3_id,profil_typos_3_json_arithmos,prostasia,tzamia2,lastixo_epilogh,pl_rol_ep,up_rol_ep,pl_rol_ek,up_rol_ek,pl_persidas,up_persidas,up_odoigou,color_epikathimenou,color_eksoterikou,color_persidas,color_odoigou,color_profil_katw,color_profil_deksia,color_profil_aristera,color_profil_panw,elegxos_gia_parapanw_diastaseis_w,elegxos_gia_parapanw_diastaseis_h,xwrisma1,xwrisma2,xwrisma_y_1,xwrisma_y_2,xwrisma3_1,xwrisma3_2,xwrisma3_3);
+	    				times_json(tipos_name_gia_xrwma, $(".width").text(), $(".height").text(), line_id_name, mesa_eksw, color_aplo, width_new ,height_new, epikathimeno_rolo,eksoteriko_rolo,persida,tzamia,profil_deksia,profil_aristera,profil_panw,profil_katw,$(".input_deksia").val(),$(".input_panw").val(),$(".input_katw").val(),$(".input_aristera").val(),typos,color_typos,odoigos,$(".color_deksia").text(),$(".color_aristera").text(),$(".color_panw").text(),$(".color_katw").text(),$(".color_fullou").text(),0,profil_deksia_1_id,profil_deksia_1_json_arithmos,profil_deksia_2_id,profil_deksia_2_json_arithmos,profil_deksia_3_id,profil_deksia_3_json_arithmos,profil_aristera_1_id,profil_aristera_1_json_arithmos,profil_aristera_2_id,profil_aristera_2_json_arithmos,profil_aristera_3_id,profil_aristera_3_json_arithmos,profil_panw_1_id,profil_panw_1_json_arithmos,profil_panw_2_id,profil_panw_2_json_arithmos,profil_panw_3_id,profil_panw_3_json_arithmos,profil_katw_1_id,profil_katw_1_json_arithmos,profil_katw_2_id,profil_katw_2_json_arithmos,profil_katw_3_id,profil_katw_3_json_arithmos,profil_typos_1_id,profil_typos_1_json_arithmos,profil_typos_2_id,profil_typos_2_json_arithmos,profil_typos_3_id,profil_typos_3_json_arithmos,prostasia,tzamia2,lastixo_epilogh,pl_rol_ep,up_rol_ep,pl_rol_ek,up_rol_ek,pl_persidas,up_persidas,up_odoigou,color_epikathimenou,color_eksoterikou,color_persidas,color_odoigou,color_profil_katw,color_profil_deksia,color_profil_aristera,color_profil_panw,elegxos_gia_parapanw_diastaseis_w,elegxos_gia_parapanw_diastaseis_h,xwrisma1,xwrisma2,xwrisma_y_1,xwrisma_y_2,xwrisma3_1,xwrisma3_2,xwrisma3_3,color_aplo_eksw,tzamia0,xwrisma4_1,xwrisma4_2,xwrisma4_3,xwrisma4_4,window_still_single,roll_rat,roll_rlt,roll_rdm,roll_pss,roll_pfm, place);
 	    			}else{
 	    				auto_poy_patisa_input.val( geniko_data_val );
 	    			}
@@ -291,6 +293,7 @@
 		        	//xwrismata = {};
 		        	teliko_height_px = ((metatropi_height( height_new ) - (2*profil_xwros) - grammes_xwros - rolo_epanw_xwros - (2*kasa_xwros)) * parseFloat($("#xwrisma_katheto"+index+"").val())) / height_new;
 		        	//xwrismata['xwrisma_orizontio' + key] = (width_new/obj.length);
+
 		        	xwrismata['xwrisma_katheto_px' + index] = teliko_height_px;
 		        	//Gia seires monofilla
 		        	pragmatiko_mikos_mon = width_new;
@@ -579,6 +582,8 @@
 	        xwrisma_y_2 = $("#xwrisma_katheto1").val();
 	    }
 
+	    var paidi_n = null;
+		var anoigma_n = null;
 		$.each(finalArray , function( index, obj ) {
 		    $.each(obj, function( key, value ) {
 					//Μπορω και ετσι να παρω length
@@ -611,6 +616,10 @@
 	        		document.getElementById('svg').appendChild(rect);
 
 	        		stroke_guro(""+index+""+key+"1",""+index+""+key+""+"mesa"+"",value);
+	        		if(value == "n") {
+						paidi_n = ""+index+""+key+""+"mesa"+"";
+						anoigma_n = value;
+					}
 		    });
 		});
 		stroke_profil_katw(sunoloko_mikos,sunoloko_ypsos,profil_xwros,rolo_epanw_xwros,kasa_xwros,grammes_xwros);
@@ -621,6 +630,8 @@
 		stroke_epikathimeno(sunoloko_mikos,profil_xwros,rolo_epanw_xwros,kasa_xwros,grammes_xwros);
 		stroke_ekswteriko(sunoloko_mikos,profil_xwros,rolo_epanw_xwros,kasa_xwros,grammes_xwros);
 		stroke_persides(sunoloko_mikos,profil_xwros,rolo_epanw_xwros,kasa_xwros,grammes_xwros);
+		if ( anoigma_n == "n")
+			stroke_n(paidi_n,anoigma_n);
 
 		//Clone για να φανει στο modal
 		$( "#sxedio_new2" ).empty();
@@ -720,12 +731,25 @@
 		        		xwrismata['xwrisma_orizontio_px' + key] = Math.ceil(pragmatiko_mikos_dia_px);
 		        	}
 		        	//index != apo to teleytaio kanw floor
+		        	
 		        	if ( ( index != (finalArray.length-1) ) ){
-		        		xwrismata['xwrisma_katheto' + index] = Math.floor(pragmatiko_ypsos_dia);
-		        		xwrismata['xwrisma_katheto_px' + index] = Math.floor(pragmatiko_ypsos_dia_px);
+		        		/*if(table =='a|n' && obj[0] == 'a'){
+		        			xwrismata['xwrisma_katheto' + index] = Math.floor(pragmatiko_ypsos_dia);
+		        			xwrismata['xwrisma_katheto_px' + index] = Math.floor(pragmatiko_ypsos_dia_px/2);
+		        		}
+		        		else{*/
+		        			xwrismata['xwrisma_katheto' + index] = Math.floor(pragmatiko_ypsos_dia);
+		        			xwrismata['xwrisma_katheto_px' + index] = Math.floor(pragmatiko_ypsos_dia_px);
+							//}
 		        	}else{//teleytaio
-		        		xwrismata['xwrisma_katheto' + index] = Math.ceil(pragmatiko_ypsos_dia);
-		        		xwrismata['xwrisma_katheto_px' + index] = Math.ceil(pragmatiko_ypsos_dia_px);
+		        		/*if(table =='a|n' && obj[0] == 'n'){
+		        			xwrismata['xwrisma_katheto' + index] = Math.ceil(pragmatiko_ypsos_dia);
+		        			xwrismata['xwrisma_katheto_px' + index] = Math.ceil(3*pragmatiko_ypsos_dia_px/2);
+		        		}
+		        		else {*/
+		        			xwrismata['xwrisma_katheto' + index] = Math.ceil(pragmatiko_ypsos_dia);
+		        			xwrismata['xwrisma_katheto_px' + index] = Math.ceil(pragmatiko_ypsos_dia_px);
+							//}
 		        	}
 		        	//xwrismata['xwrisma_orizontio' + key] = (width_new/obj.length);
 		        	//xwrismata['xwrisma_orizontio_px' + key] = (sunoloko_mikos/obj.length);
@@ -1143,15 +1167,16 @@
 						}
 		        	}else if( (obj.length) == 1 && ( index != (finalArray.length-1) ) ){//den einai telegtaio
 		        		//τετραγωνα
+		        		
 		        		var rect = makeSVG('line', {class:""+index+""+key+"2", display: "none", stroke: "black", 'stroke-width': 2, fill: 'none'});
 			    		rect.setAttribute('x1',profil_xwros+kasa_xwros );
 					    rect.setAttribute('y1',profil_xwros + grammes_xwros/2);
 					    rect.setAttribute('x2',profil_xwros+ kasa_xwros +pragmatiko_mikos_mon_px);
-					    rect.setAttribute('y2',profil_xwros + grammes_xwros/2);
+						rect.setAttribute('y2',profil_xwros + grammes_xwros/2);
 					    rect.setAttribute('marker-end',"url(#triangle_t)");
 					    rect.setAttribute('marker-start',"url(#triangle_a)");
 			    		document.getElementById('svg').appendChild(rect);
-		        	}else if( (obj.length) == 1 && ( index == (finalArray.length-1) )){		        		
+		        	}else if( (obj.length) == 1 && ( index == (finalArray.length-1) )){		 
 		        		//τετραγωνα
 						/*var rect = makeSVG('line', {class:""+index+""+key+"2", stroke: "black", 'stroke-width': 2, fill: 'none'});
 			    		rect.setAttribute('x1',profil_xwros +kasa_xwros );
@@ -1164,7 +1189,7 @@
 						
 		        		var rect = makeSVG('line', {class:""+index+""+key+"2", stroke: "black", 'stroke-width': 2, fill: 'none'});
 			    		rect.setAttribute('x1',profil_xwros );
-					    rect.setAttribute('y1',profil_xwros + grammes_xwros/2);
+						rect.setAttribute('y1',profil_xwros + grammes_xwros/2);
 					    rect.setAttribute('x2',profil_xwros + 2*kasa_xwros +pragmatiko_mikos_mon_px);
 					    rect.setAttribute('y2',profil_xwros + grammes_xwros/2);
 					    rect.setAttribute('marker-end',"url(#triangle_t)");
@@ -1280,9 +1305,14 @@
 						} else if($("."+index+""+key+"2").css("display") != "none" && index == 1) {
 							var rect = makeSVG('line', {class:""+index+""+key+"3", stroke: "black", 'stroke-width': 2, fill: 'none'});
 							rect.setAttribute('x1',key*xwrismata['xwrisma_orizontio_px' + key]+(profil_xwros*4)+sunoloko_mikos+kasa_xwros+kasa_xwros );
-							rect.setAttribute('y1',index*xwrismata['xwrisma_katheto_px' + index]+profil_xwros+rolo_epanw_xwros+grammes_xwros+kasa_xwros );
+							/*if(table == 'a|n'){
+								rect.setAttribute('y1',index*pragmatiko_ypsos_dia_px/2 +profil_xwros+rolo_epanw_xwros+grammes_xwros+kasa_xwros );
+								rect.setAttribute('y2',pragmatiko_ypsos_dia_px/2 +profil_xwros+rolo_epanw_xwros+grammes_xwros+2*kasa_xwros + index*xwrismata['xwrisma_katheto_px' + index]);
+							} else{*/
+								rect.setAttribute('y1',index*xwrismata['xwrisma_katheto_px' + index]+profil_xwros+rolo_epanw_xwros+grammes_xwros+kasa_xwros );
+								rect.setAttribute('y2',xwrismata['xwrisma_katheto_px' + index]+profil_xwros+rolo_epanw_xwros+grammes_xwros+2*kasa_xwros + index*xwrismata['xwrisma_katheto_px' + index]);
+								//}
 							rect.setAttribute('x2',key*xwrismata['xwrisma_orizontio_px' + key]+(profil_xwros*4)+sunoloko_mikos+kasa_xwros+kasa_xwros);
-							rect.setAttribute('y2',xwrismata['xwrisma_katheto_px' + index]+profil_xwros+rolo_epanw_xwros+grammes_xwros+2*kasa_xwros + index*xwrismata['xwrisma_katheto_px' + index]);
 							rect.setAttribute('marker-end',"url(#triangle_t)");
 							rect.setAttribute('marker-start',"url(#triangle_a)");
 							document.getElementById('svg').appendChild(rect);
@@ -1300,7 +1330,11 @@
 			    		//Text
 			    		var rect = makeSVG('text', {class:""+index+""+key+"3text", fill: 'black',style:'writing-mode: tb;'});
 			    		rect.setAttribute('x',key*xwrismata['xwrisma_orizontio_px' + key]+(profil_xwros*4)+sunoloko_mikos+kasa_xwros+kasa_xwros + 11 );
-					    rect.setAttribute('y',( ( index*xwrismata['xwrisma_katheto_px' + index]+profil_xwros+rolo_epanw_xwros+grammes_xwros+kasa_xwros ) + ( xwrismata['xwrisma_katheto_px' + index]+profil_xwros+rolo_epanw_xwros+grammes_xwros+kasa_xwros + index*xwrismata['xwrisma_katheto_px' + index] ) )/2 );
+					    /*if(table == 'a|n' && obj[0] == 'n')
+					    	rect.setAttribute('y',( ( index*xwrismata['xwrisma_katheto_px' + index]+profil_xwros+rolo_epanw_xwros+grammes_xwros+kasa_xwros ) + ( pragmatiko_ypsos_dia_px/2+profil_xwros+rolo_epanw_xwros+grammes_xwros+kasa_xwros + index*xwrismata['xwrisma_katheto_px' + index] ) )/2 );
+					    else*/
+					   		rect.setAttribute('y',( ( index*xwrismata['xwrisma_katheto_px' + index]+profil_xwros+rolo_epanw_xwros+grammes_xwros+kasa_xwros ) + ( xwrismata['xwrisma_katheto_px' + index]+profil_xwros+rolo_epanw_xwros+grammes_xwros+kasa_xwros + index*xwrismata['xwrisma_katheto_px' + index] ) )/2 );
+					   	console.log($("#xwrisma_katheto"+index+"").val());
 					    rect.textContent = $("#xwrisma_katheto"+index+"").val().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1.");//xwrismata['xwrisma_katheto' + index].toFixed(0);
 					    rect.setAttribute("font-size", "16");
 					    rect.setAttribute("text-anchor", "right");
@@ -1325,9 +1359,14 @@
 						} else if($("."+index+""+key+"2").css("display") != "none" && index == 1) {
 							var rect = makeSVG('line', {class:""+index+""+key+"5",stroke: "black", 'stroke-width': 1, fill: 'none'});
 							rect.setAttribute('x1',key*xwrismata['xwrisma_orizontio_px' + key]+(profil_xwros*4)+sunoloko_mikos+kasa_xwros+kasa_xwros  );
-							rect.setAttribute('y1',index*xwrismata['xwrisma_katheto_px' + index]+profil_xwros+rolo_epanw_xwros+grammes_xwros+kasa_xwros  );
+							/*if(table == 'a|n'){
+								rect.setAttribute('y1',pragmatiko_ypsos_dia_px/2+profil_xwros+rolo_epanw_xwros+grammes_xwros+kasa_xwros );
+								rect.setAttribute('y2',pragmatiko_ypsos_dia_px/2+profil_xwros+rolo_epanw_xwros+grammes_xwros+kasa_xwros );
+							}else{*/
+								rect.setAttribute('y1',index*xwrismata['xwrisma_katheto_px' + index]+profil_xwros+rolo_epanw_xwros+grammes_xwros+kasa_xwros);
+								rect.setAttribute('y2',index*xwrismata['xwrisma_katheto_px' + index]+profil_xwros+rolo_epanw_xwros+grammes_xwros+kasa_xwros);
+								//}
 							rect.setAttribute('x2',100);
-							rect.setAttribute('y2',index*xwrismata['xwrisma_katheto_px' + index]+profil_xwros+rolo_epanw_xwros+grammes_xwros+kasa_xwros );
 							rect.setAttribute('stroke-dasharray',"5,5");
 							document.getElementById('svg').appendChild(rect);
 						} else {
@@ -1377,8 +1416,9 @@
 							var rect = makeSVG('line', {class:""+index+""+key+"5b",stroke: "black", 'stroke-width': 1, fill: 'none'});
 							rect.setAttribute('x1',key*xwrismata['xwrisma_orizontio_px' + key]+(profil_xwros*4)+sunoloko_mikos+kasa_xwros+kasa_xwros );
 							rect.setAttribute('y1',xwrismata['xwrisma_katheto_px' + index]+profil_xwros+rolo_epanw_xwros+grammes_xwros+kasa_xwros + index*xwrismata['xwrisma_katheto_px' + index] );
-							rect.setAttribute('x2',100);
 							rect.setAttribute('y2',xwrismata['xwrisma_katheto_px' + index]+profil_xwros+rolo_epanw_xwros+grammes_xwros+kasa_xwros + index*xwrismata['xwrisma_katheto_px' + index]);
+							rect.setAttribute('x2',100);
+							
 							rect.setAttribute('stroke-dasharray',"5,5");
 							document.getElementById('svg').appendChild(rect);
 						}
@@ -1454,12 +1494,16 @@
 					}
 
 			        //Εξω τετραγωνο με χρώμα
-			        var rect = makeSVG('rect', {class:""+index+""+key+"1" ,x: key*len+profil_xwros+kasa_xwros, y: index*het+rolo_epanw_xwros+profil_xwros+grammes_xwros+kasa_xwros, width:len, height:het, stroke: 'black', 'stroke-width': 2, fill: 'red'});//(sunoloko_mikos/obj.length),(sunoloko_ypsos/finalArray.length)
+			        /*if(table == 'a|n' && value == 'n')
+				    	var rect = makeSVG('rect', {class:""+index+""+key+"1" ,x: key*len+profil_xwros+kasa_xwros, y: index*pragmatiko_ypsos_dia_px/2+rolo_epanw_xwros+profil_xwros+grammes_xwros+kasa_xwros, width:len, height: het, stroke: 'black', 'stroke-width': 2, fill: 'red'});//(sunoloko_mikos/obj.length),(sunoloko_ypsos/finalArray.length)
+				    else*/
+			        	var rect = makeSVG('rect', {class:""+index+""+key+"1" ,x: key*len+profil_xwros+kasa_xwros, y: index*het+rolo_epanw_xwros+profil_xwros+grammes_xwros+kasa_xwros, width:len, height:het, stroke: 'black', 'stroke-width': 2, fill: 'red'});//(sunoloko_mikos/obj.length),(sunoloko_ypsos/finalArray.length)
+
 	        		document.getElementById('svg').appendChild(rect);
 	        		//Μεσα τετραγωνο με τζαμι και ανοιγμα, height width και αλλα απο function
 	        		var rect = makeSVG('rect', {class:""+index+""+key+""+"mesa"+"" });
 	        		document.getElementById('svg').appendChild(rect);
-
+	        		//olympia2
 	        		stroke_guro(""+index+""+key+"1",""+index+""+key+""+"mesa"+"",value);
 					if(value == "n") {
 						paidi_n = ""+index+""+key+""+"mesa"+"";
@@ -1677,7 +1721,7 @@
     		$("."+paidi+"").first().attr('x', x_patera+aferesi_gia_lepto);
     		$("."+paidi+"").first().attr('y', y_patera+aferesi_gia_lepto);
     		$("."+paidi+"").first().attr('width', width_patera - aferesi_gia_lepto*2);
-    		$("."+paidi+"").first().attr('height', height_patera- aferesi_gia_lepto*2);
+			$("."+paidi+"").first().attr('height', height_patera- aferesi_gia_lepto*2);
     		$("."+paidi+"").first().css({ fill: "#5EAFD2" });
     		$("."+paidi+"").first().css({ stroke: "black" });
     	}
@@ -1685,7 +1729,7 @@
     		$("."+paidi+"").first().attr('x', x_patera);
     		$("."+paidi+"").first().attr('y', y_patera);
     		$("."+paidi+"").first().attr('width', width_patera);
-    		$("."+paidi+"").first().attr('height', height_patera);
+			$("."+paidi+"").first().attr('height', height_patera);
 			$("."+paidi+"").first().css({ fill: "transparent" });
     	}
     	stroke_anoigma(aferesi_gia_xontro,paidi,anoigma);
@@ -2694,11 +2738,42 @@
 		var $img_tag = document.createElementNS('http://www.w3.org/2000/svg','image');
 		$img_tag.setAttributeNS(null,'height', paidi_height);
 		$img_tag.setAttributeNS(null,'width', paidi_width);
-		$img_tag.setAttributeNS('http://www.w3.org/1999/xlink','href',$("img[panel_selected='yes']").attr("src"));
+		
+		//olympia
+		$img_tag.setAttributeNS('http://www.w3.org/1999/xlink','href', $("img[panel_selected='yes']").attr("src"));
+
 		$img_tag.setAttributeNS(null, 'x', panw_aristera_x );
-		$img_tag.setAttributeNS(null, 'y', panw_aristera_y );
+		$img_tag.setAttributeNS(null, 'y', panw_aristera_y);
 		$img_tag.setAttributeNS(null, 'preserveAspectRatio', "none" );
+
+		//olympia
+		/*getDataUri($("img[panel_selected='yes']").attr("src"), function(dataUri) {
+		    $img_tag.setAttributeNS('http://www.w3.org/1999/xlink','href', dataUri);
+		});*/
+
 		document.getElementById('svg').appendChild($img_tag);
 	}
+
+	function getDataUri(url, callback) {
+	    var image = new Image();
+
+	    image.onload = function () {
+	        var canvas = document.createElement('canvas');
+	        canvas.width = this.naturalWidth; // or 'width' if you want a special/scaled size
+	        canvas.height = this.naturalHeight; // or 'height' if you want a special/scaled size
+
+	        canvas.getContext('2d').drawImage(this, 0, 0);
+
+	        // Get raw image data
+	        callback(canvas.toDataURL('image/png').replace(/^data:image\/(png|jpg);base64,/, ''));
+
+	        // ... or get as Data URI
+	        callback(canvas.toDataURL('image/png'));
+	    };
+
+	    image.src = url;
+	}
+
+
 	
 </script>

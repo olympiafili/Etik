@@ -51,8 +51,8 @@ class Paraggelia < ActiveRecord::Base
           #'=HYPERLINK("'+test+'"; "Link")'
         #INITIAL_PRICE
         csv << ["INITIAL_PRICE", order.price_new]
-        csv << ["PRICE 1", order.price_market]
-        csv << ["PRICE 2", order.price_dealer]
+        csv << ["PRICE 1", order.price_market.round(2)]
+        csv << ["PRICE 2", order.price_dealer.round(2)]
         
         #SURCHARGE_LINE
         csv << ["SURCHARGE_LINE", order.surcharge_line]
@@ -158,7 +158,7 @@ class Paraggelia < ActiveRecord::Base
           market_price_odoigou = order.price_odoigou - (@pososto_market/100)*order.price_odoigou
           dealer_price_odoigou = order.price_odoigou - (@pososto_dealer/100)*order.price_odoigou
           csv << ["ARTPOS", main_index, index.to_s, 1, "m", @roll_guide.sungate_code, @odoigos_color.sungate_both, 
-            order.odoigos, 0, order.up_odigou, "<Discount/Surcharge%>", "<Discount/Surcharge per unit>", order.timi_m_odoigou, "no", order.price_odoigou, market_price_odoigou, dealer_price_odoigou]
+            order.odoigos, 0, order.up_odigou, "<Discount/Surcharge%>", "<Discount/Surcharge per unit>", order.timi_m_odoigou, "no", order.price_odoigou, market_price_odoigou.round(2), dealer_price_odoigou.round(2)]
             index +=10
         end
         #persida
@@ -167,7 +167,7 @@ class Paraggelia < ActiveRecord::Base
           market_price_persidas = order.price_persidas - (@pososto_market/100)*order.price_persidas
           dealer_price_persidas = order.price_persidas - (@pososto_dealer/100)*order.price_persidas
           csv << ["ARTPOS", main_index, index.to_s, 1, "m2", @persida.sungate_code, @persida_color.sungate_both, 
-            order.persida, order.pl_persidas, order.up_persidas, "<Discount/Surcharge%>", "<Discount/Surcharge per unit>", order.timi_m_persidas, "no", order.price_persidas, market_price_persidas, dealer_price_persidas]
+            order.persida, order.pl_persidas, order.up_persidas, "<Discount/Surcharge%>", "<Discount/Surcharge per unit>", order.timi_m_persidas, "no", order.price_persidas, market_price_persidas.round(2), dealer_price_persidas.round(2)]
             index +=10
         end
         #prostasia
@@ -175,7 +175,7 @@ class Paraggelia < ActiveRecord::Base
           market_prostasia_price = order.prostasia_price - (@pososto_market/100)*order.prostasia_price
           dealer_prostasia_price = order.prostasia_price - (@pososto_dealer/100)*order.prostasia_price
           csv << ["ARTPOS", main_index, index.to_s, 1, "m", @prostasia.sungate_code, nil, 
-            order.prostasia_name, order.tm_p_prostasia, 0, "<Discount/Surcharge%>", "<Discount/Surcharge per unit>", order.timi_m_p_prostasia, "no", order.prostasia_price, market_prostasia_price, dealer_prostasia_price]
+            order.prostasia_name, order.tm_p_prostasia, 0, "<Discount/Surcharge%>", "<Discount/Surcharge per unit>", order.timi_m_p_prostasia, "no", order.prostasia_price, market_prostasia_price.round(2), dealer_prostasia_price.round(2)]
           index +=10
         end
         #rolo epik
@@ -184,7 +184,7 @@ class Paraggelia < ActiveRecord::Base
           market_price_rolou = order.price_rolou - (@pososto_market/100)*order.price_rolou
           dealer_price_rolou = order.price_rolou - (@pososto_dealer/100)*order.price_rolou
           csv << ["ARTPOS", main_index, index.to_s, 1, "m2", @rolo_epik.sungate_code, @rolo_color.sungate_both, 
-            order.rolo, order.pl_rolou_ep, order.up_rolou_ep, "<Discount/Surcharge%>", "<Discount/Surcharge per unit>", order.timi_m_epik, "no", order.price_rolou, market_price_rolou, dealer_price_rolou]
+            order.rolo, order.pl_rolou_ep, order.up_rolou_ep, "<Discount/Surcharge%>", "<Discount/Surcharge per unit>", order.timi_m_epik, "no", order.price_rolou, market_price_rolou.round(2), dealer_price_rolou.round(2)]
           index +=10
         end
         #rolo eks
@@ -193,7 +193,7 @@ class Paraggelia < ActiveRecord::Base
           market_price_rolou = order.price_rolou - (@pososto_market/100)*order.price_rolou
           dealer_price_rolou = order.price_rolou - (@pososto_dealer/100)*order.price_rolou
           csv << ["ARTPOS", main_index, index.to_s, 1, "m2", @rolo_eks.sungate_code, @rolo_color.sungate_both, 
-            order.rolo, order.pl_rolou_ek, order.up_rolou_ek, "<Discount/Surcharge%>", "<Discount/Surcharge per unit>", order.timi_m_ekso, "no", order.price_rolou, market_price_rolou, dealer_price_rolou]
+            order.rolo, order.pl_rolou_ek, order.up_rolou_ek, "<Discount/Surcharge%>", "<Discount/Surcharge per unit>", order.timi_m_ekso, "no", order.price_rolou, market_price_rolou.round(2), dealer_price_rolou.round(2)]
           index +=10
         end
         #window still
@@ -201,7 +201,7 @@ class Paraggelia < ActiveRecord::Base
           market_price_window_still = order.price_window_still - (@pososto_market/100)*order.price_window_still
           dealer_price_window_still = order.price_window_still - (@pososto_dealer/100)*order.price_window_still
           csv << ["ARTPOS", main_index, index.to_s, 1, order.m_window_still, order.window_still_code, nil, 
-            order.window_still, "", "", "<Discount/Surcharge%>", "<Discount/Surcharge per unit>", order.timi_m_window_still, "no", order.price_window_still, market_price_window_still, dealer_price_window_still]
+            order.window_still, "", "", "<Discount/Surcharge%>", "<Discount/Surcharge per unit>", order.timi_m_window_still, "no", order.price_window_still, market_price_window_still.round(2), dealer_price_window_still.round(2)]
           index +=10
         end
         #place
@@ -209,7 +209,7 @@ class Paraggelia < ActiveRecord::Base
           market_price_place = order.price_place - (@pososto_market/100)*order.price_place
           dealer_price_place = order.price_place - (@pososto_dealer/100)*order.price_place
           csv << ["ARTPOS", main_index, index.to_s, 1, order.m_place, order.place_code, nil, 
-            order.place, "", "", "<Discount/Surcharge%>", "<Discount/Surcharge per unit>", order.timi_m_place, "no", order.price_place, market_price_place, dealer_price_place]
+            order.place, "", "", "<Discount/Surcharge%>", "<Discount/Surcharge per unit>", order.timi_m_place, "no", order.price_place, market_price_place.round(2), dealer_price_place.round(2)]
           index +=10
         end
         #profil typos
@@ -217,7 +217,7 @@ class Paraggelia < ActiveRecord::Base
           market_price_tupou = order.timi_typos_katw_1 - (@pososto_market/100)*order.timi_typos_katw_1
           dealer_price_tupou = order.timi_typos_katw_1 - (@pososto_dealer/100)*order.timi_typos_katw_1
           csv << ["ARTPOS", main_index, index.to_s, 1, "m", order.typos_code, nil, 
-            order.typos_katw_1, order.tm_p_t1, order.tm_u_t1, "<Discount/Surcharge%>", "<Discount/Surcharge per unit>", order.timi_m_t_1, "no", order.timi_typos_katw_1, market_price_tupou, dealer_price_tupou]
+            order.typos_katw_1, order.tm_p_t1, order.tm_u_t1, "<Discount/Surcharge%>", "<Discount/Surcharge per unit>", order.timi_m_t_1, "no", order.timi_typos_katw_1, market_price_tupou.round(2), dealer_price_tupou.round(2)]
           index +=10
         end
         #profil deksia
@@ -230,7 +230,7 @@ class Paraggelia < ActiveRecord::Base
             dealer_timi_profil_deksia[i] = order.read_attribute("timi_profil_deksia_#{i}") - (@pososto_dealer/100)*order.read_attribute("timi_profil_deksia_#{i}")
 
             csv << ["ARTPOS", main_index, index.to_s, order.read_attribute("profil_deksia_arithmos_#{i}"), "m", order.read_attribute("pd#{i}_code"), @prd_color.sungate_both, 
-              order.read_attribute("profil_deksia_#{i}"), order.read_attribute("tm_p_pd#{i}"), order.read_attribute("tm_u_pd#{i}"), "<Discount/Surcharge%>", "<Discount/Surcharge per unit>", order.read_attribute("timi_m_p_d_#{i}"), "no", order.read_attribute("timi_profil_deksia_#{i}"), market_timi_profil_deksia[i], dealer_timi_profil_deksia[i]]
+              order.read_attribute("profil_deksia_#{i}"), order.read_attribute("tm_p_pd#{i}"), order.read_attribute("tm_u_pd#{i}"), "<Discount/Surcharge%>", "<Discount/Surcharge per unit>", order.read_attribute("timi_m_p_d_#{i}"), "no", order.read_attribute("timi_profil_deksia_#{i}"), market_timi_profil_deksia[i].round(2), dealer_timi_profil_deksia[i].round(2)]
             index +=10
           end
         end
@@ -243,7 +243,7 @@ class Paraggelia < ActiveRecord::Base
             market_timi_profil_aristera[i] = order.read_attribute("timi_profil_aristera_#{i}") - (@pososto_market/100)*order.read_attribute("timi_profil_aristera_#{i}")
             dealer_timi_profil_aristera[i] = order.read_attribute("timi_profil_aristera_#{i}") - (@pososto_dealer/100)*order.read_attribute("timi_profil_aristera_#{i}")
             csv << ["ARTPOS", main_index, index.to_s, order.read_attribute("profil_aristera_arithmos_#{i}"), "m", order.read_attribute("pa#{i}_code"), @pra_color.sungate_both, 
-              order.read_attribute("profil_aristera_#{i}"), order.read_attribute("tm_p_pa#{i}"), order.read_attribute("tm_u_pa#{i}"), "<Discount/Surcharge%>", "<Discount/Surcharge per unit>", order.read_attribute("timi_m_p_a_#{i}"), "no", order.read_attribute("timi_profil_aristera_#{i}"), market_timi_profil_aristera[i], dealer_timi_profil_aristera[i]]
+              order.read_attribute("profil_aristera_#{i}"), order.read_attribute("tm_p_pa#{i}"), order.read_attribute("tm_u_pa#{i}"), "<Discount/Surcharge%>", "<Discount/Surcharge per unit>", order.read_attribute("timi_m_p_a_#{i}"), "no", order.read_attribute("timi_profil_aristera_#{i}"), market_timi_profil_aristera[i].round(2), dealer_timi_profil_aristera[i].round(2)]
             index +=10
           end
         end
@@ -256,7 +256,7 @@ class Paraggelia < ActiveRecord::Base
             market_timi_profil_panw[i] = order.read_attribute("timi_profil_panw_#{i}") - (@pososto_market/100)*order.read_attribute("timi_profil_panw_#{i}")
             dealer_timi_profil_panw[i] = order.read_attribute("timi_profil_panw_#{i}") - (@pososto_dealer/100)*order.read_attribute("timi_profil_panw_#{i}")
             csv << ["ARTPOS", main_index, index.to_s, order.read_attribute("profil_panw_arithmos_#{i}"), "m", order.read_attribute("pp#{i}_code"), @prp_color.sungate_both, 
-              order.read_attribute("profil_panw_#{i}"), order.read_attribute("tm_p_pp#{i}"), order.read_attribute("tm_u_pp#{i}"), "<Discount/Surcharge%>", "<Discount/Surcharge per unit>", order.read_attribute("timi_m_p_p_#{i}"), "no", order.read_attribute("timi_profil_panw_#{i}"), market_timi_profil_panw[i], dealer_timi_profil_panw[i]]
+              order.read_attribute("profil_panw_#{i}"), order.read_attribute("tm_p_pp#{i}"), order.read_attribute("tm_u_pp#{i}"), "<Discount/Surcharge%>", "<Discount/Surcharge per unit>", order.read_attribute("timi_m_p_p_#{i}"), "no", order.read_attribute("timi_profil_panw_#{i}"), market_timi_profil_panw[i].round(2), dealer_timi_profil_panw[i].round(2)]
             index +=10
           end
         end
@@ -269,7 +269,7 @@ class Paraggelia < ActiveRecord::Base
             market_timi_profil_katw[i] = order.read_attribute("timi_profil_katw_#{i}") - (@pososto_market/100)*order.read_attribute("timi_profil_katw_#{i}")
             dealer_timi_profil_katw[i] = order.read_attribute("timi_profil_katw_#{i}") - (@pososto_dealer/100)*order.read_attribute("timi_profil_katw_#{i}")
             csv << ["ARTPOS", main_index, index.to_s, order.read_attribute("profil_katw_arithmos_#{i}"), "m", order.read_attribute("pk#{i}_code"), @prk_color.sungate_both, 
-              order.read_attribute("profil_katw_#{i}"), order.read_attribute("tm_p_pk#{i}"), order.read_attribute("tm_u_pk#{i}"), "<Discount/Surcharge%>", "<Discount/Surcharge per unit>", order.read_attribute("timi_m_p_k_#{i}"), "no", order.read_attribute("timi_profil_katw_#{i}"), market_timi_profil_katw[i], dealer_timi_profil_katw[i]]
+              order.read_attribute("profil_katw_#{i}"), order.read_attribute("tm_p_pk#{i}"), order.read_attribute("tm_u_pk#{i}"), "<Discount/Surcharge%>", "<Discount/Surcharge per unit>", order.read_attribute("timi_m_p_k_#{i}"), "no", order.read_attribute("timi_profil_katw_#{i}"), market_timi_profil_katw[i].round(2), dealer_timi_profil_katw[i].round(2)]
             index +=10
           end
         end
