@@ -465,6 +465,7 @@ ActiveRecord::Schema.define(version: 20160719070630075818) do
     t.float    "price_dealer",               limit: 24
     t.string   "window_still_code"
     t.string   "place_code"
+    t.binary   "base64_code"
   end
 
   create_table "panels", force: true do |t|
