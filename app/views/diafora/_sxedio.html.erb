@@ -2738,18 +2738,15 @@
 		var $img_tag = document.createElementNS('http://www.w3.org/2000/svg','image');
 		$img_tag.setAttributeNS(null,'height', paidi_height);
 		$img_tag.setAttributeNS(null,'width', paidi_width);
-		
-		//olympia
-		$img_tag.setAttributeNS('http://www.w3.org/1999/xlink','href', $("img[panel_selected='yes']").attr("src"));
-
 		$img_tag.setAttributeNS(null, 'x', panw_aristera_x );
 		$img_tag.setAttributeNS(null, 'y', panw_aristera_y);
 		$img_tag.setAttributeNS(null, 'preserveAspectRatio', "none" );
 
 		//olympia
-		/*getDataUri($("img[panel_selected='yes']").attr("src"), function(dataUri) {
+		//$img_tag.setAttributeNS('http://www.w3.org/1999/xlink','href', $("img[panel_selected='yes']").attr("src"));
+		getDataUri($("img[panel_selected='yes']").attr("src"), function(dataUri) {
 		    $img_tag.setAttributeNS('http://www.w3.org/1999/xlink','href', dataUri);
-		});*/
+		});
 
 		document.getElementById('svg').appendChild($img_tag);
 	}

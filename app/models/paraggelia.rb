@@ -53,6 +53,7 @@ class Paraggelia < ActiveRecord::Base
         csv << ["INITIAL_PRICE", order.price_new]
         csv << ["PRICE 1", order.price_market.round(2)]
         csv << ["PRICE 2", order.price_dealer.round(2)]
+        csv << ["IMAGE BASE 64", order.base64_code.to_s]
         
         #SURCHARGE_LINE
         csv << ["SURCHARGE_LINE", order.surcharge_line]
