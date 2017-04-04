@@ -70,6 +70,8 @@ Rails.application.routes.draw do
   get 'etic/export_simple_user'
   post 'etic/save_image'
   get 'etic/save_image'
+  post 'etic/save_imagebase64'
+  get 'etic/save_imagebase64'
   get 'etic/select_customer'
   get 'etic/new_offer'
   get 'etic/import_terms'

@@ -731,7 +731,7 @@ class EticController < ApplicationController
 		if( params.has_key?(:open_cat) )
 		    @open_categorie = OpenCategorie.where(:name => params[:open_cat]).first
 		end
-		puts "KALOOO"+ params[:open_cat]
+		
 		@lastixa = params[:lastixa]
 		tzami0 = Tzamia.where(:id => params[:tzamia0]).first
 		if ( !tzami0.nil? )
@@ -4697,7 +4697,16 @@ class EticController < ApplicationController
 			respond_to do |format|
 	          format.json { render json: @ok}
 	        end
-		
+	end
+
+	def save_imagebase64
+		last = Order.order("created_at").last
+		last.base64_code = params[:dataURL]
+		last.save
+		@url = etic_simple_pse_user_card_path(:id => last.paraggelia_id)
+		respond_to do |format|
+          format.json { render json: @url.to_json}
+        end
 	end
 
     ## Κάρτα απλού user. To @user_id το θέλω για το pdf. 

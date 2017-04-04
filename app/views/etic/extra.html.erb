@@ -3165,7 +3165,6 @@
   	  	  $("#glass_3, .glass_3").show();
   	  }
       //portes
-      //olympia
       if($('input[name=cat_an]:checked', '#myForm').attr('id') == 'porta') {
         $("#tab_leaf").css("visibility", "hidden");
         $("#tab_leaf").css("height", "0");
@@ -3620,7 +3619,7 @@
           }
         //Πρωτη φωρα που κλικαρετε το ανοιγμα βλεπω αν χρειαζετια να κανω επαναληψη. Αλλιως απλα διαιρω διαστασεις και ζωγραφιζω με ok_click()
         if ( kanw_prwti_fora ){
-          //Απο κατηγορια ανοιγματος. Αν ειναι διαφορο του 1 κανω επαναληψη. Αλλιως δεν κανω ksana_extra και βαζω διαστασεις/2. Μετα ζωγραφιζω
+          //Απο κατηγορια ανοιγματος. Αν ειναι διαφορο του 1 κανω επαναληψη. Αλλιως δεν κανω ketina_extra και βαζω διαστασεις/2. Μετα ζωγραφιζω
           if ( "<%= @den_exw_parrams %>" != "1" ){
             //Μεσα εχει το ksana_extra();
             $(".extra_diastaseis").click();
@@ -9411,7 +9410,6 @@
 
                 c = document.getElementById("canvas2");
                 var dataURL = c.toDataURL('image/png');
-                console.log(dataURL);
                 var file = dataURLtoBlob(dataURL);
                 var fd = new FormData();
                 // Append our Canvas image file to the form data
@@ -9426,11 +9424,37 @@
                   processData: false,
                   contentType: false,
                   success: function(data) {
-                    window.location.href = str1+str2+str3+str4+str5+str6+str7+str8+str9+str10+str11+str12+str13+str14+str15+str16+str17+str18+str19+str20+str21+str22+str23+str24+str25+str26+str27+str28+str29+str30+str31+str32+str33+str34+str35+str36+str37+str38+str39+str40+str41+str42+str43+str44+str45+str46+str47+str48+str49+str50+str51+str52+str53+str54+str55+str56+str57+str58+str59+str60+str61+str62+str63+str64+str65+str66+str67+str68+str69+str70+str71+str72+str73+str74+str75+str76+str77+str78+str79+str80+str81+str82+str83+str84+str85+str86+str87+str88+str89+str90+str91+str92+str93+str94+str95+str96+str97+str98+str99+str100+str101+str102+str103+str104+str105+str106+str107+str108+str109+str110+str111+str112+str113+str114+str115+str116+str117+str118+str119+str120+str121+str122+str123+str124+str125+str126+str127+str128+str129+str130+str131+str132+str133+str134+str135+str136+str137+str138+str139+str140+str141+str142+str143+str144+str145+str146+str147+str148+str149+str150+str151+str152+str153+str154+str155+str156+str157+str158+str159+str160+str161+str162+str163+str164+str165+str166+str167+str168+str169+str170+str171+str172+str173+str174+str175+str176+str177+str178+str179+str180+str181+str182+str183+str184+str185+str186+str187+str188+str189+str190+str191+str192+str193+str194+str195+str196+str197+str198+str199+str200+str201+str202+str203+stra+strb+str204+str205+str206+str207+str208+str209+str210+str211+str212+str213+str214+str215;
+                    //window.location.href = str1+str2+str3+str4+str5+str6+str7+str8+str9+str10+str11+str12+str13+str14+str15+str16+str17+str18+str19+str20+str21+str22+str23+str24+str25+str26+str27+str28+str29+str30+str31+str32+str33+str34+str35+str36+str37+str38+str39+str40+str41+str42+str43+str44+str45+str46+str47+str48+str49+str50+str51+str52+str53+str54+str55+str56+str57+str58+str59+str60+str61+str62+str63+str64+str65+str66+str67+str68+str69+str70+str71+str72+str73+str74+str75+str76+str77+str78+str79+str80+str81+str82+str83+str84+str85+str86+str87+str88+str89+str90+str91+str92+str93+str94+str95+str96+str97+str98+str99+str100+str101+str102+str103+str104+str105+str106+str107+str108+str109+str110+str111+str112+str113+str114+str115+str116+str117+str118+str119+str120+str121+str122+str123+str124+str125+str126+str127+str128+str129+str130+str131+str132+str133+str134+str135+str136+str137+str138+str139+str140+str141+str142+str143+str144+str145+str146+str147+str148+str149+str150+str151+str152+str153+str154+str155+str156+str157+str158+str159+str160+str161+str162+str163+str164+str165+str166+str167+str168+str169+str170+str171+str172+str173+str174+str175+str176+str177+str178+str179+str180+str181+str182+str183+str184+str185+str186+str187+str188+str189+str190+str191+str192+str193+str194+str195+str196+str197+str198+str199+str200+str201+str202+str203+stra+strb+str204+str205+str206+str207+str208+str209+str210+str211+str212+str213+str214+str215;
+                    url = str1+str2+str3+str4+str5+str6+str7+str8+str9+str10+str11+str12+str13+str14+str15+str16+str17+str18+str19+str20+str21+str22+str23+str24+str25+str26+str27+str28+str29+str30+str31+str32+str33+str34+str35+str36+str37+str38+str39+str40+str41+str42+str43+str44+str45+str46+str47+str48+str49+str50+str51+str52+str53+str54+str55+str56+str57+str58+str59+str60+str61+str62+str63+str64+str65+str66+str67+str68+str69+str70+str71+str72+str73+str74+str75+str76+str77+str78+str79+str80+str81+str82+str83+str84+str85+str86+str87+str88+str89+str90+str91+str92+str93+str94+str95+str96+str97+str98+str99+str100+str101+str102+str103+str104+str105+str106+str107+str108+str109+str110+str111+str112+str113+str114+str115+str116+str117+str118+str119+str120+str121+str122+str123+str124+str125+str126+str127+str128+str129+str130+str131+str132+str133+str134+str135+str136+str137+str138+str139+str140+str141+str142+str143+str144+str145+str146+str147+str148+str149+str150+str151+str152+str153+str154+str155+str156+str157+str158+str159+str160+str161+str162+str163+str164+str165+str166+str167+str168+str169+str170+str171+str172+str173+str174+str175+str176+str177+str178+str179+str180+str181+str182+str183+str184+str185+str186+str187+str188+str189+str190+str191+str192+str193+str194+str195+str196+str197+str198+str199+str200+str201+str202+str203+stra+strb+str204+str205+str206+str207+str208+str209+str210+str211+str212+str213+str214+str215;
+
+                    $.ajax({ 
+                      type:'GET',
+                      url: url,
+                      dataType: "html",
+                      success: function(data) {
+                        
+                        $.ajax({ 
+                          type:'POST',
+                          url:'/etic/save_imagebase64',
+                          dataType: "json",
+                          data: {dataURL: dataURL},
+                          success: function(data) {
+                            window.location.href = data;
+                          },
+                          error: function(data) { 
+                          }
+                        });//end ejax
+                      },
+                      error: function(data) { 
+                      }
+                    });//end ejax
+
                   },
                   error: function(data) { 
                   }
                 });//end ejax
+
+                
             })
             img.onerror = function(){
                 alert("Wrong argument...");
@@ -9816,6 +9840,7 @@
       str213 = window_still_single;
       str214 = "&place="
       str215 = place;
+      str216 = "&imagebase64="
 
       
       }//geniko_ok = true;
