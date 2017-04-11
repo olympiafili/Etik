@@ -731,25 +731,40 @@
 		        		xwrismata['xwrisma_orizontio_px' + key] = Math.ceil(pragmatiko_mikos_dia_px);
 		        	}
 		        	//index != apo to teleytaio kanw floor
+		        	//olympia
+		        	if(table.indexOf("n") > 0 && table.indexOf("|") > 0 && obj[0] == 'a'){
+		        		if(height_new > 3600)//4200
+		        			pososto = 1- ((2400/height_new).toFixed(4));
+		        		else
+		        			pososto = 1- ((1800/height_new).toFixed(4));
+		        		
+		        		pragmatiko_ypsos_dia = height_new*pososto;
+		        		pragmatiko_ypsos_dia_px = sunoloko_ypsos*pososto;
+		        		prev_pragmatiko_ypsos_dia_px = pragmatiko_ypsos_dia_px;
+		        	} else if(table.indexOf("n") > 0 && table.indexOf("|") > 0 && (obj[0] == 'n' || obj[0] == 'b')) {
+		        		if(height_new > 3600) {//4200
+		        			pososto = (2400/height_new).toFixed(4);
+		        			pososto_prev = 1- ((2400/height_new).toFixed(4));
+		        		} else {
+		        			pososto = (1800/height_new).toFixed(4);
+		        			pososto_prev = 1- ((1800/height_new).toFixed(4));
+		        		}
+
+		        		pragmatiko_ypsos_dia = height_new*pososto;
+		        		pragmatiko_ypsos_dia_px = sunoloko_ypsos*pososto;
+		        		prev_pragmatiko_ypsos_dia_px = sunoloko_ypsos*pososto_prev;
+		        	} else
+		        		prev_pragmatiko_ypsos_dia_px = pragmatiko_ypsos_dia_px;
 		        	
+
 		        	if ( ( index != (finalArray.length-1) ) ){
-		        		/*if(table =='a|n' && obj[0] == 'a'){
-		        			xwrismata['xwrisma_katheto' + index] = Math.floor(pragmatiko_ypsos_dia);
-		        			xwrismata['xwrisma_katheto_px' + index] = Math.floor(pragmatiko_ypsos_dia_px/2);
-		        		}
-		        		else{*/
-		        			xwrismata['xwrisma_katheto' + index] = Math.floor(pragmatiko_ypsos_dia);
-		        			xwrismata['xwrisma_katheto_px' + index] = Math.floor(pragmatiko_ypsos_dia_px);
-							//}
+		        		xwrismata['xwrisma_katheto' + index] = Math.floor(pragmatiko_ypsos_dia);
+		        		xwrismata['xwrisma_katheto_px' + index] = Math.floor(pragmatiko_ypsos_dia_px);
+		        		xwrismata['prev_xwrisma_katheto_px' + index] = Math.floor(prev_pragmatiko_ypsos_dia_px);
 		        	}else{//teleytaio
-		        		/*if(table =='a|n' && obj[0] == 'n'){
-		        			xwrismata['xwrisma_katheto' + index] = Math.ceil(pragmatiko_ypsos_dia);
-		        			xwrismata['xwrisma_katheto_px' + index] = Math.ceil(3*pragmatiko_ypsos_dia_px/2);
-		        		}
-		        		else {*/
-		        			xwrismata['xwrisma_katheto' + index] = Math.ceil(pragmatiko_ypsos_dia);
-		        			xwrismata['xwrisma_katheto_px' + index] = Math.ceil(pragmatiko_ypsos_dia_px);
-							//}
+		        		xwrismata['xwrisma_katheto' + index] = Math.ceil(pragmatiko_ypsos_dia);
+		        		xwrismata['xwrisma_katheto_px' + index] = Math.ceil(pragmatiko_ypsos_dia_px);
+		        		xwrismata['prev_xwrisma_katheto_px' + index] = Math.ceil(prev_pragmatiko_ypsos_dia_px);
 		        	}
 		        	//xwrismata['xwrisma_orizontio' + key] = (width_new/obj.length);
 		        	//xwrismata['xwrisma_orizontio_px' + key] = (sunoloko_mikos/obj.length);
@@ -1303,15 +1318,15 @@
 							rect.setAttribute('marker-start',"url(#triangle_a)");
 							document.getElementById('svg').appendChild(rect);
 						} else if($("."+index+""+key+"2").css("display") != "none" && index == 1) {
+							//kathetes grammes
 							var rect = makeSVG('line', {class:""+index+""+key+"3", stroke: "black", 'stroke-width': 2, fill: 'none'});
 							rect.setAttribute('x1',key*xwrismata['xwrisma_orizontio_px' + key]+(profil_xwros*4)+sunoloko_mikos+kasa_xwros+kasa_xwros );
-							/*if(table == 'a|n'){
-								rect.setAttribute('y1',index*pragmatiko_ypsos_dia_px/2 +profil_xwros+rolo_epanw_xwros+grammes_xwros+kasa_xwros );
-								rect.setAttribute('y2',pragmatiko_ypsos_dia_px/2 +profil_xwros+rolo_epanw_xwros+grammes_xwros+2*kasa_xwros + index*xwrismata['xwrisma_katheto_px' + index]);
-							} else{*/
-								rect.setAttribute('y1',index*xwrismata['xwrisma_katheto_px' + index]+profil_xwros+rolo_epanw_xwros+grammes_xwros+kasa_xwros );
-								rect.setAttribute('y2',xwrismata['xwrisma_katheto_px' + index]+profil_xwros+rolo_epanw_xwros+grammes_xwros+2*kasa_xwros + index*xwrismata['xwrisma_katheto_px' + index]);
-								//}
+
+							rect.setAttribute('y1',index*xwrismata['prev_xwrisma_katheto_px' + index]+profil_xwros+rolo_epanw_xwros+grammes_xwros+kasa_xwros );
+							rect.setAttribute('y2',xwrismata['prev_xwrisma_katheto_px' + index]+profil_xwros+rolo_epanw_xwros+grammes_xwros+2*kasa_xwros + index*xwrismata['xwrisma_katheto_px' + index]);
+							/*rect.setAttribute('y1',index*xwrismata['xwrisma_katheto_px' + index]+profil_xwros+rolo_epanw_xwros+grammes_xwros+kasa_xwros );
+							rect.setAttribute('y2',xwrismata['xwrisma_katheto_px' + index]+profil_xwros+rolo_epanw_xwros+grammes_xwros+2*kasa_xwros + index*xwrismata['xwrisma_katheto_px' + index]);*/
+							
 							rect.setAttribute('x2',key*xwrismata['xwrisma_orizontio_px' + key]+(profil_xwros*4)+sunoloko_mikos+kasa_xwros+kasa_xwros);
 							rect.setAttribute('marker-end',"url(#triangle_t)");
 							rect.setAttribute('marker-start',"url(#triangle_a)");
@@ -1330,11 +1345,10 @@
 			    		//Text
 			    		var rect = makeSVG('text', {class:""+index+""+key+"3text", fill: 'black',style:'writing-mode: tb;'});
 			    		rect.setAttribute('x',key*xwrismata['xwrisma_orizontio_px' + key]+(profil_xwros*4)+sunoloko_mikos+kasa_xwros+kasa_xwros + 11 );
-					    /*if(table == 'a|n' && obj[0] == 'n')
-					    	rect.setAttribute('y',( ( index*xwrismata['xwrisma_katheto_px' + index]+profil_xwros+rolo_epanw_xwros+grammes_xwros+kasa_xwros ) + ( pragmatiko_ypsos_dia_px/2+profil_xwros+rolo_epanw_xwros+grammes_xwros+kasa_xwros + index*xwrismata['xwrisma_katheto_px' + index] ) )/2 );
-					    else*/
-					   		rect.setAttribute('y',( ( index*xwrismata['xwrisma_katheto_px' + index]+profil_xwros+rolo_epanw_xwros+grammes_xwros+kasa_xwros ) + ( xwrismata['xwrisma_katheto_px' + index]+profil_xwros+rolo_epanw_xwros+grammes_xwros+kasa_xwros + index*xwrismata['xwrisma_katheto_px' + index] ) )/2 );
-					   	console.log($("#xwrisma_katheto"+index+"").val());
+					    
+					    rect.setAttribute('y',( ( index*xwrismata['prev_xwrisma_katheto_px' + index]+profil_xwros+rolo_epanw_xwros+grammes_xwros+kasa_xwros ) + ( xwrismata['prev_xwrisma_katheto_px' + index]+profil_xwros+rolo_epanw_xwros+grammes_xwros+kasa_xwros + index*xwrismata['xwrisma_katheto_px' + index] ) )/2 );
+					   	/*rect.setAttribute('y',( ( index*xwrismata['xwrisma_katheto_px' + index]+profil_xwros+rolo_epanw_xwros+grammes_xwros+kasa_xwros ) + ( xwrismata['xwrisma_katheto_px' + index]+profil_xwros+rolo_epanw_xwros+grammes_xwros+kasa_xwros + index*xwrismata['xwrisma_katheto_px' + index] ) )/2 );*/
+					   	
 					    rect.textContent = $("#xwrisma_katheto"+index+"").val().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1.");//xwrismata['xwrisma_katheto' + index].toFixed(0);
 					    rect.setAttribute("font-size", "16");
 					    rect.setAttribute("text-anchor", "right");
@@ -1357,15 +1371,15 @@
 							rect.setAttribute('stroke-dasharray',"5,5");
 							document.getElementById('svg').appendChild(rect);
 						} else if($("."+index+""+key+"2").css("display") != "none" && index == 1) {
+							//kathetes diakekomenes
 							var rect = makeSVG('line', {class:""+index+""+key+"5",stroke: "black", 'stroke-width': 1, fill: 'none'});
 							rect.setAttribute('x1',key*xwrismata['xwrisma_orizontio_px' + key]+(profil_xwros*4)+sunoloko_mikos+kasa_xwros+kasa_xwros  );
-							/*if(table == 'a|n'){
-								rect.setAttribute('y1',pragmatiko_ypsos_dia_px/2+profil_xwros+rolo_epanw_xwros+grammes_xwros+kasa_xwros );
-								rect.setAttribute('y2',pragmatiko_ypsos_dia_px/2+profil_xwros+rolo_epanw_xwros+grammes_xwros+kasa_xwros );
-							}else{*/
-								rect.setAttribute('y1',index*xwrismata['xwrisma_katheto_px' + index]+profil_xwros+rolo_epanw_xwros+grammes_xwros+kasa_xwros);
-								rect.setAttribute('y2',index*xwrismata['xwrisma_katheto_px' + index]+profil_xwros+rolo_epanw_xwros+grammes_xwros+kasa_xwros);
-								//}
+							
+								rect.setAttribute('y1',index*xwrismata['prev_xwrisma_katheto_px' + index]+profil_xwros+rolo_epanw_xwros+grammes_xwros+kasa_xwros);
+								rect.setAttribute('y2',index*xwrismata['prev_xwrisma_katheto_px' + index]+profil_xwros+rolo_epanw_xwros+grammes_xwros+kasa_xwros);
+								/*rect.setAttribute('y1',index*xwrismata['xwrisma_katheto_px' + index]+profil_xwros+rolo_epanw_xwros+grammes_xwros+kasa_xwros);
+								rect.setAttribute('y2',index*xwrismata['xwrisma_katheto_px' + index]+profil_xwros+rolo_epanw_xwros+grammes_xwros+kasa_xwros);*/
+							
 							rect.setAttribute('x2',100);
 							rect.setAttribute('stroke-dasharray',"5,5");
 							document.getElementById('svg').appendChild(rect);
@@ -1467,6 +1481,7 @@
 
                 	//Width καθε γραμμης = len
 		        	var line = $("."+index+""+key+"2").get(0);
+
 					var len = dist(line.x1.baseVal.value, line.x2.baseVal.value,
                		line.y1.baseVal.value, line.y2.baseVal.value);
 					
@@ -1480,24 +1495,36 @@
                		var line2 = $("."+index+"03").get(0);
 					var het = dist(line2.x1.baseVal.value, line2.x2.baseVal.value,
                		line2.y1.baseVal.value, line2.y2.baseVal.value) ;
+
+					//olympia
+               		if(table.indexOf("n") > 0 && table.indexOf("|") > 0 && (value == 'n' || value == 'b')) {
+		        		index2 = index -1 ;
+		        		var linee = $("."+index2+"03").get(0);
+		        		var hett = dist(linee.x1.baseVal.value, linee.x2.baseVal.value, linee.y1.baseVal.value, linee.y2.baseVal.value) ;
+		        		if(obj.length == 3) {
+		        			het = het + 5;
+							hett = hett + 5;
+						}
+		        	} else
+		        		var hett = het;
 					
 					if(obj.length == 1 && $("."+index+""+key+"2").css("display") != "none" && key == 0 && index == 0 || 
 					(obj.length == 2 && $("."+index+""+key+"2").css("display") != "none" && index == 0 && finalArray.length != 2 && tempArray.length != 2) || 
 					(obj.length == 3) || (obj.length == 4)) {
 						het = het - 10;
+						hett = hett - 10;
 					} else {
 						het = het - 5;
-					} 
+						hett = hett - 5;
+					}
 					
                		function dist(x1, x2, y1, y2){
 					    return Math.sqrt( (x2-=x1)*x2 + (y2-=y1)*y2 );
 					}
 
 			        //Εξω τετραγωνο με χρώμα
-			        /*if(table == 'a|n' && value == 'n')
-				    	var rect = makeSVG('rect', {class:""+index+""+key+"1" ,x: key*len+profil_xwros+kasa_xwros, y: index*pragmatiko_ypsos_dia_px/2+rolo_epanw_xwros+profil_xwros+grammes_xwros+kasa_xwros, width:len, height: het, stroke: 'black', 'stroke-width': 2, fill: 'red'});//(sunoloko_mikos/obj.length),(sunoloko_ypsos/finalArray.length)
-				    else*/
-			        	var rect = makeSVG('rect', {class:""+index+""+key+"1" ,x: key*len+profil_xwros+kasa_xwros, y: index*het+rolo_epanw_xwros+profil_xwros+grammes_xwros+kasa_xwros, width:len, height:het, stroke: 'black', 'stroke-width': 2, fill: 'red'});//(sunoloko_mikos/obj.length),(sunoloko_ypsos/finalArray.length)
+			        
+			        var rect = makeSVG('rect', {class:""+index+""+key+"1" ,x: key*len+profil_xwros+kasa_xwros, y: index*hett+rolo_epanw_xwros+profil_xwros+grammes_xwros+kasa_xwros, width:len, height:het, stroke: 'black', 'stroke-width': 2, fill: 'red'});//(sunoloko_mikos/obj.length),(sunoloko_ypsos/finalArray.length)
 
 	        		document.getElementById('svg').appendChild(rect);
 	        		//Μεσα τετραγωνο με τζαμι και ανοιγμα, height width και αλλα απο function
