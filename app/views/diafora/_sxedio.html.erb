@@ -27,7 +27,6 @@
 	});
 
 	$(".xwrismata_sxedio_orizontia, .xwrismata_sxedio_katheta").on("blur", ".orizontia, .katheta", function() {
-
 		geniko_data_val = $(this).data('val');
 
 		if ( $(this).attr("class") == "orizontia" ){
@@ -134,7 +133,6 @@
 	    	$("#xwrisma_orizontio"+(arithmos_xwrismatwn-1)+"").val( apotelesma );
 		}
 		if ( $(this).attr("class") == "katheta" ){
-
 			//Poio input einai
 			var auto_poy_patisa_input = $( this );
 			//Ολο το height
@@ -629,14 +627,18 @@
 		stroke_megali_grammi(sunoloko_mikos,sunoloko_ypsos,profil_xwros,rolo_epanw_xwros,kasa_xwros,grammes_xwros);
 		stroke_epikathimeno(sunoloko_mikos,profil_xwros,rolo_epanw_xwros,kasa_xwros,grammes_xwros);
 		stroke_ekswteriko(sunoloko_mikos,profil_xwros,rolo_epanw_xwros,kasa_xwros,grammes_xwros);
-		stroke_persides(sunoloko_mikos,profil_xwros,rolo_epanw_xwros,kasa_xwros,grammes_xwros);
+		stroke_persides(sunoloko_mikos,profil_xwros,rolo_epanw_xwros,kasa_xwros,grammes_xwros);		
+		
 		if ( anoigma_n == "n")
 			stroke_n(paidi_n,anoigma_n);
 
 		//Clone για να φανει στο modal
-		$( "#sxedio_new2" ).empty();
-		var cloneSVG = $('#svg').clone();
-        cloneSVG.appendTo('#sxedio_new2');
+		setTimeout(function(){
+			$( "#sxedio_new2" ).empty();
+			var cloneSVG = $('#svg').clone();
+        	cloneSVG.appendTo('#sxedio_new2');
+		}, 20);
+
 	}
 	
 	function ok_click(){
@@ -2774,7 +2776,6 @@
 		getDataUri($("img[panel_selected='yes']").attr("src"), function(dataUri) {
 		    $img_tag.setAttributeNS('http://www.w3.org/1999/xlink','href', dataUri);
 		});
-
 		document.getElementById('svg').appendChild($img_tag);
 	}
 
