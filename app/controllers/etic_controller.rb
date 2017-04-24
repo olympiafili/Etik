@@ -40,6 +40,12 @@ class EticController < ApplicationController
 	  end
 	end
 
+	def send_mail_csv
+		user_info = { }
+		UserMailer.csv_email(user_info).deliver
+		redirect_to etic_user_diax_path
+	end
+
     ## CONTACT: Η σελίδα που βλέπω όταν πατάω contact στην μπαρα
     ## SEND_MAIL: Η μέθοδος που στέλνει mail στον admin. UserMailer -> class, welcome_email -> method
 	def contact
@@ -180,7 +186,7 @@ class EticController < ApplicationController
 		@system = System.where(:name => params[:system_name]).first
 		@line = Line.where(:name_allo => params[:line_name]).first
 		@leaf = Leaf.where(:name => params[:leaf_name]).first
-    @panel = Panel.where(:id => params[:panel]).first
+    	@panel = Panel.where(:id => params[:panel]).first
 		##
 		#@open_type = OpenType.joins(:system_open_types).where(["system_open_types.line_id = ?", @line.id]).order(:order)
 		#@open_type1 = @open_type.where(:leaf_id => @leaf.id, :open_categorie_id => @open_categorie.id)
@@ -302,6 +308,17 @@ class EticController < ApplicationController
 		@table = @open_type.table
 
 		@response = {:max_width => @max_width, :min_width => @min_width, :max_height => @max_height, :min_height => @min_height, :table => @table}
+        respond_to do |format|
+          format.json { render json: @response.to_json}
+        end
+	end
+
+	def diastaseis_fix
+        @open_type = OpenType.where(:table => 'a').first
+		@max_height_fix = @open_type.max_height
+		@min_height_fix = @open_type.min_height
+
+		@response = {:max_height_fix => @max_height_fix, :min_height_fix => @min_height_fix}
         respond_to do |format|
           format.json { render json: @response.to_json}
         end

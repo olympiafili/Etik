@@ -956,6 +956,8 @@
 			
             <%= link_to "Download_csv", etic_export_order_path(:id => @paraggelia_id,:format => "csv") ,class: "btn btn-primary", :target => "_blank" %>
 			
+            <%= link_to "Email_csv", etic_send_mail_csv_path(:id => @paraggelia_id) ,class: "btn btn-primary" %>
+			
             <!--
             <%= link_to "Download_xls", etic_export_simple_user_path(:id => @paraggelia_id,:pse => 1,:format => "xls") ,class: "btn btn-primary", :target => "_blank" %>
             <%= link_to "Download_csv", etic_export_simple_user_path(:id => @user_id,:pse => 1,:format => "csv") ,class: "btn btn-primary", :target => "_blank" %>

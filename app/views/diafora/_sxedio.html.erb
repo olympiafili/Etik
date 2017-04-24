@@ -1532,7 +1532,7 @@
 	        		//Μεσα τετραγωνο με τζαμι και ανοιγμα, height width και αλλα απο function
 	        		var rect = makeSVG('rect', {class:""+index+""+key+""+"mesa"+"" });
 	        		document.getElementById('svg').appendChild(rect);
-	        		//olympia2
+	        		
 	        		stroke_guro(""+index+""+key+"1",""+index+""+key+""+"mesa"+"",value);
 					if(value == "n") {
 						paidi_n = ""+index+""+key+""+"mesa"+"";
@@ -2771,7 +2771,6 @@
 		$img_tag.setAttributeNS(null, 'y', panw_aristera_y);
 		$img_tag.setAttributeNS(null, 'preserveAspectRatio', "none" );
 
-		//olympia
 		//$img_tag.setAttributeNS('http://www.w3.org/1999/xlink','href', $("img[panel_selected='yes']").attr("src"));
 		getDataUri($("img[panel_selected='yes']").attr("src"), function(dataUri) {
 		    $img_tag.setAttributeNS('http://www.w3.org/1999/xlink','href', dataUri);
