@@ -41,8 +41,9 @@ class EticController < ApplicationController
 	end
 
 	def send_mail_csv
-		user_info = { }
-		UserMailer.csv_email(user_info).deliver
+		paraggelia = Paraggelia.where(:id => params[:id]).first
+		csv = paraggelia.to_csv
+		UserMailer.csv_email(csv).deliver
 		redirect_to etic_user_diax_path
 	end
 
@@ -4773,7 +4774,7 @@ class EticController < ApplicationController
 		respond_to do |format|
           format.csv { filename = "SunGate-#{Time.now.strftime("Date:%d-%m-%Y ---Time:%H:%M:%S")}.csv"
                        send_data paraggelia.to_csv, :filename => filename}
-    end 
+    	end 
 	end
   
 	##import απο το csv του wolf-sungate

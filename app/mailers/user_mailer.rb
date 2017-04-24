@@ -15,8 +15,8 @@ class UserMailer < ActionMailer::Base
     mail(:to => email, :subject => "Customer message!!")
   end
 
-  def csv_email(user_info)
-    
-    mail(:to => "olympia.filippa@gmail.com", :subject => "Customer message!!")
+  def csv_email(csv)
+    attachments['order.csv'] = {mime_type: 'text/csv', content: csv}
+    mail(:to => "olympia.filippa@gmail.com", :subject => "Order csv")
   end
 end
