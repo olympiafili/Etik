@@ -83,7 +83,8 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
   config.action_mailer.default_url_options = { 
-    host: "178.62.162.49:3000"
+    #host: "178.62.162.49:3000"
+    host: "46.101.236.245:8850"
 
    }
 
@@ -93,7 +94,7 @@ Rails.application.configure do
     domain: "example.com",
     authentication: "plain",
     enable_starttls_auto: true,
-    user_name: "serafimalbatec@gmail.com", # this should be a real gmail id
+    user_name: "olympia.filippa@gmail.com", # this should be a real gmail id
     password: "" # this should be real password of your gmail id
   }
 
