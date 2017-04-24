@@ -45,7 +45,7 @@ Rails.application.configure do
   # config.force_ssl = true
 
   # Set to :debug to see everything in the log.
-  config.log_level = :info
+  config.log_level = :debug
 
   # Prepend all log lines with the following tags.
   # config.log_tags = [ :subdomain, :uuid ]
@@ -82,19 +82,31 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 
-  config.action_mailer.default_url_options = { 
-    host: "46.101.236.245:8850"
 
-   }
+  config.action_mailer.asset_host = "http://46.101.236.245:8850"
+  config.action_mailer.default_url_options = { :host => '46.101.236.245:8850' }
+  config.action_mailer.delivery_method = :smtp
 
-  config.action_mailer.smtp_settings = {
-    address: "smtp.gmail.com",
-    port: 587,
-    domain: "example.com",
-    authentication: "plain",
-    enable_starttls_auto: true,
-    user_name: "serafimalbatec@gmail.com", # this should be a real gmail id
-    password: "" # this should be real password of your gmail id
+  #config.action_mailer.default_url_options = { 
+    #host: "46.101.236.245:8850"
+
+   #}
+
+     ActionMailer::Base.smtp_settings = {
+  :address => "smtp.gmail.com",
+  :port => 587,
+  :user_name => "balteco2017@gmail.com",
+  :password => "baltecoltd2016"
   }
+
+  #config.action_mailer.smtp_settings = {
+    #address: "smtp.gmail.com",
+    #port: 587,
+    #domain: "example.com",
+    #authentication: "plain",
+    #enable_starttls_auto: true,
+    #user_name: "olympia.filippa@gmail.com", # this should be a real gmail id
+    #password: "" # this should be real password of your gmail id
+  #}
 
 end
