@@ -95,7 +95,7 @@ Rails.application.configure do
     authentication: "plain",
     enable_starttls_auto: true,
     user_name: "olympia.filippa@gmail.com", # this should be a real gmail id
-    password: "" # this should be real password of your gmail id
+    password: "abcdef01077!" # this should be real password of your gmail id
   }
 
 end
