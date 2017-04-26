@@ -963,6 +963,8 @@
             $(".table_xrwma_odoigos").text(color_odoigou);
             if(odoigos_name == "Führungsschiene nur wenn sich Masse ändern L/R" || odoigos_name == "H-Schiene Rollo mittig nur wenn sich Masse ändern") {
               $(".table_timi_xrwma_odoigos").text("0" +" €");
+              $(".timi_market_xrwma_odoigos").text("0" +" €");
+              $(".timi_dealer_xrwma_odoigos").text("0" +" €");
             } else {
               timi_guide_xrwma = ( tm_od ).toFixed(2)*20;
               $(".table_timi_xrwma_odoigos").text(timi_guide_xrwma +" €");
