@@ -853,6 +853,7 @@
                     <label id="roll_front_m" class="label_tab_top"><%= t('translate.Front_mounted') %></label>
                     <label id="roll_profil" class="label_tab_top"><%= t('translate.Profil_for_shutters') %></label>
                     <label id="roll_rails" class="label_tab_top"><%= t('translate.Rails') %></label>
+                    <label id="roll_rails2" class="label_tab_top"><%= t('translate.Rails2') %></label>
 					<br/>
 					<label id="roll_rat" class="label_tab_top"><%= t('translate.Rat') %></label>
 					<label id="roll_rlt" class="label_tab_top"><%= t('translate.Rlt') %></label>
@@ -986,6 +987,37 @@
                   </div><!--End οδοιγοι--> 
                   <hr>
                 </div>
+                <!-- roll_rails2 -->
+                <div class="roll_rails2 label_tab_bottom">
+                  <!-- Οδοιγοι -->
+                  <div class="click_odoigoi" style=""> 
+                    <h5><%= t 'translate.Rails2' %></h5>
+                    <div class="row">
+                      <div class="col-xs-5" >
+                        <div class="extra guide_none">
+                          <% @roll_guide2.each do |r| %>
+                            <a  style="text-decoration: none; color:black;">
+                              <label class="odoigoi" id="<%= r.id %>" style="display:block;"><%= r.name %></label>
+                            </a>
+                          <% end %><!--End each-->
+                        </div><!-- End extra-->
+                      </div>
+                      <div class="col-xs-5" >
+                        <!-- Απο ajax -->
+                        <div class="diorth_odoi"></div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-xs-12" >
+                        <div class="color_odoigou" id="col_od"></div>
+                      </div>
+                    </div>
+                      
+                    
+                  </div><!--End οδοιγοι--> 
+                  <hr>
+                </div>
+
 			  	<!-- begin rolls rat -->
                 <div class="roll_rat label_tab_bottom">
                   <!-- Οδοιγοι -->
@@ -2454,7 +2486,6 @@
   }
 
   $(document).ready(function() {
-
     
     $(".second_panel").hide();
     $(".third_panel").hide();
@@ -3160,7 +3191,13 @@
     //Στην αλλαγη της κατηγοριας ανοιγματος παταω το φυλλο και κανω και click στο πρωτο υλικο( Για να αλλαξουν και ολα τα αλλα απο κατω )
     $("input[name='cat_an']").change(function(){
        //$("#"+leaf_name).trigger("click");
-	   $("#1").trigger("click");
+      //edww
+      if($('input[name=cat_an]:checked', '#myForm').attr('id') == 'porta'){
+        $("#2").trigger("click");
+      } else{
+        $("#1").trigger("click");
+      }
+
 	   $(".supplier_panels a:first-child .sup_panels").trigger("click");
        setTimeout(function(){
           $("#tab_material").click();
@@ -3200,9 +3237,11 @@
       if($('input[name=cat_an]:checked', '#myForm').attr('id') == 'porta') {
         $("#tab_leaf").css("visibility", "hidden");
         $("#tab_leaf").css("height", "0");
+        $(".material_1 #1").next().hide();
       } else {
         $("#tab_leaf").css("visibility", "visible");
         $("#tab_leaf").css("height", "80px");
+        $(".material_1 #1").next().show();
       }
     });
 
@@ -3486,6 +3525,8 @@
     				classname = "left-min"
     			else if(item.image == "30.4.png")
     				classname = "center-center-min"
+          else if(item.image == "30.5.png")
+            classname = "center-all"
     			
     			var open_div = "<div class='tipos_anoigmatos img-responsive' id="+item.id+"><div class=tipos_name_ekso><h5 class=tipos_name >"+item.name+"</h5></div><img class=img-responsive id="+item.code+" src=/assets/"+item.image+" ><img class='dir-"+classname+" img-responsive panel-img-inner' src=/assets/doors/"+data.panel.image+" ></div>";
     		} else {
@@ -3679,7 +3720,6 @@
           $("#tab_dimensions").click();
         }
 
-        //olympia
         if($('input[name=cat_an]:checked', '#myForm').attr('id') == 'porta') {
           if(tipos_code == '3333') {
             $("#width").val(data.min_width);
@@ -9962,6 +10002,13 @@
       //ksana();
   //   },3000);
 
+  // focus width input
+  if("<%= @click_dimensions %>" == "true") {
+    setTimeout(function(){
+      $( ".diastaseis1 #width" ).focus();
+    }, 4000);
+  }
+
   });
 
 
@@ -9980,8 +10027,6 @@
   */
 
   
-
-
   });
 
 

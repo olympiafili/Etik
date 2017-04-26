@@ -501,7 +501,8 @@ class EticController < ApplicationController
 		@prostasia = TypoiProstasia.all
 		@typos = Profil.where(:width => 0)
 		@profil = Profil.where.not(:width => 0)
-		@roll_guide = RollGuide.all.order(:order)
+		@roll_guide = RollGuide.where(:id => [1,2]).order(:order)
+		@roll_guide2 = RollGuide.where(:id => [3,4,5,6,7,8,9,10,11]).order(:order)
     @roll_rat = RatRoll.all
     @roll_rlt = RltRoll.all
     @roll_rdm = RdmRoll.all
@@ -517,6 +518,7 @@ class EticController < ApplicationController
 			session[:diorthosi] = @order.id
 		else
 			session[:diorthosi] = "0"
+			@click_dimensions = true
 		end
 		if params.has_key?(:pse_user)
 			#$pseUserId = params[:pse_user]
@@ -552,6 +554,11 @@ class EticController < ApplicationController
         	@lista_me_ok_aukson << 1
         end
         @lista_me_ok_aukson.reverse!
+
+        if params.has_key?(:diorthosi)
+			@lista_me_ok_aukson = [@order.aukson]
+		end
+
 		#EXTRA gia epanalipsi
 		@lastixa = params[:lastixa]
 		tzami0 = Tzamia.where(:name => params[:tzamia0]).first

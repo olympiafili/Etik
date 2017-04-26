@@ -13237,6 +13237,16 @@ input[type="file"] {
 }
 
 /* line 2971, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
+.tipos_anoigmatos img.panel-img-inner.dir-center-all {
+  position: absolute;
+  top: 3px;
+  width: 95px;
+  height: 167px;
+  left: 4px;
+  z-index: 1;
+}
+
+/* line 2980, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
 .tipos_anoigmatos img.panel-img-inner.dir-center-center-min {
   position: absolute;
   top: 45px;
@@ -13246,7 +13256,7 @@ input[type="file"] {
   z-index: 1;
 }
 
-/* line 2980, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
+/* line 2989, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
 .tipos_name_ekso {
   z-index: 2;
   position: absolute;
@@ -13255,7 +13265,7 @@ input[type="file"] {
   width: 100%;
 }
 
-/* line 2988, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
+/* line 2997, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
 .panel {
   position: relative;
   display: inline-block;
@@ -13269,22 +13279,22 @@ input[type="file"] {
   border-color: white;
 }
 
-/* line 3001, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
+/* line 3010, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
 .panel img {
   width: 140px;
 }
 
-/* line 3005, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
+/* line 3014, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
 .glass_3 a {
   display: block;
 }
 
-/* line 3009, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
+/* line 3018, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
 .glass_3 .extra label {
   padding: 0 3px;
 }
 
-/* line 3013, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
+/* line 3022, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
 .modal_times {
   height: 400px;
   overflow: scroll;
