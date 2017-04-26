@@ -961,7 +961,16 @@
             $(".table_odoigos").text(odoigos_name);
             $(".timi_odoigos").text(odoigos_timi.toFixed(2).replace(".", ",")+" €");
             $(".table_xrwma_odoigos").text(color_odoigou);
-            $(".table_timi_xrwma_odoigos").text("0"+" €");
+            if(odoigos_name == "Führungsschiene nur wenn sich Masse ändern L/R" || odoigos_name == "H-Schiene Rollo mittig nur wenn sich Masse ändern") {
+              $(".table_timi_xrwma_odoigos").text("0" +" €");
+            } else {
+              timi_guide_xrwma = ( tm_od ).toFixed(2)*20;
+              $(".table_timi_xrwma_odoigos").text(timi_guide_xrwma +" €");
+              $(".timi_market_xrwma_odoigos").text((timi_guide_xrwma - pososto_market * timi_guide_xrwma).toFixed(2).replace(".", ",") +" €");
+              $(".timi_dealer_xrwma_odoigos").text((timi_guide_xrwma - pososto_dealer * timi_guide_xrwma).toFixed(2).replace(".", ",") +" €");
+              
+            }
+            
             $(".kanonika_metra_odoigou").text(height_mesa_meta_apo_typo);
             $(".up_odoigou").val(odoigos_val); 
         }

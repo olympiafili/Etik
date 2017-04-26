@@ -1447,6 +1447,17 @@ class EticController < ApplicationController
 
 
 		    ##Για καθε ανοιγμα τιμη
+
+		    if(@open_type.table == 'a|n' || @open_type.table == 'n,b' || @open_type.table == 'b,n' || @open_type.table == 'b,n,b' || @open_type.table == 'a|b,n' || @open_type.table == 'a|b,n,b' || @open_type.table == 'a|n,b')
+		    	if(anoigma == 'a')
+		    		anoigma = 'an'
+		    	end
+
+		    	if(anoigma == 'b')
+		    		anoigma = 'bn'
+		    	end
+		    end
+
 		    @col_data_heights = []
 			CSV.foreach("#{Rails.root}/public/pricelist/"+anoigma+".csv", col_sep: ';', headers:true) {|row| @col_data_heights << row[0]}
 			#puts col_data_heights
@@ -2273,6 +2284,16 @@ class EticController < ApplicationController
 
 
 		    ##Για καθε ανοιγμα τιμη
+		    if(@open_type.table == 'a|n' || @open_type.table == 'n,b' || @open_type.table == 'b,n' || @open_type.table == 'b,n,b' || @open_type.table == 'a|b,n' || @open_type.table == 'a|b,n,b' || @open_type.table == 'a|n,b')
+		    	if(anoigma == 'a')
+		    		anoigma = 'an'
+		    	end
+
+		    	if(anoigma == 'b')
+		    		anoigma = 'bn'
+		    	end
+		    end
+
 		    @col_data_heights = []
 			CSV.foreach("#{Rails.root}/public/pricelist/"+anoigma+".csv", col_sep: ';', headers:true) {|row| @col_data_heights << row[0]}
 			#puts col_data_heights
