@@ -466,6 +466,9 @@ ActiveRecord::Schema.define(version: 20160719070630075818) do
     t.string   "window_still_code"
     t.string   "place_code"
     t.binary   "base64_code",                limit: 2147483647
+    t.string   "roll_rat"
+    t.float    "roll_rat_price",             limit: 24
+    t.float    "timi_m_roll_rat",            limit: 24
   end
 
   create_table "panels", force: true do |t|

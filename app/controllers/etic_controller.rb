@@ -1309,6 +1309,8 @@ class EticController < ApplicationController
 		height_neo = params[:new_height].to_f
 		width_gia_vasi_new = params[:new_width].to_f
 		height_gia_vasi_new = params[:new_height].to_f
+
+		@rat_quantity = params[:rat_quantity].to_i
         ### Μεχρι εδώ είναι για view που δεν χρησιμοποιώ.
 
     if params.has_key?(:elegxos_w)
@@ -3259,6 +3261,10 @@ class EticController < ApplicationController
             @price_extra = @price_extra + roll_rat_price
           	tm_p_roll_rat = width_n
           	timi_m_roll_rat = @roll_rat.price.to_f
+
+          	if ( !@rat_quantity.nil? )
+          		roll_rat_price = roll_rat_price * @rat_quantity
+          	end
         end
         
         #roll rlt
@@ -4178,6 +4184,13 @@ class EticController < ApplicationController
 		    	@order.timi_typos_katw_3 = ( @typos_katw_3.price * @numero_typos_3 )
 		    end
 
+		    #roll_rat
+		    if !@roll_rat.nil?
+		    	puts "oly12"
+		    	@order.roll_rat = @roll_rat.name
+		    	@order.timi_m_roll_rat = timi_m_roll_rat
+		    	@order.price_roll_rat = roll_rat_price
+		    end
 		    ####Mexri edw
 		   
 
