@@ -469,6 +469,9 @@ ActiveRecord::Schema.define(version: 20160719070630075818) do
     t.string   "roll_rat"
     t.float    "roll_rat_price",             limit: 24
     t.float    "timi_m_roll_rat",            limit: 24
+    t.float    "price_color_odoigou",        limit: 24
+    t.float    "price_color_persidas",       limit: 24
+    t.float    "price_color_rolou",          limit: 24
   end
 
   create_table "panels", force: true do |t|
@@ -612,9 +615,12 @@ ActiveRecord::Schema.define(version: 20160719070630075818) do
     t.string   "code"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "profil_id",  limit: 11
+    t.string   "profil_id",    limit: 11
     t.integer  "order"
     t.integer  "default"
+    t.string   "sungate_code"
+    t.float    "price_m",      limit: 24
+    t.float    "price",        limit: 24
   end
 
   create_table "rola_eksos", force: true do |t|
