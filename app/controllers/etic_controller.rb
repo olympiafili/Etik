@@ -3090,12 +3090,14 @@ class EticController < ApplicationController
         		timi_m_odoigou = @odoigos.price
     			@price_extra = @price_extra + pr_odoig  
     			odoigos_val = @up_odoigou.to_f
+    			price_color_odoigou = RolaColor.where(:name => params[:color_odoigou]).first.price_m * tm_od
 	    	else
 	    		pr_odoig =( ( (height_mesa_meta_apo_typo.to_f) * 2 * @odoigos.price.to_f ) / 1000 )#( ( (height_rol_new) * @odoigos.price.to_f ) / 1000 )
         		tm_od = ((height_mesa_meta_apo_typo.to_f) * 2) / 1000#(height_rol_new) / 1000
         		timi_m_odoigou = @odoigos.price
     			@price_extra = @price_extra + pr_odoig  
     			odoigos_val = height_mesa_meta_apo_typo.to_f
+    			price_color_odoigou = RolaColor.where(:name => params[:color_odoigou]).first.price_m * tm_od
 	    	end
 	    end
 
@@ -3132,6 +3134,7 @@ class EticController < ApplicationController
 	    		epik_val_height = height.to_f#height_mesa_meta_apo_typo.to_f
 	    		epik_val_width = width.to_f 
 	    	end
+	    	price_color_rolou = RolaColor.where(:name => params[:xrwma_epikathimenou]).first.price
 	    end
         
         pl_ek = false
@@ -3167,6 +3170,7 @@ class EticController < ApplicationController
 	    		ekso_val_height = height.to_f#height_mesa_meta_apo_typo.to_f
 	    		ekso_val_width = width.to_f 
 	    	end
+	    	price_color_rolou = RolaColor.where(:name => params[:xrwma_eksoterikou]).first.price
 	    end
 
         pl_pe = false
@@ -3202,6 +3206,7 @@ class EticController < ApplicationController
 	    		persida_val_height = height.to_f#height_mesa_meta_apo_typo.to_f
 	    		persida_val_width = width.to_f 
 	    	end
+	    	price_color_persidas = RolaColor.where(:name => params[:color_persidas]).first.price
 	    end
       
 
@@ -3983,6 +3988,7 @@ class EticController < ApplicationController
 		    	@order.odoigos = @odoigos.name
 		    	@order.color_odoigou = @xrwma_odoigou
 		    	@order.price_odoigou = pr_odoig
+		    	@order.price_color_odoigou = price_color_odoigou
 		    end
 		    if !@epik_rolo.nil?
 		    	if (@pl_rol_ep.to_f > 0.0)
@@ -4005,6 +4011,7 @@ class EticController < ApplicationController
 		      @order.color_rolou = @xrwma_epikathimenou
 		      @order.timi_m_epik = timi_m_epik
 		      @order.price_rolou = pr_epik
+		      @order.price_color_rolou = price_color_rolou
 		    end
 		    if !@ekso_rolo.nil?
 		    	if (@pl_rol_ek.to_f > 0.0)
@@ -4027,6 +4034,7 @@ class EticController < ApplicationController
 		      @order.color_rolou = @xrwma_eksoterikou
 		      @order.timi_m_ekso = timi_m_ekso
 		      @order.price_rolou = pr_ekso
+		      @order.price_color_rolou = price_color_rolou
 		     end
 		    if !@persida.nil?
 		    	if (@pl_persidas.to_f > 0.0)
@@ -4043,6 +4051,7 @@ class EticController < ApplicationController
 		    	@order.color_persidas = @xrwma_persidas
 		    	@order.timi_m_persidas = timi_m_persidas
 		    	@order.price_persidas = pr_per
+		    	@order.price_color_persidas = price_color_persidas
 		    end
 		    #window still
 		    if !@window_still.nil?
@@ -4279,28 +4288,34 @@ class EticController < ApplicationController
         	epik_rolo_name = @epik_rolo.name
         	epik_rolo_price = pr_epik
         	epik_rolo_color = @xrwma_epikathimenou
+        	price_color_epikathimenou = price_color_rolou
         else
         	epik_rolo_name = ""
         	epik_rolo_price = 0
         	epik_rolo_color = ""
+        	price_color_epikathimenou = 0
         end
         if !@ekso_rolo.nil?
         	ekso_rolo_name = @ekso_rolo.name
         	ekso_rolo_price = pr_ekso
         	ekso_rolo_color = @xrwma_eksoterikou
+        	price_color_eksoterikou = price_color_rolou
         else
         	ekso_rolo_name = ""
         	ekso_rolo_price = 0
         	ekso_rolo_color = ""
+        	price_color_eksoterikou = 0
         end
         if !@persida.nil?
         	persida_name = @persida.name
         	persida_price = pr_per
         	col_persidas = @xrwma_persidas
+        	price_color_persidas = price_color_persidas
         else
         	persida_name = ""
         	persida_price = 0
         	col_persidas = ""
+        	price_color_persidas = 0
         end
         if (@epiva_la != "0")
         	lastixo_name = @lastixa
@@ -4394,10 +4409,12 @@ class EticController < ApplicationController
         	odoigos_name = @odoigos.name
         	odoigos_timi = pr_odoig
         	col_odoigou = @xrwma_odoigou
+        	price_color_odoigou = price_color_odoigou
         else
         	odoigos_name = ""
         	odoigos_timi = 0
         	col_odoigou = ""
+        	price_color_odoigou = 0
         end
         profil_price = 0
         profil_posotita = 0
@@ -4737,7 +4754,10 @@ class EticController < ApplicationController
           	                          :market_price => market_price,
           	                          :dealer_price => dealer_price,
           	                          :pososto_market => pososto_market,
-          	                          :pososto_dealer => pososto_dealer } }
+          	                          :pososto_dealer => pososto_dealer,
+          	                          :price_color_odoigou => price_color_odoigou,
+          	                          :price_color_epikathimenou => price_color_epikathimenou,
+          	                          :price_color_eksoterikou => price_color_eksoterikou } }
         end
 	end
 

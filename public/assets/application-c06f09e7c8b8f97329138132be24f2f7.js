@@ -8980,6 +8980,8 @@ b=new Uint8Array(b);return a(1,b)});return g});
         eksoteriko_rolo = data.eksoteriko;
         color_eksoterikou = data.color_eksoterikou;
         timi_eksoterikou = data.ekso_rolo_price;
+        price_color_epikathimenou = data.price_color_epikathimenou
+        price_color_eksoterikou = data.price_color_eksoterikou
         pl_rol_ek = data.pl_rol_ek;
         up_rol_ek = data.up_rol_ek;
         pl_rol_ep =data.pl_rol_ep;
@@ -9028,6 +9030,7 @@ b=new Uint8Array(b);return a(1,b)});return g});
         typos_price = data.typos_price;
         odoigos_name = data.odoigos_name;
         color_odoigou = data.color_odoigou;
+        price_color_odoigou = data.price_color_odoigou;
         odoigos_timi = data.odoigos_timi;
         profil_deksia_1 = data.profil_name_deksia_1;
         profil_deksia_1_code = data.profil_name_deksia_1_code;
@@ -9098,6 +9101,7 @@ b=new Uint8Array(b);return a(1,b)});return g});
         ekso_val_height = data.ekso_val_height; 
         persida_val_width = data.persida_val_width;
         persida_val_height = data.persida_val_height;
+        price_color_persidas = data.price_color_persidas;
         nea_timi_market = data.market_price;
         nea_timi_dealer = data.dealer_price;
         pososto_market = data.pososto_market;
@@ -9141,7 +9145,10 @@ b=new Uint8Array(b);return a(1,b)});return g});
             $(".table_epikathimeno").text(epikathimeno_rolo);
             $(".timi_epikathimenou").text(timi_epikathimenou.toFixed(2).replace(".", ",")+" €");
             $(".table_xrwma_epikathimeno").text(color_epikathimenou);
-            $(".table_timi_xrwma_epikathimenou").text("0"+" €");
+            $(".table_timi_xrwma_epikathimenou").text(price_color_epikathimenou+" €");
+            $(".timi_market_xrwma_epikathimenou").text((price_color_epikathimenou - pososto_market * price_color_epikathimenou).toFixed(2).replace(".", ",") +" €");
+            $(".timi_dealer_xrwma_epikathimenou").text((price_color_epikathimenou - pososto_dealer * price_color_epikathimenou).toFixed(2).replace(".", ",") +" €");
+            
             $(".kanoniko_platos_epikathimenou").text(mikos_eksw);
             $(".kanoniko_upsos_epikathimenou").text(height);//text(height_mesa_meta_apo_typo);
             $('.pl_rol_ep').val(epik_val_width);
@@ -9157,7 +9164,10 @@ b=new Uint8Array(b);return a(1,b)});return g});
             $(".table_eksoteriko").text(eksoteriko_rolo);
             $(".timi_eksoterikou").text(timi_eksoterikou.toFixed(2).replace(".", ",")+" €");
             $(".table_xrwma_eksoteriko").text(color_eksoterikou);
-            $(".table_timi_xrwma_eksoterikou").text("0"+" €");
+            $(".table_timi_xrwma_eksoterikou").text(price_color_eksoterikou+" €");
+            $(".timi_market_xrwma_eksoterikou").text((price_color_eksoterikou - pososto_market * price_color_eksoterikou).toFixed(2).replace(".", ",") +" €");
+            $(".timi_dealer_xrwma_eksoterikou").text((price_color_eksoterikou - pososto_dealer * price_color_eksoterikou).toFixed(2).replace(".", ",") +" €");
+
             $(".kanoniko_platos_eksoterikou").text(mikos_eksw);
             $(".kanoniko_upsos_eksoterikou").text(height);//text(height_mesa_meta_apo_typo);
             $('.pl_rol_ek').val(ekso_val_width);
@@ -9173,7 +9183,9 @@ b=new Uint8Array(b);return a(1,b)});return g});
             $(".table_persida").text(persida);
             $(".timi_persida").text(persida_price.toFixed(2).replace(".", ",")+" €");
             $(".table_xrwma_persida").text(color_persidas);
-            $(".table_timi_xrwma_persida").text("0"+" €");
+            $(".table_timi_xrwma_persida").text(price_color_persidas+" €");
+            $(".timi_market_xrwma_persida").text((price_color_persidas - pososto_market * price_color_persidas).toFixed(2).replace(".", ",") +" €");
+            $(".timi_dealer_xrwma_persida").text((price_color_persidas - pososto_dealer * price_color_persidas).toFixed(2).replace(".", ",") +" €");
             $(".kanoniko_platos_persidas").text(mikos_eksw);
             $(".kanoniko_upsos_persidas").text(height);//text(height_mesa_meta_apo_typo);
             $('.pl_persidas').val(persida_val_width);
@@ -9569,10 +9581,10 @@ b=new Uint8Array(b);return a(1,b)});return g});
               $(".timi_market_xrwma_odoigos").text("0" +" €");
               $(".timi_dealer_xrwma_odoigos").text("0" +" €");
             } else {
-              timi_guide_xrwma = ( tm_od ).toFixed(2)*20;
-              $(".table_timi_xrwma_odoigos").text(timi_guide_xrwma +" €");
-              $(".timi_market_xrwma_odoigos").text((timi_guide_xrwma - pososto_market * timi_guide_xrwma).toFixed(2).replace(".", ",") +" €");
-              $(".timi_dealer_xrwma_odoigos").text((timi_guide_xrwma - pososto_dealer * timi_guide_xrwma).toFixed(2).replace(".", ",") +" €");
+              //timi_guide_xrwma = ( tm_od ).toFixed(2)*20;
+              $(".table_timi_xrwma_odoigos").text(price_color_odoigou +" €");
+              $(".timi_market_xrwma_odoigos").text((price_color_odoigou - pososto_market * price_color_odoigou).toFixed(2).replace(".", ",") +" €");
+              $(".timi_dealer_xrwma_odoigos").text((price_color_odoigou - pososto_dealer * price_color_odoigou).toFixed(2).replace(".", ",") +" €");
               
             }
             
