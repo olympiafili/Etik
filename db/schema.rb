@@ -474,6 +474,7 @@ ActiveRecord::Schema.define(version: 20160719070630075818) do
     t.float    "price_color_persidas",       limit: 24
     t.float    "price_color_rolou",          limit: 24
     t.text     "line_desc"
+    t.integer  "rat_quan"
   end
 
   create_table "panels", force: true do |t|

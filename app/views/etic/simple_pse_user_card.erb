@@ -869,6 +869,34 @@
                       <color style="color:#ff0000"><%= number_with_precision(item.price_window_still, :precision => 2, separator: ",", :delimiter => '.') %></color> €</td> 
                     </tr>
                     <% end %>
+                    <!-- rat-->
+                     <% if ( !item.roll_rat.nil? ) %>
+                    <tr>
+                    <td class="extra_subtable">
+                      <b><%= t 'translate.Rat' %></b>: <%= item.roll_rat %>
+                    <td class="unit_subtable">
+                      
+                    </td>
+                    <td class="m_subtable">
+                    <color style="color:green"><%= number_with_precision(item.timi_m_roll_rat, :precision => 2, separator: ",", :delimiter => '.') %></color> €
+                    </td>
+                    <td class="c_subtable"></td>
+                    <td class="p_subtable">
+                      <% if (!@pososto_market.nil?) %>
+                        <% market_price = item.roll_rat_price - (@pososto_market/100)*item.roll_rat_price %>
+                        <%= number_with_precision(market_price, :precision => 2, separator: ",", :delimiter => '.') %> €
+                      <% end %>
+                    </td>
+                    <td class="p_subtable">
+                      <% if (!@pososto_dealer.nil?) %>
+                        <% dealer_price = item.roll_rat_price - (@pososto_dealer/100)*item.roll_rat_price %>
+                        <%= number_with_precision(dealer_price, :precision => 2, separator: ",", :delimiter => '.') %> €
+                      <% end %>
+                    </td>
+                    <td class="p_subtable">
+                      <color style="color:#ff0000"><%= number_with_precision(item.roll_rat_price, :precision => 2, separator: ",", :delimiter => '.') %></color> €</td> 
+                    </tr>
+                    <% end %>
                     <!-- place -->
                     <% if ( !item.place.nil? ) %>
                     <tr>
