@@ -7806,7 +7806,7 @@
           //var header2 = "<h5 style=''><%= t 'translate.Inside_Outside_glass' %>: "+cat_tzamia0_text+"</h5>" 
          // $(header2).appendTo(".tzamia0");
                 $.each(data, function(i, item) { //Για κάθε data που παίρνω κανω τα παρακάτο									
-                    var div_data = "<div class='panel img-responsive' id='"+item.id+"'><p style='font-size: 16px;text-align: center;display: block;'>"+item.name+"</p><img class='img-responsive' id="+item.id+" src='/assets/doors/"+item.image+"'></label><p style='font-size: 13px;'>"+item.description+"</p></div>";
+                    var div_data = "<div class='panel img-responsive' id='"+item.id+"'><p style='font-size: 16px;text-align: center;display: block;'>"+item.name+"</p><img class='img-responsive' id="+item.id+" src='/assets/doors/"+item.image+"'></label><p style='font-size: 13px;width: 140px;padding: 0 5px;height: 50px;'>"+item.description+"</p></div>";
                     $(div_data).appendTo(".panels");
 				});
 				$(".panels .panel:first-child").trigger("click");
