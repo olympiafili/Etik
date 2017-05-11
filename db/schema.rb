@@ -178,6 +178,7 @@ ActiveRecord::Schema.define(version: 20160719070630075818) do
     t.text     "open_types"
     t.integer  "order"
     t.integer  "default"
+    t.text     "description"
   end
 
   create_table "material_constructors", force: true do |t|
@@ -472,6 +473,7 @@ ActiveRecord::Schema.define(version: 20160719070630075818) do
     t.float    "price_color_odoigou",        limit: 24
     t.float    "price_color_persidas",       limit: 24
     t.float    "price_color_rolou",          limit: 24
+    t.text     "line_desc"
   end
 
   create_table "panels", force: true do |t|
@@ -482,6 +484,7 @@ ActiveRecord::Schema.define(version: 20160719070630075818) do
     t.string   "direction"
     t.string   "sungate_code"
     t.float    "price",        limit: 24
+    t.text     "description"
   end
 
   create_table "paraggelia", force: true do |t|
