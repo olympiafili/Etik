@@ -483,9 +483,13 @@
                         </div>
                       </div>
                       <hr>
-                      <div class=""> 
+                      <div> 
                         <div class="extra ">
                           <!-- Κατηγοριες -->
+                          <div class="row">
+                            <div class="panel_info" style="font-size: 14px;"></div>
+                          </div>
+                          <hr>
                           <div class="row">
                             <div class="col-xs-6" >
 							               <h5><%= t('translate.Supplier_Panel') %></h5>
@@ -3450,7 +3454,13 @@
           $(line_div).appendTo(".lines");
 
           line = $("#"+item.name_allo+"");
-          var div_data1 = "<h5 class='line_header'>"+ item.name +"</h5>"
+          
+          if($('input[name=cat_an]:checked', '#myForm').attr('id') == 'porta') {
+            var div_data1 = "<h5 class='line_header'>"+ item.name + "<br>" + item.description + "</h5>";
+            $('.panel_info').text(item.description);
+          } else
+            var div_data1 = "<h5 class='line_header'>"+ item.name + "</h5>";
+          
           $(div_data1).appendTo(line);
           var div_data2 = "<label class='line2' id="+item.id+"><img src=/assets/"+item.direct_img+" ></label>";
           $(div_data2).appendTo(line).hide().fadeIn(500);
@@ -7796,7 +7806,7 @@
           //var header2 = "<h5 style=''><%= t 'translate.Inside_Outside_glass' %>: "+cat_tzamia0_text+"</h5>" 
          // $(header2).appendTo(".tzamia0");
                 $.each(data, function(i, item) { //Για κάθε data που παίρνω κανω τα παρακάτο									
-                    var div_data = "<div class='panel img-responsive' id='"+item.id+"'><img class='img-responsive' id="+item.id+" src='/assets/doors/"+item.image+"'></label></div>";
+                    var div_data = "<div class='panel img-responsive' id='"+item.id+"'><p style='font-size: 16px;text-align: center;display: block;'>"+item.name+"</p><img class='img-responsive' id="+item.id+" src='/assets/doors/"+item.image+"'></label><p style='font-size: 13px;'>"+item.description+"</p></div>";
                     $(div_data).appendTo(".panels");
 				});
 				$(".panels .panel:first-child").trigger("click");

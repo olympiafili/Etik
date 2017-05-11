@@ -47,7 +47,7 @@ class Paraggelia < ActiveRecord::Base
         @main_color = Color.where(:name => order.main_color_id).first
         csv << ["ELEPOS", order.id, order.posotoita, @open_type.code, @open_type.code, @main_color.sungate_both, order.open_type_id, 
           order.width, order.height, order.width_new, order.height_new, @line.sungate_code, order.tzamia0, "<Handle inside>", "<Handle outside>", 
-          "<Discount/Surcharge%>", "<Discount/Surcharge per unit>", order.price_sum, url_order]
+          "<Discount/Surcharge%>", "<Discount/Surcharge per unit>", order.price_sum, url_order, order.line_desc]
           #'=HYPERLINK("'+test+'"; "Link")'
         #INITIAL_PRICE
         csv << ["INITIAL_PRICE", order.price_new]

@@ -103,6 +103,7 @@ class Card_Pdf < Prawn::Document
 	                ["#{I18n.t("translate.Leaf")}: <color rgb='ff0000'>#{order.leaf_id}</color>",""],
                   if (order.lastixa=="mauro_lastixo") then  ["#{I18n.t("translate.lastixo")}: #{I18n.t("translate.black_gasket")}",""] else [{:content => "", :height => 0},{:content => "", :height => 0}]  end,
                   if (order.lastixa=="gkri_lastixo") then  ["#{I18n.t("translate.lastixo")}: #{I18n.t("translate.grey_gasket")}",""] else [{:content => "", :height => 0},{:content => "", :height => 0}]  end,
+                  if (!order.line_desc.nil?) then ["#{I18n.t("translate.panel_info")}: #{order.line_desc}",""] else [{:content => "", :height => 10},{:content => "", :height => 10}]  end,
                   ["<b>#{I18n.t("translate.Extras")}</b>","<b>#{I18n.t("translate.Unit")}</b>","<b>#{I18n.t("translate.Price_per_unit")}</b>","<b>#{I18n.t("translate.Prices")}</b>"],
                   #["<b>#{I18n.t("translate.Start_price")}</b>:","","","<u><color rgb='ff0000'>"+price(order.super_apli_timi)+"</color></u> €"],
                   ["<b>#{I18n.t("translate.Start_price")}</b>:","","","<u><color rgb='ff0000'>"+price(order.price_new)+"</color></u> €"],

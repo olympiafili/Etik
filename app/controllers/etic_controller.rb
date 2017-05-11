@@ -3905,6 +3905,7 @@ class EticController < ApplicationController
 		    @order.in_out = @mesa_eksw
 		    @order.open_type_id = @open_type.name
 		    @order.image = @open_type.image # + ".png"
+		    @order.line_desc = @line.description
 		    #### ΧΡΩΜΑΤΑ
 		    if !@color_fulou.nil?
 		      @order.leaf_color_id = @color_fulou.name
