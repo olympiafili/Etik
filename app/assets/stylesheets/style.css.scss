@@ -2905,10 +2905,6 @@ input[type="file"] {
   //width: 180px;
 }
 
-
-#glass_3, .glass_3 {
-	display: none;
-}
 .tipos_anoigmatos.classhide {
 	display: none
 }
@@ -3021,5 +3017,10 @@ input[type="file"] {
 .modal_times {
 	height: 400px;
 	overflow: scroll;
+	display: none;
+}
+
+.table_card tr td:last-child,
+.table_card tr th:last-child {
 	display: none;
 }

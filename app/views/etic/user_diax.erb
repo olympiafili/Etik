@@ -1,5 +1,6 @@
 <div id="loading"></div>
 <div class="container con_home">
+      <h4>User: <%= current_user.email %></h4>
       <div class="" style="text-align:center">
         <span id="admin" style="dysplay:hidden"><%= @admin %></span>
         <% if (@admin != 1) %>
@@ -11,7 +12,6 @@
   <div class="row">
 
   <h2><b><%= t 'translate.Offers' %></b></h2>
-
 
     <%= form_tag etic_user_diax_path, :method => 'get' do %>
       <p>
@@ -38,7 +38,7 @@
                 <th id="kartoula_head"><%= t 'translate.Upload' %></th>
                 <th id="kartoula_head"></th>
                 <th id="kartoula_head">+</th>
-                
+                <th id="kartoula_head">+</th>
               </tr>
             </thead>
 
@@ -122,7 +122,7 @@
                       <% end %>
                     </td>
                     <td><%= link_to "+", etic_simple_pse_user_path(:paraggelia_id => par.id) ,class: "btn btn-primary", id: par.id %></td>
-                    
+                    <td><%= link_to "+", etic_simple_pse_user_door_path(:paraggelia_id => par.id) ,class: "btn btn-primary", id: par.id %></td>
                   </tr>
                 <% else %>
                   <tr class="root green">
@@ -201,7 +201,7 @@
                       <% end %>
                     </td>
                     <td><%= link_to "+", etic_simple_pse_user_path(:paraggelia_id => par.id) ,class: "btn btn-primary", id: par.id %></td>
-                    
+                    <td><%= link_to "+", etic_simple_pse_user_door_path(:paraggelia_id => par.id) ,class: "btn btn-primary", id: par.id %></td>
                   </tr>
                 <% end %>
               <% end %>

@@ -486,6 +486,7 @@ ActiveRecord::Schema.define(version: 20160719070630075818) do
     t.string   "sungate_code"
     t.float    "price",        limit: 24
     t.text     "description"
+    t.string   "pricelist"
   end
 
   create_table "paraggelia", force: true do |t|
@@ -505,6 +506,7 @@ ActiveRecord::Schema.define(version: 20160719070630075818) do
     t.text     "avatar"
     t.integer  "order"
     t.integer  "default"
+    t.string   "sungate_code"
   end
 
   create_table "persides", force: true do |t|
