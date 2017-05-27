@@ -14,8 +14,8 @@ class EticController < ApplicationController
   
 
   def user_sign_in_cart
-  	sign_out current_user
     if(!params[:dealer].nil? && !params[:password].nil?)
+    	sign_out current_user
     	@user = User.where(:sungate_code => params[:dealer]).first
     	if(@user.valid_password?(params[:password]))
     		sign_in(:user, @user)#User.find(@user.id)
@@ -85,7 +85,13 @@ class EticController < ApplicationController
 		session[:paraggelia_simple] = params[:paraggelia_id] #To id της παραγγελίας
 		session[:pseUserId] = params[:pse_user] #Το id αν ειμαι με admin για τους user του admin
 		session[:dealer_id] = params[:admin] #Το id του dealer αν κανει + ο admin σε παραγγελία
-		redirect_to etic_extra_path
+		if(!params[:pre_order_id].nil?)
+			@preorder = PreOrder.where(:id => params[:pre_order_id]).first
+			#@open_categorie = OpenCategorie.where(:sungate_code => @preorder.open_category_code).first
+			redirect_to etic_extra_path(:pre_order_id => params[:pre_order_id], :open_category_code => @preorder.open_category_code, :material_code => @preorder.material_code, :constructor_code =>@preorder.constructor_code, :system_code => @preorder.system_code, :line_code => @preorder.line_code, :persida_code => @preorder.persida_code, :persida_width => @preorder.persida_width, :persida_height => @preorder.persida_height, :persida_color => @preorder.persida_color, :width => @preorder.width, :height => @preorder.height)
+		else
+			redirect_to etic_extra_path
+		end
 	end
 
 	def simple_pse_user_door
@@ -357,35 +363,76 @@ class EticController < ApplicationController
        @cat_anoigmatos = OpenCategorie.where(:id => [1,2,3,5,6])
        @uliko = Material.all
 
-       ##Κοκκινο πινακάκι
-        if( params.has_key?(:open_categorie_name) )
-		    @open_categorie = OpenCategorie.where(:name => params[:open_categorie_name]).first
-		else
-			@open_categorie = OpenCategorie.first
-			@den_exw_parrams = 1
+       if( params.has_key?(:pre_order_id) )
+       		if( params.has_key?(:open_category_code) )
+			    @open_categorie = OpenCategorie.where(:sungate_code => params[:open_category_code]).first
+			else
+				@open_categorie = OpenCategorie.first
+				@den_exw_parrams = 1
+			end
+			if( params.has_key?(:material_code) )
+			    @material = Material.where(:sungate_code => params[:material_code]).first
+			else
+				@material = Material.where(:default => 1).first
+			end
+			if( params.has_key?(:constructor_code) )
+			    @constructor = Constructor.where(:sungate_code => params[:constructor_code]).first
+			else
+				@constructor = Constructor.first
+			end
+			if( params.has_key?(:system_code) )
+			    @system = System.where(:sungate_code => params[:system_code]).first
+			    @sys = 1
+			else
+				@system = System.first
+				@sys = 0
+			end
+			if( params.has_key?(:line_code) )
+			    @line = Line.where(:sungate_code => params[:line_code]).first
+			else
+				@line = Line.first
+			end
+
+		    @metra_click = 1
+       else
+	       ##Κοκκινο πινακάκι
+	        if( params.has_key?(:open_categorie_name) )
+			    @open_categorie = OpenCategorie.where(:name => params[:open_categorie_name]).first
+			else
+				@open_categorie = OpenCategorie.first
+				@den_exw_parrams = 1
+			end
+			if( params.has_key?(:material_name) )
+			    @material = Material.where(:name => params[:material_name]).first
+			else
+				@material = Material.where(:default => 1).first
+			end
+			if( params.has_key?(:constructor_name) )
+			    @constructor = Constructor.where(:name => params[:constructor_name]).first
+			else
+				@constructor = Constructor.first
+			end
+			if( params.has_key?(:system_name) )
+			    @system = System.where(:name => params[:system_name]).first
+			    @sys = 1
+			else
+				@system = System.first
+				@sys = 0
+			end
+			if( params.has_key?(:line_name) )
+			    @line = Line.where(:name => params[:line_name]).first
+			else
+				@line = Line.first
+			end
+
+			if( params.has_key?(:metra_click) )
+			    @metra_click = 1
+			else
+				@metra_click = 0
+			end
 		end
-		if( params.has_key?(:material_name) )
-		    @material = Material.where(:name => params[:material_name]).first
-		else
-			@material = Material.where(:default => 1).first
-		end
-		if( params.has_key?(:constructor_name) )
-		    @constructor = Constructor.where(:name => params[:constructor_name]).first
-		else
-			@constructor = Constructor.first
-		end
-		if( params.has_key?(:system_name) )
-		    @system = System.where(:name => params[:system_name]).first
-		    @sys = 1
-		else
-			@system = System.first
-			@sys = 0
-		end
-		if( params.has_key?(:line_name) )
-		    @line = Line.where(:name => params[:line_name]).first
-		else
-			@line = Line.first
-		end
+
+
 		if( params.has_key?(:leaf_name) )
 		    @leaf_epilegmeno = Leaf.where(:name => params[:leaf_name]).first
 		    #@leaf = Leaf.joins(:open_categorie_leafs).where(["open_categorie_leafs.open_categorie_id = ?", @open_categorie.id])
@@ -401,7 +448,7 @@ class EticController < ApplicationController
 			#@leaf = Leaf.limit(3)
 			@leaf_epilegmeno = Leaf.first
 		end
-		if( params.has_key?(:leaf_name) )
+		if( params.has_key?(:open_type_name) )
 			#@open_type = OpenType.joins(:system_open_types).where(["system_open_types.line_id = ?", @line.id]).order(:order)
 		    line = Line.where(:id => @line.id).first
 			open_t = []
@@ -474,12 +521,6 @@ class EticController < ApplicationController
 		    @mesa_eksw = 2
 		end
 
-		if( params.has_key?(:metra_click) )
-		    @metra_click = 1
-		else
-			@metra_click = 0
-		end
-
 		if( params.has_key?(:width) )
 			@width = "%.0f" % params[:width]
 			width = params[:width].to_f
@@ -492,13 +533,7 @@ class EticController < ApplicationController
             @height_new = height 
             session[:height] = height
 		end
-		#@xwrisma1 = params[:xwrisma1]
-		#@xwrisma2 = params[:xwrisma2]
-		#@xwrisma3_1 = params[:xwrisma3_1]
-		#@xwrisma3_2 = params[:xwrisma3_2]
-		#@xwrisma3_3 = params[:xwrisma3_3]
-		#@xwrisma_y_1 = params[:xwrisma_y_1]
-		#@xwrisma_y_2 = params[:xwrisma_y_2]
+		
 		## if params exists ΚΑΝΟΝΙΚΑ
 		#@color_deksia = Color.where(:name => params[:color_deksia]).first
 		#@color_aristera = Color.where(:name => params[:color_aristera]).first
@@ -581,7 +616,51 @@ class EticController < ApplicationController
 			@lista_me_ok_aukson = [@order.aukson]
 		end
 
-		#EXTRA gia epanalipsi
+		#Front info
+		@par = Paraggelia.where(:id => session[:paraggelia_simple]).first
+	    if ( !@par.sungate_code.nil? )
+	    	@par_code = @par.sungate_code
+	    else
+	    	@par_code = @par.id
+	    end
+	    if ( counter_an_uparxoun_kai_alla != 0 )
+	    	@ord_code = last_aukson +1
+	    else
+	    	@ord_code = 1
+	    end
+
+		@cust = SimpleUserPse.where(:id => @par.customer).first
+		if ( !@cust.nil? )
+			@cust_code = @cust.sungate_num
+		else
+			@cust_code = 0
+		end
+
+    	#EXTRA gia epanalipsi
+		if( params.has_key?(:pre_order_id) )
+			persida = Persides.where(:sungate_code => params[:persida_code]).first
+	        if ( !persida.nil? )
+				@persida_id = persida.id
+			    @color_persida = RolaColor.where(:name => params[:persida_color]).first.name
+			    @pl_persidas = params[:persida_width]
+	            @up_persidas = params[:persida_height]
+	        else
+	        	@pl_persidas = 0
+				@up_persidas = 0
+	        end
+		else
+			persida = Persides.where(:name => params[:persida]).first
+	        if ( !persida.nil? )
+				@persida_id = persida.id
+			    @color_persida = RolaColor.where(:name => params[:xrwma_persidas]).first.name
+			    @pl_persidas = params[:pl_persidas]
+	            @up_persidas = params[:up_persidas]
+	        else
+	        	@pl_persidas = 0
+				@up_persidas = 0
+	        end
+		end
+		
 		@lastixa = params[:lastixa]
 		tzami0 = Tzamia.where(:name => params[:tzamia0]).first
 		if ( !tzami0.nil? )
@@ -631,16 +710,6 @@ class EticController < ApplicationController
 			@up_rolou_ek = 0
         end
 
-		persida = Persides.where(:name => params[:persida]).first
-        if ( !persida.nil? )
-			@persida_id = persida.id
-		    @color_persida = RolaColor.where(:name => params[:xrwma_persidas]).first.name
-		    @pl_persidas = params[:pl_persidas]
-            @up_persidas = params[:up_persidas]
-        else
-        	@pl_persidas = 0
-			@up_persidas = 0
-        end
         odoigos = RollGuide.where(:name => params[:odoigos]).first
         if ( !odoigos.nil? )
 			@odoigos_id = odoigos.id
@@ -5527,7 +5596,7 @@ class EticController < ApplicationController
 
     ## Καλάθι των pseudoUser όταν μπαίνω σαν admin.
 	def simple_pse_user_card#olympia
-		if(!params[:dealer].nil? && !params[:customer].nil? && !params[:offer].nil? )
+		if(!params[:dealer].nil? && !params[:customer].nil? && !params[:offer].nil? && !params[:open_category_code].nil? && !params[:material_code].nil? && !params[:constructor_code].nil? && !params[:system_code].nil? && !params[:line_code].nil?)
 			#User dealer login
 			@user_par = User.where(:sungate_code => params[:dealer]).first
 			@pososto_market = @user_par.pososto
@@ -5545,6 +5614,25 @@ class EticController < ApplicationController
 				@user.save
 			end
 
+			#Pre orders
+	        @pre_order = PreOrder.new
+	        @pre_order.open_category_code = params[:open_category_code]
+	        @pre_order.material_code = params[:material_code]
+	        @pre_order.constructor_code = params[:constructor_code]
+	        @pre_order.system_code = params[:system_code]
+	        @pre_order.line_code = params[:line_code]
+	        if(!params[:width].nil? && !params[:height].nil?)
+	        	@pre_order.width = params[:width]
+	        	@pre_order.height = params[:height]
+	    	end
+	        if(!params[:persida_code].nil?)
+	        	@pre_order.persida_code = params[:persida_code]
+	        	@pre_order.persida_width = params[:persida_width]
+	        	@pre_order.persida_height = params[:persida_height]
+	        	@pre_order.persida_color = params[:persida_color]
+	        end
+	        @pre_order.save
+
 			#Paraggelia
 			@par = Paraggelia.new
 			@par.user = @user_par.id
@@ -5555,6 +5643,7 @@ class EticController < ApplicationController
     		@par.pososto_sun = 0
     		@par.meta_pososto = 0
     		@par.sungate_code = params[:offer]
+    		@par.pre_order_id = @pre_order.id
 			@par.save
 
 	        if ( current_user.admin == 1)
@@ -5575,6 +5664,7 @@ class EticController < ApplicationController
 	        @items =  Order.where(:paraggelia_id => params[:id]).order("aukson")
 	        @sunolo = 100
 	        @number = @items.count
+	        @pre_order_id = @pre_order.id
 		else
 	        @par = Paraggelia.where(:id => params[:id]).first##0.018
 	        if ( current_user.admin == 1)
@@ -5607,7 +5697,20 @@ class EticController < ApplicationController
 		    #if (current_user.admin == 1)
 	        	@pososto_dealer = @user_par.pososto_dealer
 	        #end
+	       	if(!@par.pre_order_id.nil? )
+	       		@pre_order = PreOrder.where(:id => @par.pre_order_id).first
+	       		@pre_order_id = @pre_order.id
+	       	else
+	       		@pre_order_id = nil
+	       	end
         end
+        
+        if ( !@par.sungate_code.nil? )
+	    	@par_code = @par.sungate_code
+	    else
+	    	@par_code = @par.id
+	    end
+
 	end
 
 	def update_pososto

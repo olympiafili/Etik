@@ -121,7 +121,7 @@
                         </div>
                       <% end %>
                     </td>
-                    <td><%= link_to "+", etic_simple_pse_user_path(:paraggelia_id => par.id) ,class: "btn btn-primary", id: par.id %></td>
+                    <td><%= link_to "+", etic_simple_pse_user_path(:paraggelia_id => par.id, :pre_order_id => par.pre_order_id) ,class: "btn btn-primary", id: par.id %></td>
                     <td><%= link_to "+", etic_simple_pse_user_door_path(:paraggelia_id => par.id) ,class: "btn btn-primary", id: par.id %></td>
                   </tr>
                 <% else %>
@@ -200,7 +200,7 @@
                         </div>
                       <% end %>
                     </td>
-                    <td><%= link_to "+", etic_simple_pse_user_path(:paraggelia_id => par.id) ,class: "btn btn-primary", id: par.id %></td>
+                    <td><%= link_to "+", etic_simple_pse_user_path(:paraggelia_id => par.id, :pre_order_id => par.pre_order_id) ,class: "btn btn-primary", id: par.id %></td>
                     <td><%= link_to "+", etic_simple_pse_user_door_path(:paraggelia_id => par.id) ,class: "btn btn-primary", id: par.id %></td>
                   </tr>
                 <% end %>
