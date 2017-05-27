@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  open_category_code: MyString
+  material_code: MyString
+  constructor_code: MyString
+  system_code: MyString
+  line_code: MyString
+
+two:
+  open_category_code: MyString
+  material_code: MyString
+  constructor_code: MyString
+  system_code: MyString
+  line_code: MyString
