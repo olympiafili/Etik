@@ -34,3 +34,5 @@ tmp/cache/assets/development/sprockets/cffd775d018f68ce5dba1ee0d951a994
 tmp/cache/assets/development/sass/274251bae4358b63ea2682681f6e96928bfc8d55/style.css.scssc
 
 config/environments/development.rb
+
+config/environments/development.rb

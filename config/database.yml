@@ -15,7 +15,7 @@ default: &default
   pool: 5
   username: root
   password: 'serafimdigital1992'
-  database: etic
+  database: etic_present
   host: localhost
 
 development:

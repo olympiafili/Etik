@@ -199,6 +199,7 @@ ActiveRecord::Schema.define(version: 20160719070630075818) do
     t.text     "color_team"
     t.integer  "order"
     t.integer  "default"
+    t.string   "sungate_code"
   end
 
   create_table "open_categorie_leafs", force: true do |t|
@@ -507,6 +508,7 @@ ActiveRecord::Schema.define(version: 20160719070630075818) do
     t.integer  "order"
     t.integer  "default"
     t.string   "sungate_code"
+    t.integer  "pre_order_id"
   end
 
   create_table "persides", force: true do |t|
@@ -536,6 +538,22 @@ ActiveRecord::Schema.define(version: 20160719070630075818) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "sungate_code"
+  end
+
+  create_table "pre_orders", force: true do |t|
+    t.string   "open_category_code"
+    t.string   "material_code"
+    t.string   "constructor_code"
+    t.string   "system_code"
+    t.string   "line_code"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "persida_code"
+    t.string   "persida_color"
+    t.float    "persida_width",      limit: 24
+    t.float    "persida_height",     limit: 24
+    t.float    "width",              limit: 24
+    t.float    "height",             limit: 24
   end
 
   create_table "pricelists", force: true do |t|
