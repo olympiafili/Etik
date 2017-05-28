@@ -476,6 +476,18 @@ ActiveRecord::Schema.define(version: 20160719070630075818) do
     t.float    "price_color_rolou",          limit: 24
     t.text     "line_desc"
     t.integer  "rat_quan"
+    t.string   "roll_rlt"
+    t.float    "timi_m_roll_rlt",            limit: 24
+    t.float    "roll_rlt_price",             limit: 24
+    t.string   "roll_rdm"
+    t.float    "timi_m_roll_rdm",            limit: 24
+    t.float    "roll_rdm_price",             limit: 24
+    t.string   "roll_pss"
+    t.float    "timi_m_roll_pss",            limit: 24
+    t.float    "roll_pss_price",             limit: 24
+    t.string   "roll_pfm"
+    t.float    "timi_m_roll_pfm",            limit: 24
+    t.float    "roll_pfm_price",             limit: 24
   end
 
   create_table "panels", force: true do |t|
@@ -554,6 +566,18 @@ ActiveRecord::Schema.define(version: 20160719070630075818) do
     t.float    "persida_height",     limit: 24
     t.float    "width",              limit: 24
     t.float    "height",             limit: 24
+    t.string   "typos_code"
+    t.string   "typos_color"
+    t.float    "typos_num",          limit: 24
+    t.string   "odoigos_code"
+    t.string   "odoigos_color"
+    t.float    "odoigos_height",     limit: 24
+    t.string   "rolo_code"
+    t.string   "rolo_color"
+    t.float    "rolo_width",         limit: 24
+    t.float    "rolo_height",        limit: 24
+    t.string   "rolo_kinisi"
+    t.string   "rolo_option"
   end
 
   create_table "pricelists", force: true do |t|
@@ -684,6 +708,7 @@ ActiveRecord::Schema.define(version: 20160719070630075818) do
     t.integer  "order"
     t.integer  "default"
     t.string   "sungate_code"
+    t.string   "category"
   end
 
   create_table "sessions", force: true do |t|
