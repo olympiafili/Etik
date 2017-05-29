@@ -5,17 +5,6 @@
 
 <div class="container big_container">
   <div class="row">
-    <div class="col-md-6">
-      <h4>Dealer: <%= current_user.sungate_code %></h4><!-- code -->
-      <h4>Customer: <%= @cust_code %></h4>
-    </div>
-    <div class="col-md-6">
-      <h4>Offer: <%= @par_code %></h4>
-      <h4>Order: <%= @ord_code %></h4>
-    </div>
-  </div>
-
-  <div class="row">
     <div class="col-xs-6 Left_main_panel">
       <div class="row LEFT_BAR_SHOW">
         <div class="col-xs-12">
@@ -869,13 +858,13 @@
                     <label id="roll_profil" class="label_tab_top"><%= t('translate.Profil_for_shutters') %></label>
                     <label id="roll_rails" class="label_tab_top"><%= t('translate.Rails') %></label>
                     <label id="roll_rails2" class="label_tab_top"><%= t('translate.Rails2') %></label>
-					<br/>
-					<label id="roll_rat" class="label_tab_top"><%= t('translate.Rat') %></label>
-					<label id="roll_rlt" class="label_tab_top"><%= t('translate.Rlt') %></label>
-					<label id="roll_rdm" class="label_tab_top"><%= t('translate.Rdm') %></label>
-					<br/>
-					<label id="roll_pfm" class="label_tab_top"><%= t('translate.Pfm') %></label>
-					<label id="roll_pss" class="label_tab_top"><%= t('translate.Pss') %></label>
+          					<br/>
+          					<label id="roll_rat" class="label_tab_top"><%= t('translate.Rat') %></label>
+          					<label id="roll_rlt" class="label_tab_top"><%= t('translate.Rlt') %></label>
+          					<label id="roll_rdm" class="label_tab_top"><%= t('translate.Rdm') %></label>
+          					<br/>
+          					<label id="roll_pfm" class="label_tab_top"><%= t('translate.Pfm') %></label>
+          					<label id="roll_pss" class="label_tab_top"><%= t('translate.Pss') %></label>
                   </div>
                 </div>
                 <hr>
@@ -2750,6 +2739,16 @@
                 //window.color_odoigou_meta = color_odoigou;
                 $( this ).trigger('click');
                 //$( this ).trigger('click');
+              }
+            });
+          }
+        }
+
+        if ( id == "roll_rails2" ){
+          if( odoigos == 0 || odoigos == "0" ){
+            $(".odoigoi").each(function( index ) {
+              if( $( this ).attr("id") == 6 ){
+                $( this ).trigger('click');
               }
             });
           }
@@ -7098,15 +7097,6 @@
               place = $(this).attr('id'); //Global variable για να την περασω στην αλλη σελιδα
 
        times_json(tipos_name_gia_xrwma, $(".width").text(), $(".height").text(), line_id_name, mesa_eksw, color_aplo, width_new ,height_new, epikathimeno_rolo,eksoteriko_rolo,persida,tzamia,profil_deksia,profil_aristera,profil_panw,profil_katw,$(".input_deksia").val(),$(".input_panw").val(),$(".input_katw").val(),$(".input_aristera").val(),typos,color_typos,odoigos,$(".color_deksia").text(),$(".color_aristera").text(),$(".color_panw").text(),$(".color_katw").text(),$(".color_fullou").text(),0,profil_deksia_1_id,profil_deksia_1_json_arithmos,profil_deksia_2_id,profil_deksia_2_json_arithmos,profil_deksia_3_id,profil_deksia_3_json_arithmos,profil_aristera_1_id,profil_aristera_1_json_arithmos,profil_aristera_2_id,profil_aristera_2_json_arithmos,profil_aristera_3_id,profil_aristera_3_json_arithmos,profil_panw_1_id,profil_panw_1_json_arithmos,profil_panw_2_id,profil_panw_2_json_arithmos,profil_panw_3_id,profil_panw_3_json_arithmos,profil_katw_1_id,profil_katw_1_json_arithmos,profil_katw_2_id,profil_katw_2_json_arithmos,profil_katw_3_id,profil_katw_3_json_arithmos,profil_typos_1_id,profil_typos_1_json_arithmos,profil_typos_2_id,profil_typos_2_json_arithmos,profil_typos_3_id,profil_typos_3_json_arithmos,prostasia,tzamia2,lastixo_epilogh,pl_rol_ep,up_rol_ep,pl_rol_ek,up_rol_ek,pl_persidas,up_persidas,up_odoigou,color_epikathimenou,color_eksoterikou,color_persidas,color_odoigou,color_profil_katw,color_profil_deksia,color_profil_aristera,color_profil_panw,elegxos_gia_parapanw_diastaseis_w,elegxos_gia_parapanw_diastaseis_h,xwrisma1,xwrisma2,xwrisma_y_1,xwrisma_y_2,xwrisma3_1,xwrisma3_2,xwrisma3_3,color_aplo_eksw,tzamia0,xwrisma4_1,xwrisma4_2,xwrisma4_3,xwrisma4_4,window_still_single,roll_rat,roll_rlt,roll_rdm,roll_pss,roll_pfm, place, rat_quantity);
-
-       /*$(".warning_times").empty();
-        $(".warning_times").append($(".table_odoigos").text()+" -- <%= t('append_price.Price') %> : "+$(".timi_odoigos").text());
-        $(".warning_times").show();
-        clearTimeout(timeout);
-                  timeout = setTimeout(function()
-                    {
-                    $(".warning_times").fadeOut('slow');
-                  }, 6000);*/
 }
 });
 
@@ -7323,8 +7313,6 @@
         }
 
         if (epilogi_ksana_odoigou) {
-
-          //up_odoigou = 0;
           $(".diorth_odoi").empty();
 
           var input1 = "<p><%= t 'translate.Height' %>: </p> <p class=kanonika_metra_odoigou ></p><br>"
@@ -7332,14 +7320,6 @@
           $(input1).appendTo(".diorth_odoi");
           $(input).appendTo(".diorth_odoi");
 
-
-            //$(".up_odoigou").val(up_odoigou );
-            //$(".up_odoigou").trigger('blur');
-          
-          
-
-          //$(".up_odoigou").focus();
-          
                 if (color_odoigou !== 0){
                   color_odoigou = color_odoigou;
                 }else{
@@ -7347,17 +7327,10 @@
                 }
                 
                 //Αδιαζω ολα τα κάτω
-                //$( ".epikathimena_rola" ).empty(); //Αδιαζω το div για να μπει το νεο κλικ
-                //$( ".eksoterika_rola" ).empty();
-                //$( ".color_epikathimenou" ).empty();
-                //$( ".color_eksoterikou" ).empty();
                 $( ".color_odoigou" ).empty();
-                //$( ".button" ).empty();
                 //Αλλαγη χρωματος
                 $( ".odoigoi" ).css("background-color","");//Ετσι αφαιρω την ιδιοτητα!!!
                 $( ".odoigoi" ).css("color","");
-                //
-                //$( this ).css("background-color","#CA3333");
                 $( this ).css("background-color","#d9eaed");
                 $( this ).css("color","black");
 
@@ -7376,22 +7349,30 @@
                     var div = "<div class='div_col_od'></div>"
                     $(div).appendTo(".color_odoigou");
                     $.each(data, function(i, item) { //Για κάθε data που παίρνω κανω τα παρακάτο 
-                        //alert(item.name);
-                        //return $(".kataskevastes").html(item.name);
-                        //$( "<p>item.name</p>" ).appendTo( ".kataskevastes" );
                         var div_data = "<div class='xrwma xrwma2'><h5 class='tipos_name'> "+item.name+" </h5><img src='/assets/"+item.image+"' class='color_odoig color' id="+item.name+"><span id="+item.code+"></span></div>";
                         $(div_data).appendTo(".div_col_od");
                       })
+                    
                     $("#"+color_odoigou+".color_odoig").click();
+
                     if ( YES_ODOIGOI ){
                       $(".up_odoigou").val(up_odoigou);
                        $(".up_odoigou").trigger('blur');
                        if (typeof "<%= @odoigos_id %>" !== "undefined") {
-                        $(".color_odoig").each(function( index ) {
-                        if( $( this ).attr("id") == "<%= @color_odoigou %>" ){
-                          $( this ).trigger('click');
+                        if("<%= @odoigos_id %>"  == "1" || "<%= @odoigos_id %>"  == "2" ){
+                            $(".roll_rails .color_odoig").each(function( index ) {
+                              if( $( this ).attr("id") == "<%= @color_odoigou %>" ){
+                                $( this ).trigger('click');
+                              }
+                            });
+                        } else {
+                            $(".roll_rails2 .color_odoig").each(function( index ) {
+                              if( $( this ).attr("id") == "<%= @color_odoigou %>" ){
+                                $( this ).trigger('click');
+                              }
+                            });
                         }
-                      });
+                        
                       }
                       YES_ODOIGOI = false;
                     }
@@ -7400,11 +7381,19 @@
                       $(".up_odoigou").val(up_odoigou_meta);
                        $(".up_odoigou").trigger('blur');
                        if (typeof odoigos_id !== "undefined") {
-                        $(".color_odoig").each(function( index ) {
-                        if( $( this ).attr("id") == color_odoigou_meta ){
-                          $( this ).trigger('click');
-                        }
-                      });
+                          if (odoigos_id == "1" || odoigos_id == "2") {
+                            $(".roll_rails .color_odoig").each(function( index ) {
+                              if( $( this ).attr("id") == color_odoigou_meta ){
+                                $( this ).trigger('click');
+                              }
+                            });
+                          } else {
+                            $(".roll_rails2 .color_odoig").each(function( index ) {
+                              if( $( this ).attr("id") == color_odoigou_meta ){
+                                $( this ).trigger('click');
+                              }
+                            });
+                          }
                       }
                       META_YES_ODOIGOI = false;
                     }
@@ -9093,13 +9082,6 @@
           var input2 = "<div class=metafra1><p class=metafra1><%= t 'translate.Change_height' %>:</p> <p><input type=text name=up_persidas class=up_persidas placeholder=<%= t 'translate.Height' %>></p>"
           $(input2).appendTo(".diorth_per");
 
-          //$(".up_persidas").val(pl_persidas);
-          //$(".pl_persidas").val(up_persidas);
-          //$(".pl_persidas").trigger('blur');
-          //$(".up_persidas").trigger('blur');
-
-          //$(".pl_persidas").focus();
-
                 if (color_persidas !== 0){
                   color_persidas = color_persidas;
                 }else{
@@ -9566,7 +9548,7 @@
                   contentType: false,
                   success: function(data) {
                     //window.location.href = str1+str2+str3+str4+str5+str6+str7+str8+str9+str10+str11+str12+str13+str14+str15+str16+str17+str18+str19+str20+str21+str22+str23+str24+str25+str26+str27+str28+str29+str30+str31+str32+str33+str34+str35+str36+str37+str38+str39+str40+str41+str42+str43+str44+str45+str46+str47+str48+str49+str50+str51+str52+str53+str54+str55+str56+str57+str58+str59+str60+str61+str62+str63+str64+str65+str66+str67+str68+str69+str70+str71+str72+str73+str74+str75+str76+str77+str78+str79+str80+str81+str82+str83+str84+str85+str86+str87+str88+str89+str90+str91+str92+str93+str94+str95+str96+str97+str98+str99+str100+str101+str102+str103+str104+str105+str106+str107+str108+str109+str110+str111+str112+str113+str114+str115+str116+str117+str118+str119+str120+str121+str122+str123+str124+str125+str126+str127+str128+str129+str130+str131+str132+str133+str134+str135+str136+str137+str138+str139+str140+str141+str142+str143+str144+str145+str146+str147+str148+str149+str150+str151+str152+str153+str154+str155+str156+str157+str158+str159+str160+str161+str162+str163+str164+str165+str166+str167+str168+str169+str170+str171+str172+str173+str174+str175+str176+str177+str178+str179+str180+str181+str182+str183+str184+str185+str186+str187+str188+str189+str190+str191+str192+str193+str194+str195+str196+str197+str198+str199+str200+str201+str202+str203+stra+strb+str204+str205+str206+str207+str208+str209+str210+str211+str212+str213+str214+str215;
-                    url = str1+str2+str3+str4+str5+str6+str7+str8+str9+str10+str11+str12+str13+str14+str15+str16+str17+str18+str19+str20+str21+str22+str23+str24+str25+str26+str27+str28+str29+str30+str31+str32+str33+str34+str35+str36+str37+str38+str39+str40+str41+str42+str43+str44+str45+str46+str47+str48+str49+str50+str51+str52+str53+str54+str55+str56+str57+str58+str59+str60+str61+str62+str63+str64+str65+str66+str67+str68+str69+str70+str71+str72+str73+str74+str75+str76+str77+str78+str79+str80+str81+str82+str83+str84+str85+str86+str87+str88+str89+str90+str91+str92+str93+str94+str95+str96+str97+str98+str99+str100+str101+str102+str103+str104+str105+str106+str107+str108+str109+str110+str111+str112+str113+str114+str115+str116+str117+str118+str119+str120+str121+str122+str123+str124+str125+str126+str127+str128+str129+str130+str131+str132+str133+str134+str135+str136+str137+str138+str139+str140+str141+str142+str143+str144+str145+str146+str147+str148+str149+str150+str151+str152+str153+str154+str155+str156+str157+str158+str159+str160+str161+str162+str163+str164+str165+str166+str167+str168+str169+str170+str171+str172+str173+str174+str175+str176+str177+str178+str179+str180+str181+str182+str183+str184+str185+str186+str187+str188+str189+str190+str191+str192+str193+str194+str195+str196+str197+str198+str199+str200+str201+str202+str203+stra+strb+str204+str205+str206+str207+str208+str209+str210+str211+str212+str213+str214+str215+str216+str217+str218+str219+str220+str221+str222+str223+str224+str225;
+                    url = str1+str2+str3+str4+str5+str6+str7+str8+str9+str10+str11+str12+str13+str14+str15+str16+str17+str18+str19+str20+str21+str22+str23+str24+str25+str26+str27+str28+str29+str30+str31+str32+str33+str34+str35+str36+str37+str38+str39+str40+str41+str42+str43+str44+str45+str46+str47+str48+str49+str50+str51+str52+str53+str54+str55+str56+str57+str58+str59+str60+str61+str62+str63+str64+str65+str66+str67+str68+str69+str70+str71+str72+str73+str74+str75+str76+str77+str78+str79+str80+str81+str82+str83+str84+str85+str86+str87+str88+str89+str90+str91+str92+str93+str94+str95+str96+str97+str98+str99+str100+str101+str102+str103+str104+str105+str106+str107+str108+str109+str110+str111+str112+str113+str114+str115+str116+str117+str118+str119+str120+str121+str122+str123+str124+str125+str126+str127+str128+str129+str130+str131+str132+str133+str134+str135+str136+str137+str138+str139+str140+str141+str142+str143+str144+str145+str146+str147+str148+str149+str150+str151+str152+str153+str154+str155+str156+str157+str158+str159+str160+str161+str162+str163+str164+str165+str166+str167+str168+str169+str170+str171+str172+str173+str174+str175+str176+str177+str178+str179+str180+str181+str182+str183+str184+str185+str186+str187+str188+str189+str190+str191+str192+str193+str194+str195+str196+str197+str198+str199+str200+str201+str202+str203+stra+strb+str204+str205+str206+str207+str208+str209+str210+str211+str212+str213+str214+str215+str216+str217+str218+str219+str220+str221+str222+str223+str224+str225+str226+str227+str228+str229;
 
                     $.ajax({ 
                       type:'GET',
@@ -9985,14 +9967,16 @@
       str217 = roll_rlt;
       str218 = "&roll_rdm="
       str219 = roll_rdm;
-      str218 = "&roll_pss="
-      str219 = roll_pss;
-      str220 = "&roll_pfm="
-      str221 = roll_pfm;
-      str222 = "&place="
-      str223 = place;
-      str224 = "&rat_quantity="
-      str225 = rat_quantity;
+      str220 = "&roll_pss="
+      str221 = roll_pss;
+      str222 = "&roll_pfm="
+      str223 = roll_pfm;
+      str224 = "&place="
+      str225 = place;
+      str226 = "&rat_quantity="
+      str227 = rat_quantity;
+      str228 = "&color_persidas="
+      str229 = color_persidas;
       
       }//geniko_ok = true;
       else{
@@ -10142,11 +10126,9 @@
 
       if (prostasia_id !== "") {
         
-        //$(".prostasia").click();
-        //$(".prostasia").click();
-      }else{
+      }else
         $(".prostasia").click();
-      }
+
 
       do_tzamia0();
       do_tzamia();
@@ -10154,11 +10136,6 @@
       do_rolla();
       do_persides();
       do_odoigous();
-      //setTimeout(do_tzamia, 100);
-      //setTimeout(do_tzamia2, 200);
-      //setTimeout(do_rolla, 300);
-      //setTimeout(do_persides, 400);
-      //setTimeout(do_odoigous, 500);
 
       timeout_profil = 1000;
 
@@ -10488,31 +10465,25 @@
               META_YES_ODOIGOI = true;
               if ( up_odoigou != "" ){
                 window.up_odoigou_meta = up_odoigou;
-              }else{
-                //window.up_odoigou_meta = height;
               }
               window.odoigos_id = odoigos_id;
               window.color_odoigou_meta = color_odoigou;
               $( this ).trigger('click');
-              //$( this ).trigger('click');
             }
           });
           //Δυο φορες γιατι με μια διαγραφει αυτο που ειδη υπαρχει!
           if ( !kanw_prwti_fora_odoigoi ){
-            //alert("!!");
+
             $(".odoigoi").each(function( index ) {
               if( $( this ).attr("id") == odoigos_id ){
                 //alert(typeof up_odoigou);
                 META_YES_ODOIGOI = true;
                 if ( up_odoigou != "" ){
                   window.up_odoigou_meta = up_odoigou;
-                }else{
-                  //window.up_odoigou_meta = height;
                 }
                 window.odoigos_id = odoigos_id;
                 window.color_odoigou_meta = color_odoigou;
                 $( this ).trigger('click');
-                //$( this ).trigger('click');
               }
             });
           }
@@ -10522,7 +10493,6 @@
           //$("#<%= @tzami_cat %>.cat_tzamia").trigger('click');
           //$("#"+"<%= @lastixa %>").click();
         }
-        //setTimeout(do_odoigous_xrwma, 1000);
     }
 
     function do_odoigous_xrwma() {
@@ -10912,12 +10882,6 @@
       do_rolla();
       do_persides();
       do_odoigous();
-
-      //setTimeout(do_tzamia, 100);
-      //setTimeout(do_tzamia2, 200);
-      //setTimeout(do_rolla, 300);
-      //setTimeout(do_persides, 400);
-      //setTimeout(do_odoigous, 500);
       
       timeout_profil = 1000;
 
@@ -11474,24 +11438,7 @@
           //$("#<%= @tzami_cat %>.cat_tzamia").trigger('click');
           //$("#"+"<%= @lastixa %>").click();
         }
-        //setTimeout(do_persides_xrwma, 1000);
     }
-
-    /*
-    function do_persides_xrwma() {
-          $(".pl_persidas").val("<%= @pl_persidas %>");
-          $(".up_persidas").val("<%= @up_persidas %>");
-          $(".pl_persidas").trigger('blur');
-          $(".up_persidas").trigger('blur');
-        if (typeof "<%= @persida_id %>" !== "undefined") {
-        $(".color_pers").each(function( index ) {
-        if( $( this ).attr("id") == "<%= @color_persida %>" ){
-          $( this ).trigger('click');
-        }
-      });
-      }
-    }
-    */
 
     function do_odoigous() {
         if (typeof "<%= @odoigos_id %>" !== "undefined") {
@@ -11516,10 +11463,8 @@
           //$("#<%= @tzami_cat %>.cat_tzamia").trigger('click');
           //$("#"+"<%= @lastixa %>").click();
         }
-        //setTimeout(do_odoigous_xrwma, 1000);
     }
      
-
     
   }
 

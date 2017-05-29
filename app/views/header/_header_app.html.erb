@@ -65,7 +65,12 @@
           <!--<li><%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %></li>-->
           <!--<li><%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %></li>-->
         <% end %>
+        <% if controller?("etic") && action?("extra") %>
+            <li><a style="font-size: 15px">Dealer: <%= current_user.sungate_code %><br>Customer: <%= @cust_code %></a></li>
+            <li><a style="font-size: 15px">Offer: <%= @par_code %><br>Order: <%= @ord_code %></a></li>
+        <% end %>
       </ul>
+     
       <!--
       </br></br>
         <p class="katw_mpara"><%= t 'header.hello' %> <strong><%= current_user.email %> </strong> </p>

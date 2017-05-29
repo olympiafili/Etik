@@ -88,7 +88,7 @@ class EticController < ApplicationController
 		if(!params[:pre_order_id].nil?)
 			@preorder = PreOrder.where(:id => params[:pre_order_id]).first
 			#@open_categorie = OpenCategorie.where(:sungate_code => @preorder.open_category_code).first
-			redirect_to etic_extra_path(:pre_order_id => params[:pre_order_id], :open_category_code => @preorder.open_category_code, :material_code => @preorder.material_code, :constructor_code =>@preorder.constructor_code, :system_code => @preorder.system_code, :line_code => @preorder.line_code, :persida_code => @preorder.persida_code, :persida_width => @preorder.persida_width, :persida_height => @preorder.persida_height, :persida_color => @preorder.persida_color, :width => @preorder.width, :height => @preorder.height)
+			redirect_to etic_extra_path(:pre_order_id => params[:pre_order_id], :open_category_code => @preorder.open_category_code, :material_code => @preorder.material_code, :constructor_code =>@preorder.constructor_code, :system_code => @preorder.system_code, :line_code => @preorder.line_code, :persida_code => @preorder.persida_code, :persida_width => @preorder.persida_width, :persida_height => @preorder.persida_height, :persida_color => @preorder.persida_color, :width => @preorder.width, :height => @preorder.height, :typos_code => @preorder.typos_code, :typos_color => @preorder.typos_color, :odoigos_code => @preorder.odoigos_code, :odoigos_color => @preorder.odoigos_color, :odoigos_height => @preorder.odoigos_height, :rolo_code => @preorder.rolo_code, :rolo_color => @preorder.rolo_color, :rolo_width => @preorder.rolo_width, :rolo_height => @preorder.rolo_height, :rolo_kinisi => @preorder.rolo_kinisi, :rolo_option => @preorder.rolo_option)
 		else
 			redirect_to etic_extra_path
 		end
@@ -553,18 +553,18 @@ class EticController < ApplicationController
 		@cat_tzamia0 = GlassCatInOut.all
 		@cat_tzamia1 = GlassCatIn.all
 		@cat_tzamia2 = GlassCatOut.all
-    @supplier_panels = SupplierPanel.all
+    	@supplier_panels = SupplierPanel.all
 		#
 		@prostasia = TypoiProstasia.all
 		@typos = Profil.where(:width => 0)
 		@profil = Profil.where.not(:width => 0)
 		@roll_guide = RollGuide.where(:id => [1,2]).order(:order)
 		@roll_guide2 = RollGuide.where(:id => [3,4,5,6,7,8,9,10,11]).order(:order)
-    @roll_rat = RatRoll.all
-    @roll_rlt = RltRoll.all
-    @roll_rdm = RdmRoll.all
-    @roll_pss = PssRoll.all
-    @roll_pfm = PfmRoll.all
+    	@roll_rat = RatRoll.all
+    	@roll_rlt = RltRoll.all
+    	@roll_rdm = RdmRoll.all
+    	@roll_pss = PssRoll.all
+    	@roll_pfm = PfmRoll.all
 		@order = Order.where(:id => params[:order]).first
 		if !@order.nil?
 			@order = Order.where(:id => params[:order]).first
@@ -648,6 +648,56 @@ class EticController < ApplicationController
 	        	@pl_persidas = 0
 				@up_persidas = 0
 	        end
+
+	        typos = Profil.where(:width => 0, :code => params[:typos_code]).first
+	        if ( !typos.nil? )
+				@typos_id = typos.id
+			    @color_typos = RolaColor.where(:name => params[:typos_color]).first.name
+			    @typos_arithmos = 1
+	        end
+
+	        odoigos = RollGuide.where(:sungate_code => params[:odoigos_code]).first
+	        if ( !odoigos.nil? )
+				@odoigos_id = odoigos.id
+			    @color_odoigou = RolaColor.where(:name => params[:odoigos_color]).first.name
+	            @up_odoigou = params[:odoigos_height].to_f / 2
+	        else
+	        	@up_odoigou = 0
+	        end
+	        #rolo
+	        rolo = RolaEkso.where(:sungate_code => params[:rolo_code]).first
+	        cat_rolo = "ekso"
+	        if ( rolo.nil? )
+	                rolo = RolaEpik.where(:sungate_code => params[:rolo_code]).first
+	                cat_rolo = "epik"
+	        end
+	        if ( !rolo.nil? &&  cat_rolo == "ekso" )
+	                @cat_rolo = Eksoterika.where(:id => rolo.rola_ekso_id).first.id
+	                @rolo_id = rolo.id
+	                @ti_rolo = "ekso"
+	                @color_rolo = RolaColor.where(:name => params[:rolo_color]).first.name
+	                @pl_rolou_ek = params[:rolo_width]
+	                @up_rolou_ek = params[:rolo_height]
+	                @kinisi_deksia_aristera = params[:rolo_kinisi]
+	                @deroll = params[:rolo_option]
+	        else
+	        	@pl_rolou_ep = 0
+				@up_rolou_ep = 0
+	        end
+	        if ( !rolo.nil? &&  cat_rolo == "epik" )
+	                @cat_rolo = Epikathimeno.where(:id => rolo.epikathimeno_id).first.id
+	                @rolo_id = rolo.id
+	                @ti_rolo = "epik"
+	                @color_rolo = RolaColor.where(:name => params[:rolo_color]).first.name
+	                @pl_rolou_ep = params[:rolo_width]
+	                @up_rolou_ep = params[:rolo_height]
+	                @kinisi_deksia_aristera = params[:rolo_kinisi]
+	                @klap_ep = params[:rolo_option]
+	        else
+	        	@pl_rolou_ek = 0
+				@up_rolou_ek = 0
+	        end
+
 		else
 			persida = Persides.where(:name => params[:persida]).first
 	        if ( !persida.nil? )
@@ -659,6 +709,56 @@ class EticController < ApplicationController
 	        	@pl_persidas = 0
 				@up_persidas = 0
 	        end
+
+	        typos = Profil.where(:width => 0, :name => params[:typos]).first
+	        if ( !typos.nil? )
+				@typos_id = typos.id
+			    @color_typos = RolaColor.where(:name => params[:typos_col]).first.name
+			    @typos_arithmos = 1
+	        end
+
+	        odoigos = RollGuide.where(:name => params[:odoigos]).first
+	        if ( !odoigos.nil? )
+				@odoigos_id = odoigos.id
+			    @color_odoigou = RolaColor.where(:name => params[:xrwma_odoigou]).first.name
+	            @up_odoigou = params[:up_odigou].to_f / 2
+	        else
+	        	@up_odoigou = 0
+	        end
+	        #rolo
+	        rolo = RolaEkso.where(:name => params[:rolo_name]).first
+	        cat_rolo = "ekso"
+	        if ( rolo.nil? )
+	                rolo = RolaEpik.where(:name => params[:rolo_name]).first
+	                cat_rolo = "epik"
+	        end
+	        if ( !rolo.nil? &&  cat_rolo == "ekso" )
+	                @cat_rolo = Eksoterika.where(:id => rolo.rola_ekso_id).first.id
+	                @rolo_id = rolo.id
+	                @ti_rolo = "ekso"
+	                @color_rolo = RolaColor.where(:name => params[:xrwma_rolo]).first.name
+	                @pl_rolou_ek = params[:pl_rolou_ek]
+	                @up_rolou_ek = params[:up_rolou_ek]
+	                @kinisi_deksia_aristera = params[:kinisi_deksia_aristera]
+	                @deroll = params[:deroll]
+	        else
+	        	@pl_rolou_ep = 0
+				@up_rolou_ep = 0
+	        end
+	        if ( !rolo.nil? &&  cat_rolo == "epik" )
+	                @cat_rolo = Epikathimeno.where(:id => rolo.epikathimeno_id).first.id
+	                @rolo_id = rolo.id
+	                @ti_rolo = "epik"
+	                @color_rolo = RolaColor.where(:name => params[:xrwma_rolo]).first.name
+	                @pl_rolou_ep = params[:pl_rolou_ep]
+	                @up_rolou_ep = params[:up_rolou_ep]
+	                @kinisi_deksia_aristera = params[:kinisi_deksia_aristera]
+	                @klap_ep = params[:klap_ep]
+	        else
+	        	@pl_rolou_ek = 0
+				@up_rolou_ek = 0
+	        end
+
 		end
 		
 		@lastixa = params[:lastixa]
@@ -677,58 +777,13 @@ class EticController < ApplicationController
 			@tzami2_id = tzami2.id
 		    @tzami2_cat = params[:cat_tzamia2]
         end
-		rolo = RolaEkso.where(:name => params[:rolo_name]).first
-        cat_rolo = "ekso"
-        if ( rolo.nil? )
-                rolo = RolaEpik.where(:name => params[:rolo_name]).first
-                cat_rolo = "epik"
-        end
-        if ( !rolo.nil? &&  cat_rolo == "ekso" )
-                @cat_rolo = Eksoterika.where(:id => rolo.rola_ekso_id).first.id
-                @rolo_id = rolo.id
-                @ti_rolo = "ekso"
-                @color_rolo = RolaColor.where(:name => params[:xrwma_rolo]).first.name
-                @pl_rolou_ek = params[:pl_rolou_ek]
-                @up_rolou_ek = params[:up_rolou_ek]
-                @kinisi_deksia_aristera = params[:kinisi_deksia_aristera]
-                @deroll = params[:deroll]
-        else
-        	@pl_rolou_ep = 0
-			@up_rolou_ep = 0
-        end
-        if ( !rolo.nil? &&  cat_rolo == "epik" )
-                @cat_rolo = Epikathimeno.where(:id => rolo.epikathimeno_id).first.id
-                @rolo_id = rolo.id
-                @ti_rolo = "epik"
-                @color_rolo = RolaColor.where(:name => params[:xrwma_rolo]).first.name
-                @pl_rolou_ep = params[:pl_rolou_ep]
-                @up_rolou_ep = params[:up_rolou_ep]
-                @kinisi_deksia_aristera = params[:kinisi_deksia_aristera]
-                @klap_ep = params[:klap_ep]
-        else
-        	@pl_rolou_ek = 0
-			@up_rolou_ek = 0
-        end
 
-        odoigos = RollGuide.where(:name => params[:odoigos]).first
-        if ( !odoigos.nil? )
-			@odoigos_id = odoigos.id
-		    @color_odoigou = RolaColor.where(:name => params[:xrwma_odoigou]).first.name
-            @up_odoigou = params[:up_odigou].to_f / 2
-        else
-        	@up_odoigou = 0
-        end
         prostasia = TypoiProstasia.where(:name => params[:prostasia]).first
         if ( !prostasia.nil? )
 			@prostasia_id = prostasia.id
 		    #@color_odoigou = RolaColor.where(:name => params[:xrwma_odoigou]).first.name
         end
-        typos = Profil.where(:width => 0, :name => params[:typos]).first
-        if ( !typos.nil? )
-			@typos_id = typos.id
-		    @color_typos = RolaColor.where(:name => params[:typos_col]).first.name
-		    @typos_arithmos = 1
-        end
+
         @counter_profil = 0
         @counter_profil_ar = 0
         pr_ar_1 = Profil.where(:name => params[:pr_ar_1]).first
@@ -1400,7 +1455,7 @@ class EticController < ApplicationController
 		xwrisma4_1 = params[:xwrisma4_1]
 		xwrisma4_2 = params[:xwrisma4_2]
 		xwrisma4_3 = params[:xwrisma4_3]
-    xwrisma4_4 = params[:xwrisma4_4]
+    	xwrisma4_4 = params[:xwrisma4_4]
 		xwrisma_y_1 = params[:xwrisma_y_1]
 		xwrisma_y_2 = params[:xwrisma_y_2]
 		width_neo = params[:new_width].to_f
@@ -1933,9 +1988,6 @@ class EticController < ApplicationController
 						end
 					end
 
-					puts @thesi_width
-					puts @thesi_height
-
 					CSV.foreach("#{Rails.root}/public/pricelist/"+anoigma+".csv", col_sep: ';',headers:true ).with_index do |row, i| 
 						if ( i == @thesi_height )
 							@timi = row[@thesi_width]
@@ -1948,9 +2000,6 @@ class EticController < ApplicationController
 				  end#Mono gia prwti stili
 				  end#end mesa
 			end#end eksw
-
-			puts "Width gia timokatalogo"+( width - width_gia_anoigma_mono_gia_edw.to_f).to_s
-			puts "Height meta apo "+height.to_s
 		    
 		    width_index = widths.select do |k,v|
 			  v.include?((width - width_gia_anoigma_mono_gia_edw.to_f).to_f)
@@ -1959,10 +2008,6 @@ class EticController < ApplicationController
 			height_index = heights.select do |c,d|
 			  d.include?(height.to_f)
 			end.keys.first
-
-			puts "Width meta apo epeksergasia"+width_index.to_s
-			puts "Height meta apo epeksergasia"+height_index.to_s
-
 
 		    ##Για καθε ανοιγμα τιμη
 		    @col_data_heights = []
@@ -1996,20 +2041,13 @@ class EticController < ApplicationController
 				end
 			end
 
-			puts @thesi_width
-			puts @thesi_height
-
 			CSV.foreach("#{Rails.root}/public/pricelist/"+@open_type.csv+".csv", col_sep: ';',headers:true ).with_index do |row, i| 
 				if ( i == @thesi_height )
 					@timi = row[@thesi_width]
 				end
 			end
 
-			puts "Τιμή για άνοιγμα απο τιμοκατάλογο: "+@open_type.csv.to_s+" == "+@timi
-
 			@price = @pricepanw + @timi.to_f
-
-			puts "Τιμή γενικη συνδιασμος 3fylla: "+@price.to_s
 		end
 
 		##Gia code == ta upolipa
@@ -2161,9 +2199,6 @@ class EticController < ApplicationController
 					@thesi_height = i
 				end
 			end
-
-			puts @thesi_width
-			puts @thesi_height
 
 			CSV.foreach("#{Rails.root}/public/pricelist/"+@open_type.csv+".csv", col_sep: ';',headers:true ).with_index do |row, i| 
 				if ( i == @thesi_height )
@@ -4318,6 +4353,34 @@ class EticController < ApplicationController
 		    	@order.roll_rat_price = roll_rat_price
 		    	@order.rat_quan = @rat_quantity
 		    end
+
+		    #roll_rlt
+		    if !@roll_rlt.nil?
+		    	@order.roll_rlt = @roll_rlt.name
+		    	@order.timi_m_roll_rlt = timi_m_roll_rlt
+		    	@order.roll_rlt_price = roll_rlt_price
+		    end
+
+		    #roll_rdm
+		    if !@roll_rdm.nil?
+		    	@order.roll_rdm = @roll_rdm.name
+		    	@order.timi_m_roll_rdm = timi_m_roll_rdm
+		    	@order.roll_rdm_price = roll_rdm_price
+		    end
+
+		    #roll_pss
+		    if !@roll_pss.nil?
+		    	@order.roll_pss = @roll_pss.name
+		    	@order.timi_m_roll_pss = timi_m_roll_pss
+		    	@order.roll_pss_price = roll_pss_price
+		    end
+
+		    #roll_pfm
+		    if !@roll_pfm.nil?
+		    	@order.roll_pfm = @roll_pfm.name
+		    	@order.timi_m_roll_pfm = timi_m_roll_pfm
+		    	@order.roll_pfm_price = roll_pfm_price
+		    end
 		    ####Mexri edw
 		   
 
@@ -4847,7 +4910,8 @@ class EticController < ApplicationController
           	                          :pososto_dealer => pososto_dealer,
           	                          :price_color_odoigou => price_color_odoigou,
           	                          :price_color_epikathimenou => price_color_epikathimenou,
-          	                          :price_color_eksoterikou => price_color_eksoterikou } }
+          	                          :price_color_eksoterikou => price_color_eksoterikou,
+          	                          :price_color_persidas => price_color_persidas } }
         end
 	end
 
@@ -5631,6 +5695,24 @@ class EticController < ApplicationController
 	        	@pre_order.persida_height = params[:persida_height]
 	        	@pre_order.persida_color = params[:persida_color]
 	        end
+	        if(!params[:typos_code].nil?)
+	        	@pre_order.typos_code = params[:typos_code]
+	        	@pre_order.typos_color = params[:typos_color]
+	        	#@pre_order.typos_num = params[:typos_num]
+	        end
+	        if(!params[:odoigos_code].nil?)
+	        	@pre_order.odoigos_code = params[:odoigos_code]
+	        	@pre_order.odoigos_color = params[:odoigos_color]
+	        	@pre_order.odoigos_height = params[:odoigos_height]
+	        end
+	        if(!params[:rolo_code].nil?)
+	        	@pre_order.rolo_code = params[:rolo_code]
+	        	@pre_order.rolo_color = params[:rolo_color]
+	        	@pre_order.rolo_width = params[:rolo_width]
+	        	@pre_order.rolo_height = params[:rolo_height]
+	        	@pre_order.rolo_kinisi = params[:rolo_kinisi]
+	        	@pre_order.rolo_option = params[:rolo_option]
+	        end
 	        @pre_order.save
 
 			#Paraggelia
@@ -5704,7 +5786,7 @@ class EticController < ApplicationController
 	       		@pre_order_id = nil
 	       	end
         end
-        
+
         if ( !@par.sungate_code.nil? )
 	    	@par_code = @par.sungate_code
 	    else
@@ -6976,18 +7058,12 @@ class EticController < ApplicationController
 		    end
 		    #Για καθε col το μήκος subarr.length ποσα col σε καθε row
 		    if ( subarr.length == 1 )
-		    	puts "Μήκος: "+width_neo.to_s
 		    	width_gia_anoigma = width_neo
 		    elsif ( subarr.length == 2 )
-		    	puts "Μήκος: "+eval("xwrisma#{j+1}")
 		    	width_gia_anoigma = eval("xwrisma#{j+1}")
 		    elsif ( subarr.length == 3 )
-		    	puts "Μήκος: "+eval("xwrisma3_#{j+1}")
 		    	width_gia_anoigma = eval("xwrisma3_#{j+1}")
 		    end
-
-		    puts "Width meta apo "+width_gia_anoigma.class.to_s
-			puts "Height meta apo "+height_gia_anoigma.class.to_s
 		    
 		    width_index = widths.select do |k,v|
 			  v.include?(width_gia_anoigma.to_f)
@@ -6996,10 +7072,6 @@ class EticController < ApplicationController
 			height_index = heights.select do |c,d|
 			  d.include?(height_gia_anoigma.to_f)
 			end.keys.first
-
-			puts "Width meta apo epeksergasia"+width_index.to_s
-			puts "Height meta apo epeksergasia"+height_index.to_s
-
 
 		    ##Για καθε ανοιγμα τιμη
 		    if(@open_type.table == 'a|n' || @open_type.table == 'n,b' || @open_type.table == 'b,n' || @open_type.table == 'b,n,b' || @open_type.table == 'a|b,n' || @open_type.table == 'a|b,n,b' || @open_type.table == 'a|n,b')
@@ -8290,6 +8362,34 @@ class EticController < ApplicationController
 		    	@order.timi_m_roll_rat = timi_m_roll_rat
 		    	@order.roll_rat_price = roll_rat_price
 		    	@order.rat_quan = @rat_quantity
+		    end
+
+		    #roll_rlt
+		    if !@roll_rlt.nil?
+		    	@order.roll_rlt = @roll_rlt.name
+		    	@order.timi_m_roll_rlt = timi_m_roll_rlt
+		    	@order.roll_rlt_price = roll_rlt_price
+		    end
+
+		    #roll_rdm
+		    if !@roll_rdm.nil?
+		    	@order.roll_rdm = @roll_rdm.name
+		    	@order.timi_m_roll_rdm = timi_m_roll_rdm
+		    	@order.roll_rdm_price = roll_rdm_price
+		    end
+
+		    #roll_pss
+		    if !@roll_pss.nil?
+		    	@order.roll_pss = @roll_pss.name
+		    	@order.timi_m_roll_pss = timi_m_roll_pss
+		    	@order.roll_pss_price = roll_pss_price
+		    end
+
+		    #roll_pfm
+		    if !@roll_pfm.nil?
+		    	@order.roll_pfm = @roll_pfm.name
+		    	@order.timi_m_roll_pfm = timi_m_roll_pfm
+		    	@order.roll_pfm_price = roll_pfm_price
 		    end
 		    ####Mexri edw
 		   
