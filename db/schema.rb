@@ -578,6 +578,12 @@ ActiveRecord::Schema.define(version: 20160719070630075818) do
     t.float    "rolo_height",        limit: 24
     t.string   "rolo_kinisi"
     t.string   "rolo_option"
+    t.string   "roll_rat"
+    t.float    "rat_quan",           limit: 24
+    t.string   "roll_rlt"
+    t.string   "roll_rdm"
+    t.string   "roll_pfm"
+    t.string   "roll_pss"
   end
 
   create_table "pricelists", force: true do |t|
