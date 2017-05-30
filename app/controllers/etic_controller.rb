@@ -88,7 +88,13 @@ class EticController < ApplicationController
 		if(!params[:pre_order_id].nil?)
 			@preorder = PreOrder.where(:id => params[:pre_order_id]).first
 			#@open_categorie = OpenCategorie.where(:sungate_code => @preorder.open_category_code).first
-			redirect_to etic_extra_path(:pre_order_id => params[:pre_order_id], :open_category_code => @preorder.open_category_code, :material_code => @preorder.material_code, :constructor_code =>@preorder.constructor_code, :system_code => @preorder.system_code, :line_code => @preorder.line_code, :persida_code => @preorder.persida_code, :persida_width => @preorder.persida_width, :persida_height => @preorder.persida_height, :persida_color => @preorder.persida_color, :width => @preorder.width, :height => @preorder.height, :typos_code => @preorder.typos_code, :typos_color => @preorder.typos_color, :odoigos_code => @preorder.odoigos_code, :odoigos_color => @preorder.odoigos_color, :odoigos_height => @preorder.odoigos_height, :rolo_code => @preorder.rolo_code, :rolo_color => @preorder.rolo_color, :rolo_width => @preorder.rolo_width, :rolo_height => @preorder.rolo_height, :rolo_kinisi => @preorder.rolo_kinisi, :rolo_option => @preorder.rolo_option)
+			redirect_to etic_extra_path(:pre_order_id => params[:pre_order_id], :open_category_code => @preorder.open_category_code, :material_code => @preorder.material_code, :constructor_code =>@preorder.constructor_code, 
+				:system_code => @preorder.system_code, :line_code => @preorder.line_code, :persida_code => @preorder.persida_code, :persida_width => @preorder.persida_width, 
+				:persida_height => @preorder.persida_height, :persida_color => @preorder.persida_color, :width => @preorder.width, :height => @preorder.height, 
+				:typos_code => @preorder.typos_code, :typos_color => @preorder.typos_color, :odoigos_code => @preorder.odoigos_code, :odoigos_color => @preorder.odoigos_color, 
+				:odoigos_height => @preorder.odoigos_height, :rolo_code => @preorder.rolo_code, :rolo_color => @preorder.rolo_color, :rolo_width => @preorder.rolo_width, 
+				:rolo_height => @preorder.rolo_height, :rolo_kinisi => @preorder.rolo_kinisi, :rolo_option => @preorder.rolo_option, :roll_rat => @preorder.roll_rat,
+				:rat_quan => @preorder.rat_quan, :roll_rlt => @preorder.roll_rlt, :roll_rdm => @preorder.roll_rdm, :roll_pfm => @preorder.roll_pfm, :roll_pss => @preorder.roll_pss)
 		else
 			redirect_to etic_extra_path
 		end
@@ -394,6 +400,7 @@ class EticController < ApplicationController
 			end
 
 		    @metra_click = 1
+		    @click_new_posistion = true
        else
 	       ##Κοκκινο πινακάκι
 	        if( params.has_key?(:open_categorie_name) )
@@ -430,6 +437,8 @@ class EticController < ApplicationController
 			else
 				@metra_click = 0
 			end
+
+			@click_new_posistion = false
 		end
 
 
@@ -698,6 +707,32 @@ class EticController < ApplicationController
 				@up_rolou_ek = 0
 	        end
 
+	        roll_rat = RatRoll.where(:sungate_code => params[:roll_rat]).first
+			if ( !roll_rat.nil? )
+				@roll_rat_id = roll_rat.id
+				@roll_rat_quan = params[:rat_quan]
+			end
+
+			roll_rlt = RltRoll.where(:sungate_code => params[:roll_rlt]).first
+			if ( !roll_rlt.nil? )
+				@roll_rlt_id = roll_rlt.id
+			end
+
+			roll_rdm = RdmRoll.where(:sungate_code => params[:roll_rdm]).first
+			if ( !roll_rdm.nil? )
+				@roll_rdm_id = roll_rdm.id
+			end
+
+			roll_pfm = PfmRoll.where(:sungate_code => params[:roll_pfm]).first
+			if ( !roll_pfm.nil? )
+				@roll_pfm_id = roll_pfm.id
+			end
+
+			roll_pss = PssRoll.where(:sungate_code => params[:roll_pss]).first
+			if ( !roll_pss.nil? )
+				@roll_pss_id = roll_pss.id
+			end
+
 		else
 			persida = Persides.where(:name => params[:persida]).first
 	        if ( !persida.nil? )
@@ -758,6 +793,32 @@ class EticController < ApplicationController
 	        	@pl_rolou_ek = 0
 				@up_rolou_ek = 0
 	        end
+
+	        roll_rat = RatRoll.where(:name => params[:roll_rat]).first
+			if ( !roll_rat.nil? )
+				@roll_rat_id = roll_rat.id
+				@roll_rat_quan = params[:rat_quan]
+			end
+
+			roll_rlt = RltRoll.where(:name => params[:roll_rlt]).first
+			if ( !roll_rlt.nil? )
+				@roll_rlt_id = roll_rlt.id
+			end
+
+			roll_rdm = RdmRoll.where(:name => params[:roll_rdm]).first
+			if ( !roll_rdm.nil? )
+				@roll_rdm_id = roll_rdm.id
+			end
+
+			roll_pfm = PfmRoll.where(:name => params[:roll_pfm]).first
+			if ( !roll_pfm.nil? )
+				@roll_pfm_id = roll_pfm.id
+			end
+
+			roll_pss = PssRoll.where(:name => params[:roll_pss]).first
+			if ( !roll_pss.nil? )
+				@roll_pss_id = roll_pss.id
+			end
 
 		end
 		
@@ -5685,10 +5746,10 @@ class EticController < ApplicationController
 	        @pre_order.constructor_code = params[:constructor_code]
 	        @pre_order.system_code = params[:system_code]
 	        @pre_order.line_code = params[:line_code]
-	        if(!params[:width].nil? && !params[:height].nil?)
-	        	@pre_order.width = params[:width]
-	        	@pre_order.height = params[:height]
-	    	end
+	        
+	        @pre_order.width = 1000
+	        @pre_order.height = 1000
+	    	
 	        if(!params[:persida_code].nil?)
 	        	@pre_order.persida_code = params[:persida_code]
 	        	@pre_order.persida_width = params[:persida_width]
@@ -5712,6 +5773,22 @@ class EticController < ApplicationController
 	        	@pre_order.rolo_height = params[:rolo_height]
 	        	@pre_order.rolo_kinisi = params[:rolo_kinisi]
 	        	@pre_order.rolo_option = params[:rolo_option]
+	        end
+	        if(!params[:roll_rat].nil?)
+	        	@pre_order.roll_rat = params[:roll_rat]
+	        	@pre_order.rat_quan = params[:rat_quan]
+	        end
+	        if(!params[:roll_rlt].nil?)
+	        	@pre_order.roll_rlt = params[:roll_rlt]
+	        end
+	        if(!params[:roll_rdm].nil?)
+	        	@pre_order.roll_rdm = params[:roll_rdm]
+	        end
+	        if(!params[:roll_pfm].nil?)
+	        	@pre_order.roll_pfm = params[:roll_pfm]
+	        end
+	        if(!params[:roll_pss].nil?)
+	        	@pre_order.roll_pss = params[:roll_pss]
 	        end
 	        @pre_order.save
 
