@@ -11748,7 +11748,7 @@ ul {
   }
 
   /* line 1534, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
-  .alert_mikro_parathiro_roll, .alert_mikro_parathiro_typ, .alert_mikro_parathiro_de, .alert_mikro_parathiro_ar, .alert_mikro_parathiro_pa, .alert_mikro_parathiro_ka, .alert_mikro_parathiro_width, .alert_mikro_parathiro_height, .alert_geniko_ok {
+  .alert_mikro_parathiro_roll, .alert_mikro_parathiro_typ, .alert_mikro_parathiro_de, .alert_mikro_parathiro_ar, .alert_mikro_parathiro_pa, .alert_mikro_parathiro_ka, .alert_mikro_parathiro_width, .alert_mikro_parathiro_height, .alert_geniko_ok, .alert_dimensions {
     position: fixed;
     top: 50px;
     left: 50px;
@@ -11922,7 +11922,7 @@ ul {
 }
 
 /* line 1702, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
-.alert_mikro_parathiro_roll, .alert_mikro_parathiro_typ, .alert_mikro_parathiro_de, .alert_mikro_parathiro_ar, .alert_mikro_parathiro_pa, .alert_mikro_parathiro_ka, .alert_mikro_parathiro_width, .alert_mikro_parathiro_height, .alert_geniko_ok, .alert_mikro_parathiro_panw_apo {
+.alert_mikro_parathiro_roll, .alert_mikro_parathiro_typ, .alert_mikro_parathiro_de, .alert_mikro_parathiro_ar, .alert_mikro_parathiro_pa, .alert_mikro_parathiro_ka, .alert_mikro_parathiro_width, .alert_mikro_parathiro_height, .alert_geniko_ok, .alert_mikro_parathiro_panw_apo, .alert_dimensions {
   position: fixed;
   top: 50%;
   left: 50%;
