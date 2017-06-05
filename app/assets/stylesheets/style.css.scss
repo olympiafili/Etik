@@ -860,22 +860,12 @@ label {
   display: block;
 }
 
-
-.epikathimena_rola label:hover,
-.window_still_wrapper label:hover,
-.window_still_wrapper_big label:hover,
-.window_still_cat:hover,
-.place:hover {
-  //background-color: #8C7A7A;
-  //background-color: #777777;
-  //color: white;
-}
-
 .epikathimena_rola label,
 .window_still_wrapper label,
 .window_still_wrapper_big label,
 .window_still_cat,
-.place {
+.place,
+.equipment {
   display: block;
   //width: 150px;
   text-align: center;
@@ -3017,10 +3007,5 @@ input[type="file"] {
 .modal_times {
 	height: 400px;
 	overflow: scroll;
-	display: none;
-}
-
-.table_grammata_diax tr td:last-child,
-.table_grammata_diax tr th:last-child {
 	display: none;
 }
