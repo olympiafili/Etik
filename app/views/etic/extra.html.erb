@@ -3183,6 +3183,7 @@
     $(".alert_mikro_parathiro_height").hide();
     $(".alert_mikro_parathiro_panw_apo").hide();
     $(".alert_geniko_ok").hide();
+    $(".alert_dimensions").hide();
     $(".warning_times").hide();
     $(".alert_kipri").hide();
 
@@ -9998,7 +9999,7 @@
   if("<%= @click_new_posistion %>" == "true") {
     $( "#home_price" ).click();
     $(".alert_dimensions").show();
-    $('.alert_dimensions').delay(5000).fadeOut('slow');
+    //$('.alert_dimensions').delay(5000).fadeOut('slow');
   }
 
   });
@@ -10775,7 +10776,6 @@
                       $(".warning_times").fadeOut('slow');
                     }, 6000);
             },timeout_profil);
-            //$(".ok").click();
         }
     } 
   

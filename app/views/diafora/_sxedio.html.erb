@@ -27,210 +27,435 @@
 	});
 
 	$(".xwrismata_sxedio_orizontia, .xwrismata_sxedio_katheta").on("blur", ".orizontia, .katheta", function() {
-		geniko_data_val = $(this).data('val');
+		if($('.big_container').hasClass('big_container_door')) {
+			
+			geniko_data_val = $(this).data('val');
 
-		if ( $(this).attr("class") == "orizontia" ){
-			//Poio input einai
-			var auto_poy_patisa_input = $( this );
-			//Ολο το width
-			var geniko_width = width_new;
-			//Τι έβαλα στο input
-	    	var input_val = $( this ).val();
-	    	//Κανω έλεγχο του input. Σε όλα τα ανοιγματα της στήλης που άλλαξα
-	    	//Ποια στήλη έχω
-	    	var stili_key = $(this).attr("id").charAt(17);
-	    	//Πέρνω το μιν απο την στήλη
-			var tempArray = table.split('|');
-			var finalArray = [];
-			for (var i = 0; i < tempArray.length; i++) {
-			    finalArray[i] = tempArray[i].split(',');
+			if ( $(this).attr("class") == "orizontia" ){
+				//Poio input einai
+				var auto_poy_patisa_input = $( this );
+				//Ολο το width
+				var geniko_width = width_new;
+				//Τι έβαλα στο input
+		    	var input_val = $( this ).val();
+		    	//Κανω έλεγχο του input. Σε όλα τα ανοιγματα της στήλης που άλλαξα
+		    	//Ποια στήλη έχω
+		    	var stili_key = $(this).attr("id").charAt(17);
+		    	//Πέρνω το μιν απο την στήλη
+				var tempArray = table.split('|');
+				var finalArray = [];
+				for (var i = 0; i < tempArray.length; i++) {
+				    finalArray[i] = tempArray[i].split(',');
+				}
+
+				//Gia ajax;
+				var promises = [];
+				$.each(finalArray , function( index, obj ) {
+				    $.each(obj, function( key, value ) {
+				    	if(value == 'a') value = 'an';
+				    	if(value == 'b') value = 'bn';
+
+				        	//To prvto einai min
+				        	if ( key == 0 ){
+				        		//ajax
+				        		var p = $.ajax({
+						          type:'GET',
+							      url:'/etic/anoigma',
+							      dataType: "json",
+							      data: { anoigma: value },
+						          success: function(data) {
+						            min_width_anoigmatos = data.min_width_anoigmatos;
+						            max_width_anoigmatos = data.max_width_anoigmatos;
+						        },
+						        error: function(data) { 
+						        }
+						        });//end ejax
+						        promises.push(p);
+				        	}else{
+				        		//ajax
+				        		var p = $.ajax({
+						          type:'GET',
+							      url:'/etic/anoigma',
+							      dataType: "json",
+							      data: { anoigma: value },
+						          success: function(data) {
+						            min_width_anoigmatos_this = data.min_width_anoigmatos;
+						            max_width_anoigmatos_this = data.max_width_anoigmatos;
+						            min_width_anoigmatos2 = data.min_width_anoigmatos;
+						            max_width_anoigmatos2 = data.max_width_anoigmatos;
+						        },
+						        error: function(data) { 
+						        }
+						        });//end ejax
+						        promises.push(p);
+						        /*$.when.apply($, promises).done(function() {
+						        	//To megalitero min
+					        		if ( min_width_anoigmatos < min_width_anoigmatos_this ){
+					        			min_width_anoigmatos = min_width_anoigmatos_this;
+					        		}
+					        		//To mikrotero max
+					        		if ( max_width_anoigmatos >= max_width_anoigmatos_this ){
+					        			max_width_anoigmatos = max_width_anoigmatos_this;
+					        		}
+						        });*/
+				        	}
+				        //}
+				    });
+				});
+				//Ελεγχος μιν δεν το δεχομαι
+				$.when.apply($, promises).done(function() {
+				    // code here when all ajax calls are done
+				    // you could also process all the results here if you want
+				    // rather than processing them individually
+					if ( parseInt(input_val) < parseInt(min_width_anoigmatos) ){
+						auto_poy_patisa_input.val( geniko_data_val );
+					}else if( parseInt(input_val) > parseInt(max_width_anoigmatos) ){
+						auto_poy_patisa_input.val( geniko_data_val );
+					}else{ //To dexomai
+						var arithmos_xwrismatwn = $('.orizontia').length;
+		    			var prwti_aferesi = parseFloat( geniko_data_val ) - parseFloat( input_val );
+		    			var apotelesma = parseFloat( $("#xwrisma_orizontio"+(arithmos_xwrismatwn-1)+"").val() ) + parseFloat( prwti_aferesi );
+		    			//elegxos max
+		    			if (  apotelesma <= max_width_anoigmatos2 && apotelesma >= min_width_anoigmatos2 ){
+		    				$("#xwrisma_orizontio"+(arithmos_xwrismatwn-1)+"").val( apotelesma );
+		    				meta_apo_ajax_xwrismata();
+		    				times_json_door(tipos_name_gia_xrwma, $(".width").text(), $(".height").text(), line_id_name, mesa_eksw, color_aplo, width_new ,height_new, epikathimeno_rolo,eksoteriko_rolo,persida,tzamia,profil_deksia,profil_aristera,profil_panw,profil_katw,$(".input_deksia").val(),$(".input_panw").val(),$(".input_katw").val(),$(".input_aristera").val(),typos,color_typos,odoigos,$(".color_deksia").text(),$(".color_aristera").text(),$(".color_panw").text(),$(".color_katw").text(),$(".color_fullou").text(),0,profil_deksia_1_id,profil_deksia_1_json_arithmos,profil_deksia_2_id,profil_deksia_2_json_arithmos,profil_deksia_3_id,profil_deksia_3_json_arithmos,profil_aristera_1_id,profil_aristera_1_json_arithmos,profil_aristera_2_id,profil_aristera_2_json_arithmos,profil_aristera_3_id,profil_aristera_3_json_arithmos,profil_panw_1_id,profil_panw_1_json_arithmos,profil_panw_2_id,profil_panw_2_json_arithmos,profil_panw_3_id,profil_panw_3_json_arithmos,profil_katw_1_id,profil_katw_1_json_arithmos,profil_katw_2_id,profil_katw_2_json_arithmos,profil_katw_3_id,profil_katw_3_json_arithmos,profil_typos_1_id,profil_typos_1_json_arithmos,profil_typos_2_id,profil_typos_2_json_arithmos,profil_typos_3_id,profil_typos_3_json_arithmos,prostasia,tzamia2,lastixo_epilogh,pl_rol_ep,up_rol_ep,pl_rol_ek,up_rol_ek,pl_persidas,up_persidas,up_odoigou,color_epikathimenou,color_eksoterikou,color_persidas,color_odoigou,color_profil_katw,color_profil_deksia,color_profil_aristera,color_profil_panw,elegxos_gia_parapanw_diastaseis_w,elegxos_gia_parapanw_diastaseis_h,xwrisma1,xwrisma2,xwrisma_y_1,xwrisma_y_2,xwrisma3_1,xwrisma3_2,xwrisma3_3,color_aplo_eksw,tzamia0,xwrisma4_1,xwrisma4_2,xwrisma4_3,xwrisma4_4,window_still_single,roll_rat,roll_rlt,roll_rdm,roll_pss,roll_pfm, place, rat_quantity, panel, equipment);
+		    			}else{
+		    				auto_poy_patisa_input.val( geniko_data_val );
+		    			}
+					}
+				});
+				//Ελεγχος τελευταιου
+				//
+		    	
+			} else{
+				var geniko_width = width_new;
+		    	var input_val = $( ".orizontia" ).first().val();
+		    	var arithmos_xwrismatwn = $('.orizontia').length;
+		    	var prwti_aferesi = parseFloat( $( ".orizontia" ).first().data('val') ) - parseFloat( input_val );
+		    	var apotelesma = parseFloat( $("#xwrisma_orizontio"+(arithmos_xwrismatwn-1)+"").val() ) + parseFloat( prwti_aferesi );
+		    	$("#xwrisma_orizontio"+(arithmos_xwrismatwn-1)+"").val( apotelesma );
 			}
+			if ( $(this).attr("class") == "katheta" ){
+				//Poio input einai
+				var auto_poy_patisa_input = $( this );
+				//Ολο το height
+				var geniko_height = height_new;
+				//Τι έβαλα στο input
+		    	var input_val_h = $( this ).val();
+		    	//Κανω έλεγχο του input. Σε όλα τα ανοιγματα της γραμμης που άλλαξα
+		    	//Ποια γραμμη έχω
+		    	var grammi_key = $(this).attr("id").charAt(15);
+		    	//Πέρνω το μιν απο την γραμμη
+				var tempArray = table.split('|');
+				var finalArray = [];
+				for (var i = 0; i < tempArray.length; i++) {
+				    finalArray[i] = tempArray[i].split(',');
+				} 
+				//Gia ajax;
+				var promises = [];
+				
+				//grammi_key = grammi_key.replace('xwrisma_katheto','');
+				$.each(finalArray , function( index, obj ) {
+				    $.each(obj, function( key, value ) {
+				    	
+				    	if(value == 'a') value = 'an';
+				    	if(value == 'b') value = 'bn';
 
-			//Gia ajax;
-			var promises = [];
-			$.each(finalArray , function( index, obj ) {
-			    $.each(obj, function( key, value ) {
-			        //An eimai stin stili
-			        //if ( key == stili_key ){
-			        	//To prvto einai min
-			        	if ( key == 0 ){
-			        		//ajax
-			        		var p = $.ajax({
-					          type:'GET',
-						      url:'/etic/anoigma',
-						      dataType: "json",
-						      data: { anoigma: value },
-					          success: function(data) {
-					            min_width_anoigmatos = data.min_width_anoigmatos;
-					            max_width_anoigmatos = data.max_width_anoigmatos;
-					        },
-					        error: function(data) { 
-					        }
-					        });//end ejax
-					        promises.push(p);
-			        	}else{
-			        		//ajax
-			        		var p = $.ajax({
-					          type:'GET',
-						      url:'/etic/anoigma',
-						      dataType: "json",
-						      data: { anoigma: value },
-					          success: function(data) {
-					            min_width_anoigmatos_this = data.min_width_anoigmatos;
-					            max_width_anoigmatos_this = data.max_width_anoigmatos;
-					        },
-					        error: function(data) { 
-					        }
-					        });//end ejax
-					        promises.push(p);
-					        $.when.apply($, promises).done(function() {
-					        	//To megalitero min
-				        		if ( min_width_anoigmatos < min_width_anoigmatos_this ){
-				        			min_width_anoigmatos = min_width_anoigmatos_this
+				        	//To prvto einai min
+				        	if ( index == 1 ){
+				        		//ajax
+				        		var p = $.ajax({
+						          type:'GET',
+							      url:'/etic/anoigma',
+							      dataType: "json",
+							      data: { anoigma: value },
+						          success: function(data) {
+						            min_height_anoigmatos = data.min_height_anoigmatos;
+						            max_height_anoigmatos = data.max_height_anoigmatos;
+						        },
+						        error: function(data) { 
+						        }
+						        });//end ejax
+						        promises.push(p);
+				        	}
+				        	else{
+				        		//ajax
+				        		var p = $.ajax({
+						          type:'GET',
+							      url:'/etic/anoigma',
+							      dataType: "json",
+							      data: { anoigma: value },
+						          success: function(data) {
+						            min_height_anoigmatos_this = data.min_height_anoigmatos;
+						            max_height_anoigmatos = data.max_height_anoigmatos;
+
+						            min_height_anoigmatos2 = data.min_height_anoigmatos;
+						            max_height_anoigmatos2 = data.max_height_anoigmatos;
+						        },
+						        error: function(data) { 
+						        }
+						        });//end ejax
+						        promises.push(p);
+						        //To megalitero min
+				        		/*if ( min_height_anoigmatos < min_height_anoigmatos_this ){
+				        			min_height_anoigmatos = min_height_anoigmatos_this
 				        		}
 				        		//To mikrotero max
-				        		if ( max_width_anoigmatos >= max_width_anoigmatos_this ){
-				        			max_width_anoigmatos = max_width_anoigmatos_this
-				        		}
-					        });
-					        
-			        	}
-			        //}
-			    });
-			});
-			//Ελεγχος μιν δεν το δεχομαι
-			$.when.apply($, promises).done(function() {
-			    // code here when all ajax calls are done
-			    // you could also process all the results here if you want
-			    // rather than processing them individually
-				if ( parseInt(input_val) < parseInt(min_width_anoigmatos) ){
-					auto_poy_patisa_input.val( geniko_data_val );
-				}else if( parseInt(input_val) > parseInt(max_width_anoigmatos) ){
-					auto_poy_patisa_input.val( geniko_data_val );
-				}else{ //To dexomai
-					var arithmos_xwrismatwn = $('.orizontia').length;
-	    			var prwti_aferesi = parseFloat( geniko_data_val ) - parseFloat( input_val );
-	    			var apotelesma = parseFloat( $("#xwrisma_orizontio"+(arithmos_xwrismatwn-1)+"").val() ) + parseFloat( prwti_aferesi );
-	    			//elegxos max
-	    			if (  apotelesma <= max_width_anoigmatos && apotelesma >= min_width_anoigmatos ){
-	    				$("#xwrisma_orizontio"+(arithmos_xwrismatwn-1)+"").val( apotelesma );
-	    				meta_apo_ajax_xwrismata();
-	    				times_json(tipos_name_gia_xrwma, $(".width").text(), $(".height").text(), line_id_name, mesa_eksw, color_aplo, width_new ,height_new, epikathimeno_rolo,eksoteriko_rolo,persida,tzamia,profil_deksia,profil_aristera,profil_panw,profil_katw,$(".input_deksia").val(),$(".input_panw").val(),$(".input_katw").val(),$(".input_aristera").val(),typos,color_typos,odoigos,$(".color_deksia").text(),$(".color_aristera").text(),$(".color_panw").text(),$(".color_katw").text(),$(".color_fullou").text(),0,profil_deksia_1_id,profil_deksia_1_json_arithmos,profil_deksia_2_id,profil_deksia_2_json_arithmos,profil_deksia_3_id,profil_deksia_3_json_arithmos,profil_aristera_1_id,profil_aristera_1_json_arithmos,profil_aristera_2_id,profil_aristera_2_json_arithmos,profil_aristera_3_id,profil_aristera_3_json_arithmos,profil_panw_1_id,profil_panw_1_json_arithmos,profil_panw_2_id,profil_panw_2_json_arithmos,profil_panw_3_id,profil_panw_3_json_arithmos,profil_katw_1_id,profil_katw_1_json_arithmos,profil_katw_2_id,profil_katw_2_json_arithmos,profil_katw_3_id,profil_katw_3_json_arithmos,profil_typos_1_id,profil_typos_1_json_arithmos,profil_typos_2_id,profil_typos_2_json_arithmos,profil_typos_3_id,profil_typos_3_json_arithmos,prostasia,tzamia2,lastixo_epilogh,pl_rol_ep,up_rol_ep,pl_rol_ek,up_rol_ek,pl_persidas,up_persidas,up_odoigou,color_epikathimenou,color_eksoterikou,color_persidas,color_odoigou,color_profil_katw,color_profil_deksia,color_profil_aristera,color_profil_panw,elegxos_gia_parapanw_diastaseis_w,elegxos_gia_parapanw_diastaseis_h,xwrisma1,xwrisma2,xwrisma_y_1,xwrisma_y_2,xwrisma3_1,xwrisma3_2,xwrisma3_3,color_aplo_eksw,tzamia0,xwrisma4_1,xwrisma4_2,xwrisma4_3,xwrisma4_4,window_still_single,roll_rat,roll_rlt,roll_rdm,roll_pss,roll_pfm, place, rat_quantity);
-	    			}else{
-	    				auto_poy_patisa_input.val( geniko_data_val );
-	    			}
-				}
-			});
-			//Ελεγχος τελευταιου
-			//
-	    	
-		}else{
-			var geniko_width = width_new;
-	    	var input_val = $( ".orizontia" ).first().val();
-	    	var arithmos_xwrismatwn = $('.orizontia').length;
-	    	var prwti_aferesi = parseFloat( $( ".orizontia" ).first().data('val') ) - parseFloat( input_val );
-	    	var apotelesma = parseFloat( $("#xwrisma_orizontio"+(arithmos_xwrismatwn-1)+"").val() ) + parseFloat( prwti_aferesi );
-	    	$("#xwrisma_orizontio"+(arithmos_xwrismatwn-1)+"").val( apotelesma );
-		}
-		if ( $(this).attr("class") == "katheta" ){
-			//Poio input einai
-			var auto_poy_patisa_input = $( this );
-			//Ολο το height
-			var geniko_height = height_new;
-			//Τι έβαλα στο input
-	    	var input_val_h = $( this ).val();
-	    	//Κανω έλεγχο του input. Σε όλα τα ανοιγματα της γραμμης που άλλαξα
-	    	//Ποια γραμμη έχω
-	    	var grammi_key = $(this).attr("id").charAt(16);
-	    	//Πέρνω το μιν απο την γραμμη
-			var tempArray = table.split('|');
-			var finalArray = [];
-			for (var i = 0; i < tempArray.length; i++) {
-			    finalArray[i] = tempArray[i].split(',');
-			} 
-			//Gia ajax;
-			var promises = [];
-			$.each(finalArray , function( index, obj ) {
-			    $.each(obj, function( key, value ) {
-			        //An eimai stin stili
-			        if ( index == grammi_key ){
-			        	//To prvto einai min
-			        	if ( index == 0 ){
-			        		//ajax
-			        		var p = $.ajax({
-					          type:'GET',
-						      url:'/etic/anoigma',
-						      dataType: "json",
-						      data: { anoigma: value },
-					          success: function(data) {
-					            min_height_anoigmatos = data.min_height_anoigmatos;
-					            max_height_anoigmatos = data.max_height_anoigmatos;
-					        },
-					        error: function(data) { 
-					        }
-					        });//end ejax
-					        promises.push(p);
-			        	}else{
-			        		//ajax
-			        		var p = $.ajax({
-					          type:'GET',
-						      url:'/etic/anoigma',
-						      dataType: "json",
-						      data: { anoigma: value },
-					          success: function(data) {
-					            min_height_anoigmatos_this = data.min_height_anoigmatos;
-					            max_height_anoigmatos = data.max_height_anoigmatos;
-					        },
-					        error: function(data) { 
-					        }
-					        });//end ejax
-					        promises.push(p);
-					        //To megalitero min
-			        		if ( min_height_anoigmatos < min_height_anoigmatos_this ){
-			        			min_height_anoigmatos = min_height_anoigmatos_this
-			        		}
-			        		//To mikrotero max
-			        		if ( max_height_anoigmatos >= max_height_anoigmatos_this ){
-			        			max_height_anoigmatos = max_height_anoigmatos_this
-			        		}
-			        	}
-			        }
-			    });
-			});
-			//Ελεγχος μιν δεν το δεχομαι
-			$.when.apply($, promises).done(function() {
-			    // code here when all ajax calls are done
-			    // you could also process all the results here if you want
-			    // rather than processing them individually
-				if ( parseInt(input_val_h) < parseInt(min_height_anoigmatos) ){
-					auto_poy_patisa_input.val( geniko_data_val );
-				}else if( parseInt(input_val_h) > parseInt(max_height_anoigmatos) ){
-					auto_poy_patisa_input.val( geniko_data_val );
-				}else{ //To dexomai
-					var arithmos_xwrismatwn_h = $('.katheta').length;
-	    			var prwti_aferesi_h = parseFloat( geniko_data_val ) - parseFloat( input_val_h );
-	    			var apotelesma_h = parseFloat( $("#xwrisma_katheto0").val() ) + parseFloat( prwti_aferesi_h ); //+(arithmos_xwrismatwn_h-1)+
-	    			//elegxos max
-	    			if (  apotelesma_h <= max_height_anoigmatos && apotelesma_h >= min_height_anoigmatos ){
-	    				$("#xwrisma_katheto0").val( apotelesma_h );
-	    				meta_apo_ajax_xwrismata();
-	    				times_json(tipos_name_gia_xrwma, $(".width").text(), $(".height").text(), line_id_name, mesa_eksw, color_aplo, width_new ,height_new, epikathimeno_rolo,eksoteriko_rolo,persida,tzamia,profil_deksia,profil_aristera,profil_panw,profil_katw,$(".input_deksia").val(),$(".input_panw").val(),$(".input_katw").val(),$(".input_aristera").val(),typos,color_typos,odoigos,$(".color_deksia").text(),$(".color_aristera").text(),$(".color_panw").text(),$(".color_katw").text(),$(".color_fullou").text(),0,profil_deksia_1_id,profil_deksia_1_json_arithmos,profil_deksia_2_id,profil_deksia_2_json_arithmos,profil_deksia_3_id,profil_deksia_3_json_arithmos,profil_aristera_1_id,profil_aristera_1_json_arithmos,profil_aristera_2_id,profil_aristera_2_json_arithmos,profil_aristera_3_id,profil_aristera_3_json_arithmos,profil_panw_1_id,profil_panw_1_json_arithmos,profil_panw_2_id,profil_panw_2_json_arithmos,profil_panw_3_id,profil_panw_3_json_arithmos,profil_katw_1_id,profil_katw_1_json_arithmos,profil_katw_2_id,profil_katw_2_json_arithmos,profil_katw_3_id,profil_katw_3_json_arithmos,profil_typos_1_id,profil_typos_1_json_arithmos,profil_typos_2_id,profil_typos_2_json_arithmos,profil_typos_3_id,profil_typos_3_json_arithmos,prostasia,tzamia2,lastixo_epilogh,pl_rol_ep,up_rol_ep,pl_rol_ek,up_rol_ek,pl_persidas,up_persidas,up_odoigou,color_epikathimenou,color_eksoterikou,color_persidas,color_odoigou,color_profil_katw,color_profil_deksia,color_profil_aristera,color_profil_panw,elegxos_gia_parapanw_diastaseis_w,elegxos_gia_parapanw_diastaseis_h,xwrisma1,xwrisma2,xwrisma_y_1,xwrisma_y_2,xwrisma3_1,xwrisma3_2,xwrisma3_3,color_aplo_eksw,tzamia0,xwrisma4_1,xwrisma4_2,xwrisma4_3,xwrisma4_4,window_still_single,roll_rat,roll_rlt,roll_rdm,roll_pss,roll_pfm, place, rat_quantity);
-	    			}else{
-	    				auto_poy_patisa_input.val( geniko_data_val );
-	    			}
-				}
-			});
-			//Ελεγχος τελευταιου
-			//
-		}else{
-			var geniko_height = height_new;
-	    	var input_val_h = $( ".katheta" ).first().val();
-	    	var arithmos_xwrismatwn_h = $('.katheta').length;
-	    	var prwti_aferesi_h = parseFloat( $( ".katheta" ).first().data('val') ) - parseFloat( input_val_h );
-	    	var apotelesma_h = parseFloat( $("#xwrisma_katheto0").val() ) + parseFloat( prwti_aferesi_h );
-	    	$("#xwrisma_katheto0").val( apotelesma_h );
-		}
+				        		if ( max_height_anoigmatos >= max_height_anoigmatos_this ){
+				        			max_height_anoigmatos = max_height_anoigmatos_this
+				        		}*/
+				        	}
+				       // }
+				    });
+				});
+				//
+				//Ελεγχος μιν δεν το δεχομαι
+				$.when.apply($, promises).done(function() {
+				    // code here when all ajax calls are done
+				    // you could also process all the results here if you want
+				    // rather than processing them individually
 
+					if ( parseInt(input_val_h) < parseInt(min_height_anoigmatos) ){
+						auto_poy_patisa_input.val( geniko_data_val );
+					}else if( parseInt(input_val_h) > parseInt(max_height_anoigmatos) ){
+						auto_poy_patisa_input.val( geniko_data_val );
+					}else{ //To dexomai
+						var arithmos_xwrismatwn_h = $('.katheta').length;
+		    			var prwti_aferesi_h = parseFloat( geniko_data_val ) - parseFloat( input_val_h );
+		    			var apotelesma_h = parseFloat( $("#xwrisma_katheto0").val() ) + parseFloat( prwti_aferesi_h ); //+(arithmos_xwrismatwn_h-1)
+		    			
+		    			//elegxos max
+		    			if (  apotelesma_h <= max_height_anoigmatos2 && apotelesma_h >= min_height_anoigmatos2 ){
+		    				$("#xwrisma_katheto0").val( apotelesma_h );
+		    				meta_apo_ajax_xwrismata();
+		    				times_json_door(tipos_name_gia_xrwma, $(".width").text(), $(".height").text(), line_id_name, mesa_eksw, color_aplo, width_new ,height_new, epikathimeno_rolo,eksoteriko_rolo,persida,tzamia,profil_deksia,profil_aristera,profil_panw,profil_katw,$(".input_deksia").val(),$(".input_panw").val(),$(".input_katw").val(),$(".input_aristera").val(),typos,color_typos,odoigos,$(".color_deksia").text(),$(".color_aristera").text(),$(".color_panw").text(),$(".color_katw").text(),$(".color_fullou").text(),0,profil_deksia_1_id,profil_deksia_1_json_arithmos,profil_deksia_2_id,profil_deksia_2_json_arithmos,profil_deksia_3_id,profil_deksia_3_json_arithmos,profil_aristera_1_id,profil_aristera_1_json_arithmos,profil_aristera_2_id,profil_aristera_2_json_arithmos,profil_aristera_3_id,profil_aristera_3_json_arithmos,profil_panw_1_id,profil_panw_1_json_arithmos,profil_panw_2_id,profil_panw_2_json_arithmos,profil_panw_3_id,profil_panw_3_json_arithmos,profil_katw_1_id,profil_katw_1_json_arithmos,profil_katw_2_id,profil_katw_2_json_arithmos,profil_katw_3_id,profil_katw_3_json_arithmos,profil_typos_1_id,profil_typos_1_json_arithmos,profil_typos_2_id,profil_typos_2_json_arithmos,profil_typos_3_id,profil_typos_3_json_arithmos,prostasia,tzamia2,lastixo_epilogh,pl_rol_ep,up_rol_ep,pl_rol_ek,up_rol_ek,pl_persidas,up_persidas,up_odoigou,color_epikathimenou,color_eksoterikou,color_persidas,color_odoigou,color_profil_katw,color_profil_deksia,color_profil_aristera,color_profil_panw,elegxos_gia_parapanw_diastaseis_w,elegxos_gia_parapanw_diastaseis_h,xwrisma1,xwrisma2,xwrisma_y_1,xwrisma_y_2,xwrisma3_1,xwrisma3_2,xwrisma3_3,color_aplo_eksw,tzamia0,xwrisma4_1,xwrisma4_2,xwrisma4_3,xwrisma4_4,window_still_single,roll_rat,roll_rlt,roll_rdm,roll_pss,roll_pfm, place, rat_quantity, panel, equipment);
+
+		    			}else{
+		    				auto_poy_patisa_input.val( geniko_data_val );
+		    			}
+					}
+				});
+				//Ελεγχος τελευταιου
+				//
+			}else{
+				var geniko_height = height_new;
+		    	var input_val_h = $( ".katheta" ).first().val();
+		    	var arithmos_xwrismatwn_h = $('.katheta').length;
+		    	var prwti_aferesi_h = parseFloat( $( ".katheta" ).first().data('val') ) - parseFloat( input_val_h );
+		    	var apotelesma_h = parseFloat( $("#xwrisma_katheto0").val() ) + parseFloat( prwti_aferesi_h );
+		    	$("#xwrisma_katheto0").val( apotelesma_h );
+			}
+		} else{
+
+			geniko_data_val = $(this).data('val');
+
+			if ( $(this).attr("class") == "orizontia" ){
+				//Poio input einai
+				var auto_poy_patisa_input = $( this );
+				//Ολο το width
+				var geniko_width = width_new;
+				//Τι έβαλα στο input
+		    	var input_val = $( this ).val();
+		    	//Κανω έλεγχο του input. Σε όλα τα ανοιγματα της στήλης που άλλαξα
+		    	//Ποια στήλη έχω
+		    	var stili_key = $(this).attr("id").charAt(17);
+		    	//Πέρνω το μιν απο την στήλη
+				var tempArray = table.split('|');
+				var finalArray = [];
+				for (var i = 0; i < tempArray.length; i++) {
+				    finalArray[i] = tempArray[i].split(',');
+				}
+
+				//Gia ajax;
+				var promises = [];
+				$.each(finalArray , function( index, obj ) {
+				    $.each(obj, function( key, value ) {
+				        //An eimai stin stili
+				        //if ( key == stili_key ){
+				        	//To prvto einai min
+				        	if ( key == 0 ){
+				        		//ajax
+				        		var p = $.ajax({
+						          type:'GET',
+							      url:'/etic/anoigma',
+							      dataType: "json",
+							      data: { anoigma: value },
+						          success: function(data) {
+						            min_width_anoigmatos = data.min_width_anoigmatos;
+						            max_width_anoigmatos = data.max_width_anoigmatos;
+						        },
+						        error: function(data) { 
+						        }
+						        });//end ejax
+						        promises.push(p);
+				        	}else{
+				        		//ajax
+				        		var p = $.ajax({
+						          type:'GET',
+							      url:'/etic/anoigma',
+							      dataType: "json",
+							      data: { anoigma: value },
+						          success: function(data) {
+						            min_width_anoigmatos_this = data.min_width_anoigmatos;
+						            max_width_anoigmatos_this = data.max_width_anoigmatos;
+						        },
+						        error: function(data) { 
+						        }
+						        });//end ejax
+						        promises.push(p);
+						        $.when.apply($, promises).done(function() {
+						        	//To megalitero min
+					        		if ( min_width_anoigmatos < min_width_anoigmatos_this ){
+					        			min_width_anoigmatos = min_width_anoigmatos_this;
+					        		}
+					        		//To mikrotero max
+					        		if ( max_width_anoigmatos >= max_width_anoigmatos_this ){
+					        			max_width_anoigmatos = max_width_anoigmatos_this;
+					        		}
+						        });
+						        
+				        	}
+				        //}
+				    });
+				});
+				//Ελεγχος μιν δεν το δεχομαι
+				$.when.apply($, promises).done(function() {
+				    // code here when all ajax calls are done
+				    // you could also process all the results here if you want
+				    // rather than processing them individually
+					if ( parseInt(input_val) < parseInt(min_width_anoigmatos) ){
+						auto_poy_patisa_input.val( geniko_data_val );
+					}else if( parseInt(input_val) > parseInt(max_width_anoigmatos) ){
+						auto_poy_patisa_input.val( geniko_data_val );
+					}else{ //To dexomai
+						var arithmos_xwrismatwn = $('.orizontia').length;
+		    			var prwti_aferesi = parseFloat( geniko_data_val ) - parseFloat( input_val );
+		    			var apotelesma = parseFloat( $("#xwrisma_orizontio"+(arithmos_xwrismatwn-1)+"").val() ) + parseFloat( prwti_aferesi );
+		    			//elegxos max
+		    			if (  apotelesma <= max_width_anoigmatos && apotelesma >= min_width_anoigmatos ){
+		    				$("#xwrisma_orizontio"+(arithmos_xwrismatwn-1)+"").val( apotelesma );
+		    				meta_apo_ajax_xwrismata();
+		    				times_json(tipos_name_gia_xrwma, $(".width").text(), $(".height").text(), line_id_name, mesa_eksw, color_aplo, width_new ,height_new, epikathimeno_rolo,eksoteriko_rolo,persida,tzamia,profil_deksia,profil_aristera,profil_panw,profil_katw,$(".input_deksia").val(),$(".input_panw").val(),$(".input_katw").val(),$(".input_aristera").val(),typos,color_typos,odoigos,$(".color_deksia").text(),$(".color_aristera").text(),$(".color_panw").text(),$(".color_katw").text(),$(".color_fullou").text(),0,profil_deksia_1_id,profil_deksia_1_json_arithmos,profil_deksia_2_id,profil_deksia_2_json_arithmos,profil_deksia_3_id,profil_deksia_3_json_arithmos,profil_aristera_1_id,profil_aristera_1_json_arithmos,profil_aristera_2_id,profil_aristera_2_json_arithmos,profil_aristera_3_id,profil_aristera_3_json_arithmos,profil_panw_1_id,profil_panw_1_json_arithmos,profil_panw_2_id,profil_panw_2_json_arithmos,profil_panw_3_id,profil_panw_3_json_arithmos,profil_katw_1_id,profil_katw_1_json_arithmos,profil_katw_2_id,profil_katw_2_json_arithmos,profil_katw_3_id,profil_katw_3_json_arithmos,profil_typos_1_id,profil_typos_1_json_arithmos,profil_typos_2_id,profil_typos_2_json_arithmos,profil_typos_3_id,profil_typos_3_json_arithmos,prostasia,tzamia2,lastixo_epilogh,pl_rol_ep,up_rol_ep,pl_rol_ek,up_rol_ek,pl_persidas,up_persidas,up_odoigou,color_epikathimenou,color_eksoterikou,color_persidas,color_odoigou,color_profil_katw,color_profil_deksia,color_profil_aristera,color_profil_panw,elegxos_gia_parapanw_diastaseis_w,elegxos_gia_parapanw_diastaseis_h,xwrisma1,xwrisma2,xwrisma_y_1,xwrisma_y_2,xwrisma3_1,xwrisma3_2,xwrisma3_3,color_aplo_eksw,tzamia0,xwrisma4_1,xwrisma4_2,xwrisma4_3,xwrisma4_4,window_still_single,roll_rat,roll_rlt,roll_rdm,roll_pss,roll_pfm, place, rat_quantity);
+		    			}else{
+		    				auto_poy_patisa_input.val( geniko_data_val );
+		    			}
+					}
+				});
+				//Ελεγχος τελευταιου
+				//
+		    	
+			}else{
+				var geniko_width = width_new;
+		    	var input_val = $( ".orizontia" ).first().val();
+		    	var arithmos_xwrismatwn = $('.orizontia').length;
+		    	var prwti_aferesi = parseFloat( $( ".orizontia" ).first().data('val') ) - parseFloat( input_val );
+		    	var apotelesma = parseFloat( $("#xwrisma_orizontio"+(arithmos_xwrismatwn-1)+"").val() ) + parseFloat( prwti_aferesi );
+		    	$("#xwrisma_orizontio"+(arithmos_xwrismatwn-1)+"").val( apotelesma );
+			}
+			if ( $(this).attr("class") == "katheta" ){
+				//Poio input einai
+				var auto_poy_patisa_input = $( this );
+				//Ολο το height
+				var geniko_height = height_new;
+				//Τι έβαλα στο input
+		    	var input_val_h = $( this ).val();
+		    	//Κανω έλεγχο του input. Σε όλα τα ανοιγματα της γραμμης που άλλαξα
+		    	//Ποια γραμμη έχω
+		    	var grammi_key = $(this).attr("id").charAt(16);
+		    	//Πέρνω το μιν απο την γραμμη
+				var tempArray = table.split('|');
+				var finalArray = [];
+				for (var i = 0; i < tempArray.length; i++) {
+				    finalArray[i] = tempArray[i].split(',');
+				} 
+				//Gia ajax;
+				var promises = [];
+				$.each(finalArray , function( index, obj ) {
+				    $.each(obj, function( key, value ) {
+				        //An eimai stin stili
+
+				        if ( index == grammi_key ){
+				        	
+				        	//To prvto einai min
+				        	if ( index == 0 ){
+				        		//ajax
+				        		var p = $.ajax({
+						          type:'GET',
+							      url:'/etic/anoigma',
+							      dataType: "json",
+							      data: { anoigma: value },
+						          success: function(data) {
+						            min_height_anoigmatos = data.min_height_anoigmatos;
+						            max_height_anoigmatos = data.max_height_anoigmatos;
+						        },
+						        error: function(data) { 
+						        }
+						        });//end ejax
+						        promises.push(p);
+				        	}else{
+				        		//ajax
+				        		var p = $.ajax({
+						          type:'GET',
+							      url:'/etic/anoigma',
+							      dataType: "json",
+							      data: { anoigma: value },
+						          success: function(data) {
+						            min_height_anoigmatos_this = data.min_height_anoigmatos;
+						            max_height_anoigmatos = data.max_height_anoigmatos;
+						        },
+						        error: function(data) { 
+						        }
+						        });//end ejax
+						        promises.push(p);
+						        //To megalitero min
+				        		if ( min_height_anoigmatos < min_height_anoigmatos_this ){
+				        			min_height_anoigmatos = min_height_anoigmatos_this
+				        		}
+				        		//To mikrotero max
+				        		if ( max_height_anoigmatos >= max_height_anoigmatos_this ){
+				        			max_height_anoigmatos = max_height_anoigmatos_this
+				        		}
+				        	}
+				        }
+				    });
+				});
+
+				//Ελεγχος μιν δεν το δεχομαι
+				$.when.apply($, promises).done(function() {
+				    // code here when all ajax calls are done
+				    // you could also process all the results here if you want
+				    // rather than processing them individually
+
+					if ( parseInt(input_val_h) < parseInt(min_height_anoigmatos) ){
+						auto_poy_patisa_input.val( geniko_data_val );
+					}else if( parseInt(input_val_h) > parseInt(max_height_anoigmatos) ){
+						auto_poy_patisa_input.val( geniko_data_val );
+					}else{ //To dexomai
+						var arithmos_xwrismatwn_h = $('.katheta').length;
+		    			var prwti_aferesi_h = parseFloat( geniko_data_val ) - parseFloat( input_val_h );
+		    			var apotelesma_h = parseFloat( $("#xwrisma_katheto0").val() ) + parseFloat( prwti_aferesi_h ); //+(arithmos_xwrismatwn_h-1)+
+		    			//elegxos max
+		    			if (  apotelesma_h <= max_height_anoigmatos && apotelesma_h >= min_height_anoigmatos ){
+		    				$("#xwrisma_katheto0").val( apotelesma_h );
+		    				meta_apo_ajax_xwrismata();
+		    				times_json(tipos_name_gia_xrwma, $(".width").text(), $(".height").text(), line_id_name, mesa_eksw, color_aplo, width_new ,height_new, epikathimeno_rolo,eksoteriko_rolo,persida,tzamia,profil_deksia,profil_aristera,profil_panw,profil_katw,$(".input_deksia").val(),$(".input_panw").val(),$(".input_katw").val(),$(".input_aristera").val(),typos,color_typos,odoigos,$(".color_deksia").text(),$(".color_aristera").text(),$(".color_panw").text(),$(".color_katw").text(),$(".color_fullou").text(),0,profil_deksia_1_id,profil_deksia_1_json_arithmos,profil_deksia_2_id,profil_deksia_2_json_arithmos,profil_deksia_3_id,profil_deksia_3_json_arithmos,profil_aristera_1_id,profil_aristera_1_json_arithmos,profil_aristera_2_id,profil_aristera_2_json_arithmos,profil_aristera_3_id,profil_aristera_3_json_arithmos,profil_panw_1_id,profil_panw_1_json_arithmos,profil_panw_2_id,profil_panw_2_json_arithmos,profil_panw_3_id,profil_panw_3_json_arithmos,profil_katw_1_id,profil_katw_1_json_arithmos,profil_katw_2_id,profil_katw_2_json_arithmos,profil_katw_3_id,profil_katw_3_json_arithmos,profil_typos_1_id,profil_typos_1_json_arithmos,profil_typos_2_id,profil_typos_2_json_arithmos,profil_typos_3_id,profil_typos_3_json_arithmos,prostasia,tzamia2,lastixo_epilogh,pl_rol_ep,up_rol_ep,pl_rol_ek,up_rol_ek,pl_persidas,up_persidas,up_odoigou,color_epikathimenou,color_eksoterikou,color_persidas,color_odoigou,color_profil_katw,color_profil_deksia,color_profil_aristera,color_profil_panw,elegxos_gia_parapanw_diastaseis_w,elegxos_gia_parapanw_diastaseis_h,xwrisma1,xwrisma2,xwrisma_y_1,xwrisma_y_2,xwrisma3_1,xwrisma3_2,xwrisma3_3,color_aplo_eksw,tzamia0,xwrisma4_1,xwrisma4_2,xwrisma4_3,xwrisma4_4,window_still_single,roll_rat,roll_rlt,roll_rdm,roll_pss,roll_pfm, place, rat_quantity);
+		    			}else{
+		    				auto_poy_patisa_input.val( geniko_data_val );
+		    			}
+					}
+				});
+				//Ελεγχος τελευταιου
+				//
+			}else{
+				var geniko_height = height_new;
+		    	var input_val_h = $( ".katheta" ).first().val();
+		    	var arithmos_xwrismatwn_h = $('.katheta').length;
+		    	var prwti_aferesi_h = parseFloat( $( ".katheta" ).first().data('val') ) - parseFloat( input_val_h );
+		    	var apotelesma_h = parseFloat( $("#xwrisma_katheto0").val() ) + parseFloat( prwti_aferesi_h );
+		    	$("#xwrisma_katheto0").val( apotelesma_h );
+			}
+		}
 
 	});
 
@@ -560,9 +785,6 @@
 			}
 		});
 		//Εδω αρχικοποιω τις τιμες των χωρισματων
-		if ( $( ".orizontia" ).length == 1 ){
-
-  		}
       	if ( $( ".orizontia" ).length == 2 ){
         	xwrisma1 = $("#xwrisma_orizontio0").val();
         	xwrisma2 = $("#xwrisma_orizontio1").val();
@@ -585,13 +807,6 @@
 		$.each(finalArray , function( index, obj ) {
 		    $.each(obj, function( key, value ) {
 					//Μπορω και ετσι να παρω length
-					//var line1 = $(".0"+key+"2");
-               		//var x1 = line1.attr('x1');
-                	//var x2 = line1.attr('x2');
-                	//var y1 = line1.attr('y1');
-                	//var y2 = line1.attr('y2');
-                	//var lineLength = Math.sqrt(Math.pow((x2-x1), 2)+Math.pow((y2-y1),2));
-
                 	//Width καθε γραμμης = len
 		        	var line = $("."+index+""+key+"2").get(0);
 					var len = dist(line.x1.baseVal.value, line.x2.baseVal.value,
@@ -642,7 +857,68 @@
 	}
 	
 	function ok_click(){
-		
+		var tempArray = table.split('|');
+		var finalArray = [];
+		for (var i = 0; i < tempArray.length; i++) {
+		    finalArray[i] = tempArray[i].split(',');
+		} 
+
+		var promisess = [];
+		var min_height_anoigmatos11 = 0;
+		var min_height_anoigmatos22 = 0;
+		var min_height_anoigmatos33 = 0;
+		var pososto_prev = 1;
+		var pososto_prev1 = 1;
+		$.each(finalArray , function( index, obj ) {
+			$.each(obj, function( key, value ) {
+				if(value == 'a') value = 'an';
+				if(value == 'b') value = 'bn';
+				
+				var pp = $.ajax({
+		          type:'GET',
+			      url:'/etic/anoigma',
+			      dataType: "json",
+			      data: { anoigma: value },
+		          success: function(data) {
+		          	if(value == 'an') {
+		          		min_height_anoigmatos11 = data.min_height_anoigmatos;
+		            	max_height_anoigmatos11 = data.max_height_anoigmatos;
+		            	min_width_anoigmatos11 = data.min_width_anoigmatos;
+		            	max_width_anoigmatos11 = data.max_width_anoigmatos;
+		          	}else if(value == 'n') {
+		          		min_height_anoigmatos22 = data.min_height_anoigmatos;
+		            	max_height_anoigmatos22 = data.max_height_anoigmatos;
+		            	min_width_anoigmatos22 = data.min_width_anoigmatos;
+		            	max_width_anoigmatos22 = data.max_width_anoigmatos;
+		          	} else if(value == 'bn'){
+		          		min_height_anoigmatos33 = data.min_height_anoigmatos;
+		            	max_height_anoigmatos33 = data.max_height_anoigmatos;
+		            	min_width_anoigmatos33 = data.min_width_anoigmatos;
+		            	max_width_anoigmatos33 = data.max_width_anoigmatos;
+		          	}
+		          	
+		        },
+		        error: function(data) { 
+		        }
+		        });//end ajax
+		        promisess.push(pp);
+		    });
+		});
+		$.when.apply($, promisess).done(function() {
+			if(min_height_anoigmatos11 > 0 && min_height_anoigmatos22 > 0) {
+				sum_min = min_width_anoigmatos11 + min_width_anoigmatos22;
+				sum_max = max_width_anoigmatos11 + max_width_anoigmatos22;
+        		pragmatiko_mikos_dia1 = ((max_width_anoigmatos11-min_width_anoigmatos11)/(sum_max-sum_min))*(width_new-sum_min) + min_width_anoigmatos11;
+        		pososto_a = (pragmatiko_mikos_dia1/width_new);
+        		pososto_n = 1-pososto_a;
+			}
+			if(min_height_anoigmatos33 > 0 && min_height_anoigmatos22 > 0) {
+				sum_min = min_width_anoigmatos33 + min_width_anoigmatos22;
+				sum_max = max_width_anoigmatos33 + max_width_anoigmatos22;
+        		pragmatiko_mikos_dia1 = ((max_width_anoigmatos33-min_width_anoigmatos33)/(sum_max-sum_min))*(width_new-sum_min) + min_width_anoigmatos33;
+        		pososto_b = (pragmatiko_mikos_dia1/width_new);
+        		pososto_n = 1-pososto_b;
+			}
 		//Μαχ width του modal
 		max_width = $("#sxedio_new").width() * 0.8;//$(".modal-dialog").width() - 30;
 		max_height = $("#sxedio_new").width() * 0.8; //$(".modal-dialog").height() - 30; //Δεν υπαρχει κανονικα παει μεχρι απειρα κατω
@@ -687,31 +963,15 @@
 		$("#kasa_svg").attr( "x", profil_xwros );
 		$("#kasa_svg").attr( "y", rolo_epanw_xwros + profil_xwros + grammes_xwros );
 		$("#kasa_svg").css({ fill: color_typou });
-		//Line κασας πανω αριστερα
-		//var kasa_svg = $("#kasa_svg").get(0);
-		//$(".line_kasa_1").attr( "x1", kasa_svg.x.baseVal.value );
-		//$(".line_kasa_1").attr( "y1", kasa_svg.y.baseVal.value );
-		//$(".line_kasa_1").attr( "x2", kasa_svg.x.baseVal.value + kasa_xwros );
-		//$(".line_kasa_1").attr( "y2", kasa_svg.y.baseVal.value + kasa_xwros );
-		//Line κασας κατω δεξια
-		//$(".line_kasa_1").attr( "x1", kasa_svg.x.baseVal.value + sunoloko_mikos + profil_xwros );
-		//$(".line_kasa_1").attr( "y1", kasa_svg.y.baseVal.value +sunoloko_ypsos );
-		//$(".line_kasa_1").attr( "x2", kasa_svg.x.baseVal.value + sunoloko_mikos + kasa_xwros + profil_xwros - profil_xwros );
-		//$(".line_kasa_1").attr( "y2", kasa_svg.y.baseVal.value + sunoloko_ypsos - profil_xwros + rolo_epanw_xwros + grammes_xwros );
-
-		var tempArray = table.split('|');
-		var finalArray = [];
-		for (var i = 0; i < tempArray.length; i++) {
-		    finalArray[i] = tempArray[i].split(',');
-		} 
 		
 		var mia_fora_mono = true;
 		var mpika = false;
-
 		$.each(finalArray , function( index, obj ) {
 			var x1_sum_orizontio = 0;
 			var x_sum_orizontio;
+
 		    $.each(obj, function( key, value ) {
+		    	
 		        	//Διαχωρισμός χωρισματων
 		        	//Πραγματικο μικος-υψος
 		        	pragmatiko_mikos_dia = (width_new/obj.length);
@@ -724,40 +984,53 @@
 		        	pragmatiko_mikos_mon_px = sunoloko_mikos;
 
 		        	xwrismata = {};
-		        	//key != apo to teleytaio kanw floor
-		        	if ( ( key != (obj.length-1) ) ){
-		        		xwrismata['xwrisma_orizontio' + key] = Math.floor(pragmatiko_mikos_dia);
-		        		xwrismata['xwrisma_orizontio_px' + key] = Math.floor(pragmatiko_mikos_dia_px);
-		        	}else{//teleytaio
-		        		xwrismata['xwrisma_orizontio' + key] = Math.ceil(pragmatiko_mikos_dia);
-		        		xwrismata['xwrisma_orizontio_px' + key] = Math.ceil(pragmatiko_mikos_dia_px);
-		        	}
-		        	//index != apo to teleytaio kanw floor
 		        	//olympia
-		        	if(table.indexOf("n") > 0 && table.indexOf("|") > 0 && obj[0] == 'a'){
-		        		if(height_new > 3600)//4200
-		        			pososto = 1- ((2150/height_new).toFixed(4));
-		        		else
-		        			pososto = 1- ((1900/height_new).toFixed(4));
-		        		
-		        		pragmatiko_ypsos_dia = height_new*pososto;
-		        		pragmatiko_ypsos_dia_px = sunoloko_ypsos*pososto;
-		        		prev_pragmatiko_ypsos_dia_px = pragmatiko_ypsos_dia_px;
-		        	} else if(table.indexOf("n") > 0 && table.indexOf("|") > 0 && (obj[0] == 'n' || obj[0] == 'b')) {
-		        		if(height_new > 3600) {//4200
-		        			pososto = (2150/height_new).toFixed(4);
-		        			pososto_prev = 1- ((2150/height_new).toFixed(4));
-		        		} else {
-		        			pososto = (1900/height_new).toFixed(4);
-		        			pososto_prev = 1- ((1900/height_new).toFixed(4));
-		        		}
+		        	prev_pragmatiko_ypsos_dia_px = pragmatiko_ypsos_dia_px;
+		        	if(table.indexOf("n") >= 0 && table.indexOf("|") > 0 && value == 'a'){
+		        		sum_min = min_height_anoigmatos11 + min_height_anoigmatos22;
+						sum_max = max_height_anoigmatos11 + max_height_anoigmatos22;
+		        		pragmatiko_ypsos_dia1 = ((max_height_anoigmatos11-min_height_anoigmatos11)/(sum_max-sum_min))*(height_new-sum_min) + min_height_anoigmatos11;
+		        		pososto = (pragmatiko_ypsos_dia1/height_new).toFixed(20);
 
 		        		pragmatiko_ypsos_dia = height_new*pososto;
 		        		pragmatiko_ypsos_dia_px = sunoloko_ypsos*pososto;
-		        		prev_pragmatiko_ypsos_dia_px = sunoloko_ypsos*pososto_prev;
-		        	} else
 		        		prev_pragmatiko_ypsos_dia_px = pragmatiko_ypsos_dia_px;
+		        	}  else if(table.indexOf("n") >= 0 && table.indexOf("|") > 0 && (value == 'n' || value == 'b') && (key==0)) {
+		        		pososto_prev = pososto;
+		        		pososto = 1-pososto;
+		        		pragmatiko_ypsos_dia = height_new*pososto;
+		        		pragmatiko_ypsos_dia_px = sunoloko_ypsos*pososto;
+		        		prev_pragmatiko_ypsos_dia_px = sunoloko_ypsos*pososto_prev;
+		        	}
 		        	
+		        	if(table.indexOf("n") >= 0 && table.indexOf(",") > 0 && value== 'b'){
+		        		pragmatiko_mikos_dia = width_new*pososto_b;
+		        		pragmatiko_mikos_dia_px = sunoloko_mikos*pososto_b;
+		        		if(pososto_prev1 == 1)
+		        			prev_pragmatiko_mikos_dia_px = pragmatiko_mikos_dia_px;
+		        		else
+		        			prev_pragmatiko_mikos_dia_px = sunoloko_mikos*pososto_prev1;
+		        		pososto_prev1 = pososto_b;
+		        	} else if(table.indexOf("n") >= 0 && table.indexOf(",") > 0 && value == 'n') {
+		        		pragmatiko_mikos_dia = width_new*pososto_n;
+		        		pragmatiko_mikos_dia_px = sunoloko_mikos*pososto_n;
+		        		if(pososto_prev1 == 1)
+		        			prev_pragmatiko_mikos_dia_px = pragmatiko_mikos_dia_px;
+		        		else
+		        			prev_pragmatiko_mikos_dia_px = sunoloko_mikos*pososto_prev1;
+		        		pososto_prev1 = pososto_n;
+		        	} else
+		        		prev_pragmatiko_mikos_dia_px = pragmatiko_mikos_dia_px;
+		        	
+		        	if ( ( key != (obj.length-1) ) ){
+		        		xwrismata['xwrisma_orizontio' + key] = Math.floor(pragmatiko_mikos_dia);
+		        		xwrismata['xwrisma_orizontio_px' + key] = Math.floor(pragmatiko_mikos_dia_px);
+		        		xwrismata['prev_xwrisma_orizontio_px' + key] = Math.floor(prev_pragmatiko_mikos_dia_px);
+		        	}else{//teleytaio
+		        		xwrismata['xwrisma_orizontio' + key] = Math.ceil(pragmatiko_mikos_dia);
+		        		xwrismata['xwrisma_orizontio_px' + key] = Math.ceil(pragmatiko_mikos_dia_px);
+		        		xwrismata['prev_xwrisma_orizontio_px' + key] = Math.ceil(prev_pragmatiko_mikos_dia_px);
+		        	}
 
 		        	if ( ( index != (finalArray.length-1) ) ){
 		        		xwrismata['xwrisma_katheto' + index] = Math.floor(pragmatiko_ypsos_dia);
@@ -768,10 +1041,7 @@
 		        		xwrismata['xwrisma_katheto_px' + index] = Math.ceil(pragmatiko_ypsos_dia_px);
 		        		xwrismata['prev_xwrisma_katheto_px' + index] = Math.ceil(prev_pragmatiko_ypsos_dia_px);
 		        	}
-		        	//xwrismata['xwrisma_orizontio' + key] = (width_new/obj.length);
-		        	//xwrismata['xwrisma_orizontio_px' + key] = (sunoloko_mikos/obj.length);
-		        	//xwrismata['xwrisma_katheto' + index] = (height_new/finalArray.length);
-		        	//xwrismata['xwrisma_katheto_px' + index] = (sunoloko_ypsos/finalArray.length);
+
 		        	//Μονο για την πρωτη row γραμμη. Οριζοντια χωρισματα
 		        	//An exw panw apo ena koyfwma stn grammi
 		        	
@@ -800,7 +1070,7 @@
 					    document.getElementById('svg').appendChild(rect);*/
 			    		//Text
 			    		var rect = makeSVG('text', {class:""+index+""+key+"2text", fill: 'black'});
-			    		rect.setAttribute('x',( ( key*xwrismata['xwrisma_orizontio_px' + key]+profil_xwros+kasa_xwros) + ( xwrismata['xwrisma_orizontio_px' + key]+profil_xwros+kasa_xwros + key*xwrismata['xwrisma_orizontio_px' + key]) )/2 );
+			    		rect.setAttribute('x',( ( key*xwrismata['prev_xwrisma_orizontio_px' + key]+profil_xwros+kasa_xwros) + ( xwrismata['prev_xwrisma_orizontio_px' + key]+profil_xwros+kasa_xwros + key*xwrismata['xwrisma_orizontio_px' + key]) )/2 );
 					    rect.setAttribute('y',profil_xwros + grammes_xwros/2 + 22);
 					    rect.textContent = $("#xwrisma_orizontio"+key+"").val().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1.");
 					    rect.setAttribute("font-size", "15");
@@ -860,9 +1130,9 @@
 								x1_sum_orizontio = key*xwrismata['xwrisma_orizontio_px' + key]+profil_xwros;
 							} else {
 								var rect = makeSVG('line', {class:""+index+""+key+"2", stroke: "black", 'stroke-width': 2, fill: 'none'});
-								rect.setAttribute('x1',key*xwrismata['xwrisma_orizontio_px' + key]+profil_xwros + kasa_xwros);
+								rect.setAttribute('x1',key*xwrismata['prev_xwrisma_orizontio_px' + key]+profil_xwros + kasa_xwros);
 								rect.setAttribute('y1',profil_xwros + grammes_xwros/2 + 8);
-								rect.setAttribute('x2',xwrismata['xwrisma_orizontio_px' + key]+profil_xwros+2*kasa_xwros + key*xwrismata['xwrisma_orizontio_px' + key]);
+								rect.setAttribute('x2',xwrismata['prev_xwrisma_orizontio_px' + key]+profil_xwros+2*kasa_xwros + key*xwrismata['xwrisma_orizontio_px' + key]);
 								rect.setAttribute('y2',profil_xwros + grammes_xwros/2 + 8);
 								rect.setAttribute('marker-end',"url(#triangle_t)");
 								rect.setAttribute('marker-start',"url(#triangle_a)");
@@ -870,18 +1140,18 @@
 								
 								//Katheti1
 							    var rect = makeSVG('line', {class:""+index+""+key+"4",stroke: "black", 'stroke-width': 1, fill: 'none'});
-							    rect.setAttribute('x1',key*xwrismata['xwrisma_orizontio_px' + key]+profil_xwros + kasa_xwros);
+							    rect.setAttribute('x1',key*xwrismata['prev_xwrisma_orizontio_px' + key]+profil_xwros + kasa_xwros);
 							    rect.setAttribute('y1',profil_xwros + grammes_xwros/2 + 11);
-							    rect.setAttribute('x2',key*xwrismata['xwrisma_orizontio_px' + key]+profil_xwros + kasa_xwros);
+							    rect.setAttribute('x2',key*xwrismata['prev_xwrisma_orizontio_px' + key]+profil_xwros + kasa_xwros);
 							    rect.setAttribute('y2',150);
 							    rect.setAttribute('stroke-dasharray',"5,5");
 							    document.getElementById('svg').appendChild(rect);
 								
 							    //Katheti2
 								var rect = makeSVG('line', {class:""+index+""+key+"4b",stroke: "black", 'stroke-width': 1, fill: 'none'});
-								rect.setAttribute('x1',xwrismata['xwrisma_orizontio_px' + key]+profil_xwros+2*kasa_xwros + key*xwrismata['xwrisma_orizontio_px' + key] );
+								rect.setAttribute('x1',xwrismata['prev_xwrisma_orizontio_px' + key]+profil_xwros+2*kasa_xwros + key*xwrismata['xwrisma_orizontio_px' + key] );
 								rect.setAttribute('y1',profil_xwros + grammes_xwros/2 + 11);
-								rect.setAttribute('x2',xwrismata['xwrisma_orizontio_px' + key]+profil_xwros+2*kasa_xwros + key*xwrismata['xwrisma_orizontio_px' + key]);
+								rect.setAttribute('x2',xwrismata['prev_xwrisma_orizontio_px' + key]+profil_xwros+2*kasa_xwros + key*xwrismata['xwrisma_orizontio_px' + key]);
 								rect.setAttribute('y2',150);
 								rect.setAttribute('stroke-dasharray',"5,5");
 								document.getElementById('svg').appendChild(rect);
@@ -1377,10 +1647,10 @@
 							var rect = makeSVG('line', {class:""+index+""+key+"5",stroke: "black", 'stroke-width': 1, fill: 'none'});
 							rect.setAttribute('x1',key*xwrismata['xwrisma_orizontio_px' + key]+(profil_xwros*4)+sunoloko_mikos+kasa_xwros+kasa_xwros  );
 							
-								rect.setAttribute('y1',index*xwrismata['prev_xwrisma_katheto_px' + index]+profil_xwros+rolo_epanw_xwros+grammes_xwros+kasa_xwros);
-								rect.setAttribute('y2',index*xwrismata['prev_xwrisma_katheto_px' + index]+profil_xwros+rolo_epanw_xwros+grammes_xwros+kasa_xwros);
-								/*rect.setAttribute('y1',index*xwrismata['xwrisma_katheto_px' + index]+profil_xwros+rolo_epanw_xwros+grammes_xwros+kasa_xwros);
-								rect.setAttribute('y2',index*xwrismata['xwrisma_katheto_px' + index]+profil_xwros+rolo_epanw_xwros+grammes_xwros+kasa_xwros);*/
+							rect.setAttribute('y1',index*xwrismata['prev_xwrisma_katheto_px' + index]+profil_xwros+rolo_epanw_xwros+grammes_xwros+kasa_xwros);
+							rect.setAttribute('y2',index*xwrismata['prev_xwrisma_katheto_px' + index]+profil_xwros+rolo_epanw_xwros+grammes_xwros+kasa_xwros);
+							/*rect.setAttribute('y1',index*xwrismata['xwrisma_katheto_px' + index]+profil_xwros+rolo_epanw_xwros+grammes_xwros+kasa_xwros);
+							rect.setAttribute('y2',index*xwrismata['xwrisma_katheto_px' + index]+profil_xwros+rolo_epanw_xwros+grammes_xwros+kasa_xwros);*/
 							
 							rect.setAttribute('x2',100);
 							rect.setAttribute('stroke-dasharray',"5,5");
@@ -1449,9 +1719,6 @@
 		$( ".orizontia" ).last().prop('disabled', true);
 		$( ".katheta" ).first().prop('disabled', true);
 		//Εδω αρχικοποιω τις τιμες των χωρισματων
-		if ( $( ".orizontia" ).length == 1 ){
-
-  		}
       	if ( $( ".orizontia" ).length == 2 ){
         	xwrisma1 = $("#xwrisma_orizontio0").val();
         	xwrisma2 = $("#xwrisma_orizontio1").val();
@@ -1461,9 +1728,6 @@
 	        xwrisma3_2 = $("#xwrisma_orizontio1").val();
 	        xwrisma3_3 = $("#xwrisma_orizontio2").val();
         }
-	    if ( $( ".katheta" ).length == 1 ){
-		        
-		}
 	    if ( $( ".katheta" ).length == 2 ){
 	        xwrisma_y_1 = $("#xwrisma_katheto0").val();
 	        xwrisma_y_2 = $("#xwrisma_katheto1").val();
@@ -1472,26 +1736,11 @@
 		var anoigma_n = null;
 		$.each(finalArray , function( index, obj ) {
 		    $.each(obj, function( key, value ) {
-		
-					//Μπορω και ετσι να παρω length
-					//var line1 = $(".0"+key+"2");
-               		//var x1 = line1.attr('x1');
-                	//var x2 = line1.attr('x2');
-                	//var y1 = line1.attr('y1');
-                	//var y2 = line1.attr('y2');
-                	//var lineLength = Math.sqrt(Math.pow((x2-x1), 2)+Math.pow((y2-y1),2));
 
                 	//Width καθε γραμμης = len
 		        	var line = $("."+index+""+key+"2").get(0);
-
 					var len = dist(line.x1.baseVal.value, line.x2.baseVal.value,
                		line.y1.baseVal.value, line.y2.baseVal.value);
-					
-					if((obj.length == 2) || (obj.length == 3 && key != 1) || (obj.length == 4 && key != 1)) {
-						len = len - 5;
-					} else if(obj.length == 1 && $("."+index+""+key+"2").css("display") != "none") {
-						len = len - 10;
-					}
 					             
 					//Height καθε γραμμης = Het
                		var line2 = $("."+index+"03").get(0);
@@ -1499,16 +1748,20 @@
                		line2.y1.baseVal.value, line2.y2.baseVal.value) ;
 
 					//olympia
-               		if(table.indexOf("n") > 0 && table.indexOf("|") > 0 && (value == 'n' || value == 'b')) {
+               		if(table.indexOf("n") >= 0 && table.indexOf("|") > 0 && (value == 'n' || value == 'b')) {
 		        		index2 = index -1 ;
 		        		var linee = $("."+index2+"03").get(0);
 		        		var hett = dist(linee.x1.baseVal.value, linee.x2.baseVal.value, linee.y1.baseVal.value, linee.y2.baseVal.value) ;
-		        		/*if(obj.length == 3) {
-		        			het = het + 5;
-							hett = hett + 5;
-						}*/
 		        	} else
 		        		var hett = het;
+
+		        	if(table.indexOf("n") >= 0 && table.indexOf(",") > 0 && (value == 'n' || value == 'b') && key == 1) {
+		        		index2 = index -1 ;
+		        		key2 = key -1;
+		        		var linee1 = $("."+index+""+key2+"2").get(0);
+						var lenn = dist(linee1.x1.baseVal.value, linee1.x2.baseVal.value, linee1.y1.baseVal.value, linee1.y2.baseVal.value);
+		        	} else 
+		        		var lenn = len;
 					
 					if(obj.length == 1 && $("."+index+""+key+"2").css("display") != "none" && key == 0 && index == 0 || 
 					(obj.length == 2 && $("."+index+""+key+"2").css("display") != "none" && index == 0 && finalArray.length != 2 && tempArray.length != 2) || 
@@ -1519,6 +1772,14 @@
 						het = het - 5;
 						hett = hett - 5;
 					}
+
+					if((obj.length == 2) || (obj.length == 3 && key != 1) || (obj.length == 4 && key != 1)) {
+						len = len - 5;
+						lenn = lenn - 5;
+					} else if(obj.length == 1 && $("."+index+""+key+"2").css("display") != "none") {
+						len = len - 10;
+						lenn = lenn - 10;
+					}
 					
                		function dist(x1, x2, y1, y2){
 					    return Math.sqrt( (x2-=x1)*x2 + (y2-=y1)*y2 );
@@ -1526,7 +1787,7 @@
 
 			        //Εξω τετραγωνο με χρώμα
 			        
-			        var rect = makeSVG('rect', {class:""+index+""+key+"1" ,x: key*len+profil_xwros+kasa_xwros, y: index*hett+rolo_epanw_xwros+profil_xwros+grammes_xwros+kasa_xwros, width:len, height:het, stroke: 'black', 'stroke-width': 2, fill: 'red'});//(sunoloko_mikos/obj.length),(sunoloko_ypsos/finalArray.length)
+			        var rect = makeSVG('rect', {class:""+index+""+key+"1" ,x: key*lenn+profil_xwros+kasa_xwros, y: index*hett+rolo_epanw_xwros+profil_xwros+grammes_xwros+kasa_xwros, width:len, height:het, stroke: 'black', 'stroke-width': 2, fill: 'red'});//(sunoloko_mikos/obj.length),(sunoloko_ypsos/finalArray.length)
 
 	        		document.getElementById('svg').appendChild(rect);
 	        		//Μεσα τετραγωνο με τζαμι και ανοιγμα, height width και αλλα απο function
@@ -1550,6 +1811,8 @@
 		stroke_persides(sunoloko_mikos,profil_xwros,rolo_epanw_xwros,kasa_xwros,grammes_xwros);
 		if ( anoigma_n == "n")
 			stroke_n(paidi_n,anoigma_n);
+
+	});
 
 	}
 	

@@ -1252,10 +1252,7 @@ class EticController < ApplicationController
 	end
   
 	def cat_panels
-		#tzamia = []
-		#tzamia << @tzami_cat.lista.to_s.split(",")
-		#@cat_panels = CatPanel.where(:id => tzamia)
-    @cat_panels = CatPanel.all
+    	@cat_panels = CatPanel.all
 		respond_to do |format|
       format.json { render json: @cat_panels.to_json}
     end
@@ -6353,7 +6350,7 @@ class EticController < ApplicationController
 		@eksoteriko_cat = Eksoterika.all
 		@persides = Persides.all
     	@window_still_cat = WindowStillCat.all
-    	@places = Place.all
+    	@equipment = Equipment.all
 		#Glass
 		@cat_tzamia0 = GlassCatInOut.all
 		@cat_tzamia1 = GlassCatIn.all
@@ -6936,11 +6933,12 @@ class EticController < ApplicationController
 
         ## HASH με διακυμάνσεις τιμών σύμφωνα με την βάση μου.
         ## Ανάλογα με το μίκος και ύψος, που πάτησα ψαχνω μεσα σε αυτα τα hash και πέρνω μια τιμή, το κλειδί. 
-        widths = { 600 => (350..700), 700 => (700..799), 800 => (800..899), 900 => (900..999), 1000 => (1000..1099), 1100 => (1100..1199), 1200 => (1200..1299), 1300 => (1300..1399), 1400 => (1400..1499), 1500 => (1500..1599), 1600 => (1600..1699), 1700 => (1700..1799), 1800 => (1800..1899), 1900 => (1900..1999), 2000 => (2000..2099), 2100 => (2100..2199), 2200 => (2200..2299), 2300 => (2300..2399), 2400 => (2400..2499), 2500 => (2500..2599), 2600 => (2600..2699), 2700 => (2700..2799), 2800 => (2800..2899), 2900 => (2900..2999), 3000 => (3000..3099), 3100 => (3100..3199), 3200 => (3200..3299), 3300 => (3300..3399), 3400 => (3400..3499), 3500 => (3500..3599), 3700 => (3700..3799), 3800 => (3800..3899), 3900 => (3900..3999), 4000 => (4000..4099), 4100 => (4100..4199), 4200 => (4200..4299), 4300 => (4300..4399), 4400 => (4400..4499), 4500 => (4500..4599), 4600 => (4600..4699), 4700 => (4700..4799), 4800 => (4800..4899), 4900 => (4900..4999), 5000 => (5000..5099), 5100 => (5100..5199), 5200 => (5200..5299), 5300 => (5300..5399), 5400 => (5400..5499), 5500 => (5500..5599), 5600 => (5600..5699), 5700 => (5700..5799), 5800 => (5800..5899), 5900 => (5900..5999), 6000 => (6000..6099)}
-        heights = { 600 => (350..700), 700 => (700..799), 800 => (800..899), 900 => (900..999), 1000 => (1000..1099), 1100 => (1100..1199), 1200 => (1200..1299), 1300 => (1300..1399), 1400 => (1400..1499), 1500 => (1500..1599), 1600 => (1600..1699), 1700 => (1700..1799), 1800 => (1800..1899), 1900 => (1900..1999), 2000 => (2000..2099), 2100 => (2100..2199), 2200 => (2200..2299), 2300 => (2300..2399), 2400 => (2400..2499), 2500 => (2500..2599), 2600 => (2600..2699), 2700 => (2700..2799), 2800 => (2800..2899), 2900 => (2900..2999), 3000 => (3000..3099), 3100 => (3100..3199), 3200 => (3200..3299), 3300 => (3300..3399), 3400 => (3400..3499), 3500 => (3500..3599), 3700 => (3700..3799), 3800 => (3800..3899), 3900 => (3900..3999), 4000 => (4000..4099)}
+        widths = { 200 => (200..299), 300 => (300..399), 400 => (400..499), 500 => (500..599), 600 => (600..699), 700 => (700..799), 800 => (800..899), 900 => (900..999), 1000 => (1000..1099), 1100 => (1100..1199), 1200 => (1200..1299), 1300 => (1300..1399), 1400 => (1400..1499), 1500 => (1500..1599), 1600 => (1600..1699), 1700 => (1700..1799), 1800 => (1800..1899), 1900 => (1900..1999), 2000 => (2000..2099), 2100 => (2100..2199), 2200 => (2200..2299), 2300 => (2300..2399), 2400 => (2400..2499), 2500 => (2500..2599), 2600 => (2600..2699), 2700 => (2700..2799), 2800 => (2800..2899), 2900 => (2900..2999), 3000 => (3000..3099), 3100 => (3100..3199), 3200 => (3200..3299), 3300 => (3300..3399), 3400 => (3400..3499), 3500 => (3500..3599), 3700 => (3700..3799), 3800 => (3800..3899), 3900 => (3900..3999), 4000 => (4000..4099), 4100 => (4100..4199), 4200 => (4200..4299), 4300 => (4300..4399), 4400 => (4400..4499), 4500 => (4500..4599), 4600 => (4600..4699), 4700 => (4700..4799), 4800 => (4800..4899), 4900 => (4900..4999), 5000 => (5000..5099), 5100 => (5100..5199), 5200 => (5200..5299), 5300 => (5300..5399), 5400 => (5400..5499), 5500 => (5500..5599), 5600 => (5600..5699), 5700 => (5700..5799), 5800 => (5800..5899), 5900 => (5900..5999), 6000 => (6000..6099)}
+        heights = { 200 => (200..299), 300 => (300..399), 400 => (400..499), 500 => (500..599), 600 => (600..699), 700 => (700..799), 800 => (800..899), 900 => (900..999), 1000 => (1000..1099), 1100 => (1100..1199), 1200 => (1200..1299), 1300 => (1300..1399), 1400 => (1400..1499), 1500 => (1500..1599), 1600 => (1600..1699), 1700 => (1700..1799), 1800 => (1800..1899), 1900 => (1900..1999), 2000 => (2000..2099), 2100 => (2100..2199), 2200 => (2200..2299), 2300 => (2300..2399), 2400 => (2400..2499), 2500 => (2500..2599), 2600 => (2600..2699), 2700 => (2700..2799), 2800 => (2800..2899), 2900 => (2900..2999), 3000 => (3000..3099), 3100 => (3100..3199), 3200 => (3200..3299), 3300 => (3300..3399), 3400 => (3400..3499), 3500 => (3500..3599), 3700 => (3700..3799), 3800 => (3800..3899), 3900 => (3900..3999), 4000 => (4000..4099)}
         
 		@price = 0
 		@price_temp = 0
+		@price_fix = 0
 
 		arr = @open_type.table.split('|').collect! {|n| n.to_s}
 
@@ -6961,6 +6959,7 @@ class EticController < ApplicationController
 		    	height_gia_anoigma = height
 		    end
 		    #Για καθε col το μήκος subarr.length ποσα col σε καθε row
+		    
 		    if ( subarr.length == 1 )
 		    	width_gia_anoigma = width
 		    elsif ( subarr.length == 2 )
@@ -6985,7 +6984,6 @@ class EticController < ApplicationController
 			puts "Width meta apo epeksergasia"+width_index.to_s
 			puts "Height meta apo epeksergasia"+height_index.to_s
 
-
 		    ##Για καθε ανοιγμα τιμη
 	    	if(anoigma == 'a')
 	    		anoigma = 'an'
@@ -6996,55 +6994,61 @@ class EticController < ApplicationController
 	    	end
 		    #olympia3
 
-		    @col_data_heights = []
-			CSV.foreach("#{Rails.root}/public/pricelist/"+@panel.pricelist+".csv", col_sep: ';', headers:true) {|row| @col_data_heights << row[0]}
-			#puts col_data_heights
+		    if(anoigma != 'n')
+			    @col_data_heights = []
+				CSV.foreach("#{Rails.root}/public/pricelist/"+anoigma+".csv", col_sep: ';', headers:true) {|row| @col_data_heights << row[0]}
+				#puts col_data_heights
 
-			@col_data_widths = []
-			CSV.foreach("#{Rails.root}/public/pricelist/"+@panel.pricelist+".csv", col_sep: ';').with_index do |row, i| 
-				if ( i == 0 )
-					a = 0
-					while a < 20 do
-	   					@col_data_widths << row[a]
-	   					a +=1
+				@col_data_widths = []
+				CSV.foreach("#{Rails.root}/public/pricelist/"+anoigma+".csv", col_sep: ';').with_index do |row, i| 
+					if ( i == 0 )
+						a = 0
+						while a < 20 do
+		   					@col_data_widths << row[a]
+		   					a +=1
+						end
 					end
 				end
-			end
 
-			@thesi_width = 1
-			@thesi_height = 1
-			@timi = 0
+				@thesi_width = 1
+				@thesi_height = 1
+				@timi = 0
 
-			@col_data_widths.each_with_index do |width, i|
-				if ( width.to_i == width_index )
-					@thesi_width = i
+				@col_data_widths.each_with_index do |width, i|
+					if ( width.to_i == width_index )
+						@thesi_width = i
+					end
 				end
-			end
 
-			@col_data_heights.each_with_index do |height, i|
-				if ( height.to_i == height_index )
-					@thesi_height = i
+				@col_data_heights.each_with_index do |height, i|
+					if ( height.to_i == height_index )
+						@thesi_height = i
+					end
 				end
-			end
-
-			CSV.foreach("#{Rails.root}/public/pricelist/"+@panel.pricelist+".csv", col_sep: ';',headers:true ).with_index do |row, i| 
-				if ( i == @thesi_height )
-					@timi = row[@thesi_width]
+				puts @thesi_width
+				puts @thesi_height
+				CSV.foreach("#{Rails.root}/public/pricelist/"+anoigma+".csv", col_sep: ';',headers:true ).with_index do |row, i| 
+					if ( i == @thesi_height )
+						@timi = row[@thesi_width]
+					end
 				end
+
+				puts "timi gia anoigma" + @timi.to_s
+
+				@price = @price + @timi.to_f
+				
 			end
 
-			@price = @price + @timi.to_f
-	
 		  end#end mesa
 		end#end eksw
-    
-		    @system1 = System.where('lines like ?', "%#{@line.id.to_s}%")
-		    if (@open_type.csv != nil)
-		      @csv_neo = @open_type.csv
-		    else
-		      @csv_neo = @system1.csv
-		    end
-    
+    	
+	    #@system1 = System.where('lines like ?', "%#{@line.id.to_s}%")
+	    #if (@open_type.csv != nil)
+	      #@csv_neo = @open_type.csv
+	    #else
+	      #@csv_neo = @system1.csv
+	    #end
+    	@price = @price + @panel.pricelist.to_i
 		@price_temp = @price.to_f
 
         ## ΕΠΙΒΑΡΙΝΣΗ ΓΡΑΜΜΗΣ---
@@ -7059,7 +7063,6 @@ class EticController < ApplicationController
         	@price_temp = @price_temp + (@price_temp * (@line.epivarinsi_gri / 100))
         end
         
-
 
         ################## Επιβαρινση χρωματων ################
         ################# Αν δεν εχω εχτρα χρωματα
@@ -7151,15 +7154,14 @@ class EticController < ApplicationController
 			end.keys.first
 
 		    ##Για καθε ανοιγμα τιμη
-		    if(@open_type.table == 'a|n' || @open_type.table == 'n,b' || @open_type.table == 'b,n' || @open_type.table == 'b,n,b' || @open_type.table == 'a|b,n' || @open_type.table == 'a|b,n,b' || @open_type.table == 'a|n,b')
-		    	if(anoigma == 'a')
-		    		anoigma = 'an'
-		    	end
+	    	if(anoigma == 'a')
+	    		anoigma = 'an'
+	    	end
 
-		    	if(anoigma == 'b')
-		    		anoigma = 'bn'
-		    	end
-		    end
+	    	if(anoigma == 'b')
+	    		anoigma = 'bn'
+	    	end
+		    
 
 		    @col_data_heights = []
 			CSV.foreach("#{Rails.root}/public/pricelist/"+anoigma+".csv", col_sep: ';', headers:true) {|row| @col_data_heights << row[0]}
@@ -7198,15 +7200,16 @@ class EticController < ApplicationController
 				end
 			end
 
-			puts "Τιμή για άνοιγμα: "+anoigma.to_s+" == "+@timi
-
 			@price_temp = @price_temp + @timi.to_f
-	
+			puts "timi gia anoigma" + @timi.to_s
+			@price_fix = @price_fix + @timi.to_f
 		  end#end mesa
 		end#end eksw
+		
+		@price_temp = @price_temp + @panel.pricelist.to_i
 
 	    ## ΕΠΙΒΑΡΙΝΣΗ ΓΡΑΜΜΗΣ
-      @surcharge_line = @price_temp * (@line.epivarinsi_line / 100)
+        @surcharge_line = @price_temp * (@line.epivarinsi_line / 100)
 	    @price_temp = @price_temp + (@price_temp * (@line.epivarinsi_line / 100))
 	    ## ΕΠΙΒΑΡΙΝΣΗ ΛΑΣΤΙΧΟΥ
 	    ## ΕΠΙΒΑΡΙΝΣΗ ΛΑΣΤΙΧΟΥ
@@ -7460,34 +7463,15 @@ class EticController < ApplicationController
         end
 
         #place
-        @place = Place.where(:id => params[:place]).first
-        if ( !@place.nil? )
-            if ( width_gia_vasi_new != 0)
-	    		width_n = width_gia_vasi_new
-	    	else
-	    		width_n = width
-	    	end
-
-	    	if (height_gia_vasi_new != 0)
-	    		height_n = height_gia_vasi_new
-	    	else
-	    		height_n = height
-	    	end
-
-            if(@place.unit == 'm')
-          	  place_price = ((width_n * height_n * @place.price.to_f) / 1000000 )
-          	elsif (@place.unit == '4m')
-          		 place_price = (((2*height_n + 2*width_n) * @place.price.to_f) / 1000)
-            else
-              place_price = @place.price.to_f
-            end
+        @place = nil
+        @equipment= Equipment.where(:id => params[:equipment]).first
+        if ( !@equipment.nil? )
+            equipment_price = @equipment.price.to_f
             
-            place_name = @place.name
-            @price_extra = @price_extra + place_price
-          	tm_p_place = width_n
-          	timi_m_place = @place.price.to_f
-          	m_place = @place.unit
-          	place_code = @place.sungate_code
+            equipment_name = @equipment.name
+            @price_extra = @price_extra + equipment_price
+          	tm_p_equipment = width_n
+          	timi_m_equipment = @equipment.price.to_f
         end
         
         #roll rat
@@ -8189,98 +8173,14 @@ class EticController < ApplicationController
 		      @order.tm_p_prostasia = tm_p_prostasia
 		      @order.timi_m_p_prostasia = timi_m_p_prostasia
 		    end
-		    if !@odoigos.nil?
-		    	#if (@up_odoigou.to_f > 0.0)
-		    	#	@order.up_odigou = @up_odoigou.to_f
-		    	#else
-		        #		@order.up_odigou = height_mesa_meta_apo_typo
-		    	#end
-		    	@order.up_odigou = tm_od * 1000
-		    	@order.timi_m_odoigou = timi_m_odoigou
-		    	@order.odoigos = @odoigos.name
-		    	@order.color_odoigou = @xrwma_odoigou
-		    	@order.price_odoigou = pr_odoig
-		    	@order.price_color_odoigou = price_color_odoigou
-		    end
-		    if !@epik_rolo.nil?
-		    	if (@pl_rol_ep.to_f > 0.0)
-		    		@order.pl_rolou_ep = @pl_rol_ep.to_f
-		    	else
-		    		@order.pl_rolou_ep = mikos_eksw
-		    	end
-		    	if (@up_rol_ep.to_f > 0.0)
-		    		@order.up_rolou_ep = @up_rol_ep.to_f
-		    	else
-		    		@order.up_rolou_ep = height#height_mesa_meta_apo_typo
-		    	end
-		    	if ( !@kinisi_ep.nil? )
-		    		@order.kinisi_deksia_aristera = @kinisi_ep
-		    	end
-		    	if ( !@klap_ep.nil? )
-		    		@order.klap = @klap_ep
-		    	end
-		      @order.rolo = @epik_rolo.name
-		      @order.color_rolou = @xrwma_epikathimenou
-		      @order.timi_m_epik = timi_m_epik
-		      @order.price_rolou = pr_epik
-		      @order.price_color_rolou = price_color_rolou
-		    end
-		    if !@ekso_rolo.nil?
-		    	if (@pl_rol_ek.to_f > 0.0)
-		    		@order.pl_rolou_ek = @pl_rol_ek.to_f
-		    	else
-		    		@order.pl_rolou_ek = mikos_eksw
-		    	end
-		    	if (@up_rol_ek.to_f > 0.0)
-		    		@order.up_rolou_ek = @up_rol_ek.to_f
-		    	else
-		    		@order.up_rolou_ek = height#height_mesa_meta_apo_typo
-		    	end
-		    	if ( !@kinisi_ek.nil? )
-		    		@order.kinisi_deksia_aristera = @kinisi_ek
-		    	end
-		    	if ( !@deroll.nil? )
-		    		@order.deroll = @deroll
-		    	end
-		      @order.rolo = @ekso_rolo.name
-		      @order.color_rolou = @xrwma_eksoterikou
-		      @order.timi_m_ekso = timi_m_ekso
-		      @order.price_rolou = pr_ekso
-		      @order.price_color_rolou = price_color_rolou
-		     end
-		    if !@persida.nil?
-		    	if (@pl_persidas.to_f > 0.0)
-		    		@order.pl_persidas = @pl_persidas.to_f
-		    	else
-		    		@order.pl_persidas = mikos_eksw
-		    	end
-		    	if (@up_persidas.to_f > 0.0)
-		    		@order.up_persidas = @up_persidas.to_f
-		    	else
-		    		@order.up_persidas = height#height_mesa_meta_apo_typo
-		    	end
-		    	@order.persida = @persida.name
-		    	@order.color_persidas = @xrwma_persidas
-		    	@order.timi_m_persidas = timi_m_persidas
-		    	@order.price_persidas = pr_per
-		    	@order.price_color_persidas = price_color_persidas
-		    end
-		    #window still
-		    if !@window_still.nil?
-		    	@order.window_still = window_still_name
-		    	@order.timi_m_window_still = timi_m_window_still
-		    	@order.price_window_still = window_still_price
-		    	@order.m_window_still = m_window_still
-		    	@order.window_still_code = window_still_code
-		    end
 
 		    #place
-		    if !@place.nil?
-		    	@order.place = @place.name
-		    	@order.timi_m_place = timi_m_place
-		    	@order.price_place = place_price
-		    	@order.m_place = m_place
-		    	@order.place_code = place_code
+		    @place = nil
+		    if !@equipment.nil?
+		    	@order.equipment = @equipment.name
+		    	@order.timi_m_equipment = timi_m_equipment
+		    	@order.price_equipment = equipment_price
+		    	#@order.place_code = place_code
 		    end
 
 		    ### Nea profil
@@ -8432,42 +8332,6 @@ class EticController < ApplicationController
 		    	@order.typos_katw_arithmos_3 = @numero_typos_3
 		    	@order.timi_typos_katw_3 = ( @typos_katw_3.price * @numero_typos_3 )
 		    end
-
-		    #roll_rat
-		    if !@roll_rat.nil?
-		    	@order.roll_rat = @roll_rat.name
-		    	@order.timi_m_roll_rat = timi_m_roll_rat
-		    	@order.roll_rat_price = roll_rat_price
-		    	@order.rat_quan = @rat_quantity
-		    end
-
-		    #roll_rlt
-		    if !@roll_rlt.nil?
-		    	@order.roll_rlt = @roll_rlt.name
-		    	@order.timi_m_roll_rlt = timi_m_roll_rlt
-		    	@order.roll_rlt_price = roll_rlt_price
-		    end
-
-		    #roll_rdm
-		    if !@roll_rdm.nil?
-		    	@order.roll_rdm = @roll_rdm.name
-		    	@order.timi_m_roll_rdm = timi_m_roll_rdm
-		    	@order.roll_rdm_price = roll_rdm_price
-		    end
-
-		    #roll_pss
-		    if !@roll_pss.nil?
-		    	@order.roll_pss = @roll_pss.name
-		    	@order.timi_m_roll_pss = timi_m_roll_pss
-		    	@order.roll_pss_price = roll_pss_price
-		    end
-
-		    #roll_pfm
-		    if !@roll_pfm.nil?
-		    	@order.roll_pfm = @roll_pfm.name
-		    	@order.timi_m_roll_pfm = timi_m_roll_pfm
-		    	@order.roll_pfm_price = roll_pfm_price
-		    end
 		    ####Mexri edw
 		   
 
@@ -8585,77 +8449,36 @@ class EticController < ApplicationController
         	tzami2_name = ""
         	tzami2_timi = 0
         end
-        if (prostasia != "0")
-        	prostasia_name = pro_name
-        	prostasia_timi = pro
-        else
-        	prostasia_name = ""
-        	prostasia_timi = 0
-        end
-        
-        if (params[:window_still_single] != "0")
-        	window_still_name = window_still_name
-        	window_still_timi = window_still_price
-        else
-        	window_still_name = ""
-        	window_still_timi = 0
-        end
 
-        if (params[:place] != "0")
-        	place_name = place_name
-        	place_timi = place_price
+        prostasia_name = ""
+        prostasia_timi = 0
+        window_still_name = ""
+        window_still_timi = 0
+        place_name = ""
+        place_timi = 0
+        roll_rat_name = ""
+        roll_rat_timi = 0
+        roll_rlt_name = ""
+        roll_rlt_timi = 0
+        roll_rdm_name = ""
+        roll_rdm_timi = 0
+        roll_pss_name = ""
+        roll_pss_timi = 0
+        roll_pfm_name = ""
+        roll_pfm_timi = 0
+        odoigos_name = ""
+    	odoigos_timi = 0
+    	col_odoigou = ""
+    	price_color_odoigou = 0
+
+        if (params[:equipment] != "0")
+        	equipment_name = equipment_name
+        	equipment_timi = equipment_price
         else
-        	place_name = ""
-        	place_timi = 0
+        	equipment_name = ""
+        	equipment_timi = 0
         end
         
-        if (params[:roll_rat] != "0")
-        	roll_rat_name = roll_rat_name
-        	roll_rat_timi = roll_rat_price
-        else
-        	roll_rat_name = ""
-        	roll_rat_timi = 0
-        end
-        if (params[:roll_rlt] != "0")
-        	roll_rlt_name = roll_rlt_name
-        	roll_rlt_timi = roll_rlt_price
-        else
-        	roll_rlt_name = ""
-        	roll_rlt_timi = 0
-        end
-        if (params[:roll_rdm] != "0")
-        	roll_rdm_name = roll_rdm_name
-        	roll_rdm_timi = roll_rdm_price
-        else
-        	roll_rdm_name = ""
-        	roll_rdm_timi = 0
-        end
-        if (params[:roll_pss] != "0")
-        	roll_pss_name = roll_pss_name
-        	roll_pss_timi = roll_pss_price
-        else
-        	roll_pss_name = ""
-        	roll_pss_timi = 0
-        end
-        if (params[:roll_pfm] != "0")
-        	roll_pfm_name = roll_pfm_name
-        	roll_pfm_timi = roll_pfm_price
-        else
-        	roll_pfm_name = ""
-        	roll_pfm_timi = 0
-        end
-        
-        if !@odoigos.nil?
-        	odoigos_name = @odoigos.name
-        	odoigos_timi = pr_odoig
-        	col_odoigou = @xrwma_odoigou
-        	price_color_odoigou = price_color_odoigou
-        else
-        	odoigos_name = ""
-        	odoigos_timi = 0
-        	col_odoigou = ""
-        	price_color_odoigou = 0
-        end
         profil_price = 0
         profil_posotita = 0
         col_katw = ""
@@ -8897,6 +8720,8 @@ class EticController < ApplicationController
           	                          :window_still_timi => window_still_timi,
           	                          :place_name => place_name,
           	                          :place_timi => place_timi,
+          	                          :equipment_name => equipment_name,
+          	                          :equipment_timi => equipment_timi,
           	                          :roll_rat_name => roll_rat_name,
           	                          :roll_rat_timi => roll_rat_timi,
           	                          :roll_rlt_name => roll_rlt_name,
@@ -8997,7 +8822,8 @@ class EticController < ApplicationController
           	                          :pososto_dealer => pososto_dealer,
           	                          :price_color_odoigou => price_color_odoigou,
           	                          :price_color_epikathimenou => price_color_epikathimenou,
-          	                          :price_color_eksoterikou => price_color_eksoterikou } }
+          	                          :price_color_eksoterikou => price_color_eksoterikou,
+          	                          :price_fix => @price_fix } }
         end
 	end
 
