@@ -110,6 +110,14 @@ ActiveRecord::Schema.define(version: 20160719070630075818) do
     t.integer  "default"
   end
 
+  create_table "equipment", force: true do |t|
+    t.string   "name"
+    t.float    "price",        limit: 24
+    t.string   "sungate_code"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "glass_cat_in_outs", force: true do |t|
     t.string   "name"
     t.string   "code"
@@ -488,6 +496,9 @@ ActiveRecord::Schema.define(version: 20160719070630075818) do
     t.string   "roll_pfm"
     t.float    "timi_m_roll_pfm",            limit: 24
     t.float    "roll_pfm_price",             limit: 24
+    t.string   "equipment"
+    t.float    "price_equipment",            limit: 24
+    t.float    "timi_m_equipment",           limit: 24
   end
 
   create_table "panels", force: true do |t|
