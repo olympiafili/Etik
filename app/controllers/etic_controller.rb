@@ -6939,6 +6939,8 @@ class EticController < ApplicationController
 		@price = 0
 		@price_temp = 0
 		@price_fix = 0
+		@price_panel = 0
+		@name_panel = ''
 
 		arr = @open_type.table.split('|').collect! {|n| n.to_s}
 
@@ -7207,6 +7209,8 @@ class EticController < ApplicationController
 		end#end eksw
 		
 		@price_temp = @price_temp + @panel.pricelist.to_i
+		@price_panel = @panel.pricelist.to_i
+		@name_panel = @panel.name
 
 	    ## ΕΠΙΒΑΡΙΝΣΗ ΓΡΑΜΜΗΣ
         @surcharge_line = @price_temp * (@line.epivarinsi_line / 100)
@@ -8823,7 +8827,9 @@ class EticController < ApplicationController
           	                          :price_color_odoigou => price_color_odoigou,
           	                          :price_color_epikathimenou => price_color_epikathimenou,
           	                          :price_color_eksoterikou => price_color_eksoterikou,
-          	                          :price_fix => @price_fix } }
+          	                          :price_fix => @price_fix,
+          	                          :price_panel => @price_panel,
+          	                          :name_panel => @name_panel } }
         end
 	end
 

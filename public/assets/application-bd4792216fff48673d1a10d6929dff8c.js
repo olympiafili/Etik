@@ -11630,6 +11630,8 @@ function diagrafi_xwrismatwn(ti_einai, poio_einai){
         pososto_market = data.pososto_market;
         pososto_dealer = data.pososto_dealer;
         price_fix = data.price_fix;
+        price_panel = data.price_panel;
+        name_panel = data.name_panel;
 
         // Αλλαγες σε πινακακι //
         $(".super_apli_timi").text(super_apli_timi.toFixed(2).replace(".", ",")+" €");
@@ -11640,6 +11642,14 @@ function diagrafi_xwrismatwn(ti_einai, poio_einai){
         }
         else
           $(".price_fix").hide();
+
+        if (price_panel != 0){
+          $(".name_panel").text(name_panel);
+          $(".super_panel").text(price_panel.toFixed(2).replace(".", ",")+" €");
+          $(".price_panel").show();
+        }
+        else
+          $(".price_panel").hide();
 
         $(".teliki_timi_market").text((teliki_timi - pososto_market * teliki_timi).toFixed(2).replace(".", ",")+" €");
         $(".teliki_timi_dealer").text((teliki_timi - pososto_dealer * teliki_timi).toFixed(2).replace(".", ",")+" €");
@@ -11743,7 +11753,7 @@ function diagrafi_xwrismatwn(ti_einai, poio_einai){
         else{
             $(".lastixo_show_hide").css("display","none");
         }
-        if (true/*tzami0_timi != 0*/){
+        if (tzami0_timi != 0){
             $(".tzami0_show_hide").css("display","table-row");
             $(".table_tzami0").text(tzami0_name);
             $(".timi_tzami0").text(tzami0_timi.toFixed(2).replace(".", ",")+" €");

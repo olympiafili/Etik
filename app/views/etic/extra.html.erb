@@ -3217,6 +3217,9 @@
        setTimeout(function(){
           $("#tab_material").click();
         },500);
+
+       if($(this).attr("id") == "porta")
+        window.location.replace("<%= etic_simple_pse_user_door_path(:paraggelia_id => @par_code) %>");
     });
 	
     //Οταν κανω click στην κατηγορια ανοιγματος
