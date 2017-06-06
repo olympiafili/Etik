@@ -2993,7 +2993,7 @@ input[type="file"] {
 }
 
 .panel img {
-	width: 140px;
+	width: 165px;
 }
 
 .glass_3 a {
@@ -3008,4 +3008,17 @@ input[type="file"] {
 	height: 400px;
 	overflow: scroll;
 	display: none;
+}
+
+.big_container_door .color_m_e,
+.big_container_door .color,
+.big_container_door .color_eksw {
+  width: 250px;
+  height: auto;
+}
+
+textarea {
+  resize: none;
+  margin-top: 20px;
+  width: 250px;
 }

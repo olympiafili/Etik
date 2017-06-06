@@ -1,5 +1,9 @@
 class Order < ActiveRecord::Base
 
+  serialize :equipment
+  serialize :timi_m_equipment
+  serialize :price_equipment
+
 	belongs_to :paraggelia
 
 	mount_uploaders :avatar, AvatarUploader

@@ -6683,10 +6683,10 @@ class EticController < ApplicationController
         @counter_profil = 0
         @counter_profil_ar = 0
         #Default colors
-        @color_ar = RolaColor.where(:name => params[:col_ar]).first.name
-        @color_de = RolaColor.where(:name => params[:col_de]).first.name
-        @color_pa = RolaColor.where(:name => params[:col_pa]).first.name
-        @color_ka = RolaColor.where(:name => params[:col_ka]).first.name
+        @color_ar = ''
+        @color_de = ''
+        @color_pa = ''
+        @color_ka = ''
         ##
         pr_ar_1 = Profil.where(:id => params[:pr_ar_1]).first
         if ( !pr_ar_1.nil? )
@@ -6815,8 +6815,8 @@ class EticController < ApplicationController
 		div_mod = BigDecimal(@open_type.code.to_s).divmod 1
 		result = div_mod[1].to_s
 		open_type_code = @open_type.code
-		@color = Color.where(:name => params[:color_name]).first
-		@color_eksw = Color.where(:name => params[:color_eksw_name]).first
+		@color_name = params[:color_name]
+		@color_name_eksw = params[:color_eksw_name]
 		@mesa_eksw = params[:color_eksw]
 		##if params exists ΚΑΝΟΝΙΚΑ
 		@color_deksia = Color.where(:name => params[:color_deksia]).first
@@ -7096,23 +7096,28 @@ class EticController < ApplicationController
           ep = color_array[color_array.index(color_array.compact.max)]
         end
         ##Νεα επιβαρυνση
-        ep_mesa = @color.mia_pleura
-        ep_eksw = @color_eksw.mia_pleura
-
-        ep = ep_mesa + ep_eksw
-
-        puts "Epivarinsi xrwmatos: "+ep.to_s
-
-        ep_mesa_gia_pinaka = ( @price_temp * (ep_mesa / 100) )
-        ep_eksw_gia_pinaka = ( @price_temp * (ep_eksw / 100) )
-        
-        @surcharge_color = ep_mesa_gia_pinaka
-        @surcharge_color_eksw = ep_eksw_gia_pinaka
+        #ep_mesa = @color.mia_pleura
+        #ep_eksw = @color_eksw.mia_pleura
+        #ep = ep_mesa + ep_eksw
+        #ep_mesa_gia_pinaka = ( @price_temp * (ep_mesa / 100) )
+        #ep_eksw_gia_pinaka = ( @price_temp * (ep_eksw / 100) )
+        ep_mesa = 0
+        ep_eksw = 0
+        ep_mesa_gia_pinaka = 0
+        ep_eksw_gia_pinaka = 0
+        if(@color_name != @color_name_eksw)
+        	@surcharge_color = 425
+        	ep_mesa_gia_pinaka = 425
+        else
+        	@surcharge_color = 300
+        	ep_mesa_gia_pinaka = 300
+        end
+        @surcharge_color_eksw = 0
 
         @timi_mono_aspro_super_apli = @price
 
         ## ΤΙΜΗ ΧΩΡΙΣ ΕΧΤΡΑ ΑΠΛΗ = price.
-        @price = @price_temp + ( @price_temp * (ep / 100) )
+        @price = @price_temp + @surcharge_color
 
         puts "Apli timi: "+@price.to_s
         ####  ETXRA  #################
@@ -7232,7 +7237,7 @@ class EticController < ApplicationController
        ## Price new ειναι η τιμη του κουφωματος με τις νεες διστασεις
        @price_new = 0
        ##Me xrwmata. Πέρνω το ep που το έχω απο πριν.
-	   @price_new = @price_temp + ( @price_temp * (ep / 100) )
+	   @price_new = @price_temp + @surcharge_color
 
         ## Εδώ προσθέτω στην price_extra όλα τα extra που επιλέγω. 
 	    ## TIMI ME ROLA MONO tzamia
@@ -7468,15 +7473,32 @@ class EticController < ApplicationController
 
         #place
         @place = nil
-        @equipment= Equipment.where(:id => params[:equipment]).first
-        if ( !@equipment.nil? )
-            equipment_price = @equipment.price.to_f
-            
-            equipment_name = @equipment.name
-            @price_extra = @price_extra + equipment_price
-          	tm_p_equipment = width_n
-          	timi_m_equipment = @equipment.price.to_f
-        end
+        equipment_price = []
+        timi_m_equipment = []
+        equipment_name = []
+        equipment_all = []
+
+        if(!params[:equipment].nil?)
+        	if(params[:equipment].kind_of?(Array))
+	        	equipment_all = params[:equipment]
+	        else
+	        	equipment_all = params[:equipment].split(",").map(&:to_i)
+	        end
+
+	        equipment_all.each do |equip| 
+	  			@equipment= Equipment.where(:id => equip).first
+		        if ( !@equipment.nil? )
+		        	equipment_price << @equipment.price.to_f      
+		          	timi_m_equipment << @equipment.price.to_f
+		          	equipment_name << @equipment.name
+
+		          	@price_extra = @price_extra + @equipment.price.to_f
+		          	tm_p_equipment = width_n
+		        end
+	 		end
+	 	end
+
+        
         
         #roll rat
         @roll_rat = RatRoll.where(:id => params[:roll_rat]).first
@@ -8099,8 +8121,8 @@ class EticController < ApplicationController
 		    @order.system_id = @system.name
 		    @order.line_id = @line.name
 		    @order.leaf_id = @leaf.id
-		    @order.main_color_id = @color.name
-		    @order.main_color_eksw_id = @color_eksw.name
+		    @order.main_color_id = @color_name
+		    @order.main_color_eksw_id = @color_name_eksw
 		    @order.in_out = @mesa_eksw
 		    @order.open_type_id = @open_type.name
 		    @order.image = @open_type.image # + ".png"
@@ -8180,11 +8202,10 @@ class EticController < ApplicationController
 
 		    #place
 		    @place = nil
-		    if !@equipment.nil?
-		    	@order.equipment = @equipment.name
+		    if !equipment_all.nil?
+		    	@order.equipment = equipment_name
 		    	@order.timi_m_equipment = timi_m_equipment
 		    	@order.price_equipment = equipment_price
-		    	#@order.place_code = place_code
 		    end
 
 		    ### Nea profil
@@ -8475,7 +8496,7 @@ class EticController < ApplicationController
     	col_odoigou = ""
     	price_color_odoigou = 0
 
-        if (params[:equipment] != "0")
+        if (!equipment_all.nil?)
         	equipment_name = equipment_name
         	equipment_timi = equipment_price
         else

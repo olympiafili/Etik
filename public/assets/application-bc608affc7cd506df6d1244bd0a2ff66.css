@@ -13277,7 +13277,7 @@ input[type="file"] {
 
 /* line 2996, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
 .panel img {
-  width: 140px;
+  width: 165px;
 }
 
 /* line 3000, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
@@ -13295,4 +13295,19 @@ input[type="file"] {
   height: 400px;
   overflow: scroll;
   display: none;
+}
+
+/* line 3016, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
+.big_container_door .color_m_e,
+.big_container_door .color,
+.big_container_door .color_eksw {
+  width: 250px;
+  height: auto;
+}
+
+/* line 3021, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
+textarea {
+  resize: none;
+  margin-top: 20px;
+  width: 250px;
 }

@@ -497,8 +497,8 @@ ActiveRecord::Schema.define(version: 20160719070630075818) do
     t.float    "timi_m_roll_pfm",            limit: 24
     t.float    "roll_pfm_price",             limit: 24
     t.string   "equipment"
-    t.float    "price_equipment",            limit: 24
-    t.float    "timi_m_equipment",           limit: 24
+    t.string   "price_equipment"
+    t.string   "timi_m_equipment"
   end
 
   create_table "panels", force: true do |t|

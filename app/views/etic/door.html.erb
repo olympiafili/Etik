@@ -165,131 +165,67 @@
 
                   <div class="Color">
                     <div class="color_0 label_tab_bottom">
-                      <div class="row">
-                          <div class="col-xs-12">
-                            <label id="back_6" class="label_tab_top_next"><%= t('translate.Back') %></label>
-                            <label id="next_6" class="label_tab_top_next"><%= t('translate.Next') %></label>
-                          </div>
-                        </div>
-                        <hr>
                       <!-- Χρώματα μέσα -->
                       <div class="xrwmata_mesa_eksw_new">
                         <h5 class="xrwmata_title_color"><%= t('translate.Inside_color') %> - <%= t('translate.Outside_color') %></h5>
-                        <!-- Κατηγορία Α -->
+                        
                         <div class="katigoria_xrwmatos_m_e_A">
-                          <% @color_A.each do |c| %>
+
+                          <input class="input color_m_e" name="color_m_e" type="number" size="4" maxlength="4" placeholder="<%= t 'translate.Inside_color'%>- <%= t('translate.Outside_color') %>" id="" /><br>
+
+                          <textarea class="input color_desc" name="color_desc" rows="3" cols="14" id=""><%= t 'translate.Description'%></textarea>
+                          <!--<% @color_A.each do |c| %>
                               <div class="xrwma xrwma_new_1">
                                 <div class=""><h5 class="tipos_name"><%= c.name %></h5></div>
                                 <img src="/assets/<%= c.image%>" class="color_m_e" id="<%= c.name %>" >
                                 <span id="<%= c.code %>"></span>
                               </div>
-                            <!--</a>-->
-                          <% end %><!--End each-->
+                          <% end %>-->
+
                         </div>
-                        <!-- Κατηγορία Β -->
-                        <div class="katigoria_xrwmatos_m_e_B">
-                          <% @color_B.each do |c| %>
-                              <div class="xrwma xrwma_new_2">
-                                <div class=""><h5 class="tipos_name"><%= c.name %></h5></div>
-                                <img src="/assets/<%= c.image%>" class="color_m_e" id="<%= c.name %>" >
-                                <span id="<%= c.code %>"></span>
-                              </div>
-                            <!--</a>-->
-                          <% end %><!--End each-->
-                        </div>
-                        <!-- Κατηγορία C -->
-                        <div class="katigoria_xrwmatos_m_e_C">
-                          <% @color_C.each do |c| %>
-                              <div class="xrwma xrwma_new_3">
-                                <div class=""><h5 class="tipos_name"><%= c.name %></h5></div>
-                                <img src="/assets/<%= c.image%>" class="color_m_e" id="<%= c.name %>" >
-                                <span id="<%= c.code %>"></span>
-                              </div>
-                            <!--</a>-->
-                          <% end %><!--End each-->
-                        </div>
-                      </div><!-- End χρώματα μέσα -->
-                    </div><!--Color_1 end-->
+                      </div>
+                    </div>
+                    <!--Color_1 end-->
+                    
+                    <!-- Χρώματα μέσα -->
                     <div class="color_1 label_tab_bottom">
-                      <!-- Χρώματα μέσα -->
                       <div class="xrwmata_mesa_new">
                         <h5 class="xrwmata_title_color"><%= t('translate.Inside_color') %></h5>
-                        <!-- Κατηγορία Α -->
                         <div class="katigoria_xrwmatos_A">
-                          <% @color_A.each do |c| %>
-                            <!--<a data-toggle="popover" title="<%= c.name %>" data-content="<img src='/assets/<%= c.image %>'>" data-placement='bottom' popover-append-to-body='true'  data-html="true" class="bstooltip">-->
+
+                          <input class="input color" name="color" type="number" size="4" maxlength="4" placeholder="<%= t 'translate.Inside_color'%>" id=""><br>
+
+                          <!--<% @color_A.each do |c| %>
                               <div class="xrwma xrwma_new_1">
                                 <div class=""><h5 class="tipos_name"><%= c.name %></h5></div>
                                 <img src="/assets/<%= c.image%>" class="color" id="<%= c.name %>" >
                                 <span id="<%= c.code %>"></span>
                               </div>
-                            <!--</a>-->
-                          <% end %><!--End each-->
+                          <% end %>-->
                         </div>
-                        <!-- Κατηγορία Β -->
-                        <div class="katigoria_xrwmatos_B">
-                          <% @color_B.each do |c| %>
-                              <div class="xrwma xrwma_new_2">
-                                <div class=""><h5 class="tipos_name"><%= c.name %></h5></div>
-                                <img src="/assets/<%= c.image%>" class="color" id="<%= c.name %>" >
-                                <span id="<%= c.code %>"></span>
-                              </div>
-                            <!--</a>-->
-                          <% end %><!--End each-->
-                        </div>
-                        <!-- Κατηγορία C -->
-                        <div class="katigoria_xrwmatos_C">
-                          <% @color_C.each do |c| %>
-                              <div class="xrwma xrwma_new_3">
-                                <div class=""><h5 class="tipos_name"><%= c.name %></h5></div>
-                                <img src="/assets/<%= c.image%>" class="color" id="<%= c.name %>" >
-                                <span id="<%= c.code %>"></span>
-                              </div>
-                            <!--</a>-->
-                          <% end %><!--End each-->
-                        </div>
-                      </div><!-- End χρώματα μέσα -->
-                    </div><!--Color_1 end-->
+                      </div>
+                    </div>
+                    <!--Color_1 end-->
+                    
+                    <!-- Χρώματα έξω -->
                     <div class="color_2 label_tab_bottom">
-                      <!-- Χρώματα έξω -->
                       <div class="xrwmata_eksw_new">
                         <h5 class="xrwmata_title_color"><%= t('translate.Outside_color') %></h5>
-                        <!-- Κατηγορία Α -->
                         <div class="katigoria_xrwmatos_ekso_A">
-                          <% @color_A.each do |c| %>
-                            <!--<a data-toggle="popover" title="<%= c.name %>" data-content="<img src='/assets/<%= c.image %>'>" data-placement='bottom' popover-append-to-body='true'  data-html="true" class="bstooltip">-->
+
+                          <input class="input color_eksw" name="color_eksw" type="number" size="4" maxlength="4" placeholder="<%= t 'translate.Outside_color'%>" id=""><br>
+
+                          <!--<% @color_A.each do |c| %>
                               <div class="xrwma xrwma_new_1">
                                 <div class=""><h5 class="tipos_name"><%= c.name %></h5></div>
                                 <img src="/assets/<%= c.image%>" class="color_eksw" id="<%= c.name %>" >
                                 <span id="<%= c.code %>"></span>
                               </div>
-                            <!--</a>-->
-                          <% end %><!--End each-->
+                          <% end %>-->
                         </div>
-                        <!-- Κατηγορία Β -->
-                        <div class="katigoria_xrwmatos_ekso_B">
-                          <% @color_B.each do |c| %>
-                              <div class="xrwma xrwma_new_2">
-                                <div class=""><h5 class="tipos_name"><%= c.name %></h5></div>
-                                <img src="/assets/<%= c.image%>" class="color_eksw" id="<%= c.name %>" >
-                                <span id="<%= c.code %>"></span>
-                              </div>
-                            <!--</a>-->
-                          <% end %><!--End each-->
-                        </div>
-                        <!-- Κατηγορία C -->
-                        <div class="katigoria_xrwmatos_ekso_C">
-                          <% @color_C.each do |c| %>
-                              <div class="xrwma xrwma_new_3">
-                                <div class=""><h5 class="tipos_name"><%= c.name %></h5></div>
-                                <img src="/assets/<%= c.image%>" class="color_eksw" id="<%= c.name %>" >
-                                <span id="<%= c.code %>"></span>
-                              </div>
-                            <!--</a>-->
-                          <% end %><!--End each-->
-                        </div>
-                      </div><!-- End χρώματα έξω -->
-                    </div><!--End color_2-->
+                      </div>
+                    </div>
+                    <!--End color_2-->
 
                   </div><!--end class color-->
                   <hr>
@@ -834,16 +770,10 @@
                       </tr>
 
                       <tr>
-                        <td class="td_left"><label><%= t 'translate.Inside_color'  %>: </label></td>
+                        <td class="td_left"><label><%= t 'translate.Color'  %>: </label></td>
                         <td class=""><label class="color_main"></label></td>
-                        <td class="table_tm"><label class="ep_mesa_p"></label></td>
+                        <td class="table_tm"><label class="color_main_eksw"></label></td>
                         <td class="td_right"><label class="ep_mesa"></label></td>
-                      </tr>
-                      <tr>
-                        <td class="td_left"><label><%= t 'translate.Outside_color'  %>: </label></td>
-                        <td class=""><label class="color_main_eksw"></label></td>
-                        <td class="table_tm"><label class="ep_eksw_p"></label></td>
-                        <td class="td_right"><label class="ep_eksw"></label></td>
                       </tr>
                       <tr class="tzami0_show_hide" style="display:none;">
                         <td class="td_left"><label><%= t 'translate.Inside_Outside_glass'  %>: </label></td>
@@ -1160,14 +1090,16 @@
                         <td style="text-align: right"><label class="timi_window_still"></label></td>
                       </tr>-->
 
-                      <tr class="equipment_show_hide" style="display:none;">
-                        <td class="td_left"><label><%= t 'translate.Equipment' %> </label></td>
-                        <td class=""><label class="table_equipment"></label></td>
-                        <td class=""><label class=""></label></td>
-                        <td><label><%= t 'translate.MarketPrice'  %>: </label><label class="timi_market_equipment"></label></td>
-                        <td><label><%= t 'translate.DealerPrice'  %>: </label><label class="timi_dealer_equipment"></label></td>
-                        <td style="text-align: right"><label class="timi_equipment"></label></td>
-                      </tr>
+                      <% (0..11).each do |i| %>
+                        <tr class="equipment_all_table equipment_show_hide<%= i %>" style="display:none;">
+                          <td class="td_left"><label><%= t 'translate.Equipment' %> </label></td>
+                          <td class=""><label class="table_equipment"></label></td>
+                          <td class=""><label class=""></label></td>
+                          <td><label><%= t 'translate.MarketPrice'  %>: </label><label class="timi_market_equipment"></label></td>
+                          <td><label><%= t 'translate.DealerPrice'  %>: </label><label class="timi_dealer_equipment"></label></td>
+                          <td style="text-align: right"><label class="timi_equipment"></label></td>
+                        </tr>
+                      <% end %>
 					
                       <tr class="roll_rat_show_hide" style="display:none;">
                         <td class="td_left"><label><%= t 'translate.RollRat' %> </label></td>
@@ -1228,12 +1160,6 @@
       </div>
       <!--End modal για τιμες-->
       
-
-      <!-- Times me info apeuthias molis to patisw
-      <div class="warning_times  alert-dismissible_1" role="alert">
-        <button type="button" class="close" data-dismiss="" aria-label="Close"><div aria-hidden="true">&times;</div></button>
-      </div>
-      -->
     </div><!--col-xs-6 end-->
     
   </div><!--row first end-->
@@ -1241,16 +1167,9 @@
 </div><!--container first end-->
 
 <!-- Εδω μέσα είναι όλα -->
-<div class=""><!--container box_shadow-->
+<div class="">
   <!-- Ολα μέσα σε αυτο το row -->
   <div class=""><!--row row_mat-->
-    <!-- Αριστερη στίλη με σχεδιο και πινακακια -->
-    <!--
-    <div class="col-xs-12 col-md-4 scroll" style="clear:both; overflow-y:scroll; position: fixed ">
-      
-    
-
-    </div>--><!--END scroll αριστερη στήλη-->
 
     <!-- labels που δεν φαινονται για να κραταν τιμες -->
     <label class="width" style="display:none"><%= @width %></label>
@@ -1267,7 +1186,7 @@
     </div><!-- End Δεξια στήλη με επιλογες  -->
 
     <!-- EXTRA κρυβετε και φαβερωνεται αναλωγα με το τι παταω. To .scroll ειναι παντα φανερο. Αλλαζουν μονο τα extra και η form -->
-    <div class="col-xs-12 col-md-7 hide_extra" style="top:0px;"><!--style="overflow:scroll; height:400px;"-->
+    <div class="col-xs-12 col-md-7 hide_extra" style="top:0px;">
 
       
 
@@ -1278,24 +1197,10 @@
       <div class="button buttons_show_hide">
 
       </div>
-      <!--
-      <div class="button">
-        <button type="button" class='btn btn-default show_hide_button'>Show - Hide</button>
-      </div>
-      -->
     
     <div class="button">
-      <!--
-      <button type="button" id="home_right" class='btn btn-danger order_prin' ><%= t 'color.sunexia' %></button>
-      -->
     </div>
    
-    <!-- Δεξια κατω για να πηγαινει επάνω -->
-    <!--
-    <div class="home_right">
-      <a class="btn btn-primary" id="home_right"><span class="glyphicon glyphicon-chevron-up"></span></a>
-    </div>
-    -->
     <!-- MODALS -->
 
     <!-- Δεξια προφιλ -->
@@ -1317,7 +1222,6 @@
             </form>
           </div>
           <div class="modal-footer">
-            <!--<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>-->
             <button type="button" class="btn btn-primary arithmos_profil_deksia"><%= t 'translate.Save_changes' %></button>
           </div>
         </div>
@@ -1328,8 +1232,6 @@
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
-            <!--
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>-->
             <h4 class="modal-title"><%= t 'translate.Number_of_profiles' %></h4>
           </div>
           <div class="modal-body">
@@ -1342,7 +1244,6 @@
             </form>
           </div>
           <div class="modal-footer">
-            <!--<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>-->
             <button type="button" class="btn btn-primary arithmos_profil_aristera"><%= t 'translate.Save_changes' %></button>
           </div>
         </div>
@@ -1353,8 +1254,6 @@
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
-          <!--
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>-->
             <h4 class="modal-title"><%= t 'translate.Number_of_profiles' %></h4>
           </div>
           <div class="modal-body">
@@ -1367,7 +1266,6 @@
             </form>
           </div>
           <div class="modal-footer">
-            <!--<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>-->
             <button type="button" class="btn btn-primary arithmos_profil_panw"><%= t 'translate.Save_changes' %></button>
           </div>
         </div>
@@ -1378,8 +1276,6 @@
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
-          <!--
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>-->
             <h4 class="modal-title"><%= t 'translate.Number_of_profiles' %></h4>
           </div>
           <div class="modal-body">
@@ -1392,7 +1288,6 @@
             </form>
           </div>
           <div class="modal-footer">
-            <!--<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>-->
             <button type="button" class="btn btn-primary arithmos_profil_katw"><%= t 'translate.Save_changes' %></button>
           </div>
         </div>
@@ -1403,8 +1298,6 @@
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
-          <!--
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>-->
             <h4 class="modal-title"><%= t 'translate.Number_of_types' %></h4>
           </div>
           <div class="modal-body">
@@ -1412,14 +1305,9 @@
             <form id="myForm_t">
               <label class="radio-inline"><input class="radio" type="radio" name="optradio_t" value="1" checked="checked">1</label><br>
               <label class="radio-inline"><input class="radio" type="radio" name="optradio_t" value="0"><%= t 'translate.Destroy' %></label><br>
-              <!--
-              <label class="radio-inline"><input class="radio" type="radio" name="optradio_t" value="2">2 τύπος</label><br>
-              <label class="radio-inline"><input class="radio" type="radio" name="optradio_t" value="3">3 τύπος</label><br>
-              -->
             </form>
           </div>
           <div class="modal-footer">
-            <!--<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>-->
             <button type="button" class="btn btn-primary arithmos_typos"><%= t 'translate.Save_changes' %></button>
           </div>
         </div>
@@ -1430,8 +1318,6 @@
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
-            <!--
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>-->
             <h4 class="modal-title"><%= t 'translate.Number' %></h4>
           </div>
           <div class="modal-body">
@@ -1442,7 +1328,6 @@
             </form>
           </div>
           <div class="modal-footer">
-            <!--<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>-->
             <button type="button" class="btn btn-primary arithmos_rat"><%= t 'translate.Save_changes' %></button>
           </div>
         </div>
@@ -1507,16 +1392,10 @@
                     </tr>
 
                     <tr>
-                      <td class="td_left"><label><%= t 'translate.Inside_color'  %>: </label></td>
+                      <td class="td_left"><label><%= t 'translate.Color'  %>: </label></td>
                       <td class=""><label class="color_main"></label></td>
-                      <td class="table_tm"><label class="ep_mesa_p"></label></td>
+                      <td class="table_tm"><label class="color_main_eksw"></label></td>
                       <td class="td_right"><label class="ep_mesa"></label></td>
-                    </tr>
-                    <tr>
-                      <td class="td_left"><label><%= t 'translate.Outside_color'  %>: </label></td>
-                      <td class=""><label class="color_main_eksw"></label></td>
-                      <td class="table_tm"><label class="ep_eksw_p"></label></td>
-                      <td class="td_right"><label class="ep_eksw"></label></td>
                     </tr>
                     <tr class="tzami0_show_hide" style="display:none;">
                       <td class="td_left"><label><%= t 'translate.Inside_Outside_glass'  %>: </label></td>
@@ -1825,14 +1704,16 @@
                       <td style="text-align: right"><label class="timi_window_still"></label></td>
                     </tr>
 
-                    <tr class="equipment_show_hide" style="display:none;">
-                      <td class="td_left"><label><%= t 'translate.Equipment' %> </label></td>
-                      <td class=""><label class="table_equipment"></label></td>
-                      <td class=""><label class=""></label></td>
-                      <td><label><%= t 'translate.MarketPrice'  %>: </label><label class="timi_market_equipment"></label></td>
-                      <td><label><%= t 'translate.DealerPrice'  %>: </label><label class="timi_dealer_equipment"></label></td>
-                      <td style="text-align: right"><label class="timi_equipment"></label></td>
-                    </tr>
+                    <% (0..11).each do |i| %>
+                      <tr class="equipment_show_hide<%= i %>" style="display:none;">
+                        <td class="td_left"><label><%= t 'translate.Equipment' %> </label></td>
+                        <td class=""><label class="table_equipment"></label></td>
+                        <td class=""><label class=""></label></td>
+                        <td><label><%= t 'translate.MarketPrice'  %>: </label><label class="timi_market_equipment"></label></td>
+                        <td><label><%= t 'translate.DealerPrice'  %>: </label><label class="timi_dealer_equipment"></label></td>
+                        <td style="text-align: right"><label class="timi_equipment"></label></td>
+                      </tr>
+                    <% end %>
 
                     <tr class="roll_rat_show_hide" style="display:none;">
                         <td class="td_left"><label><%= t 'translate.RollRat' %> </label></td>
@@ -1957,7 +1838,7 @@
     if ( "<%= @color.name %>" !== "" && metavliti){ 
       $(".color").each(function( index ) {
           if( $( this ).attr("id") == "<%= @color.name %>" ){
-            color_typou = "<%= @color.code %>";
+            color_typou = "#FFFFFF";
             $( this ).click();
           }
         });
@@ -1965,7 +1846,7 @@
       if ( "<%= @color_eksw.name %>" !== "" && metavliti){  
         $(".color_eksw").each(function( index ) {
           if( $( this ).attr("id") == "<%= @color_eksw.name %>" ){
-            color_typou_eksw = "<%= @color_eksw.code %>";
+            color_typou_eksw = "#FFFFFF";
             $( this ).click();
           }
         });
@@ -2202,14 +2083,14 @@
       $("#tab_color").click();
     });
     $(".xrwmata_mesa_eksw_new").mouseup(function(){
-      $("#tab_glass").click();
+      //$("#tab_glass").click();
     });
     $(".xrwmata_mesa_new").mouseup(function(){
-      $("#color_2").click();
+      //$("#color_2").click();
     });
 
     $(".xrwmata_eksw_new").mouseup(function(){
-      $("#tab_glass").click();
+      //$("#tab_glass").click();
     });
 
   	//olympia
@@ -2294,7 +2175,7 @@
 	   window_still_sub_cat = 0;
 	   window_still = 0;
     place = 0;
-    equipment = 0;
+    equipment = [];
     color_epikathimenou = 0;
     persida = 0;
     color_persidas = 0;
@@ -2573,8 +2454,6 @@
               $(div_data).appendTo(".kataskevastes");
           })
           //Κανονικα θα πρεπει να κανω κλικ σε αυτον που ειναι επιλεγμενος απο επαναληψη
-          //$(".kataskevastis").trigger("click");
-          //popover_open();
           $("#material_2").click();
           $(".kataskevastis").trigger("click");
           },
@@ -2583,7 +2462,7 @@
       });//end ejax
       
       //Χρώματα ανάλωγα με κατασκευαστη. Απλα το μεταφαιρω με οποιο ειναι ανάλογο
-      $(".katigoria_xrwmatos_m_e_A").empty();
+      /*$(".katigoria_xrwmatos_m_e_A").empty();
       $(".katigoria_xrwmatos_m_e_B").empty();
       $(".katigoria_xrwmatos_m_e_C").empty();
       $(".katigoria_xrwmatos_A").empty();
@@ -2591,9 +2470,9 @@
       $(".katigoria_xrwmatos_C").empty();
       $(".katigoria_xrwmatos_ekso_A").empty();
       $(".katigoria_xrwmatos_ekso_B").empty();
-      $(".katigoria_xrwmatos_ekso_C").empty();
+      $(".katigoria_xrwmatos_ekso_C").empty();*/
 
-      $.ajax({
+      /*$.ajax({
         
         type:'GET',
         url:'/etic/color',
@@ -2673,7 +2552,8 @@
           },
         error: function(data) { 
           }
-      });//end ejax
+      });*///end ejax
+
   });//end click
   
   //..3..Κατασκευαστής. 
@@ -2859,6 +2739,8 @@
     popover_open();
   });
   
+  color_typou = '#FFFFFF';
+  color_typou_eksw = '#FFFFFF';
   //..7..Ανοιγματα.
   $(".ajax_open_type").on("click", ".tipos_anoigmatos", function() {
     //Αλλαγη σε χρωματα αυτου που επελεξα
@@ -2994,79 +2876,90 @@
       error: function(data) { 
         }
     });//end ejax
+    
+    $("input.color").val('1111');
+    $("input.color_eksw").val('1111');
+    $("input.color_m_e").val('1111');
+    $("input.color_m_e").trigger("change");
 
   });//end ανοιγματα
-
+  
   ///////////////////////BUTTON ΓΙΑ ΕΠΙΛΟΓΗ ΚΥΡΙΟΥ ΧΡΩΜΑΤΟΣ///////////////////////////////
   //Επιλογή αρχικού χρώματος και εμφάνηση στο label
-  $(".katigoria_xrwmatos_m_e_A, .katigoria_xrwmatos_m_e_B, .katigoria_xrwmatos_m_e_C").on("click", ".color_m_e", function() { 
+  $(".katigoria_xrwmatos_m_e_A, .katigoria_xrwmatos_m_e_B, .katigoria_xrwmatos_m_e_C").on("change", ".color_m_e", function() { 
     //Ποιο επελεξα
-    color_aplo_m_e = $(this).attr('id'); //Global variable για να την περασω στην αλλη σελιδα, εχω το name του
+    //color_aplo_m_e = $(this).attr('id'); //Global variable για να την περασω στην αλλη σελιδα, εχω το name του
     
-    $("#"+$(this).attr('id')+".color").click();
-    $("#"+$(this).attr('id')+".color_eksw").click();
+    //color_aplo = $(this).val();
+    $("input.color").val($(this).val());
+    $("input.color_eksw").val($(this).val());
+    $("input.color").change();
+    $("input.color_eksw").change();
 
     //Πινακακι
-    $(".color_main").text(color_aplo);
+    //$(".color_main").text(color_aplo);
+
     //Για prwta_xrwma επανω
-    color_typou = $(this).next().attr('id');
+    //color_typou = $(this).next().attr('id');
     //Σβηνω αυτα που ειχα πατησει
-    $(".color_m_e").css('border-style', '');
-    $(".tipos_name").css('display', '');
+    /*$(".color_m_e").css('border-style', '');
+    $(".tipos_name").css('display', '');*/
     //Κανω να φενετε με border αυτο που πατησα!!
-    $(this).css('border-style', 'solid');
+    /*$(this).css('border-style', 'solid');
     $(this).css('border-width', '5px');
     $(this).css('border-color', '#007389');
-    $(this).prev().children().css('display', 'block');
+    $(this).prev().children().css('display', 'block');*/
     //Αν δεν ειναι πρωτη φωρα ξαναζωγραφιζω
 
-    if ( !kanw_prwti_fora ){
+    /*if ( !kanw_prwti_fora ){
       ok_click();
-    }
+    }*/
     //Υπολογιζω την τιμη του χρωματος
     times_json_door(tipos_name_gia_xrwma, $(".width").text(), $(".height").text(), line_id_name, mesa_eksw, color_aplo, width_new ,height_new, epikathimeno_rolo,eksoteriko_rolo,persida,tzamia,profil_deksia,profil_aristera,profil_panw,profil_katw,$(".input_deksia").val(),$(".input_panw").val(),$(".input_katw").val(),$(".input_aristera").val(),typos,color_typos,odoigos,$(".color_deksia").text(),$(".color_aristera").text(),$(".color_panw").text(),$(".color_katw").text(),$(".color_fullou").text(),0,profil_deksia_1_id,profil_deksia_1_json_arithmos,profil_deksia_2_id,profil_deksia_2_json_arithmos,profil_deksia_3_id,profil_deksia_3_json_arithmos,profil_aristera_1_id,profil_aristera_1_json_arithmos,profil_aristera_2_id,profil_aristera_2_json_arithmos,profil_aristera_3_id,profil_aristera_3_json_arithmos,profil_panw_1_id,profil_panw_1_json_arithmos,profil_panw_2_id,profil_panw_2_json_arithmos,profil_panw_3_id,profil_panw_3_json_arithmos,profil_katw_1_id,profil_katw_1_json_arithmos,profil_katw_2_id,profil_katw_2_json_arithmos,profil_katw_3_id,profil_katw_3_json_arithmos,profil_typos_1_id,profil_typos_1_json_arithmos,profil_typos_2_id,profil_typos_2_json_arithmos,profil_typos_3_id,profil_typos_3_json_arithmos,prostasia,tzamia2,lastixo_epilogh,pl_rol_ep,up_rol_ep,pl_rol_ek,up_rol_ek,pl_persidas,up_persidas,up_odoigou,color_epikathimenou,color_eksoterikou,color_persidas,color_odoigou,color_profil_katw,color_profil_deksia,color_profil_aristera,color_profil_panw,elegxos_gia_parapanw_diastaseis_w,elegxos_gia_parapanw_diastaseis_h,xwrisma1,xwrisma2,xwrisma_y_1,xwrisma_y_2,xwrisma3_1,xwrisma3_2,xwrisma3_3,color_aplo_eksw,tzamia0,xwrisma4_1,xwrisma4_2,xwrisma4_3,xwrisma4_4,window_still_single,roll_rat,roll_rlt,roll_rdm,roll_pss,roll_pfm, place, rat_quantity, panel, equipment);
   });//end click
 
   //Επιλογή αρχικού χρώματος και εμφάνηση στο label
-  $(".katigoria_xrwmatos_A, .katigoria_xrwmatos_B, .katigoria_xrwmatos_C").on("click", ".color", function() { 
+  $(".katigoria_xrwmatos_A, .katigoria_xrwmatos_B, .katigoria_xrwmatos_C").on("change", ".color", function() { 
     //Ποιο επελεξα
-    color_aplo = $(this).attr('id'); //Global variable για να την περασω στην αλλη σελιδα, εχω το name του
+    color_aplo = $(this).val(); //Global variable για να την περασω στην αλλη σελιδα, εχω το name του
+    
     //Πινακακι
     $(".color_main").text(color_aplo);
+
     //Για prwta_xrwma επανω
-    color_typou = $(this).next().attr('id');
+    //color_typou = $(this).next().attr('id');
     //Σβηνω αυτα που ειχα πατησει
-    $(".color").css('border-style', '');
+    /*$(".color").css('border-style', '');
     $(".tipos_name").css('display', '');
     //Κανω να φενετε με border αυτο που πατησα!!
     $(this).css('border-style', 'solid');
     $(this).css('border-width', '5px');
     $(this).css('border-color', '#007389');
-    $(this).prev().children().css('display', 'block');
+    $(this).prev().children().css('display', 'block');*/
     //Αν δεν ειναι πρωτη φωρα ξαναζωγραφιζω
-    if ( !kanw_prwti_fora ){
+    /*if ( !kanw_prwti_fora ){
       ok_click();
-    }
+    }*/
     //Υπολογιζω την τιμη του χρωματος
     times_json_door(tipos_name_gia_xrwma, $(".width").text(), $(".height").text(), line_id_name, mesa_eksw, color_aplo, width_new ,height_new, epikathimeno_rolo,eksoteriko_rolo,persida,tzamia,profil_deksia,profil_aristera,profil_panw,profil_katw,$(".input_deksia").val(),$(".input_panw").val(),$(".input_katw").val(),$(".input_aristera").val(),typos,color_typos,odoigos,$(".color_deksia").text(),$(".color_aristera").text(),$(".color_panw").text(),$(".color_katw").text(),$(".color_fullou").text(),0,profil_deksia_1_id,profil_deksia_1_json_arithmos,profil_deksia_2_id,profil_deksia_2_json_arithmos,profil_deksia_3_id,profil_deksia_3_json_arithmos,profil_aristera_1_id,profil_aristera_1_json_arithmos,profil_aristera_2_id,profil_aristera_2_json_arithmos,profil_aristera_3_id,profil_aristera_3_json_arithmos,profil_panw_1_id,profil_panw_1_json_arithmos,profil_panw_2_id,profil_panw_2_json_arithmos,profil_panw_3_id,profil_panw_3_json_arithmos,profil_katw_1_id,profil_katw_1_json_arithmos,profil_katw_2_id,profil_katw_2_json_arithmos,profil_katw_3_id,profil_katw_3_json_arithmos,profil_typos_1_id,profil_typos_1_json_arithmos,profil_typos_2_id,profil_typos_2_json_arithmos,profil_typos_3_id,profil_typos_3_json_arithmos,prostasia,tzamia2,lastixo_epilogh,pl_rol_ep,up_rol_ep,pl_rol_ek,up_rol_ek,pl_persidas,up_persidas,up_odoigou,color_epikathimenou,color_eksoterikou,color_persidas,color_odoigou,color_profil_katw,color_profil_deksia,color_profil_aristera,color_profil_panw,elegxos_gia_parapanw_diastaseis_w,elegxos_gia_parapanw_diastaseis_h,xwrisma1,xwrisma2,xwrisma_y_1,xwrisma_y_2,xwrisma3_1,xwrisma3_2,xwrisma3_3,color_aplo_eksw,tzamia0,xwrisma4_1,xwrisma4_2,xwrisma4_3,xwrisma4_4,window_still_single,roll_rat,roll_rlt,roll_rdm,roll_pss,roll_pfm, place, rat_quantity, panel, equipment);
   });//end click
 
   //Επιλογή αρχικού χρώματος και εμφάνηση στο label ΕΞΩ
-  $(".katigoria_xrwmatos_ekso_A, .katigoria_xrwmatos_ekso_B, .katigoria_xrwmatos_ekso_C").on("click", ".color_eksw", function() { 
+  $(".katigoria_xrwmatos_ekso_A, .katigoria_xrwmatos_ekso_B, .katigoria_xrwmatos_ekso_C").on("change", ".color_eksw", function() { 
     //Ποιο επελεξα
-    color_aplo_eksw = $(this).attr('id'); //Global variable για να την περασω στην αλλη σελιδα, εχω το name του
+    color_aplo_eksw = $(this).val(); //Global variable για να την περασω στην αλλη σελιδα, εχω το name του
     //Πινακι
     $(".color_main_eksw").text(color_aplo_eksw);
     //Μεταβλητη για prwta_xrwma()
-    color_typou_eksw = $(this).next().attr('id');
+    //color_typou_eksw = $(this).next().attr('id');
     //Σβηνω αυτα που ειχα πατησει
-    $(".color_eksw").css('border-style', '');
+    /*$(".color_eksw").css('border-style', '');
     $(".tipos_name_eksw").css('display', '');
     //Κανω να φενετε με border αυτο που πατησα!!
     $(this).css('border-style', 'solid');
     $(this).css('border-width', '5px');
     $(this).css('border-color', '#007389');
-    $(this).prev().children().css('display', 'block');
+    $(this).prev().children().css('display', 'block');*/
     //Υπολογιζω τιμη χρωματος εξω
     times_json_door(tipos_name_gia_xrwma, $(".width").text(), $(".height").text(), line_id_name, mesa_eksw, color_aplo, width_new ,height_new, epikathimeno_rolo,eksoteriko_rolo,persida,tzamia,profil_deksia,profil_aristera,profil_panw,profil_katw,$(".input_deksia").val(),$(".input_panw").val(),$(".input_katw").val(),$(".input_aristera").val(),typos,color_typos,odoigos,$(".color_deksia").text(),$(".color_aristera").text(),$(".color_panw").text(),$(".color_katw").text(),$(".color_fullou").text(),0,profil_deksia_1_id,profil_deksia_1_json_arithmos,profil_deksia_2_id,profil_deksia_2_json_arithmos,profil_deksia_3_id,profil_deksia_3_json_arithmos,profil_aristera_1_id,profil_aristera_1_json_arithmos,profil_aristera_2_id,profil_aristera_2_json_arithmos,profil_aristera_3_id,profil_aristera_3_json_arithmos,profil_panw_1_id,profil_panw_1_json_arithmos,profil_panw_2_id,profil_panw_2_json_arithmos,profil_panw_3_id,profil_panw_3_json_arithmos,profil_katw_1_id,profil_katw_1_json_arithmos,profil_katw_2_id,profil_katw_2_json_arithmos,profil_katw_3_id,profil_katw_3_json_arithmos,profil_typos_1_id,profil_typos_1_json_arithmos,profil_typos_2_id,profil_typos_2_json_arithmos,profil_typos_3_id,profil_typos_3_json_arithmos,prostasia,tzamia2,lastixo_epilogh,pl_rol_ep,up_rol_ep,pl_rol_ek,up_rol_ek,pl_persidas,up_persidas,up_odoigou,color_epikathimenou,color_eksoterikou,color_persidas,color_odoigou,color_profil_katw,color_profil_deksia,color_profil_aristera,color_profil_panw,elegxos_gia_parapanw_diastaseis_w,elegxos_gia_parapanw_diastaseis_h,xwrisma1,xwrisma2,xwrisma_y_1,xwrisma_y_2,xwrisma3_1,xwrisma3_2,xwrisma3_3,color_aplo_eksw,tzamia0,xwrisma4_1,xwrisma4_2,xwrisma4_3,xwrisma4_4,window_still_single,roll_rat,roll_rlt,roll_rdm,roll_pss,roll_pfm, place, rat_quantity, panel, equipment);
   });//end click
@@ -3079,8 +2972,7 @@
   //Αν κανω UPDATE παω κατω στον κωδικα...
   $(".diastaseis").keypress(function (e) {
    var key = e.which;
-   if(key == 13)  // the enter key code
-    {
+   if(key == 13) {
       $(".ok").click();
       return false;  
     }
@@ -6117,37 +6009,41 @@
 }
 });
 
-  //// Place //
-  $(".extra").on("click", ".equipment", function() {
+  //// Equipment //
+$(".extra").on("click", ".equipment", function() {
   $('.modal_times .equipment_show_hide').insertAfter('.modal_times .neess_diastaseis_first');
     
-    epilogi_equipment = true;
+    //epilogi_equipment = true;
 
-    if (typeof(equipment) !== "undefined"){
-      if (equipment == $(this).attr('id')){
+    //if (typeof(equipment) !== "undefined"){
+      //if (equipment == $(this).attr('id')){
 
-          equipment = 0;
-          $( ".equipment" ).css("background-color","");//Ετσι αφαιρω την ιδιοτητα!!!
-          $( ".equipment" ).css("color","");
-          epilogi_equipment = false;
+          //equipment = 0;
+          //$( ".equipment" ).css("background-color","");//Ετσι αφαιρω την ιδιοτητα!!!
+          //$( ".equipment" ).css("color","");
+          //epilogi_equipment = false;
           
-          times_json_door(tipos_name_gia_xrwma, $(".width").text(), $(".height").text(), line_id_name, mesa_eksw, color_aplo, width_new ,height_new, epikathimeno_rolo,eksoteriko_rolo,persida,tzamia,profil_deksia,profil_aristera,profil_panw,profil_katw,$(".input_deksia").val(),$(".input_panw").val(),$(".input_katw").val(),$(".input_aristera").val(),typos,color_typos,odoigos,$(".color_deksia").text(),$(".color_aristera").text(),$(".color_panw").text(),$(".color_katw").text(),$(".color_fullou").text(),0,profil_deksia_1_id,profil_deksia_1_json_arithmos,profil_deksia_2_id,profil_deksia_2_json_arithmos,profil_deksia_3_id,profil_deksia_3_json_arithmos,profil_aristera_1_id,profil_aristera_1_json_arithmos,profil_aristera_2_id,profil_aristera_2_json_arithmos,profil_aristera_3_id,profil_aristera_3_json_arithmos,profil_panw_1_id,profil_panw_1_json_arithmos,profil_panw_2_id,profil_panw_2_json_arithmos,profil_panw_3_id,profil_panw_3_json_arithmos,profil_katw_1_id,profil_katw_1_json_arithmos,profil_katw_2_id,profil_katw_2_json_arithmos,profil_katw_3_id,profil_katw_3_json_arithmos,profil_typos_1_id,profil_typos_1_json_arithmos,profil_typos_2_id,profil_typos_2_json_arithmos,profil_typos_3_id,profil_typos_3_json_arithmos,prostasia,tzamia2,lastixo_epilogh,pl_rol_ep,up_rol_ep,pl_rol_ek,up_rol_ek,pl_persidas,up_persidas,up_odoigou,color_epikathimenou,color_eksoterikou,color_persidas,color_odoigou,color_profil_katw,color_profil_deksia,color_profil_aristera,color_profil_panw,elegxos_gia_parapanw_diastaseis_w,elegxos_gia_parapanw_diastaseis_h,xwrisma1,xwrisma2,xwrisma_y_1,xwrisma_y_2,xwrisma3_1,xwrisma3_2,xwrisma3_3,color_aplo_eksw,tzamia0,xwrisma4_1,xwrisma4_2,xwrisma4_3,xwrisma4_4, window_still_single,roll_rat,roll_rlt,roll_rdm,roll_pss,roll_pfm, place, rat_quantity, panel, equipment);
-        }
-      }
+          //times_json_door(tipos_name_gia_xrwma, $(".width").text(), $(".height").text(), line_id_name, mesa_eksw, color_aplo, width_new ,height_new, epikathimeno_rolo,eksoteriko_rolo,persida,tzamia,profil_deksia,profil_aristera,profil_panw,profil_katw,$(".input_deksia").val(),$(".input_panw").val(),$(".input_katw").val(),$(".input_aristera").val(),typos,color_typos,odoigos,$(".color_deksia").text(),$(".color_aristera").text(),$(".color_panw").text(),$(".color_katw").text(),$(".color_fullou").text(),0,profil_deksia_1_id,profil_deksia_1_json_arithmos,profil_deksia_2_id,profil_deksia_2_json_arithmos,profil_deksia_3_id,profil_deksia_3_json_arithmos,profil_aristera_1_id,profil_aristera_1_json_arithmos,profil_aristera_2_id,profil_aristera_2_json_arithmos,profil_aristera_3_id,profil_aristera_3_json_arithmos,profil_panw_1_id,profil_panw_1_json_arithmos,profil_panw_2_id,profil_panw_2_json_arithmos,profil_panw_3_id,profil_panw_3_json_arithmos,profil_katw_1_id,profil_katw_1_json_arithmos,profil_katw_2_id,profil_katw_2_json_arithmos,profil_katw_3_id,profil_katw_3_json_arithmos,profil_typos_1_id,profil_typos_1_json_arithmos,profil_typos_2_id,profil_typos_2_json_arithmos,profil_typos_3_id,profil_typos_3_json_arithmos,prostasia,tzamia2,lastixo_epilogh,pl_rol_ep,up_rol_ep,pl_rol_ek,up_rol_ek,pl_persidas,up_persidas,up_odoigou,color_epikathimenou,color_eksoterikou,color_persidas,color_odoigou,color_profil_katw,color_profil_deksia,color_profil_aristera,color_profil_panw,elegxos_gia_parapanw_diastaseis_w,elegxos_gia_parapanw_diastaseis_h,xwrisma1,xwrisma2,xwrisma_y_1,xwrisma_y_2,xwrisma3_1,xwrisma3_2,xwrisma3_3,color_aplo_eksw,tzamia0,xwrisma4_1,xwrisma4_2,xwrisma4_3,xwrisma4_4, window_still_single,roll_rat,roll_rlt,roll_rdm,roll_pss,roll_pfm, place, rat_quantity, panel, equipment);
+        //}
+      //}
 
-      if (epilogi_equipment) {
+      //if (epilogi_equipment) {
       
               //Αλλαγη χρωματος
-              $( ".equipment" ).css("background-color","");//Ετσι αφαιρω την ιδιοτητα!!!
-              $( ".equipment" ).css("color","");
-              //
-              $( this ).css("background-color","#d9eaed");
-              $( this ).css("color","black");
-
-              equipment = $(this).attr('id'); //Global variable για να την περασω στην αλλη σελιδα
+              //$( ".equipment" ).css("background-color","");//Ετσι αφαιρω την ιδιοτητα!!!
+              //$( ".equipment" ).css("color","");
+              if($( this ).css("background-color") == "rgb(217, 234, 237)") {
+                $(this).css("background-color","");//Ετσι αφαιρω την ιδιοτητα!!!
+                $( this).css("color","");
+                equipment.splice( $.inArray($(this).attr('id'), equipment), 1 );
+              } else {
+                $( this ).css("background-color","#d9eaed");
+                $( this ).css("color","black");
+                equipment.push($(this).attr('id'));
+              }
 
        times_json_door(tipos_name_gia_xrwma, $(".width").text(), $(".height").text(), line_id_name, mesa_eksw, color_aplo, width_new ,height_new, epikathimeno_rolo,eksoteriko_rolo,persida,tzamia,profil_deksia,profil_aristera,profil_panw,profil_katw,$(".input_deksia").val(),$(".input_panw").val(),$(".input_katw").val(),$(".input_aristera").val(),typos,color_typos,odoigos,$(".color_deksia").text(),$(".color_aristera").text(),$(".color_panw").text(),$(".color_katw").text(),$(".color_fullou").text(),0,profil_deksia_1_id,profil_deksia_1_json_arithmos,profil_deksia_2_id,profil_deksia_2_json_arithmos,profil_deksia_3_id,profil_deksia_3_json_arithmos,profil_aristera_1_id,profil_aristera_1_json_arithmos,profil_aristera_2_id,profil_aristera_2_json_arithmos,profil_aristera_3_id,profil_aristera_3_json_arithmos,profil_panw_1_id,profil_panw_1_json_arithmos,profil_panw_2_id,profil_panw_2_json_arithmos,profil_panw_3_id,profil_panw_3_json_arithmos,profil_katw_1_id,profil_katw_1_json_arithmos,profil_katw_2_id,profil_katw_2_json_arithmos,profil_katw_3_id,profil_katw_3_json_arithmos,profil_typos_1_id,profil_typos_1_json_arithmos,profil_typos_2_id,profil_typos_2_json_arithmos,profil_typos_3_id,profil_typos_3_json_arithmos,prostasia,tzamia2,lastixo_epilogh,pl_rol_ep,up_rol_ep,pl_rol_ek,up_rol_ek,pl_persidas,up_persidas,up_odoigou,color_epikathimenou,color_eksoterikou,color_persidas,color_odoigou,color_profil_katw,color_profil_deksia,color_profil_aristera,color_profil_panw,elegxos_gia_parapanw_diastaseis_w,elegxos_gia_parapanw_diastaseis_h,xwrisma1,xwrisma2,xwrisma_y_1,xwrisma_y_2,xwrisma3_1,xwrisma3_2,xwrisma3_3,color_aplo_eksw,tzamia0,xwrisma4_1,xwrisma4_2,xwrisma4_3,xwrisma4_4,window_still_single,roll_rat,roll_rlt,roll_rdm,roll_pss,roll_pfm, place, rat_quantity, panel, equipment);
-  }
+  //}
 });
 
   //// Roll rat ////

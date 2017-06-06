@@ -11661,9 +11661,9 @@ function diagrafi_xwrismatwn(ti_einai, poio_einai){
         $(".nea_timi_dealer").text(nea_timi_dealer.toFixed(2).replace(".", ",")+" €");
         
         $(".ep_mesa").text(ep_mesa_gia_pinaka.toFixed(2).replace(".", ",")+" €");
-        $(".ep_eksw").text(ep_eksw_gia_pinaka.toFixed(2).replace(".", ",")+" €");
-        $(".ep_mesa_p").text(ep_mesa_p+" %");
-        $(".ep_eksw_p").text(ep_eksw_p+" %");
+        $//(".ep_eksw").text(ep_eksw_gia_pinaka.toFixed(2).replace(".", ",")+" €");
+        //$(".ep_mesa_p").text(ep_mesa_p+" %");
+        //$(".ep_eksw_p").text(ep_eksw_p+" %");
         $(".tm_tz_0").empty();
         $(".tm_tz_0").append( ( tm_tz_0 ).toFixed(2)+" <p>m"+"2".sup()+"</p>" );
         $(".tm_tz_1").empty();
@@ -11799,15 +11799,15 @@ function diagrafi_xwrismatwn(ti_einai, poio_einai){
             $(".window_still_show_hide").css("display","none");
         }
 
+        $(".equipment_all_table").css("display","none");
         if (equipment_timi != 0){
-            $(".timi_market_equipment").text((equipment_timi - pososto_market * equipment_timi).toFixed(2).replace(".", ",")+" €");
-            $(".timi_dealer_equipment").text((equipment_timi - pososto_dealer * equipment_timi).toFixed(2).replace(".", ",")+" €");
-            $(".equipment_show_hide").css("display","table-row");
-            $(".table_equipment").text(equipment_name);
-            $(".timi_equipment").text(equipment_timi.toFixed(2).replace(".", ",")+" €");
-        }
-        else{
-            $(".equipment_show_hide").css("display","none");
+          for ( var i = 0, l = equipment_timi.length; i < l; i++ ) {
+            $(".equipment_show_hide"+i).css("display","table-row");
+            $(".equipment_show_hide"+i+" .timi_market_equipment").text((equipment_timi[i] - pososto_market * equipment_timi[i]).toFixed(2).replace(".", ",")+" €");
+            $(".equipment_show_hide"+i+" .timi_dealer_equipment").text((equipment_timi[i] - pososto_dealer * equipment_timi[i]).toFixed(2).replace(".", ",")+" €");
+            $(".equipment_show_hide"+i+" .table_equipment").text(equipment_name[i]);
+            $(".equipment_show_hide"+i+" .timi_equipment").text(equipment_timi[i].toFixed(2).replace(".", ",")+" €");
+          }
         }
     
         if (roll_rat_timi != 0){

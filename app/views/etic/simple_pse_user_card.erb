@@ -1044,30 +1044,32 @@
                     <% end %>
                     <!-- equipment -->
                     <% if ( !item.equipment.nil? ) %>
-                    <tr>
-                    <td class="extra_subtable">
-                      <b><%= t 'translate.Equipment' %></b>: <%= item.equipment %>
-                    <td class="unit_subtable">
-                    </td>
-                    <td class="m_subtable">
-                    <color style="color:green"><%= number_with_precision(item.timi_m_equipment, :precision => 2, separator: ",", :delimiter => '.') %></color> €
-                    </td>
-                    <td class="c_subtable"></td>
-                    <td class="p_subtable">
-                      <% if (!@pososto_market.nil?) %>
-                        <% market_price = item.price_equipment - (@pososto_market/100)*item.price_equipment %>
-                        <%= number_with_precision(market_price, :precision => 2, separator: ",", :delimiter => '.') %> €
-                      <% end %>
-                    </td>
-                    <td class="p_subtable">
-                      <% if (!@pososto_dealer.nil?) %>
-                        <% dealer_price = item.price_equipment - (@pososto_dealer/100)*item.price_equipment %>
-                        <%= number_with_precision(dealer_price, :precision => 2, separator: ",", :delimiter => '.') %> €
-                      <% end %>
-                    </td>
-                    <td class="p_subtable">
-                      <color style="color:#ff0000"><%= number_with_precision(item.price_equipment, :precision => 2, separator: ",", :delimiter => '.') %></color> €</td> 
-                    </tr>
+                    <% item.equipment.zip(item.price_equipment).each do |equipment, price_equipment| %>
+                      <tr>
+                        <td class="extra_subtable">
+                          <b><%= t 'translate.Equipment' %></b>: <%= equipment %>
+                        <td class="unit_subtable">
+                        </td>
+                        <td class="m_subtable">
+                        <!--<color style="color:green"><%= number_with_precision(item.timi_m_equipment, :precision => 2, separator: ",", :delimiter => '.') %></color> €-->
+                        </td>
+                        <td class="c_subtable"></td>
+                        <td class="p_subtable">
+                          <% if (!@pososto_market.nil?) %>
+                            <% market_price = price_equipment - (@pososto_market/100)*price_equipment %>
+                            <%= number_with_precision(market_price, :precision => 2, separator: ",", :delimiter => '.') %> €
+                          <% end %>
+                        </td>
+                        <td class="p_subtable">
+                          <% if (!@pososto_dealer.nil?) %>
+                            <% dealer_price = price_equipment - (@pososto_dealer/100)*price_equipment %>
+                            <%= number_with_precision(dealer_price, :precision => 2, separator: ",", :delimiter => '.') %> €
+                          <% end %>
+                        </td>
+                        <td class="p_subtable">
+                          <color style="color:#ff0000"><%= number_with_precision(price_equipment, :precision => 2, separator: ",", :delimiter => '.') %></color> €</td> 
+                      </tr>
+                     <% end %>
                     <% end %>
                     <tr>
                     <td class="extra_subtable">
