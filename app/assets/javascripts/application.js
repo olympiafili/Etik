@@ -3058,7 +3058,7 @@ function diagrafi_xwrismatwn(ti_einai, poio_einai){
         $(".nea_timi_dealer").text(nea_timi_dealer.toFixed(2).replace(".", ",")+" €");
         
         $(".ep_mesa").text(ep_mesa_gia_pinaka.toFixed(2).replace(".", ",")+" €");
-        //(".ep_eksw").text(ep_eksw_gia_pinaka.toFixed(2).replace(".", ",")+" €");
+        //$(".ep_eksw").text(ep_eksw_gia_pinaka.toFixed(2).replace(".", ",")+" €");
         //$(".ep_mesa_p").text(ep_mesa_p+" %");
         //$(".ep_eksw_p").text(ep_eksw_p+" %");
         $(".tm_tz_0").empty();

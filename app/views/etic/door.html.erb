@@ -173,7 +173,7 @@
 
                           <input class="input color_m_e" name="color_m_e" type="number" size="4" maxlength="4" placeholder="<%= t 'translate.Inside_color'%>- <%= t('translate.Outside_color') %>" id="" /><br>
 
-                          <textarea class="input color_desc" name="color_desc" rows="3" cols="14" id=""><%= t 'translate.Description'%></textarea>
+                          <textarea class="input color_desc" name="color_desc" rows="3" cols="14" placeholder="<%= t 'translate.Description'%>"></textarea>
                           <!--<% @color_A.each do |c| %>
                               <div class="xrwma xrwma_new_1">
                                 <div class=""><h5 class="tipos_name"><%= c.name %></h5></div>
@@ -194,7 +194,7 @@
                         <div class="katigoria_xrwmatos_A">
 
                           <input class="input color" name="color" type="number" size="4" maxlength="4" placeholder="<%= t 'translate.Inside_color'%>" id=""><br>
-
+                          <textarea class="input color_desc2" name="color_desc2" rows="3" cols="14" placeholder="<%= t 'translate.Description'%>"></textarea>
                           <!--<% @color_A.each do |c| %>
                               <div class="xrwma xrwma_new_1">
                                 <div class=""><h5 class="tipos_name"><%= c.name %></h5></div>
@@ -214,7 +214,7 @@
                         <div class="katigoria_xrwmatos_ekso_A">
 
                           <input class="input color_eksw" name="color_eksw" type="number" size="4" maxlength="4" placeholder="<%= t 'translate.Outside_color'%>" id=""><br>
-
+                          <textarea class="input color_desc3" name="color_desc3" rows="3" cols="14" placeholder="<%= t 'translate.Description'%>"></textarea>
                           <!--<% @color_A.each do |c| %>
                               <div class="xrwma xrwma_new_1">
                                 <div class=""><h5 class="tipos_name"><%= c.name %></h5></div>
@@ -664,7 +664,7 @@
                               <div class="equipment_none">
                                 <h5><%= t('translate.Equipment') %></h5>
                                 <% @equipment.each do |e| %>
-                                    <label class="equipment" id="<%= e.id %>"><%= e.name %></label>
+                                    <label class="equipment" id="<%= e.id %>" equipment-id="<%= e.id %>"><%= e.name %></label>
                                 <% end %>
                               </div>  
                             </div>
@@ -1835,7 +1835,7 @@
 
   //Οταν κανω κλικ στο ανοιγμα για την επαναληψη να παταω και χρωμα. Στην ουσια επαναληψη για χρωμα. Metavliti true false
   function prwta_xrwma(metavliti,width,height){
-    if ( "<%= @color.name %>" !== "" && metavliti){ 
+    /*if ( "<%= @color.name %>" !== "" && metavliti){ 
       $(".color").each(function( index ) {
           if( $( this ).attr("id") == "<%= @color.name %>" ){
             color_typou = "#FFFFFF";
@@ -1850,7 +1850,20 @@
             $( this ).click();
           }
         });
-      }
+      }*/
+
+      color_typou = "#FFFFFF";
+      color_typou_eksw = "#FFFFFF";
+      if("<%= @color_name %>" == "<%= @color_name_eksw %>") {
+        $('input.color_m_e').val("<%= @color_name %>");
+        $('input.color_m_e').change();
+      } else if("<%= @color_name %>" != "<%= @color_name_eksw %>") {
+          $("input.color").val("<%= @color_name %>");
+          $("input.color_eksw").val("<%= @color_name_eksw %>");
+          $("input.color").trigger("change");
+          $("input.color_eksw").trigger("change");
+      }      
+
       if ( metavliti ){
         $("#width").val(parseFloat(width).toFixed(0));
         $("#height").val(parseFloat(height).toFixed(0));
@@ -2357,6 +2370,7 @@
     lastixo = 0; //Den exw patisei lastixo
     epilogi = true;
     lastixo_epilogh = 0;
+    line_id_name = '';
 
     //Color για προφιλ αρχικα
     color_deksia = "<%= @color.name %>"
@@ -2741,6 +2755,7 @@
   
   color_typou = '#FFFFFF';
   color_typou_eksw = '#FFFFFF';
+
   //..7..Ανοιγματα.
   $(".ajax_open_type").on("click", ".tipos_anoigmatos", function() {
     //Αλλαγη σε χρωματα αυτου που επελεξα
@@ -2868,19 +2883,16 @@
           $("#tab_dimensions").click();
         }
 
-        $("#width").val(data.max_width);
-        $("#height").val(data.max_height);
+        if(!$("#width").val() && !$("#height").val()) {
+          $("#width").val(data.max_width);
+          $("#height").val(data.max_height);
+        }
         $(".ok").click();
         
         },
       error: function(data) { 
         }
     });//end ejax
-    
-    $("input.color").val('1111');
-    $("input.color_eksw").val('1111');
-    $("input.color_m_e").val('1111');
-    $("input.color_m_e").trigger("change");
 
   });//end ανοιγματα
   
@@ -2889,67 +2901,97 @@
   $(".katigoria_xrwmatos_m_e_A, .katigoria_xrwmatos_m_e_B, .katigoria_xrwmatos_m_e_C").on("change", ".color_m_e", function() { 
     //Ποιο επελεξα
     //color_aplo_m_e = $(this).attr('id'); //Global variable για να την περασω στην αλλη σελιδα, εχω το name του
+	var $this = $( this );
+	var value = $this.val();
+
+	if( ! validateInput( value ) ) {
+		$this.val( previousVal1 );
+		alert( 'Value should be numeric and 4 digits max.' );
+	}
+	else {
+	    //color_aplo = $(this).val();
+	    $("input.color").val(value);
+	    $("input.color_eksw").val(value);
+	    $("input.color").change();
+	    $("input.color_eksw").change();
+		
+		previousVal1 = value;
+
+	    //Πινακακι
+	    //$(".color_main").text(color_aplo);
+
+	    //Για prwta_xrwma επανω
+	    //color_typou = $(this).next().attr('id');
+	    //Σβηνω αυτα που ειχα πατησει
+	    /*$(".color_m_e").css('border-style', '');
+	    $(".tipos_name").css('display', '');*/
+	    //Κανω να φενετε με border αυτο που πατησα!!
+	    /*$(this).css('border-style', 'solid');
+	    $(this).css('border-width', '5px');
+	    $(this).css('border-color', '#007389');
+	    $(this).prev().children().css('display', 'block');*/
+	    //Αν δεν ειναι πρωτη φωρα ξαναζωγραφιζω
+
+	    /*if ( !kanw_prwti_fora ){
+	      ok_click();
+	    }*/
+	    //Υπολογιζω την τιμη του χρωματος
+	    times_json_door(tipos_name_gia_xrwma, $(".width").text(), $(".height").text(), line_id_name, mesa_eksw, color_aplo, width_new ,height_new, epikathimeno_rolo,eksoteriko_rolo,persida,tzamia,profil_deksia,profil_aristera,profil_panw,profil_katw,$(".input_deksia").val(),$(".input_panw").val(),$(".input_katw").val(),$(".input_aristera").val(),typos,color_typos,odoigos,$(".color_deksia").text(),$(".color_aristera").text(),$(".color_panw").text(),$(".color_katw").text(),$(".color_fullou").text(),0,profil_deksia_1_id,profil_deksia_1_json_arithmos,profil_deksia_2_id,profil_deksia_2_json_arithmos,profil_deksia_3_id,profil_deksia_3_json_arithmos,profil_aristera_1_id,profil_aristera_1_json_arithmos,profil_aristera_2_id,profil_aristera_2_json_arithmos,profil_aristera_3_id,profil_aristera_3_json_arithmos,profil_panw_1_id,profil_panw_1_json_arithmos,profil_panw_2_id,profil_panw_2_json_arithmos,profil_panw_3_id,profil_panw_3_json_arithmos,profil_katw_1_id,profil_katw_1_json_arithmos,profil_katw_2_id,profil_katw_2_json_arithmos,profil_katw_3_id,profil_katw_3_json_arithmos,profil_typos_1_id,profil_typos_1_json_arithmos,profil_typos_2_id,profil_typos_2_json_arithmos,profil_typos_3_id,profil_typos_3_json_arithmos,prostasia,tzamia2,lastixo_epilogh,pl_rol_ep,up_rol_ep,pl_rol_ek,up_rol_ek,pl_persidas,up_persidas,up_odoigou,color_epikathimenou,color_eksoterikou,color_persidas,color_odoigou,color_profil_katw,color_profil_deksia,color_profil_aristera,color_profil_panw,elegxos_gia_parapanw_diastaseis_w,elegxos_gia_parapanw_diastaseis_h,xwrisma1,xwrisma2,xwrisma_y_1,xwrisma_y_2,xwrisma3_1,xwrisma3_2,xwrisma3_3,color_aplo_eksw,tzamia0,xwrisma4_1,xwrisma4_2,xwrisma4_3,xwrisma4_4,window_still_single,roll_rat,roll_rlt,roll_rdm,roll_pss,roll_pfm, place, rat_quantity, panel, equipment);
+	}
     
-    //color_aplo = $(this).val();
-    $("input.color").val($(this).val());
-    $("input.color_eksw").val($(this).val());
-    $("input.color").change();
-    $("input.color_eksw").change();
-
-    //Πινακακι
-    //$(".color_main").text(color_aplo);
-
-    //Για prwta_xrwma επανω
-    //color_typou = $(this).next().attr('id');
-    //Σβηνω αυτα που ειχα πατησει
-    /*$(".color_m_e").css('border-style', '');
-    $(".tipos_name").css('display', '');*/
-    //Κανω να φενετε με border αυτο που πατησα!!
-    /*$(this).css('border-style', 'solid');
-    $(this).css('border-width', '5px');
-    $(this).css('border-color', '#007389');
-    $(this).prev().children().css('display', 'block');*/
-    //Αν δεν ειναι πρωτη φωρα ξαναζωγραφιζω
-
-    /*if ( !kanw_prwti_fora ){
-      ok_click();
-    }*/
-    //Υπολογιζω την τιμη του χρωματος
-    times_json_door(tipos_name_gia_xrwma, $(".width").text(), $(".height").text(), line_id_name, mesa_eksw, color_aplo, width_new ,height_new, epikathimeno_rolo,eksoteriko_rolo,persida,tzamia,profil_deksia,profil_aristera,profil_panw,profil_katw,$(".input_deksia").val(),$(".input_panw").val(),$(".input_katw").val(),$(".input_aristera").val(),typos,color_typos,odoigos,$(".color_deksia").text(),$(".color_aristera").text(),$(".color_panw").text(),$(".color_katw").text(),$(".color_fullou").text(),0,profil_deksia_1_id,profil_deksia_1_json_arithmos,profil_deksia_2_id,profil_deksia_2_json_arithmos,profil_deksia_3_id,profil_deksia_3_json_arithmos,profil_aristera_1_id,profil_aristera_1_json_arithmos,profil_aristera_2_id,profil_aristera_2_json_arithmos,profil_aristera_3_id,profil_aristera_3_json_arithmos,profil_panw_1_id,profil_panw_1_json_arithmos,profil_panw_2_id,profil_panw_2_json_arithmos,profil_panw_3_id,profil_panw_3_json_arithmos,profil_katw_1_id,profil_katw_1_json_arithmos,profil_katw_2_id,profil_katw_2_json_arithmos,profil_katw_3_id,profil_katw_3_json_arithmos,profil_typos_1_id,profil_typos_1_json_arithmos,profil_typos_2_id,profil_typos_2_json_arithmos,profil_typos_3_id,profil_typos_3_json_arithmos,prostasia,tzamia2,lastixo_epilogh,pl_rol_ep,up_rol_ep,pl_rol_ek,up_rol_ek,pl_persidas,up_persidas,up_odoigou,color_epikathimenou,color_eksoterikou,color_persidas,color_odoigou,color_profil_katw,color_profil_deksia,color_profil_aristera,color_profil_panw,elegxos_gia_parapanw_diastaseis_w,elegxos_gia_parapanw_diastaseis_h,xwrisma1,xwrisma2,xwrisma_y_1,xwrisma_y_2,xwrisma3_1,xwrisma3_2,xwrisma3_3,color_aplo_eksw,tzamia0,xwrisma4_1,xwrisma4_2,xwrisma4_3,xwrisma4_4,window_still_single,roll_rat,roll_rlt,roll_rdm,roll_pss,roll_pfm, place, rat_quantity, panel, equipment);
   });//end click
 
   //Επιλογή αρχικού χρώματος και εμφάνηση στο label
   $(".katigoria_xrwmatos_A, .katigoria_xrwmatos_B, .katigoria_xrwmatos_C").on("change", ".color", function() { 
     //Ποιο επελεξα
-    color_aplo = $(this).val(); //Global variable για να την περασω στην αλλη σελιδα, εχω το name του
-    
-    //Πινακακι
-    $(".color_main").text(color_aplo);
+  	var $this = $( this );
+  	var value = $this.val();
 
-    //Για prwta_xrwma επανω
-    //color_typou = $(this).next().attr('id');
-    //Σβηνω αυτα που ειχα πατησει
-    /*$(".color").css('border-style', '');
-    $(".tipos_name").css('display', '');
-    //Κανω να φενετε με border αυτο που πατησα!!
-    $(this).css('border-style', 'solid');
-    $(this).css('border-width', '5px');
-    $(this).css('border-color', '#007389');
-    $(this).prev().children().css('display', 'block');*/
-    //Αν δεν ειναι πρωτη φωρα ξαναζωγραφιζω
-    /*if ( !kanw_prwti_fora ){
-      ok_click();
-    }*/
-    //Υπολογιζω την τιμη του χρωματος
-    times_json_door(tipos_name_gia_xrwma, $(".width").text(), $(".height").text(), line_id_name, mesa_eksw, color_aplo, width_new ,height_new, epikathimeno_rolo,eksoteriko_rolo,persida,tzamia,profil_deksia,profil_aristera,profil_panw,profil_katw,$(".input_deksia").val(),$(".input_panw").val(),$(".input_katw").val(),$(".input_aristera").val(),typos,color_typos,odoigos,$(".color_deksia").text(),$(".color_aristera").text(),$(".color_panw").text(),$(".color_katw").text(),$(".color_fullou").text(),0,profil_deksia_1_id,profil_deksia_1_json_arithmos,profil_deksia_2_id,profil_deksia_2_json_arithmos,profil_deksia_3_id,profil_deksia_3_json_arithmos,profil_aristera_1_id,profil_aristera_1_json_arithmos,profil_aristera_2_id,profil_aristera_2_json_arithmos,profil_aristera_3_id,profil_aristera_3_json_arithmos,profil_panw_1_id,profil_panw_1_json_arithmos,profil_panw_2_id,profil_panw_2_json_arithmos,profil_panw_3_id,profil_panw_3_json_arithmos,profil_katw_1_id,profil_katw_1_json_arithmos,profil_katw_2_id,profil_katw_2_json_arithmos,profil_katw_3_id,profil_katw_3_json_arithmos,profil_typos_1_id,profil_typos_1_json_arithmos,profil_typos_2_id,profil_typos_2_json_arithmos,profil_typos_3_id,profil_typos_3_json_arithmos,prostasia,tzamia2,lastixo_epilogh,pl_rol_ep,up_rol_ep,pl_rol_ek,up_rol_ek,pl_persidas,up_persidas,up_odoigou,color_epikathimenou,color_eksoterikou,color_persidas,color_odoigou,color_profil_katw,color_profil_deksia,color_profil_aristera,color_profil_panw,elegxos_gia_parapanw_diastaseis_w,elegxos_gia_parapanw_diastaseis_h,xwrisma1,xwrisma2,xwrisma_y_1,xwrisma_y_2,xwrisma3_1,xwrisma3_2,xwrisma3_3,color_aplo_eksw,tzamia0,xwrisma4_1,xwrisma4_2,xwrisma4_3,xwrisma4_4,window_still_single,roll_rat,roll_rlt,roll_rdm,roll_pss,roll_pfm, place, rat_quantity, panel, equipment);
+  	if( ! validateInput( value ) ) {
+  		$this.val( previousVal2 );
+  		alert( 'Value should be numeric and 4 digits max.' );
+  	}
+  	else {
+		
+		color_aplo = $(this).val(); //Global variable για να την περασω στην αλλη σελιδα, εχω το name του
+		//Πινακακι
+		$(".color_main").text(color_aplo);
+		previousVal2 = value;
+		//Για prwta_xrwma επανω
+		//color_typou = $(this).next().attr('id');
+		//Σβηνω αυτα που ειχα πατησει
+		/*$(".color").css('border-style', '');
+		$(".tipos_name").css('display', '');
+		//Κανω να φενετε με border αυτο που πατησα!!
+		$(this).css('border-style', 'solid');
+		$(this).css('border-width', '5px');
+		$(this).css('border-color', '#007389');
+		$(this).prev().children().css('display', 'block');*/
+		//Αν δεν ειναι πρωτη φωρα ξαναζωγραφιζω
+		/*if ( !kanw_prwti_fora ){
+		  ok_click();
+		}*/
+		//Υπολογιζω την τιμη του χρωματος
+		times_json_door(tipos_name_gia_xrwma, $(".width").text(), $(".height").text(), line_id_name, mesa_eksw, color_aplo, width_new ,height_new, epikathimeno_rolo,eksoteriko_rolo,persida,tzamia,profil_deksia,profil_aristera,profil_panw,profil_katw,$(".input_deksia").val(),$(".input_panw").val(),$(".input_katw").val(),$(".input_aristera").val(),typos,color_typos,odoigos,$(".color_deksia").text(),$(".color_aristera").text(),$(".color_panw").text(),$(".color_katw").text(),$(".color_fullou").text(),0,profil_deksia_1_id,profil_deksia_1_json_arithmos,profil_deksia_2_id,profil_deksia_2_json_arithmos,profil_deksia_3_id,profil_deksia_3_json_arithmos,profil_aristera_1_id,profil_aristera_1_json_arithmos,profil_aristera_2_id,profil_aristera_2_json_arithmos,profil_aristera_3_id,profil_aristera_3_json_arithmos,profil_panw_1_id,profil_panw_1_json_arithmos,profil_panw_2_id,profil_panw_2_json_arithmos,profil_panw_3_id,profil_panw_3_json_arithmos,profil_katw_1_id,profil_katw_1_json_arithmos,profil_katw_2_id,profil_katw_2_json_arithmos,profil_katw_3_id,profil_katw_3_json_arithmos,profil_typos_1_id,profil_typos_1_json_arithmos,profil_typos_2_id,profil_typos_2_json_arithmos,profil_typos_3_id,profil_typos_3_json_arithmos,prostasia,tzamia2,lastixo_epilogh,pl_rol_ep,up_rol_ep,pl_rol_ek,up_rol_ek,pl_persidas,up_persidas,up_odoigou,color_epikathimenou,color_eksoterikou,color_persidas,color_odoigou,color_profil_katw,color_profil_deksia,color_profil_aristera,color_profil_panw,elegxos_gia_parapanw_diastaseis_w,elegxos_gia_parapanw_diastaseis_h,xwrisma1,xwrisma2,xwrisma_y_1,xwrisma_y_2,xwrisma3_1,xwrisma3_2,xwrisma3_3,color_aplo_eksw,tzamia0,xwrisma4_1,xwrisma4_2,xwrisma4_3,xwrisma4_4,window_still_single,roll_rat,roll_rlt,roll_rdm,roll_pss,roll_pfm, place, rat_quantity, panel, equipment);
+	}
   });//end click
 
   //Επιλογή αρχικού χρώματος και εμφάνηση στο label ΕΞΩ
   $(".katigoria_xrwmatos_ekso_A, .katigoria_xrwmatos_ekso_B, .katigoria_xrwmatos_ekso_C").on("change", ".color_eksw", function() { 
     //Ποιο επελεξα
-    color_aplo_eksw = $(this).val(); //Global variable για να την περασω στην αλλη σελιδα, εχω το name του
+	var $this = $( this );
+	var value = $this.val();
+
+	if( ! validateInput( value ) ) {
+		$this.val( previousVal3 );
+		alert( 'Value should be numeric and 4 digits max.' );
+	}
+	else {
+    color_aplo_eksw = value; //Global variable για να την περασω στην αλλη σελιδα, εχω το name του
     //Πινακι
     $(".color_main_eksw").text(color_aplo_eksw);
+	previousVal3 = value;
+	
     //Μεταβλητη για prwta_xrwma()
     //color_typou_eksw = $(this).next().attr('id');
     //Σβηνω αυτα που ειχα πατησει
@@ -2962,9 +3004,17 @@
     $(this).prev().children().css('display', 'block');*/
     //Υπολογιζω τιμη χρωματος εξω
     times_json_door(tipos_name_gia_xrwma, $(".width").text(), $(".height").text(), line_id_name, mesa_eksw, color_aplo, width_new ,height_new, epikathimeno_rolo,eksoteriko_rolo,persida,tzamia,profil_deksia,profil_aristera,profil_panw,profil_katw,$(".input_deksia").val(),$(".input_panw").val(),$(".input_katw").val(),$(".input_aristera").val(),typos,color_typos,odoigos,$(".color_deksia").text(),$(".color_aristera").text(),$(".color_panw").text(),$(".color_katw").text(),$(".color_fullou").text(),0,profil_deksia_1_id,profil_deksia_1_json_arithmos,profil_deksia_2_id,profil_deksia_2_json_arithmos,profil_deksia_3_id,profil_deksia_3_json_arithmos,profil_aristera_1_id,profil_aristera_1_json_arithmos,profil_aristera_2_id,profil_aristera_2_json_arithmos,profil_aristera_3_id,profil_aristera_3_json_arithmos,profil_panw_1_id,profil_panw_1_json_arithmos,profil_panw_2_id,profil_panw_2_json_arithmos,profil_panw_3_id,profil_panw_3_json_arithmos,profil_katw_1_id,profil_katw_1_json_arithmos,profil_katw_2_id,profil_katw_2_json_arithmos,profil_katw_3_id,profil_katw_3_json_arithmos,profil_typos_1_id,profil_typos_1_json_arithmos,profil_typos_2_id,profil_typos_2_json_arithmos,profil_typos_3_id,profil_typos_3_json_arithmos,prostasia,tzamia2,lastixo_epilogh,pl_rol_ep,up_rol_ep,pl_rol_ek,up_rol_ek,pl_persidas,up_persidas,up_odoigou,color_epikathimenou,color_eksoterikou,color_persidas,color_odoigou,color_profil_katw,color_profil_deksia,color_profil_aristera,color_profil_panw,elegxos_gia_parapanw_diastaseis_w,elegxos_gia_parapanw_diastaseis_h,xwrisma1,xwrisma2,xwrisma_y_1,xwrisma_y_2,xwrisma3_1,xwrisma3_2,xwrisma3_3,color_aplo_eksw,tzamia0,xwrisma4_1,xwrisma4_2,xwrisma4_3,xwrisma4_4,window_still_single,roll_rat,roll_rlt,roll_rdm,roll_pss,roll_pfm, place, rat_quantity, panel, equipment);
+}
   });//end click
+var previousVal1 = null;
+var previousVal2 = null;
+var previousVal3 = null;
+  function validateInput( val ) {
+  				if( isNaN( val ) || val.length > 4 )
+  					return false;
 
-
+  				return true;
+  			}
   
   //Με την υποβολη των διαστασεων αδιαζω τα πλαισια που θα εμφανισω για να μην ξαναεμφανιστουν.
   //Ελεγχώ τις διαστασεις συμφωνα με τα hidden label που εχω και αν ειναι σωστες ελεγχω αν εχω 1,2,3 φυλλα.
@@ -3033,22 +3083,26 @@
         if ("<%= @color_ar %>" !== ""){ 
           color_profil_aristera = "<%= @color_ar %>";
         }else{
-          color_profil_aristera = color_aplo_eksw;
+          //color_profil_aristera = color_aplo_eksw;
+          color_profil_aristera = "white";
         }
         if ("<%= @color_de %>" !== ""){ 
           color_profil_deksia = "<%= @color_de %>";
         }else{
-          color_profil_deksia = color_aplo_eksw;
+          //color_profil_deksia = color_aplo_eksw;
+          color_profil_deksia = "white";
         }
         if ("<%= @color_pa %>" !== ""){ 
           color_profil_panw = "<%= @color_pa %>";
         }else{
-          color_profil_panw = color_aplo_eksw;
+          //color_profil_panw = color_aplo_eksw;
+          color_profil_panw = "white";
         }
         if ("<%= @color_ka %>" !== ""){ 
           color_profil_katw = "<%= @color_ka %>";
         }else{
-          color_profil_katw = color_aplo_eksw;
+          //color_profil_katw = color_aplo_eksw;
+          color_profil_katw = "white";
         }
 
         setTimeout(function(){
@@ -8723,7 +8777,6 @@ $(".extra").on("click", ".equipment", function() {
 
 
   function nea_extra(lastixa ,tzami0_id, tzami0_cat, tzami_id ,tzami_cat ,tzami2_id ,tzami2_cat,cat_rolo, rolo_id, ti_rolo , color_rolo ,pl_rolou_ek , up_rolou_ek, pl_rolou_ep, up_rolou_ep , kinisi_deksia_aristera , persida_id, color_persidas , pl_persidas , up_persidas, odoigos_id , color_odoigou , up_odoigou , prostasia_id , typos_id , color_typos , typos_arithmos, col_ar, epilogi_ar_1, pr_ar_1_ar, pr_ar_1_id, epilogi_ar_2, pr_ar_2_ar, pr_ar_2_id, epilogi_ar_3, pr_ar_3_ar, pr_ar_3_id, col_de,  epilogi_de_1, pr_de_1_de, pr_de_1_id, epilogi_de_2, pr_de_2_de, pr_de_2_id, epilogi_de_3, pr_de_3_de, pr_de_3_id, col_pa, epilogi_pa_1, pr_pa_1_pa, pr_pa_1_id, epilogi_pa_2, pr_pa_2_pa, pr_pa_2_id, epilogi_pa_3, pr_pa_3_pa, pr_pa_3_id, col_ka , epilogi_ka_1, pr_ka_1_ka, pr_ka_1_id, epilogi_ka_2, pr_ka_2_ka, pr_ka_2_id, epilogi_ka_3, pr_ka_3_ka, pr_ka_3_id ) {
-
     height_p = 0;
     height_k = 0;
 
@@ -9336,7 +9389,8 @@ $(".extra").on("click", ".equipment", function() {
 
   
   function next_insert(){
-        /*PINAKAS_ARXIKO_FOR[counter_pinakas_arxikos](PINAKAS_ARXIKO_FOR_METAVLITES[counter_pinakas_arxikos_metavlites], PINAKAS_ARXIKO_FOR_METAVLITES[counter_pinakas_arxikos_metavlites + 1], PINAKAS_ARXIKO_FOR_METAVLITES[counter_pinakas_arxikos_metavlites + 2]);
+        if("<%= params[:col_ar] %>")
+          PINAKAS_ARXIKO_FOR[counter_pinakas_arxikos](PINAKAS_ARXIKO_FOR_METAVLITES[counter_pinakas_arxikos_metavlites], PINAKAS_ARXIKO_FOR_METAVLITES[counter_pinakas_arxikos_metavlites + 1], PINAKAS_ARXIKO_FOR_METAVLITES[counter_pinakas_arxikos_metavlites + 2]);
         counter_pinakas_arxikos = counter_pinakas_arxikos + 1; 
         counter_pinakas_arxikos_metavlites =  counter_pinakas_arxikos_metavlites + 3;
         if ( counter_pinakas_arxikos == PINAKAS_ARXIKO_FOR.length ){
@@ -9344,7 +9398,6 @@ $(".extra").on("click", ".equipment", function() {
           $('#loading').fadeOut(100);
           $(".hide_extra").hide();
             $("#myForm").show();
-            //$("#myForm").scrollTo("#pane_diastaseis", 1000); //custom animation speed
             geniko_ok = false;
             setTimeout(function(){
             $(".warning_times").empty();
@@ -9357,7 +9410,7 @@ $(".extra").on("click", ".equipment", function() {
                     }, 6000);
             },timeout_profil);
             //$(".ok").click();
-        }*/
+        }
     } 
   
   function ksana_extra(code, name, color) {
@@ -9405,13 +9458,17 @@ $(".extra").on("click", ".equipment", function() {
     setTimeout(function(){
 
       $('#loading').show();
-      if ("<%= @lastixa %>" !== "0") {
+      if ("<%= @lastixa %>" !== "0")
         $("#"+"<%= @lastixa %>").click();
-      }
 
-      if ("<%= @prostasia_id %>" != "") {
+      if ("<%= @prostasia_id %>" != "")
         $(".prostasia").click();
-      }
+      
+      equipment_all = "<%= @equipment_all %>";
+      $.each( equipment_all, function( index, value ){
+        if(value != '[' && value != ']')
+          $(".equipment[equipment-id='"+value+"']").click();
+      });
       
       do_tzamia0();
       do_tzamia();

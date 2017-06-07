@@ -6219,12 +6219,6 @@ class EticController < ApplicationController
 
 
 
-
-
-
-
-
-
     def door
        @cat_anoigmatos = OpenCategorie.where(:id => 5)
        @uliko = Material.where(:id => 2)
@@ -6247,13 +6241,13 @@ class EticController < ApplicationController
 		if( params.has_key?(:line_name) )
 		    @line = Line.where(:name => params[:line_name]).first
 		else
-			@line = Line.first
+			@line = Line.where(:id => 26).first
 		end
 
 		@leaf = Leaf.where(:id => 1)
 		@leaf_epilegmeno = Leaf.first
 
-		if( params.has_key?(:leaf_name) )
+		if( params.has_key?(:open_type_name) )
 			#@open_type = OpenType.joins(:system_open_types).where(["system_open_types.line_id = ?", @line.id]).order(:order)
 		    line = Line.where(:id => @line.id).first
 			open_t = []
@@ -6270,6 +6264,7 @@ class EticController < ApplicationController
 			@open_type1 = @open_type.where(:leaf_id => @leaf.first.id, :open_categorie_id => @open_categorie.id)
 			@open_type_epilegmeno = OpenType.first
 		end
+
 		if( params.has_key?(:color_name) && params.has_key?(:color_eksw_name) )
 			colors_team_id = []
 		    colors_team_id << @material.color_team.to_s.split(",")
@@ -6277,7 +6272,6 @@ class EticController < ApplicationController
 
 			colors_white = []
 			colors_white << @oles_oi_omades_xrwmatos.first.colors.to_s.split(",")
-			#@name_A = @oles_oi_omades_xrwmatos.first.color_team_name
 			@color_A = Color.where(:id => colors_white)
 
 			colors_simple = []
@@ -6290,13 +6284,15 @@ class EticController < ApplicationController
 			#@name_C = @oles_oi_omades_xrwmatos.third.color_team_name
 			@color_C = Color.where(:id => colors_extra)
 
-		    @color = Color.where(:name => params[:color_name]).first
-		    @color_eksw = Color.where(:name => params[:color_eksw_name]).first
+		    #@color = Color.where(:name => params[:color_name]).first
+		    #@color_eksw = Color.where(:name => params[:color_eksw_name]).first
 
 		    @colors_0 = Color.where(:katigoria => 0)
 		    @colors_standar = Color.where(:katigoria => 1)
 		    @colors_extra = Color.where(:katigoria => 2)
 		    @mesa_eksw = params[:mesa_eksw]
+		    @color_name = params[:color_name]
+		    @color_name_eksw = params[:color_eksw_name]
 		else
 			colors_team_id = []
 		    colors_team_id << @material.color_team.to_s.split(",")
@@ -6317,14 +6313,18 @@ class EticController < ApplicationController
 			#@name_C = @oles_oi_omades_xrwmatos.third.color_team_name
 			@color_C = Color.where(:id => colors_extra)
 			###########
-			@color = Color.first
-			@color_eksw = Color.first
+			#@color = Color.first
+			#@color_eksw = Color.first
 
 			@colors_0 = Color.where(:katigoria => 0)
 		    @colors_standar = Color.where(:katigoria => 1)
 		    @colors_extra = Color.where(:katigoria => 2)
 		    @mesa_eksw = 2
+		    @color_name = '1111'
+		    @color_name_eksw = '1111'
 		end
+		@color = Color.first
+		@color_eksw = Color.first
 
 		if( params.has_key?(:metra_click) )
 		    @metra_click = 1
@@ -6489,8 +6489,18 @@ class EticController < ApplicationController
         prostasia = TypoiProstasia.where(:name => params[:prostasia]).first
         if ( !prostasia.nil? )
 			@prostasia_id = prostasia.id
-		    #@color_odoigou = RolaColor.where(:name => params[:xrwma_odoigou]).first.name
         end
+        
+        @equipment_all = []
+        if ( !params[:equipment].nil? )
+		    params[:equipment].each do |equip| 
+				@equipment1= Equipment.where(:name => equip).first
+		        if ( !@equipment1.nil? )
+		          	@equipment_all << @equipment1.id
+		        end
+			end
+        end
+
         typos = Profil.where(:width => 0, :name => params[:typos]).first
         if ( !typos.nil? )
 			@typos_id = typos.id
@@ -6607,14 +6617,11 @@ class EticController < ApplicationController
 		    @counter_profil = @counter_profil + 1
 		    @counter_profil_ar = @counter_profil_ar + 1
         end
-
         
 	end
 
 	def door_json
-		
 		@open_categorie = OpenCategorie.where(:id => 5).first
-		
 		@lastixa = params[:lastixa]
 		tzami0 = Tzamia.where(:id => params[:tzamia0]).first
 		if ( !tzami0.nil? )
@@ -6683,10 +6690,10 @@ class EticController < ApplicationController
         @counter_profil = 0
         @counter_profil_ar = 0
         #Default colors
-        @color_ar = ''
-        @color_de = ''
-        @color_pa = ''
-        @color_ka = ''
+        @color_ar = RolaColor.where(:name => params[:col_ar]).first.name
+        @color_de = RolaColor.where(:name => params[:col_de]).first.name
+        @color_pa = RolaColor.where(:name => params[:col_pa]).first.name
+        @color_ka = RolaColor.where(:name => params[:col_ka]).first.name
         ##
         pr_ar_1 = Profil.where(:id => params[:pr_ar_1]).first
         if ( !pr_ar_1.nil? )
@@ -6815,6 +6822,7 @@ class EticController < ApplicationController
 		div_mod = BigDecimal(@open_type.code.to_s).divmod 1
 		result = div_mod[1].to_s
 		open_type_code = @open_type.code
+		
 		@color_name = params[:color_name]
 		@color_name_eksw = params[:color_eksw_name]
 		@mesa_eksw = params[:color_eksw]
