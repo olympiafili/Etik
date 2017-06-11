@@ -3034,6 +3034,11 @@ function diagrafi_xwrismatwn(ti_einai, poio_einai){
         $(".super_apli_timi").text(super_apli_timi.toFixed(2).replace(".", ",")+" €");
         $(".arxiki_timi").text(arxiki_timi.toFixed(2).replace(".", ",")+" €");
         if (price_fix != 0){
+          if(xwrisma1 && !xwrisma_y_1)
+            $(".diastaseis_table_fix2").text(Math.min(xwrisma1,xwrisma2) + ' x ' + $("#height").val());
+          else if(!xwrisma1 && xwrisma_y_1)
+            $(".diastaseis_table_fix2").text($("#width").val() + ' x ' + xwrisma_y_1);
+
           $(".super_fix").text(price_fix.toFixed(2).replace(".", ",")+" €");
           $(".price_fix").show();
         }
@@ -3041,6 +3046,13 @@ function diagrafi_xwrismatwn(ti_einai, poio_einai){
           $(".price_fix").hide();
 
         if (price_panel != 0){
+          if(!xwrisma1 && !xwrisma_y_1)
+            $(".diastaseis_table_panel").text($("#width").val() + ' x ' + $("#height").val());
+          else if(xwrisma1 && !xwrisma_y_1)
+            $(".diastaseis_table_panel").text(Math.max(xwrisma1,xwrisma2) + ' x ' + $("#height").val());
+          else
+            $(".diastaseis_table_panel").text($("#width").val() + ' x ' + xwrisma_y_2);
+
           $(".name_panel").text(name_panel);
           $(".super_panel").text(price_panel.toFixed(2).replace(".", ",")+" €");
           $(".price_panel").show();
@@ -3058,9 +3070,6 @@ function diagrafi_xwrismatwn(ti_einai, poio_einai){
         $(".nea_timi_dealer").text(nea_timi_dealer.toFixed(2).replace(".", ",")+" €");
         
         $(".ep_mesa").text(ep_mesa_gia_pinaka.toFixed(2).replace(".", ",")+" €");
-        //$(".ep_eksw").text(ep_eksw_gia_pinaka.toFixed(2).replace(".", ",")+" €");
-        //$(".ep_mesa_p").text(ep_mesa_p+" %");
-        //$(".ep_eksw_p").text(ep_eksw_p+" %");
         $(".tm_tz_0").empty();
         $(".tm_tz_0").append( ( tm_tz_0 ).toFixed(2)+" <p>m"+"2".sup()+"</p>" );
         $(".tm_tz_1").empty();

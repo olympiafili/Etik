@@ -95,6 +95,8 @@ class EticController < ApplicationController
 				:odoigos_height => @preorder.odoigos_height, :rolo_code => @preorder.rolo_code, :rolo_color => @preorder.rolo_color, :rolo_width => @preorder.rolo_width, 
 				:rolo_height => @preorder.rolo_height, :rolo_kinisi => @preorder.rolo_kinisi, :rolo_option => @preorder.rolo_option, :roll_rat => @preorder.roll_rat,
 				:rat_quan => @preorder.rat_quan, :roll_rlt => @preorder.roll_rlt, :roll_rdm => @preorder.roll_rdm, :roll_pfm => @preorder.roll_pfm, :roll_pss => @preorder.roll_pss)
+		elsif(params[:open_category_code2] == 'HT')
+			redirect_to etic_door_path
 		else
 			redirect_to etic_extra_path
 		end
@@ -627,11 +629,11 @@ class EticController < ApplicationController
 
 		#Front info
 		@par = Paraggelia.where(:id => session[:paraggelia_simple]).first
-	    if ( !@par.sungate_code.nil? )
-	    	@par_code = @par.sungate_code
-	    else
+	    #if ( !@par.sungate_code.nil? )
+	    	#@par_code = @par.sungate_code
+	    #else
 	    	@par_code = @par.id
-	    end
+	    #end
 	    if ( counter_an_uparxoun_kai_alla != 0 )
 	    	@ord_code = last_aukson +1
 	    else
@@ -5718,7 +5720,8 @@ class EticController < ApplicationController
 
     ## Καλάθι των pseudoUser όταν μπαίνω σαν admin.
 	def simple_pse_user_card#olympia
-		if(!params[:dealer].nil? && !params[:customer].nil? && !params[:offer].nil? && !params[:open_category_code].nil? && !params[:material_code].nil? && !params[:constructor_code].nil? && !params[:system_code].nil? && !params[:line_code].nil?)
+		#if(!params[:dealer].nil? && !params[:customer].nil? && !params[:offer].nil? && !params[:open_category_code].nil? && !params[:material_code].nil? && !params[:constructor_code].nil? && !params[:system_code].nil? && !params[:line_code].nil?)	
+		if(!params[:dealer].nil? && !params[:customer].nil? && !params[:offer].nil?)
 			#User dealer login
 			@user_par = User.where(:sungate_code => params[:dealer]).first
 			@pososto_market = @user_par.pososto

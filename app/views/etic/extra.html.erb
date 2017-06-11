@@ -3219,7 +3219,9 @@
         },500);
 
        if($(this).attr("id") == "porta")
-        window.location.replace("<%= etic_simple_pse_user_door_path(:paraggelia_id => @par_code) %>");
+		   //etic_simple_pse_user_path(:paraggelia_id => par.id, :pre_order_id => par.pre_order_id)
+		   // etic_simple_pse_user_door_path(:paraggelia_id => @par_code)  
+        window.location.replace("<%= etic_simple_pse_user_path(:paraggelia_id => @par_code, :open_category_code2 => 'HT') %>");
     });
 	
     //Οταν κανω click στην κατηγορια ανοιγματος

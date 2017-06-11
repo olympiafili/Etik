@@ -759,7 +759,7 @@
                       <tr class="neess_diastaseis price_fix">
                         <td class="td_left"><label><%= t 'translate.Fixes'  %>: </label></td>
                         <td class=""><label class="diastaseis_table_fix"></label></td>
-                        <td class="table_fix"> <label class="diastaseis_table_fix"></label></td>
+                        <td class="table_fix"> <label class="diastaseis_table_fix2"></label></td>
                         <td class="td_right"><label class="super_fix"></label></td>
                       </tr>
                       <tr class="neess_diastaseis price_panel">
@@ -2805,8 +2805,6 @@
         $("#maxh").text(data.max_height);
          //Default Glass
          if ( !kanw_prwti_fora_tzami ){
-              //alert("Seuyeters");
-              //$("#tab_glass").trigger('click');
              if( "<%= @tzami0_id %>" == "" ){
                 if ( syst == "1" || syst == "4" ){
                   $(".cat_tzamia0").each(function( index ) {
