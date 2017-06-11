@@ -42,10 +42,16 @@ class Paraggelia < ActiveRecord::Base
         #end
         
         #ELEPOS
-        url_order = "http://46.101.236.245:8850" + Rails.application.routes.url_helpers.etic_extra_path(:diorthosi => "ok", :open_categorie_name => order.open_categorie_id, :material_name => order.material_id, :constructor_name => order.constructor_id, :system_name => order.system_id, :line_name => order.line_id, :leaf_name => Leaf.where(:id => order.leaf_id).first.name , :open_type_name => order.open_type_id, :color_name => order.main_color_id, :color_eksw_name => order.main_color_eksw_id, :mesa_eksw => order.in_out, :xwrisma1 => order.xwrisma1, :xwrisma2 => order.xwrisma2, :xwrisma3_1 => order.xwrisma3_1, :xwrisma3_2 => order.xwrisma3_2, :xwrisma3_3 => order.xwrisma3_3, :xwrisma_y_1 => order.xwrisma_y_1, :xwrisma_y_2 => order.xwrisma_y_2, :color_deksia => order.right_color_id, :color_aristera => order.left_color_id, :color_panw => order.up_color_id, :color_katw => order.down_color_id, :color_fulou => order.leaf_color_id, :lastixo => order.lastixo, :width => order.width, :height => order.height, :order => order.id, :paraggelia_id => order.paraggelia_id, :dealer_id => @dealer_id, :lastixa => order.lastixa,:cat_tzamia0 => order.tzami0_cat,:cat_tzamia1 => order.tzami1_cat,:cat_tzamia2 => order.tzami2_cat,:tzamia0 => order.tzamia0, :tzamia => order.tzamia, :tzamia2 => order.tzamia2, :rolo_name => order.rolo, :xrwma_rolo => order.color_rolou, :persida => order.persida, :xrwma_persidas => order.color_persidas, :odoigos => order.odoigos, :xrwma_odoigou => order.color_odoigou, :prostasia => order.prostasia_name, :typos => order.typos_katw_1, :typos_arithmos => order.typos_katw_arithmos_1, :typos_col => order.color_profil_k, :pr_ar_1 => order.profil_aristera_1, :pr_ar_1_ar => order.profil_aristera_arithmos_1, :col_ar => order.color_profil_a, :pr_ar_2 => order.profil_aristera_2, :pr_ar_2_ar => order.profil_aristera_arithmos_2, :pr_ar_3 => order.profil_aristera_3, :pr_ar_3_ar => order.profil_aristera_arithmos_3, :pr_de_1 => order.profil_deksia_1, :pr_de_1_de => order.profil_deksia_arithmos_1, :col_de => order.color_profil_d, :pr_de_2 => order.profil_deksia_2, :pr_de_2_de => order.profil_deksia_arithmos_2, :pr_de_3 => order.profil_deksia_3, :pr_de_3_de => order.profil_deksia_arithmos_3, :pr_pa_1 => order.profil_panw_1, :pr_pa_1_pa => order.profil_panw_arithmos_1, :col_pa => order.color_profil_p, :pr_pa_2 => order.profil_panw_2, :pr_pa_2_pa => order.profil_panw_arithmos_2, :pr_pa_3 => order.profil_panw_3, :pr_pa_3_pa => order.profil_panw_arithmos_3, :pr_ka_1 => order.profil_katw_1, :pr_ka_1_ka => order.profil_katw_arithmos_1, :col_ka => order.color_profil_k, :pr_ka_2 => order.profil_katw_2, :pr_ka_2_ka => order.profil_katw_arithmos_2, :pr_ka_3 => order.profil_katw_3, :pr_ka_3_ka => order.profil_katw_arithmos_3, :pl_rolou_ep => order.pl_rolou_ep, :up_rolou_ep => order.up_rolou_ep, :pl_rolou_ek => order.pl_rolou_ek, :up_rolou_ek => order.up_rolou_ek, :pl_persidas => order.pl_persidas, :up_persidas => order.up_persidas, :up_odigou => order.up_odigou, :kinisi_deksia_aristera => order.kinisi_deksia_aristera, :klap_ep => order.klap, :deroll => order.deroll, :metra_click => "1", :user_id => order.user_id)
-        
+        url_order = "http://46.101.236.245:8860" + Rails.application.routes.url_helpers.etic_extra_path(:diorthosi => "ok", :open_categorie_name => order.open_categorie_id, :material_name => order.material_id, :constructor_name => order.constructor_id, :system_name => order.system_id, :line_name => order.line_id, :leaf_name => Leaf.where(:id => order.leaf_id).first.name , :open_type_name => order.open_type_id, :color_name => order.main_color_id, :color_eksw_name => order.main_color_eksw_id, :mesa_eksw => order.in_out, :xwrisma1 => order.xwrisma1, :xwrisma2 => order.xwrisma2, :xwrisma3_1 => order.xwrisma3_1, :xwrisma3_2 => order.xwrisma3_2, :xwrisma3_3 => order.xwrisma3_3, :xwrisma_y_1 => order.xwrisma_y_1, :xwrisma_y_2 => order.xwrisma_y_2, :color_deksia => order.right_color_id, :color_aristera => order.left_color_id, :color_panw => order.up_color_id, :color_katw => order.down_color_id, :color_fulou => order.leaf_color_id, :lastixo => order.lastixo, :width => order.width, :height => order.height, :order => order.id, :paraggelia_id => order.paraggelia_id, :dealer_id => @dealer_id, :lastixa => order.lastixa,:cat_tzamia0 => order.tzami0_cat,:cat_tzamia1 => order.tzami1_cat,:cat_tzamia2 => order.tzami2_cat,:tzamia0 => order.tzamia0, :tzamia => order.tzamia, :tzamia2 => order.tzamia2, :rolo_name => order.rolo, :xrwma_rolo => order.color_rolou, :persida => order.persida, :xrwma_persidas => order.color_persidas, :odoigos => order.odoigos, :xrwma_odoigou => order.color_odoigou, :prostasia => order.prostasia_name, :typos => order.typos_katw_1, :typos_arithmos => order.typos_katw_arithmos_1, :typos_col => order.color_profil_k, :pr_ar_1 => order.profil_aristera_1, :pr_ar_1_ar => order.profil_aristera_arithmos_1, :col_ar => order.color_profil_a, :pr_ar_2 => order.profil_aristera_2, :pr_ar_2_ar => order.profil_aristera_arithmos_2, :pr_ar_3 => order.profil_aristera_3, :pr_ar_3_ar => order.profil_aristera_arithmos_3, :pr_de_1 => order.profil_deksia_1, :pr_de_1_de => order.profil_deksia_arithmos_1, :col_de => order.color_profil_d, :pr_de_2 => order.profil_deksia_2, :pr_de_2_de => order.profil_deksia_arithmos_2, :pr_de_3 => order.profil_deksia_3, :pr_de_3_de => order.profil_deksia_arithmos_3, :pr_pa_1 => order.profil_panw_1, :pr_pa_1_pa => order.profil_panw_arithmos_1, :col_pa => order.color_profil_p, :pr_pa_2 => order.profil_panw_2, :pr_pa_2_pa => order.profil_panw_arithmos_2, :pr_pa_3 => order.profil_panw_3, :pr_pa_3_pa => order.profil_panw_arithmos_3, :pr_ka_1 => order.profil_katw_1, :pr_ka_1_ka => order.profil_katw_arithmos_1, :col_ka => order.color_profil_k, :pr_ka_2 => order.profil_katw_2, :pr_ka_2_ka => order.profil_katw_arithmos_2, :pr_ka_3 => order.profil_katw_3, :pr_ka_3_ka => order.profil_katw_arithmos_3, :pl_rolou_ep => order.pl_rolou_ep, :up_rolou_ep => order.up_rolou_ep, :pl_rolou_ek => order.pl_rolou_ek, :up_rolou_ek => order.up_rolou_ek, :pl_persidas => order.pl_persidas, :up_persidas => order.up_persidas, :up_odigou => order.up_odigou, :kinisi_deksia_aristera => order.kinisi_deksia_aristera, :klap_ep => order.klap, :deroll => order.deroll, :metra_click => "1", :user_id => order.user_id)
+
         @main_color = Color.where(:name => order.main_color_id).first
-        csv << ["ELEPOS", order.id, order.posotoita, @open_type.code, @open_type.code, @main_color.sungate_both, order.open_type_id, 
+        if(@main_color)
+          color_code = @main_color.sungate_both
+        else
+          color_code = @main_color
+        end
+
+        csv << ["ELEPOS", order.id, order.posotoita, @open_type.code, @open_type.code, color_code, order.open_type_id, 
           order.width, order.height, order.width_new, order.height_new, @line.sungate_code, order.tzamia0, "<Handle inside>", "<Handle outside>", 
           "<Discount/Surcharge%>", "<Discount/Surcharge per unit>", order.price_sum, url_order, order.line_desc]
           #'=HYPERLINK("'+test+'"; "Link")'
@@ -95,6 +101,15 @@ class Paraggelia < ActiveRecord::Base
         #place
         if (order.place != nil)
           csv << ["ADDOPTPOS", order.place_code, ""]
+        end
+        #equipment
+        if (order.equipment != nil)
+          order.equipment.each do |equip| 
+          @equipment1= Equipment.where(:name => equip).first
+              if ( !@equipment1.nil? )
+                csv << ["ADDOPTPOS", @equipment1.sungate_code, ""]
+              end
+          end
         end
         #profil typos
         if (order.typos_katw_1 != nil)
@@ -212,6 +227,19 @@ class Paraggelia < ActiveRecord::Base
           csv << ["ARTPOS", main_index, index.to_s, 1, order.m_place, order.place_code, nil, 
             order.place, "", "", "<Discount/Surcharge%>", "<Discount/Surcharge per unit>", order.timi_m_place, "no", order.price_place, market_price_place.round(2), dealer_price_place.round(2)]
           index +=10
+        end
+        #equipment
+        if (order.equipment != nil)
+          order.equipment.zip(order.price_equipment).each do |equip, price_equip|
+            @equipment1= Equipment.where(:name => equip).first
+            if ( !@equipment1.nil? )
+              market_price_equipment = price_equip - (@pososto_market/100)*price_equip
+              dealer_price_equipment = price_equip - (@pososto_dealer/100)*price_equip
+              csv << ["ARTPOS", main_index, index.to_s, 1, "", @equipment1.sungate_code, nil, 
+                equip, "", "", "<Discount/Surcharge%>", "<Discount/Surcharge per unit>", price_equip, "no", price_equip, market_price_equipment.round(2), dealer_price_equipment.round(2)]
+              index +=10
+            end
+          end
         end
         #profil typos
         if (order.typos_katw_1 != nil)
