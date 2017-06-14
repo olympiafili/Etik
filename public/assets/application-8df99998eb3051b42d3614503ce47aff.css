@@ -12446,19 +12446,23 @@ label > input:checked + img {
 
 /* line 2184, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
 .left_panel_first {
-  border-right-style: solid;
-  border-right-width: 1px;
   overflow: auto;
 }
 
-/* line 2189, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
+/* line 2188, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
 .left_panel_second {
   border-right-style: solid;
   border-right-width: 1px;
   overflow: auto;
 }
 
-/* line 2195, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
+/* line 2193, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
+.left_tab {
+  border-right-style: solid;
+  border-right-width: 1px;
+}
+
+/* line 2198, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
 .category_buttons {
   width: 100%;
   background-color: #007389;
@@ -12471,7 +12475,7 @@ label > input:checked + img {
   border-color: black;
 }
 
-/* line 2211, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
+/* line 2214, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
 .left_tab {
   height: 80px;
   border-bottom-style: solid;
@@ -12479,7 +12483,7 @@ label > input:checked + img {
   cursor: pointer;
 }
 
-/* line 2218, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
+/* line 2221, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
 .left_tab_extra {
   height: 80px;
   border-bottom-style: solid;
@@ -12487,20 +12491,20 @@ label > input:checked + img {
   cursor: pointer;
 }
 
-/* line 2225, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
+/* line 2228, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
 .left_tab_gly {
   text-align: center;
   font-size: 20px;
   line-height: 33px;
 }
 
-/* line 2232, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
+/* line 2235, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
 .left_tab_header {
   text-align: center;
   font-size: 12px;
 }
 
-/* line 2238, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
+/* line 2241, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
 .label_tab_top {
   padding: 5px 10px;
   cursor: pointer;
@@ -12510,7 +12514,7 @@ label > input:checked + img {
   display: inline-block;
 }
 
-/* line 2247, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
+/* line 2250, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
 .label_tab_top_next {
   width: initial !important;
   padding: 5px 10px;
@@ -12521,13 +12525,8 @@ label > input:checked + img {
   display: inline-block;
 }
 
-/* line 2257, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
+/* line 2260, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
 .label_tab_top.active {
-  background-color: #d9eaed;
-}
-
-/* line 2261, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
-.tab_left_active {
   background-color: #d9eaed;
 }
 
@@ -12536,35 +12535,40 @@ label > input:checked + img {
   background-color: #d9eaed;
 }
 
+/* line 2267, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
+.tab_left_active {
+  background-color: #d9eaed;
+}
+
 /* ΔΕΞΙΑ */
-/* line 2269, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
+/* line 2272, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
 .right_panel_first, .right_panel_second, .right_panel_third {
   padding-left: 10px;
   padding-right: 10px;
   overflow-y: auto;
 }
 
-/* line 2275, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
+/* line 2278, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
 .right_panel_second {
   border-bottom-style: solid;
   border-bottom-width: 1px;
   border-bottom-color: black;
 }
 
-/* line 2281, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
+/* line 2284, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
 .rat_none {
   height: 400px;
   overflow: scroll;
 }
 
 /* Open Category */
-/* line 2298, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
+/* line 2301, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
 .scroll_to_leaf {
   text-align: center;
   padding-top: 10px;
 }
 
-/* line 2302, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
+/* line 2305, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
 .cat_anoi > input {
   /* HIDE RADIO */
   visibility: hidden;
@@ -12573,7 +12577,7 @@ label > input:checked + img {
   /* Remove input from document flow */
 }
 
-/* line 2306, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
+/* line 2309, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
 label > input + .cat_img {
   /* IMAGE STYLES */
   margin-right: 20px;
@@ -12583,27 +12587,27 @@ label > input + .cat_img {
   box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.15) inset;
 }
 
-/* line 2313, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
+/* line 2316, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
 label > input + .cat_img > img {
   /* IMAGE STYLES */
   vertical-align: top;
 }
 
-/* line 2318, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
+/* line 2321, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
 label > input:checked + .cat_img {
   /* (RADIO CHECKED) IMAGE STYLES */
   background-color: white;
   border: 2px solid #007389;
 }
 
-/* line 2323, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
+/* line 2326, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
 .img_cat_anoi {
   margin-left: auto;
   margin-right: auto;
 }
 
 /* Material */
-/* line 2335, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
+/* line 2338, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
 .uliko label {
   width: 150px;
   text-align: center;
@@ -12614,7 +12618,7 @@ label > input:checked + .cat_img {
   cursor: pointer;
 }
 
-/* line 2354, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
+/* line 2357, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
 .kataskevastes label {
   text-align: center;
   border-style: groove;
@@ -12625,7 +12629,7 @@ label > input:checked + .cat_img {
   cursor: pointer;
 }
 
-/* line 2372, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
+/* line 2375, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
 .systems label {
   width: 150px;
   text-align: center;
@@ -12635,12 +12639,12 @@ label > input:checked + .cat_img {
   cursor: pointer;
 }
 
-/* line 2384, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
+/* line 2387, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
 .line2 img:hover {
   z-index: 5;
 }
 
-/* line 2394, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
+/* line 2397, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
 .line2 img {
   width: 100%;
   height: 300px;
@@ -12651,14 +12655,14 @@ label > input:checked + .cat_img {
   z-index: 3;
 }
 
-/* line 2405, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
+/* line 2408, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
 .line {
   border-color: black;
   border-width: 1px;
   margin-top: 0px;
 }
 
-/* line 2414, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
+/* line 2417, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
 .line2 {
   width: 100% !important;
   display: table;
@@ -12668,7 +12672,7 @@ label > input:checked + .cat_img {
   margin-top: 0px;
 }
 
-/* line 2427, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
+/* line 2430, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
 .line_div {
   display: inline-table;
   width: 240px;
@@ -12679,7 +12683,7 @@ label > input:checked + .cat_img {
   border-color: black;
 }
 
-/* line 2439, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
+/* line 2442, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
 .line_header {
   position: relative;
   top: 0px;
@@ -12692,14 +12696,14 @@ label > input:checked + .cat_img {
   border-width: 1px;
 }
 
-/* line 2452, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
+/* line 2455, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
 .description {
   color: black;
   font-size: 80%;
 }
 
 /* Color */
-/* line 2459, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
+/* line 2462, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
 .xrwma1, .xrwma2, .xrwma3 {
   position: relative;
   display: block;
@@ -12711,17 +12715,17 @@ label > input:checked + .cat_img {
   float: left;
 }
 
-/* line 2472, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
+/* line 2475, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
 .xrwmata_titlos {
   display: block;
 }
 
-/* line 2476, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
+/* line 2479, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
 .xrwmata_title_color {
   text-decoration: underline;
 }
 
-/* line 2493, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
+/* line 2496, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
 .xrwma_new_1, .xrwma_new_2, .xrwma_new_3 {
   position: relative;
   display: inline-block;
@@ -12730,18 +12734,18 @@ label > input:checked + .cat_img {
   margin-right: 5px;
 }
 
-/* line 2501, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
+/* line 2504, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
 .xrwma:hover .tipos_name {
   display: block;
 }
 
-/* line 2506, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
+/* line 2509, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
 .xrwma_label:hover {
   background-color: #777777;
   color: white;
 }
 
-/* line 2512, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
+/* line 2515, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
 .xrwma_label {
   width: 150px;
   text-align: center;
@@ -12754,7 +12758,7 @@ label > input:checked + .cat_img {
   cursor: pointer;
 }
 
-/* line 2524, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
+/* line 2527, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
 .m_e {
   border-style: groove;
   border-color: black;
@@ -12762,63 +12766,63 @@ label > input:checked + .cat_img {
   border-width: 1px;
 }
 
-/* line 2531, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
+/* line 2534, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
 .extra_colors img:hover {
   -webkit-transform: scale(1.1);
           transform: scale(1.1);
 }
 
-/* line 2535, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
+/* line 2538, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
 .extra_colors img {
   -webkit-transition: all 0.3s ease 0s;
   transition: all 0.3s ease 0s;
 }
 
-/* line 2540, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
+/* line 2543, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
 .deksia, .aristera, .panw, .katw {
   /* float: left; */
   width: 100px;
   height: 100px;
 }
 
-/* line 2547, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
+/* line 2550, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
 .color_m_e {
   /* float: left; */
   width: 55px;
   height: 55px;
 }
 
-/* line 2554, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
+/* line 2557, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
 .color {
   /* float: left; */
   width: 55px;
   height: 55px;
 }
 
-/* line 2561, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
+/* line 2564, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
 .color_eksw {
   /* float: left; */
   width: 55px;
   height: 55px;
 }
 
-/* line 2568, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
+/* line 2571, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
 .margin1 {
   margin-bottom: 130px;
 }
 
-/* line 2572, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
+/* line 2575, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
 .margin2 {
   margin-bottom: 290px;
 }
 
 /* Open type */
-/* line 2578, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
+/* line 2581, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
 .ajax_open_type {
   text-align: center;
 }
 
-/* line 2589, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
+/* line 2592, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
 .tipos_anoigmatos {
   position: relative;
   display: inline-block;
@@ -12832,7 +12836,7 @@ label > input:checked + .cat_img {
   border-color: white;
 }
 
-/* line 2605, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
+/* line 2608, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
 .tipos_anoigmatos img {
   display: table-row;
   -webkit-transition: all 0.3s ease 0s;
@@ -12841,7 +12845,7 @@ label > input:checked + .cat_img {
   width: auto;
 }
 
-/* line 2615, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
+/* line 2618, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
 .tipos_name {
   position: absolute;
   top: 0px;
@@ -12855,13 +12859,13 @@ label > input:checked + .cat_img {
   text-align: center;
 }
 
-/* line 2638, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
+/* line 2641, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
 .tipos_anoigmatos:hover .tipos_name {
   display: block;
 }
 
 /* DIASTASEIS */
-/* line 2643, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
+/* line 2646, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
 output {
   width: 150px;
   text-align: center;
@@ -12871,55 +12875,55 @@ output {
   color: white;
 }
 
-/* line 2652, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
+/* line 2655, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
 .diastaseis1 {
   float: left;
   margin-right: 50px;
 }
 
-/* line 2657, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
+/* line 2660, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
 #maxh, #maxw, #minh, #minw {
   display: none;
 }
 
 /* Rolls */
 /* Profils */
-/* line 2676, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
+/* line 2679, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
 .label_profil {
   margin-right: 5px;
   padding: 5px 10px;
 }
 
-/* line 2681, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
+/* line 2684, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
 .peninta, .penintaena, .penintaduo, .penintatria {
   display: block;
 }
 
 /* Profil for shutters */
-/* line 2686, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
+/* line 2689, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
 .perisdes {
   display: block;
 }
 
-/* line 2690, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
+/* line 2693, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
 .prostasia {
   padding-left: 10px;
   padding-right: 10px;
 }
 
 /* columns of same height styles */
-/* line 2696, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
+/* line 2699, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
 .row-full-height {
   height: 100%;
 }
 
-/* line 2699, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
+/* line 2702, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
 .col-full-height {
   height: 100%;
   vertical-align: middle;
 }
 
-/* line 2703, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
+/* line 2706, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
 .row-same-height {
   display: table;
   width: 100%;
@@ -12927,57 +12931,57 @@ output {
   table-layout: fixed;
 }
 
-/* line 2709, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
+/* line 2712, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
 .col-xs-height {
   display: table-cell;
   float: none !important;
 }
 
 @media (min-width: 768px) {
-  /* line 2714, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
+  /* line 2717, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
   .col-sm-height {
     display: table-cell;
     float: none !important;
   }
 }
 @media (min-width: 992px) {
-  /* line 2720, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
+  /* line 2723, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
   .col-md-height {
     display: table-cell;
     float: none !important;
   }
 }
 @media (min-width: 1200px) {
-  /* line 2726, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
+  /* line 2729, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
   .col-lg-height {
     display: table-cell;
     float: none !important;
   }
 }
 /* vertical alignment styles */
-/* line 2733, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
+/* line 2736, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
 .col-top {
   vertical-align: top;
 }
 
-/* line 2736, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
+/* line 2739, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
 .col-middle {
   vertical-align: middle;
 }
 
-/* line 2739, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
+/* line 2742, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
 .col-bottom {
   vertical-align: bottom;
 }
 
 @media (min-width: 400px) and (max-width: 1011px) {
-  /* line 2744, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
+  /* line 2747, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
   .navbar {
     overflow-y: hidden;
     overflow-y: scroll;
   }
 
-  /* line 2748, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
+  /* line 2751, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
   .navbar-nav .open .dropdown-menu {
     position: static;
     float: none;
@@ -12988,18 +12992,18 @@ output {
     box-shadow: none;
   }
 
-  /* line 2758, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
+  /* line 2761, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
   .navbar-nav .open .dropdown-menu > li > a {
     line-height: 20px;
   }
 
-  /* line 2762, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
+  /* line 2765, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
   .navbar-nav .open .dropdown-menu > li > a,
   .navbar-nav .open .dropdown-menu .dropdown-header {
     padding: 5px 15px 5px 25px;
   }
 
-  /* line 2765, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
+  /* line 2768, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
   .dropdown-menu > li > a {
     display: block;
     padding: 3px 20px;
@@ -13010,119 +13014,119 @@ output {
     white-space: nowrap;
   }
 
-  /* line 2774, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
+  /* line 2777, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
   .navbar-header {
     float: none;
   }
 
-  /* line 2777, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
+  /* line 2780, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
   .navbar-toggle {
     display: block;
   }
 
-  /* line 2780, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
+  /* line 2783, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
   .navbar-collapse {
     border-top: 1px solid transparent;
     box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1);
   }
 
-  /* line 2784, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
+  /* line 2787, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
   .navbar-collapse.collapse {
     display: none !important;
   }
 
-  /* line 2787, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
+  /* line 2790, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
   .navbar-nav {
     float: none !important;
     /*margin: 7.5px -15px;*/
     margin: 7.5px 50px 7.5px -15px;
   }
 
-  /* line 2792, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
+  /* line 2795, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
   .navbar-nav > li {
     float: none;
   }
 
-  /* line 2795, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
+  /* line 2798, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
   .navbar-nav > li > a {
     padding-top: 10px;
     padding-bottom: 10px;
   }
 
-  /* line 2799, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
+  /* line 2802, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
   .navbar-text {
     float: none;
     margin: 15px 0;
   }
 
   /* since 3.1.0 */
-  /* line 2804, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
+  /* line 2807, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
   .navbar-collapse.collapse.in {
     display: block !important;
   }
 
-  /* line 2807, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
+  /* line 2810, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
   .collapsing {
     overflow: hidden !important;
   }
 
-  /* line 2811, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
+  /* line 2814, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
   #sxedio_new {
     text-align: left;
   }
 
-  /* line 2815, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
+  /* line 2818, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
   .col_right_svg {
     padding-left: 10px !important;
   }
 
-  /* line 2819, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
+  /* line 2822, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
   .sunolo_card_katw {
     width: 100%;
   }
 }
 @media (min-width: 100px) and (max-width: 400px) {
-  /* line 2826, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
+  /* line 2829, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
   label {
     font-size: 12px;
   }
 
-  /* line 2830, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
+  /* line 2833, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
   input {
     font-size: 15px;
   }
 
-  /* line 2834, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
+  /* line 2837, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
   .btn {
     font-size: 12px;
   }
 
-  /* line 2838, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
+  /* line 2841, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
   .xwrismata_enoimerwsi {
     font-size: 12px;
   }
 
-  /* line 2842, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
+  /* line 2845, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
   p {
     font-size: 10px;
   }
 
-  /* line 2846, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
+  /* line 2849, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
   #sxedio_new {
     text-align: left;
   }
 
-  /* line 2850, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
+  /* line 2853, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
   .col_right_svg {
     padding-left: 10px !important;
   }
 
-  /* line 2853, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
+  /* line 2856, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
   .sunolo_card_katw {
     width: 100%;
   }
 }
-/* line 2859, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
+/* line 2862, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
 .fixed {
   background-color: white;
   border-bottom-style: solid;
@@ -13130,18 +13134,18 @@ output {
   width: 95%;
 }
 
-/* line 2866, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
+/* line 2869, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
 .fixeds {
   position: fixed;
 }
 
 /* Files uploaded */
-/* line 2870, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
+/* line 2873, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
 input[type="file"] {
   display: none;
 }
 
-/* line 2873, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
+/* line 2876, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
 .custom-file-upload {
   border: 1px solid #ccc;
   display: inline-block;
@@ -13149,7 +13153,7 @@ input[type="file"] {
   cursor: pointer;
 }
 
-/* line 2880, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
+/* line 2883, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
 .list_of_pdf {
   height: 80px;
   width: 100px;
@@ -13157,22 +13161,22 @@ input[type="file"] {
   overflow-y: auto;
 }
 
-/* line 2887, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
+/* line 2890, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
 .name_td, .date_td {
   width: 150px;
 }
 
-/* line 2891, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
+/* line 2894, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
 .up_odoigou, .pl_rol_ep, .up_rol_ep, .pl_rol_ek, .up_rol_ek, .pl_persidas, .up_persidas {
   width: 60px;
 }
 
-/* line 2899, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
+/* line 2902, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
 .tipos_anoigmatos.classhide {
   display: none;
 }
 
-/* line 2903, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
+/* line 2906, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
 .tipos_anoigmatos img.panel-img-inner.dir-left {
   position: absolute;
   top: 4px;
@@ -13182,7 +13186,7 @@ input[type="file"] {
   z-index: 1;
 }
 
-/* line 2912, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
+/* line 2915, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
 .tipos_anoigmatos img.panel-img-inner.dir-right {
   position: absolute;
   top: 4px;
@@ -13192,7 +13196,7 @@ input[type="file"] {
   z-index: 1;
 }
 
-/* line 2921, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
+/* line 2924, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
 .tipos_anoigmatos img.panel-img-inner.dir-center {
   position: absolute;
   top: 4px;
@@ -13202,7 +13206,7 @@ input[type="file"] {
   z-index: 1;
 }
 
-/* line 2930, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
+/* line 2933, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
 .tipos_anoigmatos img.panel-img-inner.dir-left-min {
   position: absolute;
   top: 45px;
@@ -13212,7 +13216,7 @@ input[type="file"] {
   z-index: 1;
 }
 
-/* line 2939, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
+/* line 2942, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
 .tipos_anoigmatos img.panel-img-inner.dir-right-min {
   position: absolute;
   top: 45px;
@@ -13222,7 +13226,7 @@ input[type="file"] {
   z-index: 1;
 }
 
-/* line 2948, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
+/* line 2951, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
 .tipos_anoigmatos img.panel-img-inner.dir-center-min {
   position: absolute;
   top: 45px;
@@ -13232,7 +13236,7 @@ input[type="file"] {
   z-index: 1;
 }
 
-/* line 2957, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
+/* line 2960, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
 .tipos_anoigmatos img.panel-img-inner.dir-center-all {
   position: absolute;
   top: 3px;
@@ -13242,7 +13246,7 @@ input[type="file"] {
   z-index: 1;
 }
 
-/* line 2966, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
+/* line 2969, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
 .tipos_anoigmatos img.panel-img-inner.dir-center-center-min {
   position: absolute;
   top: 45px;
@@ -13252,7 +13256,7 @@ input[type="file"] {
   z-index: 1;
 }
 
-/* line 2975, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
+/* line 2978, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
 .tipos_name_ekso {
   z-index: 2;
   position: absolute;
@@ -13261,7 +13265,7 @@ input[type="file"] {
   width: 100%;
 }
 
-/* line 2983, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
+/* line 2986, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
 .panel {
   position: relative;
   display: inline-block;
@@ -13275,29 +13279,29 @@ input[type="file"] {
   border-color: white;
 }
 
-/* line 2996, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
+/* line 2999, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
 .panel img {
   width: 165px;
 }
 
-/* line 3000, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
+/* line 3003, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
 .glass_3 a {
   display: block;
 }
 
-/* line 3004, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
+/* line 3007, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
 .glass_3 .extra label {
   padding: 0 3px;
 }
 
-/* line 3008, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
+/* line 3011, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
 .modal_times {
   height: 400px;
   overflow: scroll;
   display: none;
 }
 
-/* line 3016, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
+/* line 3019, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
 .big_container_door .color_m_e,
 .big_container_door .color,
 .big_container_door .color_eksw {
@@ -13305,7 +13309,7 @@ input[type="file"] {
   height: auto;
 }
 
-/* line 3021, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
+/* line 3024, /Users/olympia/sites/etik_new_design/app/assets/stylesheets/style.css.scss */
 textarea {
   resize: none;
   margin-top: 20px;

@@ -2181,14 +2181,17 @@ label > input:checked + img{ /* (RADIO CHECKED) IMAGE STYLES */
 }
 
 .left_panel_first{
-  border-right-style: solid;
-  border-right-width: 1px;
+  
   overflow: auto;
 }
 .left_panel_second{
   border-right-style: solid;
   border-right-width: 1px;
   overflow: auto;
+}
+.left_tab {
+  border-right-style: solid;
+  border-right-width: 1px;
 }
 
 .category_buttons{
