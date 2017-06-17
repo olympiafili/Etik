@@ -570,7 +570,7 @@
                             <h5><%= t 'translate.Right' %></h5>
                             <% @profil.each do |p| %>
                               <a  style="text-decoration: none; color:black;">
-                                <label class="peninta" id="<%= p.id %>" data-toggle="modal" data-target="#myModal"><b><%= p.code %></b><br><%= p.name %></label>
+                                <label class="peninta" id="<%= p.id %>"><b><%= p.code %></b><br><%= p.name %></label>
                                 <span id="<%= p.width %>" class="<%= p.height %>"></span>
                               </a>
                             <% end %><!--End each-->
@@ -590,7 +590,7 @@
                             <h5><%= t 'translate.Left' %></h5>
                             <% @profil.each do |p| %>
                               <a style="text-decoration: none; color:black;">
-                                <label class="penintaena" id="<%= p.id %>" data-toggle="modal" data-target="#myModal_a"><b><%= p.code %></b><br><%= p.name %></label>
+                                <label class="penintaena" id="<%= p.id %>"><b><%= p.code %></b><br><%= p.name %></label>
                                 <span id="<%= p.width %>" class="<%= p.height %>"></span>
                               </a>
                             <% end %><!--End each-->
@@ -610,7 +610,7 @@
                             <h5><%= t 'translate.Top' %></h5>
                             <% @profil.each do |p| %>
                               <a style="text-decoration: none; color:black;">
-                                <label class="penintaduo" id="<%= p.id %>" data-toggle="modal" data-target="#myModal_p"><b><%= p.code %></b><br><%= p.name %></label>
+                                <label class="penintaduo" id="<%= p.id %>"><b><%= p.code %></b><br><%= p.name %></label>
                                 <span id="<%= p.width %>" class="<%= p.height %>"></span>
                               </a>
                             <% end %><!--End each-->
@@ -630,7 +630,7 @@
                             <h5><%= t 'translate.Bottom' %></h5>
                             <% @profil.each do |p| %>
                               <a style="text-decoration: none; color:black;">
-                                <label class="penintatria" id="<%= p.id %>" data-toggle="modal" data-target="#myModal_k"><b><%= p.code %></b><br><%= p.name %></label>
+                                <label class="penintatria" id="<%= p.id %>"><b><%= p.code %></b><br><%= p.name %></label>
                                 <span id="<%= p.width %>" class="<%= p.height %>"></span>
                               </a>
                             <% end %><!--End each-->
@@ -1341,7 +1341,7 @@
             <h4 class="modal-title">
             <b><%= t 'translate.Price' %></b>
             <button type="button" class="btn btn-primary order"><%= t 'translate.Add_to_cart' %></button>
-            <button type="button" class="btn btn-primary close_confirm"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+            <!--<button type="button" class="btn btn-primary close_confirm"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>-->
             </h4>
           </div>
           <div class="modal-body">
@@ -1796,8 +1796,8 @@
               </select>
               <button type="button" class="btn btn-primary confirm"><%= t 'translate.Confirm' %></button>
               <!--
-              <button type="button" class="btn btn-primary order"><%= t 'translate.Add_to_cart' %></button>-->
-              <button type="button" class="btn btn-primary close_add_to_card"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+              <button type="button" class="btn btn-primary order"><%= t 'translate.Add_to_cart' %></button>
+              <button type="button" class="btn btn-primary close_add_to_card"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>-->
             </h4>
           </div>
           <div class="modal-body">
@@ -2120,7 +2120,7 @@
       $("#width").focus();
     });
 
-    $(".close_add_to_card").click(function() {
+    /*$(".close_add_to_card").click(function() {
       $("#myModal_xwrisma").modal('hide');
     });
 
@@ -2130,7 +2130,7 @@
 
     $(".close_confirm").click(function() {
       $("#myModal_confirm").modal('hide');
-    });
+    });*/
 
     timeout = 0;
     patima_epikathimenou = false;
@@ -3518,27 +3518,70 @@ var previousVal3 = null;
     }
 
     $(".extra").on("click", ".peninta", function() {
-      
       profil_deksia_new = $(this).attr('id');
       $( this ).css("background-color","#d9eaed");
       $( this ).css("color","black");
       epilogi = $( this );
       width_profil = Number(epilogi.next().attr('id'));
-      
+      $('#myModal').dialog({
+        modal: true, 
+        autoOpen: true,
+        open: function( event, ui ) {
+          $(".ui-dialog-titlebar", this.parentNode).hide();
+          if ( YES_TYP_DE == true ){
+                $( "input[value="+de_de+"][name='optradio_d']" ).trigger('click');
+                $( ".arithmos_profil_deksia" ).trigger('click');
+                YES_TYP_DE = false;
+                YES_TYP_DE_COL = true;
+              }
+               if ( YES_TYP_DE2 == true ){
+                //alert("OK");
+                $( "input[value="+de_de+"][name='optradio_d']" ).trigger('click');
+                $( ".arithmos_profil_deksia" ).trigger('click');
+                YES_TYP_DE2 = false;
+                YES_TYP_DE_COL = true;
+              }
+               if ( YES_TYP_DE3 == true ){
+                //alert("OK");
+                $( "input[value="+de_de+"][name='optradio_d']" ).trigger('click');
+                $( ".arithmos_profil_deksia" ).trigger('click');
+                YES_TYP_DE3 = false;
+                YES_TYP_DE_COL = true;
+              }
+              if ( META_YES_TYP_DE == true ){
+                //alert("OK");
+                $( "input[value="+de_de+"][name='optradio_d']" ).trigger('click');
+                $( ".arithmos_profil_deksia" ).trigger('click');
+                META_YES_TYP_DE = false;
+                META_YES_TYP_DE_COL = true;
+              }
+               if ( META_YES_TYP_DE2 == true ){
+                //alert("OK");
+                $( "input[value="+de_de+"][name='optradio_d']" ).trigger('click');
+                $( ".arithmos_profil_deksia" ).trigger('click');
+                META_YES_TYP_DE2 = false;
+                META_YES_TYP_DE_COL = true;
+              }
+               if ( META_YES_TYP_DE3 == true ){
+                //alert("OK");
+                $( "input[value="+de_de+"][name='optradio_d']" ).trigger('click');
+                $( ".arithmos_profil_deksia" ).trigger('click');
+                META_YES_TYP_DE3 = false;
+                META_YES_TYP_DE_COL = true;
+              }
+        },
+      });
 
     });
 
-    $('#myModal').on('shown.bs.modal', function (e) {
-      //alert("OK");
+    /*$('#myModal').on('shown.bs.modal', function (e) {
         if ( YES_TYP_DE == true ){
-          //alert("OK");
           $( "input[value="+de_de+"][name='optradio_d']" ).trigger('click');
           $( ".arithmos_profil_deksia" ).trigger('click');
           YES_TYP_DE = false;
           YES_TYP_DE_COL = true;
         }
          if ( YES_TYP_DE2 == true ){
-          //alert("OK");
           $( "input[value="+de_de+"][name='optradio_d']" ).trigger('click');
           $( ".arithmos_profil_deksia" ).trigger('click');
           YES_TYP_DE2 = false;
@@ -3572,19 +3615,13 @@ var previousVal3 = null;
           META_YES_TYP_DE3 = false;
           META_YES_TYP_DE_COL = true;
         }
-
-    });
-
-
+    });*/
 
     $(".modal").on("click", ".arithmos_profil_deksia", function() {
-          //ti_epeleksa = $("input:checked").val();
           ti_epeleksa = $('input[name=optradio_d]:checked', '#myForm_d').val();
-          $('.modal').modal('hide');
-          $('.modal').modal('hide');
+          $('#myModal').dialog('close');
           $('.modal-backdrop').remove();
 
-          //deksia_hide_modal = true;
           if(typeof ti_epeleksa === 'undefined'){
              ti_epeleksa = 0;
            };
@@ -4038,11 +4075,57 @@ var previousVal3 = null;
       $( this ).css("background-color","#d9eaed");
       $( this ).css("color","black");
       epilogi_a = $( this );
-      width_profil_a = Number(epilogi_a.next().attr('id'));      
+      width_profil_a = Number(epilogi_a.next().attr('id'));
+
+      $('#myModal_a').dialog({
+        modal: true, 
+        autoOpen: true,
+        open: function( event, ui ) {
+          $(".ui-dialog-titlebar", this.parentNode).hide();
+          if ( YES_TYP_AR == true ){
+           $( "input[value="+ar_ar+"][name='optradio_a']" ).trigger('click');
+           $( ".arithmos_profil_aristera" ).trigger('click');
+           YES_TYP_AR_COL = true;
+           YES_TYP_AR = false;
+          }
+          if ( YES_TYP_AR2 == true ){
+           $( "input[value="+ar_ar+"][name='optradio_a']" ).trigger('click');
+           $( ".arithmos_profil_aristera" ).trigger('click');
+            YES_TYP_AR_COL = true;
+            YES_TYP_AR2 = false;
+          }
+          if ( YES_TYP_AR3 == true ){
+           $( "input[value="+ar_ar+"][name='optradio_a']" ).trigger('click');
+           $( ".arithmos_profil_aristera" ).trigger('click');
+            YES_TYP_AR_COL = true;
+            YES_TYP_AR3 = false;
+          }
+          if ( META_YES_TYP_AR == true ){
+            //alert(ar_ar);
+           $( "input[value="+ar_ar+"][name='optradio_a']" ).trigger('click');
+           $( ".arithmos_profil_aristera" ).trigger('click');
+            META_YES_TYP_AR_COL = true;
+            META_YES_TYP_AR = false;
+          }
+          if ( META_YES_TYP_AR2 == true ){
+            //alert(ar_ar);
+           $( "input[value="+ar_ar+"][name='optradio_a']" ).trigger('click');
+           $( ".arithmos_profil_aristera" ).trigger('click');
+            META_YES_TYP_AR_COL = true;
+            META_YES_TYP_AR2 = false;
+          }
+          if ( META_YES_TYP_AR3 == true ){
+            //alert(ar_ar);
+           $( "input[value="+ar_ar+"][name='optradio_a']" ).trigger('click');
+           $( ".arithmos_profil_aristera" ).trigger('click');
+            META_YES_TYP_AR_COL = true;
+            META_YES_TYP_AR3 = false;
+          }
+        },
+      });
     });
 
-    $('#myModal_a').on('shown.bs.modal', function (e) {
-      //alert("OK");
+    /*$('#myModal_a').on('shown.bs.modal', function (e) {
         if ( YES_TYP_AR == true ){
           //alert(ar_ar);
          $( "input[value="+ar_ar+"][name='optradio_a']" ).trigger('click');
@@ -4072,32 +4155,24 @@ var previousVal3 = null;
           META_YES_TYP_AR = false;
         }
         if ( META_YES_TYP_AR2 == true ){
-          //alert(ar_ar);
          $( "input[value="+ar_ar+"][name='optradio_a']" ).trigger('click');
          $( ".arithmos_profil_aristera" ).trigger('click');
           META_YES_TYP_AR_COL = true;
           META_YES_TYP_AR2 = false;
         }
         if ( META_YES_TYP_AR3 == true ){
-          //alert(ar_ar);
          $( "input[value="+ar_ar+"][name='optradio_a']" ).trigger('click');
          $( ".arithmos_profil_aristera" ).trigger('click');
           META_YES_TYP_AR_COL = true;
           META_YES_TYP_AR3 = false;
         }
-    });
-
-
+    });*/
 
     $(".modal_a").on("click", ".arithmos_profil_aristera", function() {
-          //ti_epeleksa_a = $("input:checked").val();
-          ti_epeleksa_a = $('input[name=optradio_a]:checked', '#myForm_a').val();
-          $('.modal_a').modal('hide');
-          $('.modal_a').modal('hide');
+          ti_epeleksa_a = $('input[name=optradio_a]:checked', '.modal_a').val();
+          $('#myModal_a').dialog('close');
           $('.modal-backdrop').remove();
 
-          //aristera_hide_modal = true;
-          //alert(typeof(ti_epeleksa));
           if(typeof ti_epeleksa_a === 'undefined'){
              ti_epeleksa_a = 0;
            };
@@ -4574,20 +4649,63 @@ var previousVal3 = null;
         this.seira = seira;
     }
 
-    
-
     $(".extra").on("click", ".penintaduo", function() {
-      
       profil_panw_new = $(this).attr('id');
       $( this ).css("background-color","#d9eaed");
       $( this ).css("color","black");
       epilogi_p = $( this );
       height_profil_p = Number(epilogi_p.next().attr('class'));
-      
+
+      $('#myModal_p').dialog({
+        modal: true, 
+        autoOpen: true,
+        open: function( event, ui ) {
+          $(".ui-dialog-titlebar", this.parentNode).hide();
+          if ( YES_TYP_PA == true ){
+            $( "input[value="+pa_pa+"][name='optradio_p']" ).trigger('click');
+            $( ".arithmos_profil_panw" ).trigger('click');
+            YES_TYP_PA_COL = true;
+            YES_TYP_PA = false;
+          }
+          if ( YES_TYP_PA2 == true ){
+            $( "input[value="+pa_pa+"][name='optradio_p']" ).trigger('click');
+            $( ".arithmos_profil_panw" ).trigger('click');
+            YES_TYP_PA_COL = true;
+            YES_TYP_PA2 = false;
+          }
+          if ( YES_TYP_PA3 == true ){
+            //alert("OK");
+            $( "input[value="+pa_pa+"][name='optradio_p']" ).trigger('click');
+            $( ".arithmos_profil_panw" ).trigger('click');
+            YES_TYP_PA_COL = true;
+            YES_TYP_PA3 = false;
+          }
+          if ( META_YES_TYP_PA == true ){
+            //alert("OK");
+            $( "input[value="+pa_pa+"][name='optradio_p']" ).trigger('click');
+            $( ".arithmos_profil_panw" ).trigger('click');
+            META_YES_TYP_PA_COL = true;
+            META_YES_TYP_PA = false;
+          }
+          if ( META_YES_TYP_PA2 == true ){
+            //alert("OK");
+            $( "input[value="+pa_pa+"][name='optradio_p']" ).trigger('click');
+            $( ".arithmos_profil_panw" ).trigger('click');
+            META_YES_TYP_PA_COL = true;
+            META_YES_TYP_PA2 = false;
+          }
+          if ( META_YES_TYP_PA3 == true ){
+            //alert("OK");
+            $( "input[value="+pa_pa+"][name='optradio_p']" ).trigger('click');
+            $( ".arithmos_profil_panw" ).trigger('click');
+            META_YES_TYP_PA_COL = true;
+            META_YES_TYP_PA3 = false;
+          }
+        },
+      });
     });
 
-    $('#myModal_p').on('shown.bs.modal', function (e) {
-      //alert("OK");
+    /*$('#myModal_p').on('shown.bs.modal', function (e) {
         if ( YES_TYP_PA == true ){
           //alert("OK");
           $( "input[value="+pa_pa+"][name='optradio_p']" ).trigger('click');
@@ -4617,30 +4735,24 @@ var previousVal3 = null;
           META_YES_TYP_PA = false;
         }
         if ( META_YES_TYP_PA2 == true ){
-          //alert("OK");
           $( "input[value="+pa_pa+"][name='optradio_p']" ).trigger('click');
           $( ".arithmos_profil_panw" ).trigger('click');
           META_YES_TYP_PA_COL = true;
           META_YES_TYP_PA2 = false;
         }
         if ( META_YES_TYP_PA3 == true ){
-          //alert("OK");
           $( "input[value="+pa_pa+"][name='optradio_p']" ).trigger('click');
           $( ".arithmos_profil_panw" ).trigger('click');
           META_YES_TYP_PA_COL = true;
           META_YES_TYP_PA3 = false;
         }
-    });
+    });*/
 
     $(".modal_p").on("click", ".arithmos_profil_panw", function() {
-          //ti_epeleksa_a = $("input:checked").val();
-          ti_epeleksa_p = $('input[name=optradio_p]:checked', '#myForm_p').val();
-          $('.modal_p').modal('hide');
-          $('.modal_p').modal('hide');
+          ti_epeleksa_p = $('input[name=optradio_p]:checked', '.modal_p').val();
+          $('#myModal_p').dialog('close');
           $('.modal-backdrop').remove();
 
-          //panw_hide_modal = true;
-          //alert(typeof(ti_epeleksa));
           if(typeof ti_epeleksa_p === 'undefined'){
              ti_epeleksa_p = 0;
            };
@@ -5082,19 +5194,61 @@ var previousVal3 = null;
     
 
     $(".extra").on("click", ".penintatria", function() {
-      
       profil_katw_new = $(this).attr('id');
       $( this ).css("background-color","#d9eaed");
       $( this ).css("color","black");
       epilogi_k = $( this );
       height_profil_k = Number(epilogi_k.next().attr('class'));      
 
+      $('#myModal_k').dialog({
+        modal: true, 
+        autoOpen: true,
+        open: function( event, ui ) {
+          $(".ui-dialog-titlebar", this.parentNode).hide();
+          if ( YES_TYP_KA == true ){
+            $( "input[value="+ka_ka+"][name='optradio_k']" ).trigger('click');
+            $( ".arithmos_profil_katw" ).trigger('click');
+            YES_TYP_KA = false;
+            YES_TYP_KA_COL = true;
+          }
+          if ( YES_TYP_KA2 == true ){
+            $( "input[value="+ka_ka+"][name='optradio_k']" ).trigger('click');
+            $( ".arithmos_profil_katw" ).trigger('click');
+            YES_TYP_KA2 = false;
+            YES_TYP_KA_COL = true;
+          }
+          if ( YES_TYP_KA3 == true ){
+            $( "input[value="+ka_ka+"][name='optradio_k']" ).trigger('click');
+            $( ".arithmos_profil_katw" ).trigger('click');
+            YES_TYP_KA3 = false;
+            YES_TYP_KA_COL = true;
+          }
+          if ( META_YES_TYP_KA == true ){
+            $( "input[value="+ka_ka+"][name='optradio_k']" ).trigger('click');
+            $( ".arithmos_profil_katw" ).trigger('click');
+            META_YES_TYP_KA = false;
+            META_YES_TYP_KA_COL = true;
+          }
+          if ( META_YES_TYP_KA2 == true ){
+            //alert("OK");
+            $( "input[value="+ka_ka+"][name='optradio_k']" ).trigger('click');
+            $( ".arithmos_profil_katw" ).trigger('click');
+            META_YES_TYP_KA2 = false;
+            META_YES_TYP_KA_COL = true;
+          }
+          if ( META_YES_TYP_KA3 == true ){
+            //alert("OK");
+            $( "input[value="+ka_ka+"][name='optradio_k']" ).trigger('click');
+            $( ".arithmos_profil_katw" ).trigger('click');
+            META_YES_TYP_KA3 = false;
+            META_YES_TYP_KA_COL = true;
+          }
+        },
+      });
     });
 
-    $('#myModal_k').on('shown.bs.modal', function (e) {
-      //alert("OK");
+    /*$('#myModal_k').on('shown.bs.modal', function (e) {
         if ( YES_TYP_KA == true ){
-          //alert("OK");
           $( "input[value="+ka_ka+"][name='optradio_k']" ).trigger('click');
           $( ".arithmos_profil_katw" ).trigger('click');
           YES_TYP_KA = false;
@@ -5122,30 +5276,24 @@ var previousVal3 = null;
           META_YES_TYP_KA_COL = true;
         }
         if ( META_YES_TYP_KA2 == true ){
-          //alert("OK");
           $( "input[value="+ka_ka+"][name='optradio_k']" ).trigger('click');
           $( ".arithmos_profil_katw" ).trigger('click');
           META_YES_TYP_KA2 = false;
           META_YES_TYP_KA_COL = true;
         }
         if ( META_YES_TYP_KA3 == true ){
-          //alert("OK");
           $( "input[value="+ka_ka+"][name='optradio_k']" ).trigger('click');
           $( ".arithmos_profil_katw" ).trigger('click');
           META_YES_TYP_KA3 = false;
           META_YES_TYP_KA_COL = true;
         }
-    });
+    });*/
 
     $(".modal_k").on("click", ".arithmos_profil_katw", function() {
-          //ti_epeleksa_a = $("input:checked").val();
-          ti_epeleksa_k = $('input[name=optradio_k]:checked', '#myForm_k').val();
-          $('.modal_k').modal('hide');
-          $('.modal_k').modal('hide');
+          ti_epeleksa_k = $('input[name=optradio_k]:checked', '.modal_k').val();
+          $('#myModal_k').dialog('close');
           $('.modal-backdrop').remove();
 
-          //katw_hide_modal = true;
-          //alert(typeof(ti_epeleksa));
           if(typeof ti_epeleksa_k === 'undefined'){
              ti_epeleksa_k = 0;
            };
@@ -5623,13 +5771,9 @@ var previousVal3 = null;
     });
 
     $(".modal_t").on("click", ".arithmos_typos", function() {
-          //ti_epeleksa_a = $("input:checked").val();
           ti_epeleksa_t = $('input[name=optradio_t]:checked', '#myForm_t').val();
           $('.modal_t').modal('hide');
-          $('.modal_t').modal('hide');
           $('.modal-backdrop').remove();
-          //alert(typeof(ti_epeleksa));
-          //typos_hide_modal = true;
 
           // Αν πατησω πανω απο 0 πρωφιλ τα προσθετω στον πινακα.
           if (ti_epeleksa_t !== "0"){
@@ -8014,8 +8158,8 @@ $(".extra").on("click", ".equipment", function() {
     $(".modal_pk").hide();
 
     $( ".confirm" ).click(function() {
-      $(".close_add_to_card").click();
-      $('#myModal_confirm').appendTo("body").modal('show');
+      $("#myModal_xwrisma").dialog('close');
+      $('#myModal_confirm').dialog({modal: true, autoOpen: true});
     });
 
     
@@ -8025,7 +8169,7 @@ $(".extra").on("click", ".equipment", function() {
 
 
     $( ".order_prin" ).click(function() {
-        $('#myModal_xwrisma').appendTo("body").modal('show');
+        $('#myModal_xwrisma').dialog({modal: true, autoOpen: true});
         $("#modal_new_width").html("<b><%= t('translate.New_width') %></b>: "+width_new+" mm");
         $("#modal_new_height").html("<b><%= t('translate.new_height') %></b>: "+height_new+" mm");
 
@@ -8730,7 +8874,7 @@ $(".extra").on("click", ".equipment", function() {
       }//geniko_ok = true;
       else{
         $('#loading').fadeOut(1000);
-        $("#myModal_xwrisma").modal('hide');
+        $("#myModal_xwrisma").dialog('close');
         $("#tab_dimensions").click();
         $(".alert_geniko_ok").show();
         $('.alert_geniko_ok').delay(3000).fadeOut('slow');

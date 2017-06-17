@@ -738,7 +738,7 @@
                             <h5><%= t 'translate.Right' %></h5>
                             <% @profil.each do |p| %>
                               <a  style="text-decoration: none; color:black;">
-                                <label class="peninta" id="<%= p.id %>" data-toggle="modal" data-target="#myModal"><b><%= p.code %></b><br><%= p.name %></label>
+                                <label class="peninta" id="<%= p.id %>"><b><%= p.code %></b><br><%= p.name %></label>
                                 <span id="<%= p.width %>" class="<%= p.height %>"></span>
                               </a>
                             <% end %><!--End each-->
@@ -758,7 +758,7 @@
                             <h5><%= t 'translate.Left' %></h5>
                             <% @profil.each do |p| %>
                               <a style="text-decoration: none; color:black;">
-                                <label class="penintaena" id="<%= p.id %>" data-toggle="modal" data-target="#myModal_a"><b><%= p.code %></b><br><%= p.name %></label>
+                                <label class="penintaena" id="<%= p.id %>"><b><%= p.code %></b><br><%= p.name %></label>
                                 <span id="<%= p.width %>" class="<%= p.height %>"></span>
                               </a>
                             <% end %><!--End each-->
@@ -778,7 +778,7 @@
                             <h5><%= t 'translate.Top' %></h5>
                             <% @profil.each do |p| %>
                               <a style="text-decoration: none; color:black;">
-                                <label class="penintaduo" id="<%= p.id %>" data-toggle="modal" data-target="#myModal_p"><b><%= p.code %></b><br><%= p.name %></label>
+                                <label class="penintaduo" id="<%= p.id %>"><b><%= p.code %></b><br><%= p.name %></label>
                                 <span id="<%= p.width %>" class="<%= p.height %>"></span>
                               </a>
                             <% end %><!--End each-->
@@ -798,7 +798,7 @@
                             <h5><%= t 'translate.Bottom' %></h5>
                             <% @profil.each do |p| %>
                               <a style="text-decoration: none; color:black;">
-                                <label class="penintatria" id="<%= p.id %>" data-toggle="modal" data-target="#myModal_k"><b><%= p.code %></b><br><%= p.name %></label>
+                                <label class="penintatria" id="<%= p.id %>"><b><%= p.code %></b><br><%= p.name %></label>
                                 <span id="<%= p.width %>" class="<%= p.height %>"></span>
                               </a>
                             <% end %><!--End each-->
@@ -1032,7 +1032,7 @@
                         <div class="extra rat_none">
                           <% @roll_rat.each do |r| %>
                             <a  style="text-decoration: none; color:black;">
-                              <label class="rolls_rat" id="<%= r.id %>" style="display:block;" data-toggle="modal" data-target="#myModal_rat"><%= r.name %></label>
+                              <label class="rolls_rat" id="<%= r.id %>" style="display:block;"><%= r.name %></label>
                             </a>
                           <% end %><!--End each-->
                         </div><!-- End extra-->
@@ -4336,19 +4336,63 @@
     $(".extra").on("click", ".peninta", function() {
       
       profil_deksia_new = $(this).attr('id');
-      //$( this ).css("background-color","#CA3333");
       $( this ).css("background-color","#d9eaed");
       $( this ).css("color","black");
       epilogi = $( this );
       width_profil = Number(epilogi.next().attr('id'));
-      
+      $('#myModal').dialog({
+        modal: true, 
+        autoOpen: true,
+        open: function( event, ui ) {
+          $(".ui-dialog-titlebar", this.parentNode).hide();
+          if ( YES_TYP_DE == true ){
+                $( "input[value="+de_de+"][name='optradio_d']" ).trigger('click');
+                $( ".arithmos_profil_deksia" ).trigger('click');
+                YES_TYP_DE = false;
+                YES_TYP_DE_COL = true;
+              }
+               if ( YES_TYP_DE2 == true ){
+                //alert("OK");
+                $( "input[value="+de_de+"][name='optradio_d']" ).trigger('click');
+                $( ".arithmos_profil_deksia" ).trigger('click');
+                YES_TYP_DE2 = false;
+                YES_TYP_DE_COL = true;
+              }
+               if ( YES_TYP_DE3 == true ){
+                //alert("OK");
+                $( "input[value="+de_de+"][name='optradio_d']" ).trigger('click');
+                $( ".arithmos_profil_deksia" ).trigger('click');
+                YES_TYP_DE3 = false;
+                YES_TYP_DE_COL = true;
+              }
+              if ( META_YES_TYP_DE == true ){
+                //alert("OK");
+                $( "input[value="+de_de+"][name='optradio_d']" ).trigger('click');
+                $( ".arithmos_profil_deksia" ).trigger('click');
+                META_YES_TYP_DE = false;
+                META_YES_TYP_DE_COL = true;
+              }
+               if ( META_YES_TYP_DE2 == true ){
+                //alert("OK");
+                $( "input[value="+de_de+"][name='optradio_d']" ).trigger('click');
+                $( ".arithmos_profil_deksia" ).trigger('click');
+                META_YES_TYP_DE2 = false;
+                META_YES_TYP_DE_COL = true;
+              }
+               if ( META_YES_TYP_DE3 == true ){
+                //alert("OK");
+                $( "input[value="+de_de+"][name='optradio_d']" ).trigger('click');
+                $( ".arithmos_profil_deksia" ).trigger('click');
+                META_YES_TYP_DE3 = false;
+                META_YES_TYP_DE_COL = true;
+              }
+        },
+      });
 
     });
 
-    $('#myModal').on('shown.bs.modal', function (e) {
-      //alert("OK");
+    /*$('#myModal').on('shown.bs.modal', function (e) {
         if ( YES_TYP_DE == true ){
-          //alert("OK");
           $( "input[value="+de_de+"][name='optradio_d']" ).trigger('click');
           $( ".arithmos_profil_deksia" ).trigger('click');
           YES_TYP_DE = false;
@@ -4389,19 +4433,14 @@
           META_YES_TYP_DE3 = false;
           META_YES_TYP_DE_COL = true;
         }
-
-    });
-
+    });*/
 
 
     $(".modal").on("click", ".arithmos_profil_deksia", function() {
-          //ti_epeleksa = $("input:checked").val();
           ti_epeleksa = $('input[name=optradio_d]:checked', '#myForm_d').val();
-          $('.modal').modal('hide');
-          $('.modal').modal('hide');
+          $('#myModal').dialog('close');
           $('.modal-backdrop').remove();
 
-          //deksia_hide_modal = true;
           if(typeof ti_epeleksa === 'undefined'){
              ti_epeleksa = 0;
            };
@@ -4865,31 +4904,74 @@
 
     $(".extra").on("click", ".penintaena", function() {
       profil_aristera_new = $(this).attr('id');
-      //$( this ).css("background-color","#CA3333");
       $( this ).css("background-color","#d9eaed");
       $( this ).css("color","black");
       epilogi_a = $( this );
-      width_profil_a = Number(epilogi_a.next().attr('id'));      
+      width_profil_a = Number(epilogi_a.next().attr('id'));
+
+      $('#myModal_a').dialog({
+        modal: true, 
+        autoOpen: true,
+        open: function( event, ui ) {
+          $(".ui-dialog-titlebar", this.parentNode).hide();
+          if ( YES_TYP_AR == true ){
+           $( "input[value="+ar_ar+"][name='optradio_a']" ).trigger('click');
+           $( ".arithmos_profil_aristera" ).trigger('click');
+           YES_TYP_AR_COL = true;
+           YES_TYP_AR = false;
+          }
+          if ( YES_TYP_AR2 == true ){
+           $( "input[value="+ar_ar+"][name='optradio_a']" ).trigger('click');
+           $( ".arithmos_profil_aristera" ).trigger('click');
+            YES_TYP_AR_COL = true;
+            YES_TYP_AR2 = false;
+          }
+          if ( YES_TYP_AR3 == true ){
+           $( "input[value="+ar_ar+"][name='optradio_a']" ).trigger('click');
+           $( ".arithmos_profil_aristera" ).trigger('click');
+            YES_TYP_AR_COL = true;
+            YES_TYP_AR3 = false;
+          }
+          if ( META_YES_TYP_AR == true ){
+            //alert(ar_ar);
+           $( "input[value="+ar_ar+"][name='optradio_a']" ).trigger('click');
+           $( ".arithmos_profil_aristera" ).trigger('click');
+            META_YES_TYP_AR_COL = true;
+            META_YES_TYP_AR = false;
+          }
+          if ( META_YES_TYP_AR2 == true ){
+            //alert(ar_ar);
+           $( "input[value="+ar_ar+"][name='optradio_a']" ).trigger('click');
+           $( ".arithmos_profil_aristera" ).trigger('click');
+            META_YES_TYP_AR_COL = true;
+            META_YES_TYP_AR2 = false;
+          }
+          if ( META_YES_TYP_AR3 == true ){
+            //alert(ar_ar);
+           $( "input[value="+ar_ar+"][name='optradio_a']" ).trigger('click');
+           $( ".arithmos_profil_aristera" ).trigger('click');
+            META_YES_TYP_AR_COL = true;
+            META_YES_TYP_AR3 = false;
+          }
+        },
+      });
+
     });
 
-    $('#myModal_a').on('shown.bs.modal', function (e) {
-      //alert("OK");
+    /*$('#myModal_a').on('shown.bs.modal', function (e) {
         if ( YES_TYP_AR == true ){
-          //alert(ar_ar);
          $( "input[value="+ar_ar+"][name='optradio_a']" ).trigger('click');
          $( ".arithmos_profil_aristera" ).trigger('click');
          YES_TYP_AR_COL = true;
          YES_TYP_AR = false;
         }
         if ( YES_TYP_AR2 == true ){
-        //alert(ar_ar);
          $( "input[value="+ar_ar+"][name='optradio_a']" ).trigger('click');
          $( ".arithmos_profil_aristera" ).trigger('click');
           YES_TYP_AR_COL = true;
           YES_TYP_AR2 = false;
         }
         if ( YES_TYP_AR3 == true ){
-          //alert(ar_ar);
          $( "input[value="+ar_ar+"][name='optradio_a']" ).trigger('click');
          $( ".arithmos_profil_aristera" ).trigger('click');
           YES_TYP_AR_COL = true;
@@ -4916,19 +4998,13 @@
           META_YES_TYP_AR_COL = true;
           META_YES_TYP_AR3 = false;
         }
-    });
-
-
+    });*/
 
     $(".modal_a").on("click", ".arithmos_profil_aristera", function() {
-          //ti_epeleksa_a = $("input:checked").val();
-          ti_epeleksa_a = $('input[name=optradio_a]:checked', '#myForm_a').val();
-          $('.modal_a').modal('hide');
-          $('.modal_a').modal('hide');
+          ti_epeleksa_a = $('input[name=optradio_a]:checked', '.modal_a').val();
+          $('#myModal_a').dialog('close');
           $('.modal-backdrop').remove();
 
-          //aristera_hide_modal = true;
-          //alert(typeof(ti_epeleksa));
           if(typeof ti_epeleksa_a === 'undefined'){
              ti_epeleksa_a = 0;
            };
@@ -5286,11 +5362,6 @@
                     }, 6000);
                   }
 
-            
-            /*
-            if (profil_deksia_array[0].id !== undefined){ profil_deksia_array[0].id, profil_deksia_array[0].arithmo }else{ 0, 0 },if (profil_deksia_array[1].id !== undefined){ profil_deksia_array[1].id, profil_deksia_array[1].arithmo }else{ 0, 0 },if (profil_deksia_array[2].id !== undefined){ profil_deksia_array[2].id, profil_deksia_array[2].arithmo }else{ 0, 0 } */
-
-
           }//end megalitera apo 0
           else{
             //$(".alert_mikro_parathiro_ar").show();
@@ -5299,7 +5370,6 @@
             pro_a = "0";
             var b = pro_a+pro_d+pro_k+pro_p+geniko_persida+geniko_rolo;
             var decimal = parseInt(b, 2);
-            //zwgrafia(decimal,epikathimeno_rolo,eksoteriko_rolo,color_rolou,color_pers,color_p,color_k,color_d,color_a,leaf);
 
             sxedio_p_a = false;
             
@@ -5316,7 +5386,7 @@
 
       //
       $(".modal_rat").on("click", ".arithmos_rat", function() {
-        $('.modal_rat').modal('hide');
+        $('.modal_rat').dialog('close');
         if($('input[name=del_arithmos_rat]:checked').length > 0) {
           
           roll_rat = 0;
@@ -5424,27 +5494,70 @@
     
 
     $(".extra").on("click", ".penintaduo", function() {
-      
       profil_panw_new = $(this).attr('id');
-      //$( this ).css("background-color","#CA3333");
       $( this ).css("background-color","#d9eaed");
       $( this ).css("color","black");
       epilogi_p = $( this );
       height_profil_p = Number(epilogi_p.next().attr('class'));
       
+      $('#myModal_p').dialog({
+        modal: true, 
+        autoOpen: true,
+        open: function( event, ui ) {
+          $(".ui-dialog-titlebar", this.parentNode).hide();
+          if ( YES_TYP_PA == true ){
+            $( "input[value="+pa_pa+"][name='optradio_p']" ).trigger('click');
+            $( ".arithmos_profil_panw" ).trigger('click');
+            YES_TYP_PA_COL = true;
+            YES_TYP_PA = false;
+          }
+          if ( YES_TYP_PA2 == true ){
+            $( "input[value="+pa_pa+"][name='optradio_p']" ).trigger('click');
+            $( ".arithmos_profil_panw" ).trigger('click');
+            YES_TYP_PA_COL = true;
+            YES_TYP_PA2 = false;
+          }
+          if ( YES_TYP_PA3 == true ){
+            //alert("OK");
+            $( "input[value="+pa_pa+"][name='optradio_p']" ).trigger('click');
+            $( ".arithmos_profil_panw" ).trigger('click');
+            YES_TYP_PA_COL = true;
+            YES_TYP_PA3 = false;
+          }
+          if ( META_YES_TYP_PA == true ){
+            //alert("OK");
+            $( "input[value="+pa_pa+"][name='optradio_p']" ).trigger('click');
+            $( ".arithmos_profil_panw" ).trigger('click');
+            META_YES_TYP_PA_COL = true;
+            META_YES_TYP_PA = false;
+          }
+          if ( META_YES_TYP_PA2 == true ){
+            //alert("OK");
+            $( "input[value="+pa_pa+"][name='optradio_p']" ).trigger('click');
+            $( ".arithmos_profil_panw" ).trigger('click');
+            META_YES_TYP_PA_COL = true;
+            META_YES_TYP_PA2 = false;
+          }
+          if ( META_YES_TYP_PA3 == true ){
+            //alert("OK");
+            $( "input[value="+pa_pa+"][name='optradio_p']" ).trigger('click');
+            $( ".arithmos_profil_panw" ).trigger('click');
+            META_YES_TYP_PA_COL = true;
+            META_YES_TYP_PA3 = false;
+          }
+        },
+      });
+
     });
 
-    $('#myModal_p').on('shown.bs.modal', function (e) {
-      //alert("OK");
+    /*$('#myModal_p').on('shown.bs.modal', function (e) {
         if ( YES_TYP_PA == true ){
-          //alert("OK");
           $( "input[value="+pa_pa+"][name='optradio_p']" ).trigger('click');
           $( ".arithmos_profil_panw" ).trigger('click');
           YES_TYP_PA_COL = true;
           YES_TYP_PA = false;
         }
         if ( YES_TYP_PA2 == true ){
-          //alert("OK");
           $( "input[value="+pa_pa+"][name='optradio_p']" ).trigger('click');
           $( ".arithmos_profil_panw" ).trigger('click');
           YES_TYP_PA_COL = true;
@@ -5478,13 +5591,11 @@
           META_YES_TYP_PA_COL = true;
           META_YES_TYP_PA3 = false;
         }
-    });
+    });*/
 
     $(".modal_p").on("click", ".arithmos_profil_panw", function() {
-          //ti_epeleksa_a = $("input:checked").val();
-          ti_epeleksa_p = $('input[name=optradio_p]:checked', '#myForm_p').val();
-          $('.modal_p').modal('hide');
-          $('.modal_p').modal('hide');
+          ti_epeleksa_p = $('input[name=optradio_p]:checked', '.modal_p').val();
+          $('#myModal_p').dialog('close');
           $('.modal-backdrop').remove();
 
           if(typeof ti_epeleksa_p === 'undefined'){
@@ -5945,27 +6056,69 @@
     
 
     $(".extra").on("click", ".penintatria", function() {
-      
       profil_katw_new = $(this).attr('id');
-      //$( this ).css("background-color","#CA3333");
       $( this ).css("background-color","#d9eaed");
       $( this ).css("color","black");
       epilogi_k = $( this );
       height_profil_k = Number(epilogi_k.next().attr('class'));      
+      $('#myModal_k').dialog({
+        modal: true, 
+        autoOpen: true,
+        open: function( event, ui ) {
+          $(".ui-dialog-titlebar", this.parentNode).hide();
+          if ( YES_TYP_KA == true ){
+            $( "input[value="+ka_ka+"][name='optradio_k']" ).trigger('click');
+            $( ".arithmos_profil_katw" ).trigger('click');
+            YES_TYP_KA = false;
+            YES_TYP_KA_COL = true;
+          }
+          if ( YES_TYP_KA2 == true ){
+            $( "input[value="+ka_ka+"][name='optradio_k']" ).trigger('click');
+            $( ".arithmos_profil_katw" ).trigger('click');
+            YES_TYP_KA2 = false;
+            YES_TYP_KA_COL = true;
+          }
+          if ( YES_TYP_KA3 == true ){
+            //alert("OK");
+            $( "input[value="+ka_ka+"][name='optradio_k']" ).trigger('click');
+            $( ".arithmos_profil_katw" ).trigger('click');
+            YES_TYP_KA3 = false;
+            YES_TYP_KA_COL = true;
+          }
+          if ( META_YES_TYP_KA == true ){
+            //alert("OK");
+            $( "input[value="+ka_ka+"][name='optradio_k']" ).trigger('click');
+            $( ".arithmos_profil_katw" ).trigger('click');
+            META_YES_TYP_KA = false;
+            META_YES_TYP_KA_COL = true;
+          }
+          if ( META_YES_TYP_KA2 == true ){
+            //alert("OK");
+            $( "input[value="+ka_ka+"][name='optradio_k']" ).trigger('click');
+            $( ".arithmos_profil_katw" ).trigger('click');
+            META_YES_TYP_KA2 = false;
+            META_YES_TYP_KA_COL = true;
+          }
+          if ( META_YES_TYP_KA3 == true ){
+            //alert("OK");
+            $( "input[value="+ka_ka+"][name='optradio_k']" ).trigger('click');
+            $( ".arithmos_profil_katw" ).trigger('click');
+            META_YES_TYP_KA3 = false;
+            META_YES_TYP_KA_COL = true;
+          }
+        },
+      });
 
     });
 
-    $('#myModal_k').on('shown.bs.modal', function (e) {
-      //alert("OK");
+    /*$('#myModal_k').on('shown.bs.modal', function (e) {
         if ( YES_TYP_KA == true ){
-          //alert("OK");
           $( "input[value="+ka_ka+"][name='optradio_k']" ).trigger('click');
           $( ".arithmos_profil_katw" ).trigger('click');
           YES_TYP_KA = false;
           YES_TYP_KA_COL = true;
         }
         if ( YES_TYP_KA2 == true ){
-          //alert("OK");
           $( "input[value="+ka_ka+"][name='optradio_k']" ).trigger('click');
           $( ".arithmos_profil_katw" ).trigger('click');
           YES_TYP_KA2 = false;
@@ -5999,13 +6152,11 @@
           META_YES_TYP_KA3 = false;
           META_YES_TYP_KA_COL = true;
         }
-    });
+    });*/
 
     $(".modal_k").on("click", ".arithmos_profil_katw", function() {
-          //ti_epeleksa_a = $("input:checked").val();
-          ti_epeleksa_k = $('input[name=optradio_k]:checked', '#myForm_k').val();
-          $('.modal_k').modal('hide');
-          $('.modal_k').modal('hide');
+          ti_epeleksa_k = $('input[name=optradio_k]:checked', '.modal_k').val();
+          $('#myModal_k').dialog('close');
           $('.modal-backdrop').remove();
 
           if(typeof ti_epeleksa_k === 'undefined'){
@@ -6527,7 +6678,6 @@
           //$( ".arithmos_typos" ).trigger('click');
         //}
         if ( META_YES_TYPOS == true ){
-          //alert("OK");
          $( "input[value='1'][name='optradio_t']" ).trigger('click');
          $( ".arithmos_typos" ).trigger('click');
           META_YES_TYPOS_COL = true;
@@ -6540,9 +6690,7 @@
     });
 
     $(".modal_t").on("click", ".arithmos_typos", function() {
-          //ti_epeleksa_a = $("input:checked").val();
           ti_epeleksa_t = $('input[name=optradio_t]:checked', '#myForm_t').val();
-          $('.modal_t').modal('hide');
           $('.modal_t').modal('hide');
           $('.modal-backdrop').remove();
 
@@ -7054,9 +7202,6 @@
     epilogi_rat = true;
     //if (typeof(roll_rat) !== "undefined"){
       if (roll_rat == $(this).attr('id')){
-          //roll_rat = 0;
-          //$( ".rolls_rat" ).css("background-color","");//Ετσι αφαιρω την ιδιοτητα!!!
-          //$( ".rolls_rat" ).css("color","");
           epilogi_rat = false;
           
           times_json(tipos_name_gia_xrwma, $(".width").text(), $(".height").text(), line_id_name, mesa_eksw, color_aplo, width_new ,height_new, epikathimeno_rolo,eksoteriko_rolo,persida,tzamia,profil_deksia,profil_aristera,profil_panw,profil_katw,$(".input_deksia").val(),$(".input_panw").val(),$(".input_katw").val(),$(".input_aristera").val(),typos,color_typos,odoigos,$(".color_deksia").text(),$(".color_aristera").text(),$(".color_panw").text(),$(".color_katw").text(),$(".color_fullou").text(),0,profil_deksia_1_id,profil_deksia_1_json_arithmos,profil_deksia_2_id,profil_deksia_2_json_arithmos,profil_deksia_3_id,profil_deksia_3_json_arithmos,profil_aristera_1_id,profil_aristera_1_json_arithmos,profil_aristera_2_id,profil_aristera_2_json_arithmos,profil_aristera_3_id,profil_aristera_3_json_arithmos,profil_panw_1_id,profil_panw_1_json_arithmos,profil_panw_2_id,profil_panw_2_json_arithmos,profil_panw_3_id,profil_panw_3_json_arithmos,profil_katw_1_id,profil_katw_1_json_arithmos,profil_katw_2_id,profil_katw_2_json_arithmos,profil_katw_3_id,profil_katw_3_json_arithmos,profil_typos_1_id,profil_typos_1_json_arithmos,profil_typos_2_id,profil_typos_2_json_arithmos,profil_typos_3_id,profil_typos_3_json_arithmos,prostasia,tzamia2,lastixo_epilogh,pl_rol_ep,up_rol_ep,pl_rol_ek,up_rol_ek,pl_persidas,up_persidas,up_odoigou,color_epikathimenou,color_eksoterikou,color_persidas,color_odoigou,color_profil_katw,color_profil_deksia,color_profil_aristera,color_profil_panw,elegxos_gia_parapanw_diastaseis_w,elegxos_gia_parapanw_diastaseis_h,xwrisma1,xwrisma2,xwrisma_y_1,xwrisma_y_2,xwrisma3_1,xwrisma3_2,xwrisma3_3,color_aplo_eksw,tzamia0,xwrisma4_1,xwrisma4_2,xwrisma4_3,xwrisma4_4, window_still_single,roll_rat,roll_rlt,roll_rdm,roll_pss,roll_pfm, place, rat_quantity);
@@ -7073,6 +7218,15 @@
 
          times_json(tipos_name_gia_xrwma, $(".width").text(), $(".height").text(), line_id_name, mesa_eksw, color_aplo, width_new ,height_new, epikathimeno_rolo,eksoteriko_rolo,persida,tzamia,profil_deksia,profil_aristera,profil_panw,profil_katw,$(".input_deksia").val(),$(".input_panw").val(),$(".input_katw").val(),$(".input_aristera").val(),typos,color_typos,odoigos,$(".color_deksia").text(),$(".color_aristera").text(),$(".color_panw").text(),$(".color_katw").text(),$(".color_fullou").text(),0,profil_deksia_1_id,profil_deksia_1_json_arithmos,profil_deksia_2_id,profil_deksia_2_json_arithmos,profil_deksia_3_id,profil_deksia_3_json_arithmos,profil_aristera_1_id,profil_aristera_1_json_arithmos,profil_aristera_2_id,profil_aristera_2_json_arithmos,profil_aristera_3_id,profil_aristera_3_json_arithmos,profil_panw_1_id,profil_panw_1_json_arithmos,profil_panw_2_id,profil_panw_2_json_arithmos,profil_panw_3_id,profil_panw_3_json_arithmos,profil_katw_1_id,profil_katw_1_json_arithmos,profil_katw_2_id,profil_katw_2_json_arithmos,profil_katw_3_id,profil_katw_3_json_arithmos,profil_typos_1_id,profil_typos_1_json_arithmos,profil_typos_2_id,profil_typos_2_json_arithmos,profil_typos_3_id,profil_typos_3_json_arithmos,prostasia,tzamia2,lastixo_epilogh,pl_rol_ep,up_rol_ep,pl_rol_ek,up_rol_ek,pl_persidas,up_persidas,up_odoigou,color_epikathimenou,color_eksoterikou,color_persidas,color_odoigou,color_profil_katw,color_profil_deksia,color_profil_aristera,color_profil_panw,elegxos_gia_parapanw_diastaseis_w,elegxos_gia_parapanw_diastaseis_h,xwrisma1,xwrisma2,xwrisma_y_1,xwrisma_y_2,xwrisma3_1,xwrisma3_2,xwrisma3_3,color_aplo_eksw,tzamia0,xwrisma4_1,xwrisma4_2,xwrisma4_3,xwrisma4_4,window_still_single,roll_rat,roll_rlt,roll_rdm,roll_pss,roll_pfm, place, rat_quantity);
     }
+
+    $('#myModal_rat').dialog({
+        modal: true, 
+        autoOpen: true,
+        open: function( event, ui ) {
+          $(".ui-dialog-titlebar", this.parentNode).hide();
+        },
+      });
+
   });
 
   //// Roll rlt ////
@@ -10437,15 +10591,6 @@
         if (typeof ar_pr !== "undefined") {
           
           $( "#aristera" ).trigger('click');
-          //width_profil_a = ar_pr;
-          //prof = ar_pr;
-          //profil_aristera_new = prof;
-          //$(".penintaena").each(function( index ) {
-          //  if( $( this ).attr("id") == ar_pr ){
-          //    $( this ).css("background-color","#666666");
-          //    $( this ).css("color","white");
-          //  }
-          //});
           window.ar_pr = ar_pr;
           window.ar_ar = ar_ar;
           window.col_ar = col_ar;
@@ -10462,17 +10607,7 @@
             }
           });
         
-          //$(".penintaena").each(function( index ) {
-          //  if( $( this ).attr("id") == ar_pr ){
-          //    $( this ).trigger('click');
-          //  }
-          //});
-          
-          //$("#<%= @tzami_cat %>.cat_tzamia").trigger('click');
-          //$("#"+"<%= @lastixa %>").click();
         }
-        //setTimeout(function() { do_pr_ar_ar(ar_ar) }, 500);
-        //setTimeout(do_pr_ar_ar(ar_ar), 500);
     }
 
     function do_pr_ar_ar(ar_ar) {
@@ -10495,15 +10630,6 @@
         if (typeof de_pr !== "undefined") {
 
           $( "#deksia" ).trigger('click');
-          //width_profil_a = ar_pr;
-          //prof = ar_pr;
-          //profil_aristera_new = prof;
-          //$(".peninta").each(function( index ) {
-          //  if( $( this ).attr("id") == de_pr ){
-          //    $( this ).css("background-color","#666666");
-          //    $( this ).css("color","white");
-          //  }
-          //});
           window.de_pr = de_pr;
           window.de_de = de_de;
           window.col_de = col_de;
@@ -10521,14 +10647,6 @@
             }
           });
          
-          //$(".peninta").each(function( index ) {
-          //  if( $( this ).attr("id") == de_pr ){
-          //    $( this ).trigger('click');
-          //  }
-          //});
-          
-          //$("#<%= @tzami_cat %>.cat_tzamia").trigger('click');
-          //$("#"+"<%= @lastixa %>").click();
         }
         //setTimeout(function() { do_pr_de_de(de_de) }, 500);
         //setTimeout(do_pr_ar_ar(ar_ar), 500);
@@ -10554,15 +10672,6 @@
         if (typeof pa_pr !== "undefined") {
           
           $( "#panw" ).trigger('click');
-          //width_profil_a = ar_pr;
-          //prof = ar_pr;
-          //profil_aristera_new = prof;
-          //$(".penintaduo").each(function( index ) {
-          //  if( $( this ).attr("id") == de_pr ){
-          //    $( this ).css("background-color","#666666");
-          //    $( this ).css("color","white");
-          //  }
-          //});
           window.pa_pr = pa_pr;
           window.pa_pa = pa_pa;
           window.col_pa = col_pa;
@@ -10580,14 +10689,6 @@
             }
           });
           
-          //$(".penintaduo").each(function( index ) {
-          //  if( $( this ).attr("id") == pa_pr ){
-          //    $( this ).trigger('click');
-          //  }
-          //});
-          
-          //$("#<%= @tzami_cat %>.cat_tzamia").trigger('click');
-          //$("#"+"<%= @lastixa %>").click();
         }
         //setTimeout(function() { do_pr_pa_pa(pa_pa) }, 500);
         //setTimeout(do_pr_ar_ar(ar_ar), 500);
@@ -10613,15 +10714,6 @@
         if (typeof ka_pr !== "undefined") {
          
           $( "#katw" ).trigger('click');
-          //width_profil_a = ar_pr;
-          //prof = ar_pr;
-          //profil_aristera_new = prof;
-          //$(".penintaduo").each(function( index ) {
-          //  if( $( this ).attr("id") == de_pr ){
-          //    $( this ).css("background-color","#666666");
-          //    $( this ).css("color","white");
-          //  }
-          //});
           window.ka_pr = ka_pr;
           window.ka_ka = ka_ka;
           window.col_ka = col_ka;
@@ -10639,14 +10731,6 @@
             }
           });
           
-          //$(".penintatria").each(function( index ) {
-          //  if( $( this ).attr("id") == ka_pr ){
-          //    $( this ).trigger('click');
-          //  }
-          //});
-          
-          //$("#<%= @tzami_cat %>.cat_tzamia").trigger('click');
-          //$("#"+"<%= @lastixa %>").click();
         }
         //setTimeout(function() { do_pr_ka_ka(ka_ka) }, 500);
         //setTimeout(do_pr_ar_ar(ar_ar), 500);
@@ -10956,15 +11040,6 @@
         if (typeof ar_pr !== "undefined") {
          
           $( "#aristera" ).trigger('click');
-          //width_profil_a = ar_pr;
-          //prof = ar_pr;
-          //profil_aristera_new = prof;
-          //$(".penintaena").each(function( index ) {
-          //  if( $( this ).attr("id") == ar_pr ){
-          //    $( this ).css("background-color","#666666");
-          //    $( this ).css("color","white");
-          //  }
-          //});
          
           window.ar_pr = ar_pr;
           window.ar_ar = ar_ar;
@@ -10982,45 +11057,15 @@
             }
           });
           
-          //$("#<%= @tzami_cat %>.cat_tzamia").trigger('click');
-          //$("#"+"<%= @lastixa %>").click();
         }
         //setTimeout(function() { do_pr_ar_ar(ar_ar) }, 500);
         //setTimeout(do_pr_ar_ar(ar_ar), 500);
     }
 
-
-    /*
-    function do_pr_ar_ar(ar_ar) {
-       $( "input[value="+ar_ar+"][name='optradio_a']" ).trigger('click');
-       $( ".arithmos_profil_aristera" ).trigger('click');
-       setTimeout(do_col_ar, 500);
-    }
-
-    function do_col_ar() {
-        $(".color_aristera_profil").each(function( index ) {
-        if( $( this ).attr("id") == "<%= @color_ar %>" ){
-          $( this ).trigger('click');
-        }
-      });
-      
-       
-    }
-    */
-
     function do_pr_de(de_pr,de_de,poio) {
         if (typeof de_pr !== "undefined") {
          
           $( "#deksia" ).trigger('click');
-          //width_profil_a = ar_pr;
-          //prof = ar_pr;
-          //profil_aristera_new = prof;
-          //$(".peninta").each(function( index ) {
-          //  if( $( this ).attr("id") == de_pr ){
-          //    $( this ).css("background-color","#666666");
-          //    $( this ).css("color","white");
-          //  }
-          //});
           
           window.de_pr = de_pr;
           window.de_de = de_de;
@@ -11045,36 +11090,9 @@
         //setTimeout(do_pr_ar_ar(ar_ar), 500);
     }
 
-    /*
-    function do_pr_de_de(de_de) {
-       $( "input[value="+de_de+"][name='optradio_d']" ).trigger('click');
-       $( ".arithmos_profil_deksia" ).trigger('click');
-       setTimeout(do_col_de, 500);
-    }
-
-    function do_col_de() {
-        $(".color_deksia_profil").each(function( index ) {
-        if( $( this ).attr("id") == "<%= @color_de %>" ){
-          $( this ).trigger('click');
-        }
-      });
-      
-       
-    }
-    */
-
     function do_pr_pa(pa_pr,pa_pa,poio) {
         if (typeof pa_pr !== "undefined") {
           $( "#panw" ).trigger('click');
-          //width_profil_a = ar_pr;
-          //prof = ar_pr;
-          //profil_aristera_new = prof;
-          //$(".penintaduo").each(function( index ) {
-          //  if( $( this ).attr("id") == de_pr ){
-          //    $( this ).css("background-color","#666666");
-          //    $( this ).css("color","white");
-          //  }
-          //});
           
           window.pa_pr = pa_pr;
           window.pa_pa = pa_pa;
@@ -11121,15 +11139,6 @@
         if (typeof ka_pr !== "undefined") {
          
           $( "#katw" ).trigger('click');
-          //width_profil_a = ar_pr;
-          //prof = ar_pr;
-          //profil_aristera_new = prof;
-          //$(".penintaduo").each(function( index ) {
-          //  if( $( this ).attr("id") == de_pr ){
-          //    $( this ).css("background-color","#666666");
-          //    $( this ).css("color","white");
-          //  }
-          //});
           
           window.ka_pr = ka_pr;
           window.ka_ka = ka_ka;
@@ -11154,24 +11163,6 @@
         //setTimeout(do_pr_ar_ar(ar_ar), 500);
     }
 
-    /*
-    function do_pr_ka_ka(ka_ka) {
-       $( "input[value="+ka_ka+"][name='optradio_k']" ).trigger('click');
-       $( ".arithmos_profil_katw" ).trigger('click');
-       setTimeout(do_col_ka, 500);
-    }
-
-    function do_col_ka() {
-        $(".color_katw_profil").each(function( index ) {
-        if( $( this ).attr("id") == "<%= @color_ka %>" ){
-          $( this ).trigger('click');
-        }
-      });
-      
-       
-    }
-    */
-
     function do_tzamia() {
         if (typeof "<%= @tzami_cat %>" !== "undefined") {
          
@@ -11185,17 +11176,6 @@
         }
         //setTimeout(do_tzamia_cat, 1000);
     }
-
-    /*
-    function do_tzamia_cat() {
-        $(".tzamia_polla").each(function( index ) {
-            if( $( this ).attr("id") == "<%= @tzami_id %>" ){
-              $( this ).trigger('click');
-            }
-          }); 
-        
-    }
-    */
 
     function do_tzamia2() {
         if (typeof "<%= @tzami2_cat %>" !== "undefined") {
@@ -11228,17 +11208,6 @@
         
         //setTimeout(do_tzamia2_cat, 1000);
     }
-
-    /*
-    function do_tzamia2_cat() {
-        $(".tzamia_polla2").each(function( index ) {
-            if( $( this ).attr("id") == "<%= @tzami2_id %>" ){
-              $( this ).trigger('click');
-            }
-          });
-        
-    }
-    */
 
     function do_rolla() {
         if (typeof "<%= @cat_rolo %>" !== "undefined") {
