@@ -2413,9 +2413,7 @@
                 <% end %><!--End each-->
               </select>
               <button type="button" class="btn btn-primary confirm"><%= t 'translate.Confirm' %></button>
-              <!--
-              <button type="button" class="btn btn-primary order"><%= t 'translate.Add_to_cart' %></button>-->
-              <button type="button" class="btn btn-primary close_add_to_card"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+              <!--<button type="button" class="btn btn-primary close_add_to_card"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>-->
             </h4>
           </div>
           <div class="modal-body">
@@ -2424,24 +2422,11 @@
                 <h4 id="modal_new_width"></h4>
 
                 <div class="diastaseis1 xwrismata_sxedio_orizontia"></div>
-                <!--
-                <p class="modal_da">Χώρισμα αριστερά:<input type="text" id="xwr_ar" name="aristera_xwrisma"></p>
-                <p class="modal_da">Χώρισμα δεξιά:<input type="text" id="xwr_de" name="deksia_xwrisma"></p>
-            
-            
-                <p class="modal_dam">Χώρισμα αριστερά:<input type="text" name="aristera_xwrisma_3"></p>
-                <p class="modal_dam">Χώρισμα μέση:<input type="text" name="mesi_xwrisma"></p>
-                <p class="modal_dam">Χώρισμα δεξιά:<input type="text" name="deksia_xwrisma_3"></p>
-                -->
               </div>
               <div class="mesa_sto_modal_float_r">
                 <h4 id="modal_new_height"></h4>
 
                 <div class="xwrismata_sxedio_katheta"></div>
-                <!--
-                <p class="modal_pk">Χώρισμα πάνω:<input type="text" id="xwr_pa" name="panw_xwrisma"></p>
-                <p class="modal_pk">Χώρισμα κάτω:<input type="text" id="xwr_ka" name="katw_xwrisma"></p>
-                -->
               </div>
             </form>
             <hr>
@@ -2859,29 +2844,18 @@
 		$("#tab_open_type").click();
 	});
 
-    $(".m_e").mouseup(function(){
-      //$("#myForm").scrollTo(".xrwma_katw", 1000); //custom animation speed
-    });
-
-    $(".xrwma_katw").mouseup(function(){
-      //$("#myForm").scrollTo("#pane_fillo", 1000); //custom animation speed
-      //$("#color_2").click();
-    });
-
     $(".fillo_katw").mouseup(function(){
-      //$("#myForm").scrollTo("#pane_open_tipos", 1000); //custom animation speed
       $("#tab_open_type").click();
     });
 
     $(".open_tipos_katw").mouseup(function(){
-      //$("#myForm").scrollTo("#pane_diastaseis", 1000); //custom animation speed
       $("#tab_dimensions").click();
       $("#width").focus();
     });
 
-    $(".close_add_to_card").click(function() {
+    /*$(".close_add_to_card").click(function() {
       $("#myModal_xwrisma").modal('hide');
-    });
+    });*/
 
     $(".close_price").click(function() {
       $("#myModal_times").modal('hide');
@@ -9201,24 +9175,12 @@
   
     ///////    ΑΝΑΛΟΓΑ ΜΕ ΤΙ ΡΟΛΟ ΕΧΩ ΕΠΙΛΕΞΕΙ, ΕΧΩ ΔΙΑΦΟΡΕΤΙΚΟ BUTTON /////////////
     ///////    ΣΕ ΑΥΤΟ ΘΑ ΠΕΡΝΑΩ ΚΑΙ ΤΑ ΥΠΟΛΙΠΑ EXTRA ΙΣΩΣ ΜΕ IF ΑΝ ΕΧΟΥΝ ΕΠΙΛΕΧΘΕΙ ///////////////
-    //code = 1;
-    
-    //xwrisma_y_1 = "<%= @xwrisma_y_1 %>";
-    //xwrisma_y_2 = "<%= @xwrisma_y_2 %>";
-    //xwrisma1 = "<%= @xwrisma1 %>";
-    //xwrisma2 = "<%= @xwrisma2 %>"
-    //xwrisma3_1 = "<%= @xwrisma3_1 %>";
-    //xwrisma3_2 = "<%= @xwrisma3_2 %>";
-    //xwrisma3_3 = "<%= @xwrisma3_3 %>";
     $(".modal_da").hide();
     $(".modal_dam").hide();
     $(".modal_pk").hide();
 
     $( ".confirm" ).click(function() {
-      $(".close_add_to_card").click();
-      //$('#myModal_xwrisma').hide();
-      //$('.modal-backdrop').remove();
-      //$('#myModal_xwrisma').hide();
+      $("#myModal_xwrisma").dialog('close');
       $('#myModal_confirm').appendTo("body").modal('show');
     });
 
@@ -9227,9 +9189,10 @@
       $('#myModal_times').show();
     });
 
+    
 
     $( ".order_prin" ).click(function() {
-        $('#myModal_xwrisma').appendTo("body").modal('show');
+        $('#myModal_xwrisma').dialog({modal: true, autoOpen: true});
         $("#modal_new_width").html("<b><%= t('translate.New_width') %></b>: "+width_new+" mm");
         $("#modal_new_height").html("<b><%= t('translate.new_height') %></b>: "+height_new+" mm");
 
@@ -9964,7 +9927,7 @@
       }//geniko_ok = true;
       else{
         $('#loading').fadeOut(1000);
-        $("#myModal_xwrisma").modal('hide');
+        $("#myModal_xwrisma").dialog('close');
         $("#tab_dimensions").click();
         $(".alert_geniko_ok").show();
         $('.alert_geniko_ok').delay(3000).fadeOut('slow');

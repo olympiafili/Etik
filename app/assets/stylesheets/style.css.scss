@@ -13,6 +13,10 @@
  *= require translation_center/inspector
  */
 
+ /*
+ *= require jquery-ui
+ */
+
 f::-webkit-scrollbar {
     width: 6px;
 }
@@ -1946,10 +1950,13 @@ ul {
   display: inline-block;
 }
 
+.modal-dialog {
+    margin: 0
+}
+
 @media (min-width: 768px){
   .modal-dialog {
       width: 800px;
-      margin: 30px auto;
   }
 }
 
@@ -3024,4 +3031,13 @@ textarea {
   resize: none;
   margin-top: 20px;
   width: 250px;
+}
+
+.ui-dialog {
+  width: auto!important;
+  z-index: 999999!important
+}
+
+.ui-dialog .ui-dialog-content {
+  padding: 0
 }

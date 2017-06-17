@@ -19,7 +19,7 @@
 //= canvaslayers
 //= require jquery.turbolinks
 //= require_tree .
-
+//= require jquery-ui
   
   //Δεν χρεισημοποιητε
   function popover_open(){

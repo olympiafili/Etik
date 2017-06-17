@@ -7025,7 +7025,6 @@ button.close {
 .modal-dialog {
   position: relative;
   width: auto;
-  margin: 10px;
 }
 
 /* line 51, /Library/Ruby/Gems/2.0.0/gems/bootstrap-sass-3.2.0.2/assets/stylesheets/bootstrap/_modals.scss */
@@ -7127,7 +7126,6 @@ button.close {
   /* line 136, /Library/Ruby/Gems/2.0.0/gems/bootstrap-sass-3.2.0.2/assets/stylesheets/bootstrap/_modals.scss */
   .modal-dialog {
     width: 600px;
-    margin: 30px auto;
   }
 
   /* line 140, /Library/Ruby/Gems/2.0.0/gems/bootstrap-sass-3.2.0.2/assets/stylesheets/bootstrap/_modals.scss */
