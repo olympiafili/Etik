@@ -3035,9 +3035,25 @@ textarea {
 
 .ui-dialog {
   width: auto!important;
-  z-index: 999999!important
+  z-index: 1050!important
 }
 
 .ui-dialog .ui-dialog-content {
   padding: 0
+}
+
+.ui-widget input, .ui-widget select, .ui-widget textarea, .ui-widget button {
+  font-size: 14px;
+}
+
+.ui-widget p {
+  font-size: 18px;
+}
+
+.ui-dialog .ui-dialog-titlebar {
+    padding: .1em 0.5em;
+}
+
+.modal-dialog {
+  font-family: 'Lato-Regular'!important
 }

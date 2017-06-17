@@ -1933,7 +1933,7 @@
             <h4 class="modal-title">
             <b><%= t 'translate.Price' %></b>
             <button type="button" class="btn btn-primary order"><%= t 'translate.Add_to_cart' %></button>
-            <button type="button" class="btn btn-primary close_confirm"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+            <!--<button type="button" class="btn btn-primary close_confirm"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>-->
             </h4>
           </div>
           <div class="modal-body">
@@ -2855,7 +2855,7 @@
 
     /*$(".close_add_to_card").click(function() {
       $("#myModal_xwrisma").modal('hide');
-    });*/
+    });
 
     $(".close_price").click(function() {
       $("#myModal_times").modal('hide');
@@ -2863,7 +2863,7 @@
 
     $(".close_confirm").click(function() {
       $("#myModal_confirm").modal('hide');
-    });
+    });*/
 
     timeout = 0;
     patima_epikathimenou = false;
@@ -4634,9 +4634,7 @@
                   ok_click();
 
                   times_json(tipos_name_gia_xrwma, $(".width").text(), $(".height").text(), line_id_name, mesa_eksw, color_aplo, width_new ,height_new, epikathimeno_rolo,eksoteriko_rolo,persida,tzamia,profil_deksia,profil_aristera,profil_panw,profil_katw,$(".input_deksia").val(),$(".input_panw").val(),$(".input_katw").val(),$(".input_aristera").val(),typos,color_typos,odoigos,$(".color_deksia").text(),$(".color_aristera").text(),$(".color_panw").text(),$(".color_katw").text(),$(".color_fullou").text(),0,profil_deksia_1_id,profil_deksia_1_json_arithmos,profil_deksia_2_id,profil_deksia_2_json_arithmos,profil_deksia_3_id,profil_deksia_3_json_arithmos,profil_aristera_1_id,profil_aristera_1_json_arithmos,profil_aristera_2_id,profil_aristera_2_json_arithmos,profil_aristera_3_id,profil_aristera_3_json_arithmos,profil_panw_1_id,profil_panw_1_json_arithmos,profil_panw_2_id,profil_panw_2_json_arithmos,profil_panw_3_id,profil_panw_3_json_arithmos,profil_katw_1_id,profil_katw_1_json_arithmos,profil_katw_2_id,profil_katw_2_json_arithmos,profil_katw_3_id,profil_katw_3_json_arithmos,profil_typos_1_id,profil_typos_1_json_arithmos,profil_typos_2_id,profil_typos_2_json_arithmos,profil_typos_3_id,profil_typos_3_json_arithmos,prostasia,tzamia2,lastixo_epilogh,pl_rol_ep,up_rol_ep,pl_rol_ek,up_rol_ek,pl_persidas,up_persidas,up_odoigou,color_epikathimenou,color_eksoterikou,color_persidas,color_odoigou,color_profil_katw,color_profil_deksia,color_profil_aristera,color_profil_panw,elegxos_gia_parapanw_diastaseis_w,elegxos_gia_parapanw_diastaseis_h,xwrisma1,xwrisma2,xwrisma_y_1,xwrisma_y_2,xwrisma3_1,xwrisma3_2,xwrisma3_3,color_aplo_eksw,tzamia0,xwrisma4_1,xwrisma4_2,xwrisma4_3,xwrisma4_4,window_still_single,roll_rat,roll_rlt,roll_rdm,roll_pss,roll_pfm, place, rat_quantity);
-                    //$('.modal').modal('hide');
-                    //$('.modal').modal('hide');
-                    //$('.modal-backdrop').remove();
+
                     $( epilogi ).css("background-color","");//Ετσι αφαιρω την ιδιοτητα!!!
                     $( epilogi ).css("color","");
 
@@ -5489,8 +5487,6 @@
           $('.modal_p').modal('hide');
           $('.modal-backdrop').remove();
 
-          //panw_hide_modal = true;
-          //alert(typeof(ti_epeleksa));
           if(typeof ti_epeleksa_p === 'undefined'){
              ti_epeleksa_p = 0;
            };
@@ -6012,8 +6008,6 @@
           $('.modal_k').modal('hide');
           $('.modal-backdrop').remove();
 
-          //katw_hide_modal = true;
-          //alert(typeof(ti_epeleksa));
           if(typeof ti_epeleksa_k === 'undefined'){
              ti_epeleksa_k = 0;
            };
@@ -6511,9 +6505,6 @@
           $('#myModal_t').modal('show');
         }
         profil_typos_new = $(this).attr('id');
-        //META_YES_TYPOS = true;
-        //$('#myModal_t').modal('show');
-        //$( this ).css("background-color","#CA3333");
         $( this ).css("background-color","#d9eaed");
         $( this ).css("color","black");
         epilogi_t = $( this );
@@ -6554,8 +6545,6 @@
           $('.modal_t').modal('hide');
           $('.modal_t').modal('hide');
           $('.modal-backdrop').remove();
-          //alert(typeof(ti_epeleksa));
-          //typos_hide_modal = true;
 
           // Αν πατησω πανω απο 0 πρωφιλ τα προσθετω στον πινακα.
           if (ti_epeleksa_t !== "0"){
@@ -9181,15 +9170,12 @@
 
     $( ".confirm" ).click(function() {
       $("#myModal_xwrisma").dialog('close');
-      $('#myModal_confirm').appendTo("body").modal('show');
+      $('#myModal_confirm').dialog({modal: true, autoOpen: true});
     });
-
     
     $( ".order_price" ).click(function() {
       $('#myModal_times').show();
     });
-
-    
 
     $( ".order_prin" ).click(function() {
         $('#myModal_xwrisma').dialog({modal: true, autoOpen: true});
@@ -9436,26 +9422,12 @@
     });
 
     $(".row_mat").on("click", ".epanal", function() {
-
       var body = $('body');
-      //bodycontent = body.html();
-
-      //localStorage["myKey"] = JSON.stringify($("#wrap").html());
-      //$('#wrap').data('store', $('#wrap').html());
-
-      //a = $('body').clone();
-
       $('body').html(body.html());
-
-      //document.innerHTML = "<div></div>";
-      //var contentsOfOldDiv = JSON.parse(localStorage["myKey"]);    
-      //$("#wrap").html(contentsOfOldDiv);
-
     });
     
     //Περναω ολες τις τιμες και ας εχει καποιες null
     $(".modal").on("click", ".order", function() {
-
       $('#loading').show();
 
       if ( geniko_ok && ( width_new <= Number($("#maxw").text()) ) ){
@@ -9945,7 +9917,6 @@
   if("<%= @click_new_posistion %>" == "true") {
     $( "#home_price" ).click();
     $(".alert_dimensions").show();
-    //$('.alert_dimensions').delay(5000).fadeOut('slow');
   }
 
   });
