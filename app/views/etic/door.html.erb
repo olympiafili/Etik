@@ -4548,7 +4548,7 @@ var previousVal3 = null;
 
       //
       $(".modal_rat").on("click", ".arithmos_rat", function() {
-        $('.modal_rat').modal('hide');
+        //$('.modal_rat').modal('hide');
         if($('input[name=del_arithmos_rat]:checked').length > 0) {
           
           roll_rat = 0;
@@ -5736,7 +5736,7 @@ var previousVal3 = null;
         //Diagrafw ton patimenw apo prin
         if ( profil_typos_new !== 0 ){
           META_YES_TYPOS = false;
-          $('#myModal_t').modal('show');
+          //$('#myModal_t').modal('show');
         }
         profil_typos_new = $(this).attr('id');
         $( this ).css("background-color","#d9eaed");
@@ -5772,7 +5772,7 @@ var previousVal3 = null;
 
     $(".modal_t").on("click", ".arithmos_typos", function() {
           ti_epeleksa_t = $('input[name=optradio_t]:checked', '#myForm_t').val();
-          $('.modal_t').modal('hide');
+          //$('.modal_t').modal('hide');
           $('.modal-backdrop').remove();
 
           // Αν πατησω πανω απο 0 πρωφιλ τα προσθετω στον πινακα.
