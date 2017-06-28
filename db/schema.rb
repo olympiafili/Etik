@@ -688,6 +688,14 @@ ActiveRecord::Schema.define(version: 20160719070630075818) do
     t.float    "price",        limit: 24
   end
 
+  create_table "rola_eks_colors", force: true do |t|
+    t.string   "name"
+    t.string   "sungate_code"
+    t.float    "price",        limit: 24
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "rola_eksos", force: true do |t|
     t.string   "name"
     t.float    "height",       limit: 24
@@ -699,6 +707,14 @@ ActiveRecord::Schema.define(version: 20160719070630075818) do
     t.integer  "order"
     t.integer  "default"
     t.string   "sungate_code"
+  end
+
+  create_table "rola_epik_colors", force: true do |t|
+    t.string   "name"
+    t.string   "sungate_code"
+    t.float    "price",        limit: 24
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "rola_epiks", force: true do |t|
@@ -715,6 +731,15 @@ ActiveRecord::Schema.define(version: 20160719070630075818) do
     t.string   "de"
     t.string   "gr"
     t.string   "sungate_code"
+  end
+
+  create_table "rola_per_colors", force: true do |t|
+    t.string   "name"
+    t.string   "sungate_code"
+    t.float    "price",        limit: 24
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.float    "category",     limit: 24
   end
 
   create_table "roll_guides", force: true do |t|
