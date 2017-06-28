@@ -1198,7 +1198,7 @@ class EticController < ApplicationController
 	end
 
 	def color_epikathimenou
-		@colors = RolaColor.all
+		@colors = RolaEpikColor.all
 		respond_to do |format|
           format.json { render json: @colors.to_json}
         end
@@ -1213,14 +1213,14 @@ class EticController < ApplicationController
 	end
 
 	def color_eksoterikou
-		@colors = RolaColor.all
+		@colors = RolaEksColor.all
 		respond_to do |format|
           format.json { render json: @colors.to_json}
         end
 	end
 
 	def color_persidas
-		@color_persidas = RolaColor.all
+		@color_persidas = RolaPerColor.all
 		respond_to do |format|
           format.json { render json: @color_persidas.to_json}
         end
@@ -3321,7 +3321,9 @@ class EticController < ApplicationController
 	    		epik_val_height = height.to_f#height_mesa_meta_apo_typo.to_f
 	    		epik_val_width = width.to_f 
 	    	end
-	    	price_color_rolou = RolaColor.where(:name => params[:xrwma_epikathimenou]).first.price
+	    	price_color_rolou = RolaEpikColor.where(:sungate_code => params[:xrwma_epikathimenou]).first.price.to_f/100 * pr_epik
+	    	@price_extra = @price_extra + price_color_rolou
+	    	@xrwma_epikathimenou =RolaEpikColor.where(:sungate_code => params[:xrwma_epikathimenou]).first.name
 	    end
         
         pl_ek = false
@@ -3357,7 +3359,9 @@ class EticController < ApplicationController
 	    		ekso_val_height = height.to_f#height_mesa_meta_apo_typo.to_f
 	    		ekso_val_width = width.to_f 
 	    	end
-	    	price_color_rolou = RolaColor.where(:name => params[:xrwma_eksoterikou]).first.price
+	    	price_color_rolou = RolaEksColor.where(:sungate_code => params[:xrwma_eksoterikou]).first.price.to_f/100 * pr_ekso
+	    	@price_extra = @price_extra + price_color_rolou
+	    	@xrwma_eksoterikou = RolaEksColor.where(:sungate_code => params[:xrwma_eksoterikou]).first.name
 	    end
 
         pl_pe = false
@@ -3393,7 +3397,9 @@ class EticController < ApplicationController
 	    		persida_val_height = height.to_f#height_mesa_meta_apo_typo.to_f
 	    		persida_val_width = width.to_f 
 	    	end
-	    	price_color_persidas = RolaColor.where(:name => params[:color_persidas]).first.price
+	    	price_color_persidas = RolaPerColor.where(:sungate_code => params[:color_persidas]).first.price.to_f/100 * pr_per
+	    	@price_extra = @price_extra + price_color_persidas
+	    	@xrwma_persidas = RolaPerColor.where(:sungate_code => params[:color_persidas]).first.name
 	    end
       
 
@@ -5719,7 +5725,7 @@ class EticController < ApplicationController
     end
 
     ## Καλάθι των pseudoUser όταν μπαίνω σαν admin.
-	def simple_pse_user_card#olympia
+	def simple_pse_user_card
 		#if(!params[:dealer].nil? && !params[:customer].nil? && !params[:offer].nil? && !params[:open_category_code].nil? && !params[:material_code].nil? && !params[:constructor_code].nil? && !params[:system_code].nil? && !params[:line_code].nil?)	
 		if(!params[:dealer].nil? && !params[:customer].nil? && !params[:offer].nil?)
 			#User dealer login
@@ -6168,12 +6174,16 @@ class EticController < ApplicationController
       if ( params[:amount].to_i > 0)
         @update.posotoita = params[:amount].to_i
         @update.price_sum = ( @update_price * params[:amount].to_i )
-        @paraggelia.sum = @paraggelia.sum + @update.price_sum 
+        @paraggelia.sum = @paraggelia.sum + @update.price_sum
+        @paraggelia.meta_pososto = @paraggelia.meta_pososto + @update.price_sum
         @paraggelia.save
         @update.save
       else
         @update.destroy
       end
+      respond_to do |format|
+	    format.json { render json: params[:id]}
+	  end
     end
 
     ## Εξάγω την παραγγελία σε διάφωρα αρχεία. csv, xls, xml.
@@ -7371,7 +7381,9 @@ class EticController < ApplicationController
 	    		epik_val_height = height.to_f
 	    		epik_val_width = width.to_f 
 	    	end
-	    	price_color_rolou = RolaColor.where(:name => params[:xrwma_epikathimenou]).first.price
+	    	price_color_rolou = RolaEpikColor.where(:sungate_code => params[:xrwma_epikathimenou]).first.price.to_f/100 * pr_epik
+	    	@price_extra = @price_extra + price_color_rolou
+	    	@xrwma_epikathimenou =RolaEpikColor.where(:sungate_code => params[:xrwma_epikathimenou]).first.name
 	    end
         
         pl_ek = false
@@ -7407,7 +7419,9 @@ class EticController < ApplicationController
 	    		ekso_val_height = height.to_f
 	    		ekso_val_width = width.to_f 
 	    	end
-	    	price_color_rolou = RolaColor.where(:name => params[:xrwma_eksoterikou]).first.price
+	    	price_color_rolou = RolaEksColor.where(:sungate_code => params[:xrwma_eksoterikou]).first.price.to_f/100 * pr_ekso
+	    	@price_extra = @price_extra + price_color_rolou
+	    	@xrwma_eksoterikou = RolaEksColor.where(:sungate_code => params[:xrwma_eksoterikou]).first.name
 	    end
 
         pl_pe = false
@@ -7443,7 +7457,9 @@ class EticController < ApplicationController
 	    		persida_val_height = height.to_f#height_mesa_meta_apo_typo.to_f
 	    		persida_val_width = width.to_f 
 	    	end
-	    	price_color_persidas = RolaColor.where(:name => params[:color_persidas]).first.price
+	    	price_color_persidas = RolaPerColor.where(:sungate_code => params[:color_persidas]).first.price.to_f/100 * pr_per
+	    	@price_extra = @price_extra + price_color_persidas
+	    	@xrwma_persidas = RolaPerColor.where(:sungate_code => params[:color_persidas]).first.name
 	    end
       
 

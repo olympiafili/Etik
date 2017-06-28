@@ -486,7 +486,7 @@
             $(".table_epikathimeno").text(epikathimeno_rolo);
             $(".timi_epikathimenou").text(timi_epikathimenou.toFixed(2).replace(".", ",")+" €");
             $(".table_xrwma_epikathimeno").text(color_epikathimenou);
-            $(".table_timi_xrwma_epikathimenou").text(price_color_epikathimenou+" €");
+            $(".table_timi_xrwma_epikathimenou").text(price_color_epikathimenou.toFixed(2).replace(".", ",") +" €");
             $(".timi_market_xrwma_epikathimenou").text((price_color_epikathimenou - pososto_market * price_color_epikathimenou).toFixed(2).replace(".", ",") +" €");
             $(".timi_dealer_xrwma_epikathimenou").text((price_color_epikathimenou - pososto_dealer * price_color_epikathimenou).toFixed(2).replace(".", ",") +" €");
             
@@ -505,7 +505,7 @@
             $(".table_eksoteriko").text(eksoteriko_rolo);
             $(".timi_eksoterikou").text(timi_eksoterikou.toFixed(2).replace(".", ",")+" €");
             $(".table_xrwma_eksoteriko").text(color_eksoterikou);
-            $(".table_timi_xrwma_eksoterikou").text(price_color_eksoterikou+" €");
+            $(".table_timi_xrwma_eksoterikou").text(price_color_eksoterikou.toFixed(2).replace(".", ",") +" €");
             $(".timi_market_xrwma_eksoterikou").text((price_color_eksoterikou - pososto_market * price_color_eksoterikou).toFixed(2).replace(".", ",") +" €");
             $(".timi_dealer_xrwma_eksoterikou").text((price_color_eksoterikou - pososto_dealer * price_color_eksoterikou).toFixed(2).replace(".", ",") +" €");
 
@@ -524,7 +524,7 @@
             $(".table_persida").text(persida);
             $(".timi_persida").text(persida_price.toFixed(2).replace(".", ",")+" €");
             $(".table_xrwma_persida").text(color_persidas);
-            $(".table_timi_xrwma_persida").text(price_color_persidas+" €");
+            $(".table_timi_xrwma_persida").text(price_color_persidas.toFixed(2).replace(".", ",") +" €");
             $(".timi_market_xrwma_persida").text((price_color_persidas - pososto_market * price_color_persidas).toFixed(2).replace(".", ",") +" €");
             $(".timi_dealer_xrwma_persida").text((price_color_persidas - pososto_dealer * price_color_persidas).toFixed(2).replace(".", ",") +" €");
             $(".kanoniko_platos_persidas").text(mikos_eksw);

@@ -249,6 +249,7 @@
                       <color style="color:#ff0000"><%= number_with_precision(item.price_tzamiou, :precision => 2, separator: ",", :delimiter => '.') %></color> €</td> 
                     </tr>
                     <% end %>
+
                     <% if ( !item.rolo.nil? ) %>
                     <tr>
                     <td class="extra_subtable">
@@ -285,7 +286,6 @@
                       <% if ( item.deroll == "c" ) %>
                         <%= t 'translate.Typ_des_Rollladens' %>: <%= t 'translate.Typ_des_Rollladens_C' %> <br>
                       <% end %>
-                      <%= t 'translate.Color' %>: <%= item.color_rolou %><br>
                     <td class="unit_subtable">
                       m<sup>2</sup>
                     </td>
@@ -313,6 +313,31 @@
                       <color style="color:#ff0000"><%= number_with_precision(item.price_rolou, :precision => 2, separator: ",", :delimiter => '.') %></color> €</td> 
                     </tr>
                     <% end %>
+
+                    <% if ( !item.color_rolou.nil? ) %>
+                      <tr>
+                        <td class="extra_subtable">
+                          <b><%= t 'translate.Color' %></b>: <%= item.color_rolou %><br>
+                        <td class="unit_subtable"></td>
+                        <td class="m_subtable"></td>
+                        <td class="c_subtable"></td>
+                        <td class="p_subtable">
+                          <% if (!@pososto_market.nil?) %>
+                            <% market_price = item.price_color_rolou - (@pososto_market/100)*item.price_color_rolou %>
+                            <%= number_with_precision(market_price, :precision => 2, separator: ",", :delimiter => '.') %> €
+                          <% end %>
+                        </td>
+                        <td class="p_subtable">
+                          <% if (!@pososto_dealer.nil?) %>
+                            <% dealer_price = item.price_color_rolou - (@pososto_dealer/100)*item.price_color_rolou %>
+                            <%= number_with_precision(dealer_price, :precision => 2, separator: ",", :delimiter => '.') %> €
+                          <% end %>
+                        </td>
+                        <td class="p_subtable">
+                          <color style="color:#ff0000"><%= number_with_precision(item.price_color_rolou, :precision => 2, separator: ",", :delimiter => '.') %></color> €</td> 
+                        </tr>
+                    <% end %>
+
                     <% if ( !item.odoigos.nil? ) %>
                     <tr>
                     <td class="extra_subtable">
@@ -343,6 +368,7 @@
                       <color style="color:#ff0000"><%= number_with_precision(item.price_odoigou, :precision => 2, separator: ",", :delimiter => '.') %></color> €</td> 
                     </tr>
                     <% end %>
+
                     <% if ( !item.persida.nil? ) %>
                     <tr>
                     <td class="extra_subtable">
@@ -353,7 +379,6 @@
                       <% if ( !item.up_persidas.nil? && ( item.up_persidas > 0) ) %>
                         <%= t 'translate.Height' %>: <%= item.up_persidas %> mm<br>
                       <% end %>
-                        <%= t 'translate.Color' %>: <%= item.color_persidas %><br>
                     <td class="unit_subtable">
                       m<sup>2</sup>
                     </td>
@@ -376,6 +401,31 @@
                       <color style="color:#ff0000"><%= number_with_precision(item.price_persidas, :precision => 2, separator: ",", :delimiter => '.') %></color> €</td> 
                     </tr>
                     <% end %>
+
+                    <% if ( !item.color_persidas.nil? ) %>
+                      <tr>
+                        <td class="extra_subtable">
+                          <b><%= t 'translate.Color' %></b>: <%= item.color_persidas %><br>
+                        <td class="unit_subtable"></td>
+                        <td class="m_subtable"></td>
+                        <td class="c_subtable"></td>
+                        <td class="p_subtable">
+                          <% if (!@pososto_market.nil?) %>
+                            <% market_price = item.price_color_persidas - (@pososto_market/100)*item.price_color_persidas %>
+                            <%= number_with_precision(market_price, :precision => 2, separator: ",", :delimiter => '.') %> €
+                          <% end %>
+                        </td>
+                        <td class="p_subtable">
+                          <% if (!@pososto_dealer.nil?) %>
+                            <% dealer_price = item.price_color_persidas - (@pososto_dealer/100)*item.price_color_persidas %>
+                            <%= number_with_precision(dealer_price, :precision => 2, separator: ",", :delimiter => '.') %> €
+                          <% end %>
+                        </td>
+                        <td class="p_subtable">
+                          <color style="color:#ff0000"><%= number_with_precision(item.price_color_persidas, :precision => 2, separator: ",", :delimiter => '.') %></color> €</td> 
+                        </tr>
+                    <% end %>
+
                     <% if ( !item.prostasia_name.nil? ) %>
                     <tr>
                     <td class="extra_subtable">

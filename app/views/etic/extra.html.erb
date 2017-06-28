@@ -8543,7 +8543,7 @@
               color_epikathimenou = color_epikathimenou;
               sxedio_color_epik = "white";
             }else{
-              color_epikathimenou = "white";//To color που εχω επιλεξει για παραθυρο
+              color_epikathimenou = "P10";//To color που εχω επιλεξει για παραθυρο
               sxedio_color_epik = "white";
             }
             
@@ -8615,10 +8615,6 @@
             $(".diastaseis_extra").text(width_new +"X"+height_new);
             $(".diastaseis_table_extra_tm").empty();
               $(".diastaseis_table_extra_tm").append( ( (parseFloat(width_new)*parseFloat(height_new))/1000000 ).toFixed(2)+" <p>m"+"2".sup()+"</p>" );
-            //alert("height_epik"+height_epik);
-                      //alert("SWSTO ROLO");
-                      //var button = "<button type='button' class='btn btn-default order'>Υποβολή παραγγελίας</button>";
-                      //$(button).appendTo(".button");
                       //AJAX για να παρω τα χρωματα
                       $.ajax({
                         
@@ -8631,12 +8627,11 @@
                           $(h2).appendTo(".color_epikathimenou");
                           var xrwma = "<h5 class='xr_ep inline_h5'>"+color_epikathimenou+"</h5><br>"
                           $(xrwma).appendTo(".color_epikathimenou");
-                          var div = "<div class='div_col_ep'></div>"
+                          var div = "<div class='div_col_ep col-xs-5'></div>"
                           $(div).appendTo(".color_epikathimenou");
                           $.each(data, function(i, item) { //Για κάθε data που παίρνω κανω τα παρακάτο 
-                              //return $(".kataskevastes").html(item.name);
-                              //$( "<p>item.name</p>" ).appendTo( ".kataskevastes" );
-                              var div_data = "<div class='xrwma xrwma2'><h5 class='tipos_name'> "+item.name+" </h5><img src='/assets/"+item.image+"' class=color_epik id="+item.name+"><span id="+item.code+"></span></div>";
+                              var div_data = "<div class='xrwma xrwma2'><h5 class='color_epik tipos_name' id="+item.sungate_code+"> "+item.name+" </h5></div>";
+                              //<img src='/assets/"+item.image+"' class=color_epik id="+item.name+"><span id="+item.code+"></span>
                               $(div_data).appendTo(".div_col_ep");
                             })
                           $("#"+color_epikathimenou+".color_epik").click();
@@ -8645,12 +8640,7 @@
                               $(".up_rol_ep").val(up_rol_ep);//"<%= @up_rolou_ep %>"
                               $(".pl_rol_ep").trigger('blur');
                               $(".up_rol_ep").trigger('blur');
-                                  //$(".pl_rol_ep").val(width);
-                                  //$(".up_rol_ep").val(height);
-                                  //pl_rol_ep = width;
-                                  //up_rol_ep = height;
-                                  //pl_rol_ep = width;
-                                  //up_rol_ep = height;
+                                 
                               if( "<%= @kinisi_deksia_aristera %>" == "l" ){
                                 $(".kin_ep_ar").trigger('click');
                                 kinisi = "l"
@@ -8786,7 +8776,8 @@
       $(".xr_ep").text(color_epikathimenou);
 
       //Σβηνω αυτα που ειχα πατησει
-      $(".color_epik").css('border-style', '');
+      $(".color_epik").css('border-width', '1px');
+      $(".color_epik").css('border-color', '#000');
       //$(".tipos_name").css('display', '');
       //Κανω να φενετε με border αυτο που πατησα!!
       $(this).css('border-style', 'solid');
@@ -8796,7 +8787,7 @@
 
       times_json(tipos_name_gia_xrwma, $(".width").text(), $(".height").text(), line_id_name, mesa_eksw, color_aplo, width_new ,height_new, epikathimeno_rolo,eksoteriko_rolo,persida,tzamia,profil_deksia,profil_aristera,profil_panw,profil_katw,$(".input_deksia").val(),$(".input_panw").val(),$(".input_katw").val(),$(".input_aristera").val(),typos,color_typos,odoigos,$(".color_deksia").text(),$(".color_aristera").text(),$(".color_panw").text(),$(".color_katw").text(),$(".color_fullou").text(),0,profil_deksia_1_id,profil_deksia_1_json_arithmos,profil_deksia_2_id,profil_deksia_2_json_arithmos,profil_deksia_3_id,profil_deksia_3_json_arithmos,profil_aristera_1_id,profil_aristera_1_json_arithmos,profil_aristera_2_id,profil_aristera_2_json_arithmos,profil_aristera_3_id,profil_aristera_3_json_arithmos,profil_panw_1_id,profil_panw_1_json_arithmos,profil_panw_2_id,profil_panw_2_json_arithmos,profil_panw_3_id,profil_panw_3_json_arithmos,profil_katw_1_id,profil_katw_1_json_arithmos,profil_katw_2_id,profil_katw_2_json_arithmos,profil_katw_3_id,profil_katw_3_json_arithmos,profil_typos_1_id,profil_typos_1_json_arithmos,profil_typos_2_id,profil_typos_2_json_arithmos,profil_typos_3_id,profil_typos_3_json_arithmos,prostasia,tzamia2,lastixo_epilogh,pl_rol_ep,up_rol_ep,pl_rol_ek,up_rol_ek,pl_persidas,up_persidas,up_odoigou,color_epikathimenou,color_eksoterikou,color_persidas,color_odoigou,color_profil_katw,color_profil_deksia,color_profil_aristera,color_profil_panw,elegxos_gia_parapanw_diastaseis_w,elegxos_gia_parapanw_diastaseis_h,xwrisma1,xwrisma2,xwrisma_y_1,xwrisma_y_2,xwrisma3_1,xwrisma3_2,xwrisma3_3,color_aplo_eksw,tzamia0,xwrisma4_1,xwrisma4_2,xwrisma4_3,xwrisma4_4,window_still_single,roll_rat,roll_rlt,roll_rdm,roll_pss,roll_pfm, place, rat_quantity);
 
-      color = $(this).next().attr('id');
+      color = $(this).attr('id');
       color_rolou = color;
       geniko_rolo = "1";
       var b = pro_a+pro_d+pro_k+pro_p+geniko_persida+geniko_rolo;
@@ -8870,7 +8861,7 @@
               color_eksoterikou = color_eksoterikou;
               sxedio_color_ekso = "white";
             }else{
-              color_eksoterikou = "white";//To color που εχω επιλεξει για παραθυρο
+              color_eksoterikou = "WP";//To color που εχω επιλεξει για παραθυρο
               sxedio_color_ekso = "white";
             }
           //height_epik = Number($(this).next().attr('id'));
@@ -8903,15 +8894,6 @@
           $(input7).appendTo(".eksoterika_rola");
           $(input8).appendTo(".eksoterika_rola");
 
-          //$(".pl_rol_ek").val(pl_rol_ek);//"<%= @pl_rolou_ep %>"
-          //$(".up_rol_ek").val(up_rol_ek);//"<%= @up_rolou_ep %>"
-          //$(".pl_rol_ek").trigger('blur');
-         //(".up_rol_ek").trigger('blur');
-
-          //$(".pl_rol_ek").focus();
-
-
-      //$( ".button" ).empty();
       $( ".color_epikathimenou" ).empty();
       $( ".color_eksoterikou" ).empty();
 
@@ -8919,7 +8901,6 @@
       $( ".eksoterika_rola_polla" ).css("background-color","");//Ετσι αφαιρω την ιδιοτητα!!!
       $( ".eksoterika_rola_polla" ).css("color","");
       //
-      //$( this ).css("background-color","#CA3333");
       $( this ).css("background-color","#d9eaed");
       $( this ).css("color","black");
 
@@ -8933,23 +8914,21 @@
         type:'GET',
         url:'/etic/color_eksoterikou',
         dataType: "json",
-        //data: { material_id: $(this).attr('id') },
         success: function(data) {
           var h2 = "<h5 class='inline_h5'><%= t 'translate.Color' %>: </h5>"
           $(h2).appendTo(".color_eksoterikou");
           var xrwma = "<h5 class='xr_ek inline_h5'>"+color_eksoterikou+"</h5><br>"
           $(xrwma).appendTo(".color_eksoterikou");
-          var div = "<div class='div_col_ek'></div>"
+          var div = "<div class='div_col_ek col-xs-5'></div>"
           $(div).appendTo(".color_eksoterikou");
 
           $(".alert_kipri").show();
           $('.alert_kipri').delay(3000).fadeOut('slow');
           
           $.each(data, function(i, item) { //Για κάθε data που παίρνω κανω τα παρακάτο 
-              //alert(item.name);
-              //return $(".kataskevastes").html(item.name);
-              //$( "<p>item.name</p>" ).appendTo( ".kataskevastes" );
-              var div_data = "<div class='xrwma xrwma2'><h5 class='tipos_name'> "+item.name+" </h5><img src='/assets/"+item.image+"' class=color_ekso id="+item.name+"><span id="+item.code+"></span></div>";
+
+              var div_data = "<div class='xrwma xrwma2'><h5 class='color_ekso tipos_name' id="+item.sungate_code+"> "+item.name+" </h5></div>";
+              //img src='/assets/"+item.image+"' class=color_ekso id="+item.name+"><span id="+item.code+"></span>
               $(div_data).appendTo(".div_col_ek");
             })
           $("#"+color_eksoterikou+".color_ekso").click();
@@ -8958,12 +8937,7 @@
               $(".up_rol_ek").val("<%= @up_rolou_ek %>");
               $(".pl_rol_ek").trigger('blur');
               $(".up_rol_ek").trigger('blur');
-                  //$(".pl_rol_ek").val(width);
-                  //$(".up_rol_ek").val(height);
-                  //pl_rol_ek = width;
-                  //up_rol_ek = height;
-                  //pl_rol_ek = width;
-                  //up_rol_ek = height;
+
               if( "<%= @kinisi_deksia_aristera %>" == "l" ){
                 $(".kin_ek_ar").trigger('click');
                 kinisi = "l"
@@ -9064,7 +9038,6 @@
           geniko_rolo = "1";
           var b = pro_a+pro_d+pro_k+pro_p+geniko_persida+geniko_rolo;
           var decimal = parseInt(b, 2);
-          //zwgrafia(decimal,0,1,"white",color_pers,color_p,color_k,color_d,color_a,leaf);
 
           sxedio_ekso = true;
           
@@ -9150,7 +9123,8 @@
       $(".xr_ek").text(color_eksoterikou);
 
       //Σβηνω αυτα που ειχα πατησει
-      $(".color_ekso").css('border-style', '');
+      $(".color_ekso").css('border-width', '1px');
+      $(".color_ekso").css('border-color', '#000');
       //$(".tipos_name").css('display', '');
       //Κανω να φενετε με border αυτο που πατησα!!
       $(this).css('border-style', 'solid');
@@ -9160,7 +9134,7 @@
 
       times_json(tipos_name_gia_xrwma, $(".width").text(), $(".height").text(), line_id_name, mesa_eksw, color_aplo, width_new ,height_new, epikathimeno_rolo,eksoteriko_rolo,persida,tzamia,profil_deksia,profil_aristera,profil_panw,profil_katw,$(".input_deksia").val(),$(".input_panw").val(),$(".input_katw").val(),$(".input_aristera").val(),typos,color_typos,odoigos,$(".color_deksia").text(),$(".color_aristera").text(),$(".color_panw").text(),$(".color_katw").text(),$(".color_fullou").text(),0,profil_deksia_1_id,profil_deksia_1_json_arithmos,profil_deksia_2_id,profil_deksia_2_json_arithmos,profil_deksia_3_id,profil_deksia_3_json_arithmos,profil_aristera_1_id,profil_aristera_1_json_arithmos,profil_aristera_2_id,profil_aristera_2_json_arithmos,profil_aristera_3_id,profil_aristera_3_json_arithmos,profil_panw_1_id,profil_panw_1_json_arithmos,profil_panw_2_id,profil_panw_2_json_arithmos,profil_panw_3_id,profil_panw_3_json_arithmos,profil_katw_1_id,profil_katw_1_json_arithmos,profil_katw_2_id,profil_katw_2_json_arithmos,profil_katw_3_id,profil_katw_3_json_arithmos,profil_typos_1_id,profil_typos_1_json_arithmos,profil_typos_2_id,profil_typos_2_json_arithmos,profil_typos_3_id,profil_typos_3_json_arithmos,prostasia,tzamia2,lastixo_epilogh,pl_rol_ep,up_rol_ep,pl_rol_ek,up_rol_ek,pl_persidas,up_persidas,up_odoigou,color_epikathimenou,color_eksoterikou,color_persidas,color_odoigou,color_profil_katw,color_profil_deksia,color_profil_aristera,color_profil_panw,elegxos_gia_parapanw_diastaseis_w,elegxos_gia_parapanw_diastaseis_h,xwrisma1,xwrisma2,xwrisma_y_1,xwrisma_y_2,xwrisma3_1,xwrisma3_2,xwrisma3_3,color_aplo_eksw,tzamia0,xwrisma4_1,xwrisma4_2,xwrisma4_3,xwrisma4_4,window_still_single,roll_rat,roll_rlt,roll_rdm,roll_pss,roll_pfm, place, rat_quantity);
 
-      color = $(this).next().attr('id');
+      color = $(this).attr('id');
       color_rolou = color;
       geniko_rolo = "1";
       var b = pro_a+pro_d+pro_k+pro_p+geniko_persida+geniko_rolo;
@@ -9229,17 +9203,11 @@
                 }
                 
                 //Αδιαζω ολα τα κάτω
-                //$( ".epikathimena_rola" ).empty(); //Αδιαζω το div για να μπει το νεο κλικ
-                //$( ".eksoterika_rola" ).empty();
-                //$( ".color_epikathimenou" ).empty();
-                //$( ".color_eksoterikou" ).empty();
                 $( ".color_persidas" ).empty();
-                //$( ".button" ).empty();
+
                 //Αλλαγη χρωματος
                 $( ".perisdes" ).css("background-color","");//Ετσι αφαιρω την ιδιοτητα!!!
                 $( ".perisdes" ).css("color","");
-                //
-                //$( this ).css("background-color","#CA3333");
                 $( this ).css("background-color","#d9eaed");
                 $( this ).css("color","black");
 
@@ -9255,15 +9223,26 @@
                     $(h2).appendTo(".color_persidas");
                     var xrwma = "<label class='xr_pe'>"+color_persidas+"</label><br>"
                     $(xrwma).appendTo(".color_persidas");
-                    var div = "<div class='div_col_pe'></div>"
+                    var div = "<div class='div_col_pe col-xs-5'></div>"
                     $(div).appendTo(".color_persidas");
                     $.each(data, function(i, item) { //Για κάθε data που παίρνω κανω τα παρακάτο 
-                        //alert(item.name);
-                        //return $(".kataskevastes").html(item.name);
-                        //$( "<p>item.name</p>" ).appendTo( ".kataskevastes" );
-                        var div_data = "<div class='xrwma xrwma2'><h5 class='tipos_name'> "+item.name+" </h5><img src='/assets/"+item.image+"' class=color_pers id="+item.name+"><span id="+item.code+"></span></div>";
-                        $(div_data).appendTo(".div_col_pe");
-                      })
+                        if(persida == 1 || persida == 2 || persida == 3) {
+                          if(item.category == 1) {
+                            var div_data = "<div class='xrwma xrwma2'><h5 class='color_pers tipos_name' id="+item.sungate_code+"> "+item.name+" </h5></div>";
+                            //img src='/assets/"+item.image+"' class=color_pers id="+item.name+"><span id="+item.code+"></span>
+                            $(div_data).appendTo(".div_col_pe");
+                          }
+                        } else {
+                          if(item.category == 2) {
+                            var div_data = "<div class='xrwma xrwma2'><h5 class='color_pers tipos_name' id="+item.sungate_code+"> "+item.name+" </h5></div>";
+                            //img src='/assets/"+item.image+"' class=color_pers id="+item.name+"><span id="+item.code+"></span>
+                            $(div_data).appendTo(".div_col_pe");
+                          }
+                        }
+                      });
+
+                    color_persidas = $('.div_col_pe div:first-child h5').attr('id');
+                    
                     $("#"+color_persidas+".color_pers").click();
                     if ( YES_PERSIDES == true ){
                       $(".up_persidas").val(pl_persidas);
@@ -9302,7 +9281,6 @@
         geniko_persida = "1";
         var b = pro_a+pro_d+pro_k+pro_p+geniko_persida+geniko_rolo;
         var decimal = parseInt(b, 2);
-        //zwgrafia(decimal,epikathimeno_rolo,eksoteriko_rolo,color_rolou,"white",color_p,color_k,color_d,color_a,leaf);
 
         sxedio_persida = true;
         
@@ -9328,7 +9306,8 @@
       $(".xr_pe").text(color_persidas);
 
       //Σβηνω αυτα που ειχα πατησει
-      $(".color_pers").css('border-style', '');
+      $(".color_pers").css('border-width', '1px');
+      $(".color_pers").css('border-color', '#000');
       //$(".tipos_name").css('display', '');
       //Κανω να φενετε με border αυτο που πατησα!!
       $(this).css('border-style', 'solid');
@@ -9338,7 +9317,7 @@
 
       times_json(tipos_name_gia_xrwma, $(".width").text(), $(".height").text(), line_id_name, mesa_eksw, color_aplo, width_new ,height_new, epikathimeno_rolo,eksoteriko_rolo,persida,tzamia,profil_deksia,profil_aristera,profil_panw,profil_katw,$(".input_deksia").val(),$(".input_panw").val(),$(".input_katw").val(),$(".input_aristera").val(),typos,color_typos,odoigos,$(".color_deksia").text(),$(".color_aristera").text(),$(".color_panw").text(),$(".color_katw").text(),$(".color_fullou").text(),0,profil_deksia_1_id,profil_deksia_1_json_arithmos,profil_deksia_2_id,profil_deksia_2_json_arithmos,profil_deksia_3_id,profil_deksia_3_json_arithmos,profil_aristera_1_id,profil_aristera_1_json_arithmos,profil_aristera_2_id,profil_aristera_2_json_arithmos,profil_aristera_3_id,profil_aristera_3_json_arithmos,profil_panw_1_id,profil_panw_1_json_arithmos,profil_panw_2_id,profil_panw_2_json_arithmos,profil_panw_3_id,profil_panw_3_json_arithmos,profil_katw_1_id,profil_katw_1_json_arithmos,profil_katw_2_id,profil_katw_2_json_arithmos,profil_katw_3_id,profil_katw_3_json_arithmos,profil_typos_1_id,profil_typos_1_json_arithmos,profil_typos_2_id,profil_typos_2_json_arithmos,profil_typos_3_id,profil_typos_3_json_arithmos,prostasia,tzamia2,lastixo_epilogh,pl_rol_ep,up_rol_ep,pl_rol_ek,up_rol_ek,pl_persidas,up_persidas,up_odoigou,color_epikathimenou,color_eksoterikou,color_persidas,color_odoigou,color_profil_katw,color_profil_deksia,color_profil_aristera,color_profil_panw,elegxos_gia_parapanw_diastaseis_w,elegxos_gia_parapanw_diastaseis_h,xwrisma1,xwrisma2,xwrisma_y_1,xwrisma_y_2,xwrisma3_1,xwrisma3_2,xwrisma3_3,color_aplo_eksw,tzamia0,xwrisma4_1,xwrisma4_2,xwrisma4_3,xwrisma4_4,window_still_single,roll_rat,roll_rlt,roll_rdm,roll_pss,roll_pfm, place, rat_quantity);
 
-      color = $(this).next().attr('id'); 
+      color = $(this).attr('id'); 
       color_pers = color;
       geniko_persida = "1";
       var b = pro_a+pro_d+pro_k+pro_p+geniko_persida+geniko_rolo;
