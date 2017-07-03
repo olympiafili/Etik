@@ -652,7 +652,7 @@ class EticController < ApplicationController
 			persida = Persides.where(:sungate_code => params[:persida_code]).first
 	        if ( !persida.nil? )
 				@persida_id = persida.id
-			    @color_persida = RolaColor.where(:name => params[:persida_color]).first.name
+			    @color_persida = RolaPerColor.where(:sungate_code => params[:persida_color]).first.name
 			    @pl_persidas = params[:persida_width]
 	            @up_persidas = params[:persida_height]
 	        else
@@ -686,7 +686,7 @@ class EticController < ApplicationController
 	                @cat_rolo = Eksoterika.where(:id => rolo.rola_ekso_id).first.id
 	                @rolo_id = rolo.id
 	                @ti_rolo = "ekso"
-	                @color_rolo = RolaColor.where(:name => params[:rolo_color]).first.name
+	                @color_rolo = RolaEksColor.where(:sungate_code => params[:rolo_color]).first.name
 	                @pl_rolou_ek = params[:rolo_width]
 	                @up_rolou_ek = params[:rolo_height]
 	                @kinisi_deksia_aristera = params[:rolo_kinisi]
@@ -699,7 +699,7 @@ class EticController < ApplicationController
 	                @cat_rolo = Epikathimeno.where(:id => rolo.epikathimeno_id).first.id
 	                @rolo_id = rolo.id
 	                @ti_rolo = "epik"
-	                @color_rolo = RolaColor.where(:name => params[:rolo_color]).first.name
+	                @color_rolo = RolaEpikColor.where(:sungate_code => params[:rolo_color]).first.name
 	                @pl_rolou_ep = params[:rolo_width]
 	                @up_rolou_ep = params[:rolo_height]
 	                @kinisi_deksia_aristera = params[:rolo_kinisi]
@@ -739,7 +739,7 @@ class EticController < ApplicationController
 			persida = Persides.where(:name => params[:persida]).first
 	        if ( !persida.nil? )
 				@persida_id = persida.id
-			    @color_persida = RolaColor.where(:name => params[:xrwma_persidas]).first.name
+			    @color_persida = RolaPerColor.where(:sungate_code => params[:xrwma_persidas]).first.sungate_code
 			    @pl_persidas = params[:pl_persidas]
 	            @up_persidas = params[:up_persidas]
 	        else
@@ -773,7 +773,7 @@ class EticController < ApplicationController
 	                @cat_rolo = Eksoterika.where(:id => rolo.rola_ekso_id).first.id
 	                @rolo_id = rolo.id
 	                @ti_rolo = "ekso"
-	                @color_rolo = RolaColor.where(:name => params[:xrwma_rolo]).first.name
+	                @color_rolo = RolaEksColor.where(:sungate_code => params[:xrwma_rolo]).first.sungate_code
 	                @pl_rolou_ek = params[:pl_rolou_ek]
 	                @up_rolou_ek = params[:up_rolou_ek]
 	                @kinisi_deksia_aristera = params[:kinisi_deksia_aristera]
@@ -786,7 +786,7 @@ class EticController < ApplicationController
 	                @cat_rolo = Epikathimeno.where(:id => rolo.epikathimeno_id).first.id
 	                @rolo_id = rolo.id
 	                @ti_rolo = "epik"
-	                @color_rolo = RolaColor.where(:name => params[:xrwma_rolo]).first.name
+	                @color_rolo = RolaEpikColor.where(:sungate_code => params[:xrwma_rolo]).first.sungate_code
 	                @pl_rolou_ep = params[:pl_rolou_ep]
 	                @up_rolou_ep = params[:up_rolou_ep]
 	                @kinisi_deksia_aristera = params[:kinisi_deksia_aristera]
@@ -988,7 +988,7 @@ class EticController < ApplicationController
                 @cat_rolo = Eksoterika.where(:id => rolo.rola_ekso_id).first.id
                 @rolo_id = rolo.id
                 @ti_rolo = "ekso"
-                @color_rolo = RolaColor.where(:name => params[:xrwma_rolo]).first.name
+                @color_rolo = RolaEksColor.where(:sungate_code => params[:xrwma_rolo]).first.name
                 @pl_rolou_ek = params[:pl_rolou_ek]
                 @up_rolou_ek = params[:up_rolou_ek]
                 @kinisi_deksia_aristera = params[:kinisi_deksia_aristera]
@@ -999,7 +999,7 @@ class EticController < ApplicationController
                 @cat_rolo = Epikathimeno.where(:id => rolo.epikathimeno_id).first.id
                 @rolo_id = rolo.id
                 @ti_rolo = "epik"
-                @color_rolo = RolaColor.where(:name => params[:xrwma_rolo]).first.name
+                @color_rolo = RolaEpikColor.where(:sungate_code => params[:xrwma_rolo]).first.name
                 @pl_rolou_ep = params[:pl_rolou_ep]
                 @up_rolou_ep = params[:up_rolou_ep]
                 @kinisi_deksia_aristera = params[:kinisi_deksia_aristera]
@@ -1009,7 +1009,7 @@ class EticController < ApplicationController
 		persida = Persides.where(:id => params[:persida]).first
         if ( !persida.nil? )
 			@persida_id = persida.id
-		    @color_persidas = RolaColor.where(:name => params[:xrwma_persidas]).first.name
+		    @color_persidas = RolaPerColor.where(:sungate_code => params[:xrwma_persidas]).first.name
 		    @pl_persidas = params[:pl_persidas]
             @up_persidas = params[:up_persidas]
         end
@@ -4199,7 +4199,8 @@ class EticController < ApplicationController
 		    		@order.klap = @klap_ep
 		    	end
 		      @order.rolo = @epik_rolo.name
-		      @order.color_rolou = @xrwma_epikathimenou
+		      @xxrwma_epikathimenou = RolaEpikColor.where(:name => @xrwma_epikathimenou).first.sungate_code
+		      @order.color_rolou = @xxrwma_epikathimenou
 		      @order.timi_m_epik = timi_m_epik
 		      @order.price_rolou = pr_epik
 		      @order.price_color_rolou = price_color_rolou
@@ -4222,7 +4223,8 @@ class EticController < ApplicationController
 		    		@order.deroll = @deroll
 		    	end
 		      @order.rolo = @ekso_rolo.name
-		      @order.color_rolou = @xrwma_eksoterikou
+		      @xxrwma_eksoterikou = RolaEksColor.where(:name => @xrwma_eksoterikou).first.sungate_code
+		      @order.color_rolou = @xxrwma_eksoterikou
 		      @order.timi_m_ekso = timi_m_ekso
 		      @order.price_rolou = pr_ekso
 		      @order.price_color_rolou = price_color_rolou
@@ -4239,7 +4241,8 @@ class EticController < ApplicationController
 		    		@order.up_persidas = height#height_mesa_meta_apo_typo
 		    	end
 		    	@order.persida = @persida.name
-		    	@order.color_persidas = @xrwma_persidas
+		    	@xxrwma_persidas = RolaPerColor.where(:name => @xrwma_persidas).first.sungate_code
+		    	@order.color_persidas = @xxrwma_persidas
 		    	@order.timi_m_persidas = timi_m_persidas
 		    	@order.price_persidas = pr_per
 		    	@order.price_color_persidas = price_color_persidas
@@ -6458,7 +6461,7 @@ class EticController < ApplicationController
                 @cat_rolo = Eksoterika.where(:id => rolo.rola_ekso_id).first.id
                 @rolo_id = rolo.id
                 @ti_rolo = "ekso"
-                @color_rolo = RolaColor.where(:name => params[:xrwma_rolo]).first.name
+                @color_rolo = RolaEksColor.where(:sungate_code => params[:xrwma_rolo]).first.name
                 @pl_rolou_ek = params[:pl_rolou_ek]
                 @up_rolou_ek = params[:up_rolou_ek]
                 @kinisi_deksia_aristera = params[:kinisi_deksia_aristera]
@@ -6471,7 +6474,7 @@ class EticController < ApplicationController
                 @cat_rolo = Epikathimeno.where(:id => rolo.epikathimeno_id).first.id
                 @rolo_id = rolo.id
                 @ti_rolo = "epik"
-                @color_rolo = RolaColor.where(:name => params[:xrwma_rolo]).first.name
+                @color_rolo = RolaEpikColor.where(:sungate_code => params[:xrwma_rolo]).first.name
                 @pl_rolou_ep = params[:pl_rolou_ep]
                 @up_rolou_ep = params[:up_rolou_ep]
                 @kinisi_deksia_aristera = params[:kinisi_deksia_aristera]
@@ -6484,7 +6487,7 @@ class EticController < ApplicationController
 		persida = Persides.where(:name => params[:persida]).first
         if ( !persida.nil? )
 			@persida_id = persida.id
-		    @color_persida = RolaColor.where(:name => params[:xrwma_persidas]).first.name
+		    @color_persida = RolaPerColor.where(:sungate_code => params[:xrwma_persidas]).first.name
 		    @pl_persidas = params[:pl_persidas]
             @up_persidas = params[:up_persidas]
         else
@@ -6657,7 +6660,7 @@ class EticController < ApplicationController
                 @cat_rolo = Eksoterika.where(:id => rolo.rola_ekso_id).first.id
                 @rolo_id = rolo.id
                 @ti_rolo = "ekso"
-                @color_rolo = RolaColor.where(:name => params[:xrwma_rolo]).first.name
+                @color_rolo = RolaEksColor.where(:sungate_code => params[:xrwma_rolo]).first.name
                 @pl_rolou_ek = params[:pl_rolou_ek]
                 @up_rolou_ek = params[:up_rolou_ek]
                 @kinisi_deksia_aristera = params[:kinisi_deksia_aristera]
@@ -6668,7 +6671,7 @@ class EticController < ApplicationController
                 @cat_rolo = Epikathimeno.where(:id => rolo.epikathimeno_id).first.id
                 @rolo_id = rolo.id
                 @ti_rolo = "epik"
-                @color_rolo = RolaColor.where(:name => params[:xrwma_rolo]).first.name
+                @color_rolo = RolaEpikColor.where(:sungate_code => params[:sungate_code]).first.name
                 @pl_rolou_ep = params[:pl_rolou_ep]
                 @up_rolou_ep = params[:up_rolou_ep]
                 @kinisi_deksia_aristera = params[:kinisi_deksia_aristera]
@@ -6678,7 +6681,7 @@ class EticController < ApplicationController
 		persida = Persides.where(:id => params[:persida]).first
         if ( !persida.nil? )
 			@persida_id = persida.id
-		    @color_persidas = RolaColor.where(:name => params[:xrwma_persidas]).first.name
+		    @color_persidas = RolaPerColor.where(:sungate_code => params[:xrwma_persidas]).first.name
 		    @pl_persidas = params[:pl_persidas]
             @up_persidas = params[:up_persidas]
         end

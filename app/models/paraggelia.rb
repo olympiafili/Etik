@@ -183,7 +183,7 @@ class Paraggelia < ActiveRecord::Base
         end
         #persida
         if (order.persida != nil)
-          @persida_color = RolaPerColor.where(:name => order.color_persidas).first
+          @persida_color = RolaPerColor.where(:sungate_code => order.color_persidas).first
           market_price_persidas = order.price_persidas - (@pososto_market/100)*order.price_persidas
           dealer_price_persidas = order.price_persidas - (@pososto_dealer/100)*order.price_persidas
           csv << ["ARTPOS", main_index, index.to_s, 1, "m2", @persida.sungate_code, @persida_color.sungate_code, 
@@ -200,7 +200,7 @@ class Paraggelia < ActiveRecord::Base
         end
         #rolo epik
         if (order.rolo != nil && order.timi_m_epik != nil)
-          @rolo_color = RolaEpikColor.where(:name => order.color_rolou).first
+          @rolo_color = RolaEpikColor.where(:sungate_code => order.color_rolou).first
           market_price_rolou = order.price_rolou - (@pososto_market/100)*order.price_rolou
           dealer_price_rolou = order.price_rolou - (@pososto_dealer/100)*order.price_rolou
           csv << ["ARTPOS", main_index, index.to_s, 1, "m2", @rolo_epik.sungate_code, @rolo_color.sungate_code, 
@@ -209,7 +209,7 @@ class Paraggelia < ActiveRecord::Base
         end
         #rolo eks
         if (order.rolo != nil && order.timi_m_ekso != nil)
-          @rolo_color = RolaEksColor.where(:name => order.color_rolou).first
+          @rolo_color = RolaEksColor.where(:sungate_code => order.color_rolou).first
           market_price_rolou = order.price_rolou - (@pososto_market/100)*order.price_rolou
           dealer_price_rolou = order.price_rolou - (@pososto_dealer/100)*order.price_rolou
           csv << ["ARTPOS", main_index, index.to_s, 1, "m2", @rolo_eks.sungate_code, @rolo_color.sungate_code, 
