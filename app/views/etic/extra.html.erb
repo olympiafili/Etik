@@ -8035,7 +8035,6 @@
             geniko_rolo = "0"; //Κανω 0 το στοιχειο που
             var b = pro_a+pro_d+pro_k+pro_p+geniko_persida+geniko_rolo;
             var decimal = parseInt(b, 2);
-            //zwgrafia(decimal,0,0,color_rolou,color_pers,color_p,color_k,color_d,color_a,leaf);
 
             sxedio_epik = false;
             
@@ -8369,7 +8368,6 @@
             geniko_rolo = "0"; //Κανω 0 το στοιχειο που
             var b = pro_a+pro_d+pro_k+pro_p+geniko_persida+geniko_rolo;
             var decimal = parseInt(b, 2);
-            //zwgrafia(decimal,0,0,color_rolou,color_pers,color_p,color_k,color_d,color_a,leaf);
 
             sxedio_ekso = false;
             
@@ -8503,17 +8501,13 @@
             $( "input[name='kin_ep']" ).remove();
             $(".kin_ep_ar").remove();
             $(".kin_ep_de").remove();
-            //pl_rol_ep = 0;
-            //up_rol_ep = 0;
 
-            //height_new = Number(height) - height_p - height_k;
             $(".diastaseis_extra").text(width_new +"X"+height_new);
             $(".diastaseis_table_extra_tm").empty();
               $(".diastaseis_table_extra_tm").append( ( (parseFloat(width_new)*parseFloat(height_new))/1000000 ).toFixed(2)+" <p>m"+"2".sup()+"</p>" );
             geniko_rolo = "0"; //Κανω 0 το στοιχειο που
             var b = pro_a+pro_d+pro_k+pro_p+geniko_persida+geniko_rolo;
             var decimal = parseInt(b, 2);
-            //zwgrafia(decimal,0,0,color_rolou,color_pers,color_p,color_k,color_d,color_a,leaf);
 
             sxedio_epik = false;
             
@@ -8536,8 +8530,6 @@
             $( "input[name='kin_ep']" ).remove();
             $(".kin_ep_ar").remove();
             $(".kin_ep_de").remove();
-            //pl_rol_ep = 0;
-            //up_rol_ep = 0;
 
             if (color_epikathimenou !== 0){
               color_epikathimenou = color_epikathimenou;
@@ -8575,15 +8567,6 @@
       $(input6).appendTo(".epikathimena_rola");
       $(input7).appendTo(".epikathimena_rola");
      
-      //$(".pl_rol_ep").val(pl_rol_ep);//"<%= @pl_rolou_ep %>"
-      //$(".up_rol_ep").val(up_rol_ep);//"<%= @up_rolou_ep %>"
-      //$(".pl_rol_ep").trigger('blur');
-      //$(".up_rol_ep").trigger('blur');
-
-
-      //$(".pl_rol_ep").focus();
-     
-      //$( ".button" ).empty();
       $( ".color_epikathimenou" ).empty();
       $( ".color_eksoterikou" ).empty();
 
@@ -8591,7 +8574,6 @@
       $( ".epikathimena_rola_polla" ).css("background-color","");//Ετσι αφαιρω την ιδιοτητα!!!
       $( ".epikathimena_rola_polla" ).css("color","");
       //
-      //$( this ).css("background-color","#CA3333");
       $( this ).css("background-color","#d9eaed");
       $( this ).css("color","black");
 
@@ -8621,7 +8603,6 @@
                         type:'GET',
                         url:'/etic/color_epikathimenou',
                         dataType: "json",
-                        //data: { material_id: $(this).attr('id') },
                         success: function(data) {
                           var h2 = "<h5 class='inline_h5'><%= t 'translate.Color' %>:</h5>"
                           $(h2).appendTo(".color_epikathimenou");
@@ -8630,7 +8611,11 @@
                           var div = "<div class='div_col_ep col-xs-5'></div>"
                           $(div).appendTo(".color_epikathimenou");
                           $.each(data, function(i, item) { //Για κάθε data που παίρνω κανω τα παρακάτο 
-                              var div_data = "<div class='xrwma xrwma2'><h5 class='color_epik tipos_name' id="+item.sungate_code+"> "+item.name+" </h5></div>";
+                              if(item.image != null) {
+                                var div_data = "<div class='xrwma xrwma2'><h5></h5><img src='/assets/"+item.image+"' class=color_epik id="+item.sungate_code+"><span id="+item.code+"></span></div>";
+                              } else {
+                                var div_data = "<div class='xrwma xrwma2'><h5 class='color_epik tipos_name' id="+item.sungate_code+"> "+item.name+" </h5></div>";
+                              }
                               //<img src='/assets/"+item.image+"' class=color_epik id="+item.name+"><span id="+item.code+"></span>
                               $(div_data).appendTo(".div_col_ep");
                             })
@@ -8661,6 +8646,7 @@
                                 klap_ep = "b";  
                                 $("input[name=klap_ep][value=" + klap_ep + "]").prop('checked', true);
                               }
+
                               $(".color_epik").each(function( index ) {
                               if( $( this ).attr("id") == "<%= @color_rolo %>" ){
                                 $( this ).trigger('click');
@@ -8674,17 +8660,6 @@
                               $(".up_rol_ep").val(up_rol_ep);
                               $(".pl_rol_ep").trigger('blur');
                               $(".up_rol_ep").trigger('blur');
-                                  //$(".pl_rol_ep").val(width);
-                                  //$(".up_rol_ep").val(height);
-                                  //pl_rol_ep = width;
-                                  //up_rol_ep = height;
-                                  //pl_rol_ep = width;
-                                  //up_rol_ep = height;
-                              //if( kinisi_deksia_aristera == "l" ){
-                              //  $(".kin_ep_ar").trigger('click');
-                              //}else{
-                              //  $(".kin_ep_de").trigger('click');
-                              //}
                               if( kinisi == "l" ){
                                 $(".kin_ep_ar").trigger('click');
                                 kinisi = "l"
@@ -8706,7 +8681,7 @@
                                 $("input[name=klap_ep][value=" + klap_ep + "]").prop('checked', true);
                               }
                               $(".color_epik").each(function( index ) {
-                              if( $( this ).attr("id") == color_rolo ){
+                              if( $( this ).attr("id") == "<%= @color_rolo %>" ){
                                 $( this ).trigger('click');
                               }
                             });
@@ -8787,7 +8762,7 @@
 
       times_json(tipos_name_gia_xrwma, $(".width").text(), $(".height").text(), line_id_name, mesa_eksw, color_aplo, width_new ,height_new, epikathimeno_rolo,eksoteriko_rolo,persida,tzamia,profil_deksia,profil_aristera,profil_panw,profil_katw,$(".input_deksia").val(),$(".input_panw").val(),$(".input_katw").val(),$(".input_aristera").val(),typos,color_typos,odoigos,$(".color_deksia").text(),$(".color_aristera").text(),$(".color_panw").text(),$(".color_katw").text(),$(".color_fullou").text(),0,profil_deksia_1_id,profil_deksia_1_json_arithmos,profil_deksia_2_id,profil_deksia_2_json_arithmos,profil_deksia_3_id,profil_deksia_3_json_arithmos,profil_aristera_1_id,profil_aristera_1_json_arithmos,profil_aristera_2_id,profil_aristera_2_json_arithmos,profil_aristera_3_id,profil_aristera_3_json_arithmos,profil_panw_1_id,profil_panw_1_json_arithmos,profil_panw_2_id,profil_panw_2_json_arithmos,profil_panw_3_id,profil_panw_3_json_arithmos,profil_katw_1_id,profil_katw_1_json_arithmos,profil_katw_2_id,profil_katw_2_json_arithmos,profil_katw_3_id,profil_katw_3_json_arithmos,profil_typos_1_id,profil_typos_1_json_arithmos,profil_typos_2_id,profil_typos_2_json_arithmos,profil_typos_3_id,profil_typos_3_json_arithmos,prostasia,tzamia2,lastixo_epilogh,pl_rol_ep,up_rol_ep,pl_rol_ek,up_rol_ek,pl_persidas,up_persidas,up_odoigou,color_epikathimenou,color_eksoterikou,color_persidas,color_odoigou,color_profil_katw,color_profil_deksia,color_profil_aristera,color_profil_panw,elegxos_gia_parapanw_diastaseis_w,elegxos_gia_parapanw_diastaseis_h,xwrisma1,xwrisma2,xwrisma_y_1,xwrisma_y_2,xwrisma3_1,xwrisma3_2,xwrisma3_3,color_aplo_eksw,tzamia0,xwrisma4_1,xwrisma4_2,xwrisma4_3,xwrisma4_4,window_still_single,roll_rat,roll_rlt,roll_rdm,roll_pss,roll_pfm, place, rat_quantity);
 
-      color = $(this).attr('id');
+      color = $(this).next().attr('id');
       color_rolou = color;
       geniko_rolo = "1";
       var b = pro_a+pro_d+pro_k+pro_p+geniko_persida+geniko_rolo;
@@ -8926,9 +8901,13 @@
           $('.alert_kipri').delay(3000).fadeOut('slow');
           
           $.each(data, function(i, item) { //Για κάθε data που παίρνω κανω τα παρακάτο 
-
-              var div_data = "<div class='xrwma xrwma2'><h5 class='color_ekso tipos_name' id="+item.sungate_code+"> "+item.name+" </h5></div>";
-              //img src='/assets/"+item.image+"' class=color_ekso id="+item.name+"><span id="+item.code+"></span>
+              if(item.image != null) {
+                var div_data = "<div class='xrwma xrwma2'><h5></h5><img src='/assets/"+item.image+"' class=color_ekso id="+item.sungate_code+"><span id="+item.code+"></span></div>";
+              } else {
+                var div_data = "<div class='xrwma xrwma2'><h5 class='color_ekso tipos_name' id="+item.sungate_code+"> "+item.name+" </h5></div>";
+              }
+              
+              //<img src='/assets/"+item.image+"' class=color_ekso id="+item.name+"><span id="+item.code+"></span>
               $(div_data).appendTo(".div_col_ek");
             })
           $("#"+color_eksoterikou+".color_ekso").click();
@@ -8974,17 +8953,7 @@
               $(".up_rol_ek").val(up_rolou_ek);
               $(".pl_rol_ek").trigger('blur');
               $(".up_rol_ek").trigger('blur');
-                  //$(".pl_rol_ek").val(width);
-                  //$(".up_rol_ek").val(height);
-                  //pl_rol_ek = width;
-                  //up_rol_ek = height;
-                  //pl_rol_ek = width;
-                  //up_rol_ek = height;
-              //if( kinisi_deksia_aristera == "l" ){
-              //  $(".kin_ek_ar").trigger('click');
-              //}else{
-              //  $(".kin_ek_de").trigger('click');
-             //}
+
              if( kinisi  == "l" ){
                 $(".kin_ek_ar").trigger('click');
                 kinisi = "l"
@@ -9010,7 +8979,7 @@
                 $("input[name=deroll][value=" + deroll + "]").prop('checked', true);
               }
               $(".color_ekso").each(function( index ) {
-              if( $( this ).attr("id") == color_rolo ){
+              if( $( this ).attr("id") == "<%= @color_rolo %>" ){
                 $( this ).trigger('click');
               }
             });
@@ -9134,7 +9103,7 @@
 
       times_json(tipos_name_gia_xrwma, $(".width").text(), $(".height").text(), line_id_name, mesa_eksw, color_aplo, width_new ,height_new, epikathimeno_rolo,eksoteriko_rolo,persida,tzamia,profil_deksia,profil_aristera,profil_panw,profil_katw,$(".input_deksia").val(),$(".input_panw").val(),$(".input_katw").val(),$(".input_aristera").val(),typos,color_typos,odoigos,$(".color_deksia").text(),$(".color_aristera").text(),$(".color_panw").text(),$(".color_katw").text(),$(".color_fullou").text(),0,profil_deksia_1_id,profil_deksia_1_json_arithmos,profil_deksia_2_id,profil_deksia_2_json_arithmos,profil_deksia_3_id,profil_deksia_3_json_arithmos,profil_aristera_1_id,profil_aristera_1_json_arithmos,profil_aristera_2_id,profil_aristera_2_json_arithmos,profil_aristera_3_id,profil_aristera_3_json_arithmos,profil_panw_1_id,profil_panw_1_json_arithmos,profil_panw_2_id,profil_panw_2_json_arithmos,profil_panw_3_id,profil_panw_3_json_arithmos,profil_katw_1_id,profil_katw_1_json_arithmos,profil_katw_2_id,profil_katw_2_json_arithmos,profil_katw_3_id,profil_katw_3_json_arithmos,profil_typos_1_id,profil_typos_1_json_arithmos,profil_typos_2_id,profil_typos_2_json_arithmos,profil_typos_3_id,profil_typos_3_json_arithmos,prostasia,tzamia2,lastixo_epilogh,pl_rol_ep,up_rol_ep,pl_rol_ek,up_rol_ek,pl_persidas,up_persidas,up_odoigou,color_epikathimenou,color_eksoterikou,color_persidas,color_odoigou,color_profil_katw,color_profil_deksia,color_profil_aristera,color_profil_panw,elegxos_gia_parapanw_diastaseis_w,elegxos_gia_parapanw_diastaseis_h,xwrisma1,xwrisma2,xwrisma_y_1,xwrisma_y_2,xwrisma3_1,xwrisma3_2,xwrisma3_3,color_aplo_eksw,tzamia0,xwrisma4_1,xwrisma4_2,xwrisma4_3,xwrisma4_4,window_still_single,roll_rat,roll_rlt,roll_rdm,roll_pss,roll_pfm, place, rat_quantity);
 
-      color = $(this).attr('id');
+      color = $(this).next().attr('id');
       color_rolou = color;
       geniko_rolo = "1";
       var b = pro_a+pro_d+pro_k+pro_p+geniko_persida+geniko_rolo;
@@ -9175,14 +9144,11 @@
             ok_click();
 
             times_json(tipos_name_gia_xrwma, $(".width").text(), $(".height").text(), line_id_name, mesa_eksw, color_aplo, width_new ,height_new, epikathimeno_rolo,eksoteriko_rolo,persida,tzamia,profil_deksia,profil_aristera,profil_panw,profil_katw,$(".input_deksia").val(),$(".input_panw").val(),$(".input_katw").val(),$(".input_aristera").val(),typos,color_typos,odoigos,$(".color_deksia").text(),$(".color_aristera").text(),$(".color_panw").text(),$(".color_katw").text(),$(".color_fullou").text(),0,profil_deksia_1_id,profil_deksia_1_json_arithmos,profil_deksia_2_id,profil_deksia_2_json_arithmos,profil_deksia_3_id,profil_deksia_3_json_arithmos,profil_aristera_1_id,profil_aristera_1_json_arithmos,profil_aristera_2_id,profil_aristera_2_json_arithmos,profil_aristera_3_id,profil_aristera_3_json_arithmos,profil_panw_1_id,profil_panw_1_json_arithmos,profil_panw_2_id,profil_panw_2_json_arithmos,profil_panw_3_id,profil_panw_3_json_arithmos,profil_katw_1_id,profil_katw_1_json_arithmos,profil_katw_2_id,profil_katw_2_json_arithmos,profil_katw_3_id,profil_katw_3_json_arithmos,profil_typos_1_id,profil_typos_1_json_arithmos,profil_typos_2_id,profil_typos_2_json_arithmos,profil_typos_3_id,profil_typos_3_json_arithmos,prostasia,tzamia2,lastixo_epilogh,pl_rol_ep,up_rol_ep,pl_rol_ek,up_rol_ek,pl_persidas,up_persidas,up_odoigou,color_epikathimenou,color_eksoterikou,color_persidas,color_odoigou,color_profil_katw,color_profil_deksia,color_profil_aristera,color_profil_panw,elegxos_gia_parapanw_diastaseis_w,elegxos_gia_parapanw_diastaseis_h,xwrisma1,xwrisma2,xwrisma_y_1,xwrisma_y_2,xwrisma3_1,xwrisma3_2,xwrisma3_3,color_aplo_eksw,tzamia0,xwrisma4_1,xwrisma4_2,xwrisma4_3,xwrisma4_4,window_still_single,roll_rat,roll_rlt,roll_rdm,roll_pss,roll_pfm, place, rat_quantity);
-
           }
         }
 
         if (epilogi_ksana_persides) {
 
-          //pl_persidas = 0;
-          //up_persidas = 0;
           $(".diorth_per").empty();
 
           var input0_0 = "<div class=metafra1> <p class=metafra1><%= t 'translate.Width' %>:</p> <p class=kanoniko_platos_persidas></p><br></div>"
@@ -9196,12 +9162,6 @@
           var input2 = "<div class=metafra1><p class=metafra1><%= t 'translate.Change_height' %>:</p> <p><input type=text name=up_persidas class=up_persidas placeholder=<%= t 'translate.Height' %>></p>"
           $(input2).appendTo(".diorth_per");
 
-                if (color_persidas !== 0){
-                  color_persidas = color_persidas;
-                }else{
-                  color_persidas = "white";//To color που εχω επιλεξει για παραθυρο
-                }
-                
                 //Αδιαζω ολα τα κάτω
                 $( ".color_persidas" ).empty();
 
@@ -9212,12 +9172,20 @@
                 $( this ).css("color","black");
 
                 persida = $(this).attr('id'); //Global variable για να την περασω στην αλλη σελιδα
+
+                if (color_persidas !== 0){
+                  color_persidas = color_persidas;
+                }else{
+                  if(persida == 1 || persida == 2 || persida == 3)
+                    color_persidas = "WP";
+                  else
+                    color_persidas = "P10";
+                }
+
                 $.ajax({
-                  
                   type:'GET',
                   url:'/etic/color_persidas',
                   dataType: "json",
-                  //data: { material_id: $(this).attr('id') },
                   success: function(data) {
                     var h2 = "<label><%= t 'translate.Color' %>: </label>"
                     $(h2).appendTo(".color_persidas");
@@ -9225,24 +9193,31 @@
                     $(xrwma).appendTo(".color_persidas");
                     var div = "<div class='div_col_pe col-xs-5'></div>"
                     $(div).appendTo(".color_persidas");
+
                     $.each(data, function(i, item) { //Για κάθε data που παίρνω κανω τα παρακάτο 
                         if(persida == 1 || persida == 2 || persida == 3) {
                           if(item.category == 1) {
-                            var div_data = "<div class='xrwma xrwma2'><h5 class='color_pers tipos_name' id="+item.sungate_code+"> "+item.name+" </h5></div>";
+                            if(item.image != null) {
+                              var div_data = "<div class='xrwma xrwma2'><h5></h5><img src='/assets/"+item.image+"' class=color_pers id="+item.sungate_code+"><span id="+item.code+"></span></div>";
+                            } else {
+                              var div_data = "<div class='xrwma xrwma2'><h5 class='color_pers tipos_name' id="+item.sungate_code+"> "+item.name+" </h5></div>";
+                            }
                             //img src='/assets/"+item.image+"' class=color_pers id="+item.name+"><span id="+item.code+"></span>
                             $(div_data).appendTo(".div_col_pe");
                           }
                         } else {
                           if(item.category == 2) {
-                            var div_data = "<div class='xrwma xrwma2'><h5 class='color_pers tipos_name' id="+item.sungate_code+"> "+item.name+" </h5></div>";
-                            //img src='/assets/"+item.image+"' class=color_pers id="+item.name+"><span id="+item.code+"></span>
+                             if(item.image != null) {
+                              var div_data = "<div class='xrwma xrwma2'><h5></h5><img src='/assets/"+item.image+"' class=color_pers id="+item.sungate_code+"><span id="+item.code+"></span></div>";
+                            } else {
+                              var div_data = "<div class='xrwma xrwma2'><h5 class='color_pers tipos_name' id="+item.sungate_code+"> "+item.name+" </h5></div>";
+                            }
                             $(div_data).appendTo(".div_col_pe");
                           }
                         }
                       });
 
-                    color_persidas = $('.div_col_pe div:first-child h5').attr('id');
-                    
+
                     $("#"+color_persidas+".color_pers").click();
                     if ( YES_PERSIDES == true ){
                       $(".up_persidas").val(pl_persidas);
@@ -9266,7 +9241,7 @@
                           $(".up_persidas").trigger('blur');
                         if (typeof persida_id !== "undefined") {
                         $(".color_pers").each(function( index ) {
-                        if( $( this ).attr("id") == color_persidas_meta ){
+                        if( $( this ).attr("id") == "<%= @color_persida %>" ){
                           $( this ).trigger('click');
                         }
                       });
@@ -9308,7 +9283,7 @@
       //Σβηνω αυτα που ειχα πατησει
       $(".color_pers").css('border-width', '1px');
       $(".color_pers").css('border-color', '#000');
-      //$(".tipos_name").css('display', '');
+
       //Κανω να φενετε με border αυτο που πατησα!!
       $(this).css('border-style', 'solid');
       $(this).css('border-width', '5px');
@@ -9317,22 +9292,17 @@
 
       times_json(tipos_name_gia_xrwma, $(".width").text(), $(".height").text(), line_id_name, mesa_eksw, color_aplo, width_new ,height_new, epikathimeno_rolo,eksoteriko_rolo,persida,tzamia,profil_deksia,profil_aristera,profil_panw,profil_katw,$(".input_deksia").val(),$(".input_panw").val(),$(".input_katw").val(),$(".input_aristera").val(),typos,color_typos,odoigos,$(".color_deksia").text(),$(".color_aristera").text(),$(".color_panw").text(),$(".color_katw").text(),$(".color_fullou").text(),0,profil_deksia_1_id,profil_deksia_1_json_arithmos,profil_deksia_2_id,profil_deksia_2_json_arithmos,profil_deksia_3_id,profil_deksia_3_json_arithmos,profil_aristera_1_id,profil_aristera_1_json_arithmos,profil_aristera_2_id,profil_aristera_2_json_arithmos,profil_aristera_3_id,profil_aristera_3_json_arithmos,profil_panw_1_id,profil_panw_1_json_arithmos,profil_panw_2_id,profil_panw_2_json_arithmos,profil_panw_3_id,profil_panw_3_json_arithmos,profil_katw_1_id,profil_katw_1_json_arithmos,profil_katw_2_id,profil_katw_2_json_arithmos,profil_katw_3_id,profil_katw_3_json_arithmos,profil_typos_1_id,profil_typos_1_json_arithmos,profil_typos_2_id,profil_typos_2_json_arithmos,profil_typos_3_id,profil_typos_3_json_arithmos,prostasia,tzamia2,lastixo_epilogh,pl_rol_ep,up_rol_ep,pl_rol_ek,up_rol_ek,pl_persidas,up_persidas,up_odoigou,color_epikathimenou,color_eksoterikou,color_persidas,color_odoigou,color_profil_katw,color_profil_deksia,color_profil_aristera,color_profil_panw,elegxos_gia_parapanw_diastaseis_w,elegxos_gia_parapanw_diastaseis_h,xwrisma1,xwrisma2,xwrisma_y_1,xwrisma_y_2,xwrisma3_1,xwrisma3_2,xwrisma3_3,color_aplo_eksw,tzamia0,xwrisma4_1,xwrisma4_2,xwrisma4_3,xwrisma4_4,window_still_single,roll_rat,roll_rlt,roll_rdm,roll_pss,roll_pfm, place, rat_quantity);
 
-      color = $(this).attr('id'); 
+      color = $(this).next().attr('id'); 
       color_pers = color;
       geniko_persida = "1";
       var b = pro_a+pro_d+pro_k+pro_p+geniko_persida+geniko_rolo;
       var decimal = parseInt(b, 2);
-      //zwgrafia(decimal,epikathimeno_rolo,eksoteriko_rolo,color_rolou,color_pers,color_p,color_k,color_d,color_a,leaf);
 
       sxedio_persida = true;
       sxedio_color_persida = color_pers;
       
       ok_click();
-      
-      
     });
-
-    
 
   
     ///////    ΑΝΑΛΟΓΑ ΜΕ ΤΙ ΡΟΛΟ ΕΧΩ ΕΠΙΛΕΞΕΙ, ΕΧΩ ΔΙΑΦΟΡΕΤΙΚΟ BUTTON /////////////
@@ -9639,7 +9609,7 @@
                   contentType: false,
                   success: function(data) {
                     //window.location.href = str1+str2+str3+str4+str5+str6+str7+str8+str9+str10+str11+str12+str13+str14+str15+str16+str17+str18+str19+str20+str21+str22+str23+str24+str25+str26+str27+str28+str29+str30+str31+str32+str33+str34+str35+str36+str37+str38+str39+str40+str41+str42+str43+str44+str45+str46+str47+str48+str49+str50+str51+str52+str53+str54+str55+str56+str57+str58+str59+str60+str61+str62+str63+str64+str65+str66+str67+str68+str69+str70+str71+str72+str73+str74+str75+str76+str77+str78+str79+str80+str81+str82+str83+str84+str85+str86+str87+str88+str89+str90+str91+str92+str93+str94+str95+str96+str97+str98+str99+str100+str101+str102+str103+str104+str105+str106+str107+str108+str109+str110+str111+str112+str113+str114+str115+str116+str117+str118+str119+str120+str121+str122+str123+str124+str125+str126+str127+str128+str129+str130+str131+str132+str133+str134+str135+str136+str137+str138+str139+str140+str141+str142+str143+str144+str145+str146+str147+str148+str149+str150+str151+str152+str153+str154+str155+str156+str157+str158+str159+str160+str161+str162+str163+str164+str165+str166+str167+str168+str169+str170+str171+str172+str173+str174+str175+str176+str177+str178+str179+str180+str181+str182+str183+str184+str185+str186+str187+str188+str189+str190+str191+str192+str193+str194+str195+str196+str197+str198+str199+str200+str201+str202+str203+stra+strb+str204+str205+str206+str207+str208+str209+str210+str211+str212+str213+str214+str215;
-                    url = str1+str2+str3+str4+str5+str6+str7+str8+str9+str10+str11+str12+str13+str14+str15+str16+str17+str18+str19+str20+str21+str22+str23+str24+str25+str26+str27+str28+str29+str30+str31+str32+str33+str34+str35+str36+str37+str38+str39+str40+str41+str42+str43+str44+str45+str46+str47+str48+str49+str50+str51+str52+str53+str54+str55+str56+str57+str58+str59+str60+str61+str62+str63+str64+str65+str66+str67+str68+str69+str70+str71+str72+str73+str74+str75+str76+str77+str78+str79+str80+str81+str82+str83+str84+str85+str86+str87+str88+str89+str90+str91+str92+str93+str94+str95+str96+str97+str98+str99+str100+str101+str102+str103+str104+str105+str106+str107+str108+str109+str110+str111+str112+str113+str114+str115+str116+str117+str118+str119+str120+str121+str122+str123+str124+str125+str126+str127+str128+str129+str130+str131+str132+str133+str134+str135+str136+str137+str138+str139+str140+str141+str142+str143+str144+str145+str146+str147+str148+str149+str150+str151+str152+str153+str154+str155+str156+str157+str158+str159+str160+str161+str162+str163+str164+str165+str166+str167+str168+str169+str170+str171+str172+str173+str174+str175+str176+str177+str178+str179+str180+str181+str182+str183+str184+str185+str186+str187+str188+str189+str190+str191+str192+str193+str194+str195+str196+str197+str198+str199+str200+str201+str202+str203+stra+strb+str204+str205+str206+str207+str208+str209+str210+str211+str212+str213+str214+str215+str216+str217+str218+str219+str220+str221+str222+str223+str224+str225+str226+str227+str228+str229;
+                    url = str1+str2+str3+str4+str5+str6+str7+str8+str9+str10+str11+str12+str13+str14+str15+str16+str17+str18+str19+str20+str21+str22+str23+str24+str25+str26+str27+str28+str29+str30+str31+str32+str33+str34+str35+str36+str37+str38+str39+str40+str41+str42+str43+str44+str45+str46+str47+str48+str49+str50+str51+str52+str53+str54+str55+str56+str57+str58+str59+str60+str61+str62+str63+str64+str65+str66+str67+str68+str69+str70+str71+str72+str73+str74+str75+str76+str77+str78+str79+str80+str81+str82+str83+str84+str85+str86+str87+str88+str89+str90+str91+str92+str93+str94+str95+str96+str97+str98+str99+str100+str101+str102+str103+str104+str105+str106+str107+str108+str109+str110+str111+str112+str113+str114+str115+str116+str117+str118+str119+str120+str121+str122+str123+str124+str125+str126+str127+str128+str129+str130+str131+str132+str133+str134+str135+str136+str137+str138+str139+str140+str141+str142+str143+str144+str145+str146+str147+str148+str149+str150+str151+str152+str153+str154+str155+str156+str157+str158+str159+str160+str161+str162+str163+str164+str165+str166+str167+str168+str169+str170+str171+str172+str173+str174+str175+str176+str177+str178+str179+str180+str181+str182+str183+str184+str185+str186+str187+str188+str189+str190+str191+str192+str193+str194+str195+str196+str197+str198+str199+str200+str201+str202+str203+stra+strb+str204+str205+str206+str207+str208+str209+str210+str211+str212+str213+str214+str215+str216+str217+str218+str219+str220+str221+str222+str223+str224+str225+str226+str227;
 
                     $.ajax({ 
                       type:'GET',
@@ -10066,8 +10036,6 @@
       str225 = place;
       str226 = "&rat_quantity="
       str227 = rat_quantity;
-      str228 = "&color_persidas="
-      str229 = color_persidas;
       
       }//geniko_ok = true;
       else{
