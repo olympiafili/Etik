@@ -694,6 +694,8 @@ ActiveRecord::Schema.define(version: 20160719070630075818) do
     t.float    "price",        limit: 24
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "image"
+    t.string   "code"
   end
 
   create_table "rola_eksos", force: true do |t|
@@ -715,6 +717,8 @@ ActiveRecord::Schema.define(version: 20160719070630075818) do
     t.float    "price",        limit: 24
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "image"
+    t.string   "code"
   end
 
   create_table "rola_epiks", force: true do |t|
@@ -740,6 +744,8 @@ ActiveRecord::Schema.define(version: 20160719070630075818) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.float    "category",     limit: 24
+    t.string   "image"
+    t.string   "code"
   end
 
   create_table "roll_guides", force: true do |t|
