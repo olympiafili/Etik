@@ -1599,8 +1599,9 @@
                         <td><label><%= t 'translate.DealerPrice'  %>: </label><label class="timi_dealer_prostasia"></label></td>
                         <td style="text-align: right"><label class="timi_prostasia"></label></td>
                       </tr>
-          
-                      <tr class="window_still_show_hide" style="display:none;">
+                      
+                      <% (0..11).each do |i| %>
+                      <tr class="window_still_all_show_hide window_still_show_hide<%= i %>" style="display:none;">
                         <td class="td_left"><label><%= t 'translate.WindowStill' %> </label></td>
                         <td class=""><label class="table_window_still"></label></td>
                         <td class=""><label class=""></label></td>
@@ -1608,6 +1609,7 @@
                         <td><label><%= t 'translate.DealerPrice'  %>: </label><label class="timi_dealer_window_still"></label></td>
                         <td style="text-align: right"><label class="timi_window_still"></label></td>
                       </tr>
+                      <% end %>
 
                       <tr class="place_show_hide" style="display:none;">
                         <td class="td_left"><label><%= t 'translate.Place' %> </label></td>
@@ -2315,14 +2317,16 @@
                       <td style="text-align: right"><label class="timi_prostasia"></label></td>
                     </tr>
 
-                    <tr class="window_still_show_hide" style="display:none;">
-                      <td class="td_left"><label><%= t 'translate.WindowStill' %> </label></td>
-                      <td class=""><label class="table_window_still"></label></td>
-                      <td class=""><label class=""></label></td>
-                      <td><label><%= t 'translate.MarketPrice'  %>: </label><label class="timi_market_window_still"></label></td>
-                      <td><label><%= t 'translate.DealerPrice'  %>: </label><label class="timi_dealer_window_still"></label></td>
-                      <td style="text-align: right"><label class="timi_window_still"></label></td>
-                    </tr>
+                    <% (0..11).each do |i| %>
+                      <tr class="window_still_all_show_hide window_still_show_hide<%= i %>" style="display:none;">
+                        <td class="td_left"><label><%= t 'translate.WindowStill' %> </label></td>
+                        <td class=""><label class="table_window_still"></label></td>
+                        <td class=""><label class=""></label></td>
+                        <td><label><%= t 'translate.MarketPrice'  %>: </label><label class="timi_market_window_still"></label></td>
+                        <td><label><%= t 'translate.DealerPrice'  %>: </label><label class="timi_dealer_window_still"></label></td>
+                        <td style="text-align: right"><label class="timi_window_still"></label></td>
+                      </tr>
+                    <% end %>
 
                     <tr class="place_show_hide" style="display:none;">
                       <td class="td_left"><label><%= t 'translate.Place' %> </label></td>
@@ -2853,23 +2857,11 @@
       $("#width").focus();
     });
 
-    /*$(".close_add_to_card").click(function() {
-      $("#myModal_xwrisma").modal('hide');
-    });
-
-    $(".close_price").click(function() {
-      $("#myModal_times").modal('hide');
-    });
-
-    $(".close_confirm").click(function() {
-      $("#myModal_confirm").modal('hide');
-    });*/
-
     timeout = 0;
     patima_epikathimenou = false;
     patima_eksoterikou = false;
-  patima_window_still = false;
-  patima_window_stillsub = false;
+    patima_window_still = false;
+    patima_window_stillsub = false;
 
     //Αρχικοποιω μεταβλητες
     //Μεταβλητη για πρωτη φωρα σε χρωμα 
@@ -2908,7 +2900,7 @@
     xwrisma4_1 = 0;
     xwrisma4_2 = 0;
     xwrisma4_3 = 0;
-  xwrisma4_4 = 0;
+    xwrisma4_4 = 0;
     xwrisma_y_1 = 0;
     xwrisma_y_2 = 0;
     //Δεν χρισημοποιειτε...
@@ -2932,10 +2924,10 @@
     tzamia0 = 0;
     tzamia = 0;
     tzamia2 = 0;
-  panel = 1;
-  sup_panel = 1;
-  cat_panel = 1;
-  panel_img = "";
+    panel = 1;
+    sup_panel = 1;
+    cat_panel = 1;
+    panel_img = "";
     prostasia = 0;
     typos = 0;
     color_typos = 0;
@@ -2948,12 +2940,12 @@
     color_profil_aristera = 0;
     color_profil_panw = 0;
     color_profil_katw = 0;
-  window_still_single = 0;
-  roll_rat = 0;
-  roll_rlt = 0;
-  roll_rdm = 0;
-  roll_pss = 0;
-  roll_pfm = 0;
+    window_still_single = [];
+    roll_rat = 0;
+    roll_rlt = 0;
+    roll_rdm = 0;
+    roll_pss = 0;
+    roll_pfm = 0;
   
     pl_rol_ep = "<%= @pl_rolou_ep %>";
     up_rol_ep = "<%= @up_rolou_ep %>";
@@ -4221,12 +4213,6 @@
    //Τα φορτωνω πρωτα για να τα εχω για τις γραμμες
    ypsos_a($(".height").text());
    mikos_a($(".width").text());
-   
-   /*$(".window_still_none").on("blur", ".pl_win_st", function() {
-     pl_win_st = $(".pl_win_st").val();
-    
-     times_json(tipos_name_gia_xrwma, $(".width").text(), $(".height").text(), line_id_name, mesa_eksw, color_aplo, width_new ,height_new, epikathimeno_rolo,eksoteriko_rolo,persida,tzamia,profil_deksia,profil_aristera,profil_panw,profil_katw,$(".input_deksia").val(),$(".input_panw").val(),$(".input_katw").val(),$(".input_aristera").val(),typos,color_typos,odoigos,$(".color_deksia").text(),$(".color_aristera").text(),$(".color_panw").text(),$(".color_katw").text(),$(".color_fullou").text(),0,profil_deksia_1_id,profil_deksia_1_json_arithmos,profil_deksia_2_id,profil_deksia_2_json_arithmos,profil_deksia_3_id,profil_deksia_3_json_arithmos,profil_aristera_1_id,profil_aristera_1_json_arithmos,profil_aristera_2_id,profil_aristera_2_json_arithmos,profil_aristera_3_id,profil_aristera_3_json_arithmos,profil_panw_1_id,profil_panw_1_json_arithmos,profil_panw_2_id,profil_panw_2_json_arithmos,profil_panw_3_id,profil_panw_3_json_arithmos,profil_katw_1_id,profil_katw_1_json_arithmos,profil_katw_2_id,profil_katw_2_json_arithmos,profil_katw_3_id,profil_katw_3_json_arithmos,profil_typos_1_id,profil_typos_1_json_arithmos,profil_typos_2_id,profil_typos_2_json_arithmos,profil_typos_3_id,profil_typos_3_json_arithmos,prostasia,tzamia2,lastixo_epilogh,pl_rol_ep,up_rol_ep,pl_rol_ek,up_rol_ek,pl_persidas,up_persidas,up_odoigou,color_epikathimenou,color_eksoterikou,color_persidas,color_odoigou,color_profil_katw,color_profil_deksia,color_profil_aristera,color_profil_panw,elegxos_gia_parapanw_diastaseis_w,elegxos_gia_parapanw_diastaseis_h,xwrisma1,xwrisma2,xwrisma_y_1,xwrisma_y_2,xwrisma3_1,xwrisma3_2,xwrisma3_3,color_aplo_eksw,tzamia0,xwrisma4_1,xwrisma4_2,xwrisma4_3,xwrisma4_4,window_still_single,roll_rat,roll_rlt,roll_rdm,roll_pss,roll_pfm, place, rat_quantity);
-   });*/
 
     $(".epik_none").on("blur", ".pl_rol_ep", function() {
       pl_rol_ep = $(".pl_rol_ep").val();
@@ -7136,12 +7122,7 @@
       $( this ).css("color","black");
       epilogi = false;
       times_json(tipos_name_gia_xrwma, $(".width").text(), $(".height").text(), line_id_name, mesa_eksw, color_aplo, width_new ,height_new, epikathimeno_rolo,eksoteriko_rolo,persida,tzamia,profil_deksia,profil_aristera,profil_panw,profil_katw,$(".input_deksia").val(),$(".input_panw").val(),$(".input_katw").val(),$(".input_aristera").val(),typos,color_typos,odoigos,$(".color_deksia").text(),$(".color_aristera").text(),$(".color_panw").text(),$(".color_katw").text(),$(".color_fullou").text(),0,profil_deksia_1_id,profil_deksia_1_json_arithmos,profil_deksia_2_id,profil_deksia_2_json_arithmos,profil_deksia_3_id,profil_deksia_3_json_arithmos,profil_aristera_1_id,profil_aristera_1_json_arithmos,profil_aristera_2_id,profil_aristera_2_json_arithmos,profil_aristera_3_id,profil_aristera_3_json_arithmos,profil_panw_1_id,profil_panw_1_json_arithmos,profil_panw_2_id,profil_panw_2_json_arithmos,profil_panw_3_id,profil_panw_3_json_arithmos,profil_katw_1_id,profil_katw_1_json_arithmos,profil_katw_2_id,profil_katw_2_json_arithmos,profil_katw_3_id,profil_katw_3_json_arithmos,profil_typos_1_id,profil_typos_1_json_arithmos,profil_typos_2_id,profil_typos_2_json_arithmos,profil_typos_3_id,profil_typos_3_json_arithmos,prostasia,tzamia2,lastixo_epilogh,pl_rol_ep,up_rol_ep,pl_rol_ek,up_rol_ek,pl_persidas,up_persidas,up_odoigou,color_epikathimenou,color_eksoterikou,color_persidas,color_odoigou,color_profil_katw,color_profil_deksia,color_profil_aristera,color_profil_panw,elegxos_gia_parapanw_diastaseis_w,elegxos_gia_parapanw_diastaseis_h,xwrisma1,xwrisma2,xwrisma_y_1,xwrisma_y_2,xwrisma3_1,xwrisma3_2,xwrisma3_3,color_aplo_eksw,tzamia0,xwrisma4_1,xwrisma4_2,xwrisma4_3,xwrisma4_4,window_still_single,roll_rat,roll_rlt,roll_rdm,roll_pss,roll_pfm, place, rat_quantity);
-
-
-
     }
-
-
 
   }); 
   
@@ -7152,9 +7133,10 @@
     epilogi_ws = true;
 
     if (typeof(window_still_single) !== "undefined"){
-      if (window_still_single == $(this).attr('id')){
-
-          window_still_single = 0;
+      //if (window_still_single == $(this).attr('id')){
+      if ($.inArray($(this).attr('id'), window_still_single) != -1) {
+          //window_still_single = 0;
+          window_still_single.splice( $.inArray($(this).attr('id'), window_still_single), 1 );
           $( ".window_still" ).css("background-color","");//Ετσι αφαιρω την ιδιοτητα!!!
           $( ".window_still" ).css("color","");
           epilogi_ws = false;
@@ -7177,28 +7159,32 @@
         var input = "<div class=metafraw ><p class=metafraw><%= t 'translate.Change_width' %>:</p> <p><input type=text name=pl_win_st class=pl_win_st placeholder=<%= t 'translate.Width' %>></p><p class=br_input></p><br></div>"
         $(input0_0).appendTo(".window_still_wrapper");
         $(input).appendTo(".window_still_wrapper");*/
-      
-              //Αλλαγη χρωματος
+
+              /*if($('.window_still_wrapper_big label[style="background-color: rgb(217, 234, 237); color: rgb(0, 0, 0);"]').length == 1) {
+                $(this).css("background-color","");//Ετσι αφαιρω την ιδιοτητα!!!
+                $( this).css("color","");
+                window_still_single.splice( $.inArray($(this).attr('id'), window_still_single), 1 );
+              } else {
+                $( this ).css("background-color","#d9eaed");
+                $( this ).css("color","black");
+                window_still_single.push($(this).attr('id'));
+              }*/
+              if($('.window_still_wrapper_big label[style="background-color: rgb(217, 234, 237); color: rgb(0, 0, 0);"]').length == 1) {
+                idd = $('.window_still_wrapper_big label[style="background-color: rgb(217, 234, 237); color: rgb(0, 0, 0);"]').attr("id");
+                console.log(idd);
+                  window_still_single.splice( $.inArray(idd, window_still_single), 1 );
+                  
+              }
+
               $( ".window_still" ).css("background-color","");//Ετσι αφαιρω την ιδιοτητα!!!
               $( ".window_still" ).css("color","");
-              //
-              //$( this ).css("background-color","#CA3333");
               $( this ).css("background-color","#d9eaed");
               $( this ).css("color","black");
-
-              window_still_single = $(this).attr('id'); //Global variable για να την περασω στην αλλη σελιδα
+              window_still_single.push($(this).attr('id'));
+              //window_still_single = $(this).attr('id'); //Global variable για να την περασω στην αλλη σελιδα
 
        times_json(tipos_name_gia_xrwma, $(".width").text(), $(".height").text(), line_id_name, mesa_eksw, color_aplo, width_new ,height_new, epikathimeno_rolo,eksoteriko_rolo,persida,tzamia,profil_deksia,profil_aristera,profil_panw,profil_katw,$(".input_deksia").val(),$(".input_panw").val(),$(".input_katw").val(),$(".input_aristera").val(),typos,color_typos,odoigos,$(".color_deksia").text(),$(".color_aristera").text(),$(".color_panw").text(),$(".color_katw").text(),$(".color_fullou").text(),0,profil_deksia_1_id,profil_deksia_1_json_arithmos,profil_deksia_2_id,profil_deksia_2_json_arithmos,profil_deksia_3_id,profil_deksia_3_json_arithmos,profil_aristera_1_id,profil_aristera_1_json_arithmos,profil_aristera_2_id,profil_aristera_2_json_arithmos,profil_aristera_3_id,profil_aristera_3_json_arithmos,profil_panw_1_id,profil_panw_1_json_arithmos,profil_panw_2_id,profil_panw_2_json_arithmos,profil_panw_3_id,profil_panw_3_json_arithmos,profil_katw_1_id,profil_katw_1_json_arithmos,profil_katw_2_id,profil_katw_2_json_arithmos,profil_katw_3_id,profil_katw_3_json_arithmos,profil_typos_1_id,profil_typos_1_json_arithmos,profil_typos_2_id,profil_typos_2_json_arithmos,profil_typos_3_id,profil_typos_3_json_arithmos,prostasia,tzamia2,lastixo_epilogh,pl_rol_ep,up_rol_ep,pl_rol_ek,up_rol_ek,pl_persidas,up_persidas,up_odoigou,color_epikathimenou,color_eksoterikou,color_persidas,color_odoigou,color_profil_katw,color_profil_deksia,color_profil_aristera,color_profil_panw,elegxos_gia_parapanw_diastaseis_w,elegxos_gia_parapanw_diastaseis_h,xwrisma1,xwrisma2,xwrisma_y_1,xwrisma_y_2,xwrisma3_1,xwrisma3_2,xwrisma3_3,color_aplo_eksw,tzamia0,xwrisma4_1,xwrisma4_2,xwrisma4_3,xwrisma4_4,window_still_single,roll_rat,roll_rlt,roll_rdm,roll_pss,roll_pfm, place, rat_quantity);
-
-       /*$(".warning_times").empty();
-        $(".warning_times").append($(".table_odoigos").text()+" -- <%= t('append_price.Price') %> : "+$(".timi_odoigos").text());
-        $(".warning_times").show();
-        clearTimeout(timeout);
-                  timeout = setTimeout(function()
-                    {
-                    $(".warning_times").fadeOut('slow');
-                  }, 6000);*/
-}
+      }
 });
 
   //// Place //
@@ -8245,13 +8231,13 @@
           epilogi_ksana = true; //Οταν δεν εχω επιλεξει επικαθιμενα μπαινω στο ΚΑΤΩ if
 
           //Οταν παταω ξανα την ιδια κατηγορια επικαθημενου 
-          if (typeof(window_still_subcat) !== "undefined"){
+          /*if (typeof(window_still_subcat) !== "undefined"){
             if (window_still_subcat == $(this).attr('id')){
                 patima_window_stillsub = false;
         
                 window_still_subcat = 0;
                 window_still = 0;
-          window_still_single = 0;
+                window_still_single = 0;
                 $( ".window_still_sub_cat" ).css("background-color","");//Ετσι αφαιρω την ιδιοτητα!!!
                 $( ".window_still_sub_cat" ).css("color","");
                 $( ".window_still_wrapper_big" ).empty(); //Αδιαζω το div για να μπει το νεο κλικ
@@ -8262,71 +8248,75 @@
                 times_json(tipos_name_gia_xrwma, $(".width").text(), $(".height").text(), line_id_name, mesa_eksw, color_aplo, width_new ,height_new, epikathimeno_rolo,eksoteriko_rolo,persida,tzamia,profil_deksia,profil_aristera,profil_panw,profil_katw,$(".input_deksia").val(),$(".input_panw").val(),$(".input_katw").val(),$(".input_aristera").val(),typos,color_typos,odoigos,$(".color_deksia").text(),$(".color_aristera").text(),$(".color_panw").text(),$(".color_katw").text(),$(".color_fullou").text(),0,profil_deksia_1_id,profil_deksia_1_json_arithmos,profil_deksia_2_id,profil_deksia_2_json_arithmos,profil_deksia_3_id,profil_deksia_3_json_arithmos,profil_aristera_1_id,profil_aristera_1_json_arithmos,profil_aristera_2_id,profil_aristera_2_json_arithmos,profil_aristera_3_id,profil_aristera_3_json_arithmos,profil_panw_1_id,profil_panw_1_json_arithmos,profil_panw_2_id,profil_panw_2_json_arithmos,profil_panw_3_id,profil_panw_3_json_arithmos,profil_katw_1_id,profil_katw_1_json_arithmos,profil_katw_2_id,profil_katw_2_json_arithmos,profil_katw_3_id,profil_katw_3_json_arithmos,profil_typos_1_id,profil_typos_1_json_arithmos,profil_typos_2_id,profil_typos_2_json_arithmos,profil_typos_3_id,profil_typos_3_json_arithmos,prostasia,tzamia2,lastixo_epilogh,pl_rol_ep,up_rol_ep,pl_rol_ek,up_rol_ek,pl_persidas,up_persidas,up_odoigou,color_epikathimenou,color_eksoterikou,color_persidas,color_odoigou,color_profil_katw,color_profil_deksia,color_profil_aristera,color_profil_panw,elegxos_gia_parapanw_diastaseis_w,elegxos_gia_parapanw_diastaseis_h,xwrisma1,xwrisma2,xwrisma_y_1,xwrisma_y_2,xwrisma3_1,xwrisma3_2,xwrisma3_3,color_aplo_eksw,tzamia0,xwrisma4_1,xwrisma4_2,xwrisma4_3,xwrisma4_4,window_still_single,roll_rat,roll_rlt,roll_rdm,roll_pss,roll_pfm, place, rat_quantity);
 
               }
-            }
+            }*/
          
-          if ( epilogi_ksana )  {  /////Αν δεν ειναι ξανα επιλεγμενο
+          //if ( epilogi_ksana )  {  /////Αν δεν ειναι ξανα επιλεγμενο
          
-            if (typeof(window_still_subcat) !== "undefined"){
+            /*if (typeof(window_still_subcat) !== "undefined"){
                   patima_window_stillsub = true;
                   $('.extra').find("#"+window_still_subcat+".window_still_sub_cat").trigger('click');
             }
-            //sunexeia
+            
             window_still = 0;
-           
-                  //Αδιαζω ολα τα κάτω
-                  $( ".window_still_wrapper_big" ).empty(); //Αδιαζω το div για να μπει το νεο κλικ               
+           */
+            //Αδιαζω ολα τα κάτω
+            $( ".window_still_wrapper_big" ).empty(); //Αδιαζω το div για να μπει το νεο κλικ               
 
-                  //Αλλαγη χρωματος
-                  $( ".window_still_sub_cat" ).css("background-color","");//Ετσι αφαιρω την ιδιοτητα!!!
-                  $( ".window_still_sub_cat" ).css("color","");
-                  //
-                  //$( this ).css("background-color","#CA3333");
-                  $( this ).css("background-color","#d9eaed");
-                  $( this ).css("color","black");
+            //Αλλαγη χρωματος
+            $( ".window_still_sub_cat" ).css("background-color","");//Ετσι αφαιρω την ιδιοτητα!!!
+            $( ".window_still_sub_cat" ).css("color","");
+            //
+            $( this ).css("background-color","#d9eaed");
+            $( this ).css("color","black");
 
-                  window_still_subcat = $(this).attr('id'); //Global variable για να την περασω στην αλλη σελιδα
-                  window_still_subcat_text = $(this).text();
+            window_still_subcat = $(this).attr('id'); //Global variable για να την περασω στην αλλη σελιδα
+            window_still_subcat_text = $(this).text();
 
-                  $.ajax({
-                
-                    type:'GET',
-                    url:'/etic/window_stills',
-                    dataType: "json",
-                    data: { window_still_subcat_id: $(this).attr('id') },
-                    success: function(data) {
-                      var header2 = "<h5><%= t 'translate.WindowStill' %>: "+window_still_subcat_text+"</h5>" 
-                      $(header2).appendTo(".window_still_wrapper_big");
-                            $.each(data, function(i, item) { //Για κάθε data που παίρνω κανω τα παρακάτο 
-                              
-                                var div_data = "<label class=window_still id="+item.id+">"+item.name+"</label>";
-                                $(div_data).appendTo(".window_still_wrapper_big");
-                              })
-                        
-                            /*if ( YES_ROLLA_EP == true ){
-                              $(".epikathimena_rola_polla").each(function( index ) {
-                                if( $( this ).attr("id") == "<%= @rolo_id %>" ){
-                                  $( this ).trigger('click');
-                                }
-                              });
-                              YES_ROLLA_EP_YPO = true;
-                              YES_ROLLA_EP = false;
-                            }
+            $.ajax({
+              type:'GET',
+              url:'/etic/window_stills',
+              dataType: "json",
+              data: { window_still_subcat_id: $(this).attr('id') },
+              success: function(data) {
+                var header2 = "<h5><%= t 'translate.WindowStill' %>: "+window_still_subcat_text+"</h5>" 
+                $(header2).appendTo(".window_still_wrapper_big");
 
-                            if ( META_YES_ROLLA_EP == true ){
-                              $(".epikathimena_rola_polla").each(function( index ) {
-                                if( $( this ).attr("id") == rolo_id ){
-                                  $( this ).trigger('click');
-                                }
-                              });
-                              META_YES_ROLLA_EP_YPO = true;
-                              META_YES_ROLLA_EP = false;
-                            }*/
+                      $.each(data, function(i, item) { //Για κάθε data που παίρνω κανω τα παρακάτο 
+                          var div_data = "<label class=window_still win_still="+item.id+" id="+item.id+">"+item.name+"</label>";
+                          $(div_data).appendTo(".window_still_wrapper_big");
 
-                          },
-                          error: function(data) { 
+                          if ($.inArray(item.id.toString(), window_still_single) != -1) {
+                            $( '.window_still[win_still="'+item.id+'"]' ).css("background-color","#d9eaed");
+                            $( '.window_still[win_still="'+item.id+'"]' ).css("color","black");
                           }
-                        });//end ejax
-              } //end if epilogi ksana
+                          
+                        })
+                  
+                      /*if ( YES_ROLLA_EP == true ){
+                        $(".epikathimena_rola_polla").each(function( index ) {
+                          if( $( this ).attr("id") == "<%= @rolo_id %>" ){
+                            $( this ).trigger('click');
+                          }
+                        });
+                        YES_ROLLA_EP_YPO = true;
+                        YES_ROLLA_EP = false;
+                      }
+
+                      if ( META_YES_ROLLA_EP == true ){
+                        $(".epikathimena_rola_polla").each(function( index ) {
+                          if( $( this ).attr("id") == rolo_id ){
+                            $( this ).trigger('click');
+                          }
+                        });
+                        META_YES_ROLLA_EP_YPO = true;
+                        META_YES_ROLLA_EP = false;
+                      }*/
+
+                    },
+                    error: function(data) { 
+                    }
+                  });//end ejax
+              //} //end if epilogi ksana
             });
         
     /////////////////   ΕΞΩΤΕΡΙΚΑ ///////////////////////////////
@@ -8612,7 +8602,7 @@
                           $(div).appendTo(".color_epikathimenou");
                           $.each(data, function(i, item) { //Για κάθε data που παίρνω κανω τα παρακάτο 
                               if(item.image != null) {
-                                var div_data = "<div class='xrwma xrwma2'><h5></h5><img src='/assets/"+item.image+"' class=color_epik id="+item.sungate_code+"><span id="+item.code+"></span></div>";
+                                var div_data = "<div class='xrwma xrwma2'><h5></h5><img src='/assets/"+item.image+"' class=color_epik id="+item.sungate_code+"><span id="+item.code+"></span><h5>"+item.name+"</h5></div>";
                               } else {
                                 var div_data = "<div class='xrwma xrwma2'><h5 class='color_epik tipos_name' id="+item.sungate_code+"> "+item.name+" </h5></div>";
                               }
@@ -8902,7 +8892,7 @@
           
           $.each(data, function(i, item) { //Για κάθε data που παίρνω κανω τα παρακάτο 
               if(item.image != null) {
-                var div_data = "<div class='xrwma xrwma2'><h5></h5><img src='/assets/"+item.image+"' class=color_ekso id="+item.sungate_code+"><span id="+item.code+"></span></div>";
+                var div_data = "<div class='xrwma xrwma2'><h5></h5><img src='/assets/"+item.image+"' class=color_ekso id="+item.sungate_code+"><span id="+item.code+"></span><h5>"+item.name+"</h5></div>";
               } else {
                 var div_data = "<div class='xrwma xrwma2'><h5 class='color_ekso tipos_name' id="+item.sungate_code+"> "+item.name+" </h5></div>";
               }
@@ -9198,7 +9188,7 @@
                         if(persida == 1 || persida == 2 || persida == 3) {
                           if(item.category == 1) {
                             if(item.image != null) {
-                              var div_data = "<div class='xrwma xrwma2'><h5></h5><img src='/assets/"+item.image+"' class=color_pers id="+item.sungate_code+"><span id="+item.code+"></span></div>";
+                              var div_data = "<div class='xrwma xrwma2'><h5></h5><img src='/assets/"+item.image+"' class=color_pers id="+item.sungate_code+"><span id="+item.code+"></span><h5>"+item.name+"</h5></div>";
                             } else {
                               var div_data = "<div class='xrwma xrwma2'><h5 class='color_pers tipos_name' id="+item.sungate_code+"> "+item.name+" </h5></div>";
                             }
@@ -9208,7 +9198,7 @@
                         } else {
                           if(item.category == 2) {
                              if(item.image != null) {
-                              var div_data = "<div class='xrwma xrwma2'><h5></h5><img src='/assets/"+item.image+"' class=color_pers id="+item.sungate_code+"><span id="+item.code+"></span></div>";
+                              var div_data = "<div class='xrwma xrwma2'><h5></h5><img src='/assets/"+item.image+"' class=color_pers id="+item.sungate_code+"><span id="+item.code+"></span><h5>"+item.name+"</h5></div>";
                             } else {
                               var div_data = "<div class='xrwma xrwma2'><h5 class='color_pers tipos_name' id="+item.sungate_code+"> "+item.name+" </h5></div>";
                             }
@@ -10136,9 +10126,8 @@
       $('#loading').show();
       if (lastixa !== "0") {
       
-      $("#"+lastixa).click();
-      $("#"+lastixa).click();
-      //alert("Lastixo");
+        $("#"+lastixa).click();
+        $("#"+lastixa).click();
       }
 
       if (prostasia_id !== "") {
@@ -10820,6 +10809,29 @@
       if ("<%= @prostasia_id %>" != "") {
         $(".prostasia").click();
       }
+      //olympia
+      window_still_all = "<%= @window_still_all %>";
+      window_still_all_array = JSON.parse(window_still_all);
+
+      if(window_still_all != null) {
+        $(".window_still_cat").click();
+        setTimeout(function(){
+        $( ".window_still_sub_cat" ).each(function() {
+          $(this).click();
+          setTimeout(function(){
+            $( ".window_still" ).each(function() {
+              
+                if ($.inArray(parseInt($(this).attr('win_still')), window_still_all_array) != -1){
+                  $(this).click();
+                  
+                }
+               
+            });
+          });
+        });
+      });
+      }
+      
 
       if ("<%= @roll_rat_id %>" != "") {
         $(".rat_none #"+"<%= @roll_rat_id %>").click();

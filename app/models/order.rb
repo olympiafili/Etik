@@ -4,6 +4,12 @@ class Order < ActiveRecord::Base
   serialize :timi_m_equipment
   serialize :price_equipment
 
+  serialize :window_still
+  serialize :timi_m_window_still
+  serialize :price_window_still
+  serialize :m_window_still
+  serialize :window_still_code
+
 	belongs_to :paraggelia
 
 	mount_uploaders :avatar, AvatarUploader

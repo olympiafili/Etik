@@ -26473,13 +26473,17 @@ return $.widget( "ui.tooltip", {
         else{
             $(".prostasia_show_hide").css("display","none");
         }
-		
+		  
+        $(".window_still_all_show_hide").css("display","none");
         if (window_still_timi != 0){
-            $(".timi_market_window_still").text((window_still_timi - pososto_market * window_still_timi).toFixed(2).replace(".", ",")+" €");
-            $(".timi_dealer_window_still").text((window_still_timi - pososto_dealer * window_still_timi).toFixed(2).replace(".", ",")+" €");
-            $(".window_still_show_hide").css("display","table-row");
-            $(".table_window_still").text(window_still_name);
-            $(".timi_window_still").text(window_still_timi.toFixed(2).replace(".", ",")+" €");
+          for ( var i = 0, l = window_still_timi.length; i < l; i++ ) {
+            $(".window_still_show_hide"+i).css("display","table-row");
+            $(".window_still_show_hide"+i+" .timi_market_window_still").text((window_still_timi[i] - pososto_market * window_still_timi[i]).toFixed(2).replace(".", ",")+" €");
+            $(".window_still_show_hide"+i+" .timi_dealer_window_still").text((window_still_timi[i] - pososto_dealer * window_still_timi[i]).toFixed(2).replace(".", ",")+" €");
+            $(".window_still_show_hide"+i+" .window_still_show_hide").css("display","table-row");
+            $(".window_still_show_hide"+i+" .table_window_still").text(window_still_name[i]);
+            $(".window_still_show_hide"+i+" .timi_window_still").text(window_still_timi[i].toFixed(2).replace(".", ",")+" €");
+          }
         }
         else{
             $(".window_still_show_hide").css("display","none");
@@ -29078,13 +29082,15 @@ function diagrafi_xwrismatwn(ti_einai, poio_einai){
         else{
             $(".prostasia_show_hide").css("display","none");
         }
-    
+
         if (window_still_timi != 0){
-            $(".timi_market_window_still").text((window_still_timi - pososto_market * window_still_timi).toFixed(2).replace(".", ",")+" €");
-            $(".timi_dealer_window_still").text((window_still_timi - pososto_dealer * window_still_timi).toFixed(2).replace(".", ",")+" €");
+          for ( var i = 0, l = window_still_timi.length; i < l; i++ ) {
+            $(".timi_market_window_still").text((window_still_timi[i] - pososto_market * window_still_timi[i]).toFixed(2).replace(".", ",")+" €");
+            $(".timi_dealer_window_still").text((window_still_timi[i] - pososto_dealer * window_still_timi[i]).toFixed(2).replace(".", ",")+" €");
             $(".window_still_show_hide").css("display","table-row");
-            $(".table_window_still").text(window_still_name);
-            $(".timi_window_still").text(window_still_timi.toFixed(2).replace(".", ",")+" €");
+            $(".table_window_still").text(window_still_name[i]);
+            $(".timi_window_still").text(window_still_timi[i].toFixed(2).replace(".", ",")+" €");
+          }
         }
         else{
             $(".window_still_show_hide").css("display","none");

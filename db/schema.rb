@@ -464,8 +464,8 @@ ActiveRecord::Schema.define(version: 20160719070630075818) do
     t.float    "surcharge_color",            limit: 24
     t.float    "surcharge_color_eksw",       limit: 24
     t.string   "window_still"
-    t.float    "timi_m_window_still",        limit: 24
-    t.float    "price_window_still",         limit: 24
+    t.string   "timi_m_window_still"
+    t.string   "price_window_still"
     t.string   "place"
     t.float    "timi_m_place",               limit: 24
     t.float    "price_place",                limit: 24
@@ -696,6 +696,7 @@ ActiveRecord::Schema.define(version: 20160719070630075818) do
     t.datetime "updated_at"
     t.string   "image"
     t.string   "code"
+    t.integer  "order"
   end
 
   create_table "rola_eksos", force: true do |t|
@@ -719,6 +720,7 @@ ActiveRecord::Schema.define(version: 20160719070630075818) do
     t.datetime "updated_at"
     t.string   "image"
     t.string   "code"
+    t.integer  "order"
   end
 
   create_table "rola_epiks", force: true do |t|
@@ -746,6 +748,7 @@ ActiveRecord::Schema.define(version: 20160719070630075818) do
     t.float    "category",     limit: 24
     t.string   "image"
     t.string   "code"
+    t.integer  "order"
   end
 
   create_table "roll_guides", force: true do |t|
