@@ -822,6 +822,16 @@ class EticController < ApplicationController
 				@roll_pss_id = roll_pss.id
 			end
 
+			@window_still_all = []
+	        if ( !params[:window_still].nil? )
+			    params[:window_still].each do |win_still| 
+					@window_still1= WindowStill.where(:name => win_still).first
+			        if ( !@window_still1.nil? )
+			          	@window_still_all << @window_still1.id
+			        end
+				end
+	        end
+
 		end
 		
 		@lastixa = params[:lastixa]
@@ -1198,7 +1208,7 @@ class EticController < ApplicationController
 	end
 
 	def color_epikathimenou
-		@colors = RolaEpikColor.all
+		@colors = RolaEpikColor.all.order(:order)
 		respond_to do |format|
           format.json { render json: @colors.to_json}
         end
@@ -1213,14 +1223,14 @@ class EticController < ApplicationController
 	end
 
 	def color_eksoterikou
-		@colors = RolaEksColor.all
+		@colors = RolaEksColor.all.order(:order)
 		respond_to do |format|
           format.json { render json: @colors.to_json}
         end
 	end
 
 	def color_persidas
-		@color_persidas = RolaPerColor.all
+		@color_persidas = RolaPerColor.all.order(:order)
 		respond_to do |format|
           format.json { render json: @color_persidas.to_json}
         end
@@ -3417,26 +3427,45 @@ class EticController < ApplicationController
         end
         
         #window_still
-        @window_still = WindowStill.where(:id => params[:window_still_single]).first
-        if ( !@window_still.nil? )
-            if ( width_gia_vasi_new != 0)
-	    		    width_n = width_gia_vasi_new
-	    	    else
-	    		    width_n = width
-	    	    end
-            if(@window_still.unit == 'm')
-          	  window_still_price = ((width_n * @window_still.price.to_f) / 1000 )
-            else
-              window_still_price = @window_still.price.to_f
-            end
-            
-            window_still_name = @window_still.name
-            @price_extra = @price_extra + window_still_price
-          	tm_p_window_still = width_n
-          	timi_m_window_still = @window_still.price.to_f
-          	m_window_still = @window_still.unit
-          	window_still_code = @window_still.sungate_code
-        end
+        window_still_price = []
+        timi_m_window_still = []
+        window_still_name = []
+        window_still_all = []
+        window_still_code = []
+        m_window_still =[]
+
+        if(!params[:window_still_single].nil?)
+        	if(params[:window_still_single].kind_of?(Array))
+	        	window_still_all = params[:window_still_single]
+	        else
+	        	window_still_all = params[:window_still_single].split(",").map(&:to_i)
+	        end
+
+	        window_still_all.each do |win_still| 
+	  			@window_still= WindowStill.where(:id => win_still).first
+		        if ( !@window_still.nil? )
+		          	if ( width_gia_vasi_new != 0)
+			    		    width_n = width_gia_vasi_new
+			    	    else
+			    		    width_n = width
+			    	    end
+		            if(@window_still.unit == 'm')
+		          	  window_still_price << ((width_n * @window_still.price.to_f) / 1000 )
+		          	  @price_extra = @price_extra + ((width_n * @window_still.price.to_f) / 1000 )
+		            else
+		              window_still_price << @window_still.price.to_f
+		              @price_extra = @price_extra + @window_still.price.to_f
+		            end
+		            
+		            window_still_name << @window_still.name
+		          	timi_m_window_still << @window_still.price.to_f
+		          	m_window_still << @window_still.unit
+		          	window_still_code << @window_still.sungate_code
+		          	tm_p_window_still = width_n
+
+		        end
+	 		end
+	 	end
 
         #place
         @place = Place.where(:id => params[:place]).first
