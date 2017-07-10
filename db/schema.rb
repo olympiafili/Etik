@@ -739,6 +739,19 @@ ActiveRecord::Schema.define(version: 20160719070630075818) do
     t.string   "sungate_code"
   end
 
+  create_table "rola_od_colors", force: true do |t|
+    t.string   "name"
+    t.string   "sungate_code"
+    t.float    "price",        limit: 24
+    t.float    "category",     limit: 24
+    t.string   "image"
+    t.string   "code"
+    t.integer  "order"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.float    "price_m",      limit: 24
+  end
+
   create_table "rola_per_colors", force: true do |t|
     t.string   "name"
     t.string   "sungate_code"
