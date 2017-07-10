@@ -10,7 +10,7 @@ class EticController < ApplicationController
 	before_action :authenticate_user!, except: [:language, :contact, :send_mail]
   
 
-	layout "app", :only => [:home, :material, :leaf, :open_type, :elefthero, :color, :diastaseis, :extra, :simple_pse_user_card, :user_diax, :select_customer, :new_user, :door]
+	layout "app", :only => [:home, :material, :leaf, :open_type, :elefthero, :color, :diastaseis, :extra, :simple_pse_user_card, :user_diax, :select_customer, :new_user, :door, :roll]
   
 
   def user_sign_in_cart
@@ -235,6 +235,24 @@ class EticController < ApplicationController
 		@open_type1 = @open_type.where(:leaf_id => @leaf.id, :open_categorie_id => @open_categorie.id)
     
 		@response = {:open_type1 => @open_type1, :panel => @panel}
+		respond_to do |format|
+          format.json { render json: @response.to_json}
+        end
+        
+	end
+
+	def open_type_roll		
+
+		if(params[:leaf_name] == '1fullo')
+			@open_type = OpenType.where(:id => 1)
+		elsif (params[:leaf_name] == '2fullo')
+			@open_type = OpenType.where(:id => 9)
+		else
+			@open_type = OpenType.where(:id => 54)
+		end
+
+    	@panel = nil
+		@response = {:open_type1 => @open_type, :panel => @panel}
 		respond_to do |format|
           format.json { render json: @response.to_json}
         end
@@ -968,7 +986,279 @@ class EticController < ApplicationController
 		    @counter_profil_ar = @counter_profil_ar + 1
         end
 
-        
+	end
+
+
+	def roll
+       @cat_anoigmatos = OpenCategorie.where(:id => 1)
+       @uliko = Material.all
+       @open_categorie = OpenCategorie.first
+       @material = Material.where(:default => 1).first
+       @constructor = Constructor.first
+       @system = System.first
+       @line = Line.first
+
+       ##Κοκκινο πινακάκι
+		if( params.has_key?(:metra_click) )
+		    @metra_click = 1
+		else
+			@metra_click = 0
+		end
+
+		@click_new_posistion = false
+
+		if( params.has_key?(:leaf_name) )
+		    @leaf_epilegmeno = Leaf.where(:name => params[:leaf_name]).first
+		    open_cat_gia_leaf = OpenCategorie.where(:id => @open_categorie.id).first
+		    leaf = []
+		    leaf << open_cat_gia_leaf.leaf.to_s.split(",")
+		    @leaf = Leaf.where(:id => leaf)
+		else
+			open_cat_gia_leaf = OpenCategorie.where(:id => 1).first
+			leaf = []
+			leaf << open_cat_gia_leaf.leaf.to_s.split(",")
+			@leaf = Leaf.where(:id => leaf)
+			#@leaf = Leaf.limit(3)
+			@leaf_epilegmeno = Leaf.first
+		end
+		if( params.has_key?(:open_type_name) )
+		    line = Line.where(:id => @line.id).first
+			open_t = []
+			open_t << line.open_types.to_s.split(",")
+			@open_type = OpenType.where(:id => open_t).order(:order)
+		    @open_type1 = @open_type.where(:leaf_id => @leaf_epilegmeno.id, :open_categorie_id => @open_categorie.id)
+		    @open_type_epilegmeno = OpenType.where(:name => params[:open_type_name]).first
+		else
+			line = Line.where(:id => @line.id).first
+			open_t = []
+			open_t << line.open_types.to_s.split(",")
+			@open_type = OpenType.where(:id => open_t).order(:order)
+			@open_type1 = @open_type.where(:leaf_id => @leaf.first.id, :open_categorie_id => @open_categorie.id)
+			@open_type_epilegmeno = OpenType.first
+		end
+		
+		colors_team_id = []
+	    colors_team_id << @material.color_team.to_s.split(",")
+	    @oles_oi_omades_xrwmatos = ColorTeam.where(:id => colors_team_id)
+
+		colors_white = []
+		colors_white << @oles_oi_omades_xrwmatos.first.colors.to_s.split(",")
+		@color_A = Color.where(:id => colors_white)
+
+		colors_simple = []
+		colors_simple << @oles_oi_omades_xrwmatos.second.colors.to_s.split(",")
+		@color_B = Color.where(:id => colors_simple)
+
+		colors_extra = []
+		colors_extra << @oles_oi_omades_xrwmatos.third.colors.to_s.split(",")
+		@color_C = Color.where(:id => colors_extra)
+		###########
+		@color = Color.first
+		@color_eksw = Color.first
+
+		@colors_0 = Color.where(:katigoria => 0)
+	    @colors_standar = Color.where(:katigoria => 1)
+	    @colors_extra = Color.where(:katigoria => 2)
+	    @mesa_eksw = 2
+		
+
+		if( params.has_key?(:width) )
+			@width = "%.0f" % params[:width]
+			width = params[:width].to_f
+			@width_new = width
+			session[:width] = width
+		end
+		if( params.has_key?(:height) )
+			@height = "%.0f" % params[:height]
+			height = params[:height].to_f
+            @height_new = height 
+            session[:height] = height
+		end
+		
+		@posotita = 1
+
+		@epikathimena_cat = Epikathimeno.all
+		@eksoteriko_cat = Eksoterika.all
+		@persides = Persides.all
+    	@window_still_cat = WindowStillCat.all
+    	@places = Place.all
+		#Glass
+		@cat_tzamia0 = GlassCatInOut.all
+		@cat_tzamia1 = GlassCatIn.all
+		@cat_tzamia2 = GlassCatOut.all
+    	@supplier_panels = SupplierPanel.all
+		#
+		@prostasia = TypoiProstasia.all
+		@typos = Profil.where(:width => 0)
+		@profil = Profil.where.not(:width => 0)
+		@roll_guide = RollGuide.where(:id => [1,2]).order(:order)
+		@roll_guide2 = RollGuide.where(:id => [3,4,5,6,7,8,9,10,11]).order(:order)
+    	@roll_rat = RatRoll.all
+    	@roll_rlt = RltRoll.all
+    	@roll_rdm = RdmRoll.all
+    	@roll_pss = PssRoll.all
+    	@roll_pfm = PfmRoll.all
+		@order = Order.where(:id => params[:order]).first
+		if !@order.nil?
+			@order = Order.where(:id => params[:order]).first
+		else
+			@order = 0
+		end
+		if params.has_key?(:diorthosi)
+			session[:diorthosi] = @order.id
+		else
+			session[:diorthosi] = "0"
+			@click_dimensions = true
+		end
+		if params.has_key?(:pse_user)
+			session[:pseUserId] = params[:pse_user]
+		end
+		if params.has_key?(:paraggelia_id)
+			session[:paraggelia_simple] = params[:paraggelia_id]
+			session[:dealer_id] = params[:dealer_id]
+		end
+		#Kanw sort ta kougwmata alla den to theloume
+	    @items_apo_idia_paraggelia = Order.where(:paraggelia_id => session[:paraggelia_simple]).order("aukson")
+        counter_an_uparxoun_kai_alla = Order.where(:paraggelia_id => session[:paraggelia_simple]).count
+        if ( counter_an_uparxoun_kai_alla != 0 )
+        	last_aukson = Order.where(:paraggelia_id => session[:paraggelia_simple]).order("aukson").last.aukson
+        end
+        @lista_me_ok_aukson = []
+        counter_gia_ok = 0
+        if ( counter_an_uparxoun_kai_alla != 0 )
+        	for i in 1..last_aukson
+        		@items_apo_idia_paraggelia.order("aukson").each do |item|
+        			if ( item.aukson != i)
+        				counter_gia_ok = counter_gia_ok + 1
+        			end
+        		end
+        		if ( counter_gia_ok == counter_an_uparxoun_kai_alla )
+        			@lista_me_ok_aukson << i 
+        		end
+        		counter_gia_ok = 0
+			end
+			@lista_me_ok_aukson << last_aukson + 1
+        else
+        	@lista_me_ok_aukson << 1
+        end
+        @lista_me_ok_aukson.reverse!
+
+        if params.has_key?(:diorthosi)
+			@lista_me_ok_aukson = [@order.aukson]
+		end
+
+		#Front info
+		@par = Paraggelia.where(:id => session[:paraggelia_simple]).first
+	    #if ( !@par.sungate_code.nil? )
+	    	#@par_code = @par.sungate_code
+	    #else
+	    	@par_code = @par.id
+	    #end
+	    if ( counter_an_uparxoun_kai_alla != 0 )
+	    	@ord_code = last_aukson +1
+	    else
+	    	@ord_code = 1
+	    end
+
+		@cust = SimpleUserPse.where(:id => @par.customer).first
+		if ( !@cust.nil? )
+			@cust_code = @cust.sungate_num
+		else
+			@cust_code = 0
+		end
+
+    	#EXTRA gia epanalipsi
+		persida = nil
+        typos = nil
+
+        odoigos = RollGuide.where(:name => params[:odoigos]).first
+        if ( !odoigos.nil? )
+			@odoigos_id = odoigos.id
+		    @color_odoigou = RolaColor.where(:name => params[:xrwma_odoigou]).first.name
+            @up_odoigou = params[:up_odigou].to_f / 2
+        else
+        	@up_odoigou = 0
+        end
+        #rolo
+        rolo = RolaEkso.where(:name => params[:rolo_name]).first
+        cat_rolo = "ekso"
+        if ( rolo.nil? )
+                rolo = RolaEpik.where(:name => params[:rolo_name]).first
+                cat_rolo = "epik"
+        end
+        if ( !rolo.nil? &&  cat_rolo == "ekso" )
+                @cat_rolo = Eksoterika.where(:id => rolo.rola_ekso_id).first.id
+                @rolo_id = rolo.id
+                @ti_rolo = "ekso"
+                @color_rolo = RolaEksColor.where(:sungate_code => params[:xrwma_rolo]).first.sungate_code
+                @pl_rolou_ek = params[:pl_rolou_ek]
+                @up_rolou_ek = params[:up_rolou_ek]
+                @kinisi_deksia_aristera = params[:kinisi_deksia_aristera]
+                @deroll = params[:deroll]
+        else
+        	@pl_rolou_ep = 0
+			@up_rolou_ep = 0
+        end
+        if ( !rolo.nil? &&  cat_rolo == "epik" )
+                @cat_rolo = Epikathimeno.where(:id => rolo.epikathimeno_id).first.id
+                @rolo_id = rolo.id
+                @ti_rolo = "epik"
+                @color_rolo = RolaEpikColor.where(:sungate_code => params[:xrwma_rolo]).first.sungate_code
+                @pl_rolou_ep = params[:pl_rolou_ep]
+                @up_rolou_ep = params[:up_rolou_ep]
+                @kinisi_deksia_aristera = params[:kinisi_deksia_aristera]
+                @klap_ep = params[:klap_ep]
+        else
+        	@pl_rolou_ek = 0
+			@up_rolou_ek = 0
+        end
+
+        roll_rat = RatRoll.where(:name => params[:roll_rat]).first
+		if ( !roll_rat.nil? )
+			@roll_rat_id = roll_rat.id
+			@roll_rat_quan = params[:rat_quan]
+		end
+
+		roll_rlt = RltRoll.where(:name => params[:roll_rlt]).first
+		if ( !roll_rlt.nil? )
+			@roll_rlt_id = roll_rlt.id
+		end
+
+		roll_rdm = RdmRoll.where(:name => params[:roll_rdm]).first
+		if ( !roll_rdm.nil? )
+			@roll_rdm_id = roll_rdm.id
+		end
+
+		roll_pfm = PfmRoll.where(:name => params[:roll_pfm]).first
+		if ( !roll_pfm.nil? )
+			@roll_pfm_id = roll_pfm.id
+		end
+
+		roll_pss = PssRoll.where(:name => params[:roll_pss]).first
+		if ( !roll_pss.nil? )
+			@roll_pss_id = roll_pss.id
+		end
+
+		@window_still_all = []
+		@lastixa = params[:lastixa]
+		tzami0 = nil
+		tzami = nil
+        tzami2 = nil
+        prostasia = nil
+        @counter_profil = 0
+        @counter_profil_ar = 0
+        pr_ar_1 = nil
+        pr_ar_2 = nil
+        pr_ar_3 = nil
+        pr_de_1 = nil
+        pr_de_2 = nil
+        pr_de_3 = nil
+        pr_pa_1 = nil
+        pr_pa_2 = nil
+        pr_pa_3 = nil
+        pr_ka_1 = nil
+        pr_ka_3 = nil
+        pr_ka_2 = nil
 	end
 
 	def extra_json
@@ -1237,7 +1527,12 @@ class EticController < ApplicationController
 	end
 
 	def color_odoigou
-		@color_odoigou = RolaColor.all
+		if(params[:id] == "1" || params[:id] == "2")
+			@color_odoigou = RolaOdColor.all
+		else
+			@color_odoigou = RolaColor.all
+		end
+
 		respond_to do |format|
           format.json { render json: @color_odoigou.to_json}
         end
@@ -3287,14 +3582,26 @@ class EticController < ApplicationController
         		timi_m_odoigou = @odoigos.price
     			@price_extra = @price_extra + pr_odoig  
     			odoigos_val = @up_odoigou.to_f
-    			price_color_odoigou = RolaColor.where(:name => params[:color_odoigou]).first.price_m * tm_od
+    			@od_initial = RolaColor.where(:name => params[:color_odoigou]).first
+    			if(@od_initial.nil?)
+    				price_od_initial = RolaOdColor.where(:name => params[:color_odoigou]).first.price
+    			else
+    				price_od_initial = @od_initial.price_m
+    			end
+    			price_color_odoigou = price_od_initial * tm_od
 	    	else
 	    		pr_odoig =( ( (height_mesa_meta_apo_typo.to_f) * 2 * @odoigos.price.to_f ) / 1000 )#( ( (height_rol_new) * @odoigos.price.to_f ) / 1000 )
         		tm_od = ((height_mesa_meta_apo_typo.to_f) * 2) / 1000#(height_rol_new) / 1000
         		timi_m_odoigou = @odoigos.price
     			@price_extra = @price_extra + pr_odoig  
     			odoigos_val = height_mesa_meta_apo_typo.to_f
-    			price_color_odoigou = RolaColor.where(:name => params[:color_odoigou]).first.price_m * tm_od
+    			@od_initial = RolaColor.where(:name => params[:color_odoigou]).first
+    			if(@od_initial.nil?)
+    				price_od_initial = RolaOdColor.where(:name => params[:color_odoigou]).first.price
+    			else
+    				price_od_initial = @od_initial.price_m
+    			end
+    			price_color_odoigou = price_od_initial * tm_od
 	    	end
 	    end
 
@@ -7369,14 +7676,28 @@ class EticController < ApplicationController
         		timi_m_odoigou = @odoigos.price
     			@price_extra = @price_extra + pr_odoig  
     			odoigos_val = @up_odoigou.to_f
-    			price_color_odoigou = RolaColor.where(:name => params[:color_odoigou]).first.price_m * tm_od
+    			@od_initial = RolaColor.where(:name => params[:color_odoigou]).first
+    			if(@od_initial.nil?)
+    				price_od_initial = RolaOdColor.where(:name => params[:color_odoigou]).first.price
+    			else
+    				price_od_initial = @od_initial.price_m
+    			end
+    			price_color_odoigou = price_od_initial * tm_od
+    			#price_color_odoigou = RolaColor.where(:name => params[:color_odoigou]).first.price_m * tm_od
 	    	else
 	    		pr_odoig =( ( (height_mesa_meta_apo_typo.to_f) * 2 * @odoigos.price.to_f ) / 1000 )
         		tm_od = ((height_mesa_meta_apo_typo.to_f) * 2) / 1000
         		timi_m_odoigou = @odoigos.price
     			@price_extra = @price_extra + pr_odoig  
     			odoigos_val = height_mesa_meta_apo_typo.to_f
-    			price_color_odoigou = RolaColor.where(:name => params[:color_odoigou]).first.price_m * tm_od
+    			@od_initial = RolaColor.where(:name => params[:color_odoigou]).first
+    			if(@od_initial.nil?)
+    				price_od_initial = RolaOdColor.where(:name => params[:color_odoigou]).first.price
+    			else
+    				price_od_initial = @od_initial.price_m
+    			end
+    			price_color_odoigou = price_od_initial * tm_od
+    			#price_color_odoigou = RolaColor.where(:name => params[:color_odoigou]).first.price_m * tm_od
 	    	end
 	    end
 

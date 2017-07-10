@@ -1013,7 +1013,7 @@
                     </div>
                     <div class="row">
                       <div class="col-xs-12" >
-                        <div class="color_odoigou" id="col_od"></div>
+                        <div class="color_odoigou" id="col_od2"></div>
                       </div>
                     </div>
                       
@@ -2825,24 +2825,6 @@
       $("#tab_glass").click();
     });
 
-    $(".kath_tzam0").mouseup(function(){
-      //$("#myForm").scrollTo("#pane_xrwma", 1000); //custom animation speed
-      //$("#glass_1").click();
-    });
-
-    $(".kath_tzam2").mouseup(function(){
-      //$("#myForm").scrollTo("#pane_xrwma", 1000); //custom animation speed
-      //$("#glass_2").click();
-    });
-
-    $(".kath_tzam").mouseup(function(){
-      //$("#myForm").scrollTo("#pane_xrwma", 1000); //custom animation speed
-    //if($("#glass_3").css('display') == 'inline-block') {
-      //$("#glass_3").click();
-    //} else  
-        //$("#tab_leaf").click();
-    });
-  //olympia
   $(".panels_wrapper").on("mouseup", ".panel", function() {
     $("#tab_leaf").click();
     $("#tab_open_type").click();
@@ -3689,8 +3671,6 @@
           }else{
             var prwto_width = (data.max_width + data.min_width)/2;
             var prwto_height = (data.max_height + data.min_height)/2;
-            //$("#width").val(prwto_width);
-            //$("#height").val(prwto_height);
             extra_diastaseis_flag = true;
           }
           kanw_prwti_fora = false;
@@ -3698,8 +3678,6 @@
         }else{
           var prwto_width = (data.max_width + data.min_width)/2;
           var prwto_height = (data.max_height + data.min_height)/2;
-          //$("#width").val(prwto_width);
-          //$("#height").val(prwto_height);
           ok_click();
         }
         //Δεν ξανακανω την πρωτη επαναληψη
@@ -3708,38 +3686,23 @@
         //Παλιο που δεν χρειαζεται
         $(".order_diastaseis").remove();
 
+        //olympia
         if ( "<%= @metra_click %>" == "1" ){
-          $("#tab_dimensions").click();
+          //$("#tab_dimensions").click();
         }
 
-        if($('input[name=cat_an]:checked', '#myForm').attr('id') == 'porta') {
+        /*if($('input[name=cat_an]:checked', '#myForm').attr('id') == 'porta') {
           if(tipos_code == '3333') {
             $("#width").val(data.min_width +200);
             $("#height").val(data.min_height +200);
             $(".ok").click();
           }
-        }
+        }*/
         
         },
       error: function(data) { 
         }
     });//end ejax
-    
-    //olympia
-    /*if($('input[name=cat_an]:checked', '#myForm').attr('id') == 'porta') {
-      if(tipos_code == '3333') {
-        $.ajax({
-          type:'GET',
-          url:'/etic/diastaseis_fix',
-          dataType: "json",
-          data: { open_type_name:  tipos_name_gia_xrwma },
-          success: function(data) { 
-            $(".min_height_fix").text("<%= t 'translate.Min'%> <%= t 'translate.Height'%>: "+data.min_height_fix+" mm");
-            $(".max_height_fix").text("<%= t 'translate.Max'%> <%= t 'translate.Height'%>: "+data.max_height_fix+" mm");
-          }
-        });//end ejax
-      }
-    }*/
 
   });//end ανοιγματα
 
@@ -7417,6 +7380,7 @@
     ///////////////// ΟΔΟΙΓΟΙ NA BAΛΩ TIMI/////////////////////
 
     $(".extra").on("click", ".odoigoi", function() {
+      $this = $( this );
     $('.modal_times .odoigos_show_hide').insertAfter('.modal_times .neess_diastaseis_first');
       epilogi_ksana_odoigou = true;
 
@@ -7461,21 +7425,30 @@
                 $( this ).css("color","black");
 
                 odoigos = $(this).attr('id'); //Global variable για να την περασω στην αλλη σελιδα
+
                 $.ajax({
                   
                   type:'GET',
                   url:'/etic/color_odoigou',
                   dataType: "json",
-                  //data: { material_id: $(this).attr('id') },
+                  data: {id: odoigos},
                   success: function(data) {
-                    var h2 = "<label><%= t 'translate.Color' %>: </label>"
-                    $(h2).appendTo(".color_odoigou");
-                    var xrwma = "<label class='xr_od'>"+color_odoigou+"</label><br>"
-                    $(xrwma).appendTo(".color_odoigou");
-                    var div = "<div class='div_col_od'></div>"
-                    $(div).appendTo(".color_odoigou");
-                    $.each(data, function(i, item) { //Για κάθε data που παίρνω κανω τα παρακάτο 
+                    //var h2 = "<label><%= t 'translate.Color' %>: </label>"
+                    //$(h2).appendTo(".color_odoigou");
+                    //var xrwma = "<label class='xr_od'>"+color_odoigou+"</label><br>"
+                    //$(xrwma).appendTo(".color_odoigou");
+                    var div = "<div class='div_col_od'></div>";
+                    var color_odigoi = $this.parents( '.label_tab_bottom' ).find( '.color_odoigou ' );
+                    $(div).appendTo(color_odigoi);
+                    $.each(data, function(i, item) { //Για κάθε data που παίρνω κανω τα παρακάτο
+                      if(i == 0)
+                        color_odoigou = item.name;
+
+                      if(item.image != null)
                         var div_data = "<div class='xrwma xrwma2'><h5 class='tipos_name'> "+item.name+" </h5><img src='/assets/"+item.image+"' class='color_odoig color' id="+item.name+"><span id="+item.code+"></span></div>";
+                      else
+                        var div_data = "<div class='xrwma xrwma2'><h5 class='color_odoig tipos_name' id="+item.name+"> "+item.name+" </h5></div>";
+                        
                         $(div_data).appendTo(".div_col_od");
                       })
                     
@@ -8826,7 +8799,7 @@
               color_eksoterikou = color_eksoterikou;
               sxedio_color_ekso = "white";
             }else{
-              color_eksoterikou = "WP";//To color που εχω επιλεξει για παραθυρο
+              color_eksoterikou = "X07";//To color που εχω επιλεξει για παραθυρο
               sxedio_color_ekso = "white";
             }
           //height_epik = Number($(this).next().attr('id'));
@@ -9167,7 +9140,7 @@
                   color_persidas = color_persidas;
                 }else{
                   if(persida == 1 || persida == 2 || persida == 3)
-                    color_persidas = "WP";
+                    color_persidas = "X07";
                   else
                     color_persidas = "P10";
                 }

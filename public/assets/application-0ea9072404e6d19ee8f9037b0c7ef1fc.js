@@ -26806,17 +26806,10 @@ return $.widget( "ui.tooltip", {
             $(".table_odoigos").text(odoigos_name);
             $(".timi_odoigos").text(odoigos_timi.toFixed(2).replace(".", ",")+" €");
             $(".table_xrwma_odoigos").text(color_odoigou);
-            if(odoigos_name == "Führungsschiene nur wenn sich Masse ändern L/R" || odoigos_name == "H-Schiene Rollo mittig nur wenn sich Masse ändern") {
-              $(".table_timi_xrwma_odoigos").text("0" +" €");
-              $(".timi_market_xrwma_odoigos").text("0" +" €");
-              $(".timi_dealer_xrwma_odoigos").text("0" +" €");
-            } else {
-              //timi_guide_xrwma = ( tm_od ).toFixed(2)*20;
-              $(".table_timi_xrwma_odoigos").text(price_color_odoigou +" €");
-              $(".timi_market_xrwma_odoigos").text((price_color_odoigou - pososto_market * price_color_odoigou).toFixed(2).replace(".", ",") +" €");
-              $(".timi_dealer_xrwma_odoigos").text((price_color_odoigou - pososto_dealer * price_color_odoigou).toFixed(2).replace(".", ",") +" €");
-              
-            }
+            
+            $(".table_timi_xrwma_odoigos").text(price_color_odoigou +" €");
+            $(".timi_market_xrwma_odoigos").text((price_color_odoigou - pososto_market * price_color_odoigou).toFixed(2).replace(".", ",") +" €");
+            $(".timi_dealer_xrwma_odoigos").text((price_color_odoigou - pososto_dealer * price_color_odoigou).toFixed(2).replace(".", ",") +" €");
             
             $(".kanonika_metra_odoigou").text(height_mesa_meta_apo_typo);
             $(".up_odoigou").val(odoigos_val); 
@@ -29402,16 +29395,10 @@ function diagrafi_xwrismatwn(ti_einai, poio_einai){
             $(".table_odoigos").text(odoigos_name);
             $(".timi_odoigos").text(odoigos_timi.toFixed(2).replace(".", ",")+" €");
             $(".table_xrwma_odoigos").text(color_odoigou);
-            if(odoigos_name == "Führungsschiene nur wenn sich Masse ändern L/R" || odoigos_name == "H-Schiene Rollo mittig nur wenn sich Masse ändern") {
-              $(".table_timi_xrwma_odoigos").text("0" +" €");
-              $(".timi_market_xrwma_odoigos").text("0" +" €");
-              $(".timi_dealer_xrwma_odoigos").text("0" +" €");
-            } else {
-              $(".table_timi_xrwma_odoigos").text(price_color_odoigou +" €");
-              $(".timi_market_xrwma_odoigos").text((price_color_odoigou - pososto_market * price_color_odoigou).toFixed(2).replace(".", ",") +" €");
-              $(".timi_dealer_xrwma_odoigos").text((price_color_odoigou - pososto_dealer * price_color_odoigou).toFixed(2).replace(".", ",") +" €");
-              
-            }
+
+            $(".table_timi_xrwma_odoigos").text(price_color_odoigou +" €");
+            $(".timi_market_xrwma_odoigos").text((price_color_odoigou - pososto_market * price_color_odoigou).toFixed(2).replace(".", ",") +" €");
+            $(".timi_dealer_xrwma_odoigos").text((price_color_odoigou - pososto_dealer * price_color_odoigou).toFixed(2).replace(".", ",") +" €");
             
             $(".kanonika_metra_odoigou").text(height_mesa_meta_apo_typo);
             $(".up_odoigou").val(odoigos_val); 

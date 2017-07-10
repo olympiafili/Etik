@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  sungate_code: MyString
+  price: 1.5
+  category: 1.5
+  image: MyString
+  code: MyString
+  order: 1
+
+two:
+  name: MyString
+  sungate_code: MyString
+  price: 1.5
+  category: 1.5
+  image: MyString
+  code: MyString
+  order: 1
