@@ -95,11 +95,11 @@ class Card_Pdf_Customer < Prawn::Document
   		eikona = "#{Rails.root}/public/upload/#{order.canvas}.png"
   		data2 = make_table([
   								["#{I18n.t("translate.Open_category")}: <color rgb='ff0000'>#{I18n.t("kouf."<<order.open_categorie_id)}</color>",""],
-  								["#{I18n.t("translate.Material")}: <color rgb='ff0000'>#{order.material_id}</color>",""],
-  								["#{I18n.t("translate.Constructor")}: <color rgb='ff0000'>#{order.constructor_id}</color>",""], 
-  								["#{I18n.t("translate.System_A")}: <color rgb='ff0000'>#{order.system_id}</color>",""],
-           				["#{I18n.t("translate.Open_type")}: <color rgb='ff0000'>#{order.open_type_id}</color>",""],
-           				if (!order.line_id.nil?) then  ["#{I18n.t("translate.System_B")}: <color rgb='ff0000'>#{order.line_id}</color>",""] else [{:content => "", :height => 0},{:content => "", :height => 0}]  end,
+  								if (order.open_categorie_id != "roll") then ["#{I18n.t("translate.Material")}: <color rgb='ff0000'>#{order.material_id}</color>",""] else [{:content => "", :height => 0},{:content => "", :height => 0}] end,
+  								if (order.open_categorie_id != "roll") then ["#{I18n.t("translate.Constructor")}: <color rgb='ff0000'>#{order.constructor_id}</color>",""] else [{:content => "", :height => 0},{:content => "", :height => 0}] end,
+  								if (order.open_categorie_id != "roll") then ["#{I18n.t("translate.System_A")}: <color rgb='ff0000'>#{order.system_id}</color>",""] else [{:content => "", :height => 0},{:content => "", :height => 0}] end,
+           				if (order.open_categorie_id != "roll") then ["#{I18n.t("translate.Open_type")}: <color rgb='ff0000'>#{order.open_type_id}</color>",""] else [{:content => "", :height => 0},{:content => "", :height => 0}] end,
+           				if (!order.line_id.nil? && order.open_categorie_id != "roll") then  ["#{I18n.t("translate.System_B")}: <color rgb='ff0000'>#{order.line_id}</color>",""] else [{:content => "", :height => 0},{:content => "", :height => 0}]  end,
 	                ["#{I18n.t("translate.Leaf")}: <color rgb='ff0000'>#{order.leaf_id}</color>",""],
                   if (order.lastixa=="mauro_lastixo") then  ["#{I18n.t("translate.lastixo")}: #{I18n.t("translate.black_gasket")}",""] else [{:content => "", :height => 0},{:content => "", :height => 0}]  end,
                   if (order.lastixa=="gkri_lastixo") then  ["#{I18n.t("translate.lastixo")}: #{I18n.t("translate.grey_gasket")}",""] else [{:content => "", :height => 0},{:content => "", :height => 0}]  end,

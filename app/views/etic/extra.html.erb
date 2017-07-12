@@ -2679,10 +2679,7 @@
   });
 
   $("#next_to_panels").click(function(){
-    if($('input[name=cat_an]:checked', '#myForm').attr('id') != 'porta')
       $("#tab_leaf").click();
-    else
-      $("#glass_3").click();
   });
 
     $(".label_tab_top").click(function(){
@@ -2695,7 +2692,7 @@
       if ( id == "types_top" ){
         if (typeof(profil_typos_new) !== "undefined"){ 
           if( $('input[name=cat_an]:checked', '#myForm').attr('id') == "parathiro" ){
-            //alert(profil_typos_new);
+
             if( profil_typos_new == 0 ){
               $(".typos").each(function( index ) {
                 if( $( this ).attr("id") == "1" ){
@@ -3167,9 +3164,9 @@
         },500);
 
        if($(this).attr("id") == "porta")
-       //etic_simple_pse_user_path(:paraggelia_id => par.id, :pre_order_id => par.pre_order_id)
-       // etic_simple_pse_user_door_path(:paraggelia_id => @par_code)  
-        window.location.replace("<%= etic_simple_pse_user_path(:paraggelia_id => @par_code, :open_category_code2 => 'HT') %>");
+          window.location.replace("<%= etic_simple_pse_user_path(:paraggelia_id => @par_code, :open_category_code2 => 'HT') %>");
+        else if($(this).attr("id") == "roll")
+          window.location.replace("<%= etic_simple_pse_user_path(:paraggelia_id => @par_code, :open_category_code2 => 'ROLL') %>");
     });
   
     //Οταν κανω click στην κατηγορια ανοιγματος
@@ -3690,14 +3687,6 @@
         if ( "<%= @metra_click %>" == "1" ){
           //$("#tab_dimensions").click();
         }
-
-        /*if($('input[name=cat_an]:checked', '#myForm').attr('id') == 'porta') {
-          if(tipos_code == '3333') {
-            $("#width").val(data.min_width +200);
-            $("#height").val(data.min_height +200);
-            $(".ok").click();
-          }
-        }*/
         
         },
       error: function(data) { 

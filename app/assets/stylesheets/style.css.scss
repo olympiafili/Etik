@@ -907,7 +907,7 @@ label {
   //margin-right: 4px;
 }
 
-.color_epik, .color_ekso, .color_pers {
+.color_epik, .color_ekso, .color_pers, .color_odoig {
   width: auto!important;
   height: auto!important;
 }
@@ -2482,7 +2482,8 @@ label > input:checked + .cat_img  { /* (RADIO CHECKED) IMAGE STYLES */
 
 .div_col_ep .xrwma1, .div_col_ep .xrwma2, .div_col_ep .xrwma3,
 .div_col_ek .xrwma1, .div_col_ek .xrwma2, .div_col_ek .xrwma3,
-.div_col_pe .xrwma1, .div_col_pe .xrwma2, .div_col_pe .xrwma3 {
+.div_col_pe .xrwma1, .div_col_pe .xrwma2, .div_col_pe .xrwma3,
+.roll_rails .div_col_od .xrwma1, .roll_rails .div_col_od .xrwma2, .roll_rails .div_col_od .xrwma3 {
   position: relative;
   display: block;
   cursor: pointer;
@@ -2648,7 +2649,8 @@ label > input:checked + .cat_img  { /* (RADIO CHECKED) IMAGE STYLES */
 
 .div_col_ep .tipos_name,
 .div_col_ek .tipos_name,
-.div_col_pe .tipos_name {
+.div_col_pe .tipos_name,
+.roll_rails .div_col_od .tipos_name {
   margin: 0;
   font-size: 14px;
   font-weight: 200;

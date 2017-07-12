@@ -59,7 +59,6 @@
                 <div class="Leaf tab_leaf tab_right">
                   <div class="row">
                           <div class="col-xs-12">
-                            <label id="back_8" class="label_tab_top_next"><%= t('translate.Back') %></label>
                             <label id="next_8" class="label_tab_top_next"><%= t('translate.Next') %></label>
                           </div>
                         </div>
@@ -299,6 +298,9 @@
                               <label class="odoigoi" id="<%= r.id %>" style="display:block;"><%= r.name %></label>
                             </a>
                           <% end %><!--End each-->
+                          <a  style="text-decoration: none; color:black;">
+                            <label class="odoigoi2" id="2" style="display:block;">H-Schiene Rollo mittig nur wenn sich Masse ändern</label>
+                          </a>
                         </div><!-- End extra-->
                       </div>
                       <div class="col-xs-5" >
@@ -1536,14 +1538,6 @@
                       <td><label><%= t 'translate.DealerPrice'  %>: </label><label class="timi_dealer_typos_katw_3"></label></td>
                       <td style="text-align: right"><label class="timi_typos_katw_3"></label></td>
                     </tr>
-                    <!--
-                    <tr class="profil_typos_xrwma_show_hide" style="display:none;">
-                      <td class="td_left"><label><%= t 'translate.Type_color' %> </label></td>
-                      <td class=""><label class="table_profil_typos_xrwma"></label></td>
-                      <td class=""><label class=""></label></td>
-                      <td class="td_right"><label class="timi_profil_typos_xrwma"></label></td>
-                    </tr>
-                    -->
                     <tr class="prostasia_show_hide" style="display:none;">
                       <td class="td_left"><label><%= t 'translate.Protection' %> </label></td>
                       <td class=""><label class="table_prostasia"></label></td>
@@ -1678,9 +1672,7 @@
             
             <hr> 
           </div>
-          <div class="modal-footer">
-            <!--<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>-->
-          </div>
+          <div class="modal-footer"></div>
         </div>
       </div>
     </div>
@@ -1763,15 +1755,6 @@
           $("#tab_dimensions").click();
         }
     
-    //check window stills
-    if($('input[name=cat_an]:checked', '#myForm').attr('id') == "parathiro")
-      $('.tab-window_still').show();
-    else {
-      $('.tab-window_still').hide();
-      $(".tab-profils").click();
-      //auto pou einai checked kanw click
-      $(".window_still_cat").click();
-    }
       }
     });
 
@@ -1811,21 +1794,6 @@
         }
     });
 
-    $("#next_1").click(function(){
-      $("#tab_material").click();
-    });
-    $("#back_2").click(function(){
-      $("#tab_home").click();
-    });
-    $("#next_2").click(function(){
-      $("#material_2").click();
-    });
-    $("#back_3").click(function(){
-      $("#material_1").click();
-    });
-    $("#next_3").click(function(){
-      $("#material_3").click();
-    });
     $("#back_4").click(function(){
       $("#material_2").click();
     });
@@ -1838,13 +1806,6 @@
     $("#next_5").click(function(){
       $("#tab_color").click();
     });
-    $("#back_6").click(function(){
-      $("#tab_material").click();
-      $("#material_4").click();
-    });
-    $("#next_6").click(function(){
-      $("#tab_glass").click();
-    });
     $("#back_7").click(function(){
       $("#tab_color").click();
     });
@@ -1855,9 +1816,6 @@
         $("#tab_open_type").click();
       } else
         $("#tab_leaf").click();
-    });
-    $("#back_8").click(function(){
-      $("#tab_glass").click();
     });
     $("#next_8").click(function(){
       $("#tab_open_type").click();
@@ -1881,13 +1839,6 @@
     $("#glass_2").click();
   });
 
-  $("#next_to_panels").click(function(){
-    if($('input[name=cat_an]:checked', '#myForm').attr('id') != 'porta')
-      $("#tab_leaf").click();
-    else
-      $("#glass_3").click();
-  });
-
     $(".label_tab_top").click(function(){
       var id = this.id;
       $(".label_tab_bottom").hide();
@@ -1895,44 +1846,24 @@
       $(this).addClass( "active" );
       $("."+id).show();
       $('#loading_system').fadeOut(1000);
-      if ( id == "types_top" ){
-        if (typeof(profil_typos_new) !== "undefined"){ 
-          if( $('input[name=cat_an]:checked', '#myForm').attr('id') == "parathiro" ){
-            //alert(profil_typos_new);
-            if( profil_typos_new == 0 ){
-              $(".typos").each(function( index ) {
-                if( $( this ).attr("id") == "1" ){
-                  //YES_TYPOS = true;
-                  $( this ).trigger('click');
-                }
-              });
-            }
-          }else{
-            if( profil_typos_new == 0 ){
-              $(".typos").each(function( index ) {
-                if( $( this ).attr("id") == "2" ){
-                  //YES_TYPOS = true;
-                  $( this ).trigger('click');
-                }
-              });
-            }
-          }
-        }
-      }
-      if ( id == "roll_rails" ){
-          if( odoigos == 0 || odoigos == "0" ){
-            $(".odoigoi").each(function( index ) {
-              if( $( this ).attr("id") == 6 ){
-                $( this ).trigger('click');
-              }
-            });
-          }
-        }
 
-        if ( id == "roll_rails2" ){
+      //olympia
+      
+      if ( id == "roll_rails" ){
+
+          /*if( leaf_name == "2fullo" || leaf_name == "2fullo"){
+            if( odoigos == 0 || odoigos == "0" ){
+                $(".odoigoi").each(function( index ) {
+                  if( $( this ).attr("id") == 2 ){
+                    $( this ).trigger('click');
+                  }
+                });
+              }
+          }*/
+
           if( odoigos == 0 || odoigos == "0" ){
             $(".odoigoi").each(function( index ) {
-              if( $( this ).attr("id") == 6 ){
+              if( $( this ).attr("id") == 1 ){
                 $( this ).trigger('click');
               }
             });
@@ -2004,11 +1935,6 @@
     $(".xrwmata_eksw_new").mouseup(function(){
       $("#tab_glass").click();
     });
-
-  $(".panels_wrapper").on("mouseup", ".panel", function() {
-    $("#tab_leaf").click();
-    $("#tab_open_type").click();
-  });
 
     $(".fillo_katw").mouseup(function(){
       $("#tab_open_type").click();
@@ -2322,35 +2248,6 @@
     popover_open();
     
     //ΛΕΙΤΟΥΡΓΙΕΣ ΚΑΙ CLICKS
-    //document.body.style.overflow = 'hidden';
-
-    //..1..Κατηγορια ανοιγματος. Αν εχω το παταω, αλλως παταω το πρωτο
-    if ( "<%= @open_categorie.name %>" != null) {
-      $("#"+"<%= @open_categorie.name %>").prop("checked", true);
-      $(".open_categorie_table").append("<%= t("kouf.".<<@open_categorie.name)  %>");
-    }else{
-      $("#parathiro").prop("checked", true);
-    }
-    //Στην αλλαγη της κατηγοριας ανοιγματος παταω το φυλλο και κανω και click στο πρωτο υλικο( Για να αλλαξουν και ολα τα αλλα απο κατω )
-    $("input[name='cat_an']").change(function(){
-       //$("#"+leaf_name).trigger("click");
-      //edww
-      if($('input[name=cat_an]:checked', '#myForm').attr('id') == 'porta'){
-        $("#2").trigger("click");
-      } else{
-        $("#1").trigger("click");
-      }
-
-     $(".supplier_panels a:first-child .sup_panels").trigger("click");
-       setTimeout(function(){
-          $("#tab_material").click();
-        },500);
-
-       if($(this).attr("id") == "porta")
-       //etic_simple_pse_user_path(:paraggelia_id => par.id, :pre_order_id => par.pre_order_id)
-       // etic_simple_pse_user_door_path(:paraggelia_id => @par_code)  
-        window.location.replace("<%= etic_simple_pse_user_path(:paraggelia_id => @par_code, :open_category_code2 => 'HT') %>");
-    });
 
   //..5..Φύλλα. 
   $(".fullo").on("click", ".leaf", function() { 
@@ -2386,10 +2283,13 @@
       type:'GET',
       url:'/etic/open_type_roll',
       dataType: "json",
-      data: { open_categorie_name: 'parathiro', material_name: 'PVC', constructor_name: 'Salamander', system_name: 'Streamline', line_name: 'sl2', leaf_name: leaf_name, panel: 1 },
+      data: { open_categorie_name: 'roll', material_name: 'PVC', constructor_name: 'Salamander', system_name: 'Streamline', line_name: 'sl2', leaf_name: leaf_name, panel: 1 },
       success: function(data) { 
         //olympia
         $.each(data.open_type1, function(i, item) { //Για κάθε data που παίρνω κανω τα παρακάτο 
+          if(item.image == '11.1.1.png')
+            item.image = '20.1.1.png';
+
           var open_div = "<div class='tipos_anoigmatos img-responsive' id="+item.id+"><div class=tipos_name_ekso><h5 class=tipos_name >"+item.name+"</h5></div><img class=img-responsive id="+item.code+" src=/assets/"+item.image+" ></div>";
           
           $(open_div).appendTo(".ajax_open_type");
@@ -2445,7 +2345,7 @@
       type:'GET',
       url:'/etic/diastaseis',
       dataType: "json",
-      data: { open_categorie_name: 'parathiro', material_name: 'PVC', constructor_name: 'Salamander', system_name: 'Streamline', line_name: 'sl2', leaf_name: leaf_name, open_type_name:  tipos_name_gia_xrwma  },
+      data: { open_categorie_name: 'roll', material_name: 'PVC', constructor_name: 'Salamander', system_name: 'Streamline', line_name: 'sl2', leaf_name: leaf_name, open_type_name:  tipos_name_gia_xrwma  },
       success: function(data) { 
         $(".min_width").text("<%= t 'translate.Min'%> <%= t 'translate.Width'%>: "+data.min_width+" mm");
         $(".max_width").text("<%= t 'translate.Max'%> <%= t 'translate.Width'%>: "+data.max_width+" mm");
@@ -2506,7 +2406,19 @@
 
   mat_click();
   function mat_click(){
-    $(".leaf#1fullo").click();
+
+    var first_id = true;
+    if ( "<%= @leaf_epilegmeno.name %>" != ""){
+      $(".leaf").each(function( index ) {
+        if( $( this ).attr("id") == "<%= @leaf_epilegmeno.name %>" ){
+          $( this )[0].click();
+          first_id = false;
+        }
+      });
+      if(first_id) {
+        $(".fullo").children(":first").trigger("click");
+      }
+    }
   }
   
   //Με την υποβολη των διαστασεων αδιαζω τα πλαισια που θα εμφανισω για να μην ξαναεμφανιστουν.
@@ -5334,19 +5246,20 @@
 
     $(".extra").on("click", ".odoigoi", function() {
        $this = $( this );
-    $('.modal_times .odoigos_show_hide').insertAfter('.modal_times .neess_diastaseis_first');
+      $('.modal_times .odoigos_show_hide').insertAfter('.modal_times .neess_diastaseis_first');
+
       epilogi_ksana_odoigou = true;
 
       if (typeof(odoigos) !== "undefined"){
         if (odoigos == $(this).attr('id')){
-            //alert("!11!!!1!!");
+
             $(".diorth_odoi").empty();
             
             //up_odoigou = 0;
             odoigos = 0;
             color_odoigos = 0;
-            $( ".odoigoi" ).css("background-color","");//Ετσι αφαιρω την ιδιοτητα!!!
-            $( ".odoigoi" ).css("color","");
+            $( this ).css("background-color","");//Ετσι αφαιρω την ιδιοτητα!!!
+            $( this ).css("color","");
             $( ".color_odoigou" ).empty();
             epilogi_ksana_odoigou = false;
             
@@ -5372,10 +5285,12 @@
                 //Αδιαζω ολα τα κάτω
                 $( ".color_odoigou" ).empty();
                 //Αλλαγη χρωματος
-                $( ".odoigoi" ).css("background-color","");//Ετσι αφαιρω την ιδιοτητα!!!
-                $( ".odoigoi" ).css("color","");
-                $( this ).css("background-color","#d9eaed");
-                $( this ).css("color","black");
+
+                  $( ".odoigoi" ).css("background-color","");//Ετσι αφαιρω την ιδιοτητα!!!
+                  $( ".odoigoi" ).css("color","");
+                  $( this ).css("background-color","#d9eaed");
+                  $( this ).css("color","black");
+                
 
                 odoigos = $(this).attr('id'); //Global variable για να την περασω στην αλλη σελιδα
                 $.ajax({
@@ -5389,7 +5304,7 @@
                     //$(h2).appendTo(".color_odoigou");
                     //var xrwma = "<label class='xr_od'>"+color_odoigou+"</label><br>"
                     //$(xrwma).appendTo(".color_odoigou");
-                    var div = "<div class='div_col_od'></div>";
+                    var div = "<div class='div_col_od col-xs-5'></div>";
                     var color_odigoi = $this.parents( '.label_tab_bottom' ).find( '.color_odoigou ' );
                     $(div).appendTo(color_odigoi);
                     $.each(data, function(i, item) { //Για κάθε data που παίρνω κανω τα παρακάτο
@@ -5397,7 +5312,7 @@
                         color_odoigou = item.name;
 
                       if(item.image != null)
-                        var div_data = "<div class='xrwma xrwma2'><h5 class='tipos_name'> "+item.name+" </h5><img src='/assets/"+item.image+"' class='color_odoig color' id="+item.name+"><span id="+item.code+"></span></div>";
+                        var div_data = "<div class='xrwma xrwma2'><h5></h5><img src='/assets/"+item.image+"' class='color_odoig color' id="+item.name+"><span id="+item.code+"></span><h5>"+item.name+"</h5></div>";
                       else
                         var div_data = "<div class='xrwma xrwma2'><h5 class='color_odoig tipos_name' id="+item.name+"> "+item.name+" </h5></div>";
                         
@@ -7125,7 +7040,7 @@
 
       str1 = "<%= etic_price_path %>"
       str2 = "?open_categorie_name="
-      str3 = 'parathiro';
+      str3 = 'roll';
       str4 = "&material_name="
       str5 = 'PVC';
       str6 = "&constructor_name="
@@ -8069,26 +7984,6 @@
       //olympia
       window_still_all = "<%= @window_still_all %>";
       window_still_all_array = JSON.parse(window_still_all);
-
-      if(window_still_all != null) {
-        $(".window_still_cat").click();
-        setTimeout(function(){
-        $( ".window_still_sub_cat" ).each(function() {
-          $(this).click();
-          setTimeout(function(){
-            $( ".window_still" ).each(function() {
-              
-                if ($.inArray(parseInt($(this).attr('win_still')), window_still_all_array) != -1){
-                  $(this).click();
-                  
-                }
-               
-            });
-          });
-        });
-      });
-      }
-      
 
       if ("<%= @roll_rat_id %>" != "") {
         $(".rat_none #"+"<%= @roll_rat_id %>").click();

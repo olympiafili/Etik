@@ -74,20 +74,17 @@ class EticController < ApplicationController
     ## Μέθοδος που καλείτε απο το view etic_card όταν παταω + σε κουφωμα για νέο χρήστη.
     ## Κραταει το id του pseudo user που πατησα + σε καθοληκή μεταβλητή $pseUserId  
 	def pse_user
-		#$pseUserId = params[:pse_user]
 		session[:pseUserId] = params[:pse_user]
 		redirect_to etic_home_path 
 	end
 
 	def simple_pse_user
-		#$pseUserId_2 = params[:pse_user]
-		#$paraggelia_simple = params[:paraggelia_id]
 		session[:paraggelia_simple] = params[:paraggelia_id] #To id της παραγγελίας
 		session[:pseUserId] = params[:pse_user] #Το id αν ειμαι με admin για τους user του admin
 		session[:dealer_id] = params[:admin] #Το id του dealer αν κανει + ο admin σε παραγγελία
+		
 		if(!params[:pre_order_id].nil?)
 			@preorder = PreOrder.where(:id => params[:pre_order_id]).first
-			#@open_categorie = OpenCategorie.where(:sungate_code => @preorder.open_category_code).first
 			redirect_to etic_extra_path(:pre_order_id => params[:pre_order_id], :open_category_code => @preorder.open_category_code, :material_code => @preorder.material_code, :constructor_code =>@preorder.constructor_code, 
 				:system_code => @preorder.system_code, :line_code => @preorder.line_code, :persida_code => @preorder.persida_code, :persida_width => @preorder.persida_width, 
 				:persida_height => @preorder.persida_height, :persida_color => @preorder.persida_color, :width => @preorder.width, :height => @preorder.height, 
@@ -97,14 +94,14 @@ class EticController < ApplicationController
 				:rat_quan => @preorder.rat_quan, :roll_rlt => @preorder.roll_rlt, :roll_rdm => @preorder.roll_rdm, :roll_pfm => @preorder.roll_pfm, :roll_pss => @preorder.roll_pss)
 		elsif(params[:open_category_code2] == 'HT')
 			redirect_to etic_door_path
+		elsif(params[:open_category_code2] == 'ROLL')
+			redirect_to etic_roll_path
 		else
 			redirect_to etic_extra_path
 		end
 	end
 
 	def simple_pse_user_door
-		#$pseUserId_2 = params[:pse_user]
-		#$paraggelia_simple = params[:paraggelia_id]
 		session[:paraggelia_simple] = params[:paraggelia_id] #To id της παραγγελίας
 		session[:pseUserId] = params[:pse_user] #Το id αν ειμαι με admin για τους user του admin
 		session[:dealer_id] = params[:admin] #Το id του dealer αν κανει + ο admin σε παραγγελία
@@ -386,7 +383,7 @@ class EticController < ApplicationController
     ## epikathimena, color_epikathimenou, eksoterika, color_eksoterikou, color_persidas, color_odoigou, tzamia, color_typos, color_profil.
     ## Όλες αυτές τις μεθόδους τις έχω για να πέρνω δεδομένα σε json format.
 	def extra
-       @cat_anoigmatos = OpenCategorie.where(:id => [1,2,3,5,6])
+       @cat_anoigmatos = OpenCategorie.where(:id => [1,2,3,5,6,7])
        @uliko = Material.all
 
        if( params.has_key?(:pre_order_id) )
@@ -688,7 +685,14 @@ class EticController < ApplicationController
 	        odoigos = RollGuide.where(:sungate_code => params[:odoigos_code]).first
 	        if ( !odoigos.nil? )
 				@odoigos_id = odoigos.id
-			    @color_odoigou = RolaColor.where(:name => params[:odoigos_color]).first.name
+			    #@color_odoigou = RolaColor.where(:name => params[:odoigos_color]).first.name
+			    @color_odoigouu = RolaColor.where(:name => params[:odoigos_color]).first
+			    if(@color_odoigouu.nil?)
+					@color_odoigou = RolaOdColor.where(:name => params[:odoigos_color]).first.name
+				else
+					@color_odoigou = @color_odoigouu.name
+				end
+
 	            @up_odoigou = params[:odoigos_height].to_f / 2
 	        else
 	        	@up_odoigou = 0
@@ -775,7 +779,14 @@ class EticController < ApplicationController
 	        odoigos = RollGuide.where(:name => params[:odoigos]).first
 	        if ( !odoigos.nil? )
 				@odoigos_id = odoigos.id
-			    @color_odoigou = RolaColor.where(:name => params[:xrwma_odoigou]).first.name
+			    #@color_odoigou = RolaColor.where(:name => params[:xrwma_odoigou]).first.name
+			    @color_odoigouu = RolaColor.where(:name => params[:xrwma_odoigou]).first
+			    if(@color_odoigouu.nil?)
+					@color_odoigou = RolaOdColor.where(:name => params[:xrwma_odoigou]).first.name
+				else
+					@color_odoigou = @color_odoigouu.name
+				end
+
 	            @up_odoigou = params[:up_odigou].to_f / 2
 	        else
 	        	@up_odoigou = 0
@@ -988,11 +999,10 @@ class EticController < ApplicationController
 
 	end
 
-
 	def roll
-       @cat_anoigmatos = OpenCategorie.where(:id => 1)
-       @uliko = Material.all
-       @open_categorie = OpenCategorie.first
+       @cat_anoigmatos = OpenCategorie.where(:name => 'roll').first
+       @uliko = Material.where(:id => 1).first
+       @open_categorie = OpenCategorie.where(:name => 'roll').first
        @material = Material.where(:default => 1).first
        @constructor = Constructor.first
        @system = System.first
@@ -1018,7 +1028,6 @@ class EticController < ApplicationController
 			leaf = []
 			leaf << open_cat_gia_leaf.leaf.to_s.split(",")
 			@leaf = Leaf.where(:id => leaf)
-			#@leaf = Leaf.limit(3)
 			@leaf_epilegmeno = Leaf.first
 		end
 		if( params.has_key?(:open_type_name) )
@@ -1168,13 +1177,30 @@ class EticController < ApplicationController
 		end
 
     	#EXTRA gia epanalipsi
-		persida = nil
         typos = nil
+
+        persida = Persides.where(:name => params[:persida]).first
+        if ( !persida.nil? )
+			@persida_id = persida.id
+		    @color_persida = RolaPerColor.where(:sungate_code => params[:xrwma_persidas]).first.sungate_code
+		    @pl_persidas = params[:pl_persidas]
+            @up_persidas = params[:up_persidas]
+        else
+        	@pl_persidas = 0
+			@up_persidas = 0
+        end
 
         odoigos = RollGuide.where(:name => params[:odoigos]).first
         if ( !odoigos.nil? )
 			@odoigos_id = odoigos.id
-		    @color_odoigou = RolaColor.where(:name => params[:xrwma_odoigou]).first.name
+		    #@color_odoigou = RolaColor.where(:name => params[:xrwma_odoigou]).first.name
+		    @color_odoigouu = RolaColor.where(:name => params[:xrwma_odoigou]).first
+		    if(@color_odoigouu.nil?)
+				@color_odoigou = RolaOdColor.where(:name => params[:xrwma_odoigou]).first.name
+			else
+				@color_odoigou = @color_odoigouu.name
+			end
+
             @up_odoigou = params[:up_odigou].to_f / 2
         else
         	@up_odoigou = 0
@@ -1316,7 +1342,14 @@ class EticController < ApplicationController
         odoigos = RollGuide.where(:id => params[:odoigos]).first
         if ( !odoigos.nil? )
 			@odoigos_id = odoigos.id
-		    @color_odoigou = RolaColor.where(:name => params[:xrwma_odoigou]).first.name
+		    #@color_odoigou = RolaColor.where(:name => params[:xrwma_odoigou]).first.name
+		    @color_odoigouu = RolaColor.where(:name => params[:xrwma_odoigou]).first
+		    if(@color_odoigouu.nil?)
+				@color_odoigou = RolaOdColor.where(:name => params[:xrwma_odoigou]).first.name
+			else
+				@color_odoigou = @color_odoigouu.name
+			end
+
             @up_odoigou = params[:up_odigou]
         end
         #	odoigos = RollGuide.where(:default => 1).first
@@ -6833,7 +6866,14 @@ class EticController < ApplicationController
         odoigos = RollGuide.where(:name => params[:odoigos]).first
         if ( !odoigos.nil? )
 			@odoigos_id = odoigos.id
-		    @color_odoigou = RolaColor.where(:name => params[:xrwma_odoigou]).first.name
+		    #@color_odoigou = RolaColor.where(:name => params[:xrwma_odoigou]).first.name
+		    @color_odoigouu = RolaColor.where(:name => params[:xrwma_odoigou]).first
+		    if(@color_odoigouu.nil?)
+				@color_odoigou = RolaOdColor.where(:name => params[:xrwma_odoigou]).first.name
+			else
+				@color_odoigou = @color_odoigouu.name
+			end
+
             @up_odoigou = params[:up_odigou].to_f / 2
         else
         	@up_odoigou = 0
@@ -7024,13 +7064,19 @@ class EticController < ApplicationController
         odoigos = RollGuide.where(:id => params[:odoigos]).first
         if ( !odoigos.nil? )
 			@odoigos_id = odoigos.id
-		    @color_odoigou = RolaColor.where(:name => params[:xrwma_odoigou]).first.name
+		    #@color_odoigou = RolaColor.where(:name => params[:xrwma_odoigou]).first.name
+		    @color_odoigouu = RolaColor.where(:name => params[:xrwma_odoigou]).first
+		    if(@color_odoigouu.nil?)
+				@color_odoigou = RolaOdColor.where(:name => params[:xrwma_odoigou]).first.name
+			else
+				@color_odoigou = @color_odoigouu.name
+			end
+
             @up_odoigou = params[:up_odigou]
         end
         prostasia = TypoiProstasia.where(:id => params[:prostasia]).first
         if ( !prostasia.nil? )
 			@prostasia_id = prostasia.id
-		    #@color_odoigou = RolaColor.where(:name => params[:xrwma_odoigou]).first.name
         end
         typos = Profil.where(:id => params[:typos]).first
         if ( !typos.nil? )
