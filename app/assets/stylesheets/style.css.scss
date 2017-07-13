@@ -794,23 +794,8 @@ label {
   margin-right: 10px;
 }
 
-.color_odoigou{
-  //margin-top: 150px; //Yes
-}
-
 .typos_div{
   display: inline-block;
-}
-
-.typos{
-  //float: left;
-  //height: 45px;
-  //margin-right: 10px;
-}
-
-.color_typos{
-  //display: inline-block;
-  //margin-top: 20px;
 }
 
 .extra label:hover {
@@ -901,13 +886,13 @@ label {
   transition: all 0.3s ease 0s;
 }
 
-.color_epik, .color_ekso, .color_pers, .color_typ, .color_odoig, .color_deksia_profil, .color_aristera_profil, .color_panw_profil, .color_katw_profil, .color_typos_katw {
+.color_epik, .color_ekso, .color_pers, .color_typ, .color_odoig, .color_deksia_profil, .color_aristera_profil, .color_panw_profil, .color_katw_profil, .color_typos_katw, .sec_color_odoig {
   width: 100px !important;
   height: 100px !important;
   //margin-right: 4px;
 }
 
-.color_epik, .color_ekso, .color_pers, .color_odoig {
+.color_epik, .color_ekso, .color_pers, .color_odoig, .sec_color_odoig {
   width: auto!important;
   height: auto!important;
 }
@@ -2483,7 +2468,8 @@ label > input:checked + .cat_img  { /* (RADIO CHECKED) IMAGE STYLES */
 .div_col_ep .xrwma1, .div_col_ep .xrwma2, .div_col_ep .xrwma3,
 .div_col_ek .xrwma1, .div_col_ek .xrwma2, .div_col_ek .xrwma3,
 .div_col_pe .xrwma1, .div_col_pe .xrwma2, .div_col_pe .xrwma3,
-.roll_rails .div_col_od .xrwma1, .roll_rails .div_col_od .xrwma2, .roll_rails .div_col_od .xrwma3 {
+.roll_rails .div_col_od .xrwma1, .roll_rails .div_col_od .xrwma2, .roll_rails .div_col_od .xrwma3
+.roll_rails3 .div_col_od .xrwma1, .roll_rails3 .div_col_od .xrwma2, .roll_rails3 .div_col_od .xrwma3 {
   position: relative;
   display: block;
   cursor: pointer;
@@ -2650,7 +2636,8 @@ label > input:checked + .cat_img  { /* (RADIO CHECKED) IMAGE STYLES */
 .div_col_ep .tipos_name,
 .div_col_ek .tipos_name,
 .div_col_pe .tipos_name,
-.roll_rails .div_col_od .tipos_name {
+.roll_rails .div_col_od .tipos_name,
+.roll_rails3 .div_col_od .tipos_name {
   margin: 0;
   font-size: 14px;
   font-weight: 200;

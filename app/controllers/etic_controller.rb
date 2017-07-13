@@ -241,11 +241,11 @@ class EticController < ApplicationController
 	def open_type_roll		
 
 		if(params[:leaf_name] == '1fullo')
-			@open_type = OpenType.where(:id => 1)
+			@open_type = OpenType.where(:id => 97)
 		elsif (params[:leaf_name] == '2fullo')
-			@open_type = OpenType.where(:id => 9)
+			@open_type = OpenType.where(:id => 98)
 		else
-			@open_type = OpenType.where(:id => 54)
+			@open_type = OpenType.where(:id => 99)
 		end
 
     	@panel = nil
@@ -475,7 +475,6 @@ class EticController < ApplicationController
 			@leaf_epilegmeno = Leaf.first
 		end
 		if( params.has_key?(:open_type_name) )
-			#@open_type = OpenType.joins(:system_open_types).where(["system_open_types.line_id = ?", @line.id]).order(:order)
 		    line = Line.where(:id => @line.id).first
 			open_t = []
 			open_t << line.open_types.to_s.split(",")
@@ -483,7 +482,6 @@ class EticController < ApplicationController
 		    @open_type1 = @open_type.where(:leaf_id => @leaf_epilegmeno.id, :open_categorie_id => @open_categorie.id)
 		    @open_type_epilegmeno = OpenType.where(:name => params[:open_type_name]).first
 		else
-			#@open_type = OpenType.joins(:system_open_types).where(["system_open_types.line_id = ?", @line.id]).order(:order)
 			line = Line.where(:id => @line.id).first
 			open_t = []
 			open_t << line.open_types.to_s.split(",")
@@ -498,17 +496,14 @@ class EticController < ApplicationController
 
 			colors_white = []
 			colors_white << @oles_oi_omades_xrwmatos.first.colors.to_s.split(",")
-			#@name_A = @oles_oi_omades_xrwmatos.first.color_team_name
 			@color_A = Color.where(:id => colors_white)
 
 			colors_simple = []
 			colors_simple << @oles_oi_omades_xrwmatos.second.colors.to_s.split(",")
-			#@name_B = @oles_oi_omades_xrwmatos.second.color_team_name
 			@color_B = Color.where(:id => colors_simple)
 
 			colors_extra = []
 			colors_extra << @oles_oi_omades_xrwmatos.third.colors.to_s.split(",")
-			#@name_C = @oles_oi_omades_xrwmatos.third.color_team_name
 			@color_C = Color.where(:id => colors_extra)
 
 		    @color = Color.where(:name => params[:color_name]).first
@@ -584,8 +579,9 @@ class EticController < ApplicationController
 		@prostasia = TypoiProstasia.all
 		@typos = Profil.where(:width => 0)
 		@profil = Profil.where.not(:width => 0)
-		@roll_guide = RollGuide.where(:id => [1,2]).order(:order)
-		@roll_guide2 = RollGuide.where(:id => [3,4,5,6,7,8,9,10,11]).order(:order)
+		@roll_guide = RollGuide.where(:id => [1]).order(:order)
+		@roll_guide2 = RollGuide.where(:id => [2,3,4,5,6,7,8,9]).order(:order)
+		@roll_sec_guide = RollSecGuide.all
     	@roll_rat = RatRoll.all
     	@roll_rlt = RltRoll.all
     	@roll_rdm = RdmRoll.all
@@ -697,6 +693,18 @@ class EticController < ApplicationController
 	        else
 	        	@up_odoigou = 0
 	        end
+
+	        sec_odoigos = RollSecGuide.where(:name => params[:sec_odoigos]).first
+	        if ( !sec_odoigos.nil? )
+				@sec_odoigos_id = sec_odoigos.id
+			    @sec_color_odoigouu = RolaColor.where(:name => params[:sec_xrwma_odoigou]).first
+			    if(@sec_color_odoigouu.nil?)
+					@sec_color_odoigou = RolaOdColor.where(:name => params[:sec_xrwma_odoigou]).first.name
+				else
+					@sec_color_odoigou = @sec_color_odoigouu.name
+				end
+	        end
+
 	        #rolo
 	        rolo = RolaEkso.where(:sungate_code => params[:rolo_code]).first
 	        cat_rolo = "ekso"
@@ -791,6 +799,18 @@ class EticController < ApplicationController
 	        else
 	        	@up_odoigou = 0
 	        end
+
+	        sec_odoigos = RollSecGuide.where(:name => params[:sec_odoigos]).first
+	        if ( !sec_odoigos.nil? )
+				@sec_odoigos_id = sec_odoigos.id
+			    @sec_color_odoigouu = RolaColor.where(:name => params[:sec_xrwma_odoigou]).first
+			    if(@sec_color_odoigouu.nil?)
+					@sec_color_odoigou = RolaOdColor.where(:name => params[:sec_xrwma_odoigou]).first.name
+				else
+					@sec_color_odoigou = @sec_color_odoigouu.name
+				end
+	        end
+
 	        #rolo
 	        rolo = RolaEkso.where(:name => params[:rolo_name]).first
 	        cat_rolo = "ekso"
@@ -1084,6 +1104,13 @@ class EticController < ApplicationController
             session[:height] = height
 		end
 		
+		if( params.has_key?(:xwrisma1) )
+			@xwrisma1 = params[:xwrisma1]
+		end
+		if( params.has_key?(:xwrisma2) )
+			@xwrisma2 = params[:xwrisma2]
+		end
+
 		@posotita = 1
 
 		@epikathimena_cat = Epikathimeno.all
@@ -1100,8 +1127,9 @@ class EticController < ApplicationController
 		@prostasia = TypoiProstasia.all
 		@typos = Profil.where(:width => 0)
 		@profil = Profil.where.not(:width => 0)
-		@roll_guide = RollGuide.where(:id => [1,2]).order(:order)
-		@roll_guide2 = RollGuide.where(:id => [3,4,5,6,7,8,9,10,11]).order(:order)
+		@roll_guide = RollGuide.where(:id => [1]).order(:order)
+		@roll_guide2 = RollGuide.where(:id => [2,3,4,5,6,7,8,9]).order(:order)
+		@roll_sec_guide = RollSecGuide.all
     	@roll_rat = RatRoll.all
     	@roll_rlt = RltRoll.all
     	@roll_rdm = RdmRoll.all
@@ -1205,6 +1233,18 @@ class EticController < ApplicationController
         else
         	@up_odoigou = 0
         end
+
+        sec_odoigos = RollSecGuide.where(:name => params[:sec_odoigos]).first
+        if ( !sec_odoigos.nil? )
+			@sec_odoigos_id = sec_odoigos.id
+		    @sec_color_odoigouu = RolaColor.where(:name => params[:sec_xrwma_odoigou]).first
+		    if(@sec_color_odoigouu.nil?)
+				@sec_color_odoigou = RolaOdColor.where(:name => params[:sec_xrwma_odoigou]).first.name
+			else
+				@sec_color_odoigou = @sec_color_odoigouu.name
+			end
+        end
+	        
         #rolo
         rolo = RolaEkso.where(:name => params[:rolo_name]).first
         cat_rolo = "ekso"
@@ -1560,10 +1600,22 @@ class EticController < ApplicationController
 	end
 
 	def color_odoigou
-		if(params[:id] == "1" || params[:id] == "2")
-			@color_odoigou = RolaOdColor.all
+		if(params[:id] == "1")
+			@color_odoigou = RolaOdColor.all.order(:order)
 		else
-			@color_odoigou = RolaColor.all
+			@color_odoigou = RolaColor.all.order(:order)
+		end
+
+		respond_to do |format|
+          format.json { render json: @color_odoigou.to_json}
+        end
+	end
+
+	def color_odoigou_sec
+		if(params[:id] == "1")
+			@color_odoigou = RolaOdColor.all.order(:order)
+		else
+			@color_odoigou = RolaColor.all.order(:order)
 		end
 
 		respond_to do |format|
@@ -1759,6 +1811,7 @@ class EticController < ApplicationController
 		@posotita = params[:posotita].to_i
 		## Ρολα
 		@odoigos = RollGuide.where(:id => params[:odoigos_rolou]).first
+		@sec_odoigos = RollSecGuide.where(:id => params[:sec_odoigos]).first
 		@xrwma_odoigou = params[:color_odoigou]
 		@tzamia0 = Tzamia.where(:id => params[:tzamia0]).first
 		@tzamia = Tzamia.where(:id => params[:tzamia]).first
@@ -2058,7 +2111,7 @@ class EticController < ApplicationController
     end
     
 		##Gia code == 10, 22, 100, 101
-		if ( (@open_type.id == 12) || (@open_type.id == 13) || (@open_type.id == 22) || (@open_type.id == 23) || (@open_type.id == 68) || (@open_type.id == 69) || (@open_type.id == 80) || (@open_type.id == 81) || (@open_type.id == 82) || (@open_type.id == 84) || (@open_type.id == 83) || (@open_type.id == 85) || (@open_type.id == 86))
+		if ( (@open_type.id == 98) || (@open_type.id == 99) || (@open_type.id == 97) || (@open_type.id == 12) || (@open_type.id == 13) || (@open_type.id == 22) || (@open_type.id == 23) || (@open_type.id == 68) || (@open_type.id == 69) || (@open_type.id == 80) || (@open_type.id == 81) || (@open_type.id == 82) || (@open_type.id == 84) || (@open_type.id == 83) || (@open_type.id == 85) || (@open_type.id == 86))
 
 			puts "Width gia timokatalogo"+width.to_s
 			puts "Height meta apo "+height.to_s
@@ -2863,7 +2916,7 @@ class EticController < ApplicationController
 		  end#end mesa
 		end#end eksw
 
-		if ( (@open_type.id == 12) || (@open_type.id == 13) || (@open_type.id == 22) || (@open_type.id == 23) || (@open_type.id == 68) || (@open_type.id == 69) || (@open_type.id == 80) || (@open_type.id == 81) || (@open_type.id == 82) || (@open_type.id == 84) || (@open_type.id == 83) || (@open_type.id == 85) || (@open_type.id == 86))
+		if ( (@open_type.id == 98) || (@open_type.id == 99) || (@open_type.id == 97) || (@open_type.id == 12) || (@open_type.id == 13) || (@open_type.id == 22) || (@open_type.id == 23) || (@open_type.id == 68) || (@open_type.id == 69) || (@open_type.id == 80) || (@open_type.id == 81) || (@open_type.id == 82) || (@open_type.id == 84) || (@open_type.id == 83) || (@open_type.id == 85) || (@open_type.id == 86))
 
 			puts "Width gia timokatalogo"+width_neo.to_s
 			puts "Height meta apo "+height_neo.to_s
@@ -3636,6 +3689,52 @@ class EticController < ApplicationController
     			end
     			price_color_odoigou = price_od_initial * tm_od
 	    	end
+	    end
+
+	    if ( !@sec_odoigos.nil? )
+	    	pr_sec_odoig = ( ( (height_mesa_meta_apo_typo.to_f) * 2 * @sec_odoigos.price.to_f ) / 1000 )
+	    		tm_sec_od = ((height_mesa_meta_apo_typo.to_f) * 2) / 1000
+
+	    		timi_m_sec_odoigou = @sec_odoigos.price
+				@price_extra = @price_extra + pr_sec_odoig
+
+				@sec_od_initial = RolaColor.where(:name => params[:sec_color_odoigou]).first
+				if(@sec_od_initial.nil?)
+					sec_price_od_initial = RolaOdColor.where(:name => params[:sec_color_odoigou]).first.price
+				else
+					sec_price_od_initial = @sec_od_initial.price_m
+				end
+				price_sec_color_odoigou = sec_price_od_initial * tm_sec_od
+
+	    	if(@open_type.leaf_id == 3)
+	    		pr_sec_odoig = ( ( (height_mesa_meta_apo_typo.to_f) * 2 * @sec_odoigos.price.to_f ) / 1000 )
+	    		tm_sec_od = ((height_mesa_meta_apo_typo.to_f) * 2) / 1000
+
+	    		timi_m_sec_odoigou = @sec_odoigos.price
+				@price_extra = @price_extra + pr_sec_odoig
+
+				@sec_od_initial = RolaColor.where(:name => params[:sec_color_odoigou]).first
+				if(@sec_od_initial.nil?)
+					sec_price_od_initial = RolaOdColor.where(:name => params[:sec_color_odoigou]).first.price
+				else
+					sec_price_od_initial = @sec_od_initial.price_m
+				end
+				price_sec_color_odoigou = sec_price_od_initial * tm_sec_od
+			elsif (@open_type.leaf_id == 2)
+				pr_sec_odoig = ( ( (height_mesa_meta_apo_typo.to_f) * @sec_odoigos.price.to_f ) / 1000 )
+	    		tm_sec_od = ((height_mesa_meta_apo_typo.to_f) ) / 1000
+
+	    		timi_m_sec_odoigou = @sec_odoigos.price
+				@price_extra = @price_extra + pr_sec_odoig
+
+				@sec_od_initial = RolaColor.where(:name => params[:sec_color_odoigou]).first
+				if(@sec_od_initial.nil?)
+					sec_price_od_initial = RolaOdColor.where(:name => params[:sec_color_odoigou]).first.price
+				else
+					sec_price_od_initial = @sec_od_initial.price_m
+				end
+				price_sec_color_odoigou = sec_price_od_initial * tm_sec_od
+			end
 	    end
 
         ##TIMI ME ROLA MONO EPIKATHIMENO
@@ -4550,6 +4649,13 @@ class EticController < ApplicationController
 		    	@order.price_odoigou = pr_odoig
 		    	@order.price_color_odoigou = price_color_odoigou
 		    end
+		    if !@sec_odoigos.nil?
+		    	#@order.timi_m_odoigou = timi_m_odoigou
+		    	@order.sec_odoigos = @sec_odoigos.name
+		    	@order.sec_color_odoigou = params[:sec_color_odoigou]
+		    	@order.price_sec_odoigou = pr_sec_odoig
+		    	@order.price_sec_color_odoigou = price_sec_color_odoigou
+		    end
 		    if !@epik_rolo.nil?
 		    	if (@pl_rol_ep.to_f > 0.0)
 		    		@order.pl_rolou_ep = @pl_rol_ep.to_f
@@ -5007,6 +5113,19 @@ class EticController < ApplicationController
         	col_odoigou = ""
         	price_color_odoigou = 0
         end
+
+        if !@sec_odoigos.nil?
+        	sec_odoigos_name = @sec_odoigos.name
+        	sec_odoigos_timi = pr_sec_odoig
+        	sec_col_odoigou = params[:sec_color_odoigou]
+        	price_sec_color_odoigou = price_sec_color_odoigou
+        else
+        	sec_odoigos_name = ""
+        	sec_odoigos_timi = 0
+        	sec_col_odoigou = ""
+        	price_sec_color_odoigou = 0
+        end
+
         profil_price = 0
         profil_posotita = 0
         col_katw = ""
@@ -5349,7 +5468,11 @@ class EticController < ApplicationController
           	                          :price_color_odoigou => price_color_odoigou,
           	                          :price_color_epikathimenou => price_color_epikathimenou,
           	                          :price_color_eksoterikou => price_color_eksoterikou,
-          	                          :price_color_persidas => price_color_persidas } }
+          	                          :price_color_persidas => price_color_persidas,
+          	                          :sec_odoigos_name => sec_odoigos_name,
+          	                          :sec_col_odoigou => sec_col_odoigou,
+          	                          :sec_odoigos_timi => sec_odoigos_timi,
+          	                          :price_sec_color_odoigou => price_sec_color_odoigou} }
         end
 	end
 

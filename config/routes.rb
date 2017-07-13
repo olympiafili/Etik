@@ -30,6 +30,7 @@ Rails.application.routes.draw do
   get 'etic/window_stills'
   get 'etic/color_epikathimenou'
   get 'etic/color_eksoterikou'
+  get 'etic/color_odoigou_sec'
   get 'etic/eksoterika'
   get 'etic/color_persidas'
   get 'etic/upologismos'
