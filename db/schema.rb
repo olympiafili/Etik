@@ -499,6 +499,10 @@ ActiveRecord::Schema.define(version: 20160719070630075818) do
     t.string   "equipment"
     t.string   "price_equipment"
     t.string   "timi_m_equipment"
+    t.string   "sec_odoigos"
+    t.string   "sec_color_odoigou"
+    t.float    "price_sec_odoigou",          limit: 24
+    t.float    "price_sec_color_odoigou",    limit: 24
   end
 
   create_table "panels", force: true do |t|
