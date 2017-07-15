@@ -345,6 +345,7 @@
 		
         roll_rat_name = data.roll_rat_name;
         roll_rat_timi = data.roll_rat_timi;
+        roll_rat_quan = data.roll_rat_quan;
         roll_rlt_name = data.roll_rlt_name;
         roll_rlt_timi = data.roll_rlt_timi;
         roll_rdm_name = data.roll_rdm_name;
@@ -453,6 +454,7 @@
         sec_col_odoigou = data.sec_col_odoigou;
         sec_odoigos_timi = data.sec_odoigos_timi;
         price_sec_color_odoigou = data.price_sec_color_odoigou;
+        sec_od_quan = data.sec_od_quan;
 
         // Αλλαγες σε πινακακι //
         $(".super_apli_timi").text(super_apli_timi.toFixed(2).replace(".", ",")+" €");
@@ -626,6 +628,7 @@
             $(".timi_dealer_roll_rat").text((roll_rat_timi - pososto_dealer * roll_rat_timi).toFixed(2).replace(".", ",")+" €");
             $(".roll_rat_show_hide").css("display","table-row");
             $(".table_roll_rat").text(roll_rat_name);
+            $(".roll_rat_quan").text("x"+roll_rat_quan);
             $(".timi_roll_rat").text(roll_rat_timi.toFixed(2).replace(".", ",")+" €");
         }
         else
@@ -946,7 +949,8 @@
             $(".sec_table_odoigos").text(sec_odoigos_name);
             $(".sec_timi_odoigos").text(sec_odoigos_timi.toFixed(2).replace(".", ",")+" €");
             $(".sec_table_xrwma_odoigos").text(sec_col_odoigou);
-            
+            $(".sec_od_quan").text("x"+sec_od_quan);
+
             $(".sec_table_timi_xrwma_odoigos").text(price_sec_color_odoigou +" €");
             $(".sec_timi_market_xrwma_odoigos").text((price_sec_color_odoigou - pososto_market * price_sec_color_odoigou).toFixed(2).replace(".", ",") +" €");
             $(".sec_timi_dealer_xrwma_odoigos").text((price_sec_color_odoigou - pososto_dealer * price_sec_color_odoigou).toFixed(2).replace(".", ",") +" €");

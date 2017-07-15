@@ -1461,7 +1461,7 @@
                       <tr class="sec_odoigos_show_hide" style="display:none;">
                         <td class="td_left"><label><%= t 'translate.Rails'  %>: </label></td>
                         <td class=""><label class="sec_table_odoigos"></label></td>
-                        <td class="table_tm"><label class="sec_tm_od"></label></td>
+                        <td class="table_tm"><label class="sec_od_quan"></label></td>
                         <td><label><%= t 'translate.MarketPrice'  %>: </label><label class="sec_timi_market_odoigos"></label></td>
                         <td><label><%= t 'translate.DealerPrice'  %>: </label><label class="sec_timi_dealer_odoigos"></label></td>
                         <td style="text-align: right"><label class="sec_timi_odoigos"></label></td>
@@ -1667,7 +1667,7 @@
                       <tr class="roll_rat_show_hide" style="display:none;">
                         <td class="td_left"><label><%= t 'translate.RollRat' %> </label></td>
                         <td class=""><label class="table_roll_rat"></label></td>
-                        <td class=""><label class=""></label></td>
+                        <td class=""><label class="roll_rat_quan"></label></td>
                         <td><label><%= t 'translate.MarketPrice'  %>: </label><label class="timi_market_roll_rat"></label></td>
                         <td><label><%= t 'translate.DealerPrice'  %>: </label><label class="timi_dealer_roll_rat"></label></td>
                         <td style="text-align: right"><label class="timi_roll_rat"></label></td>
@@ -2195,7 +2195,7 @@
                     <tr class="sec_odoigos_show_hide" style="display:none;">
                         <td class="td_left"><label><%= t 'translate.Rails'  %>: </label></td>
                         <td class=""><label class="sec_table_odoigos"></label></td>
-                        <td class="table_tm"><label class="sec_tm_od"></label></td>
+                        <td class="table_tm"><label class="sec_od_quan"></label></td>
                         <td><label><%= t 'translate.MarketPrice'  %>: </label><label class="sec_timi_market_odoigos"></label></td>
                         <td><label><%= t 'translate.DealerPrice'  %>: </label><label class="sec_timi_dealer_odoigos"></label></td>
                         <td style="text-align: right"><label class="sec_timi_odoigos"></label></td>
@@ -2400,7 +2400,7 @@
                     <tr class="roll_rat_show_hide" style="display:none;">
                         <td class="td_left"><label><%= t 'translate.RollRat' %> </label></td>
                         <td class=""><label class="table_roll_rat"></label></td>
-                        <td class=""><label class=""></label></td>
+                        <td class=""><label class="roll_rat_quan"></label></td>
                         <td><label><%= t 'translate.MarketPrice'  %>: </label><label class="timi_market_roll_rat"></label></td>
                         <td><label><%= t 'translate.DealerPrice'  %>: </label><label class="timi_dealer_roll_rat"></label></td>
                         <td style="text-align: right"><label class="timi_roll_rat"></label></td>
@@ -2799,6 +2799,7 @@
             });
           }
         }
+
     });
 
     if ($(window).width() < 1011) {
@@ -3215,6 +3216,10 @@
     }
     //Στην αλλαγη της κατηγοριας ανοιγματος παταω το φυλλο και κανω και click στο πρωτο υλικο( Για να αλλαξουν και ολα τα αλλα απο κατω )
     $("input[name='cat_an']").change(function(){
+      if($(this).attr("id") == "roll") {
+          $('#loading').show();
+          window.location.replace("<%= etic_simple_pse_user_path(:paraggelia_id => @par_code, :open_category_code2 => 'ROLL') %>");
+      }
        //$("#"+leaf_name).trigger("click");
       //edww
       if($('input[name=cat_an]:checked', '#myForm').attr('id') == 'porta'){
@@ -3230,8 +3235,6 @@
 
        if($(this).attr("id") == "porta")
           window.location.replace("<%= etic_simple_pse_user_path(:paraggelia_id => @par_code, :open_category_code2 => 'HT') %>");
-        else if($(this).attr("id") == "roll")
-          window.location.replace("<%= etic_simple_pse_user_path(:paraggelia_id => @par_code, :open_category_code2 => 'ROLL') %>");
     });
   
     //Οταν κανω click στην κατηγορια ανοιγματος
@@ -4173,6 +4176,18 @@
       $(".alert_mikro_parathiro_width").show();
       $('.alert_mikro_parathiro_width').delay(3000).fadeOut('slow');
     }//end if
+
+    if( leaf == '1fullo' ){
+      $("#roll_rails3").hide();
+      $(".sec_odoigoi").each(function( index ) {
+        if( $( this ).css("background-color") == 'rgb(217, 234, 237)' ){
+          $( this ).trigger('click');
+        }
+      });
+    } else {
+      $("#roll_rails3").show();
+    }
+
   });//end ok
 
 

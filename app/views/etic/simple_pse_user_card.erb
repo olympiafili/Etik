@@ -159,7 +159,7 @@
                     <td class="extra_subtable"><b><%= t 'translate.EXTRAS' %></b></td>
                     <td class="unit_subtable"><b><%= t 'translate.Unit' %></b></td>
                     <td class="m_subtable"><b><%= t 'translate.Price_per_unit' %></b></td>
-                    <td class="c_subtable"><b><%= t 'translate.Cost' %></b></td>
+                    <td class="c_subtable"><b><%= t 'translate.Quantity' %></b></td>
                     <th class="p_subtable"><%= t("translate.MarketPrice") %></th>
                     <th class="p_subtable"><%= t("translate.DealerPrice") %></th>
                     <td class="p_subtable"><b><%= t 'translate.Prices' %></b></td>     
@@ -408,7 +408,13 @@
                       </td>
                       <td class="m_subtable">
                       </td>
-                      <td class="c_subtable"></td>
+                      <td class="c_subtable">
+                        <% if ( item.leaf_id == 2 ) %>
+                          x1
+                        <% elsif ( item.leaf_id == 3 ) %>
+                          x2
+                        <% end %>
+                      </td>
                       <td class="p_subtable">
                         <% if (!@pososto_market.nil?) %>
                           <% market_price = item.price_sec_odoigou - (@pososto_market/100)*item.price_sec_odoigou %>
@@ -1027,7 +1033,9 @@
                     <td class="m_subtable">
                     <color style="color:green"><%= number_with_precision(item.timi_m_roll_rat, :precision => 2, separator: ",", :delimiter => '.') %></color> €
                     </td>
-                    <td class="c_subtable"></td>
+                    <td class="c_subtable">
+                      x<%= item.rat_quan %>
+                    </td>
                     <td class="p_subtable">
                       <% if (!@pososto_market.nil?) %>
                         <% market_price = item.roll_rat_price - (@pososto_market/100)*item.roll_rat_price %>

@@ -1244,7 +1244,7 @@ class EticController < ApplicationController
 				@sec_color_odoigou = @sec_color_odoigouu.name
 			end
         end
-	        
+
         #rolo
         rolo = RolaEkso.where(:name => params[:rolo_name]).first
         cat_rolo = "ekso"
@@ -2917,7 +2917,6 @@ class EticController < ApplicationController
 		end#end eksw
 
 		if ( (@open_type.id == 98) || (@open_type.id == 99) || (@open_type.id == 97) || (@open_type.id == 12) || (@open_type.id == 13) || (@open_type.id == 22) || (@open_type.id == 23) || (@open_type.id == 68) || (@open_type.id == 69) || (@open_type.id == 80) || (@open_type.id == 81) || (@open_type.id == 82) || (@open_type.id == 84) || (@open_type.id == 83) || (@open_type.id == 85) || (@open_type.id == 86))
-
 			puts "Width gia timokatalogo"+width_neo.to_s
 			puts "Height meta apo "+height_neo.to_s
 		    
@@ -3692,20 +3691,6 @@ class EticController < ApplicationController
 	    end
 
 	    if ( !@sec_odoigos.nil? )
-	    	pr_sec_odoig = ( ( (height_mesa_meta_apo_typo.to_f) * 2 * @sec_odoigos.price.to_f ) / 1000 )
-	    		tm_sec_od = ((height_mesa_meta_apo_typo.to_f) * 2) / 1000
-
-	    		timi_m_sec_odoigou = @sec_odoigos.price
-				@price_extra = @price_extra + pr_sec_odoig
-
-				@sec_od_initial = RolaColor.where(:name => params[:sec_color_odoigou]).first
-				if(@sec_od_initial.nil?)
-					sec_price_od_initial = RolaOdColor.where(:name => params[:sec_color_odoigou]).first.price
-				else
-					sec_price_od_initial = @sec_od_initial.price_m
-				end
-				price_sec_color_odoigou = sec_price_od_initial * tm_sec_od
-
 	    	if(@open_type.leaf_id == 3)
 	    		pr_sec_odoig = ( ( (height_mesa_meta_apo_typo.to_f) * 2 * @sec_odoigos.price.to_f ) / 1000 )
 	    		tm_sec_od = ((height_mesa_meta_apo_typo.to_f) * 2) / 1000
@@ -3720,6 +3705,8 @@ class EticController < ApplicationController
 					sec_price_od_initial = @sec_od_initial.price_m
 				end
 				price_sec_color_odoigou = sec_price_od_initial * tm_sec_od
+				@price_extra = @price_extra + price_sec_color_odoigou
+				sec_od_quan = 2
 			elsif (@open_type.leaf_id == 2)
 				pr_sec_odoig = ( ( (height_mesa_meta_apo_typo.to_f) * @sec_odoigos.price.to_f ) / 1000 )
 	    		tm_sec_od = ((height_mesa_meta_apo_typo.to_f) ) / 1000
@@ -3734,6 +3721,8 @@ class EticController < ApplicationController
 					sec_price_od_initial = @sec_od_initial.price_m
 				end
 				price_sec_color_odoigou = sec_price_od_initial * tm_sec_od
+				@price_extra = @price_extra + price_sec_color_odoigou
+				sec_od_quan = 1
 			end
 	    end
 
@@ -5069,9 +5058,11 @@ class EticController < ApplicationController
         if (params[:roll_rat] != "0")
         	roll_rat_name = roll_rat_name
         	roll_rat_timi = roll_rat_price
+        	roll_rat_quan = @rat_quantity
         else
         	roll_rat_name = ""
         	roll_rat_timi = 0
+        	roll_rat_quan = 0
         end
         if (params[:roll_rlt] != "0")
         	roll_rlt_name = roll_rlt_name
@@ -5119,11 +5110,13 @@ class EticController < ApplicationController
         	sec_odoigos_timi = pr_sec_odoig
         	sec_col_odoigou = params[:sec_color_odoigou]
         	price_sec_color_odoigou = price_sec_color_odoigou
+        	sec_od_quan = sec_od_quan
         else
         	sec_odoigos_name = ""
         	sec_odoigos_timi = 0
         	sec_col_odoigou = ""
         	price_sec_color_odoigou = 0
+        	sec_od_quan = 0
         end
 
         profil_price = 0
@@ -5369,6 +5362,7 @@ class EticController < ApplicationController
           	                          :place_timi => place_timi,
           	                          :roll_rat_name => roll_rat_name,
           	                          :roll_rat_timi => roll_rat_timi,
+          	                          :roll_rat_quan => roll_rat_quan,
           	                          :roll_rlt_name => roll_rlt_name,
           	                          :roll_rlt_timi => roll_rlt_timi,
           	                          :roll_rdm_name => roll_rdm_name,
@@ -5472,7 +5466,8 @@ class EticController < ApplicationController
           	                          :sec_odoigos_name => sec_odoigos_name,
           	                          :sec_col_odoigou => sec_col_odoigou,
           	                          :sec_odoigos_timi => sec_odoigos_timi,
-          	                          :price_sec_color_odoigou => price_sec_color_odoigou} }
+          	                          :price_sec_color_odoigou => price_sec_color_odoigou,
+          	                          :sec_od_quan => sec_od_quan} }
         end
 	end
 

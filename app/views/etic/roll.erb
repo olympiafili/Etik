@@ -703,7 +703,7 @@
                       <tr class="sec_odoigos_show_hide" style="display:none;">
                         <td class="td_left"><label><%= t 'translate.Rails'  %>: </label></td>
                         <td class=""><label class="sec_table_odoigos"></label></td>
-                        <td class="table_tm"><label class="sec_tm_od"></label></td>
+                        <td class="table_tm"><label class="sec_od_quan"></label></td>
                         <td><label><%= t 'translate.MarketPrice'  %>: </label><label class="sec_timi_market_odoigos"></label></td>
                         <td><label><%= t 'translate.DealerPrice'  %>: </label><label class="sec_timi_dealer_odoigos"></label></td>
                         <td style="text-align: right"><label class="sec_timi_odoigos"></label></td>
@@ -908,7 +908,7 @@
                       <tr class="roll_rat_show_hide" style="display:none;">
                         <td class="td_left"><label><%= t 'translate.RollRat' %> </label></td>
                         <td class=""><label class="table_roll_rat"></label></td>
-                        <td class=""><label class=""></label></td>
+                        <td class=""><label class="roll_rat_quan"></label></td>
                         <td><label><%= t 'translate.MarketPrice'  %>: </label><label class="timi_market_roll_rat"></label></td>
                         <td><label><%= t 'translate.DealerPrice'  %>: </label><label class="timi_dealer_roll_rat"></label></td>
                         <td style="text-align: right"><label class="timi_roll_rat"></label></td>
@@ -1428,7 +1428,7 @@
                     <tr class="sec_odoigos_show_hide" style="display:none;">
                         <td class="td_left"><label><%= t 'translate.Rails'  %>: </label></td>
                         <td class=""><label class="sec_table_odoigos"></label></td>
-                        <td class="table_tm"><label class="sec_tm_od"></label></td>
+                        <td class="table_tm"><label class="sec_od_quan"></label></td>
                         <td><label><%= t 'translate.MarketPrice'  %>: </label><label class="sec_timi_market_odoigos"></label></td>
                         <td><label><%= t 'translate.DealerPrice'  %>: </label><label class="sec_timi_dealer_odoigos"></label></td>
                         <td style="text-align: right"><label class="sec_timi_odoigos"></label></td>
@@ -1625,7 +1625,7 @@
                     <tr class="roll_rat_show_hide" style="display:none;">
                         <td class="td_left"><label><%= t 'translate.RollRat' %> </label></td>
                         <td class=""><label class="table_roll_rat"></label></td>
-                        <td class=""><label class=""></label></td>
+                        <td class=""><label class="roll_rat_quan"></label></td>
                         <td><label><%= t 'translate.MarketPrice'  %>: </label><label class="timi_market_roll_rat"></label></td>
                         <td><label><%= t 'translate.DealerPrice'  %>: </label><label class="timi_dealer_roll_rat"></label></td>
                         <td style="text-align: right"><label class="timi_roll_rat"></label></td>
@@ -1904,19 +1904,7 @@ line_id_name = 'sl2';
       $('#loading_system').fadeOut(1000);
 
       //olympia
-      
       if ( id == "roll_rails" ){
-
-          /*if( leaf_name == "2fullo" || leaf_name == "2fullo"){
-            if( odoigos == 0 || odoigos == "0" ){
-                $(".odoigoi").each(function( index ) {
-                  if( $( this ).attr("id") == 2 ){
-                    $( this ).trigger('click');
-                  }
-                });
-              }
-          }*/
-
           if( odoigos == 0 || odoigos == "0" ){
             $(".odoigoi").each(function( index ) {
               if( $( this ).attr("id") == 1 ){
@@ -1925,6 +1913,18 @@ line_id_name = 'sl2';
             });
           }
         }
+
+        /*if ( id == "roll_rails3" ){
+          if( typeof "<%= @sec_odoigos_id %>" == "undefined" ){
+            if(leaf == "1fullo")
+              leaf__id = 2
+            $(".sec_odoigoi").each(function( index ) {
+              if( $( this ).attr("id") ==  ){
+                $( this ).trigger('click');
+              }
+            });
+          }
+        }*/
     });
 
     if ($(window).width() < 1011) {
@@ -2014,7 +2014,7 @@ line_id_name = 'sl2';
     kanw_prwti_fora = true;
     kanw_prwti_fora_typos = false;
     kanw_prwti_fora_odoigoi = false;
-    kanw_prwti_fora_sec_odoigoi = false;
+    kanw_prwti_fora_sec_odoigoi =false;
     kanw_prwti_fora_tzami = true;
     //Μεταβλητη που ελεγχω αν ειναι πατημενο το οκ και μπορω να προσθεσω στο καθαλι το κουφωμα
     geniko_ok = false;
@@ -2427,6 +2427,7 @@ line_id_name = 'sl2';
           
         //Πρωτη φωρα που κλικαρετε το ανοιγμα βλεπω αν χρειαζετια να κανω επαναληψη. Αλλιως απλα διαιρω διαστασεις και ζωγραφιζω με ok_click()
         if ( kanw_prwti_fora ){
+
           //Απο κατηγορια ανοιγματος. Αν ειναι διαφορο του 1 κανω επαναληψη. Αλλιως δεν κανω ketina_extra και βαζω διαστασεις/2. Μετα ζωγραφιζω
           if ( "<%= @den_exw_parrams %>" != "1" ){
             //Μεσα εχει το ksana_extra();
@@ -2452,9 +2453,8 @@ line_id_name = 'sl2';
         $(".order_diastaseis").remove();
 
         //olympia
-        if ( "<%= @metra_click %>" == "1" ){
-          //$("#tab_dimensions").click();
-        }
+        //if ( "<%= @metra_click %>" == "1" )
+        $("#tab_dimensions").click();
         },
       error: function(data) { 
         }
@@ -2495,6 +2495,7 @@ line_id_name = 'sl2';
     }
   });   
 
+  first_time = true;
   $(".ok").click(function(){
     //Ελεγχω αν εχω βαλει παραπανω διαστασεις απο αυτο που πρεπει και περναω στον controller τον ελεγχο. Αρχικοποιηση
     elegxos_gia_parapanw_diastaseis_w = "0";
@@ -2544,6 +2545,9 @@ line_id_name = 'sl2';
         width_new = Number($("#width").val());
         
         //Ζωγραφιζω με τα πραγματικα τωρα μικοι
+        if(first_time)
+          first_time =false;
+        
         ok_click();
 
         //Υπολογιζω τις νεες τιμες
@@ -2777,7 +2781,6 @@ line_id_name = 'sl2';
 
     
               nea_extra(data.lastixa,data.tzami0_id, data.tzami0_cat ,data.tzami_id ,data.tzami_cat ,data.tzami2_id ,data.tzami2_cat,data.cat_rolo, data.rolo_id, data.ti_rolo , data.color_rolo , pl_rolou_ek_0 , up_rolou_ek_0, pl_rolou_ep_0, up_rolou_ep_0 , data.kinisi_deksia_aristera , data.persida_id, data.color_persidas , pl_persidas_0 , up_persidas_0, data.odoigos_id , data.color_odoigou , up_odoigou_0 , data.prostasia_id , data.typos_id , data.color_typos , data.typos_arithmos, data.col_ar, data.epilogi_ar_1, data.pr_ar_1_ar, data.pr_ar_1_id, data.epilogi_ar_2, data.pr_ar_2_ar, data.pr_ar_2_id, data.epilogi_ar_3, data.pr_ar_3_ar, data.pr_ar_3_id, data.col_de,  data.epilogi_de_1, data.pr_de_1_de, data.pr_de_1_id, data.epilogi_de_2, data.pr_de_2_de, data.pr_de_2_id, data.epilogi_de_3, data.pr_de_3_de, data.pr_de_3_id, data.col_pa, data.epilogi_pa_1, data.pr_pa_1_pa, data.pr_pa_1_id, data.epilogi_pa_2, data.pr_pa_2_pa, data.pr_pa_2_id, data.epilogi_pa_3, data.pr_pa_3_pa, data.pr_pa_3_id, data.col_ka , data.epilogi_ka_1, data.pr_ka_1_ka, data.pr_ka_1_id, data.epilogi_ka_2, data.pr_ka_2_ka, data.pr_ka_2_id, data.epilogi_ka_3, data.pr_ka_3_ka, data.pr_ka_3_id );
-              
 
               },
             error: function(data) { 
@@ -2795,6 +2798,18 @@ line_id_name = 'sl2';
       $(".alert_mikro_parathiro_width").show();
       $('.alert_mikro_parathiro_width').delay(3000).fadeOut('slow');
     }//end if
+
+    if( leaf == '1fullo' ){
+      $("#roll_rails3").hide();
+      $(".sec_odoigoi").each(function( index ) {
+        if( $( this ).css("background-color") == 'rgb(217, 234, 237)' ){
+          $( this ).trigger('click');
+        }
+      });
+    } else {
+      $("#roll_rails3").show();
+    }
+
   });//end ok
 
 
@@ -7010,7 +7025,7 @@ line_id_name = 'sl2';
                   processData: false,
                   contentType: false,
                   success: function(data) {
-                    url = str1+str2+str3+str4+str5+str6+str7+str8+str9+str10+str11+str12+str13+str14+str15+str16+str17+str18+str19+str20+str21+str22+str23+str24+str25+str26+str27+str28+str29+str30+str31+str32+str33+str34+str35+str36+str37+str38+str39+str40+str41+str42+str43+str44+str45+str46+str47+str48+str49+str50+str51+str52+str53+str54+str55+str56+str57+str58+str59+str60+str61+str62+str63+str64+str65+str66+str67+str68+str69+str70+str71+str72+str73+str74+str75+str76+str77+str78+str79+str80+str81+str82+str83+str84+str85+str86+str87+str88+str89+str90+str91+str92+str93+str94+str95+str96+str97+str98+str99+str100+str101+str102+str103+str104+str105+str106+str107+str108+str109+str110+str111+str112+str113+str114+str115+str116+str117+str118+str119+str120+str121+str122+str123+str124+str125+str126+str127+str128+str129+str130+str131+str132+str133+str134+str135+str136+str137+str138+str139+str140+str141+str142+str143+str144+str145+str146+str147+str148+str149+str150+str151+str152+str153+str154+str155+str156+str157+str158+str159+str160+str161+str162+str163+str164+str165+str166+str167+str168+str169+str170+str171+str172+str173+str174+str175+str176+str177+str178+str179+str180+str181+str182+str183+str184+str185+str186+str187+str188+str189+str190+str191+str192+str193+str194+str195+str196+str197+str198+str199+str200+str201+str202+str203+stra+strb+str204+str205+str206+str207+str208+str209+str210+str211+str212+str213+str214+str215+str216+str217+str218+str219+str220+str221+str222+str223+str224+str225+str226+str227+str228+str229+str230+str231;
+                    url = str1+str2+str3+str4+str5+str6+str7+str8+str9+str10+str11+str12+str13+str14+str15+str16+str17+str22+str23+str24+str25+str26+str27+str28+str29+str30+str31+str32+str33+str34+str35+str36+str37+str38+str39+str40+str41+str42+str43+str44+str45+str46+str47+str50+str51+str52+str53+str54+str55+str68+str69+str70+str71+str72+str73+str74+str75+str76+str77+str78+str79+str80+str81+str82+str83+str84+str85+str86+str87+str88+str89+str90+str91+str92+str93+str94+str95+str96+str97+str98+str99+str100+str101+str102+str112+str113+str114+str115+str116+str117+str118+str119+str120+str121+str122+str123+str124+str125+str126+str127+str128+str129+str130+str131+str132+str133+str134+str135+str136+str137+str138+str139+str140+str141+str142+str143+str144+str145+str146+str147+str148+str149+str150+str151+str152+str153+str154+str155+str156+str157+str158+str159+str160+str161+str162+str163+str164+str165+str166+str167+str168+str169+str170+str171+str172+str173+str174+str175+str176+str177+str178+str179+str180+str181+str182+str183+str184+str185+str186+str187+str188+str189+str190+str191+str192+str193+str194+str195+str196+str197+str198+str199+str200+str201+str202+str203+stra+strb+str204+str205+str206+str207+str208+str209+str210+str211+str212+str213+str214+str215+str216+str217+str218+str219+str220+str221+str222+str223+str224+str225+str226+str227+str228+str229+str230+str231;
 
                     $.ajax({ 
                       type:'GET',
@@ -7627,6 +7642,9 @@ line_id_name = 'sl2';
             $(".warning_times").empty();
             $(".warning_times").show();
             $(".warning_times").append("<%= t('append_price.Price') %> : "+$(".teliki_timi").text());
+            //olympia
+            $(".Cat_button_2").click();
+
             clearTimeout(timeout);
                     timeout = setTimeout(function()
                       {
@@ -7634,7 +7652,6 @@ line_id_name = 'sl2';
                     }, 6000);
         }
       },timeout_profil);
-
     },200);
 
     function do_tzamia0() {
@@ -8070,6 +8087,7 @@ line_id_name = 'sl2';
       
        
     }
+
 
 
   }
