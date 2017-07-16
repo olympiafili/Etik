@@ -3723,6 +3723,10 @@ class EticController < ApplicationController
 				price_sec_color_odoigou = sec_price_od_initial * tm_sec_od
 				@price_extra = @price_extra + price_sec_color_odoigou
 				sec_od_quan = 1
+			else
+	        	pr_sec_odoig = 0
+	        	price_sec_color_odoigou = 0
+	        	sec_od_quan = 0
 			end
 	    end
 

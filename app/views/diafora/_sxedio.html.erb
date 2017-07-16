@@ -856,7 +856,14 @@
 
 	}
 	
-	function ok_click(){
+	var temp_width;
+	var temp_leaf;
+	var first = true;
+	var server_get_xwrisma = false;
+	var customLeafChanged = 0;
+
+	function ok_click( leafChanged ){
+
 		var tempArray = table.split('|');
 		var finalArray = [];
 		for (var i = 0; i < tempArray.length; i++) {
@@ -952,6 +959,7 @@
 		var sunoloko_mikos = metatropi_width(width_new) - (2*profil_xwros) - (2*kasa_xwros) - grammes_xwros;
 		var sunoloko_ypsos = metatropi_height(height_new) - rolo_epanw_xwros - (2*profil_xwros) - (2*kasa_xwros) - grammes_xwros;
 
+
 		$("#svg").attr( "width", metatropi_width(width_new) );
 		$("#svg").attr( "height", metatropi_height(height_new) );
 		//Εξω rect
@@ -969,17 +977,36 @@
 		$.each(finalArray , function( index, obj ) {
 			var x1_sum_orizontio = 0;
 			var x_sum_orizontio;
-
 		    $.each(obj, function( key, value ) {
 
-		    		if("<%= @xwrisma1 %>" > 0 && "<%= @xwrisma2 %>" > 0 && first_time) {
-		        		if(key ==0 ) {
-		        			obj_length = width_new/parseFloat("<%= @xwrisma1 %>");
-		        		} else {
-		        			obj_length = width_new/parseFloat("<%= @xwrisma2 %>");
-		        		}
-		        	} else 
+		    		if( "<%= @xwrisma1 %>" > 0 && "<%= @xwrisma2 %>" > 0 ) {
+
+		    			if( first )
+		    				temp_width = width_new;
+
+		    			if( ( leafChanged < 2 && temp_width === width_new ) || first ) {
+		    				
+
+			        		if(key == 0 )
+			        			obj_length = width_new/parseFloat("<%= @xwrisma1 %>");
+			        		else {
+			        			obj_length = width_new/parseFloat("<%= @xwrisma2 %>");
+			        			first = false;
+			        			server_get_xwrisma = true;
+			        		}
+			    			
+			    			console.log( 'MPIKA' );
+			    		}
+			    		else {
+			    			obj_length = obj.length;
+			    			server_get_xwrisma = false;
+			    		}
+		    			
+		        	} else {
 		        		obj_length = obj.length;
+		        		server_get_xwrisma = false;
+		        	}
+
 
 		        	//Διαχωρισμός χωρισματων
 		        	//Πραγματικο μικος-υψος
@@ -1031,7 +1058,7 @@
 		        	} else
 		        		prev_pragmatiko_mikos_dia_px = pragmatiko_mikos_dia_px;
 		        	
-		        	if("<%= @xwrisma1 %>" > 0 && "<%= @xwrisma2 %>" > 0 && first_time) {
+		        	if(server_get_xwrisma)  {
 		        		if(key == 1 ) {
 		        			obj_length = width_new/parseFloat("<%= @xwrisma1 %>");
 		        			prev_pragmatiko_mikos_dia_px = (sunoloko_mikos/obj_length);
@@ -1771,7 +1798,7 @@
 		        	} else
 		        		var hett = het;
 
-		        	if((table.indexOf("n") >= 0 && table.indexOf(",") > 0 && (value == 'n' || value == 'b') && key == 1) || ("<%= @xwrisma1 %>" > 0 && "<%= @xwrisma2 %>" && key == 1 && first_time)) {
+		        	if((table.indexOf("n") >= 0 && table.indexOf(",") > 0 && (value == 'n' || value == 'b')  || server_get_xwrisma ) && key === 1 ) {
 		        		index2 = index -1 ;
 		        		key2 = key -1;
 		        		var linee1 = $("."+index+""+key2+"2").get(0);
@@ -1829,7 +1856,7 @@
 			stroke_n(paidi_n,anoigma_n);
 
 	});
-
+	
 	}
 	
 	function stroke_megali_grammi(sunoloko_mikos,sunoloko_ypsos,profil_xwros,rolo_epanw_xwros,kasa_xwros,grammes_xwros)
@@ -1958,17 +1985,6 @@
 	}
 	
 	function metatropi_width(width)
-	{	
-		//Μικος
-		mikos = max_width_sxedio - min_width_sxedio;
-		//Ποσο ειναι αντιστιχα αυτο που εχω στο μικος
-		var auto_pou_leipei = ( (mikos * width) /  max_width_sxedio);
-		var pososto = mikos / auto_pou_leipei;
-		eksw_width = ( ((max_width - (max_width/2) ) / pososto) + (max_width/2) );
-
-	  	return eksw_width;
-	}
-	function metatropi_width_epanalipsi(width)
 	{	
 		//Μικος
 		mikos = max_width_sxedio - min_width_sxedio;

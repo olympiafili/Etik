@@ -4177,7 +4177,7 @@
       $('.alert_mikro_parathiro_width').delay(3000).fadeOut('slow');
     }//end if
 
-    if( leaf == '1fullo' ){
+    /*if( leaf == '1fullo' ){
       $("#roll_rails3").hide();
       $(".sec_odoigoi").each(function( index ) {
         if( $( this ).css("background-color") == 'rgb(217, 234, 237)' ){
@@ -4186,7 +4186,7 @@
       });
     } else {
       $("#roll_rails3").show();
-    }
+    }*/
 
   });//end ok
 
@@ -7203,9 +7203,7 @@
               }*/
               if($('.window_still_wrapper_big label[style="background-color: rgb(217, 234, 237); color: rgb(0, 0, 0);"]').length == 1) {
                 idd = $('.window_still_wrapper_big label[style="background-color: rgb(217, 234, 237); color: rgb(0, 0, 0);"]').attr("id");
-                console.log(idd);
                   window_still_single.splice( $.inArray(idd, window_still_single), 1 );
-                  
               }
 
               $( ".window_still" ).css("background-color","");//Ετσι αφαιρω την ιδιοτητα!!!
@@ -11001,7 +10999,8 @@
       
 
       if ("<%= @roll_rat_id %>" != "") {
-        $(".rat_none #"+"<%= @roll_rat_id %>").click();
+        //$(".rat_none #"+"<%= @roll_rat_id %>").click();
+        $( '.rat_none label[data-rat-id="<%= @roll_rat_id %>"]' ).trigger( 'click' );
         $("input[name=arithmos_rat]").val("<%= @roll_rat_quan %>");
         $(".arithmos_rat").click();
       }
