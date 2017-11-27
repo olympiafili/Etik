@@ -26,9 +26,9 @@ class Paraggelia < ActiveRecord::Base
       csv << ["DEALER", self.user]
       
       csv << ["CUSTOMER", self.customer, @customer.mr, @customer.name, @customer.eponimo, @customer.address, 
-        @customer.city, @customer.postal_code, @customer.country_code, @customer.phone, @customer.mobile, @customer.email, @customer.fax, @customer.VAT]
+        @customer.city, @customer.postal_code, @customer.country_code, @customer.phone, @customer.mobile, @customer.email, @customer.fax, @customer.VAT, @customer.sungate_num]
       #check the pososto - i + 
-      csv << ["HEAD", self.id, 0, "<General text>", "<Terms of payment>", self.pososto, 0, self.meta_pososto, "<Tax code (VAT)>", "<VAT Euro>"]
+      csv << ["HEAD", self.id, 0, "<General text>", "<Terms of payment>", self.pososto, 0, self.meta_pososto, "<Tax code (VAT)>", "<VAT Euro>", self.sungate_code]
             
       self.orders.each do |order|
         @line = Line.where(:name => order.line_id).first

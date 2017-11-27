@@ -4514,7 +4514,7 @@ class EticController < ApplicationController
         #end
 
         ## Εδώ αν το αίτημα είναι html μπορω να αποθηκεύσω στην βάση την παραγγελία.
-        if request.format.html?
+        if (params[:request] == 'neworder') #request.format.html?
         	diorthwsi_aukson = 0
             if ( session[:diorthosi] != "0" )
             	koufwma = Order.find(session[:diorthosi])

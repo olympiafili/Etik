@@ -43,6 +43,7 @@ Rails.application.routes.draw do
   get 'etic/upologismos_upsos_profil'
   get 'etic/color_epistrofi'
   get 'etic/price'
+  post 'etic/price'
   get 'etic/price_door'
   get 'etic/card'
   get 'etic/pdf'

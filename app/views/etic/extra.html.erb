@@ -1058,7 +1058,7 @@
                         <div class="extra rat_none">
                           <% @roll_rat.each do |r| %>
                             <a  style="text-decoration: none; color:black;">
-                              <label class="rolls_rat" id="<%= r.id %>" style="display:block;"><%= r.name %></label>
+                              <label class="rolls_rat" data-rat-id="<%= r.id %>" id="<%= r.id %>" style="display:block;"><%= r.name %></label>
                             </a>
                           <% end %><!--End each-->
                         </div><!-- End extra-->
@@ -3402,10 +3402,36 @@
           $.each(data.color_C, function(i, item) { //Για κάθε data που παίρνω κανω τα παρακάτο        
             var div_data = "<div class='xrwma xrwma_new_2'><img src=/assets/"+item.image+" class=color_eksw id="+item.name+" ><span id="+item.code+"></span></div>";
             $(div_data).appendTo(".katigoria_xrwmatos_ekso_C");   
-          })
-          $(".color_m_e").first().click();
+          });
+          //olympia
+          predefined_color = false;
+           if ( "<%= @color.name %>" !== "") {
+            $(".color").each(function( index ) {
+                if( $( this ).attr("id") == "<%= @color.name %>" ){
+                  color_typou = "<%= @color.code %>";
+                  $( this ).click();
+                  predefined_color = true;
+                }
+              });
+            }
+            if ( "<%= @color_eksw.name %>" !== "") {
+              $(".color_eksw").each(function( index ) {
+                if( $( this ).attr("id") == "<%= @color_eksw.name %>" ){
+                  color_typou_eksw = "<%= @color_eksw.code %>";
+                  $( this ).click();
+                  predefined_color = true;
+                }
+              });
+            } 
+            if(!predefined_color) {
+              $(".color_m_e").first().click();
+              $(".color").first().click();
+              $(".color_eksw").first().click();
+            }
+
+          /*$(".color_m_e").first().click();
           $(".color").first().click();
-          $(".color_eksw").first().click();
+          $(".color_eksw").first().click();*/
           popover_open();
           },
         error: function(data) { 
@@ -3631,6 +3657,7 @@
     popover_open();
   });
   
+  var metra_click_bool = true;
   //..7..Ανοιγματα.
   $(".ajax_open_type").on("click", ".tipos_anoigmatos", function() {
     //Αλλαγη σε χρωματα αυτου που επελεξα
@@ -3753,7 +3780,11 @@
 
         //olympia
         if ( "<%= @metra_click %>" == "1" ){
-          //$("#tab_dimensions").click();
+			if (metra_click_bool) {
+            	$("#tab_dimensions").click();
+            	$(".ok").click();
+          	}
+          	metra_click_bool = false;
         }
         
         },
@@ -8686,7 +8717,7 @@
               color_epikathimenou = color_epikathimenou;
               sxedio_color_epik = "white";
             }else{
-              color_epikathimenou = "P10";//To color που εχω επιλεξει για παραθυρο
+              color_epikathimenou = "WP";//To color που εχω επιλεξει για παραθυρο
               sxedio_color_epik = "white";
             }
             
@@ -8987,7 +9018,7 @@
               color_eksoterikou = color_eksoterikou;
               sxedio_color_ekso = "white";
             }else{
-              color_eksoterikou = "X07";//To color που εχω επιλεξει για παραθυρο
+              color_eksoterikou = "WP1";//To color που εχω επιλεξει για παραθυρο
               sxedio_color_ekso = "white";
             }
           //height_epik = Number($(this).next().attr('id'));
@@ -9328,7 +9359,7 @@
                   color_persidas = color_persidas;
                 }else{
                   if(persida == 1 || persida == 2 || persida == 3)
-                    color_persidas = "X07";
+                    color_persidas = "WP2";
                   else
                     color_persidas = "P10";
                 }
@@ -9760,12 +9791,131 @@
                   contentType: false,
                   success: function(data) {
                     //window.location.href = str1+str2+str3+str4+str5+str6+str7+str8+str9+str10+str11+str12+str13+str14+str15+str16+str17+str18+str19+str20+str21+str22+str23+str24+str25+str26+str27+str28+str29+str30+str31+str32+str33+str34+str35+str36+str37+str38+str39+str40+str41+str42+str43+str44+str45+str46+str47+str48+str49+str50+str51+str52+str53+str54+str55+str56+str57+str58+str59+str60+str61+str62+str63+str64+str65+str66+str67+str68+str69+str70+str71+str72+str73+str74+str75+str76+str77+str78+str79+str80+str81+str82+str83+str84+str85+str86+str87+str88+str89+str90+str91+str92+str93+str94+str95+str96+str97+str98+str99+str100+str101+str102+str103+str104+str105+str106+str107+str108+str109+str110+str111+str112+str113+str114+str115+str116+str117+str118+str119+str120+str121+str122+str123+str124+str125+str126+str127+str128+str129+str130+str131+str132+str133+str134+str135+str136+str137+str138+str139+str140+str141+str142+str143+str144+str145+str146+str147+str148+str149+str150+str151+str152+str153+str154+str155+str156+str157+str158+str159+str160+str161+str162+str163+str164+str165+str166+str167+str168+str169+str170+str171+str172+str173+str174+str175+str176+str177+str178+str179+str180+str181+str182+str183+str184+str185+str186+str187+str188+str189+str190+str191+str192+str193+str194+str195+str196+str197+str198+str199+str200+str201+str202+str203+stra+strb+str204+str205+str206+str207+str208+str209+str210+str211+str212+str213+str214+str215;
-                    url = str1+str2+str3+str4+str5+str6+str7+str8+str9+str10+str11+str12+str13+str14+str15+str16+str17+str18+str19+str20+str21+str22+str23+str24+str25+str26+str27+str28+str29+str30+str31+str32+str33+str34+str35+str36+str37+str38+str39+str40+str41+str42+str43+str44+str45+str46+str47+str48+str49+str50+str51+str52+str53+str54+str55+str56+str57+str58+str59+str60+str61+str62+str63+str64+str65+str66+str67+str68+str69+str70+str71+str72+str73+str74+str75+str76+str77+str78+str79+str80+str81+str82+str83+str84+str85+str86+str87+str88+str89+str90+str91+str92+str93+str94+str95+str96+str97+str98+str99+str100+str101+str102+str103+str104+str105+str106+str107+str108+str109+str110+str111+str112+str113+str114+str115+str116+str117+str118+str119+str120+str121+str122+str123+str124+str125+str126+str127+str128+str129+str130+str131+str132+str133+str134+str135+str136+str137+str138+str139+str140+str141+str142+str143+str144+str145+str146+str147+str148+str149+str150+str151+str152+str153+str154+str155+str156+str157+str158+str159+str160+str161+str162+str163+str164+str165+str166+str167+str168+str169+str170+str171+str172+str173+str174+str175+str176+str177+str178+str179+str180+str181+str182+str183+str184+str185+str186+str187+str188+str189+str190+str191+str192+str193+str194+str195+str196+str197+str198+str199+str200+str201+str202+str203+stra+strb+str204+str205+str206+str207+str208+str209+str210+str211+str212+str213+str214+str215+str216+str217+str218+str219+str220+str221+str222+str223+str224+str225+str226+str227+str228+str229+str230+str231;
+                    //url = str1+str2+str3+str4+str5+str6+str7+str8+str9+str10+str11+str12+str13+str14+str15+str16+str17+str18+str19+str20+str21+str22+str23+str24+str25+str26+str27+str28+str29+str30+str31+str32+str33+str34+str35+str36+str37+str38+str39+str40+str41+str42+str43+str44+str45+str46+str47+str48+str49+str50+str51+str52+str53+str54+str55+str56+str57+str58+str59+str60+str61+str62+str63+str64+str65+str66+str67+str68+str69+str70+str71+str72+str73+str74+str75+str76+str77+str78+str79+str80+str81+str82+str83+str84+str85+str86+str87+str88+str89+str90+str91+str92+str93+str94+str95+str96+str97+str98+str99+str100+str101+str102+str103+str104+str105+str106+str107+str108+str109+str110+str111+str112+str113+str114+str115+str116+str117+str118+str119+str120+str121+str122+str123+str124+str125+str126+str127+str128+str129+str130+str131+str132+str133+str134+str135+str136+str137+str138+str139+str140+str141+str142+str143+str144+str145+str146+str147+str148+str149+str150+str151+str152+str153+str154+str155+str156+str157+str158+str159+str160+str161+str162+str163+str164+str165+str166+str167+str168+str169+str170+str171+str172+str173+str174+str175+str176+str177+str178+str179+str180+str181+str182+str183+str184+str185+str186+str187+str188+str189+str190+str191+str192+str193+str194+str195+str196+str197+str198+str199+str200+str201+str202+str203+stra+strb+str204+str205+str206+str207+str208+str209+str210+str211+str212+str213+str214+str215+str216+str217+str218+str219+str220+str221+str222+str223+str224+str225+str226+str227+str228+str229+str230+str231;
 
                     $.ajax({ 
-                      type:'GET',
-                      url: url,
-                      dataType: "html",
+                      type:'POST',
+                      url: '/etic/price',
+                      dataType: "json",
+                      data: {
+						  request: 'neworder',
+                        open_categorie_name: $('input[name=cat_an]:checked', '#myForm').attr('id'),
+                        material_name: material_name_gia_diastaseis,
+                        constructor_name: $('input[name=cat_kata]:checked', '#myForm').attr('id'),
+                        system_name: $('input[name=cat_syst]:checked', '#myForm').attr('id'),
+                        line_name: line_id_name,
+                        leaf_name: leaf_name,
+                        open_type_name: tipos_name_gia_xrwma,
+                        color_name: color_aplo,
+                        color_deksia: $(".color_deksia").text(),
+                        color_aristera: $(".color_aristera").text(),
+                        color_panw: $(".color_panw").text(),
+                        color_katw: $(".color_katw").text(),
+                        color_fulou: $(".color_fullou").text(),
+                        posotita: $(".posotita").text(),
+                        width: $("#width").val(),
+                        height: $("#height").val(),
+                        new_width: width_new,
+                        new_height: height_new,
+                        epik_rolo: epikathimeno_rolo,
+                        xrwma_epikathimenou: color_epikathimenou,
+                        ekso_rolo: eksoteriko_rolo,
+                        xrwma_eksoterikou: color_eksoterikou,
+                        persida: persida,
+                        color_persidas: color_persidas,
+                        lastixo: "<%= @lastixo %>",
+                        mesa_eksw: "<%= @mesa_eksw %>",
+                        profil_deksia: profil_deksia,
+                        profil_aristera: profil_aristera,
+                        profil_panw: profil_panw,
+                        profil_katw: profil_katw,
+                        color_profil_deksia: color_profil_deksia,
+                        color_profil_panw: color_profil_panw,
+                        color_profil_aristera: color_profil_aristera,
+                        color_profil_katw: color_profil_katw,
+                        posotita_deksia_profil: $(".input_deksia").val(),
+                        posotita_aristera_profil: $(".input_aristera").val(),
+                        posotita_panw_profil: $(".input_panw").val(),
+                        posotita_katw_profil: $(".input_katw").val(),
+                        tzamia: tzamia,
+                        typos: typos,
+                        color_typos: color_typos,
+                        xwrisma1: xwrisma1,
+                        xwrisma2: xwrisma2,
+                        xwrisma3_1: xwrisma3_1,
+                        xwrisma3_2: xwrisma3_2,
+                        xwrisma3_3: xwrisma3_3,
+                        odoigos_rolou: odoigos,
+                        color_odoigou: color_odoigou,
+                        lastixo: lastixo_epilogh,
+                        xwrisma_y_1: xwrisma_y_1,
+                        xwrisma_y_2: xwrisma_y_2,
+                        profil_deksia_1: profil_deksia_1,
+                        profil_deksia_1_arithmos: profil_deksia_1_arithmos,
+                        profil_deksia_2: profil_deksia_2,
+                        profil_deksia_2_arithmos: profil_deksia_2_arithmos,
+                        profil_deksia_3: profil_deksia_3,
+                        profil_deksia_3_arithmos: profil_deksia_3_arithmos,
+                        profil_aristera_1: profil_aristera_1,
+                        profil_aristera_1_arithmos: profil_aristera_1_arithmos,
+                        profil_aristera_2: profil_aristera_2,
+                        profil_aristera_2_arithmos: profil_aristera_2_arithmos,
+                        profil_aristera_3: profil_aristera_3,
+                        profil_aristera_3_arithmos: profil_aristera_3_arithmos,
+                        profil_panw_1: profil_panw_1,
+                        profil_panw_1_arithmos: profil_panw_1_arithmos,
+                        profil_panw_2: profil_panw_2,
+                        profil_panw_2_arithmos: profil_panw_2_arithmos,
+                        profil_panw_3: profil_panw_3,
+                        profil_panw_3_arithmos: profil_panw_3_arithmos,
+                        profil_katw_1: profil_katw_1,
+                        profil_katw_1_arithmos: profil_katw_1_arithmos,
+                        profil_katw_2: profil_katw_2,
+                        profil_katw_2_arithmos: profil_katw_2_arithmos,
+                        profil_katw_3: profil_katw_3,
+                        profil_katw_3_arithmos: profil_katw_3_arithmos,
+                        typos_katw_1: typos_katw_1,
+                        typos_katw_1_arithmos: typos_katw_1_arithmos,
+                        typos_katw_2: typos_katw_2,
+                        typos_katw_2_arithmos: typos_katw_2_arithmos,
+                        typos_katw_3: typos_katw_3,
+                        typos_katw_3_arithmos: typos_katw_3_arithmos,
+                        prostasia: prostasia,
+                        tzamia2: tzamia2,
+                        pl_rol_ep: pl_rol_ep,
+                        up_rol_ep: up_rol_ep,
+                        kinisi_ep: kinisi_ep,
+                        pl_rol_ek: pl_rol_ek,
+                        up_rol_ek: up_rol_ek,
+                        kinisi_ek: kinisi_ek,
+                        pl_persidas: pl_persidas,
+                        up_persidas: up_persidas,
+                        up_odoigou: up_odoigou,
+                        aukson_id: aukson_id,
+                        elegxos_w: elegxos_gia_parapanw_diastaseis_w,
+                        elegxos_h: elegxos_gia_parapanw_diastaseis_h,
+                        color_eksw_name: color_aplo_eksw,
+                        tzamia0: tzamia0,
+                        tzami0_cat: cat_tzamia0,
+                        tzami1_cat: cat_tzamia,
+                        tzami2_cat: cat_tzamia2,
+                        klap_ep: klap_ep,
+                        deroll: deroll,
+                        xwrisma4_1: xwrisma4_1,
+                        xwrisma4_2: xwrisma4_2,
+                        xwrisma4_3: xwrisma4_3,
+                        xwrisma4_4: xwrisma4_4,
+                        window_still_single: window_still_single,
+                        roll_rat: roll_rat, 
+                        roll_rlt: roll_rlt,
+                        roll_rdm: roll_rdm,
+                        roll_pss: roll_pss,
+                        roll_pfm: roll_pfm,
+                        place: place,
+                        rat_quantity: rat_quantity,
+                        sec_odoigos: sec_odoigos,
+                        sec_color_odoigou: sec_color_odoigou
+                      },
                       success: function(data) {
                         
                         $.ajax({ 
@@ -9959,238 +10109,8 @@
 
 
       str1 = "<%= etic_price_path %>"
-      str2 = "?open_categorie_name="
-      str3 = $('input[name=cat_an]:checked', '#myForm').attr('id');
-      str4 = "&material_name="
-      str5 = material_name_gia_diastaseis;
-      str6 = "&constructor_name="
-      str7 = $('input[name=cat_kata]:checked', '#myForm').attr('id');
-      str8 = "&system_name="
-      str9 = $('input[name=cat_syst]:checked', '#myForm').attr('id');
-      str10 = "&line_name="
-      str11 = line_id_name;
-      str12 = "&leaf_name="
-      str13 = leaf_name;
-      str14 = "&open_type_name="
-      str15 = tipos_name_gia_xrwma;
-      str16 = "&color_name="
-      str17 = color_aplo;
-      str18 = "&color_deksia="
-      str19 = $(".color_deksia").text();
-      str20 = "&color_aristera="
-      str21 = $(".color_aristera").text();
-      str22 = "&color_panw="
-      str23 = $(".color_panw").text();
-      str24 = "&color_katw="
-      str25 = $(".color_katw").text();
-      str26 = "&color_fulou="
-      str27 = $(".color_fullou").text();
-      str28 = "&posotita="
-      str29 = $(".posotita").text();
-      str30 = "&width="
-      str31 = $("#width").val();
-      str32 = "&height="
-      str33 = $("#height").val();
-      str34 = "&new_width="
-      str35 = width_new;
-      str36 = "&new_height="
-      str37 = height_new;
-      str38 = "&epik_rolo="
-      str39 = epikathimeno_rolo;
-      str40 = "&xrwma_epikathimenou="
-      str41 = color_epikathimenou;
-      str42 = "&ekso_rolo="
-      str43 = eksoteriko_rolo;
-      stra  = "&xrwma_eksoterikou="
-      strb  = color_eksoterikou; 
-      str44 = "&persida="
-      str45 = persida;
-      str46 = "&color_persidas="
-      str47 = color_persidas;
-      str48 = "&lastixo="
-      str49 = <%= @lastixo %>
-      str50 = "&mesa_eksw="
-      str51 = <%= @mesa_eksw %>
-      str52 = "&profil_deksia="
-      str53 = profil_deksia;
-      str54 = "&profil_aristera="
-      str55 = profil_aristera;
-      str56 = "&profil_panw="
-      str57 = profil_panw;
-      str58 = "&profil_katw="
-      str59 = profil_katw;
-      str60 = "&color_profil_deksia="
-      str61 = color_profil_deksia;
-      str62 = "&color_profil_panw="
-      str63 = color_profil_panw;
-      str64 = "&color_profil_aristera="
-      str65 = color_profil_aristera;
-      str66 = "&color_profil_katw="
-      str67 = color_profil_katw;
-      str68 = "&posotita_deksia_profil="
-      str69 = $(".input_deksia").val();
-      str70 = "&posotita_aristera_profil="
-      str71 = $(".input_aristera").val();
-      str72 = "&posotita_panw_profil="
-      str73 = $(".input_panw").val();
-      str74 = "&posotita_katw_profil="
-      str75 = $(".input_katw").val();
-      str76 = "&tzamia="
-      str77 = tzamia;
-      str78 = "&typos="
-      str79 = typos;
-      str80 = "&color_typos="
-      str81 = color_typos;
-      str82 = "&xwrisma1="
-      str83 = xwrisma1;
-      str84 = "&xwrisma2="
-      str85 = xwrisma2;
-      str86 = "&xwrisma3_1="
-      str87 = xwrisma3_1;
-      str88 = "&xwrisma3_2="
-      str89 = xwrisma3_2;
-      str90 = "&xwrisma3_3="
-      str91 = xwrisma3_3;
-      str92 = "&odoigos_rolou="
-      str93 = odoigos;
-      str94 = "&color_odoigou="
-      str95 = color_odoigou;
-      str96 = "&lastixo="
-      str97 = lastixo_epilogh;
-      str98 = "&xwrisma_y_1="
-      str99 = xwrisma_y_1;
-      str100 = "&xwrisma_y_2=" 
-      str101 = xwrisma_y_2;
-      str102 = "&profil_deksia_1="
-      str103 = profil_deksia_1;
-      str104 = "&profil_deksia_1_arithmos="
-      str105 = profil_deksia_1_arithmos;
-      str106 = "&profil_deksia_2="
-      str107 = profil_deksia_2;
-      str108 = "&profil_deksia_2_arithmos="
-      str109 = profil_deksia_2_arithmos;
-      str110 = "&profil_deksia_3="
-      str111 = profil_deksia_3;
-      str112 = "&profil_deksia_3_arithmos="
-      str113 = profil_deksia_3_arithmos;
-      str114 = "&profil_aristera_1="
-      str115 = profil_aristera_1;
-      str116 = "&profil_aristera_1_arithmos="
-      str117 = profil_aristera_1_arithmos;
-      str118 = "&profil_aristera_2="
-      str119 = profil_aristera_2;
-      str120 = "&profil_aristera_2_arithmos="
-      str121 = profil_aristera_2_arithmos;
-      str122 = "&profil_aristera_3="
-      str123 = profil_aristera_3;
-      str124 = "&profil_aristera_3_arithmos="
-      str125 = profil_aristera_3_arithmos;
-      str126 = "&profil_panw_1="
-      str127 = profil_panw_1;
-      str128 = "&profil_panw_1_arithmos="
-      str129 = profil_panw_1_arithmos;
-      str130 = "&profil_panw_2="
-      str131 = profil_panw_2;
-      str132 = "&profil_panw_2_arithmos="
-      str133 = profil_panw_2_arithmos;
-      str134 = "&profil_panw_3="
-      str135 = profil_panw_3;
-      str136 = "&profil_panw_3_arithmos="
-      str137 = profil_panw_3_arithmos;
-      str138 = "&profil_katw_1="
-      str139 = profil_katw_1;
-      str140 = "&profil_katw_1_arithmos="
-      str141 = profil_katw_1_arithmos;
-      str142 = "&profil_katw_2="
-      str143 = profil_katw_2;
-      str144 = "&profil_katw_2_arithmos="
-      str145 = profil_katw_2_arithmos;
-      str146 = "&profil_katw_3="
-      str147 = profil_katw_3;
-      str148 = "&profil_katw_3_arithmos="
-      str149 = profil_katw_3_arithmos;
-      str150 = "&typos_katw_1="
-      str151 = typos_katw_1;
-      str152 = "&typos_katw_1_arithmos="
-      str153 = typos_katw_1_arithmos;
-      str154 = "&typos_katw_2="
-      str155 = typos_katw_2;
-      str156 = "&typos_katw_2_arithmos="
-      str157 = typos_katw_2_arithmos;
-      str158 = "&typos_katw_3="
-      str159 = typos_katw_3;
-      str160 = "&typos_katw_3_arithmos="
-      str161 = typos_katw_3_arithmos;
-      str162 = "&prostasia="
-      str163 = prostasia;
-      str164 = "&tzamia2="
-      str165 = tzamia2;
-      str166 = "&pl_rol_ep="
-      str167 = pl_rol_ep;
-      str168 = "&up_rol_ep="
-      str169 = up_rol_ep;
-      str170 = "&kinisi_ep="
-      str171 = kinisi_ep;
-      str172 = "&pl_rol_ek="
-      str173 = pl_rol_ek;
-      str174 = "&up_rol_ek="
-      str175 = up_rol_ek;
-      str176 = "&kinisi_ek="
-      str177 = kinisi_ek;
-      str178 = "&pl_persidas="
-      str179 = pl_persidas;
-      str180 = "&up_persidas="
-      str181 = up_persidas;
-      str182 = "&up_odoigou="
-      str183 = up_odoigou;
-      str184 = "&aukson_id="
-      str185 = aukson_id;
-      str186 = "&elegxos_w="
-      str187 = elegxos_gia_parapanw_diastaseis_w;
-      str188 = "&elegxos_h="
-      str189 = elegxos_gia_parapanw_diastaseis_h;
-      str190 = "&color_eksw_name="
-      str191 = color_aplo_eksw;
-      str192 = "&tzamia0="
-      str193 = tzamia0;
-      str194 = "&tzami0_cat="
-      str195 = cat_tzamia0;
-      str196 = "&tzami1_cat="
-      str197 = cat_tzamia;
-      str198 = "&tzami2_cat="
-      str199 = cat_tzamia2;
-      str200 = "&klap_ep="
-      str201 = klap_ep;
-      str202 = "&deroll="
-      str203 = deroll;
-      str204 = "&xwrisma4_1="
-      str205 = xwrisma4_1;
-      str206 = "&xwrisma4_2="
-      str207 = xwrisma4_2;
-      str208 = "&xwrisma4_3="
-      str209 = xwrisma4_3;
-      str210 = "&xwrisma4_4="
-      str211 = xwrisma4_4;
-      str212 = "&window_still_single="
-      str213 = window_still_single;
-      str214 = "&roll_rat="
-      str215 = roll_rat;
-      str216 = "&roll_rlt="
-      str217 = roll_rlt;
-      str218 = "&roll_rdm="
-      str219 = roll_rdm;
-      str220 = "&roll_pss="
-      str221 = roll_pss;
-      str222 = "&roll_pfm="
-      str223 = roll_pfm;
-      str224 = "&place="
-      str225 = place;
-      str226 = "&rat_quantity="
-      str227 = rat_quantity;
-      str228 = "&sec_odoigos="
-      str229 = sec_odoigos;
-      str230 = "&sec_color_odoigou="
-      str231 = sec_color_odoigou;
+
+      
       
       }//geniko_ok = true;
       else{
