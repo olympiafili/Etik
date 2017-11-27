@@ -287,7 +287,8 @@
         place: place,
         rat_quantity: rat_quantity,
         sec_odoigos: sec_odoigos, 
-        sec_color_odoigou: sec_color_odoigou},
+        sec_color_odoigou: sec_color_odoigou,
+        lock:lock},
       success: function(data) {
         arxiki_timi = parseFloat(data.arxiki_timi);
         super_apli_timi = parseFloat(data.super_apli_timi);
@@ -342,6 +343,11 @@
 
         place_name = data.place_name;
         place_timi = data.place_timi;
+
+        lock_name = data.lock_name;
+        lock_timi = data.lock_timi;
+        num_slides = data.num_slides;
+        lock_timi_m = data.lock_timi_m;
 		
         roll_rat_name = data.roll_rat_name;
         roll_rat_timi = data.roll_rat_timi;
@@ -621,6 +627,18 @@
         }
         else{
             $(".place_show_hide").css("display","none");
+        }
+
+        if (lock_timi != 0){
+            $(".timi_market_lock").text((lock_timi - pososto_market * lock_timi).toFixed(2).replace(".", ",")+" €");
+            $(".timi_dealer_lock").text((lock_timi - pososto_dealer * lock_timi).toFixed(2).replace(".", ",")+" €");
+            $(".lock_show_hide").css("display","table-row");
+            $(".table_lock").text(lock_name);
+            $(".timi_lock").text(lock_timi.toFixed(2).replace(".", ",")+" €");
+            $(".lock_quan").text(num_slides+"x"+lock_timi_m+"€");
+        }
+        else{
+            $(".lock_show_hide").css("display","none");
         }
 		
         if (roll_rat_timi != 0){

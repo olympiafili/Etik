@@ -570,6 +570,7 @@ class EticController < ApplicationController
 		@persides = Persides.all
     	@window_still_cat = WindowStillCat.all
     	@places = Place.all
+    	@locks = Lock.all
 		#Glass
 		@cat_tzamia0 = GlassCatInOut.all
 		@cat_tzamia1 = GlassCatIn.all
@@ -705,6 +706,11 @@ class EticController < ApplicationController
 				end
 	        end
 
+	        lock = Lock.where(:name => params[:lock]).first
+	        if ( !lock.nil? )
+				@lock_id = lock.id
+	        end
+
 	        #rolo
 	        rolo = RolaEkso.where(:sungate_code => params[:rolo_code]).first
 	        cat_rolo = "ekso"
@@ -809,6 +815,11 @@ class EticController < ApplicationController
 				else
 					@sec_color_odoigou = @sec_color_odoigouu.name
 				end
+	        end
+
+	        lock = Lock.where(:name => params[:lock]).first
+	        if ( !lock.nil? )
+				@lock_id = lock.id
 	        end
 
 	        #rolo
@@ -3929,6 +3940,16 @@ class EticController < ApplicationController
           	m_place = @place.unit
           	place_code = @place.sungate_code
         end
+
+        #safety
+        @lock = Lock.where(:id => params[:lock]).first
+        if ( !@lock.nil? )
+            lock_price = @lock.price.to_f * @open_type.num_slides
+            lock_name = @lock.name
+            @price_extra = @price_extra + lock_price
+          	timi_m_lock = @lock.price.to_f
+          	num_slides = @open_type.num_slides
+        end
         
         #roll rat
         @roll_rat = RatRoll.where(:id => params[:roll_rat]).first
@@ -4733,6 +4754,14 @@ class EticController < ApplicationController
 		    	@order.place_code = place_code
 		    end
 
+		    #lock
+		    if !@lock.nil?
+		    	@order.lock = @lock.name
+		    	@order.timi_m_lock = timi_m_lock
+		    	@order.price_lock = lock_price
+		    	@order.num_slides = num_slides
+		    end
+
 		    ### Nea profil
 		    if !@profil_deksia_1.nil?
 		    	@order.profil_deksia_1 = @profil_deksia_1.name
@@ -5058,6 +5087,18 @@ class EticController < ApplicationController
         	place_name = ""
         	place_timi = 0
         end
+
+        if (params[:lock] != "0")
+        	lock_name = lock_name
+        	lock_timi = lock_price
+          	lock_timi_m = timi_m_lock
+          	num_slides = num_slides
+        else
+        	lock_name = ""
+        	lock_timi = 0
+        	num_slides = 0
+        	lock_timi_m = 0
+        end
         
         if (params[:roll_rat] != "0")
         	roll_rat_name = roll_rat_name
@@ -5364,6 +5405,10 @@ class EticController < ApplicationController
           	                          :window_still_timi => window_still_timi,
           	                          :place_name => place_name,
           	                          :place_timi => place_timi,
+          	                          :lock_name => lock_name,
+          	                          :lock_timi => lock_timi,
+          	                          :num_slides => num_slides,
+        							  :lock_timi_m => lock_timi_m,
           	                          :roll_rat_name => roll_rat_name,
           	                          :roll_rat_timi => roll_rat_timi,
           	                          :roll_rat_quan => roll_rat_quan,

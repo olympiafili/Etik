@@ -187,6 +187,15 @@ ActiveRecord::Schema.define(version: 20160719070630075818) do
     t.integer  "order"
     t.integer  "default"
     t.text     "description"
+    t.float    "num_slides",          limit: 24
+  end
+
+  create_table "locks", force: true do |t|
+    t.string   "name"
+    t.float    "price",        limit: 24
+    t.string   "sungate_code"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "material_constructors", force: true do |t|
@@ -247,6 +256,7 @@ ActiveRecord::Schema.define(version: 20160719070630075818) do
     t.string   "csv"
     t.text     "table"
     t.string   "sungate_code"
+    t.float    "num_slides",        limit: 24
   end
 
   create_table "orders", force: true do |t|
@@ -503,6 +513,10 @@ ActiveRecord::Schema.define(version: 20160719070630075818) do
     t.string   "sec_color_odoigou"
     t.float    "price_sec_odoigou",          limit: 24
     t.float    "price_sec_color_odoigou",    limit: 24
+    t.string   "lock"
+    t.float    "num_slides",                 limit: 24
+    t.float    "timi_m_lock",                limit: 24
+    t.float    "price_lock",                 limit: 24
   end
 
   create_table "panels", force: true do |t|
@@ -536,6 +550,14 @@ ActiveRecord::Schema.define(version: 20160719070630075818) do
     t.integer  "default"
     t.string   "sungate_code"
     t.integer  "pre_order_id"
+  end
+
+  create_table "percentage_sales", force: true do |t|
+    t.integer  "dealer_id"
+    t.integer  "line_id"
+    t.float    "percentage", limit: 24
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "persides", force: true do |t|
