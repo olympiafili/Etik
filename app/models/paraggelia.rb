@@ -218,11 +218,13 @@ class Paraggelia < ActiveRecord::Base
         end
         #window still
         if (order.window_still != nil)
-          market_price_window_still = order.price_window_still - (@pososto_market/100)*order.price_window_still
-          dealer_price_window_still = order.price_window_still - (@pososto_dealer/100)*order.price_window_still
-          csv << ["ARTPOS", main_index, index.to_s, 1, order.m_window_still, order.window_still_code, nil, 
-            order.window_still, "", "", "<Discount/Surcharge%>", "<Discount/Surcharge per unit>", order.timi_m_window_still, "no", order.price_window_still, market_price_window_still.round(2), dealer_price_window_still.round(2)]
-          index +=10
+          for i in 0..(order.window_still.length-1)
+            market_price_window_still = order.price_window_still[i] - (@pososto_market/100)*order.price_window_still[i]
+            dealer_price_window_still = order.price_window_still[i] - (@pososto_dealer/100)*order.price_window_still[i]
+            csv << ["ARTPOS", main_index, index.to_s, 1, order.m_window_still[i], order.window_still_code[i], nil, 
+              order.window_still[i], "", "", "<Discount/Surcharge%>", "<Discount/Surcharge per unit>", order.timi_m_window_still[i], "no", order.price_window_still[i], market_price_window_still.round(2), dealer_price_window_still.round(2)]
+            index +=10
+          end
         end
         #place
         if (order.place != nil)

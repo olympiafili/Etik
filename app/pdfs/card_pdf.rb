@@ -1,7 +1,7 @@
 class Card_Pdf < Prawn::Document
   include ActionView::Helpers::NumberHelper
 
-  def initialize(items, view, user, name, surname, company, address, phone, email, sunolo, epivarinsi, ekptosi, metaforika, teliki)
+  def initialize(items, view, user, name, surname, company, address, phone, email, sunolo, epivarinsi, ekptosi, metaforika, teliki, user_par)
   	super()
   	@items = items
     @view  = view
@@ -16,6 +16,7 @@ class Card_Pdf < Prawn::Document
     @ekptosi = ekptosi
     @metaforika = metaforika
     @teliki = teliki
+    @user_par = user_par
     font_families.update("DejaVuSans" => {
       :normal => "#{Rails.root}/app/assets/fonts/DejaVuSans.ttf",
       :bold => "#{Rails.root}/app/assets/fonts/DejaVuSans-Bold.ttf"
@@ -26,6 +27,17 @@ class Card_Pdf < Prawn::Document
 
   def price(num)
     unless num.nil?
+      pososto_dealer = @user_par.pososto_dealer
+     
+
+      if(num.kind_of?(Array))
+        num.each do |n|
+          n = n - (pososto_dealer/100)*n
+        end
+      else
+        num = num - (pososto_dealer/100)*num
+      end
+
       @view.number_to_currency(num,:unit=>'', format: "%n %u", separator: ",", :delimiter => '.')
     end
   end
@@ -134,6 +146,7 @@ class Card_Pdf < Prawn::Document
                   if (!order.window_still.nil?) then  ["<b>#{order.aukson}.#{counter = counter + 1}: #{I18n.t("translate.WindowStill")}</b>: #{order.window_still}","#{if (order.m_window_still?) then "#{order.m_window_still}" end}","#{if (order.timi_m_window_still?) then "<color rgb='008000'>(#{price(order.timi_m_window_still)})</color>" end}"," <color rgb='ff0000'>"+price(order.price_window_still)+"</color> €"] else [{:content => "", :height => 0},{:content => "", :height => 0}]  end,
                   if (!order.place.nil?) then  ["<b>#{order.aukson}.#{counter = counter + 1}: #{I18n.t("translate.Place")}</b>: #{order.place}","#{if (order.m_place?) then "#{order.m_place}" end}","#{if (order.timi_m_place?) then "<color rgb='008000'>(#{price(order.timi_m_place)})</color>" end}"," <color rgb='ff0000'>"+price(order.price_place)+"</color> €"] else [{:content => "", :height => 0},{:content => "", :height => 0}]  end,
                   if (!order.lock.nil?) then  ["<b>#{order.aukson}.#{counter = counter + 1}: #{I18n.t("translate.Safety")}</b>: #{order.lock}","","#{if (order.timi_m_lock?) then "<color rgb='008000'>(#{price(order.timi_m_lock)})</color>" end}"," <color rgb='ff0000'>"+price(order.price_lock)+"</color> €"] else [{:content => "", :height => 0},{:content => "", :height => 0}]  end,
+                  if (!order.open_categorie_surcharge.nil?) then  ["<b>#{order.aukson}.#{counter = counter + 1}: #{if (order.open_categorie_id == "suromeno_an_parathiro") then "#{I18n.t("translate.Surcharge_for_safe_closing")}" else "#{I18n.t("translate.Hardware_for_psk_door")}" end}</b>","",""," <color rgb='ff0000'>"+price(order.open_categorie_surcharge)+"</color> €"] else [{:content => "", :height => 0},{:content => "", :height => 0}]  end,
                     
                   #if (!order.equipment.nil?) then
                     #order.equipment.zip(order.price_equipment).each do |equip, price_equip|

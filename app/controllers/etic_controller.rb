@@ -57,7 +57,7 @@ class EticController < ApplicationController
 		paraggelia = Paraggelia.where(:id => params[:id]).first
 		csv = paraggelia.to_csv
 		UserMailer.csv_email(csv).deliver
-		redirect_to etic_user_diax_path
+		redirect_to etic_simple_pse_user_card_path(:id => paraggelia.id)
 	end
 
     ## CONTACT: Η σελίδα που βλέπω όταν πατάω contact στην μπαρα
@@ -383,6 +383,7 @@ class EticController < ApplicationController
     ## epikathimena, color_epikathimenou, eksoterika, color_eksoterikou, color_persidas, color_odoigou, tzamia, color_typos, color_profil.
     ## Όλες αυτές τις μεθόδους τις έχω για να πέρνω δεδομένα σε json format.
 	def extra
+
        @cat_anoigmatos = OpenCategorie.where(:id => [1,2,3,5,6,7])
        @uliko = Material.all
 
@@ -421,30 +422,31 @@ class EticController < ApplicationController
        else
 	       ##Κοκκινο πινακάκι
 	        if( params.has_key?(:open_categorie_name) )
-			    @open_categorie = OpenCategorie.where(:name => params[:open_categorie_name]).first
+			    @open_categorie = OpenCategorie.where(:name => CGI.unescape(params[:open_categorie_name])).first
 			else
 				@open_categorie = OpenCategorie.first
 				@den_exw_parrams = 1
 			end
 			if( params.has_key?(:material_name) )
-			    @material = Material.where(:name => params[:material_name]).first
+			    @material = Material.where(:name => CGI.unescape(params[:material_name])).first
 			else
 				@material = Material.where(:default => 1).first
 			end
 			if( params.has_key?(:constructor_name) )
-			    @constructor = Constructor.where(:name => params[:constructor_name]).first
+			    @constructor = Constructor.where(:name => CGI.unescape(params[:constructor_name])).first
 			else
 				@constructor = Constructor.first
 			end
 			if( params.has_key?(:system_name) )
-			    @system = System.where(:name => params[:system_name]).first
+			    @system = System.where(:name => CGI.unescape(params[:system_name])).first
 			    @sys = 1
 			else
 				@system = System.first
 				@sys = 0
 			end
+			puts params
 			if( params.has_key?(:line_name) )
-			    @line = Line.where(:name => params[:line_name]).first
+			    @line = Line.where(:name => CGI.unescape(params[:line_name])).first
 			else
 				@line = Line.first
 			end
@@ -460,7 +462,7 @@ class EticController < ApplicationController
 
 
 		if( params.has_key?(:leaf_name) )
-		    @leaf_epilegmeno = Leaf.where(:name => params[:leaf_name]).first
+		    @leaf_epilegmeno = Leaf.where(:name => CGI.unescape(params[:leaf_name])).first
 		    #@leaf = Leaf.joins(:open_categorie_leafs).where(["open_categorie_leafs.open_categorie_id = ?", @open_categorie.id])
 		    open_cat_gia_leaf = OpenCategorie.where(:id => @open_categorie.id).first
 		    leaf = []
@@ -480,7 +482,7 @@ class EticController < ApplicationController
 			open_t << line.open_types.to_s.split(",")
 			@open_type = OpenType.where(:id => open_t).order(:order)
 		    @open_type1 = @open_type.where(:leaf_id => @leaf_epilegmeno.id, :open_categorie_id => @open_categorie.id)
-		    @open_type_epilegmeno = OpenType.where(:name => params[:open_type_name]).first
+		    @open_type_epilegmeno = OpenType.where(:name => CGI.unescape(params[:open_type_name])).first
 		else
 			line = Line.where(:id => @line.id).first
 			open_t = []
@@ -506,8 +508,8 @@ class EticController < ApplicationController
 			colors_extra << @oles_oi_omades_xrwmatos.third.colors.to_s.split(",")
 			@color_C = Color.where(:id => colors_extra)
 
-		    @color = Color.where(:name => params[:color_name]).first
-		    @color_eksw = Color.where(:name => params[:color_eksw_name]).first
+		    @color = Color.where(:name => CGI.unescape(params[:color_name])).first
+		    @color_eksw = Color.where(:name => CGI.unescape(params[:color_eksw_name])).first
 
 		    @colors_0 = Color.where(:katigoria => 0)
 		    @colors_standar = Color.where(:katigoria => 1)
@@ -664,7 +666,7 @@ class EticController < ApplicationController
 			persida = Persides.where(:sungate_code => params[:persida_code]).first
 	        if ( !persida.nil? )
 				@persida_id = persida.id
-			    @color_persida = RolaPerColor.where(:sungate_code => params[:persida_color]).first.name
+			    @color_persida = RolaPerColor.where(:sungate_code => CGI.unescape(params[:persida_color])).first.name
 			    @pl_persidas = params[:persida_width]
 	            @up_persidas = params[:persida_height]
 	        else
@@ -709,6 +711,13 @@ class EticController < ApplicationController
 	        lock = Lock.where(:name => params[:lock]).first
 	        if ( !lock.nil? )
 				@lock_id = lock.id
+	        end
+
+	        #open_categorie_surcharge
+	        if ( !params[:open_categorie_surcharge].nil? )
+	        	@open_categorie_surcharge = params[:open_categorie_surcharge]
+	        else
+	        	@open_categorie_surcharge = 0
 	        end
 
 	        #rolo
@@ -909,6 +918,12 @@ class EticController < ApplicationController
 		if ( !tzami2.nil? )
 			@tzami2_id = tzami2.id
 		    @tzami2_cat = params[:cat_tzamia2]
+        end
+
+        place = Place.where(:name => params[:place]).first
+        if ( !place.nil? )
+			@place_id = place.id
+		    #@color_odoigou = RolaColor.where(:name => params[:xrwma_odoigou]).first.name
         end
 
         prostasia = TypoiProstasia.where(:name => params[:prostasia]).first
@@ -4514,6 +4529,16 @@ class EticController < ApplicationController
           profil_sum = profil_sum + ( @typos_katw_3.price * @numero_typos_3 )
         end
 
+        if ( ! @open_type.nil? && params[:open_categorie_surcharge] == '1')
+        	@open_categorie = OpenCategorie.where(:id => @open_type.open_categorie_id).first
+			if ( ! @open_categorie.nil? )
+				if( ! @open_categorie.surcharge.nil? )
+					open_categorie_surcharge = @open_categorie.surcharge.to_f
+					@price_extra = @price_extra + open_categorie_surcharge
+				end
+			end
+		end
+
         ### Μεχρι εδω
 
 
@@ -4947,6 +4972,10 @@ class EticController < ApplicationController
 		    	@order.timi_m_roll_pfm = timi_m_roll_pfm
 		    	@order.roll_pfm_price = roll_pfm_price
 		    end
+
+		    if !open_categorie_surcharge.nil?
+		    	@order.open_categorie_surcharge = open_categorie_surcharge
+		    end
 		    ####Mexri edw
 		   
 
@@ -5162,6 +5191,12 @@ class EticController < ApplicationController
         	sec_col_odoigou = ""
         	price_sec_color_odoigou = 0
         	sec_od_quan = 0
+        end
+
+        if !open_categorie_surcharge.nil?
+        	open_categorie_surcharge = open_categorie_surcharge
+        else
+        	open_categorie_surcharge = 0
         end
 
         profil_price = 0
@@ -5516,7 +5551,8 @@ class EticController < ApplicationController
           	                          :sec_col_odoigou => sec_col_odoigou,
           	                          :sec_odoigos_timi => sec_odoigos_timi,
           	                          :price_sec_color_odoigou => price_sec_color_odoigou,
-          	                          :sec_od_quan => sec_od_quan} }
+          	                          :sec_od_quan => sec_od_quan,
+          	                          :open_categorie_surcharge => open_categorie_surcharge} }
         end
 	end
 
@@ -6492,6 +6528,7 @@ class EticController < ApplicationController
         end
       paraggelia = Paraggelia.where(:id => params[:id]).first
       @user = SimpleUserPse.where(:id => paraggelia.customer).first
+      @user_par = User.where(:id => paraggelia.user).first
       @name = @user.name
       @surname = @user.eponimo
       @company = @user.company
@@ -6507,7 +6544,7 @@ class EticController < ApplicationController
       respond_to do |format|
       	format.html
         format.pdf do
-        	pdf = Card_Pdf.new(@items, view_context, @user, @name, @surname, @company, @address, @phone, @email, @sum, @pososto_sun, @pososto, @metaforika, @teliki)
+        	pdf = Card_Pdf.new(@items, view_context, @user, @name, @surname, @company, @address, @phone, @email, @sum, @pososto_sun, @pososto, @metaforika, @teliki, @user_par)
         	send_data pdf.render, filename: "order.pdf", type: "application/pdf", disposition: 'inline'
         end 
       end

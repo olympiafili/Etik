@@ -54,8 +54,8 @@
                               <%= link_to t("translate.Copy"), etic_roll_path(:leaf_name => Leaf.where(:id => item.leaf_id).first.name , :open_type_name => item.open_type_id, :color_name => item.main_color_id, :color_eksw_name => item.main_color_eksw_id, :mesa_eksw => item.in_out, :xwrisma1 => item.xwrisma1, :xwrisma2 => item.xwrisma2, :xwrisma3_1 => item.xwrisma3_1, :xwrisma3_2 => item.xwrisma3_2, :xwrisma3_3 => item.xwrisma3_3, :xwrisma_y_1 => item.xwrisma_y_1, :xwrisma_y_2 => item.xwrisma_y_2, :color_fulou => item.leaf_color_id, :width => item.width, :height => item.height, :order => item.id, :paraggelia_id => item.paraggelia_id, :dealer_id => @dealer_id, :lastixa => item.lastixa,:cat_tzamia0 => item.tzami0_cat,:cat_tzamia1 => item.tzami1_cat,:cat_tzamia2 => item.tzami2_cat, :tzamia0 => item.tzamia0, :tzamia => item.tzamia, :tzamia2 => item.tzamia2, :rolo_name => item.rolo, :xrwma_rolo => item.color_rolou, :persida => item.persida, :xrwma_persidas => item.color_persidas, :odoigos => item.odoigos, :xrwma_odoigou => item.color_odoigou, :pl_rolou_ep => item.pl_rolou_ep, :up_rolou_ep => item.up_rolou_ep, :pl_rolou_ek => item.pl_rolou_ek, :up_rolou_ek => item.up_rolou_ek, :pl_persidas => item.pl_persidas, :up_persidas => item.up_persidas, :up_odigou => item.up_odigou, :kinisi_deksia_aristera => item.kinisi_deksia_aristera, :klap_ep => item.klap, :deroll => item.deroll, :metra_click => "1", :roll_rat => item.roll_rat, :rat_quan => item.rat_quan, :roll_rdm => item.roll_rdm, :roll_rlt => item.roll_rlt, :roll_pfm => item.roll_pfm, :roll_pss => item.roll_pss, :sec_odoigos => item.sec_odoigos, :sec_xrwma_odoigou => item.sec_color_odoigou), class: "btn btn-warning"%></br>
                               <%= link_to t("translate.Fix"), etic_roll_path(:diorthosi => "ok", :leaf_name => Leaf.where(:id => item.leaf_id).first.name , :open_type_name => item.open_type_id, :color_name => item.main_color_id, :color_eksw_name => item.main_color_eksw_id, :mesa_eksw => item.in_out, :xwrisma1 => item.xwrisma1, :xwrisma2 => item.xwrisma2, :xwrisma3_1 => item.xwrisma3_1, :xwrisma3_2 => item.xwrisma3_2, :xwrisma3_3 => item.xwrisma3_3, :xwrisma_y_1 => item.xwrisma_y_1, :xwrisma_y_2 => item.xwrisma_y_2, :color_fulou => item.leaf_color_id, :width => item.width, :height => item.height, :order => item.id, :paraggelia_id => item.paraggelia_id, :dealer_id => @dealer_id, :lastixa => item.lastixa,:cat_tzamia0 => item.tzami0_cat,:cat_tzamia1 => item.tzami1_cat,:cat_tzamia2 => item.tzami2_cat,:tzamia0 => item.tzamia0, :tzamia => item.tzamia, :tzamia2 => item.tzamia2, :rolo_name => item.rolo, :xrwma_rolo => item.color_rolou, :persida => item.persida, :xrwma_persidas => item.color_persidas, :odoigos => item.odoigos, :xrwma_odoigou => item.color_odoigou, :pl_rolou_ep => item.pl_rolou_ep, :up_rolou_ep => item.up_rolou_ep, :pl_rolou_ek => item.pl_rolou_ek, :up_rolou_ek => item.up_rolou_ek, :pl_persidas => item.pl_persidas, :up_persidas => item.up_persidas, :up_odigou => item.up_odigou, :kinisi_deksia_aristera => item.kinisi_deksia_aristera, :klap_ep => item.klap, :deroll => item.deroll, :metra_click => "1", :roll_rat => item.roll_rat, :rat_quan => item.rat_quan, :roll_rdm => item.roll_rdm, :roll_rlt => item.roll_rlt, :roll_pfm => item.roll_pfm, :roll_pss => item.roll_pss, :sec_odoigos => item.sec_odoigos, :sec_xrwma_odoigou => item.sec_color_odoigou), class: "btn btn-info"%></br>
                           <% else %>
-                            <%= link_to t("translate.Copy"), etic_extra_path(:open_categorie_name => item.open_categorie_id, :material_name => item.material_id, :constructor_name => item.constructor_id, :system_name => item.system_id, :line_name => item.line_id, :leaf_name => Leaf.where(:id => item.leaf_id).first.name , :open_type_name => item.open_type_id, :color_name => item.main_color_id, :color_eksw_name => item.main_color_eksw_id, :mesa_eksw => item.in_out, :xwrisma1 => item.xwrisma1, :xwrisma2 => item.xwrisma2, :xwrisma3_1 => item.xwrisma3_1, :xwrisma3_2 => item.xwrisma3_2, :xwrisma3_3 => item.xwrisma3_3, :xwrisma_y_1 => item.xwrisma_y_1, :xwrisma_y_2 => item.xwrisma_y_2, :color_deksia => item.right_color_id, :color_aristera => item.left_color_id, :color_panw => item.up_color_id, :color_katw => item.down_color_id, :color_fulou => item.leaf_color_id, :lastixo => item.lastixo, :width => item.width, :height => item.height, :order => item.id, :paraggelia_id => item.paraggelia_id, :dealer_id => @dealer_id, :lastixa => item.lastixa,:cat_tzamia0 => item.tzami0_cat,:cat_tzamia1 => item.tzami1_cat,:cat_tzamia2 => item.tzami2_cat, :tzamia0 => item.tzamia0, :tzamia => item.tzamia, :tzamia2 => item.tzamia2, :rolo_name => item.rolo, :xrwma_rolo => item.color_rolou, :persida => item.persida, :xrwma_persidas => item.color_persidas, :odoigos => item.odoigos, :xrwma_odoigou => item.color_odoigou, :prostasia => item.prostasia_name, :typos => item.typos_katw_1, :typos_arithmos => item.typos_katw_arithmos_1, :typos_col => item.color_profil_k, :pr_ar_1 => item.profil_aristera_1, :pr_ar_1_ar => item.profil_aristera_arithmos_1, :col_ar => item.color_profil_a, :pr_ar_2 => item.profil_aristera_2, :pr_ar_2_ar => item.profil_aristera_arithmos_2, :pr_ar_3 => item.profil_aristera_3, :pr_ar_3_ar => item.profil_aristera_arithmos_3, :pr_de_1 => item.profil_deksia_1, :pr_de_1_de => item.profil_deksia_arithmos_1, :col_de => item.color_profil_d, :pr_de_2 => item.profil_deksia_2, :pr_de_2_de => item.profil_deksia_arithmos_2, :pr_de_3 => item.profil_deksia_3, :pr_de_3_de => item.profil_deksia_arithmos_3, :pr_pa_1 => item.profil_panw_1, :pr_pa_1_pa => item.profil_panw_arithmos_1, :col_pa => item.color_profil_p, :pr_pa_2 => item.profil_panw_2, :pr_pa_2_pa => item.profil_panw_arithmos_2, :pr_pa_3 => item.profil_panw_3, :pr_pa_3_pa => item.profil_panw_arithmos_3, :pr_ka_1 => item.profil_katw_1, :pr_ka_1_ka => item.profil_katw_arithmos_1, :col_ka => item.color_profil_k, :pr_ka_2 => item.profil_katw_2, :pr_ka_2_ka => item.profil_katw_arithmos_2, :pr_ka_3 => item.profil_katw_3, :pr_ka_3_ka => item.profil_katw_arithmos_3, :pl_rolou_ep => item.pl_rolou_ep, :up_rolou_ep => item.up_rolou_ep, :pl_rolou_ek => item.pl_rolou_ek, :up_rolou_ek => item.up_rolou_ek, :pl_persidas => item.pl_persidas, :up_persidas => item.up_persidas, :up_odigou => item.up_odigou, :kinisi_deksia_aristera => item.kinisi_deksia_aristera, :klap_ep => item.klap, :deroll => item.deroll, :metra_click => "1", :roll_rat => item.roll_rat, :rat_quan => item.rat_quan, :roll_rdm => item.roll_rdm, :roll_rlt => item.roll_rlt, :roll_pfm => item.roll_pfm, :roll_pss => item.roll_pss, :window_still => item.window_still, :sec_odoigos => item.sec_odoigos, :sec_xrwma_odoigou => item.sec_color_odoigou, :lock => item.lock), class: "btn btn-warning"%></br>
-                            <%= link_to t("translate.Fix"), etic_extra_path(:diorthosi => "ok", :open_categorie_name => item.open_categorie_id, :material_name => item.material_id, :constructor_name => item.constructor_id, :system_name => item.system_id, :line_name => item.line_id, :leaf_name => Leaf.where(:id => item.leaf_id).first.name , :open_type_name => item.open_type_id, :color_name => item.main_color_id, :color_eksw_name => item.main_color_eksw_id, :mesa_eksw => item.in_out, :xwrisma1 => item.xwrisma1, :xwrisma2 => item.xwrisma2, :xwrisma3_1 => item.xwrisma3_1, :xwrisma3_2 => item.xwrisma3_2, :xwrisma3_3 => item.xwrisma3_3, :xwrisma_y_1 => item.xwrisma_y_1, :xwrisma_y_2 => item.xwrisma_y_2, :color_deksia => item.right_color_id, :color_aristera => item.left_color_id, :color_panw => item.up_color_id, :color_katw => item.down_color_id, :color_fulou => item.leaf_color_id, :lastixo => item.lastixo, :width => item.width, :height => item.height, :order => item.id, :paraggelia_id => item.paraggelia_id, :dealer_id => @dealer_id, :lastixa => item.lastixa,:cat_tzamia0 => item.tzami0_cat,:cat_tzamia1 => item.tzami1_cat,:cat_tzamia2 => item.tzami2_cat,:tzamia0 => item.tzamia0, :tzamia => item.tzamia, :tzamia2 => item.tzamia2, :rolo_name => item.rolo, :xrwma_rolo => item.color_rolou, :persida => item.persida, :xrwma_persidas => item.color_persidas, :odoigos => item.odoigos, :xrwma_odoigou => item.color_odoigou, :prostasia => item.prostasia_name, :typos => item.typos_katw_1, :typos_arithmos => item.typos_katw_arithmos_1, :typos_col => item.color_profil_k, :pr_ar_1 => item.profil_aristera_1, :pr_ar_1_ar => item.profil_aristera_arithmos_1, :col_ar => item.color_profil_a, :pr_ar_2 => item.profil_aristera_2, :pr_ar_2_ar => item.profil_aristera_arithmos_2, :pr_ar_3 => item.profil_aristera_3, :pr_ar_3_ar => item.profil_aristera_arithmos_3, :pr_de_1 => item.profil_deksia_1, :pr_de_1_de => item.profil_deksia_arithmos_1, :col_de => item.color_profil_d, :pr_de_2 => item.profil_deksia_2, :pr_de_2_de => item.profil_deksia_arithmos_2, :pr_de_3 => item.profil_deksia_3, :pr_de_3_de => item.profil_deksia_arithmos_3, :pr_pa_1 => item.profil_panw_1, :pr_pa_1_pa => item.profil_panw_arithmos_1, :col_pa => item.color_profil_p, :pr_pa_2 => item.profil_panw_2, :pr_pa_2_pa => item.profil_panw_arithmos_2, :pr_pa_3 => item.profil_panw_3, :pr_pa_3_pa => item.profil_panw_arithmos_3, :pr_ka_1 => item.profil_katw_1, :pr_ka_1_ka => item.profil_katw_arithmos_1, :col_ka => item.color_profil_k, :pr_ka_2 => item.profil_katw_2, :pr_ka_2_ka => item.profil_katw_arithmos_2, :pr_ka_3 => item.profil_katw_3, :pr_ka_3_ka => item.profil_katw_arithmos_3, :pl_rolou_ep => item.pl_rolou_ep, :up_rolou_ep => item.up_rolou_ep, :pl_rolou_ek => item.pl_rolou_ek, :up_rolou_ek => item.up_rolou_ek, :pl_persidas => item.pl_persidas, :up_persidas => item.up_persidas, :up_odigou => item.up_odigou, :kinisi_deksia_aristera => item.kinisi_deksia_aristera, :klap_ep => item.klap, :deroll => item.deroll, :metra_click => "1", :roll_rat => item.roll_rat, :rat_quan => item.rat_quan, :roll_rdm => item.roll_rdm, :roll_rlt => item.roll_rlt, :roll_pfm => item.roll_pfm, :roll_pss => item.roll_pss, :window_still => item.window_still, :sec_odoigos => item.sec_odoigos, :sec_xrwma_odoigou => item.sec_color_odoigou, :lock => item.lock), class: "btn btn-info"%></br>
+                            <%= link_to t("translate.Copy"), etic_extra_path(:open_categorie_name => item.open_categorie_id, :material_name => item.material_id, :constructor_name => item.constructor_id, :system_name => item.system_id, :line_name => item.line_id, :leaf_name => Leaf.where(:id => item.leaf_id).first.name , :open_type_name => item.open_type_id, :color_name => item.main_color_id, :color_eksw_name => item.main_color_eksw_id, :mesa_eksw => item.in_out, :xwrisma1 => item.xwrisma1, :xwrisma2 => item.xwrisma2, :xwrisma3_1 => item.xwrisma3_1, :xwrisma3_2 => item.xwrisma3_2, :xwrisma3_3 => item.xwrisma3_3, :xwrisma_y_1 => item.xwrisma_y_1, :xwrisma_y_2 => item.xwrisma_y_2, :color_deksia => item.right_color_id, :color_aristera => item.left_color_id, :color_panw => item.up_color_id, :color_katw => item.down_color_id, :color_fulou => item.leaf_color_id, :lastixo => item.lastixo, :width => item.width, :height => item.height, :order => item.id, :paraggelia_id => item.paraggelia_id, :dealer_id => @dealer_id, :lastixa => item.lastixa,:cat_tzamia0 => item.tzami0_cat,:cat_tzamia1 => item.tzami1_cat,:cat_tzamia2 => item.tzami2_cat, :tzamia0 => item.tzamia0, :tzamia => item.tzamia, :tzamia2 => item.tzamia2, :rolo_name => item.rolo, :xrwma_rolo => item.color_rolou, :persida => item.persida, :xrwma_persidas => item.color_persidas, :odoigos => item.odoigos, :xrwma_odoigou => item.color_odoigou, :prostasia => item.prostasia_name, :typos => item.typos_katw_1, :typos_arithmos => item.typos_katw_arithmos_1, :typos_col => item.color_profil_k, :pr_ar_1 => item.profil_aristera_1, :pr_ar_1_ar => item.profil_aristera_arithmos_1, :col_ar => item.color_profil_a, :pr_ar_2 => item.profil_aristera_2, :pr_ar_2_ar => item.profil_aristera_arithmos_2, :pr_ar_3 => item.profil_aristera_3, :pr_ar_3_ar => item.profil_aristera_arithmos_3, :pr_de_1 => item.profil_deksia_1, :pr_de_1_de => item.profil_deksia_arithmos_1, :col_de => item.color_profil_d, :pr_de_2 => item.profil_deksia_2, :pr_de_2_de => item.profil_deksia_arithmos_2, :pr_de_3 => item.profil_deksia_3, :pr_de_3_de => item.profil_deksia_arithmos_3, :pr_pa_1 => item.profil_panw_1, :pr_pa_1_pa => item.profil_panw_arithmos_1, :col_pa => item.color_profil_p, :pr_pa_2 => item.profil_panw_2, :pr_pa_2_pa => item.profil_panw_arithmos_2, :pr_pa_3 => item.profil_panw_3, :pr_pa_3_pa => item.profil_panw_arithmos_3, :pr_ka_1 => item.profil_katw_1, :pr_ka_1_ka => item.profil_katw_arithmos_1, :col_ka => item.color_profil_k, :pr_ka_2 => item.profil_katw_2, :pr_ka_2_ka => item.profil_katw_arithmos_2, :pr_ka_3 => item.profil_katw_3, :pr_ka_3_ka => item.profil_katw_arithmos_3, :pl_rolou_ep => item.pl_rolou_ep, :up_rolou_ep => item.up_rolou_ep, :pl_rolou_ek => item.pl_rolou_ek, :up_rolou_ek => item.up_rolou_ek, :pl_persidas => item.pl_persidas, :up_persidas => item.up_persidas, :up_odigou => item.up_odigou, :kinisi_deksia_aristera => item.kinisi_deksia_aristera, :klap_ep => item.klap, :deroll => item.deroll, :metra_click => "1", :roll_rat => item.roll_rat, :rat_quan => item.rat_quan, :roll_rdm => item.roll_rdm, :roll_rlt => item.roll_rlt, :roll_pfm => item.roll_pfm, :roll_pss => item.roll_pss, :window_still => item.window_still, :sec_odoigos => item.sec_odoigos, :sec_xrwma_odoigou => item.sec_color_odoigou, :lock => item.lock, :place => item.place, :open_categorie_surcharge => item.open_categorie_surcharge), class: "btn btn-warning"%></br>
+                            <%= link_to t("translate.Fix"), etic_extra_path(:diorthosi => "ok", :open_categorie_name => item.open_categorie_id, :material_name => item.material_id, :constructor_name => item.constructor_id, :system_name => item.system_id, :line_name => item.line_id, :leaf_name => Leaf.where(:id => item.leaf_id).first.name , :open_type_name => item.open_type_id, :color_name => item.main_color_id, :color_eksw_name => item.main_color_eksw_id, :mesa_eksw => item.in_out, :xwrisma1 => item.xwrisma1, :xwrisma2 => item.xwrisma2, :xwrisma3_1 => item.xwrisma3_1, :xwrisma3_2 => item.xwrisma3_2, :xwrisma3_3 => item.xwrisma3_3, :xwrisma_y_1 => item.xwrisma_y_1, :xwrisma_y_2 => item.xwrisma_y_2, :color_deksia => item.right_color_id, :color_aristera => item.left_color_id, :color_panw => item.up_color_id, :color_katw => item.down_color_id, :color_fulou => item.leaf_color_id, :lastixo => item.lastixo, :width => item.width, :height => item.height, :order => item.id, :paraggelia_id => item.paraggelia_id, :dealer_id => @dealer_id, :lastixa => item.lastixa,:cat_tzamia0 => item.tzami0_cat,:cat_tzamia1 => item.tzami1_cat,:cat_tzamia2 => item.tzami2_cat,:tzamia0 => item.tzamia0, :tzamia => item.tzamia, :tzamia2 => item.tzamia2, :rolo_name => item.rolo, :xrwma_rolo => item.color_rolou, :persida => item.persida, :xrwma_persidas => item.color_persidas, :odoigos => item.odoigos, :xrwma_odoigou => item.color_odoigou, :prostasia => item.prostasia_name, :typos => item.typos_katw_1, :typos_arithmos => item.typos_katw_arithmos_1, :typos_col => item.color_profil_k, :pr_ar_1 => item.profil_aristera_1, :pr_ar_1_ar => item.profil_aristera_arithmos_1, :col_ar => item.color_profil_a, :pr_ar_2 => item.profil_aristera_2, :pr_ar_2_ar => item.profil_aristera_arithmos_2, :pr_ar_3 => item.profil_aristera_3, :pr_ar_3_ar => item.profil_aristera_arithmos_3, :pr_de_1 => item.profil_deksia_1, :pr_de_1_de => item.profil_deksia_arithmos_1, :col_de => item.color_profil_d, :pr_de_2 => item.profil_deksia_2, :pr_de_2_de => item.profil_deksia_arithmos_2, :pr_de_3 => item.profil_deksia_3, :pr_de_3_de => item.profil_deksia_arithmos_3, :pr_pa_1 => item.profil_panw_1, :pr_pa_1_pa => item.profil_panw_arithmos_1, :col_pa => item.color_profil_p, :pr_pa_2 => item.profil_panw_2, :pr_pa_2_pa => item.profil_panw_arithmos_2, :pr_pa_3 => item.profil_panw_3, :pr_pa_3_pa => item.profil_panw_arithmos_3, :pr_ka_1 => item.profil_katw_1, :pr_ka_1_ka => item.profil_katw_arithmos_1, :col_ka => item.color_profil_k, :pr_ka_2 => item.profil_katw_2, :pr_ka_2_ka => item.profil_katw_arithmos_2, :pr_ka_3 => item.profil_katw_3, :pr_ka_3_ka => item.profil_katw_arithmos_3, :pl_rolou_ep => item.pl_rolou_ep, :up_rolou_ep => item.up_rolou_ep, :pl_rolou_ek => item.pl_rolou_ek, :up_rolou_ek => item.up_rolou_ek, :pl_persidas => item.pl_persidas, :up_persidas => item.up_persidas, :up_odigou => item.up_odigou, :kinisi_deksia_aristera => item.kinisi_deksia_aristera, :klap_ep => item.klap, :deroll => item.deroll, :metra_click => "1", :roll_rat => item.roll_rat, :rat_quan => item.rat_quan, :roll_rdm => item.roll_rdm, :roll_rlt => item.roll_rlt, :roll_pfm => item.roll_pfm, :roll_pss => item.roll_pss, :window_still => item.window_still, :sec_odoigos => item.sec_odoigos, :sec_xrwma_odoigou => item.sec_color_odoigou, :lock => item.lock, :place => item.place, :open_categorie_surcharge => item.open_categorie_surcharge), class: "btn btn-info"%></br>
                             <% end %>
                           <% else %>
                           <% end %>
@@ -178,7 +178,8 @@
                       <color style="color:#ff0000"><%= number_with_precision(item.super_apli_timi, :precision => 2, separator: ",", :delimiter => '.') %></color> €</td> 
                     </tr>
                     -->
-
+                    <% market_price_all = 0 %>
+                    <% dealer_price_all = 0 %>
                     <tr>
                     <td class="extra_subtable">
                       <color style="color:#ff0000"><b><%= t 'translate.Start_price' %></b></color>:<br>
@@ -192,12 +193,14 @@
                     <td class="p_subtable">
                       <% if (!@pososto_market.nil?) %>
                         <% market_price = item.price_new - (@pososto_market/100)*item.price_new %>
+                        <% market_price_all += market_price %>
                         <%= number_with_precision(market_price, :precision => 2, separator: ",", :delimiter => '.') %> €
                       <% end %>
                     </td>
                     <td class="p_subtable">
                       <% if (!@pososto_dealer.nil?) %>
                         <% dealer_price = item.price_new - (@pososto_dealer/100)*item.price_new %>
+                        <% dealer_price_all += dealer_price %>
                         <%= number_with_precision(dealer_price, :precision => 2, separator: ",", :delimiter => '.') %> €
                       <% end %>
                     </td>
@@ -307,12 +310,14 @@
                     <td class="p_subtable">
                       <% if (!@pososto_market.nil?) %>
                         <% market_price = item.price_rolou - (@pososto_market/100)*item.price_rolou %>
+                        <% market_price_all += market_price %>
                         <%= number_with_precision(market_price, :precision => 2, separator: ",", :delimiter => '.') %> €
                       <% end %>
                     </td>
                     <td class="p_subtable">
                       <% if (!@pososto_dealer.nil?) %>
                         <% dealer_price = item.price_rolou - (@pososto_dealer/100)*item.price_rolou %>
+                        <% dealer_price_all += dealer_price %>
                         <%= number_with_precision(dealer_price, :precision => 2, separator: ",", :delimiter => '.') %> €
                       <% end %>
                     </td>
@@ -331,12 +336,14 @@
                         <td class="p_subtable">
                           <% if (!@pososto_market.nil?) %>
                             <% market_price = item.price_color_rolou - (@pososto_market/100)*item.price_color_rolou %>
+                            <% market_price_all += market_price %>
                             <%= number_with_precision(market_price, :precision => 2, separator: ",", :delimiter => '.') %> €
                           <% end %>
                         </td>
                         <td class="p_subtable">
                           <% if (!@pososto_dealer.nil?) %>
                             <% dealer_price = item.price_color_rolou - (@pososto_dealer/100)*item.price_color_rolou %>
+                            <% dealer_price_all += dealer_price %>
                             <%= number_with_precision(dealer_price, :precision => 2, separator: ",", :delimiter => '.') %> €
                           <% end %>
                         </td>
@@ -361,12 +368,14 @@
                       <td class="p_subtable">
                         <% if (!@pososto_market.nil?) %>
                           <% market_price = item.price_odoigou - (@pososto_market/100)*item.price_odoigou %>
+                          <% market_price_all += market_price %>
                           <%= number_with_precision(market_price, :precision => 2, separator: ",", :delimiter => '.') %> €
                         <% end %>
                       </td>
                       <td class="p_subtable">
                         <% if (!@pososto_dealer.nil?) %>
                           <% dealer_price = item.price_odoigou - (@pososto_dealer/100)*item.price_odoigou %>
+                          <% dealer_price_all += dealer_price %>
                           <%= number_with_precision(dealer_price, :precision => 2, separator: ",", :delimiter => '.') %> €
                         <% end %>
                       </td>
@@ -385,12 +394,14 @@
                       <td class="p_subtable">
                         <% if (!@pososto_market.nil?) %>
                           <% market_price = item.price_color_odoigou - (@pososto_market/100)*item.price_color_odoigou %>
+                          <% market_price_all += market_price %>
                           <%= number_with_precision(market_price, :precision => 2, separator: ",", :delimiter => '.') %> €
                         <% end %>
                       </td>
                       <td class="p_subtable">
                         <% if (!@pososto_dealer.nil?) %>
                           <% dealer_price = item.price_color_odoigou - (@pososto_dealer/100)*item.price_color_odoigou %>
+                          <% dealer_price_all += dealer_price %>
                           <%= number_with_precision(dealer_price, :precision => 2, separator: ",", :delimiter => '.') %> €
                         <% end %>
                       </td>
@@ -418,12 +429,14 @@
                       <td class="p_subtable">
                         <% if (!@pososto_market.nil?) %>
                           <% market_price = item.price_sec_odoigou - (@pososto_market/100)*item.price_sec_odoigou %>
+                          <% market_price_all += market_price %>
                           <%= number_with_precision(market_price, :precision => 2, separator: ",", :delimiter => '.') %> €
                         <% end %>
                       </td>
                       <td class="p_subtable">
                         <% if (!@pososto_dealer.nil?) %>
                           <% dealer_price = item.price_sec_odoigou - (@pososto_dealer/100)*item.price_sec_odoigou %>
+                          <% dealer_price_all += dealer_price %>
                           <%= number_with_precision(dealer_price, :precision => 2, separator: ",", :delimiter => '.') %> €
                         <% end %>
                       </td>
@@ -442,12 +455,14 @@
                       <td class="p_subtable">
                         <% if (!@pososto_market.nil?) %>
                           <% market_price = item.price_sec_color_odoigou - (@pososto_market/100)*item.price_sec_color_odoigou %>
+                          <% market_price_all += market_price %>
                           <%= number_with_precision(market_price, :precision => 2, separator: ",", :delimiter => '.') %> €
                         <% end %>
                       </td>
                       <td class="p_subtable">
                         <% if (!@pososto_dealer.nil?) %>
                           <% dealer_price = item.price_sec_color_odoigou - (@pososto_dealer/100)*item.price_sec_color_odoigou %>
+                          <% dealer_price_all += dealer_price %>
                           <%= number_with_precision(dealer_price, :precision => 2, separator: ",", :delimiter => '.') %> €
                         <% end %>
                       </td>
@@ -475,12 +490,14 @@
                     <td class="p_subtable">
                       <% if (!@pososto_market.nil?) %>
                         <% market_price = item.price_persidas - (@pososto_market/100)*item.price_persidas %>
+                        <% market_price_all += market_price %>
                         <%= number_with_precision(market_price, :precision => 2, separator: ",", :delimiter => '.') %> €
                       <% end %>
                     </td>
                     <td class="p_subtable">
                       <% if (!@pososto_dealer.nil?) %>
                         <% dealer_price = item.price_persidas - (@pososto_dealer/100)*item.price_persidas %>
+                        <% dealer_price_all += dealer_price %>
                         <%= number_with_precision(dealer_price, :precision => 2, separator: ",", :delimiter => '.') %> €
                       <% end %>
                     </td>
@@ -499,12 +516,14 @@
                         <td class="p_subtable">
                           <% if (!@pososto_market.nil?) %>
                             <% market_price = item.price_color_persidas - (@pososto_market/100)*item.price_color_persidas %>
+                            <% market_price_all += market_price %>
                             <%= number_with_precision(market_price, :precision => 2, separator: ",", :delimiter => '.') %> €
                           <% end %>
                         </td>
                         <td class="p_subtable">
                           <% if (!@pososto_dealer.nil?) %>
                             <% dealer_price = item.price_color_persidas - (@pososto_dealer/100)*item.price_color_persidas %>
+                            <% dealer_price_all += dealer_price %>
                             <%= number_with_precision(dealer_price, :precision => 2, separator: ",", :delimiter => '.') %> €
                           <% end %>
                         </td>
@@ -528,12 +547,14 @@
                     <td class="p_subtable">
                       <% if (!@pososto_market.nil?) %>
                         <% market_price = item.prostasia_price - (@pososto_market/100)*item.prostasia_price %>
+                        <% market_price_all += market_price %>
                         <%= number_with_precision(market_price, :precision => 2, separator: ",", :delimiter => '.') %> €
                       <% end %>
                     </td>
                     <td class="p_subtable">
                       <% if (!@pososto_dealer.nil?) %>
                         <% dealer_price = item.prostasia_price - (@pososto_dealer/100)*item.prostasia_price %>
+                        <% dealer_price_all += dealer_price %>
                         <%= number_with_precision(dealer_price, :precision => 2, separator: ",", :delimiter => '.') %> €
                       <% end %>
                     </td>
@@ -557,12 +578,14 @@
                     <td class="p_subtable">
                       <% if (!@pososto_market.nil?) %>
                         <% market_price = item.timi_profil_deksia_1 - (@pososto_market/100)*item.timi_profil_deksia_1 %>
+                        <% market_price_all += market_price %>
                         <%= number_with_precision(market_price, :precision => 2, separator: ",", :delimiter => '.') %> €
                       <% end %>
                     </td>
                     <td class="p_subtable">
                       <% if (!@pososto_dealer.nil?) %>
                         <% dealer_price = item.timi_profil_deksia_1 - (@pososto_dealer/100)*item.timi_profil_deksia_1 %>
+                        <% dealer_price_all += dealer_price %>
                         <%= number_with_precision(dealer_price, :precision => 2, separator: ",", :delimiter => '.') %> €
                       <% end %>
                     </td>
@@ -586,12 +609,14 @@
                     <td class="p_subtable">
                       <% if (!@pososto_market.nil?) %>
                         <% market_price = item.timi_profil_deksia_2 - (@pososto_market/100)*item.timi_profil_deksia_2 %>
+                        <% market_price_all += market_price %>
                         <%= number_with_precision(market_price, :precision => 2, separator: ",", :delimiter => '.') %> €
                       <% end %>
                     </td>
                     <td class="p_subtable">
                       <% if (!@pososto_dealer.nil?) %>
                         <% dealer_price = item.timi_profil_deksia_2 - (@pososto_dealer/100)*item.timi_profil_deksia_2 %>
+                        <% dealer_price_all += dealer_price %>
                         <%= number_with_precision(dealer_price, :precision => 2, separator: ",", :delimiter => '.') %> €
                       <% end %>
                     </td>
@@ -615,12 +640,14 @@
                     <td class="p_subtable">
                       <% if (!@pososto_market.nil?) %>
                         <% market_price = item.timi_deksia_profil_3 - (@pososto_market/100)*item.timi_deksia_profil_3 %>
+                        <% market_price_all += market_price %>
                         <%= number_with_precision(market_price, :precision => 2, separator: ",", :delimiter => '.') %> €
                       <% end %>
                     </td>
                     <td class="p_subtable">
                       <% if (!@pososto_dealer.nil?) %>
                         <% dealer_price = item.timi_deksia_profil_3 - (@pososto_dealer/100)*item.timi_deksia_profil_3 %>
+                        <% dealer_price_all += dealer_price %>
                         <%= number_with_precision(dealer_price, :precision => 2, separator: ",", :delimiter => '.') %> €
                       <% end %>
                     </td>
@@ -658,12 +685,14 @@
                     <td class="p_subtable">
                       <% if (!@pososto_market.nil?) %>
                         <% market_price = item.timi_profil_aristera_1 - (@pososto_market/100)*item.timi_profil_aristera_1 %>
+                        <% market_price_all += market_price %>
                         <%= number_with_precision(market_price, :precision => 2, separator: ",", :delimiter => '.') %> €
                       <% end %>
                     </td>
                     <td class="p_subtable">
                       <% if (!@pososto_dealer.nil?) %>
                         <% dealer_price = item.timi_profil_aristera_1 - (@pososto_dealer/100)*item.timi_profil_aristera_1 %>
+                        <% dealer_price_all += dealer_price %>
                         <%= number_with_precision(dealer_price, :precision => 2, separator: ",", :delimiter => '.') %> €
                       <% end %>
                     </td>
@@ -687,12 +716,14 @@
                     <td class="p_subtable">
                       <% if (!@pososto_market.nil?) %>
                         <% market_price = item.timi_profil_aristera_2 - (@pososto_market/100)*item.timi_profil_aristera_2 %>
+                        <% market_price_all += market_price %>
                         <%= number_with_precision(market_price, :precision => 2, separator: ",", :delimiter => '.') %> €
                       <% end %>
                     </td>
                     <td class="p_subtable">
                       <% if (!@pososto_dealer.nil?) %>
                         <% dealer_price = item.timi_profil_aristera_2 - (@pososto_dealer/100)*item.timi_profil_aristera_2 %>
+                        <% dealer_price_all += dealer_price %>
                         <%= number_with_precision(dealer_price, :precision => 2, separator: ",", :delimiter => '.') %> €
                       <% end %>
                     </td>
@@ -716,12 +747,14 @@
                     <td class="p_subtable">
                       <% if (!@pososto_market.nil?) %>
                         <% market_price = item.timi_profil_aristera_3 - (@pososto_market/100)*item.timi_profil_aristera_3 %>
+                        <% market_price_all += market_price %>
                         <%= number_with_precision(market_price, :precision => 2, separator: ",", :delimiter => '.') %> €
                       <% end %>
                     </td>
                     <td class="p_subtable">
                       <% if (!@pososto_dealer.nil?) %>
                         <% dealer_price = item.timi_profil_aristera_3 - (@pososto_dealer/100)*item.timi_profil_aristera_3 %>
+                        <% dealer_price_all += dealer_price %>
                         <%= number_with_precision(dealer_price, :precision => 2, separator: ",", :delimiter => '.') %> €
                       <% end %>
                     </td>
@@ -759,12 +792,14 @@
                     <td class="p_subtable">
                       <% if (!@pososto_market.nil?) %>
                         <% market_price = item.timi_profil_panw_1 - (@pososto_market/100)*item.timi_profil_panw_1 %>
+                        <% market_price_all += market_price %>
                         <%= number_with_precision(market_price, :precision => 2, separator: ",", :delimiter => '.') %> €
                       <% end %>
                     </td>
                     <td class="p_subtable">
                       <% if (!@pososto_dealer.nil?) %>
                         <% dealer_price = item.timi_profil_panw_1 - (@pososto_dealer/100)*item.timi_profil_panw_1 %>
+                        <% dealer_price_all += dealer_price %>
                         <%= number_with_precision(dealer_price, :precision => 2, separator: ",", :delimiter => '.') %> €
                       <% end %>
                     </td>
@@ -788,12 +823,14 @@
                     <td class="p_subtable">
                       <% if (!@pososto_market.nil?) %>
                         <% market_price = item.timi_profil_panw_2 - (@pososto_market/100)*item.timi_profil_panw_2 %>
+                        <% market_price_all += market_price %>
                         <%= number_with_precision(market_price, :precision => 2, separator: ",", :delimiter => '.') %> €
                       <% end %>
                     </td>
                     <td class="p_subtable">
                       <% if (!@pososto_dealer.nil?) %>
                         <% dealer_price = item.timi_profil_panw_2 - (@pososto_dealer/100)*item.timi_profil_panw_2 %>
+                        <% dealer_price_all += dealer_price %>
                         <%= number_with_precision(dealer_price, :precision => 2, separator: ",", :delimiter => '.') %> €
                       <% end %>
                     </td>
@@ -817,12 +854,14 @@
                     <td class="p_subtable">
                       <% if (!@pososto_market.nil?) %>
                         <% market_price = item.timi_profil_panw_3 - (@pososto_market/100)*item.timi_profil_panw_3 %>
+                        <% market_price_all += market_price %>
                         <%= number_with_precision(market_price, :precision => 2, separator: ",", :delimiter => '.') %> €
                       <% end %>
                     </td>
                     <td class="p_subtable">
                       <% if (!@pososto_dealer.nil?) %>
                         <% dealer_price = item.timi_profil_panw_3 - (@pososto_dealer/100)*item.timi_profil_panw_3 %>
+                        <% dealer_price_all += dealer_price %>
                         <%= number_with_precision(dealer_price, :precision => 2, separator: ",", :delimiter => '.') %> €
                       <% end %>
                     </td>
@@ -860,12 +899,14 @@
                     <td class="p_subtable">
                       <% if (!@pososto_market.nil?) %>
                         <% market_price = item.timi_profil_katw_1 - (@pososto_market/100)*item.timi_profil_katw_1 %>
+                        <% market_price_all += market_price %>
                         <%= number_with_precision(market_price, :precision => 2, separator: ",", :delimiter => '.') %> €
                       <% end %>
                     </td>
                     <td class="p_subtable">
                       <% if (!@pososto_dealer.nil?) %>
                         <% dealer_price = item.timi_profil_katw_1 - (@pososto_dealer/100)*item.timi_profil_katw_1 %>
+                        <% dealer_price_all += dealer_price %>
                         <%= number_with_precision(dealer_price, :precision => 2, separator: ",", :delimiter => '.') %> €
                       <% end %>
                     </td>
@@ -889,12 +930,14 @@
                     <td class="p_subtable">
                       <% if (!@pososto_market.nil?) %>
                         <% market_price = item.timi_profil_katw_2 - (@pososto_market/100)*item.timi_profil_katw_2 %>
+                        <% market_price_all += market_price %>
                         <%= number_with_precision(market_price, :precision => 2, separator: ",", :delimiter => '.') %> €
                       <% end %>
                     </td>
                     <td class="p_subtable">
                       <% if (!@pososto_dealer.nil?) %>
                         <% dealer_price = item.timi_profil_katw_2 - (@pososto_dealer/100)*item.timi_profil_katw_2 %>
+                        <% dealer_price_all += dealer_price %>
                         <%= number_with_precision(dealer_price, :precision => 2, separator: ",", :delimiter => '.') %> €
                       <% end %>
                     </td>
@@ -918,12 +961,14 @@
                     <td class="p_subtable">
                       <% if (!@pososto_market.nil?) %>
                         <% market_price = item.timi_profil_katw_3 - (@pososto_market/100)*item.timi_profil_katw_3 %>
+                        <% market_price_all += market_price %>
                         <%= number_with_precision(market_price, :precision => 2, separator: ",", :delimiter => '.') %> €
                       <% end %>
                     </td>
                     <td class="p_subtable">
                       <% if (!@pososto_dealer.nil?) %>
                         <% dealer_price = item.timi_profil_katw_3 - (@pososto_dealer/100)*item.timi_profil_katw_3 %>
+                        <% dealer_price_all += dealer_price %>
                         <%= number_with_precision(dealer_price, :precision => 2, separator: ",", :delimiter => '.') %> €
                       <% end %>
                     </td>
@@ -962,12 +1007,14 @@
                     <td class="p_subtable">
                       <% if (!@pososto_market.nil?) %>
                         <% market_price = item.timi_typos_katw_1 - (@pososto_market/100)*item.timi_typos_katw_1 %>
+                        <% market_price_all += market_price %>
                         <%= number_with_precision(market_price, :precision => 2, separator: ",", :delimiter => '.') %> €
                       <% end %>
                     </td>
                     <td class="p_subtable">
                       <% if (!@pososto_dealer.nil?) %>
                         <% dealer_price = item.timi_typos_katw_1 - (@pososto_dealer/100)*item.timi_typos_katw_1 %>
+                        <% dealer_price_all += dealer_price %>
                         <%= number_with_precision(dealer_price, :precision => 2, separator: ",", :delimiter => '.') %> €
                       <% end %>
                     </td>
@@ -1008,12 +1055,14 @@
                     <td class="p_subtable">
                       <% if (!@pososto_market.nil?) %>
                         <% market_price = price_window_still - (@pososto_market/100)*price_window_still %>
+                        <% market_price_all += market_price %>
                         <%= number_with_precision(market_price, :precision => 2, separator: ",", :delimiter => '.') %> €
                       <% end %>
                     </td>
                     <td class="p_subtable">
                       <% if (!@pososto_dealer.nil?) %>
                         <% dealer_price = price_window_still - (@pososto_dealer/100)*price_window_still %>
+                        <% dealer_price_all += dealer_price %>
                         <%= number_with_precision(dealer_price, :precision => 2, separator: ",", :delimiter => '.') %> €
                       <% end %>
                     </td>
@@ -1039,12 +1088,14 @@
                     <td class="p_subtable">
                       <% if (!@pososto_market.nil?) %>
                         <% market_price = item.roll_rat_price - (@pososto_market/100)*item.roll_rat_price %>
+                        <% market_price_all += market_price %>
                         <%= number_with_precision(market_price, :precision => 2, separator: ",", :delimiter => '.') %> €
                       <% end %>
                     </td>
                     <td class="p_subtable">
                       <% if (!@pososto_dealer.nil?) %>
                         <% dealer_price = item.roll_rat_price - (@pososto_dealer/100)*item.roll_rat_price %>
+                        <% dealer_price_all += dealer_price %>
                         <%= number_with_precision(dealer_price, :precision => 2, separator: ",", :delimiter => '.') %> €
                       <% end %>
                     </td>
@@ -1065,12 +1116,14 @@
                       <td class="p_subtable">
                         <% if (!@pososto_market.nil?) %>
                           <% market_price = item.roll_rlt_price - (@pososto_market/100)*item.roll_rlt_price %>
+                          <% market_price_all += market_price %>
                           <%= number_with_precision(market_price, :precision => 2, separator: ",", :delimiter => '.') %> €
                         <% end %>
                       </td>
                       <td class="p_subtable">
                         <% if (!@pososto_dealer.nil?) %>
                           <% dealer_price = item.roll_rlt_price - (@pososto_dealer/100)*item.roll_rlt_price %>
+                          <% dealer_price_all += dealer_price %>
                           <%= number_with_precision(dealer_price, :precision => 2, separator: ",", :delimiter => '.') %> €
                         <% end %>
                       </td>
@@ -1091,12 +1144,14 @@
                       <td class="p_subtable">
                         <% if (!@pososto_market.nil?) %>
                           <% market_price = item.roll_rdm_price - (@pososto_market/100)*item.roll_rdm_price %>
+                          <% market_price_all += market_price %>
                           <%= number_with_precision(market_price, :precision => 2, separator: ",", :delimiter => '.') %> €
                         <% end %>
                       </td>
                       <td class="p_subtable">
                         <% if (!@pososto_dealer.nil?) %>
                           <% dealer_price = item.roll_rdm_price - (@pososto_dealer/100)*item.roll_rdm_price %>
+                          <% dealer_price_all += dealer_price %>
                           <%= number_with_precision(dealer_price, :precision => 2, separator: ",", :delimiter => '.') %> €
                         <% end %>
                       </td>
@@ -1117,12 +1172,14 @@
                       <td class="p_subtable">
                         <% if (!@pososto_market.nil?) %>
                           <% market_price = item.roll_pss_price - (@pososto_market/100)*item.roll_pss_price %>
+                          <% market_price_all += market_price %>
                           <%= number_with_precision(market_price, :precision => 2, separator: ",", :delimiter => '.') %> €
                         <% end %>
                       </td>
                       <td class="p_subtable">
                         <% if (!@pososto_dealer.nil?) %>
                           <% dealer_price = item.roll_pss_price - (@pososto_dealer/100)*item.roll_pss_price %>
+                          <% dealer_price_all += dealer_price %>
                           <%= number_with_precision(dealer_price, :precision => 2, separator: ",", :delimiter => '.') %> €
                         <% end %>
                       </td>
@@ -1143,12 +1200,14 @@
                       <td class="p_subtable">
                         <% if (!@pososto_market.nil?) %>
                           <% market_price = item.roll_pfm_price - (@pososto_market/100)*item.roll_pfm_price %>
+                          <% market_price_all += market_price %>
                           <%= number_with_precision(market_price, :precision => 2, separator: ",", :delimiter => '.') %> €
                         <% end %>
                       </td>
                       <td class="p_subtable">
                         <% if (!@pososto_dealer.nil?) %>
                           <% dealer_price = item.roll_pfm_price - (@pososto_dealer/100)*item.roll_pfm_price %>
+                          <% dealer_price_all += dealer_price %>
                           <%= number_with_precision(dealer_price, :precision => 2, separator: ",", :delimiter => '.') %> €
                         <% end %>
                       </td>
@@ -1172,12 +1231,14 @@
                     <td class="p_subtable">
                       <% if (!@pososto_market.nil?) %>
                         <% market_price = item.price_place - (@pososto_market/100)*item.price_place %>
+                        <% market_price_all += market_price %>
                         <%= number_with_precision(market_price, :precision => 2, separator: ",", :delimiter => '.') %> €
                       <% end %>
                     </td>
                     <td class="p_subtable">
                       <% if (!@pososto_dealer.nil?) %>
                         <% dealer_price = item.price_place - (@pososto_dealer/100)*item.price_place %>
+                        <% dealer_price_all += dealer_price %>
                         <%= number_with_precision(dealer_price, :precision => 2, separator: ",", :delimiter => '.') %> €
                       <% end %>
                     </td>
@@ -1201,12 +1262,14 @@
                     <td class="p_subtable">
                       <% if (!@pososto_market.nil?) %>
                         <% market_price = item.price_lock - (@pososto_market/100)*item.price_lock %>
+                        <% market_price_all += market_price %>
                         <%= number_with_precision(market_price, :precision => 2, separator: ",", :delimiter => '.') %> €
                       <% end %>
                     </td>
                     <td class="p_subtable">
                       <% if (!@pososto_dealer.nil?) %>
                         <% dealer_price = item.price_lock - (@pososto_dealer/100)*item.price_lock %>
+                        <% dealer_price_all += dealer_price %>
                         <%= number_with_precision(dealer_price, :precision => 2, separator: ",", :delimiter => '.') %> €
                       <% end %>
                     </td>
@@ -1214,6 +1277,36 @@
                       <color style="color:#ff0000"><%= number_with_precision(item.price_lock, :precision => 2, separator: ",", :delimiter => '.') %></color> €</td> 
                     </tr>
                     <% end %>
+					<!-- open_categorie_surcharge -->
+					                    <% if ( !item.open_categorie_surcharge.nil? ) %>
+					                    <tr>
+					                    <td class="extra_subtable">
+					                      <% if item.open_categorie_id == "suromeno_an_parathiro" %>
+					                        <b><%= t 'translate.Surcharge_for_safe_closing' %></b>
+					                      <% else %>
+					                        <b><%= t 'translate.Hardware_for_psk_door' %></b>
+					                      <% end %>
+					                    <td class="unit_subtable"></td>
+					                    <td class="m_subtable"></td>
+					                    <td class="c_subtable"></td>
+					                    <td class="p_subtable">
+					                      <% if (!@pososto_market.nil?) %>
+					                        <% market_price = item.open_categorie_surcharge - (@pososto_market/100)*item.open_categorie_surcharge %>
+					                        <% market_price_all += market_price %>
+					                        <%= number_with_precision(market_price, :precision => 2, separator: ",", :delimiter => '.') %> €
+					                      <% end %>
+					                    </td>
+					                    <td class="p_subtable">
+					                      <% if (!@pososto_dealer.nil?) %>
+					                        <% dealer_price = item.open_categorie_surcharge - (@pososto_dealer/100)*item.open_categorie_surcharge %>
+					                        <% dealer_price_all += dealer_price %>
+					                        <%= number_with_precision(dealer_price, :precision => 2, separator: ",", :delimiter => '.') %> €
+					                      <% end %>
+					                    </td>
+					                    <td class="p_subtable">
+					                      <color style="color:#ff0000"><%= number_with_precision(item.open_categorie_surcharge, :precision => 2, separator: ",", :delimiter => '.') %></color> €</td> 
+					                    </tr>
+					                    <% end %>
                     <!-- equipment -->
                     <% if ( !item.equipment.nil? ) %>
                     <% item.equipment.zip(item.price_equipment).each do |equipment, price_equipment| %>
@@ -1229,12 +1322,14 @@
                         <td class="p_subtable">
                           <% if (!@pososto_market.nil?) %>
                             <% market_price = price_equipment - (@pososto_market/100)*price_equipment %>
+                            <% market_price_all += market_price %>
                             <%= number_with_precision(market_price, :precision => 2, separator: ",", :delimiter => '.') %> €
                           <% end %>
                         </td>
                         <td class="p_subtable">
                           <% if (!@pososto_dealer.nil?) %>
                             <% dealer_price = price_equipment - (@pososto_dealer/100)*price_equipment %>
+                            <% dealer_price_all += dealer_price %>
                             <%= number_with_precision(dealer_price, :precision => 2, separator: ",", :delimiter => '.') %> €
                           <% end %>
                         </td>
@@ -1252,7 +1347,12 @@
                     <td class="m_subtable">
                     </td>
                     <td class="c_subtable"></td>
-                    <td class="p_subtable"></td><td class="p_subtable"></td>
+                    <td class="p_subtable">
+                      <%= number_with_precision(market_price_all, :precision => 2, separator: ",", :delimiter => '.') %> €
+                    </td>
+                    <td class="p_subtable">
+                      <%= number_with_precision(dealer_price_all, :precision => 2, separator: ",", :delimiter => '.') %> €
+                    </td>
                     <td class="p_subtable">
                       <color style="color:#ff0000"><%= number_with_precision(item.price_update, :precision => 2, separator: ",", :delimiter => '.') %> €</color></td> 
                     </tr>
