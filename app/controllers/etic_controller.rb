@@ -152,6 +152,7 @@ class EticController < ApplicationController
     else
       systems_temp = kata_extra.systems.to_s.split(",")
       systems_temp.delete("7")
+      systems_temp.delete("8")
       systems << systems_temp 
     end
     
@@ -383,8 +384,7 @@ class EticController < ApplicationController
     ## epikathimena, color_epikathimenou, eksoterika, color_eksoterikou, color_persidas, color_odoigou, tzamia, color_typos, color_profil.
     ## Όλες αυτές τις μεθόδους τις έχω για να πέρνω δεδομένα σε json format.
 	def extra
-
-       @cat_anoigmatos = OpenCategorie.where(:id => [1,2,3,5,6,7])
+       @cat_anoigmatos = OpenCategorie.where(:id => [1,2,3,5,6,7,8])
        @uliko = Material.all
 
        if( params.has_key?(:pre_order_id) )
@@ -444,7 +444,6 @@ class EticController < ApplicationController
 				@system = System.first
 				@sys = 0
 			end
-			puts params
 			if( params.has_key?(:line_name) )
 			    @line = Line.where(:name => CGI.unescape(params[:line_name])).first
 			else
@@ -1944,7 +1943,7 @@ class EticController < ApplicationController
 
         ### Μεχρι εδώ είναι για view που δεν χρησιμοποιώ.
 
-    if params.has_key?(:elegxos_w)
+    	if params.has_key?(:elegxos_w)
 			if ( params[:elegxos_w] == "1" )
 				width = @open_type.max_width
 				width_neo = width
@@ -2129,15 +2128,66 @@ class EticController < ApplicationController
 		  end#end mesa
 		end#end eksw
     
-    @system1 = System.where('lines like ?', "%#{@line.id.to_s}%")
-    if (@open_type.csv != nil)
-      @csv_neo = @open_type.csv
-    else
-      @csv_neo = @system1.csv
-    end
-    
-		##Gia code == 10, 22, 100, 101
-		if ( (@open_type.id == 98) || (@open_type.id == 99) || (@open_type.id == 97) || (@open_type.id == 12) || (@open_type.id == 13) || (@open_type.id == 22) || (@open_type.id == 23) || (@open_type.id == 68) || (@open_type.id == 69) || (@open_type.id == 80) || (@open_type.id == 81) || (@open_type.id == 82) || (@open_type.id == 84) || (@open_type.id == 83) || (@open_type.id == 85) || (@open_type.id == 86))
+	    @system1 = System.where('lines like ?', "%#{@line.id.to_s}%")
+	    if (@open_type.csv != nil)
+	      @csv_neo = @open_type.csv
+	      #####
+
+	      	width_index = widths.select do |k,v|
+			  v.include?(width.to_f)
+			end.keys.first
+
+			height_index = heights.select do |c,d|
+			  d.include?(height.to_f)
+			end.keys.first
+
+		    ##Για καθε ανοιγμα τιμη
+		    @col_data_heights = []
+			CSV.foreach("#{Rails.root}/public/pricelist/"+@csv_neo+".csv", col_sep: ';', headers:true) {|row| @col_data_heights << row[0]}
+			#puts col_data_heights
+
+			@col_data_widths = []
+			CSV.foreach("#{Rails.root}/public/pricelist/"+@csv_neo+".csv", col_sep: ';').with_index do |row, i| 
+				if ( i == 0 )
+					a = 0
+					while a < 20 do
+	   					@col_data_widths << row[a]
+	   					a +=1
+					end
+				end
+			end
+
+			@thesi_width = 1
+			@thesi_height = 1
+			@timi = 0
+
+			@col_data_widths.each_with_index do |width, i|
+				if ( width.to_i == width_index )
+					@thesi_width = i
+				end
+			end
+
+			@col_data_heights.each_with_index do |height, i|
+				if ( height.to_i == height_index )
+					@thesi_height = i
+				end
+			end
+
+			CSV.foreach("#{Rails.root}/public/pricelist/"+@csv_neo+".csv", col_sep: ';',headers:true ).with_index do |row, i| 
+				if ( i == @thesi_height )
+					@timi = row[@thesi_width]
+				end
+			end
+
+			@price = @timi.gsub(',', '.').to_f 
+	      ####
+	    else
+	      @csv_neo = @system1.csv
+	    end
+
+	    ###
+	    ##Gia code == 82, 84
+		if ( (@open_type.id == 82) || (@open_type.id == 84) )
 
 			puts "Width gia timokatalogo"+width.to_s
 			puts "Height meta apo "+height.to_s
@@ -2199,521 +2249,14 @@ class EticController < ApplicationController
 
 			@price = @timi.gsub(',', '.').to_f 
       
-      #
-  		if ( (@open_type.id == 82) || (@open_type.id == 84) )
-        @price = @price + @price*0.5
-      end
-      
-  		if ( (@open_type.id == 83) )
-        @price = 2*@price
-      end
-      
+		    @price = @price + @price*0.5
 		end
-    
-		##Gia code == 16,17
-		if ( (@open_type.id == 38) || (@open_type.id == 39) || (@open_type.id == 40) || (@open_type.id == 41) || (@open_type.id == 42) || (@open_type.id == 43)  )
-
-			height_gia_anoigma_mono_gia_edw = 0
-			@pricepanw = 0
-
-			arr = @open_type.table.split('|').collect! {|n| n.to_s}
-
-			arr.map! { |element|
-			    element.split(',').collect! {|n| n.to_s}
-			}
-
-			arr.each_with_index do |subarr, i|
-			  puts "Ποσα col εχω: "+subarr.length.to_s
-			  #Μονο για το επάνω
-			  if ( i.to_s == "0" )
-
-				  subarr.each_with_index do |anoigma, j|
-				    puts "Γραμμη: "+i.to_s+" Στήλη: "+j.to_s+" Ανοιγμα: "+anoigma
-				    #Για καθε row βρησκω το υψος
-				    if( xwrisma_y_1 != "0" ) #duo upsos
-				    	puts "Υψος: "+eval("xwrisma_y_#{i+1}")
-				    	height_gia_anoigma = eval("xwrisma_y_#{i+1}")
-				    else #ena upsos
-				    	puts "Υψος: "+height.to_s 
-				    	height_gia_anoigma = height
-				    end
-				    #Για καθε col το μήκος subarr.length ποσα col σε καθε row
-				    if ( subarr.length == 1 )
-				    	puts "Μήκος: "+width.to_s
-				    	width_gia_anoigma = width
-				    elsif ( subarr.length == 2 )
-				    	puts "Μήκος: "+eval("xwrisma#{j+1}")
-				    	width_gia_anoigma = eval("xwrisma#{j+1}")
-				    elsif ( subarr.length == 3 )
-				    	puts "Μήκος: "+eval("xwrisma3_#{j+1}")
-				    	width_gia_anoigma = eval("xwrisma3_#{j+1}")
-				    end
-
-				    puts "Width meta apo "+width_gia_anoigma.class.to_s
-					puts "Height meta apo "+height_gia_anoigma.class.to_s
-				    
-				    width_index = widths.select do |k,v|
-					  v.include?(width_gia_anoigma.to_f)
-					end.keys.first
-
-					height_index = heights.select do |c,d|
-					  d.include?(height_gia_anoigma.to_f)
-					end.keys.first
-
-					height_gia_anoigma_mono_gia_edw = height_gia_anoigma.to_f
-
-					puts "Width meta apo epeksergasia"+width_index.to_s
-					puts "Height meta apo epeksergasia"+height_index.to_s
-
-
-				    ##Για καθε ανοιγμα τιμη
-				    @col_data_heights = []
-					CSV.foreach("#{Rails.root}/public/pricelist/"+anoigma+".csv", col_sep: ';', headers:true) {|row| @col_data_heights << row[0]}
-					#puts col_data_heights
-
-					@col_data_widths = []
-					CSV.foreach("#{Rails.root}/public/pricelist/"+anoigma+".csv", col_sep: ';').with_index do |row, i| 
-						if ( i == 0 )
-							a = 0
-							while a < 20 do
-			   					@col_data_widths << row[a]
-			   					a +=1
-							end
-						end
-					end
-
-					@thesi_width = 1
-					@thesi_height = 1
-					@timi = 0
-
-					@col_data_widths.each_with_index do |width, i|
-						if ( width.to_i == width_index )
-							@thesi_width = i
-						end
-					end
-
-					@col_data_heights.each_with_index do |height, i|
-						if ( height.to_i == height_index )
-							@thesi_height = i
-						end
-					end
-
-					puts @thesi_width
-					puts @thesi_height
-
-					CSV.foreach("#{Rails.root}/public/pricelist/"+anoigma+".csv", col_sep: ';',headers:true ).with_index do |row, i| 
-						if ( i == @thesi_height )
-							@timi = row[@thesi_width]
-						end
-					end
-
-					puts "Τιμή για άνοιγμα για πάνω: "+anoigma.to_s+" == "+@timi
-
-					@pricepanw = @pricepanw + @timi.to_f
-			
-				  end#end mesa
-				end#End if epanw
-			end#end eksw
-
-			puts "Width gia timokatalogo"+width.to_s
-			puts "Height meta apo "+(height - height_gia_anoigma_mono_gia_edw.to_f).to_s
-		    
-		    width_index = widths.select do |k,v|
-			  v.include?(width.to_f)
-			end.keys.first
-
-			height_index = heights.select do |c,d|
-			  d.include?((height - height_gia_anoigma_mono_gia_edw.to_f).to_f)
-			end.keys.first
-
-			puts "Width meta apo epeksergasia"+width_index.to_s
-			puts "Height meta apo epeksergasia"+height_index.to_s
-
-
-		    ##Για καθε ανοιγμα τιμη
-		    @col_data_heights = []
-			CSV.foreach("#{Rails.root}/public/pricelist/"+@open_type.csv+".csv", col_sep: ';', headers:true) {|row| @col_data_heights << row[0]}
-			#puts col_data_heights
-
-			@col_data_widths = []
-			CSV.foreach("#{Rails.root}/public/pricelist/"+@open_type.csv+".csv", col_sep: ';').with_index do |row, i| 
-				if ( i == 0 )
-					a = 0
-					while a < 20 do
-	   					@col_data_widths << row[a]
-	   					a +=1
-					end
-				end
-			end
-
-			@thesi_width = 1
-			@thesi_height = 1
-			@timi = 0
-
-			@col_data_widths.each_with_index do |width, i|
-				if ( width.to_i == width_index )
-					@thesi_width = i
-				end
-			end
-
-			@col_data_heights.each_with_index do |height, i|
-				if ( height.to_i == height_index )
-					@thesi_height = i
-				end
-			end
-
-			puts @thesi_width
-			puts @thesi_height
-
-			CSV.foreach("#{Rails.root}/public/pricelist/"+@open_type.csv+".csv", col_sep: ';',headers:true ).with_index do |row, i| 
-				if ( i == @thesi_height )
-					@timi = row[@thesi_width]
-				end
-			end
-
-			puts "Τιμή για άνοιγμα απο τιμοκατάλογο: "+@open_type.csv.to_s+" == "+@timi
-
-			@price = @pricepanw + @timi.to_f
-
-			puts "Τιμή γενικη συνδιασμος πάνω κάτω: "+@price.to_s
-		end
-
-		##Gia code == 13_60, 25_63, 25_65
-		if ( (@open_type.id == 60) || (@open_type.id == 63) || (@open_type.id == 65) || (@open_type.id == 67)  )
-
-			width_gia_anoigma_mono_gia_edw = 0
-			@pricepanw = 0
-
-			arr = @open_type.table.split('|').collect! {|n| n.to_s}
-
-			arr.map! { |element|
-			    element.split(',').collect! {|n| n.to_s}
-			}
-
-			arr.each_with_index do |subarr, i|
-			  puts "Ποσα col εχω: "+subarr.length.to_s
-				  subarr.each_with_index do |anoigma, j|
-				  	#Mono gia tin prwti stili
-				  	if ( j.to_s == "0" )
-				    puts "Γραμμη: "+i.to_s+" Στήλη: "+j.to_s+" Ανοιγμα: "+anoigma
-				    #Για καθε row βρησκω το υψος
-				    if( xwrisma_y_1 != "0" ) #duo upsos
-				    	puts "Υψος: "+eval("xwrisma_y_#{i+1}")
-				    	height_gia_anoigma = eval("xwrisma_y_#{i+1}")
-				    else #ena upsos
-				    	puts "Υψος: "+height.to_s 
-				    	height_gia_anoigma = height
-				    end
-				    #Για καθε col το μήκος subarr.length ποσα col σε καθε row
-				    if ( subarr.length == 1 )
-				    	puts "Μήκος: "+width.to_s
-				    	width_gia_anoigma = width
-				    elsif ( subarr.length == 2 )
-				    	puts "Μήκος: "+eval("xwrisma#{j+1}")
-				    	width_gia_anoigma = eval("xwrisma#{j+1}")
-				    elsif ( subarr.length == 3 )
-				    	puts "Μήκος: "+eval("xwrisma3_#{j+1}")
-				    	width_gia_anoigma = eval("xwrisma3_#{j+1}")
-				    end
-
-				    puts "Width meta apo "+width_gia_anoigma.class.to_s
-					puts "Height meta apo "+height_gia_anoigma.class.to_s
-				    
-				    width_index = widths.select do |k,v|
-					  v.include?(width_gia_anoigma.to_f)
-					end.keys.first
-
-					height_index = heights.select do |c,d|
-					  d.include?(height_gia_anoigma.to_f)
-					end.keys.first
-
-					width_gia_anoigma_mono_gia_edw = width_gia_anoigma.to_f
-
-					puts "Width meta apo epeksergasia"+width_index.to_s
-					puts "Height meta apo epeksergasia"+height_index.to_s
-
-
-				    ##Για καθε ανοιγμα τιμη
-				    @col_data_heights = []
-					CSV.foreach("#{Rails.root}/public/pricelist/"+anoigma+".csv", col_sep: ';', headers:true) {|row| @col_data_heights << row[0]}
-					#puts col_data_heights
-
-					@col_data_widths = []
-					CSV.foreach("#{Rails.root}/public/pricelist/"+anoigma+".csv", col_sep: ';').with_index do |row, i| 
-						if ( i == 0 )
-							a = 0
-							while a < 20 do
-			   					@col_data_widths << row[a]
-			   					a +=1
-							end
-						end
-					end
-
-					@thesi_width = 1
-					@thesi_height = 1
-					@timi = 0
-
-					@col_data_widths.each_with_index do |width, i|
-						if ( width.to_i == width_index )
-							@thesi_width = i
-						end
-					end
-
-					@col_data_heights.each_with_index do |height, i|
-						if ( height.to_i == height_index )
-							@thesi_height = i
-						end
-					end
-
-					CSV.foreach("#{Rails.root}/public/pricelist/"+anoigma+".csv", col_sep: ';',headers:true ).with_index do |row, i| 
-						if ( i == @thesi_height )
-							@timi = row[@thesi_width]
-						end
-					end
-
-					puts "Τιμή για άνοιγμα για πάνω: "+anoigma.to_s+" == "+@timi
-
-					@pricepanw = @pricepanw + @timi.to_f
-				  end#Mono gia prwti stili
-				  end#end mesa
-			end#end eksw
-		    
-		    width_index = widths.select do |k,v|
-			  v.include?((width - width_gia_anoigma_mono_gia_edw.to_f).to_f)
-			end.keys.first
-
-			height_index = heights.select do |c,d|
-			  d.include?(height.to_f)
-			end.keys.first
-
-		    ##Για καθε ανοιγμα τιμη
-		    @col_data_heights = []
-			CSV.foreach("#{Rails.root}/public/pricelist/"+@open_type.csv+".csv", col_sep: ';', headers:true) {|row| @col_data_heights << row[0]}
-			#puts col_data_heights
-
-			@col_data_widths = []
-			CSV.foreach("#{Rails.root}/public/pricelist/"+@open_type.csv+".csv", col_sep: ';').with_index do |row, i| 
-				if ( i == 0 )
-					a = 0
-					while a < 20 do
-	   					@col_data_widths << row[a]
-	   					a +=1
-					end
-				end
-			end
-
-			@thesi_width = 1
-			@thesi_height = 1
-			@timi = 0
-
-			@col_data_widths.each_with_index do |width, i|
-				if ( width.to_i == width_index )
-					@thesi_width = i
-				end
-			end
-
-			@col_data_heights.each_with_index do |height, i|
-				if ( height.to_i == height_index )
-					@thesi_height = i
-				end
-			end
-
-			CSV.foreach("#{Rails.root}/public/pricelist/"+@open_type.csv+".csv", col_sep: ';',headers:true ).with_index do |row, i| 
-				if ( i == @thesi_height )
-					@timi = row[@thesi_width]
-				end
-			end
-
-			@price = @pricepanw + @timi.to_f
-		end
-
-		##Gia code == ta upolipa
-		if ( (@open_type.id == 61) || (@open_type.id == 63) || (@open_type.id == 64) || (@open_type.id == 66)  )
-
-			width_gia_anoigma_mono_gia_edw = 0
-			@pricepanw = 0
-
-			arr = @open_type.table.split('|').collect! {|n| n.to_s}
-
-			arr.map! { |element|
-			    element.split(',').collect! {|n| n.to_s}
-			}
-
-			arr.each_with_index do |subarr, i|
-			  puts "Ποσα col εχω: "+subarr.length.to_s
-				  subarr.each_with_index do |anoigma, j|
-				  	#Mono gia tin prwti stili
-				  	if ( j.to_s == "2" )
-				    puts "Γραμμη: "+i.to_s+" Στήλη: "+j.to_s+" Ανοιγμα: "+anoigma
-				    #Για καθε row βρησκω το υψος
-				    if( xwrisma_y_1 != "0" ) #duo upsos
-				    	puts "Υψος: "+eval("xwrisma_y_#{i+1}")
-				    	height_gia_anoigma = eval("xwrisma_y_#{i+1}")
-				    else #ena upsos
-				    	puts "Υψος: "+height.to_s 
-				    	height_gia_anoigma = height
-				    end
-				    #Για καθε col το μήκος subarr.length ποσα col σε καθε row
-				    if ( subarr.length == 1 )
-				    	puts "Μήκος: "+width.to_s
-				    	width_gia_anoigma = width
-				    elsif ( subarr.length == 2 )
-				    	puts "Μήκος: "+eval("xwrisma#{j+1}")
-				    	width_gia_anoigma = eval("xwrisma#{j+1}")
-				    elsif ( subarr.length == 3 )
-				    	puts "Μήκος: "+eval("xwrisma3_#{j+1}")
-				    	width_gia_anoigma = eval("xwrisma3_#{j+1}")
-				    end
-
-				    puts "Width meta apo "+width_gia_anoigma.class.to_s
-					puts "Height meta apo "+height_gia_anoigma.class.to_s
-				    
-				    width_index = widths.select do |k,v|
-					  v.include?(width_gia_anoigma.to_f)
-					end.keys.first
-
-					height_index = heights.select do |c,d|
-					  d.include?(height_gia_anoigma.to_f)
-					end.keys.first
-
-					width_gia_anoigma_mono_gia_edw = width_gia_anoigma.to_f
-
-					puts "Width meta apo epeksergasia"+width_index.to_s
-					puts "Height meta apo epeksergasia"+height_index.to_s
-
-
-				    ##Για καθε ανοιγμα τιμη
-				    @col_data_heights = []
-					CSV.foreach("#{Rails.root}/public/pricelist/"+anoigma+".csv", col_sep: ';', headers:true) {|row| @col_data_heights << row[0]}
-					#puts col_data_heights
-
-					@col_data_widths = []
-					CSV.foreach("#{Rails.root}/public/pricelist/"+anoigma+".csv", col_sep: ';').with_index do |row, i| 
-						if ( i == 0 )
-							a = 0
-							while a < 20 do
-			   					@col_data_widths << row[a]
-			   					a +=1
-							end
-						end
-					end
-
-					@thesi_width = 1
-					@thesi_height = 1
-					@timi = 0
-
-					@col_data_widths.each_with_index do |width, i|
-						if ( width.to_i == width_index )
-							@thesi_width = i
-						end
-					end
-
-					@col_data_heights.each_with_index do |height, i|
-						if ( height.to_i == height_index )
-							@thesi_height = i
-						end
-					end
-
-					puts @thesi_width
-					puts @thesi_height
-
-					CSV.foreach("#{Rails.root}/public/pricelist/"+anoigma+".csv", col_sep: ';',headers:true ).with_index do |row, i| 
-						if ( i == @thesi_height )
-							@timi = row[@thesi_width]
-						end
-					end
-
-					puts "Τιμή για άνοιγμα για πάνω: "+anoigma.to_s+" == "+@timi
-
-					@pricepanw = @pricepanw + @timi.to_f
-				  end#Mono gia prwti stili
-				  end#end mesa
-			end#end eksw
-
-			puts "Width gia timokatalogo"+( width - width_gia_anoigma_mono_gia_edw.to_f).to_s
-			puts "Height meta apo "+height.to_s
-		    
-		    width_index = widths.select do |k,v|
-			  v.include?((width - width_gia_anoigma_mono_gia_edw.to_f).to_f)
-			end.keys.first
-
-			height_index = heights.select do |c,d|
-			  d.include?(height.to_f)
-			end.keys.first
-
-			puts "Width meta apo epeksergasia"+width_index.to_s
-			puts "Height meta apo epeksergasia"+height_index.to_s
-
-
-		    ##Για καθε ανοιγμα τιμη
-		    @col_data_heights = []
-			CSV.foreach("#{Rails.root}/public/pricelist/"+@open_type.csv+".csv", col_sep: ';', headers:true) {|row| @col_data_heights << row[0]}
-			#puts col_data_heights
-
-			@col_data_widths = []
-			CSV.foreach("#{Rails.root}/public/pricelist/"+@open_type.csv+".csv", col_sep: ';').with_index do |row, i| 
-				if ( i == 0 )
-					a = 0
-					while a < 20 do
-	   					@col_data_widths << row[a]
-	   					a +=1
-					end
-				end
-			end
-
-			@thesi_width = 1
-			@thesi_height = 1
-			@timi = 0
-
-			@col_data_widths.each_with_index do |width, i|
-				if ( width.to_i == width_index )
-					@thesi_width = i
-				end
-			end
-
-			@col_data_heights.each_with_index do |height, i|
-				if ( height.to_i == height_index )
-					@thesi_height = i
-				end
-			end
-
-			CSV.foreach("#{Rails.root}/public/pricelist/"+@open_type.csv+".csv", col_sep: ';',headers:true ).with_index do |row, i| 
-				if ( i == @thesi_height )
-					@timi = row[@thesi_width]
-				end
-			end
-
-			puts "Τιμή για άνοιγμα απο τιμοκατάλογο: "+@open_type.csv.to_s+" == "+@timi
-
-			@price = @pricepanw + @timi.to_f
-
-			puts "Τιμή γενικη συνδιασμος 3fylla: "+@price.to_s
-		end
+	    ###
 
 		@price_temp = @price.to_f
 
 
-=begin
-        ##Γενικη τιμη. Η τιμή χωρίς έξτρα. Μονο επιβάρινση γραμμης, λάστιχού και χρώματος. 
-        #@price_temp = @open_type.send("h#{height_index}p#{width_index}".to_sym)
-        if (result == "0.1")
-        	@price_temp = Pricelist.where("code LIKE ? AND width LIKE ? AND height LIKE ?", "#{open_type_code}", "%#{width_index}%", "%#{height_index}%").first.price
-        else
-        	if ( @open_type.code == 100 )
-    			@price_temp = Pricelist.where("code = ? AND width LIKE ? AND height LIKE ?", "20", "%#{width_index}%", "%#{height_index}%").first.price
-    			@price_temp = @price_temp * 2
-    			width = (width * 2)	
-    		elsif ( @open_type.code == 101 )
-    			@price_temp = Pricelist.where("code = ? AND width LIKE ? AND height LIKE ?", "4", "%#{width_index}%", "%#{height_index}%").first.price
-    			@price_temp = @price_temp * 2
-    			width = (width * 2)	
-    		else
-    			@price_temp = Pricelist.where("code = ? AND width LIKE ? AND height LIKE ?", "#{open_type_code}", "%#{width_index}%", "%#{height_index}%").first.price
-    		end
-        end
-=end
-        ## ΕΠΙΒΑΡΙΝΣΗ ΓΡΑΜΜΗΣ---
-        @price_temp = @price_temp + (@price_temp * (@line.epivarinsi_line / 100))
+
         ## ΕΠΙΒΑΡΙΝΣΗ ΛΑΣΤΙΧΟΥ
         if ( @lastixa == "mauro_lastixo" )
         	@epiva_la = (@price_temp * (@line.epivarinsi_lastixo / 100))
@@ -2755,11 +2298,23 @@ class EticController < ApplicationController
           color_array = [@color_fulou.duo_pleura, @color.duo_pleura ]
           ep = color_array[color_array.index(color_array.compact.max)]
         end
-        ##Νεα επιβαρυνση
-        ep_mesa = @color.mia_pleura
-        ep_eksw = @color_eksw.mia_pleura
 
-        ep = ep_mesa + ep_eksw
+
+        ##Νεα επιβαρυνση
+        if(System.where('`lines` like ?', "%#{@line.id.to_s}%").first.id == 2)
+        	if( @color.name == @color_eksw.name )
+        		ep_mesa = @color.duo_pleura
+		        ep_eksw = 0
+    		else
+    			ep_mesa = @color.mia_pleura_sec
+		        ep_eksw = @color_eksw.mia_pleura_sec
+    		end
+    	else
+    		ep_mesa = @color.mia_pleura
+	        ep_eksw = @color_eksw.mia_pleura
+    	end
+
+    	ep = ep_mesa + ep_eksw
 
         puts "Epivarinsi xrwmatos: "+ep.to_s
 
@@ -2769,12 +2324,20 @@ class EticController < ApplicationController
         @surcharge_color = ep_mesa_gia_pinaka
         @surcharge_color_eksw = ep_eksw_gia_pinaka
 
+
+
+        ## ΕΠΙΒΑΡΙΝΣΗ ΓΡΑΜΜΗΣ---
+        @price_temp = @price_temp + (@price_temp * (@line.epivarinsi_line / 100))
+
+
+
         @timi_mono_aspro_super_apli = @price
 
         ## ΤΙΜΗ ΧΩΡΙΣ ΕΧΤΡΑ ΑΠΛΗ = price.
         @price = @price_temp + ( @price_temp * (ep / 100) )
 
         puts "Apli timi: "+@price.to_s
+
         ####  ETXRA  #################
         ## Νεοι υπολογισμοι γιατι μπορει να αλλαζουν οι διαστασεις. Πάλι απο την αρχή.(height_neo, width_neo.)
         ## Η αρχική τιμή χωρίς εξτρα δεν αλλάζει. Ειναι price.
@@ -2942,7 +2505,61 @@ class EticController < ApplicationController
 		  end#end mesa
 		end#end eksw
 
-		if ( (@open_type.id == 98) || (@open_type.id == 99) || (@open_type.id == 97) || (@open_type.id == 12) || (@open_type.id == 13) || (@open_type.id == 22) || (@open_type.id == 23) || (@open_type.id == 68) || (@open_type.id == 69) || (@open_type.id == 80) || (@open_type.id == 81) || (@open_type.id == 82) || (@open_type.id == 84) || (@open_type.id == 83) || (@open_type.id == 85) || (@open_type.id == 86))
+		#####
+		if (@csv_neo != nil)
+		  width_index = widths.select do |k,v|
+			  v.include?(width_neo.to_f)
+			end.keys.first
+
+			height_index = heights.select do |c,d|
+			  d.include?(height_neo.to_f)
+			end.keys.first
+
+		    ##Για καθε ανοιγμα τιμη
+		    @col_data_heights = []
+			CSV.foreach("#{Rails.root}/public/pricelist/"+@csv_neo+".csv", col_sep: ';', headers:true) {|row| @col_data_heights << row[0]}
+			#puts col_data_heights
+
+			@col_data_widths = []
+			CSV.foreach("#{Rails.root}/public/pricelist/"+@csv_neo+".csv", col_sep: ';').with_index do |row, i| 
+				if ( i == 0 )
+					a = 0
+					while a < 20 do
+	   					@col_data_widths << row[a]
+	   					a +=1
+					end
+				end
+			end
+
+			@thesi_width = 1
+			@thesi_height = 1
+			@timi = 0
+
+			@col_data_widths.each_with_index do |width, i|
+				if ( width.to_i == width_index )
+					@thesi_width = i
+				end
+			end
+
+			@col_data_heights.each_with_index do |height, i|
+				if ( height.to_i == height_index )
+					@thesi_height = i
+				end
+			end
+
+			CSV.foreach("#{Rails.root}/public/pricelist/"+@csv_neo+".csv", col_sep: ';',headers:true ).with_index do |row, i| 
+				if ( i == @thesi_height )
+					@timi = row[@thesi_width]
+				end
+			end
+      
+      		@timi = @timi.gsub(',', '.').to_f
+      
+			@price_temp = @timi
+		end
+
+	    ##
+	    if ( (@open_type.id == 82) || (@open_type.id == 84) )
 			puts "Width gia timokatalogo"+width_neo.to_s
 			puts "Height meta apo "+height_neo.to_s
 		    
@@ -2998,602 +2615,16 @@ class EticController < ApplicationController
 
 			puts "Τιμή για άνοιγμα απο τιμοκατάλογο: "+@csv_neo.to_s+" == "+@timi
       
-      @timi = @timi.gsub(',', '.').to_f
-  		if ( (@open_type.id == 82) || (@open_type.id == 84) )
-        @timi = @timi + @timi*0.5
-      end
-      
-  		if ( (@open_type.id == 83) )
-        @timi = 2*@timi
-      end
+		    @timi = @timi.gsub(',', '.').to_f
+		    @timi = @timi + @timi*0.5
       
 			@price_temp = @timi
 		end
-
-		##Gia code == 16,17
-		if ( (@open_type.id == 38) || (@open_type.id == 39) || (@open_type.id == 40) || (@open_type.id == 41) || (@open_type.id == 42) || (@open_type.id == 43)  )
-
-			height_gia_anoigma_mono_gia_edw = 0
-			@pricepanwtemp = 0
-
-			arr = @open_type.table.split('|').collect! {|n| n.to_s}
-
-			arr.map! { |element|
-			    element.split(',').collect! {|n| n.to_s}
-			}
-
-			arr.each_with_index do |subarr, i|
-			  puts "Ποσα col εχω: "+subarr.length.to_s
-			  #Μονο για το επάνω
-			  if ( i.to_s == "0" )
-
-				  subarr.each_with_index do |anoigma, j|
-				    puts "Γραμμη: "+i.to_s+" Στήλη: "+j.to_s+" Ανοιγμα: "+anoigma
-				    #Για καθε row βρησκω το υψος
-				    if( xwrisma_y_1 != "0" ) #duo upsos
-				    	puts "Υψος: "+eval("xwrisma_y_#{i+1}")
-				    	height_gia_anoigma = eval("xwrisma_y_#{i+1}")
-				    else #ena upsos
-				    	puts "Υψος: "+height_neo.to_s 
-				    	height_gia_anoigma = height_neo
-				    end
-				    #Για καθε col το μήκος subarr.length ποσα col σε καθε row
-				    if ( subarr.length == 1 )
-				    	puts "Μήκος: "+width_neo.to_s
-				    	width_gia_anoigma = width_neo
-				    elsif ( subarr.length == 2 )
-				    	puts "Μήκος: "+eval("xwrisma#{j+1}")
-				    	width_gia_anoigma = eval("xwrisma#{j+1}")
-				    elsif ( subarr.length == 3 )
-				    	puts "Μήκος: "+eval("xwrisma3_#{j+1}")
-				    	width_gia_anoigma = eval("xwrisma3_#{j+1}")
-				    end
-
-				    puts "Width meta apo "+width_gia_anoigma.class.to_s
-					puts "Height meta apo "+height_gia_anoigma.class.to_s
-				    
-				    width_index = widths.select do |k,v|
-					  v.include?(width_gia_anoigma.to_f)
-					end.keys.first
-
-					height_index = heights.select do |c,d|
-					  d.include?(height_gia_anoigma.to_f)
-					end.keys.first
-
-					height_gia_anoigma_mono_gia_edw = height_gia_anoigma.to_f
-					puts "height_gia_anoigma_mono_gia_edw "+height_gia_anoigma_mono_gia_edw.to_s
-
-					puts "Width meta apo epeksergasia"+width_index.to_s
-					puts "Height meta apo epeksergasia"+height_index.to_s
-
-
-				    ##Για καθε ανοιγμα τιμη
-				    @col_data_heights = []
-					CSV.foreach("#{Rails.root}/public/pricelist/"+anoigma+".csv", col_sep: ';', headers:true) {|row| @col_data_heights << row[0]}
-					#puts col_data_heights
-
-					@col_data_widths = []
-					CSV.foreach("#{Rails.root}/public/pricelist/"+anoigma+".csv", col_sep: ';').with_index do |row, i| 
-						if ( i == 0 )
-							a = 0
-							while a < 20 do
-			   					@col_data_widths << row[a]
-			   					a +=1
-							end
-						end
-					end
-
-					@thesi_width = 1
-					@thesi_height = 1
-					@timi = 0
-
-					@col_data_widths.each_with_index do |width, i|
-						if ( width.to_i == width_index )
-							@thesi_width = i
-						end
-					end
-
-					@col_data_heights.each_with_index do |height, i|
-						if ( height.to_i == height_index )
-							@thesi_height = i
-						end
-					end
-
-					CSV.foreach("#{Rails.root}/public/pricelist/"+anoigma+".csv", col_sep: ';',headers:true ).with_index do |row, i| 
-						if ( i == @thesi_height )
-							@timi = row[@thesi_width]
-						end
-					end
-
-					puts "Τιμή για άνοιγμα για πάνω: "+anoigma.to_s+" == "+@timi
-
-					@pricepanwtemp = @pricepanwtemp + @timi.to_f
-			
-				  end#end mesa
-				end#End if epanw
-			end#end eksw
-
-			puts "Width gia timokatalogo"+width_neo.to_s
-			puts "Height meta apo "+(height_neo - height_gia_anoigma_mono_gia_edw.to_f).to_s
-		    
-		    width_index = widths.select do |k,v|
-			  v.include?(width_neo.to_f)
-			end.keys.first
-
-			height_index = heights.select do |c,d|
-			  d.include?((height_neo - height_gia_anoigma_mono_gia_edw.to_f).to_f)
-			end.keys.first
-
-			puts "Width meta apo epeksergasia"+width_index.to_s
-			puts "Height meta apo epeksergasia"+height_index.to_s
-
-
-		    ##Για καθε ανοιγμα τιμη
-		    @col_data_heights = []
-			CSV.foreach("#{Rails.root}/public/pricelist/"+@open_type.csv+".csv", col_sep: ';', headers:true) {|row| @col_data_heights << row[0]}
-			#puts col_data_heights
-
-			@col_data_widths = []
-			CSV.foreach("#{Rails.root}/public/pricelist/"+@open_type.csv+".csv", col_sep: ';').with_index do |row, i| 
-				if ( i == 0 )
-					a = 0
-					while a < 20 do
-	   					@col_data_widths << row[a]
-	   					a +=1
-					end
-				end
-			end
-
-			@thesi_width = 1
-			@thesi_height = 1
-			@timi = 0
-
-			@col_data_widths.each_with_index do |width, i|
-				if ( width.to_i == width_index )
-					@thesi_width = i
-				end
-			end
-
-			@col_data_heights.each_with_index do |height, i|
-				if ( height.to_i == height_index )
-					@thesi_height = i
-				end
-			end
-
-			CSV.foreach("#{Rails.root}/public/pricelist/"+@open_type.csv+".csv", col_sep: ';',headers:true ).with_index do |row, i| 
-				if ( i == @thesi_height )
-					@timi = row[@thesi_width]
-				end
-			end
-
-			puts "Τιμή για άνοιγμα απο τιμοκατάλογο: "+@open_type.csv.to_s+" == "+@timi
-
-			@price_temp = @pricepanwtemp + @timi.to_f
-
-			puts "Τιμή γενικη συνδιασμος πάνω κάτω: "+@price_temp.to_s
-		end
-
-		##Gia code == 13_60, 25_63, 25_65
-		if ( (@open_type.id == 60) || (@open_type.id == 62) || (@open_type.id == 65) || (@open_type.id == 67) )
-
-			width_gia_anoigma_mono_gia_edw = 0
-			@pricepanwtemp = 0
-
-			arr = @open_type.table.split('|').collect! {|n| n.to_s}
-
-			arr.map! { |element|
-			    element.split(',').collect! {|n| n.to_s}
-			}
-
-			arr.each_with_index do |subarr, i|
-			  puts "Ποσα col εχω: "+subarr.length.to_s
-				  subarr.each_with_index do |anoigma, j|
-				  	#Mono gia tin prwti stili
-				  	if ( j.to_s == "0" )
-				    puts "Γραμμη: "+i.to_s+" Στήλη: "+j.to_s+" Ανοιγμα: "+anoigma
-				    #Για καθε row βρησκω το υψος
-				    if( xwrisma_y_1 != "0" ) #duo upsos
-				    	puts "Υψος: "+eval("xwrisma_y_#{i+1}")
-				    	height_gia_anoigma = eval("xwrisma_y_#{i+1}")
-				    else #ena upsos
-				    	puts "Υψος: "+height_neo.to_s 
-				    	height_gia_anoigma = height
-				    end
-				    #Για καθε col το μήκος subarr.length ποσα col σε καθε row
-				    if ( subarr.length == 1 )
-				    	puts "Μήκος: "+width_neo.to_s
-				    	width_gia_anoigma = width
-				    elsif ( subarr.length == 2 )
-				    	puts "Μήκος: "+eval("xwrisma#{j+1}")
-				    	width_gia_anoigma = eval("xwrisma#{j+1}")
-				    elsif ( subarr.length == 3 )
-				    	puts "Μήκος: "+eval("xwrisma3_#{j+1}")
-				    	width_gia_anoigma = eval("xwrisma3_#{j+1}")
-				    end
-
-				    puts "Width meta apo "+width_gia_anoigma.class.to_s
-					puts "Height meta apo "+height_gia_anoigma.class.to_s
-				    
-				    width_index = widths.select do |k,v|
-					  v.include?(width_gia_anoigma.to_f)
-					end.keys.first
-
-					height_index = heights.select do |c,d|
-					  d.include?(height_gia_anoigma.to_f)
-					end.keys.first
-
-					width_gia_anoigma_mono_gia_edw = width_gia_anoigma.to_f
-
-					puts "Width meta apo epeksergasia"+width_index.to_s
-					puts "Height meta apo epeksergasia"+height_index.to_s
-
-
-				    ##Για καθε ανοιγμα τιμη
-				    @col_data_heights = []
-					CSV.foreach("#{Rails.root}/public/pricelist/"+anoigma+".csv", col_sep: ';', headers:true) {|row| @col_data_heights << row[0]}
-					#puts col_data_heights
-
-					@col_data_widths = []
-					CSV.foreach("#{Rails.root}/public/pricelist/"+anoigma+".csv", col_sep: ';').with_index do |row, i| 
-						if ( i == 0 )
-							a = 0
-							while a < 20 do
-			   					@col_data_widths << row[a]
-			   					a +=1
-							end
-						end
-					end
-
-					@thesi_width = 1
-					@thesi_height = 1
-					@timi = 0
-
-					@col_data_widths.each_with_index do |width, i|
-						if ( width.to_i == width_index )
-							@thesi_width = i
-						end
-					end
-
-					@col_data_heights.each_with_index do |height, i|
-						if ( height.to_i == height_index )
-							@thesi_height = i
-						end
-					end
-
-					puts @thesi_width
-					puts @thesi_height
-
-					CSV.foreach("#{Rails.root}/public/pricelist/"+anoigma+".csv", col_sep: ';',headers:true ).with_index do |row, i| 
-						if ( i == @thesi_height )
-							@timi = row[@thesi_width]
-						end
-					end
-
-					puts "Τιμή για άνοιγμα για πάνω: "+anoigma.to_s+" == "+@timi
-
-					@pricepanwtemp = @pricepanwtemp + @timi.to_f
-				  end#Mono gia prwti stili
-				  end#end mesa
-			end#end eksw
-
-			puts "Width gia timokatalogo"+( width_neo - width_gia_anoigma_mono_gia_edw.to_f).to_s
-			puts "Height meta apo "+height_neo.to_s
-		    
-		    width_index = widths.select do |k,v|
-			  v.include?((width_neo - width_gia_anoigma_mono_gia_edw.to_f).to_f)
-			end.keys.first
-
-			height_index = heights.select do |c,d|
-			  d.include?(height_neo.to_f)
-			end.keys.first
-
-			puts "Width meta apo epeksergasia"+width_index.to_s
-			puts "Height meta apo epeksergasia"+height_index.to_s
-
-
-		    ##Για καθε ανοιγμα τιμη
-		    @col_data_heights = []
-			CSV.foreach("#{Rails.root}/public/pricelist/"+@open_type.csv+".csv", col_sep: ';', headers:true) {|row| @col_data_heights << row[0]}
-			#puts col_data_heights
-
-			@col_data_widths = []
-			CSV.foreach("#{Rails.root}/public/pricelist/"+@open_type.csv+".csv", col_sep: ';').with_index do |row, i| 
-				if ( i == 0 )
-					a = 0
-					while a < 20 do
-	   					@col_data_widths << row[a]
-	   					a +=1
-					end
-				end
-			end
-
-			@thesi_width = 1
-			@thesi_height = 1
-			@timi = 0
-
-			@col_data_widths.each_with_index do |width, i|
-				if ( width.to_i == width_index )
-					@thesi_width = i
-				end
-			end
-
-			@col_data_heights.each_with_index do |height, i|
-				if ( height.to_i == height_index )
-					@thesi_height = i
-				end
-			end
-
-			puts @thesi_width
-			puts @thesi_height
-
-			CSV.foreach("#{Rails.root}/public/pricelist/"+@open_type.csv+".csv", col_sep: ';',headers:true ).with_index do |row, i| 
-				if ( i == @thesi_height )
-					@timi = row[@thesi_width]
-				end
-			end
-
-			puts "Τιμή για άνοιγμα απο τιμοκατάλογο: "+@open_type.csv.to_s+" == "+@timi
-
-			@price_temp = @pricepanwtemp + @timi.to_f
-
-			puts "Τιμή γενικη συνδιασμος 3fylla: "+@price.to_s
-		end
-
-		##Gia code == 13_60, 25_63, 25_65
-		if ( (@open_type.id == 61) || (@open_type.id == 63) || (@open_type.id == 64) || (@open_type.id == 66)   )
-
-			width_gia_anoigma_mono_gia_edw = 0
-			@pricepanwtemp = 0
-
-			arr = @open_type.table.split('|').collect! {|n| n.to_s}
-
-			arr.map! { |element|
-			    element.split(',').collect! {|n| n.to_s}
-			}
-
-			arr.each_with_index do |subarr, i|
-			  puts "Ποσα col εχω: "+subarr.length.to_s
-				  subarr.each_with_index do |anoigma, j|
-				  	#Mono gia tin prwti stili
-				  	if ( j.to_s == "2" )
-				    puts "Γραμμη: "+i.to_s+" Στήλη: "+j.to_s+" Ανοιγμα: "+anoigma
-				    #Για καθε row βρησκω το υψος
-				    if( xwrisma_y_1 != "0" ) #duo upsos
-				    	puts "Υψος: "+eval("xwrisma_y_#{i+1}")
-				    	height_gia_anoigma = eval("xwrisma_y_#{i+1}")
-				    else #ena upsos
-				    	puts "Υψος: "+height_neo.to_s 
-				    	height_gia_anoigma = height
-				    end
-				    #Για καθε col το μήκος subarr.length ποσα col σε καθε row
-				    if ( subarr.length == 1 )
-				    	puts "Μήκος: "+width_neo.to_s
-				    	width_gia_anoigma = width
-				    elsif ( subarr.length == 2 )
-				    	puts "Μήκος: "+eval("xwrisma#{j+1}")
-				    	width_gia_anoigma = eval("xwrisma#{j+1}")
-				    elsif ( subarr.length == 3 )
-				    	puts "Μήκος: "+eval("xwrisma3_#{j+1}")
-				    	width_gia_anoigma = eval("xwrisma3_#{j+1}")
-				    end
-
-				    puts "Width meta apo "+width_gia_anoigma.class.to_s
-					puts "Height meta apo "+height_gia_anoigma.class.to_s
-				    
-				    width_index = widths.select do |k,v|
-					  v.include?(width_gia_anoigma.to_f)
-					end.keys.first
-
-					height_index = heights.select do |c,d|
-					  d.include?(height_gia_anoigma.to_f)
-					end.keys.first
-
-					width_gia_anoigma_mono_gia_edw = width_gia_anoigma.to_f
-
-					puts "Width meta apo epeksergasia"+width_index.to_s
-					puts "Height meta apo epeksergasia"+height_index.to_s
-
-
-				    ##Για καθε ανοιγμα τιμη
-				    @col_data_heights = []
-					CSV.foreach("#{Rails.root}/public/pricelist/"+anoigma+".csv", col_sep: ';', headers:true) {|row| @col_data_heights << row[0]}
-					#puts col_data_heights
-
-					@col_data_widths = []
-					CSV.foreach("#{Rails.root}/public/pricelist/"+anoigma+".csv", col_sep: ';').with_index do |row, i| 
-						if ( i == 0 )
-							a = 0
-							while a < 20 do
-			   					@col_data_widths << row[a]
-			   					a +=1
-							end
-						end
-					end
-
-					@thesi_width = 1
-					@thesi_height = 1
-					@timi = 0
-
-					@col_data_widths.each_with_index do |width, i|
-						if ( width.to_i == width_index )
-							@thesi_width = i
-						end
-					end
-
-					@col_data_heights.each_with_index do |height, i|
-						if ( height.to_i == height_index )
-							@thesi_height = i
-						end
-					end
-
-					CSV.foreach("#{Rails.root}/public/pricelist/"+anoigma+".csv", col_sep: ';',headers:true ).with_index do |row, i| 
-						if ( i == @thesi_height )
-							@timi = row[@thesi_width]
-						end
-					end
-
-					puts "Τιμή για άνοιγμα για πάνω: "+anoigma.to_s+" == "+@timi
-
-					@pricepanwtemp = @pricepanwtemp + @timi.to_f
-				  end#Mono gia prwti stili
-				  end#end mesa
-			end#end eksw
-
-			puts "Width gia timokatalogo"+( width_neo - width_gia_anoigma_mono_gia_edw.to_f).to_s
-			puts "Height meta apo "+height_neo.to_s
-		    
-		    width_index = widths.select do |k,v|
-			  v.include?((width_neo - width_gia_anoigma_mono_gia_edw.to_f).to_f)
-			end.keys.first
-
-			height_index = heights.select do |c,d|
-			  d.include?(height_neo.to_f)
-			end.keys.first
-
-			puts "Width meta apo epeksergasia"+width_index.to_s
-			puts "Height meta apo epeksergasia"+height_index.to_s
-
-
-		    ##Για καθε ανοιγμα τιμη
-		    @col_data_heights = []
-			CSV.foreach("#{Rails.root}/public/pricelist/"+@open_type.csv+".csv", col_sep: ';', headers:true) {|row| @col_data_heights << row[0]}
-			#puts col_data_heights
-
-			@col_data_widths = []
-			CSV.foreach("#{Rails.root}/public/pricelist/"+@open_type.csv+".csv", col_sep: ';').with_index do |row, i| 
-				if ( i == 0 )
-					a = 0
-					while a < 20 do
-	   					@col_data_widths << row[a]
-	   					a +=1
-					end
-				end
-			end
-
-			@thesi_width = 1
-			@thesi_height = 1
-			@timi = 0
-
-			@col_data_widths.each_with_index do |width, i|
-				if ( width.to_i == width_index )
-					@thesi_width = i
-				end
-			end
-
-			@col_data_heights.each_with_index do |height, i|
-				if ( height.to_i == height_index )
-					@thesi_height = i
-				end
-			end
-
-			CSV.foreach("#{Rails.root}/public/pricelist/"+@open_type.csv+".csv", col_sep: ';',headers:true ).with_index do |row, i| 
-				if ( i == @thesi_height )
-					@timi = row[@thesi_width]
-				end
-			end
-
-			puts "Τιμή για άνοιγμα απο τιμοκατάλογο: "+@open_type.csv.to_s+" == "+@timi
-
-			@price_temp = @pricepanwtemp + @timi.to_f
-
-			puts "Τιμή γενικη συνδιασμος 3fylla: "+@price.to_s
-		end
+	    ###
 
 		puts "Price me extra: "+@price_temp.to_s
 
-=begin
-		if (@open_type.code == 6 || @open_type.code == 6.1 || @open_type.code == 7) 
-			if width_neo <= 1000 
-				width_index = 700
-			end
-		end
-		if (@open_type.code === 8 || @open_type.code === 8.1 || @open_type.code === 9 || @open_type.code === 10) 
-			if width_neo <= 1200 
-				width_index = 1201
-			end
-		end
-		if (@open_type.code === 11 || @open_type.code === 11.1) 
-			if width_neo <= 1500 
-				width_index = 1501
-			end
-		end
-		if (@open_type.code === 12 || @open_type.code === 12.1 || @open_type.code === 13) 
-			if width_neo <= 2100 
-				width_index = 2101
-			end
-		end
-		if (@open_type.code === 14 || @open_type.code === 14.1 || @open_type.code === 15) 
-			if height_neo <= 1300 
-				height_index = 1301
-			end
-		end
-		if (@open_type.code == 16 || @open_type.code == 16.1 || @open_type.code == 17) 
-			if width_neo <= 1200 
-				width_index = 1201
-			end
-			if height_neo <= 1500 
-				height_index = 1501
-			end
-		end
-		if (@open_type.code == 18 ) 
-			if width_neo <= 1200 
-				width_index = 1201
-			end
-			if height_neo <= 1400 
-				height_index = 1401
-			end
-		end
-		## Μπαλκονια
-		if (@open_type.code == 19 || @open_type.code == 20 || @open_type.code == 100 ) 
-			if width_neo <= 700 
-				width_index = 701
-			end
-			if height_neo <= 1900 
-				height_index = 1901
-			end
-		end
-		if (@open_type.code == 21 ) 
-			if width_neo <= 700 
-				width_index = 701
-			end
-			if height_neo <= 2400 
-				height_index = 2401
-			end
-		end
-		if (@open_type.code == 22 || @open_type.code == 23 || @open_type.code == 23.1 || @open_type.code == 24 || @open_type.code == 27 ) 
-			if width_neo <= 1200 
-				width_index = 1201
-			end
-			if height_neo <= 1900 
-				height_index = 1901
-			end
-		end
-		if (@open_type.code == 25 || @open_type.code == 26 || @open_type.code == 26.1 ) 
-			if width_neo <= 2001 
-				width_index = 2001
-			end
-			if height_neo <= 1900 
-				height_index = 1901
-			end
-		end
-=end
-=begin
-		if (result == "0.1")
-        	@price_temp = Pricelist.where("code LIKE ? AND width LIKE ? AND height LIKE ?", "#{open_type_code}", "%#{width_index}%", "%#{height_index}%").first.price
-        else
-        	if ( @open_type.code == 100 )
-    			@price_temp = Pricelist.where("code = ? AND width LIKE ? AND height LIKE ?", "20", "%#{width_index}%", "%#{height_index}%").first.price
-    			@price_temp = @price_temp * 2
-    			width_neo = (width_neo * 2)	
-    		elsif ( @open_type.code == 101 )
-    			@price_temp = Pricelist.where("code = ? AND width LIKE ? AND height LIKE ?", "4", "%#{width_index}%", "%#{height_index}%").first.price
-    			@price_temp = @price_temp * 2
-    			width_neo = (width_neo * 2)	
-    		else
-    			@price_temp = Pricelist.where("code = ? AND width LIKE ? AND height LIKE ?", "#{open_type_code}", "%#{width_index}%", "%#{height_index}%").first.price
-    		end
-        end 
-=end
+
 	    ## ΕΠΙΒΑΡΙΝΣΗ ΓΡΑΜΜΗΣ
       @surcharge_line = @price_temp * (@line.epivarinsi_line / 100)
 	    @price_temp = @price_temp + (@price_temp * (@line.epivarinsi_line / 100))
@@ -4534,7 +3565,7 @@ class EticController < ApplicationController
 			if ( ! @open_categorie.nil? )
 				if( ! @open_categorie.surcharge.nil? )
 					open_categorie_surcharge = @open_categorie.surcharge.to_f
-					@price_extra = @price_extra + open_categorie_surcharge
+					#@price_extra = @price_extra + open_categorie_surcharge
 				end
 			end
 		end
@@ -4551,12 +3582,27 @@ class EticController < ApplicationController
 
         #Market and Dealer price
     	@user_cur = User.where(:id => current_user.id).first
-	    market_price = @price_new - (@user_cur.pososto/100)*@price_new
-	    pososto_market = @user_cur.pososto/100
+    	@per_sale = PercentageSale.where(:dealer_id => current_user.id, :line_id => @line.id).first
+    	pososto = 0
+
+    	if( !@per_sale.nil? )
+    		pososto = @per_sale.percentage
+    	else 
+    		pososto = @user_cur.pososto
+    	end
+
+    	market_price = @price_new - (pososto/100)*@price_new
+    	pososto_market = pososto/100
+    	dealer_price = @price_new - (pososto/100)*@price_new
+    	pososto_dealer = pososto/100
+
+    	#old
+	    #market_price = @price_new - (@user_cur.pososto/100)*@price_new
+	    #pososto_market = @user_cur.pososto/100
 	    
 	    #if (current_user.admin == 1)
-        	dealer_price = @price_new - (@user_cur.pososto_dealer/100)*@price_new
-        	pososto_dealer = @user_cur.pososto_dealer/100
+        	#dealer_price = @price_new - (@user_cur.pososto_dealer/100)*@price_new
+        	#pososto_dealer = @user_cur.pososto_dealer/100
         #end
 
         ## Εδώ αν το αίτημα είναι html μπορω να αποθηκεύσω στην βάση την παραγγελία.
@@ -4976,6 +4022,7 @@ class EticController < ApplicationController
 		    if !open_categorie_surcharge.nil?
 		    	@order.open_categorie_surcharge = open_categorie_surcharge
 		    end
+
 		    ####Mexri edw
 		   
 
@@ -5552,7 +4599,7 @@ class EticController < ApplicationController
           	                          :sec_odoigos_timi => sec_odoigos_timi,
           	                          :price_sec_color_odoigou => price_sec_color_odoigou,
           	                          :sec_od_quan => sec_od_quan,
-          	                          :open_categorie_surcharge => open_categorie_surcharge} }
+          	                          :open_categorie_surcharge => open_categorie_surcharge } }
         end
 	end
 
