@@ -54,6 +54,7 @@ gem 'jquery-turbolinks'
 
 gem 'activerecord-session_store'
 gem 'jquery-ui-rails'
+gem 'htmlcompressor'
 group :development do
   gem 'bullet', '~> 4.5'
 end
