@@ -5563,7 +5563,9 @@
 
       //
       $(".modal_rat").on("click", ".arithmos_rat", function() {
-        $('.modal_rat').dialog('close');
+		  if($('.modal_rat').css("display") == 'block') {
+		            $('.modal_rat').dialog('close');
+		          }
         if($('input[name=del_arithmos_rat]:checked').length > 0) {
           
           roll_rat = 0;
