@@ -1,4 +1,32 @@
 Rails.application.configure do
+
+  config.assets.compress = true
+  uglifier = Uglifier.new output: { comments: :none }
+  config.assets.js_compressor = uglifier
+  config.middleware.use Rack::Deflater
+  config.middleware.insert_before ActionDispatch::Static, Rack::Deflater
+
+  config.middleware.use HtmlCompressor::Rack,
+    compress_css: true,
+    compress_javascript: true,
+    css_compressor: Sass,
+    enabled: true,
+    javascript_compressor: uglifier,
+    preserve_line_breaks: false,
+    remove_comments: true,
+    remove_form_attributes: false,
+    remove_http_protocol: false,
+    remove_https_protocol: false,
+    remove_input_attributes: true,
+    remove_intertag_spaces: false,
+    remove_javascript_protocol: true,
+    remove_link_attributes: true,
+    remove_multi_spaces: true,
+    remove_quotes: true,
+    remove_script_attributes: true,
+    remove_style_attributes: true,
+    simple_boolean_attributes: true,
+    simple_doctype: false
   # Settings specified here will take precedence over those in config/application.rb.
 
   # Code is not reloaded between requests.
@@ -23,7 +51,7 @@ Rails.application.configure do
   config.serve_static_assets = true ##FALSEEEEE
 
   # Compress JavaScripts and CSS.
-  config.assets.js_compressor = :uglifier
+  #config.assets.js_compressor = :uglifier
   #config.assets.css_compressor = :yui
   #config.assets.js_compressor = :yui
   # config.assets.css_compressor = :sass
@@ -83,8 +111,8 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
 
-  config.action_mailer.asset_host = "http://46.101.236.245:8850"
-  config.action_mailer.default_url_options = { :host => '46.101.236.245:8850' }
+  config.action_mailer.asset_host = "http://46.101.236.245:8860"
+  config.action_mailer.default_url_options = { :host => '46.101.236.245:8860' }
   config.action_mailer.delivery_method = :smtp
 
   #config.action_mailer.default_url_options = { 

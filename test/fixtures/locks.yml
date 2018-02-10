@@ -2,10 +2,8 @@
 
 one:
   name: MyString
-  price: 1.5
-  sungate_code: MyString
+  price: 
 
 two:
   name: MyString
-  price: 1.5
-  sungate_code: MyString
+  price: 
