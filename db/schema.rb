@@ -72,14 +72,13 @@ ActiveRecord::Schema.define(version: 20160719070630075818) do
     t.datetime "updated_at"
     t.string   "code"
     t.integer  "katigoria"
-    t.float    "mia_pleura",     limit: 24
-    t.float    "duo_pleura",     limit: 24
+    t.float    "mia_pleura",   limit: 24
+    t.float    "duo_pleura",   limit: 24
     t.text     "sungate_in"
     t.text     "sungate_out"
     t.text     "sungate_both"
     t.integer  "order"
     t.integer  "default"
-    t.float    "mia_pleura_sec", limit: 24
   end
 
   create_table "constructors", force: true do |t|
@@ -152,6 +151,14 @@ ActiveRecord::Schema.define(version: 20160719070630075818) do
     t.string   "sungate_code"
   end
 
+  create_table "handles", force: true do |t|
+    t.string   "name"
+    t.float    "price",        limit: 24
+    t.string   "sungate_code"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "istorikos", force: true do |t|
     t.integer  "user_id"
     t.datetime "created_at"
@@ -192,9 +199,11 @@ ActiveRecord::Schema.define(version: 20160719070630075818) do
   end
 
   create_table "locks", force: true do |t|
-    t.string "name"
-    t.float  "price",        limit: 24
-    t.string "sungate_code"
+    t.string   "name"
+    t.float    "price",        limit: 24
+    t.string   "sungate_code"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "material_constructors", force: true do |t|
@@ -518,6 +527,10 @@ ActiveRecord::Schema.define(version: 20160719070630075818) do
     t.float    "timi_m_lock",                limit: 24
     t.float    "price_lock",                 limit: 24
     t.float    "open_categorie_surcharge",   limit: 24
+    t.string   "handle"
+    t.float    "timi_m_handle",              limit: 24
+    t.float    "price_handle",               limit: 24
+    t.float    "handle_quan",                limit: 24
   end
 
   create_table "panels", force: true do |t|

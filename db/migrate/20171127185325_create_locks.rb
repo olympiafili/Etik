@@ -4,6 +4,8 @@ class CreateLocks < ActiveRecord::Migration
       t.string :name
       t.float :price
       t.string :sungate_code
+
+      t.timestamps
     end
   end
 end
