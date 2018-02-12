@@ -572,6 +572,7 @@ class EticController < ApplicationController
     	@window_still_cat = WindowStillCat.all
     	@places = Place.all
     	@locks = Lock.all
+    	@handles = Handle.all
 		#Glass
 		@cat_tzamia0 = GlassCatInOut.all
 		@cat_tzamia1 = GlassCatIn.all
@@ -710,6 +711,13 @@ class EticController < ApplicationController
 	        lock = Lock.where(:name => params[:lock]).first
 	        if ( !lock.nil? )
 				@lock_id = lock.id
+				@num_slides = params[:num_slides]
+	        end
+
+	        handle = Handle.where(:name => params[:handle]).first
+	        if ( !handle.nil? )
+				@handle_id = handle.id
+				@handle_quan = params[:handle_quan]
 	        end
 
 	        #open_categorie_surcharge
@@ -828,6 +836,13 @@ class EticController < ApplicationController
 	        lock = Lock.where(:name => params[:lock]).first
 	        if ( !lock.nil? )
 				@lock_id = lock.id
+				@num_slides = params[:num_slides]
+	        end
+
+	        handle = Handle.where(:name => params[:handle]).first
+	        if ( !handle.nil? )
+				@handle_id = handle.id
+				@handle_quan = params[:handle_quan]
 	        end
 
 	        #rolo
@@ -1662,7 +1677,7 @@ class EticController < ApplicationController
 		tzamia = []
 		tzamia << @tzami_cat.lista.to_s.split(",")
 
-		@tzamia = Tzamia.where(:id => tzamia)
+		@tzamia = Tzamia.where(:id => tzamia).order(:order)
 		respond_to do |format|
           format.json { render json: @tzamia.to_json}
         end
@@ -2341,68 +2356,6 @@ class EticController < ApplicationController
         ####  ETXRA  #################
         ## Νεοι υπολογισμοι γιατι μπορει να αλλαζουν οι διαστασεις. Πάλι απο την αρχή.(height_neo, width_neo.)
         ## Η αρχική τιμή χωρίς εξτρα δεν αλλάζει. Ειναι price.
-=begin
-        if ( @open_type.code == 100 )
-		    width_neo = (width_neo / 2)	
-		end
-		if ( @open_type.code == 101 )
-		    width_neo = (width_neo / 2)	
-		end
-=end
-=begin
-        height_index = heights.select do |c,d|
-			  d.include?(height_neo)
-			end.keys.first
-		width_index = widths.select do |k,v|
-		  v.include?(width_neo)
-		end.keys.first	
-
-
-		@col_data_heights = []
-		CSV.foreach("#{Rails.root}/public/pricelist/"+@open_type.csv+".csv", col_sep: ';', headers:true) {|row| @col_data_heights << row[0]}
-		#puts col_data_heights
-
-		@col_data_widths = []
-		CSV.foreach("#{Rails.root}/public/pricelist/"+@open_type.csv+".csv", col_sep: ';').with_index do |row, i| 
-			if ( i == 0 )
-				a = 0
-				while a < 20 do
-   					@col_data_widths << row[a]
-   					a +=1
-				end
-			end
-		end
-
-		@thesi_width = 1
-		@thesi_height = 1
-		@timi = 0
-
-		@col_data_widths.each_with_index do |width, i|
-			if ( width.to_i == width_index )
-				@thesi_width = i
-			end
-		end
-
-		@col_data_heights.each_with_index do |height, i|
-			if ( height.to_i == height_index )
-				@thesi_height = i
-			end
-		end
-
-		puts @thesi_width
-		puts @thesi_height
-
-		CSV.foreach("#{Rails.root}/public/pricelist/"+@open_type.csv+".csv", col_sep: ';',headers:true ).with_index do |row, i| 
-			if ( i == @thesi_height )
-				@timi = row[@thesi_width]
-			end
-		end
-
-		puts @timi
-		
-		#Geniika giati einai string
-		@price_temp = @timi.to_f
-=end
 		@price_temp = 0
 
 		arr = @open_type.table.split('|').collect! {|n| n.to_s}
@@ -2661,6 +2614,11 @@ class EticController < ApplicationController
 	    		tm_u_tzami0 = height
 	    		tm_tz_0 = (width * height) / 1000000
 	    	end
+
+	    	if (@tzamia0.id == 78 || @tzamia0.id == 79 || @tzamia0.id == 80)
+		    	pr_tz0 = @tzamia0.price.to_f
+		    end
+
 	    	tzami0_cat = params[:tzami0_cat]
 	    	@price_extra = @price_extra + pr_tz0
 	    end
@@ -2676,6 +2634,11 @@ class EticController < ApplicationController
 	    		tm_u_tzami1 = height
 	    		tm_tz_1 = (width * height) / 1000000
 	    	end
+
+	    	if (@tzamia.id == 78 || @tzamia.id == 79 || @tzamia.id == 80)
+		    	pr_tz = @tzamia.price.to_f
+		    end
+
 	    	tzami1_cat = params[:tzami1_cat]
 	    	@price_extra = @price_extra + pr_tz
 	    end
@@ -2692,6 +2655,11 @@ class EticController < ApplicationController
 	    		tm_u_tzami2 = height
 	    		tm_tz_2 = (width * height) / 1000000
 	    	end
+
+	    	if (@tzamia2.id == 78 || @tzamia2.id == 79 || @tzamia2.id == 80)
+		    	pr_tz2 = @tzamia2.price.to_f
+		    end
+
 	    	tzami2_cat = params[:tzami2_cat]
 	    	@price_extra = @price_extra + pr_tz2
 	    end
@@ -2990,11 +2958,29 @@ class EticController < ApplicationController
         #safety
         @lock = Lock.where(:id => params[:lock]).first
         if ( !@lock.nil? )
-            lock_price = @lock.price.to_f * @open_type.num_slides
+        	if (params[:lock_quan].to_f > 0)
+            	lock_price = @lock.price.to_f * params[:lock_quan].to_f
+            else
+            	lock_price = @lock.price.to_f * @open_type.num_slides
+            end
+
             lock_name = @lock.name
             @price_extra = @price_extra + lock_price
           	timi_m_lock = @lock.price.to_f
-          	num_slides = @open_type.num_slides
+          	if (params[:lock_quan].to_f > 0)
+          		num_slides = params[:lock_quan].to_f
+          	else
+          		num_slides = @open_type.num_slides
+          	end
+        end
+
+        @handle = Handle.where(:id => params[:handle]).first
+        if ( !@handle.nil? )
+            handle_price = @handle.price.to_f * params[:handle_quan].to_f
+            handle_name = @handle.name
+            @price_extra = @price_extra + handle_price
+          	timi_m_handle = @handle.price.to_f
+          	handle_quan = params[:handle_quan].to_f
         end
         
         #roll rat
@@ -3833,6 +3819,14 @@ class EticController < ApplicationController
 		    	@order.num_slides = num_slides
 		    end
 
+		    #handle
+		    if !@handle.nil?
+		    	@order.handle = @handle.name
+		    	@order.timi_m_handle = timi_m_handle
+		    	@order.price_handle = handle_price
+		    	@order.handle_quan = handle_quan
+		    end
+
 		    ### Nea profil
 		    if !@profil_deksia_1.nil?
 		    	@order.profil_deksia_1 = @profil_deksia_1.name
@@ -4174,6 +4168,18 @@ class EticController < ApplicationController
         	lock_timi = 0
         	num_slides = 0
         	lock_timi_m = 0
+        end
+
+        if (params[:handle] != "0")
+        	handle_name = handle_name
+        	handle_timi = handle_price
+          	handle_timi_m = timi_m_handle
+          	handle_quan = handle_quan
+        else
+        	handle_name = ""
+        	handle_timi = 0
+        	handle_quan = 0
+        	handle_timi_m = 0
         end
         
         if (params[:roll_rat] != "0")
@@ -4599,7 +4605,11 @@ class EticController < ApplicationController
           	                          :sec_odoigos_timi => sec_odoigos_timi,
           	                          :price_sec_color_odoigou => price_sec_color_odoigou,
           	                          :sec_od_quan => sec_od_quan,
-          	                          :open_categorie_surcharge => open_categorie_surcharge } }
+          	                          :open_categorie_surcharge => open_categorie_surcharge,
+          	                          :handle_name => handle_name,
+          	                          :handle_timi => handle_timi,
+          	                          :handle_quan => handle_quan,
+        							  :handle_timi_m => handle_timi_m } }
         end
 	end
 
