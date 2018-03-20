@@ -111,6 +111,7 @@ Rails.application.routes.draw do
   get 'data_base_in_out/clients'
   get 'data_base_in_out/add_users'
   get 'data_base_in_out/main_controll_panel'
+  get 'etic/sprossens'
   
   get 'order/edit'
   #root 'etic#home'

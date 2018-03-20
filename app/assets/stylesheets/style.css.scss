@@ -856,7 +856,11 @@ label {
 .place,
 .equipment,
 .lock,
-.handle {
+.handle,
+.lufter,
+.sprossen_cat,
+.sprossen,
+.figuren {
   display: block;
   //width: 150px;
   text-align: center;
@@ -2217,7 +2221,7 @@ label > input:checked + img{ /* (RADIO CHECKED) IMAGE STYLES */
 }
 
 .left_tab_extra{
-  height: 80px;
+  height: 70px;
   border-bottom-style: solid;
   border-bottom-width: 1px;
   cursor: pointer;

@@ -25,9 +25,14 @@ class EticController < ApplicationController
 
 
   def user_sign_in_extra
-    if(!params[:user_id].nil?)
-      sign_in(:user, User.find(params[:user_id]))
-    end
+  	if (params[:user_id])
+  		@user = User.where(:id => params[:user_id]).first
+  		session[:username2] = @user.email
+  	end
+
+    #if(!params[:user_id].nil?)
+     # sign_in(:user, User.find(params[:user_id]))
+    #end
   end
   
     ## Αλλαγη γλωσσας. Γενικα εχω ένα session[:locale] απο το application_controller.
@@ -385,7 +390,123 @@ class EticController < ApplicationController
     ## Όλες αυτές τις μεθόδους τις έχω για να πέρνω δεδομένα σε json format.
 	def extra
        @cat_anoigmatos = OpenCategorie.where(:id => [1,2,3,5,6,7,8])
-       @uliko = Material.all
+
+       if (current_user.email == "info@altec.gr")
+       	@uliko = Material.all
+       else 
+       	@uliko = Material.where(:id => 1)
+       end
+
+        if( params.has_key?(:repeat) && params.has_key?(:order))
+
+   			@order = Order.where(:id => params[:order]).first
+   			params[:diorthosi] = "ok"
+   			params[:open_categorie_name] = @order.open_categorie_id
+   			params[:material_name] = @order.material_id
+   			params[:constructor_name] = @order.constructor_id
+   			params[:system_name] = @order.system_id
+   			params[:line_name] = @order.line_id
+   			params[:leaf_name] = Leaf.where(:id => @order.leaf_id).first.name
+   			params[:open_type_name] = @order.open_type_id
+   			params[:color_name] = @order.main_color_id
+   			params[:color_eksw_name] = @order.main_color_eksw_id
+   			params[:mesa_eksw] = @order.in_out
+   			params[:xwrisma1] = @order.xwrisma1
+   			params[:xwrisma2] = @order.xwrisma2
+   			params[:xwrisma3_1] = @order.xwrisma3_1
+   			params[:xwrisma3_2] = @order.xwrisma3_2
+   			params[:xwrisma3_3] = @order.xwrisma3_3
+   			params[:xwrisma_y_1] = @order.xwrisma_y_1
+   			params[:xwrisma_y_2] = @order.xwrisma_y_2
+   			params[:color_deksia] = @order.right_color_id
+   			params[:color_aristera] = @order.left_color_id
+   			params[:color_panw] = @order.up_color_id
+   			params[:color_katw] = @order.down_color_id
+   			params[:color_fulou] = @order.leaf_color_id
+   			params[:lastixo] = @order.lastixo
+   			params[:width] = @order.width
+   			params[:height] = @order.height
+   			params[:order] = @order.id
+   			params[:paraggelia_id] = @order.paraggelia_id
+   			params[:dealer_id] = current_user.id
+   			params[:lastixa] = @order.lastixa
+   			params[:cat_tzamia0] = @order.tzami0_cat
+   			params[:cat_tzamia1] = @order.tzami1_cat
+   			params[:cat_tzamia2] = @order.tzami2_cat
+   			params[:tzamia0] = @order.tzamia0
+   			params[:tzamia] = @order.tzamia
+   			params[:tzamia2] = @order.tzamia2
+   			params[:rolo_name] = @order.rolo
+   			params[:xrwma_rolo] = @order.color_rolou
+   			params[:persida] = @order.persida
+   			params[:xrwma_persidas] = @order.color_persidas
+   			params[:odoigos] = @order.odoigos
+   			params[:xrwma_odoigou] = @order.color_odoigou
+   			params[:prostasia] = @order.prostasia_name
+   			params[:typos] = @order.typos_katw_1
+   			params[:typos_arithmos] = @order.typos_katw_arithmos_1
+   			params[:typos_col] = @order.color_profil_k
+   			params[:pr_ar_1] = @order.profil_aristera_1
+   			params[:pr_ar_1_ar] = @order.profil_aristera_arithmos_1
+   			params[:col_ar] = @order.color_profil_a
+   			params[:pr_ar_2] = @order.profil_aristera_2
+   			params[:pr_ar_2_ar] = @order.profil_aristera_arithmos_2
+   			params[:pr_ar_3] = @order.profil_aristera_3
+   			params[:pr_ar_3_ar] = @order.profil_aristera_arithmos_3
+   			params[:pr_de_1] = @order.profil_deksia_1
+   			params[:pr_de_1_de] = @order.profil_deksia_arithmos_1
+   			params[:col_de] = @order.color_profil_d
+   			params[:pr_de_2] = @order.profil_deksia_2
+   			params[:pr_de_2_de] = @order.profil_deksia_arithmos_2
+   			params[:pr_de_3] = @order.profil_deksia_3
+   			params[:pr_de_3_de] = @order.profil_deksia_arithmos_3
+   			params[:pr_pa_1] = @order.profil_panw_1
+   			params[:pr_pa_1_pa] = @order.profil_panw_arithmos_1
+   			params[:col_pa] = @order.color_profil_p
+   			params[:pr_pa_2] = @order.profil_panw_2
+   			params[:pr_pa_2_pa] = @order.profil_panw_arithmos_2
+   			params[:pr_pa_3] = @order.profil_panw_3
+   			params[:pr_pa_3_pa] = @order.profil_panw_arithmos_3
+   			params[:pr_ka_1] = @order.profil_katw_1
+   			params[:pr_ka_1_ka] = @order.profil_katw_arithmos_1
+   			params[:col_ka] = @order.color_profil_k
+   			params[:pr_ka_2] = @order.profil_katw_2
+   			params[:pr_ka_2_ka] = @order.profil_katw_arithmos_2
+   			params[:pr_ka_3] = @order.profil_katw_3
+   			params[:pr_ka_3_ka] = @order.profil_katw_arithmos_3
+   			params[:pl_rolou_ep] = @order.pl_rolou_ep
+   			params[:up_rolou_ep] = @order.up_rolou_ep
+   			params[:pl_rolou_ek] = @order.pl_rolou_ek
+   			params[:up_rolou_ek] = @order.up_rolou_ek
+   			params[:pl_persidas] = @order.pl_persidas
+   			params[:up_persidas] = @order.up_persidas
+   			params[:up_odigou] = @order.up_odigou
+   			params[:kinisi_deksia_aristera] = @order.kinisi_deksia_aristera
+   			params[:klap_ep] = @order.klap
+   			params[:deroll] = @order.deroll
+   			params[:metra_click] = "1"
+   			params[:user_id] = @order.user_id
+   			params[:roll_rat] = @order.roll_rat
+   			params[:rat_quan] = @order.rat_quan
+   			params[:roll_rdm] = @order.roll_rdm
+   			params[:roll_rlt] = @order.roll_rlt
+   			params[:roll_pfm] = @order.roll_pfm
+   			params[:roll_pss] = @order.roll_pss
+   			params[:window_still] = @order.window_still
+   			params[:sec_odoigos] = @order.sec_odoigos
+   			params[:sec_xrwma_odoigou] = @order.sec_color_odoigou
+   			params[:lock] = @order.lock
+   			params[:place] = @order.place
+   			params[:open_categorie_surcharge] = @order.open_categorie_surcharge
+   			params[:handle] = @order.handle
+   			params[:handle_quan] = @order.handle_quan
+   			params[:num_slides] = @order.num_slides
+   			params[:lufter] = @order.lufter
+   			params[:lufter_quan] = @order.lufter_quan
+   			params[:sprossen] = @order.sprossen
+   			params[:sprossen_quan] = @order.sprossen_quan
+   			params[:figuren] = @order.figuren
+   		end
 
        if( params.has_key?(:pre_order_id) )
        		if( params.has_key?(:open_category_code) )
@@ -458,7 +579,6 @@ class EticController < ApplicationController
 
 			@click_new_posistion = false
 		end
-
 
 		if( params.has_key?(:leaf_name) )
 		    @leaf_epilegmeno = Leaf.where(:name => CGI.unescape(params[:leaf_name])).first
@@ -570,9 +690,12 @@ class EticController < ApplicationController
 		@eksoteriko_cat = Eksoterika.all
 		@persides = Persides.all
     	@window_still_cat = WindowStillCat.all
+    	@sprossen_cat = SprossenCat.all
     	@places = Place.all
     	@locks = Lock.all
     	@handles = Handle.all
+    	@lufters = Lufter.all
+    	@figurens = Figuren.all
 		#Glass
 		@cat_tzamia0 = GlassCatInOut.all
 		@cat_tzamia1 = GlassCatIn.all
@@ -720,6 +843,24 @@ class EticController < ApplicationController
 				@handle_quan = params[:handle_quan]
 	        end
 
+	        figuren = Figuren.where(:name => params[:figuren]).first
+	        if ( !figuren.nil? )
+				@figuren_id = figuren.id
+	        end
+
+	        sprossen = Sprossen.where(:name => params[:sprossen]).first
+	        if ( !sprossen.nil? )
+				@sprossen_id = sprossen.id
+				@sprossen_quan = params[:sprossen_quan]
+				@sprossen_cat_id = sprossen.sprossen_cat_id
+	        end
+
+	        lufter = Lufter.where(:name => params[:lufter]).first
+	        if ( !lufter.nil? )
+				@lufter_id = lufter.id
+				@lufter_quan = params[:lufter_quan]
+	        end
+
 	        #open_categorie_surcharge
 	        if ( !params[:open_categorie_surcharge].nil? )
 	        	@open_categorie_surcharge = params[:open_categorie_surcharge]
@@ -843,6 +984,24 @@ class EticController < ApplicationController
 	        if ( !handle.nil? )
 				@handle_id = handle.id
 				@handle_quan = params[:handle_quan]
+	        end
+
+	        figuren = Figuren.where(:name => params[:figuren]).first
+	        if ( !figuren.nil? )
+				@figuren_id = figuren.id
+	        end
+
+	        sprossen = Sprossen.where(:name => params[:sprossen]).first
+	        if ( !sprossen.nil? )
+				@sprossen_id = sprossen.id
+				@sprossen_quan = params[:sprossen_quan]
+				@sprossen_cat_id = sprossen.sprossen_cat_id
+	        end
+
+	        lufter = Handle.where(:name => params[:lufter]).first
+	        if ( !lufter.nil? )
+				@lufter_id = lufter.id
+				@lufter_quan = params[:lufter_quan]
 	        end
 
 	        #rolo
@@ -1593,6 +1752,14 @@ class EticController < ApplicationController
           format.json { render json: @response.to_json}
         end
 	end
+
+	def sprossens
+		##Me ajax na pernw epikath an kanw click se epikath
+		@sprossens = Sprossen.where(:sprossen_cat_id => params[:sprossen_cat_id]) #.order(:order)
+		respond_to do |format|
+          format.json { render json: @sprossens.to_json}
+        end
+	end
   
 	def window_still_sub_cats
 		##Me ajax na pernw epikath an kanw click se epikath
@@ -1973,8 +2140,8 @@ class EticController < ApplicationController
 
         ## HASH με διακυμάνσεις τιμών σύμφωνα με την βάση μου.
         ## Ανάλογα με το μίκος και ύψος, που πάτησα ψαχνω μεσα σε αυτα τα hash και πέρνω μια τιμή, το κλειδί. 
-        widths = { 600 => (350..700), 700 => (700..799), 800 => (800..899), 900 => (900..999), 1000 => (1000..1099), 1100 => (1100..1199), 1200 => (1200..1299), 1300 => (1300..1399), 1400 => (1400..1499), 1500 => (1500..1599), 1600 => (1600..1699), 1700 => (1700..1799), 1800 => (1800..1899), 1900 => (1900..1999), 2000 => (2000..2099), 2100 => (2100..2199), 2200 => (2200..2299), 2300 => (2300..2399), 2400 => (2400..2499), 2500 => (2500..2599), 2600 => (2600..2699), 2700 => (2700..2799), 2800 => (2800..2899), 2900 => (2900..2999), 3000 => (3000..3099), 3100 => (3100..3199), 3200 => (3200..3299), 3300 => (3300..3399), 3400 => (3400..3499), 3500 => (3500..3599), 3700 => (3700..3799), 3800 => (3800..3899), 3900 => (3900..3999), 4000 => (4000..4099), 4100 => (4100..4199), 4200 => (4200..4299), 4300 => (4300..4399), 4400 => (4400..4499), 4500 => (4500..4599), 4600 => (4600..4699), 4700 => (4700..4799), 4800 => (4800..4899), 4900 => (4900..4999), 5000 => (5000..5099), 5100 => (5100..5199), 5200 => (5200..5299), 5300 => (5300..5399), 5400 => (5400..5499), 5500 => (5500..5599), 5600 => (5600..5699), 5700 => (5700..5799), 5800 => (5800..5899), 5900 => (5900..5999), 6000 => (6000..6099)}
-        heights = { 600 => (350..700), 700 => (700..799), 800 => (800..899), 900 => (900..999), 1000 => (1000..1099), 1100 => (1100..1199), 1200 => (1200..1299), 1300 => (1300..1399), 1400 => (1400..1499), 1500 => (1500..1599), 1600 => (1600..1699), 1700 => (1700..1799), 1800 => (1800..1899), 1900 => (1900..1999), 2000 => (2000..2099), 2100 => (2100..2199), 2200 => (2200..2299), 2300 => (2300..2399), 2400 => (2400..2499), 2500 => (2500..2599), 2600 => (2600..2699), 2700 => (2700..2799), 2800 => (2800..2899), 2900 => (2900..2999), 3000 => (3000..3099), 3100 => (3100..3199), 3200 => (3200..3299), 3300 => (3300..3399), 3400 => (3400..3499), 3500 => (3500..3599), 3700 => (3700..3799), 3800 => (3800..3899), 3900 => (3900..3999), 4000 => (4000..4099)}
+        widths = { 500 => (350..549), 550 => (550..599), 600 => (600..649), 650 => (650..699),700 => (700..749), 750 => (750..799),800 => (800..849),850 => (850..899), 900 => (900..949), 950 => (950..999),1000 => (1000..1049), 1050 => (1050..1099),1100 => (1100..1149), 1150 => (1150..1199),1200 => (1200..1249), 1250 => (1250..1299),1300 => (1300..1349), 1350 => (1350..1399),1400 => (1400..1449), 1450 => (1450..1499),1500 => (1500..1549), 1550 => (1550..1599),1600 => (1600..1649), 1650 => (1650..1699),1700 => (1700..1749), 1750 => (1750..1799),1800 => (1800..1849), 1850 => (1850..1899),1900 => (1900..1949), 1950 => (1950..1999),2000 => (2000..2099), 2100 => (2100..2199), 2200 => (2200..2299), 2300 => (2300..2399), 2400 => (2400..2499), 2500 => (2500..2599), 2600 => (2600..2699), 2700 => (2700..2799), 2800 => (2800..2899), 2900 => (2900..2999), 3000 => (3000..3099), 3100 => (3100..3199), 3200 => (3200..3299), 3300 => (3300..3399), 3400 => (3400..3499), 3500 => (3500..3599), 3700 => (3700..3799), 3800 => (3800..3899), 3900 => (3900..3999), 4000 => (4000..4099), 4100 => (4100..4199), 4200 => (4200..4299), 4300 => (4300..4399), 4400 => (4400..4499), 4500 => (4500..4599), 4600 => (4600..4699), 4700 => (4700..4799), 4800 => (4800..4899), 4900 => (4900..4999), 5000 => (5000..5099), 5100 => (5100..5199), 5200 => (5200..5299), 5300 => (5300..5399), 5400 => (5400..5499), 5500 => (5500..5599), 5600 => (5600..5699), 5700 => (5700..5799), 5800 => (5800..5899), 5900 => (5900..5999), 6000 => (6000..6099)}
+        heights = { 500 => (350..549), 550 => (550..599), 600 => (600..649), 650 => (650..699),700 => (700..749), 750 => (750..799),800 => (800..849),850 => (850..899), 900 => (900..949), 950 => (950..999),1000 => (1000..1049), 1050 => (1050..1099),1100 => (1100..1149), 1150 => (1150..1199),1200 => (1200..1249), 1250 => (1250..1299),1300 => (1300..1349), 1350 => (1350..1399),1400 => (1400..1449), 1450 => (1450..1499),1500 => (1500..1549), 1550 => (1550..1599),1600 => (1600..1649), 1650 => (1650..1699),1700 => (1700..1749), 1750 => (1750..1799),1800 => (1800..1849), 1850 => (1850..1899),1900 => (1900..1949), 1950 => (1950..1999), 2000 => (2000..2049), 2050 => (2050..2099),2100 => (2100..2149),2150 => (2150..2199), 2200 => (2200..2249), 2250 => (2250..2299),2300 => (2300..2399), 2400 => (2400..2499), 2500 => (2500..2599), 2600 => (2600..2699), 2700 => (2700..2799), 2800 => (2800..2899), 2900 => (2900..2999), 3000 => (3000..3099), 3100 => (3100..3199), 3200 => (3200..3299), 3300 => (3300..3399), 3400 => (3400..3499), 3500 => (3500..3599), 3700 => (3700..3799), 3800 => (3800..3899), 3900 => (3900..3999), 4000 => (4000..4099)}
         
         #if ( @open_type.code == 100 )
 		#    width = (width / 2)	
@@ -2982,6 +3149,24 @@ class EticController < ApplicationController
           	timi_m_handle = @handle.price.to_f
           	handle_quan = params[:handle_quan].to_f
         end
+
+        @sprossen = Sprossen.where(:id => params[:sprossen]).first
+        if ( !@sprossen.nil? )
+            sprossen_price = @sprossen.price.to_f * params[:sprossen_quan].to_f
+            sprossen_name = @sprossen.name
+            @price_extra = @price_extra + sprossen_price
+          	timi_m_sprossen = @sprossen.price.to_f
+          	sprossen_quan = params[:sprossen_quan].to_f
+        end
+
+        @lufter = Handle.where(:id => params[:lufter]).first
+        if ( !@lufter.nil? )
+            lufter_price = @lufter.price.to_f * params[:lufter_quan].to_f
+            lufter_name = @lufter.name
+            @price_extra = @price_extra + lufter_price
+          	timi_m_lufter = @lufter.price.to_f
+          	lufter_quan = params[:lufter_quan].to_f
+        end
         
         #roll rat
         @roll_rat = RatRoll.where(:id => params[:roll_rat]).first
@@ -3556,6 +3741,20 @@ class EticController < ApplicationController
 			end
 		end
 
+		@figuren = Figuren.where(:id => params[:figuren]).first
+        if ( !@figuren.nil? )
+        	if ( @price_new == 0)
+	          @price_sum2 = @price + @price_extra
+	        else
+	          @price_sum2 = @price_new + @price_extra	
+	        end
+
+            figuren_price = @figuren.price.to_f/100 * @price_sum2
+            figuren_name = @figuren.name
+            @price_extra = @price_extra + figuren_price
+          	timi_m_figuren = @figuren.price.to_f
+        end
+
         ### Μεχρι εδω
 
 
@@ -3825,6 +4024,29 @@ class EticController < ApplicationController
 		    	@order.timi_m_handle = timi_m_handle
 		    	@order.price_handle = handle_price
 		    	@order.handle_quan = handle_quan
+		    end
+
+		    #figuren
+		    if !@figuren.nil?
+		    	@order.figuren = @figuren.name
+		    	@order.timi_m_figuren = timi_m_figuren
+		    	@order.price_figuren = figuren_price
+		    end
+
+		    #sprossen
+		    if !@sprossen.nil?
+		    	@order.sprossen = @sprossen.name
+		    	@order.timi_m_sprossen = timi_m_sprossen
+		    	@order.price_sprossen = sprossen_price
+		    	@order.sprossen_quan = sprossen_quan
+		    end
+
+		    #lufter
+		    if !@lufter.nil?
+		    	@order.lufter = @lufter.name
+		    	@order.timi_m_lufter = timi_m_lufter
+		    	@order.price_lufter = lufter_price
+		    	@order.lufter_quan = lufter_quan
 		    end
 
 		    ### Nea profil
@@ -4180,6 +4402,40 @@ class EticController < ApplicationController
         	handle_timi = 0
         	handle_quan = 0
         	handle_timi_m = 0
+        end
+
+        if (params[:figuren] != "0")
+        	figuren_name = figuren_name
+        	figuren_timi = figuren_price
+          	figuren_timi_m = timi_m_figuren
+        else
+        	figuren_name = ""
+        	figuren_timi = 0
+        	figuren_timi_m = 0
+        end
+
+        if (params[:sprossen] != "0")
+        	sprossen_name = sprossen_name
+        	sprossen_timi = sprossen_price
+          	sprossen_timi_m = timi_m_sprossen
+          	sprossen_quan = sprossen_quan
+        else
+        	sprossen_name = ""
+        	sprossen_timi = 0
+        	sprossen_quan = 0
+        	sprossen_timi_m = 0
+        end
+
+        if (params[:lufter] != "0")
+        	lufter_name = lufter_name
+        	lufter_timi = lufter_price
+          	lufter_timi_m = timi_m_lufter
+          	lufter_quan = lufter_quan
+        else
+        	lufter_name = ""
+        	lufter_timi = 0
+        	lufter_quan = 0
+        	lufter_timi_m = 0
         end
         
         if (params[:roll_rat] != "0")
@@ -4609,7 +4865,18 @@ class EticController < ApplicationController
           	                          :handle_name => handle_name,
           	                          :handle_timi => handle_timi,
           	                          :handle_quan => handle_quan,
-        							  :handle_timi_m => handle_timi_m } }
+        							  :handle_timi_m => handle_timi_m,
+        							  :lufter_name => lufter_name,
+          	                          :lufter_timi => lufter_timi,
+          	                          :lufter_quan => lufter_quan,
+        							  :lufter_timi_m => lufter_timi_m,
+        							  :sprossen_name => sprossen_name,
+          	                          :sprossen_timi => sprossen_timi,
+          	                          :sprossen_quan => sprossen_quan,
+        							  :sprossen_timi_m => sprossen_timi_m,
+        							  :figuren_name => figuren_name,
+          	                          :figuren_timi => figuren_timi,
+        							  :figuren_timi_m => figuren_timi_m } }
         end
 	end
 

@@ -181,7 +181,7 @@
   
   /////// Υπολογισμος json ////////
   //Ajax για αρχικη τιμη
-  function times_json(open_type_name,width,height,line_name,mesa_eksw,color_name,new_width,new_height,epikathimeno_rolo,eksoteriko_rolo,persida,tzami,profil_deksia,profil_aristera,profil_panw,profil_katw,input_deksia,input_panw,input_katw,input_aristera,typos,color_typos,odoigos,color_deksia,color_aristera,color_panw,color_katw,color_fulou,lastixo,profil_deksia_1,profil_deksia_1_arithmos,profil_deksia_2,profil_deksia_2_arithmos,profil_deksia_3,profil_deksia_3_arithmos,profil_aristera_1,profil_aristera_1_arithmos,profil_aristera_2,profil_aristera_2_arithmos,profil_aristera_3,profil_aristera_3_arithmos,profil_panw_1,profil_panw_1_arithmos,profil_panw_2,profil_panw_2_arithmos,profil_panw_3,profil_panw_3_arithmos,profil_katw_1,profil_katw_1_arithmos,profil_katw_2,profil_katw_2_arithmos,profil_katw_3,profil_katw_3_arithmos,typos_katw_1,typos_katw_1_arithmos,typos_katw_2,typos_katw_2_arithmos,typos_katw_3,typos_katw_3_arithmos,prostasia,tzami2,lastixo,pl_rol_ep,up_rol_ep,pl_rol_ek,up_rol_ek,pl_persidas,up_persidas,up_odoigou,color_epikathimenou,color_eksoterikou,color_persidas,color_odoigou,color_profil_katw,color_profil_deksia,color_profil_aristera,color_profil_panw, elegxos_w, elegxos_h,xwrisma1,xwrisma2,xwrisma_y_1,xwrisma_y_2,xwrisma3_1,xwrisma3_2,xwrisma3_3,color_eksw_name,tzami0,xwrisma4_1,xwrisma4_2,xwrisma4_3,xwrisma4_4,window_still_single,roll_rat,roll_rlt,roll_rdm,roll_pss,roll_pfm, place, rat_quantity, sec_odoigos, sec_color_odoigou, lock, open_categorie_surcharge, lock_quan, handle, handle_quan){
+  function times_json(open_type_name,width,height,line_name,mesa_eksw,color_name,new_width,new_height,epikathimeno_rolo,eksoteriko_rolo,persida,tzami,profil_deksia,profil_aristera,profil_panw,profil_katw,input_deksia,input_panw,input_katw,input_aristera,typos,color_typos,odoigos,color_deksia,color_aristera,color_panw,color_katw,color_fulou,lastixo,profil_deksia_1,profil_deksia_1_arithmos,profil_deksia_2,profil_deksia_2_arithmos,profil_deksia_3,profil_deksia_3_arithmos,profil_aristera_1,profil_aristera_1_arithmos,profil_aristera_2,profil_aristera_2_arithmos,profil_aristera_3,profil_aristera_3_arithmos,profil_panw_1,profil_panw_1_arithmos,profil_panw_2,profil_panw_2_arithmos,profil_panw_3,profil_panw_3_arithmos,profil_katw_1,profil_katw_1_arithmos,profil_katw_2,profil_katw_2_arithmos,profil_katw_3,profil_katw_3_arithmos,typos_katw_1,typos_katw_1_arithmos,typos_katw_2,typos_katw_2_arithmos,typos_katw_3,typos_katw_3_arithmos,prostasia,tzami2,lastixo,pl_rol_ep,up_rol_ep,pl_rol_ek,up_rol_ek,pl_persidas,up_persidas,up_odoigou,color_epikathimenou,color_eksoterikou,color_persidas,color_odoigou,color_profil_katw,color_profil_deksia,color_profil_aristera,color_profil_panw, elegxos_w, elegxos_h,xwrisma1,xwrisma2,xwrisma_y_1,xwrisma_y_2,xwrisma3_1,xwrisma3_2,xwrisma3_3,color_eksw_name,tzami0,xwrisma4_1,xwrisma4_2,xwrisma4_3,xwrisma4_4,window_still_single,roll_rat,roll_rlt,roll_rdm,roll_pss,roll_pfm, place, rat_quantity, sec_odoigos, sec_color_odoigou, lock, open_categorie_surcharge, lock_quan, handle, handle_quan, lufter, lufter_quan, sprossen, sprossen_quan, figuren){
     $.ajax({
       async: false,
       type:'GET',
@@ -292,7 +292,13 @@
       open_categorie_surcharge: open_categorie_surcharge,
       lock_quan: lock_quan,
       handle: handle,
-      handle_quan: handle_quan},
+      handle_quan: handle_quan,
+      lufter: lufter,
+      lufter_quan: lufter_quan,
+      sprossen: sprossen,
+      sprossen_quan: sprossen_quan,
+      figuren: figuren
+      },
       success: function(data) {
         arxiki_timi = parseFloat(data.arxiki_timi);
         super_apli_timi = parseFloat(data.super_apli_timi);
@@ -466,11 +472,21 @@
         price_sec_color_odoigou = data.price_sec_color_odoigou;
         sec_od_quan = data.sec_od_quan;
         open_categorie_surcharge = data.open_categorie_surcharge;
-        
         handle_timi_m = data.handle_timi_m;
         handle_name = data.handle_name;
         handle_quan = data.handle_quan;
         handle_timi = data.handle_timi;
+        lufter_timi_m = data.lufter_timi_m;
+        lufter_name = data.lufter_name;
+        lufter_quan = data.lufter_quan;
+        lufter_timi = data.lufter_timi;
+        sprossen_timi_m = data.sprossen_timi_m;
+        sprossen_name = data.sprossen_name;
+        sprossen_quan = data.sprossen_quan;
+        sprossen_timi = data.sprossen_timi;
+        figuren_timi_m = data.figuren_timi_m;
+        figuren_name = data.figuren_name;
+        figuren_timi = data.figuren_timi;
 
         // Αλλαγες σε πινακακι //
         $(".super_apli_timi").text(super_apli_timi.toFixed(2).replace(".", ",")+" €");
@@ -670,6 +686,42 @@
         }
         else{
             $(".handle_show_hide").css("display","none");
+        }
+
+        if (figuren_timi != 0){
+            $(".timi_market_figuren").text((figuren_timi - pososto_market * figuren_timi).toFixed(2).replace(".", ",")+" €");
+            $(".timi_dealer_figuren").text((figuren_timi - pososto_dealer * figuren_timi).toFixed(2).replace(".", ",")+" €");
+            $(".figuren_show_hide").css("display","table-row");
+            $(".table_figuren").text(figuren_name);
+            $(".timi_figuren").text(figuren_timi.toFixed(2).replace(".", ",")+" €");
+            $(".figuren_quan").text(figuren_timi_m+"%");
+        }
+        else{
+            $(".figuren_show_hide").css("display","none");
+        }
+
+        if (sprossen_timi != 0){
+            $(".timi_market_sprossen").text((sprossen_timi - pososto_market * sprossen_timi).toFixed(2).replace(".", ",")+" €");
+            $(".timi_dealer_sprossen").text((sprossen_timi - pososto_dealer * sprossen_timi).toFixed(2).replace(".", ",")+" €");
+            $(".sprossen_show_hide").css("display","table-row");
+            $(".table_sprossen").text(sprossen_name);
+            $(".timi_sprossen").text(sprossen_timi.toFixed(2).replace(".", ",")+" €");
+            $(".sprossen_quan").text(sprossen_quan+"x"+sprossen_timi_m+"€");
+        }
+        else{
+            $(".sprossen_show_hide").css("display","none");
+        }
+
+        if (lufter_timi != 0){
+            $(".timi_market_lufter").text((lufter_timi - pososto_market * lufter_timi).toFixed(2).replace(".", ",")+" €");
+            $(".timi_dealer_lufter").text((lufter_timi - pososto_dealer * lufter_timi).toFixed(2).replace(".", ",")+" €");
+            $(".lufter_show_hide").css("display","table-row");
+            $(".table_lufter").text(lufter_name);
+            $(".timi_lufter").text(lufter_timi.toFixed(2).replace(".", ",")+" €");
+            $(".lufter_quan").text(lufter_quan+"x"+lufter_timi_m+"€");
+        }
+        else{
+            $(".lufter_show_hide").css("display","none");
         }
 		
         if (roll_rat_timi != 0){

@@ -24,6 +24,8 @@ class ApplicationController < ActionController::Base
     ## Για back μετα απο login
 	def store_location
 	  # store last url - this is needed for post-login redirect to whatever the user last visited.
+    session[:previous_url2] = request.fullpath unless request.fullpath =~ /\/users/
+
 	  return unless request.get? 
 	  if (request.path != "/users/sign_in" &&
 	      request.path != "/users/sign_up" &&
@@ -43,7 +45,7 @@ class ApplicationController < ActionController::Base
 			return data_base_in_out_main_controll_panel_path
 		else 
 	        #return etic_home_path
-	        return etic_user_diax_path
+	        request.env['omniauth.origin'] || stored_location_for(resource) || etic_user_diax_path
 	    end
 	end
 

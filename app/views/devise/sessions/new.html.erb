@@ -20,7 +20,8 @@
 
 		 <div class="form-group">
 		    <div><%= t("translate.Email") %><br />
-		    <%= f.email_field :email, autofocus: true, class: "form-control" %></div>
+		     
+		    <%= f.email_field :email, autofocus: true, class: "form-control", value: session[:username2] %></div>
 		</div>
         
         <div class="form-group">

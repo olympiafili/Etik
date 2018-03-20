@@ -118,6 +118,14 @@ ActiveRecord::Schema.define(version: 20160719070630075818) do
     t.datetime "updated_at"
   end
 
+  create_table "figurens", force: true do |t|
+    t.string   "name"
+    t.float    "price",        limit: 24
+    t.string   "sungate_code"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "glass_cat_in_outs", force: true do |t|
     t.string   "name"
     t.string   "code"
@@ -199,6 +207,14 @@ ActiveRecord::Schema.define(version: 20160719070630075818) do
   end
 
   create_table "locks", force: true do |t|
+    t.string   "name"
+    t.float    "price",        limit: 24
+    t.string   "sungate_code"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "lufters", force: true do |t|
     t.string   "name"
     t.float    "price",        limit: 24
     t.string   "sungate_code"
@@ -531,6 +547,17 @@ ActiveRecord::Schema.define(version: 20160719070630075818) do
     t.float    "timi_m_handle",              limit: 24
     t.float    "price_handle",               limit: 24
     t.float    "handle_quan",                limit: 24
+    t.string   "lufter"
+    t.float    "timi_m_lufter",              limit: 24
+    t.float    "price_lufter",               limit: 24
+    t.float    "lufter_quan",                limit: 24
+    t.string   "sprossen"
+    t.float    "timi_m_sprossen",            limit: 24
+    t.float    "price_sprossen",             limit: 24
+    t.float    "sprossen_quan",              limit: 24
+    t.string   "figuren"
+    t.float    "timi_m_figuren",             limit: 24
+    t.float    "price_figuren",              limit: 24
   end
 
   create_table "panels", force: true do |t|
@@ -861,6 +888,22 @@ ActiveRecord::Schema.define(version: 20160719070630075818) do
     t.integer  "pososto_sun"
     t.integer  "order"
     t.integer  "default"
+  end
+
+  create_table "sprossen_cats", force: true do |t|
+    t.string   "name"
+    t.string   "sungate_code"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "sprossens", force: true do |t|
+    t.string   "name"
+    t.float    "price",           limit: 24
+    t.string   "sungate_code"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "sprossen_cat_id"
   end
 
   create_table "supplier_panels", force: true do |t|
