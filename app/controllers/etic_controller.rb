@@ -506,6 +506,15 @@ class EticController < ApplicationController
    			params[:sprossen] = @order.sprossen
    			params[:sprossen_quan] = @order.sprossen_quan
    			params[:figuren] = @order.figuren
+   			params[:kopp_ar] = @order.kopp_ar
+   			params[:kopp_ar_quan] = @order.kopp_ar_quan
+   			params[:kopp_de] = @order.kopp_de
+   			params[:kopp_de_quan] = @order.kopp_de_quan
+
+   			params[:kopp_pa] = @order.kopp_pa
+   			params[:kopp_pa_quan] = @order.kopp_pa_quan
+   			params[:kopp_ka] = @order.kopp_ka
+   			params[:kopp_ka_quan] = @order.kopp_ka_quan
    		end
 
        if( params.has_key?(:pre_order_id) )
@@ -713,6 +722,7 @@ class EticController < ApplicationController
     	@roll_rdm = RdmRoll.all
     	@roll_pss = PssRoll.all
     	@roll_pfm = PfmRoll.all
+    	@kopp = Kopp.all
 		@order = Order.where(:id => params[:order]).first
 		if !@order.nil?
 			@order = Order.where(:id => params[:order]).first
@@ -853,6 +863,30 @@ class EticController < ApplicationController
 				@sprossen_id = sprossen.id
 				@sprossen_quan = params[:sprossen_quan]
 				@sprossen_cat_id = sprossen.sprossen_cat_id
+	        end
+
+	        kopp_ar = Kopp.where(:name => params[:kopp_ar]).first
+	        if ( !kopp_ar.nil? )
+				@kopp_ar_id = kopp_ar.id
+				@kopp_ar_quan = params[:kopp_ar_quan]
+	        end
+
+	        kopp_de = Kopp.where(:name => params[:kopp_de]).first
+	        if ( !kopp_de.nil? )
+				@kopp_de_id = kopp_de.id
+				@kopp_de_quan = params[:kopp_de_quan]
+	        end
+
+	        kopp_pa = Kopp.where(:name => params[:kopp_pa]).first
+	        if ( !kopp_pa.nil? )
+				@kopp_pa_id = kopp_pa.id
+				@kopp_pa_quan = params[:kopp_pa_quan]
+	        end
+
+	        kopp_ka = Kopp.where(:name => params[:kopp_ka]).first
+	        if ( !kopp_ka.nil? )
+				@kopp_ka_id = kopp_ka.id
+				@kopp_ka_quan = params[:kopp_ka_quan]
 	        end
 
 	        lufter = Lufter.where(:name => params[:lufter]).first
@@ -996,6 +1030,30 @@ class EticController < ApplicationController
 				@sprossen_id = sprossen.id
 				@sprossen_quan = params[:sprossen_quan]
 				@sprossen_cat_id = sprossen.sprossen_cat_id
+	        end
+
+	        kopp_ar = Kopp.where(:name => params[:kopp_ar]).first
+	        if ( !kopp_ar.nil? )
+				@kopp_ar_id = kopp_ar.id
+				@kopp_ar_quan = params[:kopp_ar_quan]
+	        end
+
+	        kopp_de = Kopp.where(:name => params[:kopp_de]).first
+	        if ( !kopp_de.nil? )
+				@kopp_de_id = kopp_de.id
+				@kopp_de_quan = params[:kopp_de_quan]
+	        end
+
+	        kopp_pa = Kopp.where(:name => params[:kopp_pa]).first
+	        if ( !kopp_pa.nil? )
+				@kopp_pa_id = kopp_pa.id
+				@kopp_pa_quan = params[:kopp_pa_quan]
+	        end
+
+	        kopp_ka = Kopp.where(:name => params[:kopp_ka]).first
+	        if ( !kopp_ka.nil? )
+				@kopp_ka_id = kopp_ka.id
+				@kopp_ka_quan = params[:kopp_ka_quan]
 	        end
 
 	        lufter = Handle.where(:name => params[:lufter]).first
@@ -3159,6 +3217,90 @@ class EticController < ApplicationController
           	sprossen_quan = params[:sprossen_quan].to_f
         end
 
+        @kopp_ar = Kopp.where(:id => params[:kopp_ar]).first
+        if ( !@kopp_ar.nil? )
+        	if ( width_gia_vasi_new != 0)
+			    width_n = width_gia_vasi_new
+		    else
+			    width_n = width
+		    end
+		    if ( height_gia_vasi_new != 0)
+	    		height_n = height_gia_vasi_new
+	    	else
+	    		height_n = height
+	    	end
+	    	kopp_ar_price = ((height_n * @kopp_ar.price.to_f) / 1000 )
+
+            kopp_ar_price = kopp_ar_price * params[:kopp_ar_quan].to_f
+            kopp_ar_name = @kopp_ar.name
+            @price_extra = @price_extra + kopp_ar_price
+          	timi_m_kopp_ar = @kopp_ar.price.to_f
+          	kopp_ar_quan = params[:kopp_ar_quan].to_f
+        end
+
+        @kopp_de = Kopp.where(:id => params[:kopp_de]).first
+        if ( !@kopp_de.nil? )
+        	if ( width_gia_vasi_new != 0)
+			    width_n = width_gia_vasi_new
+		    else
+			    width_n = width
+		    end
+		    if ( height_gia_vasi_new != 0)
+	    		height_n = height_gia_vasi_new
+	    	else
+	    		height_n = height
+	    	end
+	    	kopp_de_price = ((height_n * @kopp_de.price.to_f) / 1000 )
+
+            kopp_de_price = kopp_de_price * params[:kopp_de_quan].to_f
+            kopp_de_name = @kopp_de.name
+            @price_extra = @price_extra + kopp_de_price
+          	timi_m_kopp_de = @kopp_de.price.to_f
+          	kopp_de_quan = params[:kopp_de_quan].to_f
+        end
+
+        @kopp_pa = Kopp.where(:id => params[:kopp_pa]).first
+        if ( !@kopp_pa.nil? )
+        	if ( width_gia_vasi_new != 0)
+			    width_n = width_gia_vasi_new
+		    else
+			    width_n = width
+		    end
+		    if ( height_gia_vasi_new != 0)
+	    		height_n = height_gia_vasi_new
+	    	else
+	    		height_n = height
+	    	end
+	    	kopp_pa_price = ((width_n * @kopp_pa.price.to_f) / 1000 )
+
+            kopp_pa_price = kopp_pa_price * params[:kopp_pa_quan].to_f
+            kopp_pa_name = @kopp_pa.name
+            @price_extra = @price_extra + kopp_pa_price
+          	timi_m_kopp_pa = @kopp_pa.price.to_f
+          	kopp_pa_quan = params[:kopp_pa_quan].to_f
+        end
+
+        @kopp_ka = Kopp.where(:id => params[:kopp_ka]).first
+        if ( !@kopp_ka.nil? )
+        	if ( width_gia_vasi_new != 0)
+			    width_n = width_gia_vasi_new
+		    else
+			    width_n = width
+		    end
+		    if ( height_gia_vasi_new != 0)
+	    		height_n = height_gia_vasi_new
+	    	else
+	    		height_n = height
+	    	end
+	    	kopp_ka_price = ((width_n * @kopp_ka.price.to_f) / 1000 )
+
+            kopp_ka_price = kopp_ka_price * params[:kopp_ka_quan].to_f
+            kopp_ka_name = @kopp_ka.name
+            @price_extra = @price_extra + kopp_ka_price
+          	timi_m_kopp_ka = @kopp_ka.price.to_f
+          	kopp_ka_quan = params[:kopp_ka_quan].to_f
+        end
+
         @lufter = Handle.where(:id => params[:lufter]).first
         if ( !@lufter.nil? )
             lufter_price = @lufter.price.to_f * params[:lufter_quan].to_f
@@ -4041,6 +4183,35 @@ class EticController < ApplicationController
 		    	@order.sprossen_quan = sprossen_quan
 		    end
 
+		    #sprossen aristera
+		    if !@kopp_ar.nil?
+		    	@order.kopp = @kopp_ar.name
+		    	@order.timi_m_kopp = timi_m_kopp_ar
+		    	@order.price_kopp = kopp_ar_price
+		    	@order.kopp_quan = kopp_ar_quan
+		    end
+
+		    if !@kopp_de.nil?
+		    	@order.kopp_de = @kopp_de.name
+		    	@order.timi_m_kopp_de = timi_m_kopp_de
+		    	@order.price_kopp_de = kopp_de_price
+		    	@order.kopp_de_quan = kopp_de_quan
+		    end
+
+		    if !@kopp_pa.nil?
+		    	@order.kopp_pa = @kopp_pa.name
+		    	@order.timi_m_kopp_pa = timi_m_kopp_pa
+		    	@order.price_kopp_pa = kopp_pa_price
+		    	@order.kopp_pa_quan = kopp_pa_quan
+		    end
+
+		    if !@kopp_ka.nil?
+		    	@order.kopp_ka = @kopp_ka.name
+		    	@order.timi_m_kopp_ka = timi_m_kopp_ka
+		    	@order.price_kopp_ka = kopp_ka_price
+		    	@order.kopp_ka_quan = kopp_ka_quan
+		    end
+
 		    #lufter
 		    if !@lufter.nil?
 		    	@order.lufter = @lufter.name
@@ -4424,6 +4595,54 @@ class EticController < ApplicationController
         	sprossen_timi = 0
         	sprossen_quan = 0
         	sprossen_timi_m = 0
+        end
+
+        if (params[:kopp_ar] != "0")
+        	kopp_ar_name = kopp_ar_name
+        	kopp_ar_timi = kopp_ar_price
+          	kopp_ar_timi_m = timi_m_kopp_ar
+          	kopp_ar_quan = kopp_ar_quan
+        else
+        	kopp_ar_name = ""
+        	kopp_ar_timi = 0
+        	kopp_ar_quan = 0
+        	kopp_ar_timi_m = 0
+        end
+
+        if (params[:kopp_de] != "0")
+        	kopp_de_name = kopp_de_name
+        	kopp_de_timi = kopp_de_price
+          	kopp_de_timi_m = timi_m_kopp_de
+          	kopp_de_quan = kopp_de_quan
+        else
+        	kopp_de_name = ""
+        	kopp_de_timi = 0
+        	kopp_de_quan = 0
+        	kopp_de_timi_m = 0
+        end
+
+        if (params[:kopp_pa] != "0")
+        	kopp_pa_name = kopp_pa_name
+        	kopp_pa_timi = kopp_pa_price
+          	kopp_pa_timi_m = timi_m_kopp_pa
+          	kopp_pa_quan = kopp_pa_quan
+        else
+        	kopp_pa_name = ""
+        	kopp_pa_timi = 0
+        	kopp_pa_quan = 0
+        	kopp_pa_timi_m = 0
+        end
+
+        if (params[:kopp_ka] != "0")
+        	kopp_ka_name = kopp_ka_name
+        	kopp_ka_timi = kopp_ka_price
+          	kopp_ka_timi_m = timi_m_kopp_ka
+          	kopp_ka_quan = kopp_ka_quan
+        else
+        	kopp_ka_name = ""
+        	kopp_ka_timi = 0
+        	kopp_ka_quan = 0
+        	kopp_ka_timi_m = 0
         end
 
         if (params[:lufter] != "0")
@@ -4876,7 +5095,24 @@ class EticController < ApplicationController
         							  :sprossen_timi_m => sprossen_timi_m,
         							  :figuren_name => figuren_name,
           	                          :figuren_timi => figuren_timi,
-        							  :figuren_timi_m => figuren_timi_m } }
+        							  :figuren_timi_m => figuren_timi_m,
+        							  :kopp_ar_name => kopp_ar_name,
+          	                          :kopp_ar_timi => kopp_ar_timi,
+          	                          :kopp_ar_quan => kopp_ar_quan,
+        							  :kopp_ar_timi_m => kopp_ar_timi_m,
+        							  :kopp_de_name => kopp_de_name,
+          	                          :kopp_de_timi => kopp_de_timi,
+          	                          :kopp_de_quan => kopp_de_quan,
+        							  :kopp_de_timi_m => kopp_de_timi_m,
+
+        							  :kopp_pa_name => kopp_pa_name,
+          	                          :kopp_pa_timi => kopp_pa_timi,
+          	                          :kopp_pa_quan => kopp_pa_quan,
+        							  :kopp_pa_timi_m => kopp_pa_timi_m,
+        							  :kopp_ka_name => kopp_ka_name,
+          	                          :kopp_ka_timi => kopp_ka_timi,
+          	                          :kopp_ka_quan => kopp_ka_quan,
+        							  :kopp_ka_timi_m => kopp_ka_timi_m, } }
         end
 	end
 

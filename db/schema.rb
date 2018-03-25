@@ -175,6 +175,14 @@ ActiveRecord::Schema.define(version: 20160719070630075818) do
     t.integer  "default"
   end
 
+  create_table "kopps", force: true do |t|
+    t.string   "name"
+    t.float    "price",        limit: 24
+    t.string   "sungate_code"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "leafs", force: true do |t|
     t.string   "name"
     t.string   "image"
@@ -558,6 +566,22 @@ ActiveRecord::Schema.define(version: 20160719070630075818) do
     t.string   "figuren"
     t.float    "timi_m_figuren",             limit: 24
     t.float    "price_figuren",              limit: 24
+    t.string   "kopp"
+    t.float    "timi_m_kopp",                limit: 24
+    t.float    "price_kopp",                 limit: 24
+    t.float    "kopp_quan",                  limit: 24
+    t.string   "kopp_de"
+    t.float    "timi_m_kopp_de",             limit: 24
+    t.float    "price_kopp_de",              limit: 24
+    t.float    "kopp_de_quan",               limit: 24
+    t.string   "kopp_pa"
+    t.float    "timi_m_kopp_pa",             limit: 24
+    t.float    "price_kopp_pa",              limit: 24
+    t.float    "kopp_pa_quan",               limit: 24
+    t.string   "kopp_ka"
+    t.float    "timi_m_kopp_ka",             limit: 24
+    t.float    "price_kopp_ka",              limit: 24
+    t.float    "kopp_ka_quan",               limit: 24
   end
 
   create_table "panels", force: true do |t|

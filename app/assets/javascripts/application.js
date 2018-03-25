@@ -170,6 +170,58 @@
      
   }
 
+  function anoigma_kopp_deksia(){
+    $( ".ola_ta_kopp_deksia" ).show();
+    $( ".ola_ta_kopp_aristera" ).hide();
+    $( ".ola_ta_kopp_panw" ).hide();
+    $( ".ola_ta_kopp_katw" ).hide();
+    $( ".label_kopp" ).css("background-color","");//Ετσι αφαιρω την ιδιοτητα!!!
+    $( ".label_kopp" ).css("color","");
+    
+    $( "#deksia_ko" ).css("background-color","#d9eaed");
+    $( "#deksia_ko" ).css("color","black");
+     
+  }
+
+  function anoigma_kopp_aristera(){
+    $( ".ola_ta_kopp_deksia" ).hide();
+    $( ".ola_ta_kopp_aristera" ).show();
+    $( ".ola_ta_kopp_panw" ).hide();
+    $( ".ola_ta_kopp_katw" ).hide();
+    $( ".label_kopp" ).css("background-color","");//Ετσι αφαιρω την ιδιοτητα!!!
+    $( ".label_kopp" ).css("color","");
+   
+    $( "#aristera_ko" ).css("background-color","#d9eaed");
+    $( "#aristera_ko" ).css("color","black");  
+
+  }
+
+  function anoigma_kopp_panw(){
+    $( ".ola_ta_kopp_deksia" ).hide();
+    $( ".ola_ta_kopp_aristera" ).hide();
+    $( ".ola_ta_kopp_panw" ).show();
+    $( ".ola_ta_kopp_katw" ).hide();
+    $( ".label_kopp" ).css("background-color","");//Ετσι αφαιρω την ιδιοτητα!!!
+    $( ".label_kopp" ).css("color","");
+    
+    $( "#panw_ko" ).css("background-color","#d9eaed");
+    $( "#panw_ko" ).css("color","black");
+     
+  }
+
+  function anoigma_kopp_katw(){
+    $( ".ola_ta_kopp_deksia" ).hide();
+    $( ".ola_ta_kopp_aristera" ).hide();
+    $( ".ola_ta_kopp_panw" ).hide();
+    $( ".ola_ta_kopp_katw" ).show();
+    $( ".label_kopp" ).css("background-color","");//Ετσι αφαιρω την ιδιοτητα!!!
+    $( ".label_kopp" ).css("color","");
+    
+    $( "#katw_ko" ).css("background-color","#d9eaed");
+    $( "#katw_ko" ).css("color","black");
+     
+  }
+
   function ypsos_a(a){
     ypsos = a;
   }
@@ -181,7 +233,7 @@
   
   /////// Υπολογισμος json ////////
   //Ajax για αρχικη τιμη
-  function times_json(open_type_name,width,height,line_name,mesa_eksw,color_name,new_width,new_height,epikathimeno_rolo,eksoteriko_rolo,persida,tzami,profil_deksia,profil_aristera,profil_panw,profil_katw,input_deksia,input_panw,input_katw,input_aristera,typos,color_typos,odoigos,color_deksia,color_aristera,color_panw,color_katw,color_fulou,lastixo,profil_deksia_1,profil_deksia_1_arithmos,profil_deksia_2,profil_deksia_2_arithmos,profil_deksia_3,profil_deksia_3_arithmos,profil_aristera_1,profil_aristera_1_arithmos,profil_aristera_2,profil_aristera_2_arithmos,profil_aristera_3,profil_aristera_3_arithmos,profil_panw_1,profil_panw_1_arithmos,profil_panw_2,profil_panw_2_arithmos,profil_panw_3,profil_panw_3_arithmos,profil_katw_1,profil_katw_1_arithmos,profil_katw_2,profil_katw_2_arithmos,profil_katw_3,profil_katw_3_arithmos,typos_katw_1,typos_katw_1_arithmos,typos_katw_2,typos_katw_2_arithmos,typos_katw_3,typos_katw_3_arithmos,prostasia,tzami2,lastixo,pl_rol_ep,up_rol_ep,pl_rol_ek,up_rol_ek,pl_persidas,up_persidas,up_odoigou,color_epikathimenou,color_eksoterikou,color_persidas,color_odoigou,color_profil_katw,color_profil_deksia,color_profil_aristera,color_profil_panw, elegxos_w, elegxos_h,xwrisma1,xwrisma2,xwrisma_y_1,xwrisma_y_2,xwrisma3_1,xwrisma3_2,xwrisma3_3,color_eksw_name,tzami0,xwrisma4_1,xwrisma4_2,xwrisma4_3,xwrisma4_4,window_still_single,roll_rat,roll_rlt,roll_rdm,roll_pss,roll_pfm, place, rat_quantity, sec_odoigos, sec_color_odoigou, lock, open_categorie_surcharge, lock_quan, handle, handle_quan, lufter, lufter_quan, sprossen, sprossen_quan, figuren){
+  function times_json(open_type_name,width,height,line_name,mesa_eksw,color_name,new_width,new_height,epikathimeno_rolo,eksoteriko_rolo,persida,tzami,profil_deksia,profil_aristera,profil_panw,profil_katw,input_deksia,input_panw,input_katw,input_aristera,typos,color_typos,odoigos,color_deksia,color_aristera,color_panw,color_katw,color_fulou,lastixo,profil_deksia_1,profil_deksia_1_arithmos,profil_deksia_2,profil_deksia_2_arithmos,profil_deksia_3,profil_deksia_3_arithmos,profil_aristera_1,profil_aristera_1_arithmos,profil_aristera_2,profil_aristera_2_arithmos,profil_aristera_3,profil_aristera_3_arithmos,profil_panw_1,profil_panw_1_arithmos,profil_panw_2,profil_panw_2_arithmos,profil_panw_3,profil_panw_3_arithmos,profil_katw_1,profil_katw_1_arithmos,profil_katw_2,profil_katw_2_arithmos,profil_katw_3,profil_katw_3_arithmos,typos_katw_1,typos_katw_1_arithmos,typos_katw_2,typos_katw_2_arithmos,typos_katw_3,typos_katw_3_arithmos,prostasia,tzami2,lastixo,pl_rol_ep,up_rol_ep,pl_rol_ek,up_rol_ek,pl_persidas,up_persidas,up_odoigou,color_epikathimenou,color_eksoterikou,color_persidas,color_odoigou,color_profil_katw,color_profil_deksia,color_profil_aristera,color_profil_panw, elegxos_w, elegxos_h,xwrisma1,xwrisma2,xwrisma_y_1,xwrisma_y_2,xwrisma3_1,xwrisma3_2,xwrisma3_3,color_eksw_name,tzami0,xwrisma4_1,xwrisma4_2,xwrisma4_3,xwrisma4_4,window_still_single,roll_rat,roll_rlt,roll_rdm,roll_pss,roll_pfm, place, rat_quantity, sec_odoigos, sec_color_odoigou, lock, open_categorie_surcharge, lock_quan, handle, handle_quan, lufter, lufter_quan, sprossen, sprossen_quan, figuren, kopp_ar, kopp_ar_quan, kopp_de, kopp_de_quan, kopp_pa, kopp_pa_quan, kopp_ka, kopp_ka_quan){
     $.ajax({
       async: false,
       type:'GET',
@@ -297,7 +349,16 @@
       lufter_quan: lufter_quan,
       sprossen: sprossen,
       sprossen_quan: sprossen_quan,
-      figuren: figuren
+      figuren: figuren,
+      kopp_ar: kopp_ar, 
+      kopp_ar_quan: kopp_ar_quan,
+      kopp_de: kopp_de, 
+      kopp_de_quan: kopp_de_quan,
+
+      kopp_pa: kopp_pa, 
+      kopp_pa_quan: kopp_pa_quan,
+      kopp_ka: kopp_ka, 
+      kopp_ka_quan: kopp_ka_quan
       },
       success: function(data) {
         arxiki_timi = parseFloat(data.arxiki_timi);
@@ -487,6 +548,23 @@
         figuren_timi_m = data.figuren_timi_m;
         figuren_name = data.figuren_name;
         figuren_timi = data.figuren_timi;
+        kopp_ar_timi_m = data.kopp_ar_timi_m;
+        kopp_ar_name = data.kopp_ar_name;
+        kopp_ar_quan = data.kopp_ar_quan;
+        kopp_ar_timi = data.kopp_ar_timi;
+        kopp_de_timi_m = data.kopp_de_timi_m;
+        kopp_de_name = data.kopp_de_name;
+        kopp_de_quan = data.kopp_de_quan;
+        kopp_de_timi = data.kopp_de_timi;
+
+        kopp_pa_timi_m = data.kopp_pa_timi_m;
+        kopp_pa_name = data.kopp_pa_name;
+        kopp_pa_quan = data.kopp_pa_quan;
+        kopp_pa_timi = data.kopp_pa_timi;
+        kopp_ka_timi_m = data.kopp_ka_timi_m;
+        kopp_ka_name = data.kopp_ka_name;
+        kopp_ka_quan = data.kopp_ka_quan;
+        kopp_ka_timi = data.kopp_ka_timi;
 
         // Αλλαγες σε πινακακι //
         $(".super_apli_timi").text(super_apli_timi.toFixed(2).replace(".", ",")+" €");
@@ -710,6 +788,54 @@
         }
         else{
             $(".sprossen_show_hide").css("display","none");
+        }
+
+        if (kopp_ar_timi != 0){
+            $(".timi_market_kopp_ar").text((kopp_ar_timi - pososto_market * kopp_ar_timi).toFixed(2).replace(".", ",")+" €");
+            $(".timi_dealer_kopp_ar").text((kopp_ar_timi - pososto_dealer * kopp_ar_timi).toFixed(2).replace(".", ",")+" €");
+            $(".kopp_ar_show_hide").css("display","table-row");
+            $(".table_kopp_ar").text(kopp_ar_name);
+            $(".timi_kopp_ar").text(kopp_ar_timi.toFixed(2).replace(".", ",")+" €");
+            $(".kopp_ar_quan").text(kopp_ar_quan+"x"+kopp_ar_timi_m+"€");
+        }
+        else{
+            $(".kopp_ar_show_hide").css("display","none");
+        }
+
+        if (kopp_de_timi != 0){
+            $(".timi_market_kopp_de").text((kopp_de_timi - pososto_market * kopp_de_timi).toFixed(2).replace(".", ",")+" €");
+            $(".timi_dealer_kopp_de").text((kopp_de_timi - pososto_dealer * kopp_de_timi).toFixed(2).replace(".", ",")+" €");
+            $(".kopp_de_show_hide").css("display","table-row");
+            $(".table_kopp_de").text(kopp_de_name);
+            $(".timi_kopp_de").text(kopp_de_timi.toFixed(2).replace(".", ",")+" €");
+            $(".kopp_de_quan").text(kopp_de_quan+"x"+kopp_de_timi_m+"€");
+        }
+        else{
+            $(".kopp_de_show_hide").css("display","none");
+        }
+
+        if (kopp_pa_timi != 0){
+            $(".timi_market_kopp_pa").text((kopp_pa_timi - pososto_market * kopp_pa_timi).toFixed(2).replace(".", ",")+" €");
+            $(".timi_dealer_kopp_pa").text((kopp_pa_timi - pososto_dealer * kopp_pa_timi).toFixed(2).replace(".", ",")+" €");
+            $(".kopp_pa_show_hide").css("display","table-row");
+            $(".table_kopp_pa").text(kopp_pa_name);
+            $(".timi_kopp_pa").text(kopp_pa_timi.toFixed(2).replace(".", ",")+" €");
+            $(".kopp_pa_quan").text(kopp_pa_quan+"x"+kopp_pa_timi_m+"€");
+        }
+        else{
+            $(".kopp_pa_show_hide").css("display","none");
+        }
+
+        if (kopp_ka_timi != 0){
+            $(".timi_market_kopp_ka").text((kopp_ka_timi - pososto_market * kopp_ka_timi).toFixed(2).replace(".", ",")+" €");
+            $(".timi_dealer_kopp_ka").text((kopp_ka_timi - pososto_dealer * kopp_ka_timi).toFixed(2).replace(".", ",")+" €");
+            $(".kopp_ka_show_hide").css("display","table-row");
+            $(".table_kopp_ka").text(kopp_ka_name);
+            $(".timi_kopp_ka").text(kopp_ka_timi.toFixed(2).replace(".", ",")+" €");
+            $(".kopp_ka_quan").text(kopp_ka_quan+"x"+kopp_ka_timi_m+"€");
+        }
+        else{
+            $(".kopp_ka_show_hide").css("display","none");
         }
 
         if (lufter_timi != 0){

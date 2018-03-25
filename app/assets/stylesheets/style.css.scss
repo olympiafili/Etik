@@ -2696,12 +2696,14 @@ output {
 }
 
 /* Profils */
-.label_profil{
+.label_profil,
+.label_kopp{
   margin-right: 5px;
   padding: 5px 10px;
 }
 
-.peninta, .penintaena, .penintaduo, .penintatria{
+.peninta, .penintaena, .penintaduo, .penintatria,
+.peninta1, .penintaena1, .penintaduo1, .penintatria1 {
   display: block;
 }
 
